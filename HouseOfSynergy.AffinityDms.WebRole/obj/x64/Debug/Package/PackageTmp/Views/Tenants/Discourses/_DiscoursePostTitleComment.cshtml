@@ -1,0 +1,48 @@
+﻿@model HouseOfSynergy.AffinityDms.Entities.Tenants.DiscoursePostVersion
+@{var topic = (this.ViewBag.Topic != null) ? this.ViewBag.Topic : "";}
+@if (this.Model != null)
+{
+    <div class="col-md-1" style="margin-top:25px;">@*<span class="num-bg">3</span>*@</div>
+    <div class="col-md-12">
+        <div class="post-display">
+            <h3>
+                <strong>@topic</strong>
+            </h3>
+            <p>
+                @*<strong>@Html.Raw(this.Model.Comments)</strong><br>*@
+                @Html.Raw(this.Model.Comments)
+            </p><br>
+            <div>
+                @if (this.Model.Attachments != null)
+                {
+                    foreach (var attachment in this.Model.Attachments)
+                    {
+                        var attachmentStr = HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers.CustomHtmlHelpers.GetAttachmentsString(attachment);
+                        <span>@Html.Raw(attachmentStr)</span>
+                    }
+                }
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <span class="pull-left">
+                <img src="../../Images/Themes/time.png" width="15" height="15"> @this.Model.DateTime - Posted By: @this.Model.Post.User.NameFull
+            </span>
+            @if (this.ViewBag.CurrentUser != null)
+            {
+                if (this.ViewBag.CurrentUser == this.Model.Post.UserId)
+                {
+                    @*<span class="pull-right"><a onclick="javascript: discourses.EditTitleComment(event)" data-id="@this.Model.PostId">Edit </a></span>*@
+                }
+            }
+            @if (this.ViewBag.EnableHistory != null)
+            {
+                if (this.ViewBag.EnableHistory)
+                {
+                    <span class="pull-right"><a href="#">History </a></span>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+        <hr size="1">
+    </div>
+}

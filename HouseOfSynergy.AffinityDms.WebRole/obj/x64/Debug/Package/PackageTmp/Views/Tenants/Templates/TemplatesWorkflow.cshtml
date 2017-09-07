@@ -1,0 +1,599 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+
+@using System.Linq;
+@using System.Data.Entity;
+
+@{
+    ViewBag.Title = "Documents";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+
+@Scripts.Render("~/bundles/TypeScript")
+
+<input type="hidden" name="H_Templateid" value="" id="h_templateid">
+<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+    &nbsp;&nbsp;<h2>Documents</h2>
+    @*<div class="pull-left"> <a href="classified.html" class="dash-link active"> CLASSIFIED </a> <a href="unclassified.html" class="dash-link">UNCLASSIFIED</a> </div>*@
+</div>
+        <div class="main-container ace-save-state row1" id="main-container">
+
+            <script type="text/javascript">
+                var documents = new AffinityDms.Entities.Documents();
+                var designmodaer = new AffinityDms.Entities.FormDesigner();
+                function createtemplate() {
+                    window.location.href = "/TemplatesWorkflowS/Index";
+                }
+
+            </script>
+
+            <input type="hidden" id="SelectedTemplate" value="-1" data-type="Template">
+            <input type="hidden" id="ViewId" value="-1" style="display:none" class="btn btn-primary">
+            <input type="hidden" id="ViewType" value="" style="display:none" class="btn btn-primary">
+            @{
+                var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+                var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+                string displayError = "none", displaySuccess = "none";
+                if (!(string.IsNullOrEmpty(errormessage)))
+                {
+                    displayError = "";
+                }
+                if (!(string.IsNullOrEmpty(successmessage)))
+                {
+                    displaySuccess = "";
+                }
+                <div id="TemplateErrorMessage" style="display:@displayError">
+                    <div class="alert alert-danger" style="overflow:auto">
+                        <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#TemplateErrorMessage" id="hideErrorMessageDiv">X</b></div>
+                        <div style="word-wrap: break-word;margin-right:30px" id="TemplateErrorMessageText">@errormessage</div>
+                    </div>
+                </div>
+                <div id="TemplateSuccessMessage" style="display:@displaySuccess">
+                    <div class="alert alert-success" style="overflow:auto">
+                        <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#TemplateSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+                        <div style="word-wrap: break-word;margin-right:30px" id="TemplateSuccessMessageText">@successmessage</div>
+                    </div>
+                </div>
+
+            }
+
+
+
+
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="InviteExternalUserModal" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">Invite External Users</h4>
+                            <div style="display:none;color:red" id="EmailErrorDiv"></div>
+                            <div style="display:none;color:green" id="EmailSuccessDiv"></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="TenantInviteExternalUserListGrid" style="padding-left: 15px;padding-right: 15px;">
+                                @*<input type="text" id="InviteUserName" class="form-control text-box" placeholder="Enter User Name">*@
+                                <input type="email" id="InviteUserEmail" class="form-control text-box" placeholder="Enter User Email" style="max-width: none;">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="closeInviteExternalUserModalBtn">Close</button>
+                            <button type="button" class="btn btn-primary" id="InviteUserBtn" onclick="javascript: designer.SendExternalUserInvite(event)">Invite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserSelectionModal" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">Invite Internal Users</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="TenantUsersSelectionListGrid">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="closeUserSelectionModalBtn">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript: designer.SaveUserSelectionModal(event)">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div style="width:100%;display:inline-block;margin-bottom:7px">
+                <div style="width:70%;display:inline-block">
+                    <div id="MessageDiv">*@
+            @*@{
+                                string errormessage = (this.ViewBag.ErrorMessage != null) ? this.ViewBag.ErrorMessage : string.Empty;
+                                string successmessage = (this.ViewBag.SuccessMessage != null) ? this.ViewBag.SuccessMessage : string.Empty;
+
+                                if (!(string.IsNullOrEmpty(errormessage)))
+                                {
+                                    <p style="color:Red;font-size:1.5em">@errormessage</p>
+                                }
+
+                                if (!(string.IsNullOrEmpty(successmessage)))
+                                {
+                                    <p style="color:Green;font-size:1.5em">@successmessage</p>
+                                }
+
+                }*@
+            @*     </div>
+                    </div>
+                    <div style="width:30%;display:inline-block;float:right">
+                        <input type="button" class="btn btn-default" style="float:right" value="Create Template" onclick="createtemplate(); return false">
+                    </div>
+                </div>*@
+
+            <div id="side-content" class="col-md-12" >
+                <div style="height:450px;overflow:scroll">
+
+                    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                        <div id="nav-search" class="nav-search pull-left">
+                            <form class="form-search">
+                                <span class="input-icon">
+                                    <input autocomplete="off" id="nav-search-input" class="nav-search-input" placeholder="Search ..." style="width: 207px;" type="text">
+                                    <i class="ace-icon fa fa-search nav-search-icon"></i>
+                                </span>
+                            </form>
+                        </div>
+                        <!--<div class="pull-left">
+                <a id="lnkCreate" href="#popupCreateTemplate" class="btn btn-primary btn-radius" data-toggle="modal"> Create New Template</a>&nbsp;
+
+                <a id="lnkAddClassifications" class="btn btn-primary btn-radius" data-toggle="modal" href=@Url.Action("Index", "TenantClassification")>Add Classifications</a>&nbsp;
+            </div>-->
+                        <div id="divid3-menu" class="navbar-buttons white-manu navbar-header pull-right show" role="navigation">
+                            <ul class="nav ace-nav">
+                                <li class="light-blue dropdown-modal">
+                                    <a data-toggle="dropdown" href="#" class="dropdown-toggle"> <i class="fa fa fa-sort" aria-hidden="true"></i> Sort by <i class="ace-icon fa fa-caret-down"></i> </a>
+                                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                        <li> <a href="#"> <i class="ace-icon fa fa-cog"></i> 01 </a> </li>
+                                        <li> <a href="profile.html"> <i class="ace-icon fa fa-user"></i> 02 </a> </li>
+
+                                        <li> <a href="#"> <i class="ace-icon fa fa-power-off"></i> 03 </a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    @*@(Html.Kendo().Grid(Model)
+              .Name("TemplateListingGrid")
+              .Columns(columns =>
+              {
+
+                  columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "TemplateNo" });
+                  //columns.Bound(item => item.Title);
+                  columns.Template(
+                      item =>
+                      (item.CheckedOut)
+                      ?
+                          ((item.IsVisible)
+                          ?
+                             "<span style=color:red;font-size:20px;>**&nbsp;</span>" + item.Title
+                          :
+                             "<span style=color:red;font-size:20px;>*&nbsp;</span>" + item.Title
+                          )
+
+                     :
+                         item.Title
+                    )
+                  .Title("Title");
+                  columns.Bound(item => item.Description);
+                  columns.Bound(item => item.TemplateType).Title("Type");
+                  columns.Template(item => ((item.IsFinalized) ? ("Yes") : ("No"))).Title("Finalized");
+                  columns.Template(item => ((item.IsActive) ? ("Active") : ("InActive"))).Title("Status");
+                  columns.Template(i => (i.VersionMajor + "." + i.VersionMinor)).Title("Version Number");
+                  columns.Bound(i => (i.VersionCount)).Title("Total Versions");
+                  columns.Template(item => " <span style=color:red>" + ((item.User != null ? item.User.NameFull : "None") + "</span> <br /><span style=color:green;> " + (item.CheckedOutByUser != null ? item.CheckedOutByUser.NameFull : "None")) + "</span>").Title("<span style=color:red;>Owner</span> /<span style=color:green;> Editor</span>");
+                  columns.Template(item => ((item.TemplateType == HouseOfSynergy.AffinityDms.Entities.Lookup.TemplateType.Template)
+                                            ?
+                                                ((item.IsFinalized == true)
+                                                ?
+                                                (
+                                                     //"<a href='" + @Url.Action("Index", "TenantTemplateRenderView", new { id = item.Id }) + "'><img src='/Images/TemplateView.png' title='Template View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                     //+
+                                                     (
+                                                        (item.CheckedOut == true)
+                                                        ?
+                                                            (item.IsVisible)
+                                                                ?
+                                                                    "<a href='" + @Url.Action("Index", "TenantTemplateProtectedView", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='View Template Design' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                                :
+                                                                    "<a href='" + @Url.Action("CheckoutTemplate", "TenantTemplates", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                        :
+                                                        (
+                                                            "<a href='" + @Url.Action("CheckoutTemplate", "TenantTemplates", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>" +
+                                                            "<a href='" + @Url.Action("Index", "TenantTemplateProtectedView", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='View Template Design' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                        )
+                                                      )
+                                                ).ToString()
+                                                :
+                                                (
+                                                    "<a href='" + @Url.Action("Index", "TenantTemplateRenderView", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='Template View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantTemplate", new { id = item.Id }) + "'><img src='/Images/EditTemplate.jpg' title='Edit Template' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    +
+                                                    (
+                                                            (item.CheckedOut == true)
+                                                            ?
+                                                                 (item.IsVisible)
+                                                                 ?
+                                                                    "<a href='" + @Url.Action("Index", "TenantTemplateRenderView", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='Template View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                                 :
+                                                                 "<a href='" + @Url.Action("Index", "TenantTemplateDesign", new { id = item.Id }) + "'><img src='/Images/EditDesign.png' title='Edit Template Design' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                            :
+
+                                                            "<a href='" + @Url.Action("CheckoutTemplate", "TenantTemplates", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>" +
+                                                            "<a href='" + @Url.Action("Index", "TenantTemplateProtectedView", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='View Template Design' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                      )
+                                                ).ToString()
+                                                )
+                                            :
+                                            ("")
+                                            )
+                                            + "<a href='#' data-toggle='modal' data-target='#RightsModal' data-id='" + item.Id + "' data-type='Template'><img src='/Images/user_lock.png' title='User Rights Management' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                            + "<a onclick='javascript: UserSelection(event)' data-id='" + item.Id + "' data-type='Template'><img src='/Images/InternalUser.png' title='Add/Remove Internal Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                            + "<a onclick='javascript: InviteExternalUser(event)' data-id='" + item.Id + "' data-type='Template'><img src='/Images/ExternalUser.png' title='Invite External Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                            ).Title("Actions");
+
+              })
+               .Pageable()
+              .Sortable()
+            )*@
+
+
+                    @(Html.Kendo().Grid(Model)
+      .Name("TemplateListingGrid")
+      .Columns(columns =>
+      {
+
+          columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "Id" });
+
+          columns.Bound(item => item.vendorname).Title("VendorName");
+
+          columns.Template(
+              item =>
+              (item.IsPrivate)
+              ?
+                  ((item.IsFinalized)
+                  ?
+                     "<span style=color:red;font-size:20px;>&nbsp;</span>" + item.Name
+                  :
+                     "<span style=color:red;font-size:20px;>&nbsp;</span>" + item.Name
+                  )
+
+             :
+                 item.Name
+            )
+          .Title("Document Name");
+          //columns.Bound(item => item.User.UserName).Title("Created By");
+          columns.Template(item => ((item.UserId == 1) ? ("Admin") : ("Admin"))).Title("Created By");
+          //columns.Bound(item => item.Description);
+          //columns.Bound(item => item.TemplateType).Title("Type");
+          //columns.Template(item => ((item.IsFinalized) ? ("Yes") : ("No"))).Title("Finalized");
+          columns.Template(item => ((item.WorkflowState))).Title("Status");
+          //columns.Template(i => (i.VersionMajor + "." + i.VersionMinor)).Title("Version Number");
+          //columns.Bound(i => (i.VersionCount)).Title("Total Versions");
+          //columns.Template(item => " <span style=color:red>" + ((item.User != null ? item.User.NameFull : "None") + "</span> <br /><span style=color:green;> " + (item.CheckedOutByUser != null ? item.CheckedOutByUser.NameFull : "None")) + "</span>").Title("<span style=color:red;>Owner</span> /<span style=color:green;> Editor</span>");
+          // columns.Bound(item => item.TemplateType).Title("CreatedBy");
+          columns.Template(item => ((item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Advised) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Recommend) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ProcessPayment) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkPM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSSOAD) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Draft) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Submitted) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Approved) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Closed)
+                                    ?
+                                       //("< a href = '" + @Url.Action("Index", "TenantTemplateDesign", new { id = item.Id }) + "' >< img src = '/Images/EditDesign.png' title = 'Edit Template Design' style = 'height:20px;width:20px' id = '" + item.Id + "' ></ a >")
+                                       ("<a href ='" + @Url.Action("Index", "TemplatesWorkflowIndex", new { id = item.Id }) + "'  class='btn btn-blu01 btn-white' style='background:#2074ca !important; color:#fff !important;'>View Details</a>&nbsp;<button data-toggle='modal' href='#remove' class='btn btn-white btn-info btn-radius' onclick='return fnRemove(" + item.Id + ");'> <i class='fa fa-trash' aria-hidden='true'></i> </button></a>")
+                                    :
+                                      ("")
+                                    )).Title("Actions");
+
+
+      })
+       .Pageable()
+      .Sortable()
+                    )
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+            @*<input type="hidden" name="H_Templateid" value="" id=" h_templateid">*@
+            
+
+            <!-- New Template -->
+            <div id="popupCreateTemplate" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <button type="button" class="close blue" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4> Create New Template  </h4>
+                        </div>
+                        <div class="modal-body text-center new-template">
+                            <p>
+                                Create new template by upload a documents or<br>
+                                50/50 Dexian create blank documents
+                            </p>
+                            <div class="text-warning">
+
+                                <span class="col-xs-6">
+                                    <img src=@Url.Content("~/images/avatars/new-template.png") alt="file"><br /><br />
+                                    <a href="/tenants/template" class="btn btn-primary ">Upload Documents</a>
+
+                                </span>
+                                <span class="col-xs-6">
+                                    <img src=@Url.Content("~/images/avatars/blanck-template.png") alt="file">
+                                    <br /><br />
+                                    <a href="#" class="btn btn-primary ">Blank Document  </a>
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Add file -->
+            <div id="myModalDuplicate" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close blue" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="text-center">Duplicate Template  </h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure to make duplicate file
+                            <p class="text-warning">
+                                File name : <input name="duplicate" type="text">
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Merge-->
+            <div id="merge-batch" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Merge Batch </h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <p class="text-warning">
+                                Batch Name : <input name="merge-batch" type="text">
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default">Ok</button>
+                            <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- remove -->
+            <div id="remove" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <p class="text-warning text-center">
+                                <i class="fa fa-bell fa-5 red font-16" aria-hidden="true"></i><br>
+                                <strong>Are you sure you wants to remove it</strong>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            @*<button type="button" class="btn btn-default">Remove</button>*@
+                            <input id="btndel" type="button" class="btn btn-default" value="Remove"  />
+                            <a href="#" id="btndel1">test</a>
+                            <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel" id="RightsModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">User Rights</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="RightsModalBodyDiv">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn" onclick="javascript: CloseRightsModal(event)">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveRights(event)">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="last"></div>
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"> <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i> </a>
+        </div>
+        <!-- /.main-container -->
+        <!-- basic scripts -->
+        @*<script language="javascript" src=@Url.Content("~/assets/js/tooltip-popup.js")></script>*@
+        <!--[if !IE]> -->
+        
+        <!-- <![endif]-->
+        <!--[if IE]>
+        <script src="assets/js/jquery-1.11.3.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if ('ontouchstart' in document.documentElement)
+                document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+
+            // pop over
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+
+        
+        @*<script src=@Url.Content("~/assets/js/togel-menu.js")></script>*@
+      
+        <script type="text/javascript">
+    /*function checkBoxCapturing(){
+        var numberOfChecked  = $('.capturingChk:checked').length;
+                     //alert(numberOfChecked);
+                     if(numberOfChecked >= 2){
+                         //if(!$('#mearge-batch').hasClass('show')){
+                            $('#mearge-batch').removeClass('hide');//.addClass('show');
+                         //}
+                     }else{
+                         $('#mearge-batch').addClass('hide');  //removeClass('show').
+                     }
+    }
+             $(document).ready(function(){
+
+                 $('.capturingChk').click(function(e){
+                     checkBoxCapturing();
+                 });
+                 checkBoxCapturing();
+             });*/
+        </script>
+
+
+
+        <script type="text/javascript">
+            //document.onload = designer.Run();
+            function CloseRightsModal(event) {
+                $('#RightsModal').modal('hide');
+            }
+
+            $("#RightsModal").on("show.bs.modal", function (e) {
+                var ViewType = document.getElementById("ViewType");
+                var ViewId = document.getElementById("ViewId");
+                if (ViewType != null && ViewId != null) {
+                    var valuetype = AffinityDms.Entities.Documents.prototype.CheckViewType(e.relatedTarget.getAttribute("data-type"));
+                    ViewType.value = valuetype;
+                    ViewId.value = e.relatedTarget.getAttribute("data-id");
+                    if ((ViewType.value != null && ViewType.value != "") && (ViewId.value != null && ViewId.value != "")) {
+                        $(this).find(".modal-body").textContext = "";
+                        $(this).find(".modal-body").load(("/TenantUsers/GetUserRightsList?id=" + ViewId.value + "&Type=" + ViewType.value));
+                    }
+                    else {
+                        alert("An error occurred while proccessing the request");
+                    }
+                }
+            });
+            function UserSelection(event) {
+                //href='#' data-toggle='modal' data-target='#UserSelectionModal'
+                var anchor;
+                if (event.currentTarget != null) {
+                    if (event.currentTarget instanceof HTMLAnchorElement) {
+                        anchor = event.currentTarget;
+                    }
+                }
+                if (anchor != null) {
+                    if (anchor.getAttribute("data-id") != null)
+                        var SelectedTemplate = document.getElementById("SelectedTemplate");
+                    SelectedTemplate.value = anchor.getAttribute("data-id");
+                    SelectedTemplate.setAttribute("data-type", "Template")
+                    $("#UserSelectionModal").modal("show");
+                }
+            }
+            function InviteExternalUser(event) {
+                var anchor;
+                if (event.currentTarget != null) {
+                    if (event.currentTarget instanceof HTMLAnchorElement) {
+                        anchor = event.currentTarget;
+                    }
+                }
+                if (anchor != null) {
+                    if (anchor.getAttribute("data-id") != null)
+                        var SelectedTemplate = document.getElementById("SelectedTemplate");
+                    SelectedTemplate.value = anchor.getAttribute("data-id");
+                    $("#InviteExternalUserModal").modal("show");
+                }
+            }
+            $("#InviteUserEmail").keypress(function (event) {
+                if (event.which || event.keyCode) { if ((event.which == 13) || (event.keyCode == 13)) { $("#InviteUserBtn").click(); return false; } else { return true; } }
+            });
+            $("#closeInviteExternalUserModalBtn").on("click", function (e) {
+                var InviteUserEmail = document.getElementById("InviteUserEmail");
+                InviteUserEmail.value = "";
+            });
+            $("#InviteExternalUserModal").on("show.bs.modal", function (e) {
+                var EmailErrorDiv = document.getElementById("EmailErrorDiv");
+                EmailErrorDiv.textContent = "";
+                var EmailSuccessDiv = document.getElementById("EmailSuccessDiv");
+                EmailSuccessDiv.textContent = "";
+                var InviteUserEmail = document.getElementById("InviteUserEmail");
+                InviteUserEmail.textContent = "";
+            });
+            $("#UserSelectionModal").on("show.bs.modal", function (e) {
+                var SelectedTemplate = document.getElementById("SelectedTemplate");
+                if (SelectedTemplate != null) {
+                    var TenantUsersSelectionListGrid = document.getElementById("TenantUsersSelectionListGrid");
+                    TenantUsersSelectionListGrid.textContent = "";
+                    $(this).find(".modal-body").load("/TenantTemplates/GetAllUsersForTemplate?templateId=" + SelectedTemplate.value);
+                }
+            });
+            $("#lnkCreate").click(function () {
+                $("#popupCreateTemplate").modal('show');
+            });
+
+            function fnDuplicate(){
+                $("#myModalDuplicate").modal('show');
+            }
+            
+
+                        function fnRemove(arg) {
+
+                $("#remove").modal('show');
+          //  alert(arg);
+            $("#h_templateid").val(arg);
+
+                            //  alert("Value: " + $("#h_templateid").val());
+
+                        }
+
+
+                        var url = "@Url.Action("DeleteTemplate", "TenantTemplates")";
+
+$(function(){
+  $("#btndel").click(function(){
+                            var id = $("#h_templateid").val();
+                            // alert(url + "?id=" + id);
+                            window.location = url + "?id=" + id;
+                        });
+            });
+
+
+$(function(){
+  $("#btndel1").click(function(){
+                        var id = $("#h_templateid").val();
+                        //  alert(url + "?id=" + id);
+                        window.location = url + "?id=" + id;
+
+                    });
+            });
+
+
+
+
+</script>
+
+        
+
+

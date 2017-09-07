@@ -1,0 +1,37 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.DiscourseUser>
+@foreach (var discourseUser in this.Model.ToList())
+{
+    <li class="left clearfix">
+        <div class="header_sec">
+
+
+
+
+            @if (this.ViewBag.IsUserChatCreator != null)
+            {
+
+                <strong class="primary-font">
+                    @if (string.IsNullOrEmpty(discourseUser.User.NameFull.Trim()))
+                    {
+                        @discourseUser.User.Email
+                    }
+                    else
+                    {
+                        @discourseUser.User.NameFull
+                    }
+                    @if ((this.ViewBag.IsUserChatCreator) && (discourseUser.User.InviteGuid != null))
+                    {
+                        <a onclick="GenerateInviteUrl(event)" class="InviteUrlTemp" data-email="@discourseUser.User.Email">Get New Invite Url</a>
+                    }
+                </strong>
+            }
+            else
+            {
+                <strong class="primary-font">@discourseUser.User.NameFull</strong>
+            }
+
+        </div>
+        <div class="contact_sec">
+        </div>
+    </li>
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<title>Dashboard - kloud soft</title>
+<meta name="description" content="overview &amp; stats" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+<link rel="stylesheet" href="assets/css/custeme.css" />
+<link rel="stylesheet" href="assets/css/optiscroll.css" />
+</head>
+
+<body class="no-skin">
+<div class="main-container ace-save-state row1" id="main-container"> 
+  <script type="text/javascript">
+                try {
+                    ace.settings.loadState('main-container')
+                } catch (e) {
+                }
+            </script>
+  <div id="navbar" class="navbar navbar-default  ace-save-state custom-height47">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+      <div id="navbar-logo" class="navbar-header-top">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar"> <span class="sr-only">Toggle sidebar</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <div class="navbar-header pull-left"> <a href="index.html" class="navbar-brand"> <img src="assets/images/avatars/kloudsoft_logo.png" class="logo" alt="logo"> </a>
+          <button type="button" class="navbar-toggle menu-toggler visible-lg visible-md pull-left" id="menu-toggler01"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+      </div>
+      <div style="border-top:1px solid transparent;">
+        <ul class="breadcrumb">
+          <li> <a href="#">Home</a> </li>
+          <li> <a href="#">Tasks</a> </li>
+        </ul>
+        <div class="navbar-buttons navbar-header pull-right custom-height47" role="navigation">
+          <ul class="nav ace-nav custom-height47">
+            <li class="dropdown-modal custom-height47"> <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#"> <i class="ace-icon fa fa-bell icon-animated-bell"></i> <span class="badge badge-important">2</span> </a> </li>
+            <li class="dropdown-modal custom-height47"> <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#"> <i class="ace-icon fa fa-envelope icon-animated-vertical"></i> <span class="badge badge-success">5</span> </a> </li>
+            <li class="light-blue dropdown-modal custom-height47"> <a data-toggle="dropdown" href="#" class="dropdown-toggle custom-height47"> <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" /> <span class="user-info"> <small>Welcome, Jason </small> </span> <i class="ace-icon fa fa-caret-down"></i> </a>
+              <ul class="user-menu dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                <li> <a href="#"> <i class="ace-icon fa fa-cog"></i> Settings </a> </li>
+                <li> <a href="profile.html"> <i class="ace-icon fa fa-user"></i> Profile </a> </li>
+                 
+                <li> <a href="#"> <i class="ace-icon fa fa-power-off"></i> Logout </a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="pull-right">
+          <div class="nav-search" id="nav-search">
+            <form class="form-search">
+              <span class="input-icon">
+              <input type="text" placeholder="Search for documents, people, and more" class="nav-search-input" id="nav-search-input" autocomplete="off">
+              <i class="ace-icon fa fa-search nav-search-icon"></i> </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.navbar-container --> 
+  </div>
+  <div id="menu-toggler-box" style="float: left; position:relative; z-index:505;">
+    <div id="sidebar" class="menu01 sidebar responsive  ace-save-state">
+      <ul class="nav nav-list menu1">
+        <li class="active custom-border" id="home"> <a href="javascript:;"> <i class="menu-icon"><img src="assets/images/avatars/icon1.png"/></i> <span class="menu-text"> Home</span> </a> </li>
+        <li class="custom-border"> <a href="capturing.html"> <i class="menu-icon"><img src="assets/images/avatars/icon3.png"/></i> <span class="menu-text">AF Capturing </span> </a> </li>
+        <li class="row col custom-border"  id="divid1" > <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon2.png"/></i> <span class="menu-text"> AF Documents</span> </a> </li>
+        <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon4.png"/></i> <span class="menu-text">AF Forms </span> </a> </li>
+        <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon5.png"/></i> <span class="menu-text">AF Flow </span> </a> </li>
+        <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon6.png"/></i> <span class="menu-text">AF Reports</span> </a> </li>
+        <li class="custom-border"> <a href="setting.html"> <i class="menu-icon"><img src="assets/images/avatars/icon7.png"/></i> <span class="menu-text">Setting</span> </a> </li>
+      </ul>
+    </div>
+    <!--Sub  menu -->
+    <div  id="divid2" class="row01 sidebar responsive  col hide">
+        <ul class="nav nav-list">
+          <li > <a href="#"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Personal Folder</span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+          <li class=""> <a href="#" > <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Shared Folder </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+          <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Enterprise Folder </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+          <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Projects </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+        </ul>
+      </div>
+      <div class=" col hide sidebar responsive "  id="divid3" > <span class="cloas01"  class="down-arrow" id="cross">X</span>
+        <ul class="nav nav-list" style="margin:0 10px;">
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 1 </span> </a> <b class="arrow"></b> </li>
+          <li class=" "> <a class="dropdown-toggle showcontent" href="#" data-display-divid="7"> <b class="arrow fa fa-angle-right pull-left"></b> <b class="arrow fa fa-angle-down pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 2 </span> </a> <b class="arrow"></b>
+            <ul class="submenu">
+              <li class=""> <a class="dropdown-toggle showcontent" href="#" data-display-divid="8"> 
+                
+                <!--<i class="menu-icon fa fa-folder"></i>--> 
+                
+                Folder a <b class="arrow fa fa-angle-right"></b> </a> <b class="arrow"></b>
+                <ul class="submenu">
+                  <li class="showcontent"  data-display-divid="5"> <a href="javascript:void(0);"> 
+                    <!--<i class="menu-icon fa fa-folder"></i>--> 
+                    Folder I </a> <b class="arrow"></b> </li>
+                  <li class="showcontent"> <a href="javascript:void(0);"> 
+                    <!--<i class="menu-icon fa fa-folder"></i>--> 
+                    Folder II </a> <b class="arrow"></b> </li>
+                  <li class="showcontent" > <a href="javascript:void(0);"> 
+                    <!--<i class="menu-icon fa fa-folder"></i>--> 
+                    Folder III </a> <b class="arrow"></b> </li>
+                </ul>
+              </li>
+              <li class="showcontent"> <a href="javascript:void(0);"> 
+                <!--<i class="menu-icon fa fa-caret-right"></i>--> 
+                Folder b <b class="arrow fa fa-angle-right"></b> </a> <b class="arrow"></b> </li>
+              <li class="showcontent"> <a href="javascript:void(0);"> 
+                <!--<i class="menu-icon fa fa-caret-right"></i>--> 
+                Folder c <b class="arrow fa fa-angle-right"></b> </a> <b class="arrow"></b> </li>
+              <li class="showcontent"> <a href="javascript:void(0);"> 
+                <!--<i class="menu-icon fa fa-caret-right"></i>--> 
+                Folder d <b class="arrow fa fa-angle-right"></b> </a> <b class="arrow"></b> </li>
+            </ul>
+          </li>
+          <li class=""> <a href="#" class="dropdown-toggle"> <b class="arrow fa fa-angle-right pull-left"></b> <b class="arrow fa fa-angle-down pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 3 </span> 
+            
+            <!--<b class="arrow fa fa-angle-down"></b>--> 
+            </a>
+            <ul class="submenu">
+              <li class="showcontent"> <a href="javascript:void(0);"> <i class="menu-icon fa fa-folder"></i> Folder 4 </a> </li>
+              <li class="showcontent"> <a href="javascript:void(0);"> <i class="menu-icon fa fa-folder"></i> Folder 5 </a> </li>
+            </ul>
+          </li>
+          <li class="showcontent"> <a href="javascript:void(0);" class="dropdown-toggle"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 6 </span> </a> </li>
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+          <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+        </ul>
+      </div>
+    <!--// Sub Menu-->
+  </div>
+  
+   <div id="side-content" class=" col-md-12">
+   
+	<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+     
+    <div class="pull-left">
+    <a href="classified.html" class="dash-link active"> CLASSIFIED </a> 
+    <a href="unclassified.html" class="dash-link">UNCLASSIFIED</a> 
+    </div>
+    <div style="border-right: 1px solid rgb(204, 204, 204);border-left: 1px solid rgb(204, 204, 204); float:left; font-size: 14px; margin-top: -12px; height: 61px; padding: 12px 7px 5px;">
+        <div class="two-chkbox-not-selected"> Batch 123ABC |  Uploaded by : Dexian | Status : Uncompleted </div>
+        <div class="two-chkbox-selected hide"><button class="btn btn-primary  btn-radius" style="height: 35px;  padding-top: 2px;">Apply to All</button></div>
+    </div>
+    <div id="divid3-menu" class="navbar-buttons white-manu navbar-header pull-right">
+<ul class="nav ace-nav">
+<li class="dropdown-modal" style="border:0px;">
+  <a href="apply-template.html"><button class="btn btn-primary  btn-radius" style="height: 35px;  padding-top: 2px;">Start Indexing</button></a></li>
+  <li><button data-toggle="modal" href="#addbatch" class="btn btn-white btn-info btn-radius">Add to Batch</button></li>
+ 
+  <li><button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button></li>
+ 
+ </ul>
+ </div>
+  </div>
+	<div class="widget-box transparent">
+  <div class="widget-body">
+    <div class="widget-main no-padding">
+      <table class="table  table-bordered">
+        <thead class="thin-border-bottom">
+          <tr>
+            <th ><input type="checkbox" name="checkbox"  id="checkbox">
+              <label for="checkbox"></label></th>
+            <th > <p class="font-16">Document Name</p>
+            </th>
+            <th  >Uploaded by</th>
+            <th  >Status</th>
+            <th class="hidden-480"> <p class="font-16"><strong>Action</strong></p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Salary Report</p></td>
+            <td>Dexian</td>
+            <td>Indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Attendance Report</p></td>
+            <td>Randy</td>
+            <td>Indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+            <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button> 
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> May Day Slip</p></td>
+            <td>Wen Wen</td>
+            <td>Indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Slip for Employee</p></td>
+            <td>Yijing</td>
+            <td>Non indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Number of Employee</p></td>
+            <td>Thomas</td>
+            <td>Non indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"   name="checkbox2" id="checkbox2">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Salary today</p></td>
+            <td>Jerry</td>
+            <td>Non indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="checkbox2" id="checkbox2" class="classifiedChk">
+              <label for="checkbox2"></label></td>
+            <td><p class="font-16"><i class="fa fa-file-text " aria-hidden="true"></i> Salary for Job</p></td>
+            <td>Patrick</td>
+            <td>Non indexed</td>
+            <td class="hidden-480"><a data-toggle="modal" href="#template" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Change Template</a>
+              <button data-toggle="modal" href="#remove" class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+              </a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /.widget-body --> 
+</div>
+   
+   </div>
+  <!-- Template -->
+  <div id="template" class="modal">
+    <div class="modal-dialog" >
+      <div class="modal-content" style=" border-radius:10px;">
+        <div class="modal-header">
+          <button type="button" class="close blue" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class=" text-center">Select Template </h4>
+        </div>
+        <div class="modal-body">
+          
+          <div   class="search-template text-center">
+      <form class="form-search">
+        <span class="input-icon">
+        <input autocomplete="off" id="nav-search-input" class="nav-search-input" placeholder="Search ..." type="text">
+        <i class="ace-icon fa fa-search nav-search-icon" style="margin-right:10px;"></i> </span>
+      </form>
+    </div>
+    
+          
+          <table class="table"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary Report</td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp;  Attendance Report </td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp;  May Day Slip</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Slip for Employee Number of Employee</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary today</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary for Job</td>
+  </tr>
+  <tr>
+    <td><i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary Report</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Attendance Report </td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; May Day Slip</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp;  Slip for Employee Number of Employee</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary today</td>
+  </tr>
+  <tr>
+    <td> <i class="fa fa-rotate-90 fa-file" aria-hidden="true"></i> &nbsp; Salary for Job</td>
+  </tr>
+</table>
+          
+          
+          
+        </div>
+         
+      </div>
+    </div>
+  </div>
+    <!-- remove -->
+  <div id="remove" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         
+        <div class="modal-body">
+           
+          <p class="text-warning text-center">
+             <i class="fa fa-bell fa-5 red font-16" aria-hidden="true"></i><br>
+             <strong>Are you sure you wants to remove it</strong>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" >Remove</button>
+          <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Add Batch -->
+  <div id="addbatch" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add File : </h4>
+        </div>
+        <div class="modal-body">
+          <p>File name : <a href="#">file.pdf </a></p>
+          <p class="text-warning">
+            <input name="Upload" type="file">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" >Add File</button>
+          <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="last" ></div>
+  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"> <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i> </a> </div>
+<!-- /.main-container --> 
+<!-- basic scripts --> 
+<script language="javascript" src="assets/js/tooltip-popup.js"></script> 
+<!--[if !IE]> -->
+        <script src="assets/js/jquery-2.1.4.min.js"></script>
+        <!-- <![endif]--> 
+
+<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]--> 
+<script type="text/javascript">
+                if ('ontouchstart' in document.documentElement)
+                    document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+					
+					// pop over 
+					$(function () {
+ 					 $('[data-toggle="popover"]').popover()
+					})
+        </script> 
+<script src="assets/js/bootstrap.min.js"></script> 
+<!-- page specific plugin scripts --> 
+<!--[if lte IE 8]>
+          <script src="assets/js/excanvas.min.js"></script>
+        <![endif]--> 
+<script src="assets/js/jquery-ui.custom.min.js"></script> 
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script> 
+<script src="assets/js/nice-scroll.js"></script> 
+<!-- ace scripts --> 
+<script src="assets/js/ace-elements.min.js"></script> 
+<script src="assets/js/ace.min.js"></script> 
+<!-- inline scripts related to this page --> 	
+<script src="assets/js/pager.js"></script> 
+<script src="assets/js/togel-menu.js"></script> 
+<script src="assets/js/n-scroll.js"></script> 
+<script src="assets/js/tooltip.js"></script> 
+<script src="assets/js/pie-chart-graph.js"></script> 
+<script src="assets/js/pie-chart.js"></script>
+<script type="text/javascript">
+    /*function checkBoxCapturing(){
+        var numberOfChecked  = $('.capturingChk:checked').length;
+                     //alert(numberOfChecked);
+                     if(numberOfChecked >= 2){
+                         //if(!$('#mearge-batch').hasClass('show')){
+                            $('#mearge-batch').removeClass('hide');//.addClass('show'); 
+                         //}
+                     }else{
+                         $('#mearge-batch').addClass('hide');  //removeClass('show').
+                     }
+    }
+             $(document).ready(function(){
+                 
+                 $('.capturingChk').click(function(e){
+                     checkBoxCapturing();
+                 });
+                 checkBoxCapturing();
+             });*/
+         </script>
+</body>
+</html>

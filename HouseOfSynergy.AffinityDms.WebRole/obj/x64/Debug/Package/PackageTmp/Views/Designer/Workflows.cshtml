@@ -1,0 +1,60 @@
+﻿@model List<HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.WorkflowViewModel>
+
+@using HouseOfSynergy.AffinityDms.ResourceProvider
+
+@{
+	this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+	//this.ViewBag.Title = ResourceManagement.DesktopClient_ProductName + " - Users";
+}
+
+<script>
+
+	function RedirectToCreateWorkflowScheme() {
+	    window.location.href = "../Designer/AddScheme";
+	}
+
+</script>
+
+@if (this.ViewBag.Exception != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Exception))
+    {
+        <div style="color:red;">@this.ViewBag.Exception</div>
+    }
+}
+else if (this.ViewBag.Message != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Message))
+    {
+        <div style="color:green">@this.ViewBag.Message</div>
+    }
+}
+<div style="margin:10px" id="MainPadding">
+    <h2>Workflow Schemes</h2>
+
+
+    <div class="form-group">
+        <div style="display:inline-block;float:right">
+            <input title="Create" value="Create" type="button" onclick="RedirectToCreateWorkflowScheme(); return false" class="btn btn-default" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    @Html.AntiForgeryToken()
+    <div>
+        @(Html.Kendo().Grid(Model).Name("WorkflowSchemeGrid").Columns(
+                        column =>
+                        {
+                            column.Bound(item => item.Code).Hidden();
+                            column.Bound(item => item.Code).Title("Name").Width("300px");
+                            //column.Bound(item => item.Scheme).Title("Scheme").Width("400px");
+                            column.Template(item => ("<a href='/designer/EditScheme?schemecode=" + item.Code + "'>Edit</a>").ToString()).Title("Actions").Width("50px");
+                        })
+                        .Resizable(resize => resize.Columns(true))
+                        .Filterable()
+                        .Scrollable(scr => scr.Height(300))
+
+        )
+    </div>
+</div>

@@ -1,0 +1,3 @@
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\Release\HouseOfSynergy.AffinityDms.WebRole.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\Release\Interop.ATLLib.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\Release\HouseOfSynergy.AffinityDms.WebRole.csproj.ResolveComReference.cache

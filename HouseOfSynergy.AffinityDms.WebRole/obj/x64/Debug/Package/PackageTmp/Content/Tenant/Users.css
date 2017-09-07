@@ -1,0 +1,11 @@
+﻿	.DivUserCurrent,
+	.DivUserCurrent a,
+	.DivUserCurrent a:hover,
+	.DivUserCurrent a:visited
+	{
+		color: white;
+	}
+	.goog-te-gadget-simple
+	{
+		margin-top: 5px;
+	}

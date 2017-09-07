@@ -1,0 +1,216 @@
+﻿@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    var currentSelection = "";
+    var isgeneralActive = false;
+    var isuserActive = false;
+    var isaudittrailActive = false;
+    var click = "";
+    if (this.ViewBag.UserList != null)
+    {
+        click = "onclick ='javascript:document.getElementById(\"settingsTabsUsers\").click()'";
+        currentSelection = "User Management";
+        isuserActive = true;
+    }
+    else if (this.ViewBag.AuditTrailList != null)
+    {
+        click = "onclick ='javascript:document.getElementById(\"settingsTabsAudit\").click()'";
+        isaudittrailActive = true;
+        currentSelection = "AuditTrail Management";
+    }
+    else
+    {
+        click = "onclick ='javascript:document.getElementById(\"settingsTabsGeneral\").click()'";
+        isgeneralActive = true;
+        currentSelection = "General";
+    }
+    this.ViewBag.BreadCrumbsPath = "<li><a href='../../TenantSettings/index'>Settings</a></li><li id='SettingsBreadcrumb'><a " + click + ">" + currentSelection + "</a></li>";
+}
+@{
+    
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="SettingsErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#SettingsErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="SettingsErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="SettingsSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#SettingsSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="SettingsSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+<div class="container" style="padding:20px">
+    <div class="row">
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                <li role="presentation" class="@((isgeneralActive)?"active":"")" style="cursor:pointer">
+                    <a data-href="#General" data-type="general" aria-controls="home" role="tab" data-toggle="tab" id="settingsTabsGeneral">
+                        <span class="round-tabs two">
+                            <i class="glyphicon glyphicon-cog"></i>
+                        </span>
+                        General
+                    </a>
+                </li>
+                <li role="presentation" class="@((isuserActive)?"active":"")" style="cursor:pointer">
+                    <a data-href="#UserManagement" data-type="user" aria-controls="home" role="tab" data-toggle="tab" id="settingsTabsUsers">
+                        <span class="round-tabs two">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        User Management
+                    </a>
+                </li>
+                <li role="presentation" class="@((isaudittrailActive)?"active":"")" style="cursor:pointer">
+                    <a data-href="#AuditTrail" data-type="audittrail" aria-controls="home" role="tab" data-toggle="tab"  id="settingsTabsAudit">
+                        <span class="round-tabs two">
+                            <i class="glyphicon glyphicon-stats"></i>
+                        </span>
+                        Audit Trail
+                    </a>
+                </li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content" style="overflow: auto; width: 100%;">
+                <div role="tabpanel" class="tab-pane settingsTabPane @((this.ViewBag.General!=null)?"active":"")" id="General">General</div>
+                <div role="tabpanel" class="tab-pane settingsTabPane @((this.ViewBag.UserList!=null)?"active":"")" id="UserManagement">
+                    @if (this.ViewBag.UserList != null)
+                    {
+                        Html.RenderPartial("~/Views/Tenants/Users/_Users.cshtml",(List<HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.UserViewModel>) this.ViewBag.UserList);
+                    }
+
+                </div>
+                <div role="tabpanel" class="tab-pane settingsTabPane @((this.ViewBag.AuditTrailList!=null)?"active":"")" id="AuditTrail">
+                    @if (this.ViewBag.AuditTrailList != null)
+                    {
+                        Html.RenderPartial("~/Views/Tenants/AuditTrailEntry/_TenantAuditTrailEntries.cshtml", (List<HouseOfSynergy.AffinityDms.Entities.Tenants.AuditTrailEntry>)this.ViewBag.AuditTrailList);
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function SubmitAuditTrailSearch(e)
+    {
+        if (($("#DateFrom") != null) && ($("#DateTo") != null))
+        {
+            $("#AuditTrail").load("../../TenantSettings/SearchAuditTrail?DateTo=" + $("#DateTo").val() + "&DateFrom=" + $("#DateFrom").val());
+        }
+    }
+    $(document).ready(function () {
+        
+        if ($("#SettingsErrorMessageText") != null)
+        {
+            if($("#SettingsErrorMessageText").text()!=null || $("#SettingsErrorMessageText").text() !="")
+            {
+                setTimeout(function () {
+                    $('#SettingsErrorMessage').fadeOut('fast');
+                    $("#SettingsErrorMessage").css("display", "none");
+                    $("#SettingsErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("#SettingsSuccessMessageText") != null) {
+            if ($("#SettingsSuccessMessageText").text() != null || $("#SettingsSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#SettingsSuccessMessage').fadeOut('fast');
+                    $("#SettingsSuccessMessage").css("display", "none");
+                    $("#SettingsSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+    });
+    $('#settingsTabs a').click(function (e) {
+        //e.preventDefault()
+        var target = e.target;
+        if (target != null) {
+            var type = target.getAttribute("data-type");
+            var href = target.getAttribute("data-href");
+            if (type != null && href != null && $(href) != null) {
+                $(href).text("");
+                var settingsTabPane = document.getElementsByClassName("settingsTabPane")
+                for (var i = 0; i < settingsTabPane.length; i++) {
+                    if (settingsTabPane[i].id == href.replace("#", "")) {
+                        settingsTabPane[i].classList.add("active");
+                    }
+                    else {
+                        settingsTabPane[i].classList.remove("active");
+                    }
+                }
+                var a = document.createElement("a");
+                click = "onclick ='javascript:document.getElementById(\"settingsTabsUsers\").click()'";
+                click = "onclick ='javascript:document.getElementById(\"settingsTabsAudit\").click()'";
+                click = "onclick ='javascript:document.getElementById(\"settingsTabsGeneral\").click()'";
+                switch (type) {
+                    case "user":
+                        $(href).load("../../TenantSettings/GetUsersSettings");
+                        a.onclick = function (e)
+                        {
+                            document.getElementById("settingsTabsUsers").click();
+                        }
+                        a.text = "User Management";
+                        break;
+                    case "audittrail":
+                        $(href).load("../../TenantSettings/UpdateAuditTrailSettings");
+                        a.onclick = function (e) {
+                            document.getElementById("settingsTabsAudit").click();
+                        }
+                        a.text = "AuditTrail Management";
+                            break;
+                    default:
+                        a.onclick = function (e) {
+                            document.getElementById("settingsTabsGeneral").click();
+                        }
+                        a.text = "General";
+                        break;
+                }
+                $("#SettingsBreadcrumb").text("");
+                $("#SettingsBreadcrumb").append(a);
+
+            }
+            $(this).tab('show');
+        }
+    })
+    //function GetSettings(e){
+    //    var target = e.target;
+    //    if (target != null)
+    //    {
+    //        var type = target.getAttribute("data-type");
+    //        var href = target.getAttribute("data-href");
+    //        if (type != null && href!=null)
+    //        {
+    //            switch (type)
+    //            {
+    //                case "user":
+    //                    $(href).load("../../TenantUsers/Index");
+    //                    break;
+    //                //case "user":
+    //                //    $(href).load("../../TenantUsers/Index");
+    //                //    break;
+    //                default:
+    //                    break;
+    //            }
+    //        }
+    //    }
+
+
+
+
+    //}
+</script>

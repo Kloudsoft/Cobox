@@ -1,0 +1,304 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Common.Tenant>
+
+@using HouseOfSynergy.AffinityDms.ResourceProvider
+
+@{
+	this.Layout = "~/Views/Shared/_LayoutMasterPrivate.cshtml";
+	this.ViewBag.Title = ResourceManagement.DesktopClient_ProductName + " - Users";
+}
+
+<script>
+
+	function RedirectToCreateTenant() {
+		window.location.href = "../mastertenant/index";
+	}
+
+</script>
+
+<h1>Tenants</h1>
+
+@if (this.ViewBag.Exception != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Exception))
+    {
+        <div style="color:red;">@this.ViewBag.Exception</div>
+    }
+}
+else if (this.ViewBag.Message != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Message))
+    {
+        <div style="color:green">@this.ViewBag.Message</div>
+    }
+}
+
+<div class="form-group">
+	<div class="col-md-offset-2 col-md-10">
+		<input title="Create" value="Create" type="button" onclick="RedirectToCreateTenant(); return false" class="btn btn-default"/>
+	</div>
+</div>
+<br />
+<br />
+<br />
+@Html.AntiForgeryToken()
+<div>
+	@(Html.Kendo().Grid(Model).Name("MasterTenantsGrid").Columns(
+						column =>
+						{
+							column.Bound(item => item.Id).Hidden();
+							column.Bound(item => item.CompanyName).Title("Name").Width("100px");
+							column.Bound(item => item.Domain).Title("Domain").Width("100px");
+							column.Bound(item => item.UrlApi).Title("API").Width("100px");
+							column.Group(
+								group =>
+								{
+									group.Title("Contact");
+									group.HeaderHtmlAttributes(new { @style = "text-align: center;background-color:lightgray" });
+									group.Columns(
+										contactitem =>
+										{
+
+											contactitem.Group(
+											ownergroup =>
+											{
+												ownergroup.Title("Owner");
+												ownergroup.HeaderHtmlAttributes(new { @style = "text-align: center" });
+												ownergroup.Columns(
+													ownergroupitem =>
+													{
+														ownergroupitem.Bound(item => item.ContactOwnerAddress).Title("Technical Address").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerNameGiven).Title("NameGiven").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerNameFamily).Title("Name Family").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerCity).Title("City").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerState).Title("State").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerZipCode).Title("ZipCode").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerCountry).Title("Country").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerPhone).Title("Phone").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerFax).Title("Fax").Width("100px");
+														ownergroupitem.Bound(item => item.ContactOwnerEmail).Title("Email").Width("100px");
+													});
+											});
+											contactitem.Group(
+											billinggroup =>
+											{
+												billinggroup.Title("Billing");
+												billinggroup.HeaderHtmlAttributes(new { @style = "text-align: center" });
+												billinggroup.Columns(
+													billinggroupitem =>
+													{
+														billinggroupitem.Bound(item => item.ContactBillingAddress).Title("Technical Address").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingNameGiven).Title("Name Given").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingNameFamily).Title("Name Family").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingCity).Title("City").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingState).Title("State").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingZipCode).Title("ZipCode").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingCountry).Title("Country").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingPhone).Title("Phone").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingFax).Title("Fax").Width("100px");
+														billinggroupitem.Bound(item => item.ContactBillingEmail).Title("Email").Width("100px");
+													});
+											});
+											contactitem.Group(
+										   administratorgroup =>
+										   {
+											   administratorgroup.Title("Administrator");
+											   administratorgroup.HeaderHtmlAttributes(new { @style = "text-align: center" });
+											   administratorgroup.Columns(
+												   administratorgroupitem =>
+												   {
+													   administratorgroupitem.Bound(item => item.ContactAdministratorAddress).Title("Technical Address").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorNameGiven).Title("Name Given").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorNameFamily).Title("Name Family").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorCity).Title("City").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorState).Title("State").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorZipCode).Title("ZipCode").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorCountry).Title("Country").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorPhone).Title("Phone").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorFax).Title("Fax").Width("100px");
+													   administratorgroupitem.Bound(item => item.ContactAdministratorEmail).Title("Email").Width("100px");
+												   });
+										   });
+											contactitem.Group(
+											technicalgroup =>
+											{
+												technicalgroup.Title("Technical");
+												technicalgroup.HeaderHtmlAttributes(new { @style = "text-align: center" });
+												technicalgroup.Columns(
+													technicalgroupitem =>
+													{
+														technicalgroupitem.Bound(item => item.ContactTechnicalAddress).Title("Technical Address").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalNameGiven).Title("Name Given").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalNameFamily).Title("Name Family").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalCity).Title("City").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalState).Title("State").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalZipCode).Title("ZipCode").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalCountry).Title("Country").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalPhone).Title("Phone").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalFax).Title("Fax").Width("100px");
+														technicalgroupitem.Bound(item => item.ContactTechnicalEmail).Title("Email").Width("100px");
+													});
+											});
+
+										});
+
+
+								});
+							column.Template(item => ("<a href='/mastertenantsubscriptions/Index/" + item.Id + "'>Manage Subscriptions</a><br/><br/><a href='/MasterTenant/Index/" + item.Id + "'>Edit</a>").ToString()).Title("Actions").Width("120px");
+						})
+						.Resizable(resize => resize.Columns(true))
+						.Filterable()
+						.Scrollable(scr => scr.Height(300))
+
+	)
+</div>
+@*<table cellpadding="0px" cellspacing="0px" style="width: 100%; border: 1px solid black; padding: 0px;">
+		<tr style="border: 1px solid black;">
+			<td rowspan="2" style="border-bottom: 1px solid black;">
+				Id
+			</td>
+			<td rowspan="2" style="border-bottom: 1px solid black;">
+				Name
+			</td>
+			<td rowspan="2" style="border-bottom: 1px solid black;">
+				Domain
+			</td>
+			<td rowspan="2" style="border-bottom: 1px solid black;">
+				API
+			</td>
+			<td colspan="4" style="text-align: center; border-bottom: 1px solid black;">
+				Contact
+			</td>
+			<td rowspan="2" style="text-align: center; border-bottom: 1px solid black;">
+				Actions
+			</td>
+		</tr>
+
+		<tr style="border: 1px solid black;">
+			<td style="text-align: center; border-bottom: 1px solid black;">Owner</td>
+			<td style="text-align: center; border-bottom: 1px solid black;">Billing</td>
+			<td style="text-align: center; border-bottom: 1px solid black;">Administrator</td>
+			<td style="text-align: center; border-bottom: 1px solid black;">Technical</td>
+		</tr>
+
+		@foreach (var entity in this.Model)
+		{
+			<tr id="@entity.Id" style="border: 1px solid black;">
+				<td style="border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.Id)
+				</td>
+				<td style="border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.CompanyName)
+				</td>
+				<td style="border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.Domain)
+				</td>
+				<td style="border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.UrlApi)
+				</td>
+				<td style="width: 1%; text-align: center; border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.ContactOwnerAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerNameGiven)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerNameFamily)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerCity)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerState)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerZipCode)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerCountry)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerPhone)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerFax)
+					<br />
+					@Html.DisplayFor(model => entity.ContactOwnerEmail)
+				</td>
+				<td style="width: 1%; text-align: center; border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.ContactBillingAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingNameGiven)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingNameFamily)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingCity)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingState)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingZipCode)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingCountry)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingPhone)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingFax)
+					<br />
+					@Html.DisplayFor(model => entity.ContactBillingEmail)
+				</td>
+				<td style="width: 1%; text-align: center; border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.ContactAdministratorAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorNameGiven)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorNameFamily)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorCity)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorState)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorZipCode)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorCountry)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorPhone)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorFax)
+					<br />
+					@Html.DisplayFor(model => entity.ContactAdministratorEmail)
+				</td>
+				<td style="width: 1%; text-align: center; border-bottom: 1px solid black;">
+					@Html.DisplayFor(model => entity.ContactTechnicalAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalNameGiven)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalNameFamily)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalAddress)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalCity)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalState)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalZipCode)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalCountry)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalPhone)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalFax)
+					<br />
+					@Html.DisplayFor(model => entity.ContactTechnicalEmail)
+				</td>
+				<td style="border-bottom: 1px solid black;">
+					@*Buttons: Edit, Mark InActive,
+					<a href="@Url.Action("Index", "mastertenantsubscriptions", new { id = entity.Id })">Manage Subscriptions</a>
+					<a href="@Url.Action("Index", "MasterTenant", new {id = entity.Id })">Edit</a>
+					@*<label onclick="@Url.Action( "Index", "MasterTenant", entity.Id)">EDIT</label>
+					@Html.ActionLink("Edit", "Index", "MasterTenant", entity.Id, new { @style="color:green;"})
+
+				</td>
+			</tr>
+		}
+
+	</table>*@
+
+
+@*}*@

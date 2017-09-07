@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.UserViewModel>
+
+
+ @*((item.RoleAdministrator) ? ("Administrator"+ (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleCustom) ? ((foundRole)? (",Custom"): ("Custom") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleFormCreator) ? ((foundRole) ? (",Form Creator") : ("Form Creator") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleIndexer) ? ((foundRole) ? (",Indexer") : ("Indexer") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleReporting) ? ((foundRole) ? (",Reporting") : ("Reporting") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleScanner) ? ((foundRole) ? (",Scanner") : ("Scanner") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleTemplateCreator) ? ((foundRole) ? (",Template Creator") : ("Template Creator") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleUploader) ? ((foundRole) ? (",Uploader") : ("Uploader") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleWorkflowActor) ? ((foundRole) ? (",Workflow Actor") : ("Workflow Actor") + (foundRole = true)) : (string.Empty)) +
+                                     ((item.RoleWorkflowCreator) ? ((foundRole) ? (",Workflow Creator") + (foundRole = false) : ("Workflow Creator") + (foundRole = false)) : (string.Empty) + (foundRole = false))*@
+@{bool foundRole = false;}
+@(
+
+                 Html.Kendo().Grid(Model).Name("TenantUserListGrid").Columns
+                        (
+                        columns =>
+                        {
+
+                            columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name="UserNo"});
+                            columns.Template(item => (item.NameGiven + " " + item.NameFamily)).Title("Name");
+                            columns.Bound(item => (item.DepartmentName)).Title("Department Name");
+                            //columns.Template(item =>
+                            //         ((item.RoleAdministrator) ? ("Administrator,") : (string.Empty)) +
+                            //         ((item.RoleCustom) ? ("Custom,") : (string.Empty)) +
+                            //         ((item.RoleFormCreator) ? ("Form Creator,") : (string.Empty)) +
+                            //         ((item.RoleIndexer) ? ("Indexer,") : (string.Empty)) +
+                            //         ((item.RoleReporting) ? ("Reporting,") : (string.Empty)) +
+                            //         ((item.RoleScanner) ?("Scanner,") : (string.Empty)) +
+                            //         ((item.RoleTemplateCreator) ?("Template Creator,") : (string.Empty)) +
+                            //         ((item.RoleUploader) ? ("Uploader,")  : (string.Empty)) +
+                            //         ((item.RoleWorkflowActor)?  ("Workflow Actor,"): (string.Empty)) +
+                            //         ((item.RoleWorkflowCreator) ?("Workflow Creator,") : (string.Empty))
+                            //                ).Title("Roles");
+                            columns.Template(item => ((item.HasRights) ? ("<input type='checkbox' class='check-box' data-id='" + item.Id + "'  checked='checked' value='" + item.HasRights + "' name='CheckUserRights' ><input name='CheckUserRights_H' type='hidden' value='false' />") : ("<input type='checkbox' class='check-box' data-id='" + item.Id + "' value='" + item.HasRights + "' name='CheckUserRights'><input name='CheckUserRights_H' type='hidden' value='false' />"))).Title("Rights");
+                        }
+                        )
+                        .Resizable(resize => resize.Columns(true))
+                        .Filterable()
+                        .Sortable()
+//.Scrollable(scr => scr.Height(300))
+)
+
+
+
+ 

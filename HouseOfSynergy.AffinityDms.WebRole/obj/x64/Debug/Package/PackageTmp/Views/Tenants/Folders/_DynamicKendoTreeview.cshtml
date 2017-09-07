@@ -1,0 +1,160 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Classes.CustomKendo.TreeViewInformation
+@{
+    string Change = "", Select = "", Check = "", Collapse = "", Expand = "", DragStart = "", Drag = "", Drop = "", DragEnd = "";
+    if (Model.Events != null)
+    {
+        Change = (this.Model.Events.onChange != null) ? this.Model.Events.onChange.ToString() : null;
+        Select = (this.Model.Events.onSelect != null) ? this.Model.Events.onSelect.ToString() : null;
+        Check = (this.Model.Events.onCheck != null) ? this.Model.Events.onCheck.ToString() : null;
+        Collapse = (this.Model.Events.onCollapse != null) ? this.Model.Events.onCollapse.ToString() : null;
+        Expand = (this.Model.Events.onExpand != null) ? this.Model.Events.onExpand.ToString() : null;
+        DragStart = (this.Model.Events.onDragStart != null) ? this.Model.Events.onDragStart.ToString() : null;
+        Drag = (this.Model.Events.onDrag != null) ? this.Model.Events.onDrag.ToString() : null;
+        Drop = (this.Model.Events.onDrop != null) ? this.Model.Events.onDrop.ToString() : null;
+        DragEnd = (this.Model.Events.onDragEnd != null) ? this.Model.Events.onDragEnd.ToString() : null;
+    }
+}
+@*@(Html.Kendo().TreeView()
+                    .Name(this.Model.Name)
+                    .DragAndDrop(true)
+                    .ExpandAll(true)
+                    .LoadOnDemand(this.Model.LoadOnDemand)
+                    .Events(events =>
+                    {
+                        if (Change != null)
+                        {
+                            events.Change(Change);
+                        }
+                        if (Select != null)
+                        {
+                            events.Select(Select);
+                        }
+                        if (Check != null)
+                        {
+                            events.Check(Check);
+                        }
+                        if (Collapse != null)
+                        {
+                            events.Collapse(Collapse);
+                        }
+                        if (Expand != null)
+                        {
+                            events.Expand(Expand);
+                        }
+                        if (DragStart != null)
+                        {
+                            events.DragStart(DragStart);
+                        }
+                        if (Drag != null)
+                        {
+                            events.Drag(Drag);
+                        }
+                        if (Drop != null)
+                        {
+                            events.Drop(Drop);
+                        }
+                        if (DragEnd != null)
+                        {
+                            events.DragEnd(DragEnd);
+                        }
+                    }
+                    )
+                .DataTextField(this.Model.Name)
+               .BindTo((IEnumerable<FolderTreeViewModel>)this.Model.Data,
+                    (mappings) =>
+                    {
+                        mappings.For<FolderTreeViewModel>(binding => binding.ItemDataBound((item, parent) =>
+                        {
+                            item.Text = parent.Name;
+                            item.Id = parent.Id.ToString();
+                            item.HasChildren = parent.HasChildren;
+                        })
+                        .Children(x => x.Childrens));
+                        mappings.For<FolderTreeViewModel>(binding => binding.ItemDataBound((item, child) =>
+                        {
+                            item.Text = child.Name;
+                        }));
+                    }
+                    )
+
+                .DataSource
+                (
+                    source =>
+                        source
+                            .Custom()
+                            .Schema
+                            (
+                                x =>
+                                {
+                                    x.Model(y =>
+                                    {
+                                        y.Id("Id");
+                                        y.HasChildren("HasChildren");
+                                    });
+                                }
+                            )
+                            .AutoSync(false)
+
+
+                )
+    )*@
+
+@*//.BindTo((IEnumerable<HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.FolderTreeViewModel>
+    )this.Model.Data,
+    //          mappings => mappings.For<HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.FolderTreeViewModel>
+        (binding => binding.ItemDataBound((item, parent) =>
+        //          {
+        //              item.Text = parent.Name;
+        //              item.Id = parent.Id.ToString();
+        //              item.HasChildren = parent.HasChildren;
+        //          })
+        //          .Children(x => x.Childrens))
+        //      )*@
+@using Newtonsoft.Json;
+<div id="TreeViewJson" style="display:none" data-name="@this.Model.Name" data-Change="@Change" data-Select="@Select" data-Check="@Check" data-Collapse="@Collapse" data-Expand="@Expand" data-DragStart="@DragStart" data-Drag="@Drag" data-Drop="@Drop" data-DragEnd="@DragEnd" data-template="@this.Model.Template" data-expanded="@this.Model.Expanded" data-loadondemand="@this.Model.LoadOnDemand">
+    @{ var json = JsonConvert.SerializeObject(this.Model.Data, Formatting.Indented,
+                                                                                          new JsonSerializerSettings
+                                                                                          {
+                                                                                              ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                                                                                          }).ToString();
+    }
+    @json.ToString();
+</div>
+<div id="TreeViewJsonScript">
+    <script>
+        $(document).ready(function () {
+            if ($("#TreeViewJson") != null) {
+                var TreeViewJson = $("#TreeViewJson");
+                var name = TreeViewJson.attr("data-name");
+                var change = TreeViewJson.attr("data-Change");
+                var select = TreeViewJson.attr("data-Select");
+                var check = TreeViewJson.attr("data-Check");
+                var collapse = TreeViewJson.attr("data-Collapse");
+                var expand = TreeViewJson.attr("data-Expand");
+                var dragStart = TreeViewJson.attr("data-DragStart");
+                var drop = TreeViewJson.attr("data-Drop");
+                var dragEnd = TreeViewJson.attr("data-DragEnd");
+                var loadondemand = TreeViewJson.attr("data-loadondemand");
+                var expanded = TreeViewJson.attr("data-expanded");
+                var template = TreeViewJson.attr("data-expanded");
+                var templateid = "#" + template;
+                var id = "#" + name;
+                var text = $("#TreeViewJson").text();
+                debugger;
+              //  var parsedData = JSON.parse(text);
+                //var dataSource = JSON.stringify(parsedData);
+                $(id).kendoTreeView(
+                 {
+                     "select": select,
+                     //"dataBound": onDataBoundPartialFolderTreeView,
+                     "collapse": collapse,
+                     "expand": expand,
+                     dataSource: (text != null) ? (text) : (""),
+                     
+                     "dataTextField": ["Name"]
+                 });
+            }
+        })
+    </script>
+
+</div>

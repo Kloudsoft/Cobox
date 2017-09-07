@@ -1,0 +1,177 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Common.SignInViewModel
+
+@using HouseOfSynergy.AffinityDms.ResourceProvider
+@using HouseOfSynergy.AffinityDms.Library
+
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePublic.cshtml";
+    this.ViewBag.Title = "Cobox - Sign In";/* ResourceManagement.DesktopClient_ProductName + " - Sign In";*/
+}
+
+<script src="~/Scripts/StanfordJavascriptCryptoLibrary.js"></script>
+@Scripts.Render("~/bundles/PublicScripts")
+@*@{
+            var ErrorMessage = string.IsNullOrEmpty(this.ViewBag.ErrorMessage) ? string.Empty : this.ViewBag.ErrorMessage;
+            var SuccessMessage = string.IsNullOrEmpty(this.ViewBag.SuccessMessage) ? string.Empty : this.ViewBag.SuccessMessage;
+        }
+        @if (ErrorMessage != string.Empty)
+        {
+    <p style="color:Red;font-size:1.5em">@ErrorMessage</p>
+        }
+        @if (SuccessMessage != string.Empty)
+        {
+    <p style="color:Green;font-size:1.5em">@SuccessMessage</p>
+        }*@
+
+
+
+@using (Html.BeginForm("SignIn", "TenantSignIn", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-3 col-lg-3" style="float:right">
+                    <div style="color:white">
+                        @Html.ValidationSummary(true, "")
+                        @{  
+                            var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+                            var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+                            string displayError = "none", displaySuccess = "none";
+                            if (!(string.IsNullOrEmpty(errormessage)))
+                            {
+                                displayError = "";
+                            }
+                            if (!(string.IsNullOrEmpty(successmessage)))
+                            {
+                                displaySuccess = "";
+                            }
+                            <div id="SigninErrorMessage" style="display:@displayError">
+                                <div class="alert alert-danger" style="overflow:auto">
+                                    <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#SigninErrorMessage" id="hideErrorMessageDiv">X</b></div>
+                                    <div style="word-wrap: break-word;margin-right:30px" id="SigninErrorMessageText">@errormessage</div>
+                                </div>
+                            </div>
+                            <div id="SigninSuccessMessage" style="display:@displaySuccess">
+                                <div class="alert alert-success" style="overflow:auto">
+                                    <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#SigninSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+                                    <div style="word-wrap: break-word;margin-right:30px" id="SigninSuccessMessageText">@successmessage</div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+
+                <div class="col-md-3 col-lg-3" style="float:right;margin-top: 150px;">
+                    <div style="color:white">
+
+
+
+                        <input type="hidden" value="@this.Model.Domain" name="Domain"/>
+                        <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/">
+                        <div class="form-group">
+                            <label style="color:white" for="email">Domain:</label>
+                            <input id="TextBoxDomain"
+                                   @*name="Domain"*@
+                                   type="text"
+                                   value="@this.Model.Domain"
+                                   placeholder="Enter your domain."
+                                   autofocus
+                                   autocomplete="on"
+                                   class="form-control"
+                                   onblur="HouseOfSynergy.Library.Validation.ValidationUtilities.ValidateDomain(this.value).Message" disabled="disabled" />
+                            <span id="SpanErrorDomain" class="SpanError"></span>
+
+                        </div>
+                        <div class="form-group ">
+                            <label style="color:white" for="email">Username:</label>
+                            <input id="TextBoxUsername"
+                                   name="UserName"
+                                   type="text"
+                                   value="@this.Model.UserName"
+                                   placeholder="Enter your username."
+                                   autocomplete="on"
+                                   class="form-control"
+                                   onblur="HouseOfSynergy.Library.Validation.ValidationUtilities.ValidateUsername(this.value).Message" />
+                            <span id="SpanErrorUsername" class="SpanError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:white" for="pwd">Password:</label>
+                            <input id="TextBoxPassword"
+                                   name="Password"
+                                   type="password"
+                                   class="form-control"
+                                   value="@((AffinityConfiguration.IsConfigurationDebug)?(this.Model.Password):(string.Empty))"
+                                   placeholder="Enter your password."
+                                   onblur="HouseOfSynergy.Library.Validation.ValidationUtilities.ValidatePassword(this.value).Message" />
+                            <span id="SpanErrorPassword" class="SpanError"></span>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="RememberMe" type="checkbox" title="Remember me" id="CheckBoxRememberMe">
+                                <span style="color:white">remember me</span>
+                            </label>
+                        </div>
+                        <button id="ButtonSignIn" type="submit" class="btn btn-md btn-primary" onclick="return (Validate());">
+                            <span>Sign In</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                            }
+
+<script type="text/javascript">
+
+    $(document).ready
+	(
+		function () {
+		    $("Domain").focus().select();
+		    if ($("#SigninErrorMessage") != null)
+		    {
+		        if ($("#SigninErrorMessageText").text() != "")
+		        {
+		            setTimeout(function () {
+		                $('#SigninErrorMessage').fadeOut('fast');
+		                $("#SigninErrorMessage").css("display", "none");
+		                $("#SigninErrorMessageText").text("");
+		            }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+		        }
+		    }
+		    if($("#SigninSuccessMessage")!=null)
+		    {
+		        if ($("#SigninSuccessMessageText").text() != "") {
+		            setTimeout(function () {
+		                $('#SigninSuccessMessage').fadeOut('fast');
+		                $("#SigninSuccessMessage").css("display", "none");
+		                $("#SigninSuccessMessageText").text("");
+		            }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+		        }
+		    }
+		}
+       
+	);
+
+    function Validate() {
+        debugger;
+        var result = true;
+        var validationResult = HouseOfSynergy.Library.Validation.ValidationResult.Empty;
+
+        validationResult = HouseOfSynergy.Library.Validation.ValidationUtilities.ValidateDomain(window.TextBoxDomain.value);
+        if (!validationResult.Validated) { result = false; window.SpanErrorDomain.innerText = validationResult.Message; }
+        validationResult = HouseOfSynergy.Library.Validation.ValidationUtilities.ValidateUsername(window.TextBoxUsername.value);
+        if (!validationResult.Validated) { result = false; window.SpanErrorUsername.innerText = validationResult.Message; }
+        validationResult = HouseOfSynergy.Library.Validation.ValidationUtilities.ValidatePassword(window.TextBoxPassword.value);
+        if (!validationResult.Validated) { result = false; window.SpanErrorPassword.innerText = validationResult.Message; }
+
+        return (result);
+    }
+</script>
