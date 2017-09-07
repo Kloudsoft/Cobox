@@ -1,0 +1,7 @@
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Release\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Release\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Release\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Release\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Release\HouseOfSynergy.AffinityDms.ResourceProvider.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Release\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Release\HouseOfSynergy.AffinityDms.ResourceProvider.pdb

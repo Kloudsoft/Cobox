@@ -1,0 +1,39 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Xml" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Globalization" #>
+using System;
+using System.Globalization;
+
+namespace HouseOfSynergy.AffinityDms.ResourceProvider
+{
+	public static partial class ResourceManagement
+	{
+<#
+	var document = new XmlDocument();
+	var filename = Path.Combine(Host.ResolvePath(".").TrimEnd('.'), "Resources.xml");
+
+	document.Load(filename);
+
+	var element = document.DocumentElement ["AffinityDms"] ["Resources"] ["Translations"];
+
+	for (var i = 0; i < element.ChildNodes.Count; i++)
+	{
+		var name = element.ChildNodes [i].Attributes ["Name"].Value;
+#>
+		public static string <#=name#> { get { if (ResourceManagement.Dictionary.ContainsKey(CultureInfo.CurrentCulture.Name)) { if (ResourceManagement.Dictionary [CultureInfo.CurrentCulture.Name].ContainsKey("<#=name#>")) { return (ResourceManagement.Dictionary [CultureInfo.CurrentCulture.Name] ["<#=name#>"]); } else { return (""); } } else { return (""); } } }
+<#
+	}
+#>
+	}
+}

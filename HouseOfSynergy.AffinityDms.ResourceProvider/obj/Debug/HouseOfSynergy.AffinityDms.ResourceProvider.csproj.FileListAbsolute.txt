@@ -1,0 +1,14 @@
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.csprojResolveAssemblyReference.cache
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb

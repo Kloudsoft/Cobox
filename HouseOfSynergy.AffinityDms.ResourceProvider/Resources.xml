@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HouseOfSynergy>
+	<AffinityDms>
+		<Resources>
+			<Cultures>
+				<Culture Id="0000000000000000001" LocaleId="0000000009" Name="en" NameNative="English" NameDisplay="English" NameEnglish="English" NameIsoTwoLetter="en" NameIsoThreeLetter="eng" NameWindowsThreeLetter="ENU" />
+				<Culture Id="0000000000000000002" LocaleId="0000001033" Name="en-US" NameNative="English (United States)" NameDisplay="English (United States)" NameEnglish="English (United States)" NameIsoTwoLetter="en" NameIsoThreeLetter="eng" NameWindowsThreeLetter="ENU" />
+				<Culture Id="0000000000000000003" LocaleId="0000002057" Name="en-GB" NameNative="English (United Kingdom)" NameDisplay="English (United Kingdom)" NameEnglish="English (United Kingdom)" NameIsoTwoLetter="en" NameIsoThreeLetter="eng" NameWindowsThreeLetter="ENG" />
+				<Culture Id="0000000000000000004" LocaleId="0000000004" Name="zh-Hans" NameNative="中文(简体)" NameDisplay="Chinese (Simplified)" NameEnglish="Chinese (Simplified)" NameIsoTwoLetter="zh" NameIsoThreeLetter="zho" NameWindowsThreeLetter="CHS" />
+				<Culture Id="0000000000000000005" LocaleId="0000031748" Name="zh-Hant" NameNative="中文(繁體)" NameDisplay="Chinese (Traditional)" NameEnglish="Chinese (Traditional)" NameIsoTwoLetter="zh" NameIsoThreeLetter="zho" NameWindowsThreeLetter="CHT" />
+				<Culture Id="0000000000000000006" LocaleId="0000004100" Name="zh-SG" NameNative="中文(新加坡)" NameDisplay="Chinese (Simplified, Singapore)" NameEnglish="Chinese (Simplified, Singapore)" NameIsoTwoLetter="zh" NameIsoThreeLetter="zho" NameWindowsThreeLetter="ZHI" />
+				<Culture Id="0000000000000000007" LocaleId="0000001028" Name="zh-TW" NameNative="中文(台灣)" NameDisplay="Chinese (Traditional, Taiwan)" NameEnglish="Chinese (Traditional, Taiwan)" NameIsoTwoLetter="zh" NameIsoThreeLetter="zho" NameWindowsThreeLetter="CHT" />
+				<Culture Id="0000000000000000008" LocaleId="0000000032" Name="ur" NameNative="اُردو" NameDisplay="Urdu" NameEnglish="Urdu" NameIsoTwoLetter="ur" NameIsoThreeLetter="urd" NameWindowsThreeLetter="URD" />
+				<Culture Id="0000000000000000009" LocaleId="0000001056" Name="ur-PK" NameNative="اُردو (پاکستان)" NameDisplay="Urdu (Islamic Republic of Pakistan)" NameEnglish="Urdu (Pakistan)" NameIsoTwoLetter="ur" NameIsoThreeLetter="urd" NameWindowsThreeLetter="URD" />
+			</Cultures>
+			<Translations>
+				<Translation Id="0000000000000000001" Name="DesktopClient_AuthenticationErrorCredentials" Comment="The username and/or password is incorrect." />
+				<Translation Id="0000000000000000002" Name="DesktopClient_AuthenticationErrorDomain" Comment="The domain could not be resolved." />
+				<Translation Id="0000000000000000003" Name="DesktopClient_AuthenticationErrorUnknown" Comment="An unknown error occured during authentication." />
+				<Translation Id="0000000000000000004" Name="DesktopClient_ButtonCancel" Comment="Cancel label." />
+				<Translation Id="0000000000000000005" Name="DesktopClient_ButtonOk" Comment="Ok label." />
+				<Translation Id="0000000000000000006" Name="DesktopClient_ExceptionNotImplemented" Comment="The method or operation is not implemented." />
+				<Translation Id="0000000000000000007" Name="DesktopClient_LabelCulture" Comment="Culture label." />
+				<Translation Id="0000000000000000008" Name="DesktopClient_LabelCultureName" Comment="Name label." />
+				<Translation Id="0000000000000000009" Name="DesktopClient_LabelCultureNameEnglish" Comment="English label." />
+				<Translation Id="0000000000000000010" Name="DesktopClient_LabelCultureNameNative" Comment="Native label." />
+				<Translation Id="0000000000000000011" Name="DesktopClient_LabelDomain" Comment="Domain label." />
+				<Translation Id="0000000000000000012" Name="DesktopClient_LabelLogin" Comment="Login label." />
+				<Translation Id="0000000000000000013" Name="DesktopClient_LabelPassword" Comment="Password label." />
+				<Translation Id="0000000000000000014" Name="DesktopClient_LabelUsername" Comment="Username label." />
+				<Translation Id="0000000000000000015" Name="DesktopClient_MessageErrorDomainEnter" Comment="Enter a valid domain." />
+				<Translation Id="0000000000000000016" Name="DesktopClient_MessageErrorLanguageSelect" Comment="Select a language." />
+				<Translation Id="0000000000000000017" Name="DesktopClient_MessageErrorList" Comment="Please correct the following error(s):" />
+				<Translation Id="0000000000000000018" Name="DesktopClient_MessageErrorPasswordEnter" Comment="Enter a valid password." />
+				<Translation Id="0000000000000000019" Name="DesktopClient_MessageErrorUsernameEnter" Comment="Enter a valid username." />
+				<Translation Id="0000000000000000020" Name="DesktopClient_ProductDescription" Comment="A short, one line description/tagline for the product." />
+				<Translation Id="0000000000000000021" Name="DesktopClient_ProductName" Comment="The product name." />
+			</Translations>
+			<CultureTranslations>
+				<CultureTranslation Id="0000000000000000001" CultureId="0000000000000000001" TranslationId="0000000000000000001" Value="The username and/or password is incorrect." Comment="" ValueReference="صارف کا نام اور / یا پاس ورڈ غلط ہے" />
+				<CultureTranslation Id="0000000000000000002" CultureId="0000000000000000001" TranslationId="0000000000000000002" Value="The domain could not be resolved." Comment="" ValueReference="ڈومین حل نہیں کیا جا سکتا" />
+				<CultureTranslation Id="0000000000000000003" CultureId="0000000000000000001" TranslationId="0000000000000000003" Value="An unknown error occured during authentication." Comment="" ValueReference="ایک نامعلوم خرابی تصدیق کے دوران واقع ہوئی" />
+				<CultureTranslation Id="0000000000000000004" CultureId="0000000000000000001" TranslationId="0000000000000000004" Value="&amp;Cancel" Comment="" ValueReference="منسوخ" />
+				<CultureTranslation Id="0000000000000000005" CultureId="0000000000000000001" TranslationId="0000000000000000005" Value="&amp;Ok" Comment="" ValueReference="ٹھیک ہے" />
+				<CultureTranslation Id="0000000000000000006" CultureId="0000000000000000001" TranslationId="0000000000000000006" Value="The method or operation is not implemented." Comment="" ValueReference="طریقہ یا آپریشن لاگو نہیں ہوتا ہے" />
+				<CultureTranslation Id="0000000000000000007" CultureId="0000000000000000001" TranslationId="0000000000000000007" Value="Culture" Comment="" ValueReference="زبان" />
+				<CultureTranslation Id="0000000000000000008" CultureId="0000000000000000001" TranslationId="0000000000000000008" Value="Name" Comment="" ValueReference="نام" />
+				<CultureTranslation Id="0000000000000000009" CultureId="0000000000000000001" TranslationId="0000000000000000009" Value="English" Comment="" ValueReference="انگریزی" />
+				<CultureTranslation Id="0000000000000000010" CultureId="0000000000000000001" TranslationId="0000000000000000010" Value="Native" Comment="" ValueReference="اردو" />
+				<CultureTranslation Id="0000000000000000011" CultureId="0000000000000000001" TranslationId="0000000000000000011" Value="Domain" Comment="" ValueReference="ڈومین" />
+				<CultureTranslation Id="0000000000000000012" CultureId="0000000000000000001" TranslationId="0000000000000000012" Value="Login" Comment="" ValueReference="لاگ ان" />
+				<CultureTranslation Id="0000000000000000013" CultureId="0000000000000000001" TranslationId="0000000000000000013" Value="Password" Comment="" ValueReference="پاس ورڈ" />
+				<CultureTranslation Id="0000000000000000014" CultureId="0000000000000000001" TranslationId="0000000000000000014" Value="Username" Comment="" ValueReference="صارف کا نام" />
+				<CultureTranslation Id="0000000000000000015" CultureId="0000000000000000001" TranslationId="0000000000000000015" Value="Enter a valid domain." Comment="" ValueReference="ایک درست ڈومین داخل کریں." />
+				<CultureTranslation Id="0000000000000000016" CultureId="0000000000000000001" TranslationId="0000000000000000016" Value="Select a language." Comment="" ValueReference="ایک زبان کا انتخاب کریں." />
+				<CultureTranslation Id="0000000000000000017" CultureId="0000000000000000001" TranslationId="0000000000000000017" Value="Please correct the following error(s):" Comment="" ValueReference="برائے مہربانی مندرجہ ذیل غلطیا ں درست کریں:" />
+				<CultureTranslation Id="0000000000000000018" CultureId="0000000000000000001" TranslationId="0000000000000000018" Value="Enter a valid password." Comment="" ValueReference="ایک درست پاس ورڈ درج کریں." />
+				<CultureTranslation Id="0000000000000000019" CultureId="0000000000000000001" TranslationId="0000000000000000019" Value="Enter a valid username." Comment="" ValueReference="ایک درست صارف نام درج کریں." />
+				<CultureTranslation Id="0000000000000000020" CultureId="0000000000000000001" TranslationId="0000000000000000020" Value="Document Management System" Comment="" ValueReference="دستاویز کے انتظام کے نظام" />
+				<CultureTranslation Id="0000000000000000021" CultureId="0000000000000000001" TranslationId="0000000000000000021" Value="Affinity DMS" Comment="" ValueReference="افینیٹی دی ام اس" />
+				<CultureTranslation Id="0000000000000000022" CultureId="0000000000000000002" TranslationId="0000000000000000001" Value="The username and/or password is incorrect." Comment="" ValueReference="The username and/or password is incorrect." />
+				<CultureTranslation Id="0000000000000000023" CultureId="0000000000000000002" TranslationId="0000000000000000002" Value="The domain could not be resolved." Comment="" ValueReference="The domain could not be resolved." />
+				<CultureTranslation Id="0000000000000000024" CultureId="0000000000000000002" TranslationId="0000000000000000003" Value="An unknown error occured during authentication." Comment="" ValueReference="An unknown error occured during authentication." />
+				<CultureTranslation Id="0000000000000000025" CultureId="0000000000000000002" TranslationId="0000000000000000004" Value="&amp;Cancel" Comment="" ValueReference="&amp;Cancel" />
+				<CultureTranslation Id="0000000000000000026" CultureId="0000000000000000002" TranslationId="0000000000000000005" Value="&amp;Ok" Comment="" ValueReference="&amp;Ok" />
+				<CultureTranslation Id="0000000000000000027" CultureId="0000000000000000002" TranslationId="0000000000000000006" Value="The method or operation is not implemented." Comment="" ValueReference="The method or operation is not implemented." />
+				<CultureTranslation Id="0000000000000000028" CultureId="0000000000000000002" TranslationId="0000000000000000007" Value="Culture" Comment="" ValueReference="Culture" />
+				<CultureTranslation Id="0000000000000000029" CultureId="0000000000000000002" TranslationId="0000000000000000008" Value="Name" Comment="" ValueReference="Name" />
+				<CultureTranslation Id="0000000000000000030" CultureId="0000000000000000002" TranslationId="0000000000000000009" Value="English" Comment="" ValueReference="English" />
+				<CultureTranslation Id="0000000000000000031" CultureId="0000000000000000002" TranslationId="0000000000000000010" Value="Native" Comment="" ValueReference="Native" />
+				<CultureTranslation Id="0000000000000000032" CultureId="0000000000000000002" TranslationId="0000000000000000011" Value="Domain" Comment="" ValueReference="Domain" />
+				<CultureTranslation Id="0000000000000000033" CultureId="0000000000000000002" TranslationId="0000000000000000012" Value="Login" Comment="" ValueReference="Login" />
+				<CultureTranslation Id="0000000000000000034" CultureId="0000000000000000002" TranslationId="0000000000000000013" Value="Password" Comment="" ValueReference="Password" />
+				<CultureTranslation Id="0000000000000000035" CultureId="0000000000000000002" TranslationId="0000000000000000014" Value="Username" Comment="" ValueReference="Username" />
+				<CultureTranslation Id="0000000000000000036" CultureId="0000000000000000002" TranslationId="0000000000000000015" Value="Enter a valid domain." Comment="" ValueReference="Enter a valid domain." />
+				<CultureTranslation Id="0000000000000000037" CultureId="0000000000000000002" TranslationId="0000000000000000016" Value="Select a language." Comment="" ValueReference="Select a language." />
+				<CultureTranslation Id="0000000000000000038" CultureId="0000000000000000002" TranslationId="0000000000000000017" Value="Please correct the following error(s):" Comment="" ValueReference="Please correct the following error(s):" />
+				<CultureTranslation Id="0000000000000000039" CultureId="0000000000000000002" TranslationId="0000000000000000018" Value="Enter a valid password." Comment="" ValueReference="Enter a valid password." />
+				<CultureTranslation Id="0000000000000000040" CultureId="0000000000000000002" TranslationId="0000000000000000019" Value="Enter a valid username." Comment="" ValueReference="Enter a valid username." />
+				<CultureTranslation Id="0000000000000000041" CultureId="0000000000000000002" TranslationId="0000000000000000020" Value="Document Management System" Comment="" ValueReference="Document Management System" />
+				<CultureTranslation Id="0000000000000000042" CultureId="0000000000000000002" TranslationId="0000000000000000021" Value="Affinity DMS" Comment="" ValueReference="Affinity DMS" />
+				<CultureTranslation Id="0000000000000000043" CultureId="0000000000000000003" TranslationId="0000000000000000001" Value="The username and/or password is incorrect." Comment="" ValueReference="The username and/or password is incorrect." />
+				<CultureTranslation Id="0000000000000000044" CultureId="0000000000000000003" TranslationId="0000000000000000002" Value="The domain could not be resolved." Comment="" ValueReference="The domain could not be resolved." />
+				<CultureTranslation Id="0000000000000000045" CultureId="0000000000000000003" TranslationId="0000000000000000003" Value="An unknown error occured during authentication." Comment="" ValueReference="An unknown error occured during authentication." />
+				<CultureTranslation Id="0000000000000000046" CultureId="0000000000000000003" TranslationId="0000000000000000004" Value="&amp;Cancel" Comment="" ValueReference="&amp;Cancel" />
+				<CultureTranslation Id="0000000000000000047" CultureId="0000000000000000003" TranslationId="0000000000000000005" Value="&amp;Ok" Comment="" ValueReference="&amp;Ok" />
+				<CultureTranslation Id="0000000000000000048" CultureId="0000000000000000003" TranslationId="0000000000000000006" Value="The method or operation is not implemented." Comment="" ValueReference="The method or operation is not implemented." />
+				<CultureTranslation Id="0000000000000000049" CultureId="0000000000000000003" TranslationId="0000000000000000007" Value="Culture" Comment="" ValueReference="Culture" />
+				<CultureTranslation Id="0000000000000000050" CultureId="0000000000000000003" TranslationId="0000000000000000008" Value="Name" Comment="" ValueReference="Name" />
+				<CultureTranslation Id="0000000000000000051" CultureId="0000000000000000003" TranslationId="0000000000000000009" Value="English" Comment="" ValueReference="English" />
+				<CultureTranslation Id="0000000000000000052" CultureId="0000000000000000003" TranslationId="0000000000000000010" Value="Native" Comment="" ValueReference="Native" />
+				<CultureTranslation Id="0000000000000000053" CultureId="0000000000000000003" TranslationId="0000000000000000011" Value="Domain" Comment="" ValueReference="Domain" />
+				<CultureTranslation Id="0000000000000000054" CultureId="0000000000000000003" TranslationId="0000000000000000012" Value="Login" Comment="" ValueReference="Login" />
+				<CultureTranslation Id="0000000000000000055" CultureId="0000000000000000003" TranslationId="0000000000000000013" Value="Password" Comment="" ValueReference="Password" />
+				<CultureTranslation Id="0000000000000000056" CultureId="0000000000000000003" TranslationId="0000000000000000014" Value="Username" Comment="" ValueReference="Username" />
+				<CultureTranslation Id="0000000000000000057" CultureId="0000000000000000003" TranslationId="0000000000000000015" Value="Enter a valid domain." Comment="" ValueReference="Enter a valid domain." />
+				<CultureTranslation Id="0000000000000000058" CultureId="0000000000000000003" TranslationId="0000000000000000016" Value="Select a language." Comment="" ValueReference="Select a language." />
+				<CultureTranslation Id="0000000000000000059" CultureId="0000000000000000003" TranslationId="0000000000000000017" Value="Please correct the following error(s):" Comment="" ValueReference="Please correct the following error(s):" />
+				<CultureTranslation Id="0000000000000000060" CultureId="0000000000000000003" TranslationId="0000000000000000018" Value="Enter a valid password." Comment="" ValueReference="Enter a valid password." />
+				<CultureTranslation Id="0000000000000000061" CultureId="0000000000000000003" TranslationId="0000000000000000019" Value="Enter a valid username." Comment="" ValueReference="Enter a valid username." />
+				<CultureTranslation Id="0000000000000000062" CultureId="0000000000000000003" TranslationId="0000000000000000020" Value="Document Management System" Comment="" ValueReference="Document Management System" />
+				<CultureTranslation Id="0000000000000000063" CultureId="0000000000000000003" TranslationId="0000000000000000021" Value="Affinity DMS" Comment="" ValueReference="Affinity DMS" />
+				<CultureTranslation Id="0000000000000000064" CultureId="0000000000000000004" TranslationId="0000000000000000001" Value="用户名和/或密码不正确。" Comment="" ValueReference="用户名和/或密码不正确。" />
+				<CultureTranslation Id="0000000000000000065" CultureId="0000000000000000004" TranslationId="0000000000000000002" Value="该域名无法解析。" Comment="" ValueReference="该域名无法解析。" />
+				<CultureTranslation Id="0000000000000000066" CultureId="0000000000000000004" TranslationId="0000000000000000003" Value="认证过程中出现未知错误。" Comment="" ValueReference="认证过程中出现未知错误。" />
+				<CultureTranslation Id="0000000000000000067" CultureId="0000000000000000004" TranslationId="0000000000000000004" Value="取消" Comment="" ValueReference="取消" />
+				<CultureTranslation Id="0000000000000000068" CultureId="0000000000000000004" TranslationId="0000000000000000005" Value="好" Comment="" ValueReference="好" />
+				<CultureTranslation Id="0000000000000000069" CultureId="0000000000000000004" TranslationId="0000000000000000006" Value="该方法或操作未实现。" Comment="" ValueReference="该方法或操作未实现。" />
+				<CultureTranslation Id="0000000000000000070" CultureId="0000000000000000004" TranslationId="0000000000000000007" Value="语言" Comment="" ValueReference="语言" />
+				<CultureTranslation Id="0000000000000000071" CultureId="0000000000000000004" TranslationId="0000000000000000008" Value="名称" Comment="" ValueReference="名称" />
+				<CultureTranslation Id="0000000000000000072" CultureId="0000000000000000004" TranslationId="0000000000000000009" Value="英语" Comment="" ValueReference="英语" />
+				<CultureTranslation Id="0000000000000000073" CultureId="0000000000000000004" TranslationId="0000000000000000010" Value="本机" Comment="" ValueReference="本机" />
+				<CultureTranslation Id="0000000000000000074" CultureId="0000000000000000004" TranslationId="0000000000000000011" Value="域" Comment="" ValueReference="域" />
+				<CultureTranslation Id="0000000000000000075" CultureId="0000000000000000004" TranslationId="0000000000000000012" Value="登录" Comment="" ValueReference="登录" />
+				<CultureTranslation Id="0000000000000000076" CultureId="0000000000000000004" TranslationId="0000000000000000013" Value="密码" Comment="" ValueReference="密码" />
+				<CultureTranslation Id="0000000000000000077" CultureId="0000000000000000004" TranslationId="0000000000000000014" Value="用户名" Comment="" ValueReference="用户名" />
+				<CultureTranslation Id="0000000000000000078" CultureId="0000000000000000004" TranslationId="0000000000000000015" Value="输入一个有效的域。" Comment="" ValueReference="输入一个有效的域。" />
+				<CultureTranslation Id="0000000000000000079" CultureId="0000000000000000004" TranslationId="0000000000000000016" Value="选择一种语言。" Comment="" ValueReference="选择一种语言。" />
+				<CultureTranslation Id="0000000000000000080" CultureId="0000000000000000004" TranslationId="0000000000000000017" Value="请更正以下错误：" Comment="" ValueReference="请更正以下错误：" />
+				<CultureTranslation Id="0000000000000000081" CultureId="0000000000000000004" TranslationId="0000000000000000018" Value="输入有效的密码。" Comment="" ValueReference="输入有效的密码。" />
+				<CultureTranslation Id="0000000000000000082" CultureId="0000000000000000004" TranslationId="0000000000000000019" Value="输入有效的用户名。" Comment="" ValueReference="输入有效的用户名。" />
+				<CultureTranslation Id="0000000000000000083" CultureId="0000000000000000004" TranslationId="0000000000000000020" Value="文档管理系统" Comment="" ValueReference="文档管理系统" />
+				<CultureTranslation Id="0000000000000000084" CultureId="0000000000000000004" TranslationId="0000000000000000021" Value="亲和 DMS" Comment="" ValueReference="亲和 DMS" />
+				<CultureTranslation Id="0000000000000000085" CultureId="0000000000000000005" TranslationId="0000000000000000001" Value="用户名和/或密码不正确。" Comment="" ValueReference="用户名和/或密码不正确。" />
+				<CultureTranslation Id="0000000000000000086" CultureId="0000000000000000005" TranslationId="0000000000000000002" Value="该域名无法解析。" Comment="" ValueReference="该域名无法解析。" />
+				<CultureTranslation Id="0000000000000000087" CultureId="0000000000000000005" TranslationId="0000000000000000003" Value="认证过程中出现未知错误。" Comment="" ValueReference="认证过程中出现未知错误。" />
+				<CultureTranslation Id="0000000000000000088" CultureId="0000000000000000005" TranslationId="0000000000000000004" Value="取消" Comment="" ValueReference="取消" />
+				<CultureTranslation Id="0000000000000000089" CultureId="0000000000000000005" TranslationId="0000000000000000005" Value="好" Comment="" ValueReference="好" />
+				<CultureTranslation Id="0000000000000000090" CultureId="0000000000000000005" TranslationId="0000000000000000006" Value="该方法或操作未实现。" Comment="" ValueReference="该方法或操作未实现。" />
+				<CultureTranslation Id="0000000000000000091" CultureId="0000000000000000005" TranslationId="0000000000000000007" Value="语言" Comment="" ValueReference="语言" />
+				<CultureTranslation Id="0000000000000000092" CultureId="0000000000000000005" TranslationId="0000000000000000008" Value="名称" Comment="" ValueReference="名称" />
+				<CultureTranslation Id="0000000000000000093" CultureId="0000000000000000005" TranslationId="0000000000000000009" Value="英语" Comment="" ValueReference="英语" />
+				<CultureTranslation Id="0000000000000000094" CultureId="0000000000000000005" TranslationId="0000000000000000010" Value="本机" Comment="" ValueReference="本机" />
+				<CultureTranslation Id="0000000000000000095" CultureId="0000000000000000005" TranslationId="0000000000000000011" Value="域" Comment="" ValueReference="域" />
+				<CultureTranslation Id="0000000000000000096" CultureId="0000000000000000005" TranslationId="0000000000000000012" Value="登录" Comment="" ValueReference="登录" />
+				<CultureTranslation Id="0000000000000000097" CultureId="0000000000000000005" TranslationId="0000000000000000013" Value="密码" Comment="" ValueReference="密码" />
+				<CultureTranslation Id="0000000000000000098" CultureId="0000000000000000005" TranslationId="0000000000000000014" Value="用户名" Comment="" ValueReference="用户名" />
+				<CultureTranslation Id="0000000000000000099" CultureId="0000000000000000005" TranslationId="0000000000000000015" Value="输入一个有效的域。" Comment="" ValueReference="输入一个有效的域。" />
+				<CultureTranslation Id="0000000000000000100" CultureId="0000000000000000005" TranslationId="0000000000000000016" Value="选择一种语言。" Comment="" ValueReference="选择一种语言。" />
+				<CultureTranslation Id="0000000000000000101" CultureId="0000000000000000005" TranslationId="0000000000000000017" Value="请更正以下错误：" Comment="" ValueReference="请更正以下错误：" />
+				<CultureTranslation Id="0000000000000000102" CultureId="0000000000000000005" TranslationId="0000000000000000018" Value="输入有效的密码。" Comment="" ValueReference="输入有效的密码。" />
+				<CultureTranslation Id="0000000000000000103" CultureId="0000000000000000005" TranslationId="0000000000000000019" Value="输入有效的用户名。" Comment="" ValueReference="输入有效的用户名。" />
+				<CultureTranslation Id="0000000000000000104" CultureId="0000000000000000005" TranslationId="0000000000000000020" Value="文档管理系统" Comment="" ValueReference="文档管理系统" />
+				<CultureTranslation Id="0000000000000000105" CultureId="0000000000000000005" TranslationId="0000000000000000021" Value="亲和 DMS" Comment="" ValueReference="亲和 DMS" />
+				<CultureTranslation Id="0000000000000000106" CultureId="0000000000000000006" TranslationId="0000000000000000001" Value="用户名和/或密码不正确。" Comment="" ValueReference="用户名和/或密码不正确。" />
+				<CultureTranslation Id="0000000000000000107" CultureId="0000000000000000006" TranslationId="0000000000000000002" Value="该域名无法解析。" Comment="" ValueReference="该域名无法解析。" />
+				<CultureTranslation Id="0000000000000000108" CultureId="0000000000000000006" TranslationId="0000000000000000003" Value="认证过程中出现未知错误。" Comment="" ValueReference="认证过程中出现未知错误。" />
+				<CultureTranslation Id="0000000000000000109" CultureId="0000000000000000006" TranslationId="0000000000000000004" Value="取消" Comment="" ValueReference="取消" />
+				<CultureTranslation Id="0000000000000000110" CultureId="0000000000000000006" TranslationId="0000000000000000005" Value="好" Comment="" ValueReference="好" />
+				<CultureTranslation Id="0000000000000000111" CultureId="0000000000000000006" TranslationId="0000000000000000006" Value="该方法或操作未实现。" Comment="" ValueReference="该方法或操作未实现。" />
+				<CultureTranslation Id="0000000000000000112" CultureId="0000000000000000006" TranslationId="0000000000000000007" Value="语言" Comment="" ValueReference="语言" />
+				<CultureTranslation Id="0000000000000000113" CultureId="0000000000000000006" TranslationId="0000000000000000008" Value="名称" Comment="" ValueReference="名称" />
+				<CultureTranslation Id="0000000000000000114" CultureId="0000000000000000006" TranslationId="0000000000000000009" Value="英语" Comment="" ValueReference="英语" />
+				<CultureTranslation Id="0000000000000000115" CultureId="0000000000000000006" TranslationId="0000000000000000010" Value="本机" Comment="" ValueReference="本机" />
+				<CultureTranslation Id="0000000000000000116" CultureId="0000000000000000006" TranslationId="0000000000000000011" Value="域" Comment="" ValueReference="域" />
+				<CultureTranslation Id="0000000000000000117" CultureId="0000000000000000006" TranslationId="0000000000000000012" Value="登录" Comment="" ValueReference="登录" />
+				<CultureTranslation Id="0000000000000000118" CultureId="0000000000000000006" TranslationId="0000000000000000013" Value="密码" Comment="" ValueReference="密码" />
+				<CultureTranslation Id="0000000000000000119" CultureId="0000000000000000006" TranslationId="0000000000000000014" Value="用户名" Comment="" ValueReference="用户名" />
+				<CultureTranslation Id="0000000000000000120" CultureId="0000000000000000006" TranslationId="0000000000000000015" Value="输入一个有效的域。" Comment="" ValueReference="输入一个有效的域。" />
+				<CultureTranslation Id="0000000000000000121" CultureId="0000000000000000006" TranslationId="0000000000000000016" Value="选择一种语言。" Comment="" ValueReference="选择一种语言。" />
+				<CultureTranslation Id="0000000000000000122" CultureId="0000000000000000006" TranslationId="0000000000000000017" Value="请更正以下错误：" Comment="" ValueReference="请更正以下错误：" />
+				<CultureTranslation Id="0000000000000000123" CultureId="0000000000000000006" TranslationId="0000000000000000018" Value="输入有效的密码。" Comment="" ValueReference="输入有效的密码。" />
+				<CultureTranslation Id="0000000000000000124" CultureId="0000000000000000006" TranslationId="0000000000000000019" Value="输入有效的用户名。" Comment="" ValueReference="输入有效的用户名。" />
+				<CultureTranslation Id="0000000000000000125" CultureId="0000000000000000006" TranslationId="0000000000000000020" Value="文档管理系统" Comment="" ValueReference="文档管理系统" />
+				<CultureTranslation Id="0000000000000000126" CultureId="0000000000000000006" TranslationId="0000000000000000021" Value="亲和 DMS" Comment="" ValueReference="亲和 DMS" />
+				<CultureTranslation Id="0000000000000000127" CultureId="0000000000000000007" TranslationId="0000000000000000001" Value="用户名和/或密码不正确。" Comment="" ValueReference="用户名和/或密码不正确。" />
+				<CultureTranslation Id="0000000000000000128" CultureId="0000000000000000007" TranslationId="0000000000000000002" Value="该域名无法解析。" Comment="" ValueReference="该域名无法解析。" />
+				<CultureTranslation Id="0000000000000000129" CultureId="0000000000000000007" TranslationId="0000000000000000003" Value="认证过程中出现未知错误。" Comment="" ValueReference="认证过程中出现未知错误。" />
+				<CultureTranslation Id="0000000000000000130" CultureId="0000000000000000007" TranslationId="0000000000000000004" Value="取消" Comment="" ValueReference="取消" />
+				<CultureTranslation Id="0000000000000000131" CultureId="0000000000000000007" TranslationId="0000000000000000005" Value="好" Comment="" ValueReference="好" />
+				<CultureTranslation Id="0000000000000000132" CultureId="0000000000000000007" TranslationId="0000000000000000006" Value="该方法或操作未实现。" Comment="" ValueReference="该方法或操作未实现。" />
+				<CultureTranslation Id="0000000000000000133" CultureId="0000000000000000007" TranslationId="0000000000000000007" Value="语言" Comment="" ValueReference="语言" />
+				<CultureTranslation Id="0000000000000000134" CultureId="0000000000000000007" TranslationId="0000000000000000008" Value="名称" Comment="" ValueReference="名称" />
+				<CultureTranslation Id="0000000000000000135" CultureId="0000000000000000007" TranslationId="0000000000000000009" Value="英语" Comment="" ValueReference="英语" />
+				<CultureTranslation Id="0000000000000000136" CultureId="0000000000000000007" TranslationId="0000000000000000010" Value="本机" Comment="" ValueReference="本机" />
+				<CultureTranslation Id="0000000000000000137" CultureId="0000000000000000007" TranslationId="0000000000000000011" Value="域" Comment="" ValueReference="域" />
+				<CultureTranslation Id="0000000000000000138" CultureId="0000000000000000007" TranslationId="0000000000000000012" Value="登录" Comment="" ValueReference="登录" />
+				<CultureTranslation Id="0000000000000000139" CultureId="0000000000000000007" TranslationId="0000000000000000013" Value="密码" Comment="" ValueReference="密码" />
+				<CultureTranslation Id="0000000000000000140" CultureId="0000000000000000007" TranslationId="0000000000000000014" Value="用户名" Comment="" ValueReference="用户名" />
+				<CultureTranslation Id="0000000000000000141" CultureId="0000000000000000007" TranslationId="0000000000000000015" Value="输入一个有效的域。" Comment="" ValueReference="输入一个有效的域。" />
+				<CultureTranslation Id="0000000000000000142" CultureId="0000000000000000007" TranslationId="0000000000000000016" Value="选择一种语言。" Comment="" ValueReference="选择一种语言。" />
+				<CultureTranslation Id="0000000000000000143" CultureId="0000000000000000007" TranslationId="0000000000000000017" Value="请更正以下错误：" Comment="" ValueReference="请更正以下错误：" />
+				<CultureTranslation Id="0000000000000000144" CultureId="0000000000000000007" TranslationId="0000000000000000018" Value="输入有效的密码。" Comment="" ValueReference="输入有效的密码。" />
+				<CultureTranslation Id="0000000000000000145" CultureId="0000000000000000007" TranslationId="0000000000000000019" Value="输入有效的用户名。" Comment="" ValueReference="输入有效的用户名。" />
+				<CultureTranslation Id="0000000000000000146" CultureId="0000000000000000007" TranslationId="0000000000000000020" Value="文档管理系统" Comment="" ValueReference="文档管理系统" />
+				<CultureTranslation Id="0000000000000000147" CultureId="0000000000000000007" TranslationId="0000000000000000021" Value="亲和 DMS" Comment="" ValueReference="亲和 DMS" />
+				<CultureTranslation Id="0000000000000000148" CultureId="0000000000000000008" TranslationId="0000000000000000001" Value="صارف کا نام اور / یا پاس ورڈ غلط ہے" Comment="" ValueReference="صارف کا نام اور / یا پاس ورڈ غلط ہے" />
+				<CultureTranslation Id="0000000000000000149" CultureId="0000000000000000008" TranslationId="0000000000000000002" Value="ڈومین حل نہیں کیا جا سکتا" Comment="" ValueReference="ڈومین حل نہیں کیا جا سکتا" />
+				<CultureTranslation Id="0000000000000000150" CultureId="0000000000000000008" TranslationId="0000000000000000003" Value="ایک نامعلوم خرابی تصدیق کے دوران واقع ہوئی" Comment="" ValueReference="ایک نامعلوم خرابی تصدیق کے دوران واقع ہوئی" />
+				<CultureTranslation Id="0000000000000000151" CultureId="0000000000000000008" TranslationId="0000000000000000004" Value="منسوخ" Comment="" ValueReference="منسوخ" />
+				<CultureTranslation Id="0000000000000000152" CultureId="0000000000000000008" TranslationId="0000000000000000005" Value="ٹھیک ہے" Comment="" ValueReference="ٹھیک ہے" />
+				<CultureTranslation Id="0000000000000000153" CultureId="0000000000000000008" TranslationId="0000000000000000006" Value="طریقہ یا آپریشن لاگو نہیں ہوتا ہے" Comment="" ValueReference="طریقہ یا آپریشن لاگو نہیں ہوتا ہے" />
+				<CultureTranslation Id="0000000000000000154" CultureId="0000000000000000008" TranslationId="0000000000000000007" Value="زبان" Comment="" ValueReference="زبان" />
+				<CultureTranslation Id="0000000000000000155" CultureId="0000000000000000008" TranslationId="0000000000000000008" Value="نام" Comment="" ValueReference="نام" />
+				<CultureTranslation Id="0000000000000000156" CultureId="0000000000000000008" TranslationId="0000000000000000009" Value="انگریزی" Comment="" ValueReference="انگریزی" />
+				<CultureTranslation Id="0000000000000000157" CultureId="0000000000000000008" TranslationId="0000000000000000010" Value="اردو" Comment="" ValueReference="اردو" />
+				<CultureTranslation Id="0000000000000000158" CultureId="0000000000000000008" TranslationId="0000000000000000011" Value="ڈومین" Comment="" ValueReference="ڈومین" />
+				<CultureTranslation Id="0000000000000000159" CultureId="0000000000000000008" TranslationId="0000000000000000012" Value="لاگ ان" Comment="" ValueReference="لاگ ان" />
+				<CultureTranslation Id="0000000000000000160" CultureId="0000000000000000008" TranslationId="0000000000000000013" Value="پاس ورڈ" Comment="" ValueReference="پاس ورڈ" />
+				<CultureTranslation Id="0000000000000000161" CultureId="0000000000000000008" TranslationId="0000000000000000014" Value="صارف کا نام" Comment="" ValueReference="صارف کا نام" />
+				<CultureTranslation Id="0000000000000000162" CultureId="0000000000000000008" TranslationId="0000000000000000015" Value="ایک درست ڈومین داخل کریں." Comment="" ValueReference="ایک درست ڈومین داخل کریں." />
+				<CultureTranslation Id="0000000000000000163" CultureId="0000000000000000008" TranslationId="0000000000000000016" Value="ایک زبان کا انتخاب کریں." Comment="" ValueReference="ایک زبان کا انتخاب کریں." />
+				<CultureTranslation Id="0000000000000000164" CultureId="0000000000000000008" TranslationId="0000000000000000017" Value="برائے مہربانی مندرجہ ذیل غلطیا ں درست کریں:" Comment="" ValueReference="برائے مہربانی مندرجہ ذیل غلطیا ں درست کریں:" />
+				<CultureTranslation Id="0000000000000000165" CultureId="0000000000000000008" TranslationId="0000000000000000018" Value="ایک درست پاس ورڈ درج کریں." Comment="" ValueReference="ایک درست پاس ورڈ درج کریں." />
+				<CultureTranslation Id="0000000000000000166" CultureId="0000000000000000008" TranslationId="0000000000000000019" Value="ایک درست صارف نام درج کریں." Comment="" ValueReference="ایک درست صارف نام درج کریں." />
+				<CultureTranslation Id="0000000000000000167" CultureId="0000000000000000008" TranslationId="0000000000000000020" Value="دستاویز کے انتظام کے نظام" Comment="" ValueReference="دستاویز کے انتظام کے نظام" />
+				<CultureTranslation Id="0000000000000000168" CultureId="0000000000000000008" TranslationId="0000000000000000021" Value="افینیٹی دی ام اس" Comment="" ValueReference="افینیٹی دی ام اس" />
+				<CultureTranslation Id="0000000000000000169" CultureId="0000000000000000009" TranslationId="0000000000000000001" Value="صارف کا نام اور / یا پاس ورڈ غلط ہے" Comment="" ValueReference="صارف کا نام اور / یا پاس ورڈ غلط ہے" />
+				<CultureTranslation Id="0000000000000000170" CultureId="0000000000000000009" TranslationId="0000000000000000002" Value="ڈومین حل نہیں کیا جا سکتا" Comment="" ValueReference="ڈومین حل نہیں کیا جا سکتا" />
+				<CultureTranslation Id="0000000000000000171" CultureId="0000000000000000009" TranslationId="0000000000000000003" Value="ایک نامعلوم خرابی تصدیق کے دوران واقع ہوئی" Comment="" ValueReference="ایک نامعلوم خرابی تصدیق کے دوران واقع ہوئی" />
+				<CultureTranslation Id="0000000000000000172" CultureId="0000000000000000009" TranslationId="0000000000000000004" Value="منسوخ" Comment="" ValueReference="منسوخ" />
+				<CultureTranslation Id="0000000000000000173" CultureId="0000000000000000009" TranslationId="0000000000000000005" Value="ٹھیک ہے" Comment="" ValueReference="ٹھیک ہے" />
+				<CultureTranslation Id="0000000000000000174" CultureId="0000000000000000009" TranslationId="0000000000000000006" Value="طریقہ یا آپریشن لاگو نہیں ہوتا ہے" Comment="" ValueReference="طریقہ یا آپریشن لاگو نہیں ہوتا ہے" />
+				<CultureTranslation Id="0000000000000000175" CultureId="0000000000000000009" TranslationId="0000000000000000007" Value="زبان" Comment="" ValueReference="زبان" />
+				<CultureTranslation Id="0000000000000000176" CultureId="0000000000000000009" TranslationId="0000000000000000008" Value="نام" Comment="" ValueReference="نام" />
+				<CultureTranslation Id="0000000000000000177" CultureId="0000000000000000009" TranslationId="0000000000000000009" Value="انگریزی" Comment="" ValueReference="انگریزی" />
+				<CultureTranslation Id="0000000000000000178" CultureId="0000000000000000009" TranslationId="0000000000000000010" Value="اردو" Comment="" ValueReference="اردو" />
+				<CultureTranslation Id="0000000000000000179" CultureId="0000000000000000009" TranslationId="0000000000000000011" Value="ڈومین" Comment="" ValueReference="ڈومین" />
+				<CultureTranslation Id="0000000000000000180" CultureId="0000000000000000009" TranslationId="0000000000000000012" Value="لاگ ان" Comment="" ValueReference="لاگ ان" />
+				<CultureTranslation Id="0000000000000000181" CultureId="0000000000000000009" TranslationId="0000000000000000013" Value="پاس ورڈ" Comment="" ValueReference="پاس ورڈ" />
+				<CultureTranslation Id="0000000000000000182" CultureId="0000000000000000009" TranslationId="0000000000000000014" Value="صارف کا نام" Comment="" ValueReference="صارف کا نام" />
+				<CultureTranslation Id="0000000000000000183" CultureId="0000000000000000009" TranslationId="0000000000000000015" Value="ایک درست ڈومین داخل کریں." Comment="" ValueReference="ایک درست ڈومین داخل کریں." />
+				<CultureTranslation Id="0000000000000000184" CultureId="0000000000000000009" TranslationId="0000000000000000016" Value="ایک زبان کا انتخاب کریں." Comment="" ValueReference="ایک زبان کا انتخاب کریں." />
+				<CultureTranslation Id="0000000000000000185" CultureId="0000000000000000009" TranslationId="0000000000000000017" Value="برائے مہربانی مندرجہ ذیل غلطیا ں درست کریں:" Comment="" ValueReference="برائے مہربانی مندرجہ ذیل غلطیا ں درست کریں:" />
+				<CultureTranslation Id="0000000000000000186" CultureId="0000000000000000009" TranslationId="0000000000000000018" Value="ایک درست پاس ورڈ درج کریں." Comment="" ValueReference="ایک درست پاس ورڈ درج کریں." />
+				<CultureTranslation Id="0000000000000000187" CultureId="0000000000000000009" TranslationId="0000000000000000019" Value="ایک درست صارف نام درج کریں." Comment="" ValueReference="ایک درست صارف نام درج کریں." />
+				<CultureTranslation Id="0000000000000000188" CultureId="0000000000000000009" TranslationId="0000000000000000020" Value="دستاویز کے انتظام کے نظام" Comment="" ValueReference="دستاویز کے انتظام کے نظام" />
+				<CultureTranslation Id="0000000000000000189" CultureId="0000000000000000009" TranslationId="0000000000000000021" Value="افینیٹی دی ام اس" Comment="" ValueReference="افینیٹی دی ام اس" />
+			</CultureTranslations>
+		</Resources>
+	</AffinityDms>
+</HouseOfSynergy>
