@@ -1,0 +1,23 @@
+﻿@model List<FolderTreeViewModel>
+@(Html.Kendo().TreeView()
+    .Name("treeview")
+    .LoadOnDemand(false)
+    .Events(e => e.Select("OnSelected")
+                .DataBound("onDataBound"))
+    .TemplateId("treeview-template")
+    .ExpandAll(true)
+    .DataTextField("Name")
+    .DataSource(dataSource => dataSource
+        .Model(model => model
+            .Id("Id")
+            .HasChildren("HasChildren")
+            )
+        .Read(read => read
+                .Action("Folder_Read", "TenantDocumentsFolderWise")
+        )
+    )
+)
+<script id="treeview-template" type="text/kendo-ui-template">
+    <label id="templabelid" data-tempid='#: item.Id #'>#: item.Name #</label>
+    <input type="hidden" value='#: item.Id #'>
+</script>

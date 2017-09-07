@@ -1,0 +1,104 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+@{
+    var documentList = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+    if (this.Model != null) { documentList = this.Model.ToList(); }
+    var HeaderHtmlAttributesTitle = "text-align: center;";
+    var HeaderHtmlAttributesItems = "";//display:none
+    if (this.ViewBag.HeaderHtmlAttributesTitle != null) { HeaderHtmlAttributesTitle = this.ViewBag.HeaderHtmlAttributesTitle; }
+    if (this.ViewBag.HeaderHtmlAttributesItems != null) { HeaderHtmlAttributesItems = this.ViewBag.HeaderHtmlAttributesItems; }
+    var errorStr = "";
+
+}
+@*@if (this.ViewBag.RelatedDocumentsErrorMessage != null)
+{
+    errorStr = (!string.IsNullOrEmpty(this.ViewBag.RelatedDocumentsErrorMessage)) ? this.ViewBag.RelatedDocumentsErrorMessage : "";
+    <div class="alert alert-danger"id="RelatedDocumentsErrorMessage">@errorStr</div>
+}
+else
+{
+    <div class="alert alert-danger" style="display:none" id="RelatedDocumentsErrorMessage"></div>
+}*@
+
+@{
+
+    var errormessage = (ViewBag.RelatedDocumentsErrorMessage != null) ? (ViewBag.RelatedDocumentsErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="RelatedDocumentsErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#RelatedDocumentsErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="RelatedDocumentsErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="RelatedDocumentsSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#RelatedDocumentsSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="RelatedDocumentsSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+@if (this.ViewBag.EnablePrintOption != null)
+{
+    @(
+            Html.Kendo()
+            .Grid(documentList)
+            .Name("ParentDocumentsGrid")
+            .Columns
+            (
+            columns =>
+                columns.Group(group => group
+                            .Title("Related Documents")
+                            .HeaderHtmlAttributes(new { @style = HeaderHtmlAttributesTitle })//display:none
+                            .Columns(items =>
+                            {
+                                //items.Template(item => (item.Id > 0) ? "<a href='/TenantDocumentIndex/DocumentIndexReadOnlyView/" + item.Id + "'>" + item.Name + "</a>" : "None").Title("Name");
+                                items.Template(item => (item.Id > 0) ? ("<div class='roundedTwo'><input type='checkbox' id='relatedDocumentCheckBox" + item.Id + "' name='relatedDocumentCheckBoxes'><label for='relatedDocumentCheckBox" + item.Id + "'></label></div>") : ("")).HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+                                items.Template(item => (item.Id > 0) ? ("<i class='fa fa-file-text icon-file' aria-hidden='true'></i><span>" + item.Name + "</span>") : ("None")).Title("Name").HtmlAttributes(new { style = "min-width:250px" }).HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+                                items.Template(item => (item.Id > 0) ? ("<a href='javascript: window.open(\"/TenantDocumentIndex/DocumentIndexReadOnlyView/" + item.Id + "\")'><i class='fa fa-eye' aria-hidden='true'></i></a>") : ("")).Title("Preview").HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+                                items.Template(item => (item.Id > 0) ? ("<a href='#'><i class='fa fa-print' aria-hidden='true'></i></a>") : ("")).Title("Print").HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+
+                            }))
+            )
+            .HtmlAttributes(new { @style = "display:inline-block;width:100%;min-height: 145px" })//width:40%;
+    )
+   
+}
+else
+{
+    @(
+            Html.Kendo()
+            .Grid(documentList)
+            .Name("ParentDocumentsGrid")
+            .Columns
+            (
+            columns =>
+             columns.Group(group => group
+                           .Title("Related Documents")
+                           .HeaderHtmlAttributes(new { @style = HeaderHtmlAttributesTitle })//display:none
+                           .Columns(items =>
+                           {
+                               //items.Template(item => (item.Id > 0) ? "<a href='/TenantDocumentIndex/DocumentIndexReadOnlyView/" + item.Id + "'>" + item.Name + "</a>" : "None").Title("Name");
+                               items.Template(item => (item.Id > 0) ? ("<i class='fa fa-file-text icon-file' aria-hidden='true'></i><span>" + item.Name + "</span>") : ("None")).Title("Name").HtmlAttributes(new { style = "min-width:250px" }).HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+                               items.Template(item => (item.Id > 0) ? ("<a href='javascript: window.open(\"/TenantDocumentIndex/DocumentIndexReadOnlyView/" + item.Id + "\")'><i class='fa fa-eye' aria-hidden='true'></i></a>") : ("")).Title("Preview").HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+                               items.Template(item => (item.Id > 0) ? ("<a href='#'><i class='fa fa-print' aria-hidden='true'></i></a>") : ("")).Title("Print").HeaderHtmlAttributes(new { style = HeaderHtmlAttributesItems });
+
+                           }))
+            )
+            .HtmlAttributes(new { @style = "display:inline-block;width:100%; height:200px" })
+            .Scrollable()
+    )
+}
+
+
+

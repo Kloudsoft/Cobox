@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+@Styles.Render("~/bundles/css")
+@Scripts.Render("~/bundles/jQuery")
+<head>
+    
+    <style>
+        .login_bg {
+            background-image: url(../../Images/login_bg.jpg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            height: 100%;
+            background-attachment: fixed;
+            background-origin: border-box;
+        }
+
+        .img-responsive {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "GillSansStd", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #28272b;
+        }
+        .mbr-login-c-left, .mbr-login-c-right {
+            position: absolute;
+            top: 200px;
+            right: -109px;
+            width: 270px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body class="login_bg img-responsive">
+
+
+    <div>
+        @RenderBody()
+        @*<form action="/Auth/Login" method="post">
+            <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/">
+            <div class="form-group ">
+                <label style="color:white" for="email">Username:</label>
+                <input autofocus="" name="Account" type="text" class="form-control" id="email" placeholder="Enter username">
+
+            </div>
+            <div class="form-group">
+                <label style="color:white" for="pwd">Password:</label>
+                <input name="Password" type="password" class="form-control" id="pwd" placeholder="Enter password">
+
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"><span style="color:white">remember me</span> </label>
+            </div>
+            <button id="logButton" type="submit" class="btn btn-md btn-primary">
+                <span>Log in</span>
+            </button>
+        </form>*@
+    </div>
+    
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#hideErrorMessageDiv").on('click', function () {
+            var id = $("#hideMessageDiv").attr("data-hideMessageDiv");
+            $(id).css("display", "none");
+        });
+        $("#hideSuccessMessageDiv").on('click', function () {
+            var id = $("#hideMessageDiv").attr("data-hideMessageDiv");
+            $(id).css("display", "none");
+        });
+    })
+</script>

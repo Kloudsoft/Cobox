@@ -1,0 +1,325 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Master.TenantSubscriptionsViewModel
+@{
+    ViewBag.Title = "Tenant Subscriptions";
+    Layout = "~/Views/Shared/_LayoutMasterPrivate.cshtml";
+}
+@Scripts.Render("~/bundles/TypeScript")
+
+<script type="text/javascript">
+    var tenantsubscription = new AffinityDms.Entities.TenantSubscriptionsTS();
+
+    function RedirectToCreateTenantSubscription() {
+        window.location.href = "../mastertenantsubscription/index";
+    }
+    function CreateTenantSubscription() {
+        var divsubscription = document.getElementById("subscription");
+        divsubscription.style["display"] = "";
+        var applybtn = document.getElementById("btn_ApplySubscription");
+        applybtn.style["display"] = "";
+        var createbtn = document.getElementById("btn_CreateSubsription");
+        createbtn.style["display"] = "none";
+        var cancelbtn = document.getElementById("btn_CancelSubsription");
+        cancelbtn.style["display"] = "";
+
+
+    }
+    function CancelSubmission() {
+        tenantsubscription.ClearTenantSubscriptionSubmission();
+    }
+</script>
+
+@if (this.ViewBag.Exception != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Exception))
+    {
+        <div style="color:red;">@this.ViewBag.Exception</div>
+    }
+}
+@if (this.ViewBag.Message != null)
+{
+    if (!string.IsNullOrEmpty(this.ViewBag.Message))
+    {
+        <div style="color:green">@this.ViewBag.Message</div>
+    }
+}
+
+<div class="form-group">
+    <div class="col-md-12">
+        <div style="float:left">
+            <input id="btn_CreateSubsription" title="Create" value="Create" class="btn btn-default" type="button" onclick="CreateTenantSubscription(); return false" />
+        </div>
+        <div style="float:left">
+            <input id="btn_CancelSubsription" title="Cancel" value="Cancel" class="btn btn-default" type="button" onclick="CancelSubmission(); return false" style="display:none" />
+        </div>
+        <div style="">
+            <input type="button" id="btn_ApplySubscription" class="btn btn-default" value="Apply" onclick="javascript: tenantsubscription.ApplySubscription(event)" style="margin-left:10px;display:none">
+        </div>
+        @*@{
+            long tenantid = 0;
+            if (Model.TenantSubscriptions.Count>0)
+            {
+                tenantid = Model.TenantSubscriptions.FirstOrDefault().TenantId;
+            }
+        }*@
+        <input type="hidden" id="H_tenantId" value="@this.ViewBag.TenantId"/>
+    </div>
+</div>
+
+<div id="divMessage" style="color:green"></div>
+<div id="divException" style="color:red"></div>
+
+<div id="subscription" class="col-md-12" style="display:none">
+    <table id="table_subscription" class="table table-bordered" style="margin-top:20px">
+        <tbody>
+            <tr style="display:inline-table;" class="col-md-12">
+                <td class="col-md-2">
+                    Subscription
+                </td>
+                <td class="col-md-10">
+
+                    <select id="dd_subscription" class="form-control" onchange="javascript: tenantsubscription.GetSubscriptionById(event)">
+                        <option id="-1" value="-1">Select a Subscription</option>
+                        @foreach (var subscription in Model.Subscriptions)
+                        {
+                            <option id="@subscription.Id" value="@subscription.Id">@subscription.Description</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="subscriptionInfo" class="col-md-12">
+        <table id="table_subscriptionInfo" class="table table-bordered" style="margin-top:20px">
+            <thead>
+                <tr style="display:inline-table;" class="col-md-12">
+                    <th class="col-md-1"></th>
+                    <th class="col-md-1">Pages</th>
+                    <th class="col-md-1">Forms</th>
+                    <th class="col-md-1">Templates</th>
+                    <th class="col-md-1">Scans</th>
+                    <th class="col-md-1">Pages Used</th>
+                    <th class="col-md-1"></th>
+                    <th class="col-md-1">Branding</th>
+                    <th class="col-md-1">Scanning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="display:inline-table;" class="col-md-12">
+                    <th class="col-md-1">
+                        Balance
+                    </th>
+                    <td class="col-md-1" id="balance_Pages"></td>
+                    <td class="col-md-1" id="balance_Forms"></td>
+                    <td class="col-md-1" id="balance_Templates"></td>
+                    <td class="col-md-1" id="balance_Users"></td>
+                    <td class="col-md-1" id="balance_PagesUsed"></td>
+                    <td class="col-md-1"></td>
+                    <td class="col-md-1" id="balance_Branding"></td>
+                    <td class="col-md-1" id="balance_Scanning"></td>
+                </tr>
+                <tr style="display:inline-table;" class="col-md-12">
+                    <th class="col-md-1">
+                        New
+                    </th>
+                    <td class="col-md-1" id="new_Pages"></td>
+                    <td class="col-md-1" id="new_Forms"></td>
+                    <td class="col-md-1" id="new_Templates"></td>
+                    <td class="col-md-1" id="new_Users"></td>
+                    <td class="col-md-1" id="new_PagesUsed"></td>
+                    <td class="col-md-1"></td>
+                    <td class="col-md-1" id="new_Branding"></td>
+                    <td class="col-md-1" id="new_Scanning"></td>
+                </tr>
+                <tr style="display:inline-table;" class="col-md-12">
+                    <th class="col-md-1">
+                        Total
+                    </th>
+                    <td class="col-md-1" id="total_Pages"></td>
+                    <td class="col-md-1" id="total_Forms"></td>
+                    <td class="col-md-1" id="total_Templates"></td>
+                    <td class="col-md-1" id="total_Users"></td>
+                    <td class="col-md-1" id="total_PagesUsed"></td>
+                    <td class="col-md-1"></td>
+                    <td class="col-md-1" id="total_Branding"></td>
+                    <td class="col-md-1" id="total_Scanning"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" style="margin-top:20px">
+            <tbody>
+                <tr style="display:inline-table;" class="col-md-12">
+                    <td>@Html.CheckBox("AllowScanning", false, new { @id = "AllowScanning" })</td>
+                    <th class="col-md-2">Allow Scanning</th>
+                    <td>@Html.CheckBox("AllowBranding", false, new { @id = "AllowBranding" })</td>
+                    <th class="col-md-2">Allow Branding</th>
+                    <td>@Html.CheckBox("AllowTemplateWorkflow", false, new { @id = "AllowTemplateWorkflow" })</td>
+                    <th class="col-md-2">Allow Template Workflow</th>
+
+
+                    <th class="col-md-1">Start Date</th>
+                    <td><input type="Date" id="StartDate" class="form-control"></td>
+                    <th class="col-md-1">Expiry Date</th>
+                    <td><input type="Date" id="ExpiryDate" class="form-control"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div style="display:inline-block;margin-top:20px;" class="col-md-12">
+    @{
+        var TenantSubscription = Model.TenantSubscriptions;
+    }
+    @(Html.Kendo().Grid(TenantSubscription) //Bind the grid to ViewBag.Products
+      .Name("TenantSubscriptionGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "TenantSubscriptionId" });
+          columns.Bound(item => item.DateTimeStart).Title("Start Date");
+          columns.Bound(item => item.DateTimeExpires).Title("Expiry Date");
+
+          columns.Bound(item => item.NumberOfFormsAllowed).Title("Forms Allowed");
+          columns.Bound(item => item.NumberOfPagesAllowed).Title("Pages Allowed");
+          columns.Bound(item => item.NumberOfUsersAllowed).Title("Users Allowed");
+          columns.Bound(item => item.NumberOfTemplatesAllowed).Title("Template Allowed");
+
+          columns.Bound(item => item.NumberOfFormsUsed).Title("Forms Used");
+          columns.Bound(item => item.NumberOfPagesUsed).Title("Pages Used");
+          columns.Bound(item => item.NumberOfUsersUsed).Title("Users Used");
+          columns.Bound(item => item.NumberOfTemplatesUsed).Title("Template Used");
+
+          columns.Template(item => ((item.AllowScanning) ? ("Yes") : ("No"))).Title("Scan");
+          columns.Template(item => ((item.AllowBranding) ? ("Yes") : ("No"))).Title("Brand");
+          columns.Template(item => ((item.AllowTemplateWorkflows) ? ("Yes") : ("No"))).Title("Workflow");
+
+          columns.Template(item => ((item.IsDemo) ? ("Yes") : ("No"))).Title("Demo");
+          columns.Template(item => ((item.IsActive) ? ("Active") : ("InActive"))).Title("Status");
+          //columns.Template(item => (
+          //    (
+          //    "<a href='" + @Url.Action("index", "mastertenantsubscription", new { id = item.Id }) + "'><img src='/Images/EditTemplate.jpg' title='Edit' style='height:20px;width:20px' id='" + item.Id + "'  ></a>" +
+          //    "<a href='" + @Url.Action("RenderTamplateView", "FormDesigner", new { id = item.Id }) + "'><img src='/Images/head_icon2.png' title='Tenant Subscription' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //    ).ToString()
+          //    )
+          //    ).Title("Actions");
+
+
+      })
+              .ClientRowTemplate(
+                       "<tr data-uid='#: uid #'>" +
+                        "<td name='SubscriptionNo' style='display:none'>" +
+                        "#: Id #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: DateTimeStart #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: DateTimeExpires #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: NumberOfFormsAllowed #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: NumberOfPagesAllowed #" +
+                        "</td>" +
+                        "<td>" +
+                            "#: NumberOfUsersAllowed #" +
+                        "</td>" +
+                        "<td>" +
+                             "#: NumberOfTemplatesAllowed #" +
+                        "</td>" +
+                        "<td>" +
+                            "#: NumberOfFormsUsed #" +
+                        "</td>" +
+                        "<td>" +
+                            "#: NumberOfPagesUsed #" +
+                        "</td>" +
+                        "<td>" +
+                            "#: NumberOfUsersUsed #" +
+                        "</td>" +
+                        "<td>" +
+                           "#: NumberOfTemplatesUsed #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: (AllowScanning)?('Yes'):('No') #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: (AllowScanning)?('Yes'):('No') #" +
+                        "</td>" +
+                        "<td>" +
+                        "#: (AllowTemplateWorkflows)?('Yes'):('No') #" +
+                         "</td>" +
+                         "<td>" +
+                             "#: (IsDemo)?('Yes'):('No') #" +
+                        "</td>" +
+                        "<td>" +
+                              "#: (IsActive)?('Active'):('InActive') #" +
+                        "</td>" +
+
+                    "</tr>"
+                   )
+                   .ClientAltRowTemplate(
+                            "<tr data-uid='#: uid #' class='k-alt'>" +
+                                "<td name='SubscriptionNo' style='display:none'>" +
+                                "#: Id #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: DateTimeStart #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: DateTimeExpires #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfFormsAllowed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfPagesAllowed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfUsersAllowed #" +
+                                "</td>" +
+                                "<td>" +
+                                 "#: NumberOfTemplatesAllowed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfFormsUsed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfPagesUsed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfUsersUsed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: NumberOfTemplatesUsed #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: (AllowScanning)?('Yes'):('No') #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: (AllowScanning)?('Yes'):('No') #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: (AllowTemplateWorkflows)?('Yes'):('No') #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: (IsDemo)?('Yes'):('No') #" +
+                                "</td>" +
+                                "<td>" +
+                                "#: (IsActive)?('Active'):('InActive') #" +
+                                "</td>" +
+                            "</tr>"
+                           )
+       .Pageable()
+      .Sortable()
+      .Scrollable()
+    )
+
+</div>
+
+
+
+
+
+

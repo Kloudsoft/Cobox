@@ -1,0 +1,230 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.TemplateElementListAndElementDetailListViewModel
+
+@{
+    ViewBag.Title = "Template Index List";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+
+<h2>Template Index List</h2>
+
+
+
+@Scripts.Render("~/bundles/TypeScript")
+
+
+
+<script type="text/javascript">
+    var designer = new AffinityDms.Entities.FormDesigner();
+</script>
+@using (Html.BeginForm("Index", "TenantTemplateIndexList", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+
+    <div style="padding-left:5px">
+        <table >
+            <tr><td>Project Name : @Session["ProjectName"]</td></tr>
+
+            <tr>
+                <td style="border:1px solid #e0e0e0">
+                    Result &nbsp;:-&nbsp;
+                    @if (ViewBag.ProjectResult != null)
+                    {
+                        @Html.Raw(HttpUtility.HtmlDecode(ViewBag.ProjectResult.ToString().Replace("&nbsp;&nbsp;", "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;")))
+                    }
+                    &nbsp; &nbsp;
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="n-scroll" class="col-xs-7" style="height:450px;width:860px;" >
+
+        
+
+            <div class="panel table-col-box" style="overflow:scroll;height:320px;width:860px;" >
+                <div class="widget-body" >
+                    <div id="left-doc" class="widget-main" tabindex="0">
+                        <table width="100%" cellpadding="5">
+                            <tr>
+                                <td>
+                                    <div class="form-group" id="DivImage" name="DivImage" style="display:block">
+                                        <div class="col-md-3 form-control" style="width:95%;margin-left: 1%">
+                                            <input type="file" name="file" id="file">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><input type="submit" id="btnupload" value="Upload" class="=btn btn-primary btn-radius" /></td>
+                                <td><input type="button" id="btnprocessocr" value=" Process OCR Extract Index " class="=btn btn-primary btn-radius" /></td>
+                            </tr>
+                        </table>
+
+                        @{
+
+                            if (Session["imgbyte"] != null)
+                            {
+                                System.Drawing.Image img = (System.Drawing.Image)Session["tempimg"];
+                                byte[] imgbytearray = (byte[])Session["imgbyte"];
+                                string imageBase64Data = Convert.ToBase64String(imgbytearray);
+                                string imageDataURL = string.Format("data:image/png;base64,{0}", imageBase64Data);
+                                if (img.Size.Width > 0)
+                                {
+                                    <svg id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-image:url(@imageDataURL)" width="@img.Size.Width.ToString()px" height="@img.Size.Height.ToString()px">
+                                    </svg>
+                                  
+                                }
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+
+                <div class="col-xs-5" style="width:225px;float:right">
+
+                    <div class="panel" style="width:225px;float:right">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding-right">
+                                <div id="right-doc" style="overflow: hidden; height: 498px; padding-top:10px" tabindex="1">
+
+                                    @if (Session["Indexs"] != null)
+                                    {
+
+                                        @Html.Raw(HttpUtility.HtmlDecode(Session["Indexs"].ToString()));
+                                        }
+
+
+                                @*<div class="col-md-1">
+                                        <span class="num-bg">1</span>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <p> Employee Name</p>
+                                        <p>• OCR - Alphabet</p>
+                                    </div>
+
+                                    <div class="clearfix"> </div>
+                                    <hr size="1">
+
+                                    <div class="col-md-1">
+                                        <span class="num-bg">2</span>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <p> Employee Name</p>
+                                        <p>• OCR - Alphabet</p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                    <hr size="1">
+
+                                    <div class="col-md-1">
+                                        <span class="num-bg">3</span>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <p> Employee Name</p>
+                                        <p>• OCR - Alphabet</p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                    <hr size="1">
+
+                                    <br><br><br><br>
+                                    <div class="clearfix"> </div>*@
+
+                              
+                            </div>
+
+
+                        </div>
+                        <!-- Scrool -->
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    if (Model != null)
+                                    {
+    <script type="text/javascript">
+        @{
+                                            System.Web.Script.Serialization.JavaScriptSerializer serialize = new System.Web.Script.Serialization.JavaScriptSerializer();
+                                            serialize.MaxJsonLength = int.MaxValue;
+                                            var serializeddata = serialize.Serialize(Model);
+                                        }
+       // document.onload = designer.editTemplateDesign('@Html.Raw(serializeddata)');//Json.Encode(Model))');
+
+    </script>
+    }
+
+    <script>
+
+    //----------------------------------SVG START-----------------------------------
+
+    </script>
+
+    <script>
+
+
+    //==============
+
+
+
+
+    var urll = "@Url.Action("ProcessOcr", "TenantTemplateIndexList")";
+
+
+
+$(function(){
+  $("#btnprocessocr").click(function(){
+                                            window.location = urll;
+                                        });
+                                    });
+
+
+    </script>
+
+   
+
+
+
+<script>
+
+     var urlSaveIndexs = "@Url.Action("SaveIndexs", "TenantTemplateIndexList")";
+
+        $(function () {
+            $('#btnsaveindex').click(function (e) {
+                $.ajax({
+                                                url: urlSaveIndexs,
+                    type: "POST",
+                //contentType: "application/json",
+                dataType: "json",
+                    data: { desc: $("#addnameid").val(), val: $("#addindexvalue").val(), x:$("#addxid").val(), y:$("#addyid").val(), w:$("#addx2id").val(), h:$("#addy2id").val() },
+
+                   error: function (response) {
+                                                    alert("error");
+
+                                                },
+                    success: function (response) {
+
+    alert("Selected field INDEXED successfully!");
+                                //JsonpCallback(response);
+
+                                                }
+                                            });
+                                        });
+                                    });
+
+
+    function JsonpCallback(json)  {
+
+
+    document.getElementById('divindexadded').innerHTML = JSON.parse(json);
+}
+</script>
+}

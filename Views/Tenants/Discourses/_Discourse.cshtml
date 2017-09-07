@@ -1,0 +1,734 @@
+﻿@model HouseOfSynergy.AffinityDms.Entities.Tenants.Discourse
+@using HouseOfSynergy.AffinityDms.Entities.Tenants;
+@{
+    this.ViewBag.Topic = this.Model.Topic;
+    //this.ViewBag.Description = this.Model.Description;
+
+}
+@Styles.Render("~/bundles/ChatThemeCSS")
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    var discourses = new AffinityDms.Entities.Discourses();
+</script>
+@{
+    var ModelId = (this.Model != null) ? ((this.Model.Id > 0) ? this.Model.Id : 0) : 0;
+    if (this.ViewBag.CurrentUser == null) { this.ViewBag.CurrentUser = 0; }
+    var CurrentModel = (HouseOfSynergy.AffinityDms.Entities.Tenants.Discourse)this.Model;
+    var isCurrentModelNull = (CurrentModel != null) ? ((CurrentModel.Id > 0) ? (false) : (true)) : (true);
+
+}
+<input type="hidden" value="" id="DynamicModalDataType_H">
+<input type="hidden" value="@ModelId" id="DiscourseNo_H">
+<input type="hidden" value="" id="DynamicModalRowId_H">
+<input type="hidden" value="" id="DynamicModalDataType_H">
+<input type="hidden" value="-1" id="EditCounter_H">
+<input type="hidden" value="-1" id="EditPost_H">
+<input type="hidden" value="false" id="IsDiscourseModal">
+<input type="hidden" value="0" id="MailCounter_H">
+
+<input type="hidden" id="ModalBodyId" value="" style="display:none">
+<input type="hidden" id="CurrentFolderId" value="0">
+<input type="hidden" id="MoveFolderTo" value="0">
+
+<input type="hidden" value="@this.ViewBag.CurrentUser" id="CUser">
+
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DiscourseErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DiscourseErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DiscourseErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DiscourseSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DiscourseSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DiscourseSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+@{
+    var modelposts = new List<DiscoursePost>();
+    if (this.Model.Posts != null)
+    {
+        if (this.Model.Posts.Count > 0)
+        {
+            modelposts = this.Model.Posts.ToList();
+        }
+    }
+    var showDiscourseCommentDisplay = "";
+    var discourseCommentEditorDisplay = "none";
+
+    if (this.Model.Id <= 0)
+    {
+        showDiscourseCommentDisplay = "none";
+        discourseCommentEditorDisplay = "";
+
+    }
+}
+@{
+    this.ViewBag.IsUserChatCreator = false;
+    if (this.ViewBag.CurrentUser != null)
+    {
+        if (modelposts.Count > 0)
+        {
+            if (this.ViewBag.CurrentUser == modelposts.First().UserId)
+            {
+                this.ViewBag.IsUserChatCreator = true;
+            }
+        }
+    }
+}
+<div class="modal fade" id="InviteUrl" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Copy Url</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" value="" id="InviteUrlText" style="width: 100%;">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div id="InviteUrlHolder" style="display:none"></div>*@
+
+
+
+
+@*@if (this.ViewBag.CurrentUser != null)
+    {
+
+        <div class="post-box" style="width:155px;background-color: transparent !important;border: 0px;float:left!important;left:12px;right:0px" id="UserManagementBtns">
+            <div style="cursor:pointer; background: white none repeat scroll 0 0!important;border:1.5px solid #ccc;display:inline-block;padding:10px" id="AddRemoveUserBtn" onclick="javascript: discourses.AddRemoveUserBtn(event)">
+                <i class="fa fa-users" aria-hidden="true" title="Add / Remove Users" style="background-color:#2074ca;padding:10px;color:white;font-size:1.5em"></i>
+            </div>
+            <div style="cursor:pointer;background: white none repeat scroll 0 0!important;border:1.5px solid #ccc;display:inline-block;padding:10px;margin-left:5px" id="AddInternalInviteBtn" onclick="javascript: discourses.AddInternalInviteBtn(event)">
+                <i class="fa fa-user-plus" aria-hidden="true" title="Invite External Users" style="background-color:#2074ca;padding:10px;color:white;font-size:1.5em"></i>
+            </div>
+        </div>
+        <div class="post-box" id="userManagementDiv" style="display:none;min-height:300px; min-width:500px;margin-right:10px;max-height: 400px;background: #f9f9f9 none repeat scroll 0 0 !important;border: 0px solid #1767b9 !important;box-shadow: 0px 0px 5px #888888 !important;">
+            <div class="col-xs-12">
+                <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseUserManagementDiv(event)" style="margin-bottom:10px;float:right">
+                <div class="alert alert-danger" style="display:none" id="userManagementError"></div>
+                <div class="alert alert-success" style="display:none" id="userManagementSuccess"></div>
+                <h3 id="UserManagementHeader"></h3>
+                <div id="UserManagementContainer" style="max-height: 200px;">
+                </div>
+            </div>
+            <div class="clearfix pull-right panel-body">
+                @if (this.Model.Id > 0)
+                {
+                    if (modelposts.Count > 0)
+                    {
+                        if (this.ViewBag.CurrentUser == modelposts.First().UserId)
+                        {
+                            <button class="btn btn-primary btn-radius pull-right" id="addRemoveSubmitBtn" style="display:none;margin-top: 30px;" onclick="javascript: discourses.SaveUserSelectionModal(event)">Submit</button>
+                            <button class="btn btn-primary btn-radius pull-right" id="inviteExternalSubmitBtn" style="display:none" onclick="javascript: discourses.SendExternalUserInvite(event)">Invite</button>
+                        }
+                    }
+                }
+                else
+                {
+                    <button class="btn btn-primary btn-radius pull-right" id="addRemoveSubmitBtn" style="display:none" data-Type="New" onclick="javascript: discourses.SaveUserSelectionModal(event)">Submit</button>
+                    <button class="btn btn-primary btn-radius pull-right" id="inviteExternalSubmitBtn" style="display:none" data-Type="New" onclick="javascript: discourses.SendExternalUserInvite(event)">Invite</button>
+                }
+            </div>
+        </div>
+        <div id="InviteUrlHolder" style="display:none"></div>
+        //<input type="button" value="Invite External Users" class="btn btn-default" data-toggle='modal' data-target='#InviteExternalUserModal'>
+        <br />
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="document">
+    <div class="data-view" style="background-color:white">
+        <div class="main_section" style="Margin:12px;">
+            <div class="chat_container">
+            </div>
+            <div class="col-sm-4  message_section" style="height:932px;">
+
+                <div class="chat_sidebar">
+                    <div class="row" style="margin-right: 14px;">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-11">
+                                <input style="margin-left:11px;" type="text" class="search-query form-control" placeholder="Search User" />
+                            </div>
+                        </div>
+                        <div style="padding:32px; margin-left:-20px;">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" id="ChatTabs" role="tablist">
+                                <li role="presentation" class="active" style="cursor:pointer">
+                                    <a href="#ParticipentsTab" data-href="#ParticipentsTab" data-type="ParticipentsTab" aria-controls="home" role="tab" data-toggle="tab">
+                                        <span class="round-tabs two">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        &nbsp; Participents
+                                    </a>
+                                </li>
+                                <li role="presentation" class="" style="cursor:pointer" id="AttachmentTabBtn" data-href="#AttachmentsTab">
+                                    <a data-href="#AttachmentsTab" data-type="AttachmentsTab" aria-controls="home" role="tab" data-toggle="tab" >
+                                        <span class="round-tabs two">
+                                            <i class="glyphicon glyphicon-file"> </i>
+                                        </span>
+                                        &nbsp; Attachments
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content" style="overflow: auto; width: 100%;  height: 700px;">
+                                <div role="tabpanel" class="tab-pane chatsTabPane active" id="ParticipentsTab">
+                                    <div class="member_list">
+                                        <ul class="list-unstyled" id="DiscourseAddedUsers">
+                                            @{
+                                                Html.RenderPartial("~/Views/Tenants/Discourses/_DiscourseChatParticipents.cshtml", Model.Users.ToList());
+                                            }
+                                        </ul>
+                                    </div>
+                                    @if (this.ViewBag.IsUserChatCreator)
+                                    {
+                                        <div class="font1 inviteusers" style="margin-top:86px">
+                                            <a onclick="javascript: discourses.AddRemoveChatUsers(event)">
+                                                <i class="fa fa-user-plus" aria-hidden="true" title="Add /Remove Participents" style="background-color:#2074ca;padding:10px;color:white;font-size:1em; ">&nbsp;Add /Remove Participents</i>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                                <div role="tabpanel" class="tab-pane chatsTabPane" id="AttachmentsTab">
+                                 
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                @if ((this.ViewBag.CurrentUser != null) && (!isCurrentModelNull))
+                {
+                    if (this.ViewBag.CurrentUser == CurrentModel.Posts.First().UserId)
+                    {
+                        <div id="AddRemoveUserDiv" class=".clearfix post-box1" style="display:none;">
+                            <a class="col-lg-1 pull-right" onclick="javascript: discourses.CloseAddRemoveChatUsersDiv(event)">
+                                @*  discourses.CloseUserManagementDiv(event) *@
+                                <strong><b>X</b></strong>
+                            </a>
+                            <div class="alert alert-danger" style="display:none" id="userManagementError"></div>
+                            <div class="alert alert-success" style="display:none" id="userManagementSuccess"></div>
+                            <label class="col-lg-7" style="Margin-left:-10px;">
+                                <h3>Invite External Users:</h3>
+                            </label>
+                            <input class="col-lg-9" placeholder="Invtie Through Email " id="InviteUserEmail" type=text>
+                            <input class="btn btn-primary col-lg-2" style="margin-left:10px;height: 33px;padding: 0;" id="inviteExternalSubmitBtn" data-Type="New" onclick="javascript: discourses.SendExternalUserInvite(event)" type="button" value="Invite">
+
+                            <label class="col-lg-7" style="Margin-left:-10px;">
+                                <h3>Add / Remove Users:</h3>
+                            </label>
+                            <div id="UserManagementContainer" style="max-height: 200px;display:inline-block;padding-right: 15px;">
+                            </div>
+                            <button class="btn btn-primary col-lg-2 pull-right" style="Margin:20px;" id="addRemoveSubmitBtn" data-Type="New" onclick="javascript: discourses.SaveUserSelectionModal(event)">Submit</button>
+                        </div>
+                    }
+                }
+            </div>
+            <!--chat_sidebar-->
+            <div class="col-sm-8 message_section" style="height:932px;">
+                <div class="row">
+                    <div class="new_message_head">
+                        <h4>
+                            <strong>@CurrentModel.Description</strong>
+                        </h4><span class="pull-right">
+                            <i class="fa fa-clock-o"></i>
+                            @((!isCurrentModelNull) ? (CurrentModel.Posts.First().Versions.First().DateTime + " -Posted By: " + CurrentModel.Posts.First().User.NameFull) : (""))
+                        </span>
+                        <div class="pull-left"></div>
+                    </div>
+                    <div class="chat_area">
+
+                        <ul class="list-unstyled">
+                            @if (!isCurrentModelNull)
+                            {
+                                Html.RenderPartial("~/Views/Tenants/Discourses/_DiscoursePosts.cshtml", CurrentModel.Posts);
+                            }
+                        </ul>
+                    </div>
+                    <!--chat_area-->
+                       <div class="">
+                            <div class="" id="HistoryViewerDiv" style="display:none;width:100% !important;min-height:300px;max-height: 400px;">
+                                <div class="col-xs-12">
+                                    <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseHistoryViewerDiv(event)" style="margin-bottom:10px;float:right">
+                                    <h3 id="HistoryViewerHeader">Comments History</h3>
+                                    <div id="HistoryViewerContainer" style="max-height: 200px;overflow: auto;">
+                                    </div>
+                                </div>
+                                <div class="clearfix pull-right panel-body">
+                                </div>
+                            </div>
+                            <div class="" id="uploadAttachmentsDiv" style="display:none;width:100% !important;min-height:140px;max-height: 200px;">
+                                <div class="col-xs-12">
+                                    <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseUploadAttachmentsDiv(event)" style="margin-bottom:10px;float:right">
+                                    <h3 id="uploadAttachmentsHeader"></h3>
+                                    <div id="uploadAttachmentsContainer">
+                                    </div>
+                                </div>
+                                <div class="clearfix pull-right panel-body">
+                                    <button class="btn btn-primary btn-radius pull-right" onclick="javascript: discourses.SaveDynamicSelectionModal(event)" style="margin-right: 0px">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" id="discourseCommentEditor">
+                            <div class="">
+                                @*<textarea id="comment" class="form-group col-lg-10" rows="4" style="Margin:4px;" placeholder="Write a Message.."></textarea>*@
+                                <div style="margin-left:980px;margin-bottom: -88px;">
+
+                                    @if (this.Model.Id > 0)
+                                    {
+                                        <i class="fa fa-paper-plane" aria-hidden="true" title="Send" onclick="javascript:discourses.PostEditedComment(event)" id="postEditedCommentBtn" data-id="-1" style="display:none;background-color:#2074ca;padding:14px;color:white;font-size:1em; cursor:pointer">&nbsp;Send</i>
+                                        <i class="fa fa-paper-plane" aria-hidden="true" title="Send" onclick="javascript:discourses.PostComment(event)" id="postCommentBtn" data-id="@this.Model.Id" style="background-color:#2074ca;padding:15px; margin-bottom: 1px;color:white;font-size:1em;cursor:pointer">&nbsp;Send</i>
+                                        <i class="fa fa-paper-plane" aria-hidden="true" title="Clear" onclick="javascript: discourses.ResetCommentBox(event)" style="background-color:#2074ca;padding:14px;color:white;font-size:1em;cursor:pointer">&nbsp;Clear</i>
+                                    }
+                                    <div id="temDataHolder" style="display:none"></div>
+
+                                    @* if (this.Model.Id <= 0){
+                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript:discourses.CreatePost(event)" id="postCommentBtn" data-id="@this.Model.Id" style="margin-right:0px!important">Create Post</button></span>
+                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript: discourses.ResetCommentBox(event)" style="margin-right:5px;">Clear</button></span>
+            }
+            else
+                                    *@
+                                </div>
+                                <div id="PostComment" class="" rows="4" style="Margin:4px; width:959px;">
+                                    @(Html.Kendo().Editor()
+                                .Name("CommentTextEditor")
+                                .Resizable(true)
+                                .Tools(tools => tools
+                                .CustomTemplate(
+                                        ct =>
+                                            ct.Template(
+                                                        "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                            "<a  role='button' class='k-tool k-group-start ' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Document'>" +
+                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Document.png' title='Upload Document'></span>" +
+                                                                "<span class='k-tool-text'>Upload Document</span>" +
+                                                            "</a>" +
+                                                        "</li>" +
+                                                            //"<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                            //    "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Template'>" +
+                                                            //        "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Template.png' title='Upload Template'></span>" +
+                                                            //        "<span class='k-tool-text'>Upload Template</span>" +
+                                                            //    "</a>" +
+                                                            //"</li>" +
+                                                            //"<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                            //    "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Form'>" +
+                                                            //        "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Form.png' title='Upload Form'></span>" +
+                                                            //        "<span class='k-tool-text'>Upload Form</span>" +
+                                                            //    "</a>" +
+                                                            //"</li>" +
+                                                            "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                            "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='External'>" +
+                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Browse.png' title='Upload External' width='20px' height='20px'></span>" +
+                                                                "<span class='k-tool-text'>Upload External</span>" +
+                                                            "</a>" +
+                                                        "</li>" +
+                                                        "</li>" +
+                                                            "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                            "<a  role='button' class='k-tool k-group-end' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Live'>" +
+                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Url.png' title='Upload Live' width='20px' height='20px'></span>" +
+                                                                "<span class='k-tool-text'>Upload Live</span>" +
+                                                            "</a>" +
+                                                        "</li>"
+                                                    )
+                                                )
+
+                                    )
+                                    .HtmlAttributes(new { style = "height:140px" })
+                                    )
+
+                                </div>
+
+                            </div>
+                            
+                            <div class="col-lg-10">
+                                <div id="PostAttachmentsDiv"></div>
+                            </div>
+
+                        </div>
+
+                  
+
+                </div>
+                <!--message_section-->
+            </div>
+        </div>
+    </div>
+
+
+    <script id="treeview-template-FolderTreeViewModal" type="text/kendo-ui-template">
+        <label id="templabelid" data-tempid='#: item.Id #'>#: item.Name #</label>
+        <input type="hidden" value='#: item.Id #'>
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- top -->
+    <!-- Left side -->
+    @*<div class="data-view">
+            <div class="col-xs-10">
+                <div class="panel table-col-box">
+                    <div class="widget-body" style="overflow:hidden!important;min-height: 550px;">
+                        <div id="left-doc" class="widget-main" style="overflow:hidden!important">
+                            <!-- top -->
+                            @{if (Model.Posts != null)
+                                {
+                                    Html.RenderPartial("~/Views/Tenants/Discourses/_DiscoursePosts.cshtml", this.Model.Posts);
+                                }
+                            }
+                        </div>
+
+
+                        <div class="widget-main">
+                            <div class="col-md-1" style="margin-top:25px;"></div>
+                            <div class="col-md-11">
+                                <div class="post-display">
+                                    <div class="" id="HistoryViewerDiv" style="display:none;width:100% !important;min-height:300px;max-height: 400px;">
+
+                                        <div class="col-xs-12">
+                                            <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseHistoryViewerDiv(event)" style="margin-bottom:10px;float:right">
+                                            <h3 id="HistoryViewerHeader">Comments History</h3>
+                                            <div id="HistoryViewerContainer" style="max-height: 200px;overflow: auto;">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix pull-right panel-body">
+                                        </div>
+                                    </div>
+                                    <div class="" id="uploadAttachmentsDiv" style="display:none;width:100% !important;min-height:300px;max-height: 400px;">
+
+                                        <div class="col-xs-12">
+                                            <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseUploadAttachmentsDiv(event)" style="margin-bottom:10px;float:right">
+                                            <h3 id="uploadAttachmentsHeader"></h3>
+                                            <div id="uploadAttachmentsContainer">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix pull-right panel-body">
+                                            <button class="btn btn-primary btn-radius pull-right" onclick="javascript: discourses.SaveDynamicSelectionModal(event)" style="margin-right: 0px">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="" id="showDiscourseComment" style="float:right; background:white!important;border:0px;width:auto !important;display:@showDiscourseCommentDisplay">
+                                        <input type="button" value="Comment" class="btn btn-primary" onclick="javascript: discourses.showDiscourseBtn(event)" />
+                                    </div>
+                                    <div class="" id="discourseCommentEditor" style="float:right;display:@discourseCommentEditorDisplay;width:100% !important;max-height: 600px;overflow: auto;">
+
+                                        <div class="col-xs-12">
+                                            @if (this.Model.Id <= 0)
+                                            {
+                                                <div id="TitleInputDiv"><input type="text" class="form-control text-box" placeholder="Add Title" id="PostTitleTxt" style="max-width:none;margin-bottom:10px"></div>}
+
+                                            <div id="PostComment">
+                                                @(Html.Kendo().Editor()
+                                                        .Name("CommentTextEditor")
+                                                        .HtmlAttributes(new { style = "height:340px" })
+                                                                .Tools(tools => tools
+                                                                .CustomTemplate(
+                                                                        ct =>
+                                                                            ct.Template(
+                                                                                        "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                                                            "<a  role='button' class='k-tool k-group-start ' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Document'>" +
+                                                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Document.png' title='Upload Document'></span>" +
+                                                                                                "<span class='k-tool-text'>Upload Document</span>" +
+                                                                                            "</a>" +
+                                                                                        "</li>" +
+                                                                                            //"<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                                                            //    "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Template'>" +
+                                                                                            //        "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Template.png' title='Upload Template'></span>" +
+                                                                                            //        "<span class='k-tool-text'>Upload Template</span>" +
+                                                                                            //    "</a>" +
+                                                                                            //"</li>" +
+                                                                                            //"<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                                                            //    "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Form'>" +
+                                                                                            //        "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Form.png' title='Upload Form'></span>" +
+                                                                                            //        "<span class='k-tool-text'>Upload Form</span>" +
+                                                                                            //    "</a>" +
+                                                                                            //"</li>" +
+                                                                                            "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                                                            "<a  role='button' class='k-tool' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='External'>" +
+                                                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Browse.png' title='Upload External' width='20px' height='20px'></span>" +
+                                                                                                "<span class='k-tool-text'>Upload External</span>" +
+                                                                                            "</a>" +
+                                                                                        "</li>" +
+                                                                                        "</li>" +
+                                                                                            "<li class='k-tool-group k-button-group' role='presentation'>" +
+                                                                                            "<a  role='button' class='k-tool k-group-end' onclick='javascript: discourses.ShowDynamicModal(event)' data-type='Live'>" +
+                                                                                                "<span unselectable='on' class=''><img src='../../Multimedia/Graphics/Images/Url.png' title='Upload Live' width='20px' height='20px'></span>" +
+                                                                                                "<span class='k-tool-text'>Upload Live</span>" +
+                                                                                            "</a>" +
+                                                                                        "</li>"
+                                                                                    )
+                                                                                )
+
+                                                                                )
+
+                                                )
+
+                                            </div>
+                                            <div id="PostAttachmentsDiv"></div>
+                                        </div>
+                                        <div class="clearfix pull-right panel-body" style="margin-right:0px!important">
+
+                                            @if (this.Model.Id <= 0)
+                                            {
+                                                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript:discourses.CreatePost(event)" id="postCommentBtn" data-id="@this.Model.Id" style="margin-right:0px!important">Create Post</button></span>
+                                                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript: discourses.ResetCommentBox(event)" style="margin-right:5px;">Clear</button></span>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-primary  btn-radius pull-right" onclick="javascript:discourses.PostEditedComment(event)" id="postEditedCommentBtn" style="display:none;margin-right:0px!important" data-id="-1">Comment</button>
+                                                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript:discourses.PostComment(event)" id="postCommentBtn" data-id="@this.Model.Id" style="margin-right:0px!important">Comment</button></span>
+                                                <span><button class="btn btn-primary  btn-radius pull-right" onclick="javascript: discourses.ResetCommentBox(event)" style="margin-right:5px">Cancel</button></span>
+                                            }
+
+                                            <div id="temDataHolder" style="display:none"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            @{ var modelposts = new List<DiscoursePost>();
+                if (this.Model.Posts != null)
+                {
+                    if (this.Model.Posts.Count > 0)
+                    {
+                        modelposts = this.Model.Posts.ToList();
+                    }
+                }
+            }
+            <!-- //Left side -->
+            <!-- right side -->
+            <div class="col-xs-2">
+                <div class="panel">
+                    <div class="widget-body" style="height:100%;">
+
+                        <div class="widget-main no-padding-right">
+                            <div id="right-doc" style="margin-bottom: 0px; overflow:hidden!important">
+
+                                <div id="DiscourseAddedUsers" style="max-height: 422px; overflow: auto;">
+                                    @foreach (var discourseUser in Model.Users.ToList())
+                                    {
+                                        <p style="color:black">@discourseUser.User.NameFull</p>
+                                        if (this.ViewBag.CurrentUser != null)
+                                        {
+                                            if ((this.ViewBag.CurrentUser == modelposts.First().UserId)&& (discourseUser.User.InviteGuid!=null))
+                                            {
+                                                <a onclick="GenerateInviteUrl(event)" class="InviteUrlTemp">Get New Invite Url</a>
+                                            }
+                                        }
+                                    }
+                                </div>
+
+                                @if (this.ViewBag.CurrentUser != null)
+                                {
+
+                                    <div class="post-box" style="width:155px;background-color: transparent !important;border: 0px;float:left!important;left:12px;right:0px" id="UserManagementBtns">
+                                        <div style="cursor:pointer; background: white none repeat scroll 0 0!important;border:1.5px solid #ccc;display:inline-block;padding:10px" id="AddRemoveUserBtn" onclick="javascript: discourses.AddRemoveUserBtn(event)">
+                                            <i class="fa fa-users" aria-hidden="true" title="Add / Remove Users" style="background-color:#2074ca;padding:10px;color:white;font-size:1.5em"></i>
+                                        </div>
+                                        <div style="cursor:pointer;background: white none repeat scroll 0 0!important;border:1.5px solid #ccc;display:inline-block;padding:10px;margin-left:5px" id="AddInternalInviteBtn" onclick="javascript: discourses.AddInternalInviteBtn(event)">
+                                            <i class="fa fa-user-plus" aria-hidden="true" title="Invite External Users" style="background-color:#2074ca;padding:10px;color:white;font-size:1.5em"></i>
+                                        </div>
+                                    </div>
+                                    <div class="post-box" id="userManagementDiv" style="display:none;min-height:300px; min-width:500px;margin-right:10px;max-height: 400px;background: #f9f9f9 none repeat scroll 0 0 !important;border: 0px solid #1767b9 !important;box-shadow: 0px 0px 5px #888888 !important;">
+                                        <div class="col-xs-12">
+                                            <input type="button" value="X" class="btn btn-primary" onclick="javascript: discourses.CloseUserManagementDiv(event)" style="margin-bottom:10px;float:right">
+                                            <div class="alert alert-danger" style="display:none" id="userManagementError"></div>
+                                            <div class="alert alert-success" style="display:none" id="userManagementSuccess"></div>
+                                            <h3 id="UserManagementHeader"></h3>
+                                            <div id="UserManagementContainer" style="max-height: 200px;">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix pull-right panel-body">
+                                            @if (this.Model.Id > 0)
+                                            {
+                                                if (modelposts.Count > 0)
+                                                {
+                                                    if (this.ViewBag.CurrentUser == modelposts.First().UserId)
+                                                    {
+                                                        <button class="btn btn-primary btn-radius pull-right" id="addRemoveSubmitBtn" style="display:none;margin-top: 30px;" onclick="javascript: discourses.SaveUserSelectionModal(event)">Submit</button>
+                                                        <button class="btn btn-primary btn-radius pull-right" id="inviteExternalSubmitBtn" style="display:none" onclick="javascript: discourses.SendExternalUserInvite(event)">Invite</button>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-primary btn-radius pull-right" id="addRemoveSubmitBtn" style="display:none" data-Type="New" onclick="javascript: discourses.SaveUserSelectionModal(event)">Submit</button>
+                                                <button class="btn btn-primary btn-radius pull-right" id="inviteExternalSubmitBtn" style="display:none" data-Type="New" onclick="javascript: discourses.SendExternalUserInvite(event)">Invite</button>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div id="InviteUrlHolder" style="display:none"></div>
+                                    //<input type="button" value="Invite External Users" class="btn btn-default" data-toggle='modal' data-target='#InviteExternalUserModal'>
+                                    <br />
+                                }
+
+                            </div>
+                            <!-- Scrool -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / right side -->
+        </div>*@
+</div>
+<div id="TempMessagesHolder" style="display:none"></div>
+@if (this.Model != null)
+{
+    if (this.Model.Posts != null)
+    {
+        if (this.Model.Posts.Count > 0)
+        {
+            if (this.Model.Posts.Last().Versions != null)
+            {
+                <input type="hidden" id="DiscourseLastMessage" value="@this.Model.Posts.Last().Versions.Last().Id">
+            }
+        }
+    }
+}
+<script>
+
+    function showhide(id) {
+        var e = document.getElementById(id);
+        e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+    }
+
+    $(document).ready(function () {
+        $("#AttachmentTabBtn").on("click", function (e) {
+            var target = e.target;
+            var attachmentId = target.getAttribute("data-href");
+            var id = parseInt($("#DiscourseNo_H").val());
+            $(attachmentId).load("../../TenantDiscourse/GetAllAttachemnts?discourseId=" + id);
+            var chatsTabPane = document.getElementsByClassName("chatsTabPane");
+            for (var i = 0; i < chatsTabPane.length; i++)
+            {
+                chatsTabPane[i].classList.remove("active");
+            }
+            $(attachmentId).addClass("active");
+        });
+        if ($("#DiscourseLastMessage") != null) {
+            setInterval(function () {
+                if ($("#DiscourseLastMessage") != null) {
+                    if ($("#TempMessagesHolder") != null) {
+                        $("#TempMessagesHolder").load("../../TenantDiscourse/GetLatestPostVersionsByLastRecieved?id=" + parseInt($("#DiscourseLastMessage").val()));
+                    }
+                }
+            }, 3000);
+            $("div#TempMessagesHolder").bind("DOMSubtreeModified", function (e) {
+                var TempMessagesHolder = e.target;
+                if (TempMessagesHolder.childNodes != null) {
+                    var MaxMessageRecievedId = document.getElementById("MaxMessageRecievedId");
+                    if (MaxMessageRecievedId != null) {
+                        $("#DiscourseLastMessage").val(MaxMessageRecievedId.value);
+                        //MaxMessageRecievedId.parentNode.removeChild(MaxMessageRecievedId);
+                        for (var i = 0; i < TempMessagesHolder.childNodes.length; i++) {
+                            if (TempMessagesHolder.childNodes[i] instanceof HTMLDivElement) {
+                                $("div#MainPostContainer").append(TempMessagesHolder.childNodes[i]);
+                                TempMessagesHolder.textContent = "";
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+    });
+
+
+    //function showDiscourseBtn(e) {
+    //    var discourseCommentEditorId = "#discourseCommentEditor";
+    //    var showDiscourseCommentId = "#showDiscourseComment";
+    //    $(showDiscourseCommentId).hide();
+    //    $(discourseCommentEditorId).show();
+    //    //$(discourseCommentEditorId).addClass("show");
+    //    //$(showDiscourseCommentId).removeClass("hide");
+    //    //$(discourseCommentEditorId).addClass("show");
+
+    //}
+
+    //function hideDiscourseBtn(e) {
+    //    var discourseCommentEditorId = "#discourseCommentEditor";
+    //    var showDiscourseCommentId = "#showDiscourseComment";
+    //    $(discourseCommentEditorId).hide();
+    //    $(showDiscourseCommentId).show();
+    //    //$(showDiscourseCommentId).removeClass("show");
+    //    //$(discourseCommentEditorId).addClass("hide");
+    //    //$(showDiscourseCommentId).addClass("show");
+
+    //    //alert();
+
+    //    //$("#" + showDiscourseComment).show();
+    //}
+    //function CloseUploadAttachmentsDiv(event) {
+    //    var discourseCommentEditorId = "#discourseCommentEditor";
+    //    var showDiscourseCommentId = "#uploadAttachmentsDiv";
+    //    $(uploadAttachmentsDiv).hide();
+    //    $(discourseCommentEditorId).show();
+    //}
+
+</script>
+

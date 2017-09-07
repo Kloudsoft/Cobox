@@ -1,0 +1,961 @@
+﻿@using HouseOfSynergy.AffinityDms.BusinessLayer.Tenants;
+@using HouseOfSynergy.AffinityDms.Entities.Lookup;
+@using HouseOfSynergy.AffinityDms.Entities.Tenants;
+@{
+    ViewBag.Title = "Document Viewer";
+    //  this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+
+
+    this.ViewBag.IsDocumentViewer = true;
+    this.ViewBag.DocumentInformation = "";//docName + "   |   " + createdBy;// +"   |   Last Edited Aug 1, 2016";
+    this.ViewBag.DocCurrentPageNumber = "NaN";
+    this.ViewBag.DocTotalPageNumber = "NaN";
+    this.ViewBag.ZoomPercentage = "100 %";
+    this.ViewBag.BreadCrumbsPath = "";
+    //this.ViewBag.Type = "Document";
+
+    if (this.ViewBag.Type == DiscussionPostAttachmentType.Document)
+    {
+        Document modelDocument = (this.ViewBag.Model != null) ? ((Document)this.ViewBag.Model) : (new Document());
+        if (modelDocument.Id > 0)
+        {
+            this.ViewBag.DocumentInformation = Path.GetFileNameWithoutExtension(modelDocument.Name) + "   |   " + modelDocument.User.NameFull;
+            this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + DiscussionPostAttachmentType.Document.ToString() + "</a></li><li><a href='../../TenantDocumentViewer/Index?id=" + modelDocument.Id + "&type=" + DiscussionPostAttachmentType.Document.ToString() + "' >Document Viewer</a></li>";
+        }
+    }
+    else if (this.ViewBag.Type == DiscussionPostAttachmentType.External)
+    {
+
+        DiscoursePostVersionAttachment modelAttachment = (this.ViewBag.Model != null) ? ((DiscoursePostVersionAttachment)this.ViewBag.Model) : (new DiscoursePostVersionAttachment());
+        if (modelAttachment.Id > 0)
+        {
+            this.ViewBag.DocumentInformation = Path.GetFileNameWithoutExtension(modelAttachment.FileNameClient) + "   |   " + modelAttachment.PostVersion.Post.User.NameFull;
+            this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + DiscussionPostAttachmentType.External.ToString() + "</a></li><li><a href='../../TenantDocumentViewer/Index?id=" + modelAttachment.Id + "&type=" + DiscussionPostAttachmentType.External.ToString() + "' >Document Viewer</a></li>";
+        }
+    }
+    else
+    {
+        this.ViewBag.Type = "None";
+    }
+}
+
+
+<style type="text/css">
+    .viewer-container {
+        height: 470px;
+    }
+
+    .thumbnails-container {
+        height: 130px;
+        font-size: 8px;
+    }
+
+    @@media (min-width: 768px) {
+        .viewer-container,
+        .thumbnails-container {
+            height: 600px;
+        }
+    }
+</style>
+@Scripts.Render("~/bundles/TypeScript")
+
+<script type="text/javascript">
+    var docViewer = new AffinityDms.Entities.DocumentViewer();
+    $(document).ready(function () {
+        docViewer.run();
+    });
+</script>
+
+<div id="documentViewerDemoLoadingDlg" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog loading-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <br />
+                <label id="processText"></label>
+                <br />
+                <br />
+                <div class="progress">
+                    <div id="progressbar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        <span id="progressPercentage"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="cancelDiv" class="modal-footer">
+                <button id="cancel" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@if (this.ViewBag.ErrorMessage != null)
+{
+    <pre style="color:red">@this.ViewBag.ErrorMessage</pre>
+}
+@if (this.ViewBag.Id != null)
+{
+    if (this.ViewBag.Id > 0)
+    {
+        if (this.ViewBag.Type != null)
+        {
+            <input type="hidden" value="" id="DocViewerType" data-id="@this.ViewBag.Id" data-type="@this.ViewBag.Type">
+        }
+    }
+}
+else
+{
+
+    <div><input type="text" class="form-control" id="docViewerUrl"> <input type="button" id="docViewerUrlSearchBtn" onclick="javascript: docViewer.docViewerUrlSearch(event);" value="Load Url"></div>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="btn-group btn-group-xs pull-right" role="group">
+                    <button type="button" class="btn btn-primary" id="interactiveCommand" disabled>
+                        Interactive.PanZoom
+                    </button>
+                    <button type="button" id="interactiveDropDown" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul id="interactiveDropDownUL" class="dropdown-menu pull-left" role="menu" aria-labelledby="dLabel"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="row no-gutter">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <div id="thumbnails-container" class="thumbnails-container" style="overflow:scroll!important"></div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+        <div id="viewer-container" class="viewer-container" style="overflow:scroll!important"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Annotations.Automation.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Annotations.Core.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Annotations.Designers.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Annotations.Documents.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Annotations.Rendering.JavaScript.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Ccow.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Controls.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Controls.Medical.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Documents.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.Documents.UI.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.ImageProcessing.Color.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.ImageProcessing.Core.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.ImageProcessing.Effects.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.ImageProcessing.Main.js"></script>
+    <script type="text/javascript" src="~/Scripts/LeadTools/Leadtools.js"></script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!-- Create a header toolbar -->
+    <div id="headerToolbarContainer" class="toolbar headerToolbarDiv">
+        <!-- Create header toolbar tabs -->
+        <div class="headerToolbarTabs">
+            <ul class="nav">
+                <!-- File Menu -->
+                <li class="dropdown">
+                    <a href="#" id="fileMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">File <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- Upload document -->
+                        <li>
+                            <button id="uploadDocument" class="menuItem" title="Upload local document...">
+                                <span class="icon icon-sm openIcon"></span>
+                                <span class="text">Upload document...</span>
+                            </button>
+                        </li>
+                        <!-- Open document from url -->
+                        <li>
+                            <button id="openDocumentFromUrl" class="menuItem" title="Open document from URL...">
+                                <span class="icon icon-sm openUrlIcon"></span>
+                                <span class="text">Open URL...</span>
+                            </button>
+                        </li>
+                        <!-- Open from external document storage service -->
+                        <li>
+                            <button id="openFromDocumentStorage" class="menuItem" title="Open document from storage...">
+                                <span class="icon icon-sm server"></span>
+                                <span class="text">Open from document storage...</span>
+                            </button>
+                        </li>
+                        <!-- Save/Convert document -->
+                        <li>
+                            <button id="saveDocument" class="menuItem" title="Save/Convert document...">
+                                <span class="icon icon-sm saveIcon"></span>
+                                <span class="text">Save...</span>
+                            </button>
+                        </li>
+                        <!-- Close document -->
+                        <li>
+                            <button id="closeDocument" class="menuItem">
+                                <span class="icon icon-sm closeIcon"></span>
+                                <span class="text">Close</span>
+                            </button>
+                        </li>
+                        <li class="divider fileMenuDivider"></li>
+                        <!-- Export text -->
+                        <li>
+                            <button id="exportText" class="menuItem">
+                                <span class="icon icon-sm singlePageExportTextIcon"></span>
+                                <span class="text">Export text...</span>
+                            </button>
+                        </li>
+                        <!-- Show document properties dialog -->
+                        <li>
+                            <button id="documentProperties" class="menuItem">
+                                <span class="icon icon-sm propertiesIcon"></span>
+                                <span class="text">Properties...</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Edit Menu -->
+                <li class="dropdown">
+                    <a href="#" id="editMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Edit <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- Undo -->
+                        <li>
+                            <button id="undo" class="menuItem annotations">
+                                <span class="icon icon-sm undoIcon"></span>
+                                <span class="text">Undo</span>
+                            </button>
+                        </li>
+                        <!-- Redo -->
+                        <li>
+                            <button id="redo" class="menuItem annotations">
+                                <span class="icon icon-sm redoIcon"></span>
+                                <span class="text">Redo</span>
+                            </button>
+                        </li>
+                        <li class="divider annotations"></li>
+                        <!-- Delete Selected Annotation -->
+                        <li>
+                            <button id="deleteAnnotation" class="menuItem annotations">
+                                <span class="icon icon-sm closeIcon"></span>
+                                <span class="text">Delete annotation</span>
+                            </button>
+                        </li>
+                        <li class="divider annotations"></li>
+                        <!-- Select all text -->
+                        <li>
+                            <button id="selectAllText" class="menuItem" title="Select all text in the document">
+                                <span class="icon icon-sm selectAllTextIcon"></span>
+                                <span class="text">Select all</span>
+                            </button>
+                        </li>
+                        <!-- Select all annotations -->
+                        <li>
+                            <button id="selectAllAnnotations" class="menuItem annotations">
+                                <span class="icon icon-sm selectAllAnnotationsIcon"></span>
+                                <span class="text">Select all annotations</span>
+                            </button>
+                        </li>
+                        <!-- Clear selection -->
+                        <li>
+                            <button id="clearSelection" class="menuItem">
+                                <span class="icon icon-sm clearSelectionIcon"></span>
+                                <span class="text">Clear selection</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <button id="copyText" class="menuItem" title="Copy selected text">
+                                <span class="icon icon-sm copyTextIcon"></span>
+                                <span class="text">Copy text...</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Find text -->
+                        <li>
+                            <button id="findText" class="menuItem" title="Find text in the document">
+                                <span class="icon icon-sm findTextIcon"></span>
+                                <span class="text">Find text</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- View Menu -->
+                <li class="dropdown">
+                    <a href="#" id="viewMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- Rotate Counter Clockwise -->
+                        <li>
+                            <button id="rotateCounterClockwise" class="menuItem">
+                                <span class="icon icon-sm rotateCounterClockwiseIcon"></span>
+                                <span class="text">Rotate counter clockwise</span>
+                            </button>
+                        </li>
+                        <!-- Rotate Clockwise -->
+                        <li>
+                            <button id="rotateClockwise" class="menuItem">
+                                <span class="icon icon-sm rotateClockwiseIcon"></span>
+                                <span class="text">Rotate clockwise</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Zoom Out -->
+                        <li>
+                            <button id="zoomOut" class="menuItem">
+                                <span class="icon icon-sm zoomOutIcon"></span>
+                                <span class="text">Zoom out</span>
+                            </button>
+                        </li>
+                        <!-- Zoom In -->
+                        <li>
+                            <button id="zoomIn" class="menuItem">
+                                <span class="icon icon-sm zoomInIcon"></span>
+                                <span class="text">Zoom in</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Page size : actualSize , fit , or fit width -->
+                        <li>
+                            <button id="actualSize" class="menuItem">
+                                <span class="icon icon-sm actualPageSizeIcon"></span>
+                                <span class="text">Actual size</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="fit" class="menuItem">
+                                <span class="icon icon-sm page-FitIcon"></span>
+                                <span class="text">Fit page</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="fitWidth" class="menuItem">
+                                <span class="icon icon-sm fitWidthIcon"></span>
+                                <span class="text">Fit width</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- View pages as svg or image -->
+                        <li>
+                            <button id="viewAsSVG" class="menuItem">
+                                <span class="icon icon-sm svgViewIcon"></span>
+                                <span class="text">As SVG</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="viewAsImage" class="menuItem">
+                                <span class="icon icon-sm imageViewIcon"></span>
+                                <span class="text">As image</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Page Menu -->
+                <li class="dropdown">
+                    <a href="#" id="pageMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- First page -->
+                        <li>
+                            <button id="firstPage" class="menuItem">
+                                <span class="icon icon-sm firstPageIcon"></span>
+                                <span class="text">First page</span>
+                            </button>
+                        </li>
+                        <!-- Previous page -->
+                        <li>
+                            <button id="previousPage" class="menuItem">
+                                <span class="icon icon-sm previousIcon"></span>
+                                <span class="text">Previous page</span>
+                            </button>
+                        </li>
+                        <!-- Next page -->
+                        <li>
+                            <button id="nextPage" class="menuItem">
+                                <span class="icon icon-sm nextIcon"></span>
+                                <span class="text">Next page</span>
+                            </button>
+                        </li>
+                        <!-- Last page -->
+                        <li>
+                            <button id="lastPage" class="menuItem">
+                                <span class="icon icon-sm lastPageIcon"></span>
+                                <span class="text">Last page</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Get text from current page or from all pages -->
+                        <li>
+                            <button id="currentPageGetText" class="menuItem">
+                                <span class="icon icon-sm singlePageExportTextIcon"></span>
+                                <span class="text">Get text for current page</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="allPagesGetText" class="menuItem">
+                                <span class="icon icon-sm multiPagesExportTextIcon"></span>
+                                <span class="text">Get text for all pages</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="readPageBarcodes" class="menuItem" style="display:none;">
+                                <span class="icon icon-sm barcodeIcon"></span>
+                                <span class="text">Read page barcodes</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="readAllBarcodes" class="menuItem" style="display:none;">
+                                <span class="icon icon-sm barcodeIcon"></span>
+                                <span class="text">Read barcodes for all pages</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Document pages display -->
+                        <li>
+                            <button id="singlePageDisplay" class="menuItem" title="Single page display">
+                                <span class="icon icon-sm singleLayoutIcon"></span>
+                                <span class="text">Single</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="doublePagesDisplay" class="menuItem" title="Double page display">
+                                <span class="icon icon-sm doubleLayoutIcon"></span>
+                                <span class="text">Double</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="verticalPagesDisplay" class="menuItem" title="Vertical page display">
+                                <span class="icon icon-sm verticalLayoutIcon"></span>
+                                <span class="text">Vertical</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="horizontalPagesDisplay" class="menuItem" title="Horizontal page display">
+                                <span class="icon icon-sm horizontalLayoutIcon"></span>
+                                <span class="text">Horizontal</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Interactive Menu -->
+                <li class="dropdown">
+                    <a href="#" id="interactiveMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Interactive <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <button id="panZoomMode" class="menuItem">
+                                <span class="icon icon-sm panZoomIcon"></span>
+                                <span class="text">Pan/Zoom</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="panMode" class="menuItem">
+                                <span class="icon icon-sm panIcon"></span>
+                                <span class="text">Pan</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="zoomMode" class="menuItem">
+                                <span class="icon icon-sm zoomIcon"></span>
+                                <span class="text">Zoom</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="zoomToMode" class="menuItem">
+                                <span class="icon icon-sm zoomToIcon"></span>
+                                <span class="text">Zoom to</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="magnifyGlassMode" class="menuItem">
+                                <span class="icon icon-sm magnifyGlassIcon"></span>
+                                <span class="text">Magnify glass</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="selectTextMode" class="menuItem">
+                                <span class="icon icon-sm selectTextIcon"></span>
+                                <span class="text">Select text</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="rubberBandInteractiveMode" class="menuItem interactiveMode" style="display:none;">
+                                <span class="icon icon-sm selectAreaIcon"></span>
+                                <span class="text"></span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <!-- Enable/disable auto pan -->
+                        <li>
+                            <button id="autoPan" class="menuItem">
+                                <span class="icon icon-sm autoPanIcon"></span>
+                                <span class="text">Auto pan</span>
+                            </button>
+                        </li>
+                        <!-- Enable/disable inertia scroll -->
+                        <li>
+                            <button id="inertiaScroll" class="menuItem">
+                                <span class="icon icon-sm inertiaScrollIcon"></span>
+                                <span class="text">Inertia scroll</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Annotations Menu -->
+                <li class="dropdown">
+                    <a href="#" id="annotationsMenuItem" class="dropdown-toggle annotations" data-toggle="dropdown" role="button" aria-expanded="false">Annotations <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- User modes : run, design, and render -->
+                        <li>
+                            <button id="runUserMode" class="menuItem" title="Allows running the annotations objects and clicking the hyperlinks">
+                                <span class="icon icon-sm runModeIcon"></span>
+                                <span class="text">Run mode</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="designUserMode" class="menuItem" title="Allows editing of the annotations objects">
+                                <span class="icon icon-sm designModeIcon"></span><span class="text">Design mode</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="renderUserMode" class="menuItem" title="Render the annotations only. No editing and no running">
+                                <span class="icon icon-sm renderModeIcon"></span>
+                                <span class="text">Render mode</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <button id="customizeRenderMode" class="menuItem">
+                                <span class="icon icon-sm renderModeSettingsIcon"></span>
+                                <span class="text">Customize render mode...</span>
+                            </button>
+                        </li>
+                        <!-- Align -->
+                        <li>
+                            <button id="bringToFront" class="menuItem">
+                                <span class="icon icon-sm bringToFrontIcon"></span>
+                                <span class="text">Bring to front</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="sendToBack" class="menuItem">
+                                <span class="icon icon-sm sendToBackIcon"></span>
+                                <span class="text">Send to back</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="bringToFirst" class="menuItem">
+                                <span class="icon icon-sm bringToFirstIcon"></span>
+                                <span class="text">Bring to first</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="sendToLast" class="menuItem">
+                                <span class="icon icon-sm sendToLastIcon"></span>
+                                <span class="text">Send to last</span>
+                            </button>
+                        </li>
+                        <!-- Flip -->
+                        <li>
+                            <button id="verticalFlip" class="menuItem">
+                                <span class="icon icon-sm flipIcon"></span>
+                                <span class="text">Vertical flip</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="horizontalFlip" class="menuItem">
+                                <span class="icon icon-sm reverseIcon"></span>
+                                <span class="text">Horizontal flip</span>
+                            </button>
+                        </li>
+                        <!-- Group -->
+                        <li>
+                            <button id="groupSelectedObjects" class="menuItem">
+                                <span class="icon icon-sm groupIcon"></span>
+                                <span class="text">Group selected objects</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="ungroup" class="menuItem">
+                                <span class="icon icon-sm ungroupIcon"></span>
+                                <span class="text">Ungroup</span>
+                            </button>
+                        </li>
+                        <!-- Security -->
+                        <li>
+                            <button id="lockObject" class="menuItem">
+                                <span class="icon icon-sm lockIcon"></span>
+                                <span class="text">Lock object...</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="unlockObject" class="menuItem">
+                                <span class="icon icon-sm unlockIcon"></span>
+                                <span class="text">Unlock object...</span>
+                            </button>
+                        </li>
+                        <!--  Annotation object properties -->
+                        <li>
+                            <button id="annotationsProperties" class="menuItem">
+                                <span class="icon icon-sm propertiesIcon"></span>
+                                <span class="text">Annotations properties...</span>
+                            </button>
+                        </li>
+                        <!-- Options -->
+                        <li>
+                            <button id="resetRotatePoint" class="menuItem">
+                                <span class="icon icon-sm resetRotatePointIcon"></span>
+                                <span class="text">Reset rotate point</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="useRotateThumb" class="menuItem">
+                                <span class="icon icon-sm rotateThumbIcon"></span>
+                                <span class="text">Use rotate thumb</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="renderOnThumbnails" class="menuItem">
+                                <span class="icon icon-sm renderOnThumbnailsIcon"></span>
+                                <span class="text">Render on thumbnails</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="deselectOnDown" class="menuItem">
+                                <span class="icon icon-sm"></span>
+                                <span class="text">Deselect on down</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="rubberbandSelect" class="menuItem">
+                                <span class="icon icon-sm"></span>
+                                <span class="text">Rubberband select</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Preferences Menu -->
+                <li class="dropdown">
+                    <a href="#" id="preferencesMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Preferences <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <button id="userNameMenuItem" class="menuItem" title="Change the current user name used with the document">
+                                <span class="icon icon-sm userNameIcon"></span>
+                                <span class="text">User name</span>
+                            </button>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <button id="showTextIndicators" class="menuItem" title="Show the text indicators on the pages">
+                                <span class="icon icon-sm showTextIndicatorsIcon"></span>
+                                <span class="text">Show text indicators</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="showLinks" class="menuItem" title="Highlight document external and internal links">
+                                <span class="icon icon-sm showLinksIcon"></span>
+                                <span class="text">Show links</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="documentViewerOptions" class="menuItem">
+                                <span class="icon icon-sm settingsIcon"></span>
+                                <span class="text">Document viewer options...</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Help Menu -->
+                <li class="dropdown">
+                    <a href="#" id="helpMenuItem" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">About <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <button id="about" class="menuItem">
+                                <span class="icon icon-sm helpIcon"></span>
+                                <span class="text">About</span>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="shortcutsbar">
+            <!-- Previous page -->
+            <button id="previousPage_shortcut" title="Go to previous page in the document">
+                <span class="icon icon-sm previousIcon"></span>
+            </button>
+            <!-- Next page -->
+            <button id="nextPage_shortcut" title="Go to next page in the document">
+                <span class="icon icon-sm nextIcon"></span>
+            </button>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <input id="pageNumber" type="text" class="form-control input-xs" title="Current page number" style="width: 50px;" />
+                    <span id="pageCount" class="input-group-addon"></span>
+                </div>
+            </div>
+            <span class="verticalDivider"></span>
+            <!-- Zoom Out -->
+            <button id="zoomOut_shortcut" title="Zoom out">
+                <span class="icon icon-sm zoomOutIcon"></span>
+            </button>
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <select id="zoomValues" class="form-control input-xs">
+                        <option id="currentZoomValue" style="display: none; visibility: hidden;" disabled></option>
+                        <option>10%</option>
+                        <option>25%</option>
+                        <option>50%</option>
+                        <option>75%</option>
+                        <option>100%</option>
+                        <option>125%</option>
+                        <option>200%</option>
+                        <option>400%</option>
+                        <option>800%</option>
+                        <option>1600%</option>
+                        <option>2400%</option>
+                        <option>3200%</option>
+                        <option>6400%</option>
+                        <option>Actual Size</option>
+                        <option>Fit Page</option>
+                        <option>Fit Width</option>
+                        <option>Fit Height</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Zoom In -->
+            <button id="zoomIn_shortcut" title="Zoom in">
+                <span class="icon icon-sm zoomInIcon"></span>
+            </button>
+            <span class="verticalDivider"></span>
+            <!-- Page size : actualSize , fit , or fit width -->
+            <button id="actualSize_shortcut" title="Show the actual size of the page">
+                <span class="icon icon-sm actualPageSizeIcon"></span>
+            </button>
+            <button id="fit_shortcut" title="Fit the image into the window">
+                <span class="icon icon-sm page-FitIcon"></span>
+            </button>
+            <button id="fitWidth_shortcut" title="Fit the image width into the window">
+                <span class="icon icon-sm fitWidthIcon"></span>
+            </button>
+            <span class="verticalDivider"></span>
+            <!-- Document pages display -->
+            <button id="singlePageDisplay_shortcut" title="Single page display">
+                <span class="icon icon-sm singleLayoutIcon"></span>
+            </button>
+            <button id="doublePagesDisplay_shortcut" title="Double page display">
+                <span class="icon icon-sm doubleLayoutIcon"></span>
+            </button>
+            <button id="verticalPagesDisplay_shortcut" title="Vertical page display">
+                <span class="icon icon-sm verticalLayoutIcon"></span>
+            </button>
+            <button id="horizontalPagesDisplay_shortcut" title="Horizontal page display">
+                <span class="icon icon-sm horizontalLayoutIcon"></span>
+            </button>
+            <span class="verticalDivider"></span>
+            <!-- Interactive mode -->
+            <button id="panZoomMode_shortcut" title="Pan and zoom">
+                <span class="icon icon-sm panZoomIcon"></span>
+            </button>
+            <button id="panMode_shortcut" title="Pan">
+                <span class="icon icon-sm panIcon"></span>
+            </button>
+            <button id="zoomMode_shortcut" title="Zoom">
+                <span class="icon icon-sm zoomIcon"></span>
+            </button>
+            <button id="zoomToMode_shortcut" title="Zoom to">
+                <span class="icon icon-sm zoomToIcon"></span>
+            </button>
+            <button id="magnifyGlassMode_shortcut" title="Magnify glass">
+                <span class="icon icon-sm magnifyGlassIcon"></span>
+            </button>
+            <button id="selectTextMode_shortcut" title="Select text">
+                <span class="icon icon-sm selectTextIcon"></span>
+            </button>
+            <button id="rubberBandInteractiveMode_shortcut" style="display:none;">
+                <span class="icon icon-sm selectAreaIcon"></span>
+            </button>
+            <button id="ocrSave_shortcut" title="Recognize document" style="display:none;">
+                <span class="icon icon-sm runModeIcon"></span>
+            </button>
+            <button id="processAllPages_shortcut" style="display:none;">
+                <span class="icon icon-sm runModeIcon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div id="navigationbar" class="navigationbar">
+        <button id="showThumbnails" class="navigationbarBtn">
+            <span class="icon thumbnailsIcon"></span>
+        </button>
+        <button id="showBookmarks" class="navigationbarBtn">
+            <span class="icon bookmarksIcon"></span>
+        </button>
+        <button id="showAnnotationsListControls" class="navigationbarBtn annotations">
+            <span class="icon annotationsIcon"></span>
+        </button>
+    </div>
+
+    <div id="thumbnailsControl" class="affectedContainers">
+        <div class="controlHeader">
+            <label>Pages</label>
+        </div>
+        <div id="thumbnails">
+        </div>
+    </div>
+
+    <div id="bookmarksControl" class="affectedContainers">
+        <div class="controlHeader">
+            <label>Bookmarks</label>
+        </div>
+        <div id="bookmarks">
+            <ul id="bookmarksTree" class="tree"></ul>
+        </div>
+    </div>
+
+    <div id="annotationsListControls" class="annotations">
+        <div id="annotationslist" class="annotationsListContainer">
+
+        </div>
+    </div>
+
+    <div id="annotationObjectBtnsContainer" class="annotations footerToolbar" style="height:auto;">
+        <button class="annotationObjectBtn" title="Select" value="-1">
+            <span class="icon selectIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Line" value="-2">
+            <span class="icon lineIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Rectangle" value="-3">
+            <span class="icon rectangleIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Ellipse" value="-4">
+            <span class="icon ellipseIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Polyline" value="-5">
+            <span class="icon polylineIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Polygon" value="-6">
+            <span class="icon polygonIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Curve" value="-7">
+            <span class="icon curveIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Closed Curve" value="-8">
+            <span class="icon closedCurveIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Pointer" value="-9">
+            <span class="icon pointerIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Freehand" value="-10">
+            <span class="icon freehandIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Hilite" value="-11">
+            <span class="icon hiliteIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text" value="-12">
+            <span class="icon textIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Pointer" value="-14">
+            <span class="icon textPointerIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Note" value="-15">
+            <span class="icon noteIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Stamp" value="-16">
+            <span class="icon stampIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Rubber Stamp" value="-17">
+            <span class="icon rubberStampIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Hotspot" value="-18">
+            <span class="icon hotspotIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Freehand Hotspot" value="-19">
+            <span class="icon freehandHotspotIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Point" value="-21">
+            <span class="icon pointIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Redaction" value="-22">
+            <span class="icon redactionIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Ruler" value="-23">
+            <span class="icon rulerIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Poly Ruler" value="-24">
+            <span class="icon polyRulerIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Protractor" value="-25">
+            <span class="icon protractorIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Cross Product" value="-26">
+            <span class="icon crossProductIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Rollup" value="-13">
+            <span class="icon textRollupIcon "></span>
+        </button>
+        <button class="annotationObjectBtn" title="Audio" value="-28">
+            <span class="icon audioIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Video" value="-30">
+            <span class="icon videoIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Encrypt" value="-27">
+            <span class="icon lockIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Hilite" value="-33">
+            <span class="icon textHiliteIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Strikeout" value="-34">
+            <span class="icon textStrikeoutIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Underline" value="-35">
+            <span class="icon textUnderlineIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Text Redaction" value="-36">
+            <span class="icon textRedactionIcon"></span>
+        </button>
+        <button class="annotationObjectBtn" title="Sticky Note" value="-32">
+            <span class="icon stickyNoteIcon"></span>
+        </button>
+    </div>
+
+    <div id="thumbnailsContextMenu" class="dropdown clearfix" tabindex="-1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;margin-bottom:5px;">
+            <li>
+                <button id="contextMenu_thisPageGetText" class="menuItem">
+                    <span class="text">Get text for this page</span>
+                </button>
+            </li>
+            <li>
+                <button id="contextMenu_allPagesGetText" class="menuItem">
+                    <span class="text">Get text for all pages</span>
+                </button>
+            </li>
+        </ul>
+    </div>*@

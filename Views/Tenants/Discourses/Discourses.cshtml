@@ -1,0 +1,359 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Discourse>
+@using HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers
+@{
+    this.ViewBag.BreadCrumbsPath = "<li><a href='../../TenantDiscourses/index'>Chats</a></li>";
+}
+@*<style>
+    div.lt-imageviewer-main {
+        overflow-X: auto !important;
+        overflow-Y: auto !important;
+    }
+
+    #divid5 > .k-grid > div.k-grid-content {
+        height: 97% !important;
+        overflow: scroll;
+    }
+
+    .k-treeview .k-item {
+        display: block;
+        margin: 1px;
+        padding: 0 0 0 16px;
+        border-bottom: 1px solid #e5e5e5 !important;
+        padding: 18px 10px !important;
+        font-size: 14px;
+    }
+
+    .k-item > .k-group > .k-mid < .k-item {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 18px !important;
+        border-bottom: 0px !important;
+    }
+    /*.k-item>.k-group>.k-item {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 18px !important;
+        border-bottom: 0px!important;
+    }*/
+    /*.k-item>.k-group>.k-item .k-mid {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 0px !important;
+        border-bottom: 0px!important;
+    }*/
+    .k-group .k-item .k-last {
+        margin-top: 0px !important;
+        border-top: 1px solid #e5e5e5 !important;
+        border-bottom: 0px solid #e5e5e5 !important;
+        padding: 18px 10px 0px 10px !important;
+    }
+
+    .k-item .k-state-focused {
+        box-shadow: none;
+    }
+
+    .k-treeview .k-in {
+        margin: 0px 0px 0px 10px !important;
+        padding: 0px !important;
+        line-height: 0px !important;
+        text-decoration: none;
+        border-style: solid;
+        border-width: 0px !important;
+    }
+
+    span.k-state-selected {
+        color: #585858 !important;
+        /*border-width: 5px !important;
+    border-style:solid !important;
+    border-color: #d3d5d9 !important;*/
+    }
+
+    .k-treeview {
+        padding-left: 10px !important;
+    }
+
+    .k-item > div > span.k-in > a {
+        border-width: 1px 0 0;
+        border-style: solid;
+        border-color: transparent;
+        color: #585858 !important;
+    }
+
+    .k-grid tr td {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    div.k-mid > .k-plus {
+    }
+</style>*@
+<input type="hidden" id="IsDiscourseModal" value="false" />
+<script type="text/javascript">
+    function CreateChat()
+    {
+        $("#CreateChatModalBody").text("");
+        $("#CreateChatModalBody").load("../../TenantDiscourse/CreateDiscourse");
+        $("#CreateChatModal").modal("show");
+    }
+    //$(document).ready(function () {
+    //    //var discourseTooltipUsersNames = document.getElementsByName("discourseTooltipUsers");
+    //    //for (var i = 0; i < discourseTooltipUsersNames.length; i++) {
+    //    //    var id = "#" + discourseTooltipUsersNames[i].id;
+    //    //    SetUserToolTip(id)
+    //    //}
+    //});
+    function SetUserToolTip(tooltipIdHash) {
+        $(tooltipIdHash).tooltip({
+            placement: "auto bottom",
+            html: "true",
+            trigger: "hover",
+            title: function () {
+                return $(this).attr('title');
+            },
+        });
+    }
+    function onDiscourseListingGridBind(e) {
+        var discourseTooltipUsersTemp = document.getElementsByName("discourseTooltipUsersTemp");
+        if (discourseTooltipUsersTemp != null) {
+            for (var a = 0; a < discourseTooltipUsersTemp.length; a++) {
+                if (discourseTooltipUsersTemp[a] != null) {
+                    var id = discourseTooltipUsersTemp[a].getAttribute("data-id");
+                    var tooltipId = "discourseTooltipUsers" + id;
+                    var discourseTooltipUsers = document.getElementById(tooltipId);
+                    if (discourseTooltipUsers != null) {
+                        var str = discourseTooltipUsersTemp[a].innerHTML.toString().replaceAll('"', '^').replaceAll("'", '"').replaceAll("^", "'");
+                        document.getElementById(tooltipId).title = str;
+                        var tooltipIdHash = '#' + tooltipId;
+                        SetUserToolTip(tooltipIdHash);
+                    }
+                }
+            }
+        }
+    }
+
+    function onDiscourseListingGridChange(e) {
+        var grid = e.sender;
+        $.map(this.select(), function (item) {
+            var id = item.childNodes[0].textContent;
+            window.location.href = "/TenantDiscourse/Index/" + id;
+            return $(item).text();
+        });
+        //var data = this.dataItem(this.select());
+        //var YourRowID = data.id;//IMP
+        //var currentDataItem = grid.dataItem(this.select());
+    }
+</script>
+
+@{
+    this.ViewBag.Title = "Chats";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+@*@{
+        string ErrorMessage = (this.ViewBag.ErrorMessage != null) ? (this.ViewBag.ErrorMessage) : (string.Empty);
+        string SuccessMessage = (this.ViewBag.SuccessMessage != null) ? (this.ViewBag.SuccessMessage) : (string.Empty);
+    }
+    @if (!(string.IsNullOrEmpty(ErrorMessage)))
+    {
+
+        <div class="alert alert-danger">@ErrorMessage</div>
+    }
+    @if (!(string.IsNullOrEmpty(SuccessMessage)))
+    {
+
+        <div class="alert alert-success">@SuccessMessage</div>
+
+    }*@
+
+<div class="modal fade" id="CreateChatModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Chat</h4>
+            </div>
+            <div class="modal-body" id="CreateChatModalBody" style="display: inline-block;">
+              
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DiscoursesErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DiscoursesErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DiscoursesErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DiscoursesSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DiscoursesSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DiscoursesSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+@if (this.ViewBag.CurrentLoggedInUser.AuthenticationType != HouseOfSynergy.AffinityDms.Entities.Lookup.AuthenticationType.External)
+{
+    <div class="col-md-12 responsive" style="display:inline-block;float:right;margin-bottom:10px">
+        <input type="button" class="btn btn-default" style="float:right" value="Create Chat" onclick="CreateChat(event)">@*javascript:window.location.href='@Url.Action("Index", "TenantDiscourse")'">*@
+    </div>
+}
+
+<div class="col-md-12 responsive">
+    
+
+    @{string ConcatName = ""; int CountUsers = 0; }
+    @(Html.Kendo().Grid(Model)
+                          .Name("DiscourseListingGrid")
+                          .Selectable(select => select.Mode(GridSelectionMode.Multiple))
+                          .Events
+                          (
+                            events =>
+                                events
+                                .DataBound("onDiscourseListingGridBind")
+                                .Change("onDiscourseListingGridChange")
+                          )
+                          .Columns(columns =>
+                          {
+                              columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "DiscourseNo" });
+
+                              columns.Bound(item => item.Topic).Title("Topic").HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+                              columns.Template(item =>
+                                     "<button class='btn-light-min' data-toggle='tooltip' data-trigger='hover' data-original-title='' id='discourseTooltipUsers" + item.Id + "' name='discourseTooltipUsers' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title='<span name=\"discourseTooltipUsersTemp\" data-id=\"" + item.Id + "\"class=\"show\"><ul><li style=\"cursor:pointer\">" + (CustomHtmlHelpers.GetDiscourseUsersCommaSeperated(item)) + " </li></ul></span>'>" + //
+                                     "<strong>" + item.Users.Count + "</strong>" +
+                                     "</button>"
+                                        ).Title("Number of Participants")
+                                          //.ClientTemplate(
+                                          //     "<button class='btn-light-min' data-toggle='tooltip' data-original-title='' id='discourseTooltipUsers#:Id#' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                                          //     "<strong>#:Users.length#</strong>" +
+                                          //      "<span name='documentTooltipShareTemp' data-id='#: Id #'class='hide'>" +
+                                          //       "<ul>" +
+                                          //       "<li style='cursor:pointer'>" +
+                                          //       "#var NameStr = ''#" +
+                                          //        "#if(Users!=null){#" +
+                                          //            "#if(Users.length>0){#" +
+                                          //                    "#for(var i=0;i<Users.length;i++){#" +
+                                          //                         "# NameStr = Users[i].NameFull#," +
+                                          //                    "#}#" +
+                                          //                    "#NameStr#" +
+                                          //             "#}else{#" +
+                                          //                    "#NameStr#" +
+                                          //             "#}#" +
+                                          //        "#}else{#" +
+                                          //            "#NameStr#" +
+                                          //        "#}#" +
+                                          //       "</li>" +
+                                          //       "</ul>" +
+                                          //       "</span>" +
+                                          //     "</button>"
+                                          //  )
+                                          .HeaderHtmlAttributes(new { style = "width:30px;padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+                              columns.Template(item => item.Posts.First().User.NameFull).Title("Created By").HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+                              columns.Template(item => item.Posts.Last().User.NameFull).Title("Last Posted By").HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+
+                              columns.Template(item => item.Posts.Last().Versions.Last().DateTime).Title("Date/Time").HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+
+                          })
+                    .Pageable()
+                    .Sortable()
+                    .DataSource(dataSource => dataSource
+                    .Server()
+                    .Model(model => model.Id(x => x.Id)))
+    )
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($("DiscoursesErrorMessageText") != null) {
+            if ($("#DiscoursesErrorMessageText").text() != null || $("#DiscoursesErrorMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DiscoursesErrorMessage').fadeOut('fast');
+                    $("#DiscoursesErrorMessage").css("display", "none");
+                    $("#DiscoursesErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("DiscoursesSuccessMessageText") != null) {
+            if ($("#DiscoursesSuccessMessageText").text() != null || $("#DiscoursesSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DiscoursesSuccessMessage').fadeOut('fast');
+                    $("#DiscoursesSuccessMessage").css("display", "none");
+                    $("#DiscoursesSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+    });
+
+</script>
+
+
+
+
+
+
+
+
+@*
+
+
+                              //columns.Template(item =>
+                              //       "<button class='btn-light-min' data-toggle='tooltip' data-original-title='' id='discourseTooltipUsers" + item.Id + "' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                              //       "<strong>"+item.Users.Count+"</strong>"+
+                              //       "<span name='documentTooltipShareTemp' data-id='#: Id #'class='hide'>" +
+                              //        "<ul>" +
+                              //        ("<li style='cursor:pointer'><a style='cursor:pointer' onclick='javascript: UserSelection(event)' data-id='" + item.Id + "' data-type='Document'><i class='ace-icon fa fa-user-secret' data-type='document' data-id='" + item.Id + "'></i>Add/Remove Internal Users</a></li>") +
+                              //         "</ul>" +
+                              //       "</span>" +
+                              //       "</button>"
+                              //  )
+                              //  .Title("Status")
+                              //  .ClientTemplate(
+                              //    ""
+                              //  ).HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+                              //columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "DiscourseNo" });
+
+
+
+
+                             //columns.Template(item => Html.Raw(item.Posts.Last().Versions.Last().Comments)).Title("Comment");
+
+
+    //columns.Template
+                             //(
+                             //    item =>
+                             //    (
+                             //          (item.PostVersionAttachments.Count > 0)
+                             //          ?
+                             //          (
+                             //              string.Join
+                             //              (
+                             //                  " ",
+                             //                  item.PostVersionAttachments.ToList().ConvertAll
+                             //                  (
+                             //                     x => HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers.CustomHtmlHelpers.GetAttachmentsString(x,26)
+                             //                  )
+                             //              )
+                             //          )
+                             //          :
+                             //          ("None")
+                             //          )
+                             //      ).Title("Attachments").ToString();
+                             //columns.Bound(item => item.Posts.Count).Title("Total Comments");
+                             //columns.Template(
+                             //                                  item => (("<a href='" + Url.Action("Index", "TenantDiscourse", new { id = item.Id }) + "'><img src='/Images/ViewDocument.png' title='View Chat' style='height:20px;width:20px'></a>").ToString())
+                             //                                ).Title("Actions").HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });*@
+
+
+
+

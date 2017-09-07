@@ -1,0 +1,55 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants.DocumentStatusViewModel
+@using HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers
+@if (this.Model != null)
+{
+
+    var sharedUserStr = "";
+    foreach (var user in this.Model.SharedWith)
+    {
+        if (user.Id == this.Model.SharedWith.First().Id)
+        {
+            sharedUserStr += user.NameFull;
+        }
+        else
+        {
+            sharedUserStr += ", " + user.NameFull;
+        }
+    }
+    var indexesHtmlStr = "";
+    foreach (var index in this.Model.Indexes)
+    {
+        indexesHtmlStr += "<span><button class='btn btn-xs btn disabled'>" + index.OcrText + " </button></span>";
+    }
+    var createByUser = "";
+    if (this.Model.CreatedBy != null)
+    {
+        createByUser = this.Model.CreatedBy.NameFull;
+    }
+    else {
+        createByUser = "";
+    }
+    <table>
+        <tbody>
+            <tr>
+                <td style="width:100px;">Created on   :</td>
+                <td>@CustomHtmlHelpers.GetMonthNameShort(this.Model.CreatedOn.Month) @this.Model.CreatedOn.Day, @this.Model.CreatedOn.Year</td>@*//June 20, 2016*@
+            </tr>
+            <tr>
+                <td style="width:100px;">Created by   :</td>
+                <td>@createByUser</td>
+            </tr>
+            <tr>
+                <td style="width:100px;">Last edited   :</td>
+                <td>@CustomHtmlHelpers.GetMonthNameShort(this.Model.LastEdited.Month) @this.Model.LastEdited.Day, @this.Model.LastEdited.Year</td>
+            </tr>
+            <tr>
+                <td style="width:100px;">Shared with   :</td>
+                <td> @sharedUserStr</td>@*Dex, Randy, Rizqi*@
+            </tr>
+            <tr>
+                <td style="width:100px;">Indexes   :</td>
+                <td>@Html.Raw(indexesHtmlStr)</td>
+            </tr>
+        </tbody>
+    </table>
+    }

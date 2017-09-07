@@ -1,0 +1,867 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DashboardViewModel
+
+@using HouseOfSynergy.AffinityDms.ResourceProvider
+
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    this.ViewBag.Title = " - Dashboard";//ResourceManagement.DesktopClient_ProductName + 
+    this.ViewBag.IsDashBoard = true;
+}
+ <div id="page-wrapper">
+
+        <div id="dashboard" class="show">
+            <div id="dashboard-content">
+                
+
+                <!-- Chart -->
+                <div class="chart" id="report-container">
+                    <div class="pull-right" style="padding-right:30px;"> <a href="#" id="report-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="report-cross"><img src="~/Images/themes/closs.png" alt="closs"></a> </div>
+                    <div id="report-contents">
+                        <div class="col-md-7" style="border-right:1px solid #ccc;">
+                            <div class=" col-md-4">
+                                <div class="panel-body">
+                                    <div id="urgent" class="pie-title-center" data-percent="50">
+                                        <span class="report-display">
+                                            5/10<br>
+                                            <small>URGENT TASK</small>
+                                        </span>
+                                    </div>
+
+                                    <!--End Chart -->
+
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="panel-body">
+                                    <div id="done" class="pie-title-center" data-percent="70">
+                                        <span class="report-display">
+                                            7/10<br>
+                                            <small> TASK DONE</small>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!--End Chart -->
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="panel-body">
+                                    <div id="read-messages" class="pie-title-center" data-percent="91">
+                                        <span class="report-display">
+                                            2/3<br>
+                                            <small>READ MESSAGES </small>
+                                        </span>
+                                    </div>
+
+                                    <!--End Chart -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--// 1-->
+
+                        <div class="col-md-5">
+                            <div class="panel-body">
+                                <div class="title"><i class="fa r-icon fa-circle" aria-hidden="true"></i> URGENT TASK </div>
+                                <p>This is the outstanding task that always did by the user </p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="title"><i class="fa g-icon fa-circle" aria-hidden="true"></i> TASK DONE</div>
+                                <p>This is number of file saved by the user</p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="title"><i class="fa b-icon fa-circle" aria-hidden="true"></i> MESSAGES </div>
+                                <p>This is the total storage used by the user</p>
+                            </div>
+                        </div>
+                        <!-- // 2 -->
+
+                    </div>
+                </div>
+
+                <!--// Chart -->
+
+                <div class="clearfix"></div>
+                <div class="data-view">
+                    <!-- My Tasks & Workflow in Progress-->
+                    <!-- My Tasks -->
+                    <div class="col-md-4 task" id="task-container">
+                        <div class="panel panel-default table-col-box">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom table-title">
+                                            <tr>
+                                                <th class="text-left">My Tasks <span class="num-bg">8</span></th>
+                                                <th class="text-right" id="task-header"> <a href="#" id="task-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="task-cross"><img src="~/Images/themes/closs.png" alt="Closs"></a> </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="task-contents">
+                                            <tr>
+                                                <td>Task</td>
+                                                <td>Date <img src="~/Images/themes/down-arrow.png" class="down-arrow" alt="icon"></td> @*style="width:14px; padding-top:5px; float:right;" alt="icon"></td>*@
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/check.png"> Start Workflow</td>
+                                                <td>August 30, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/check.png"> Create Workflow</td>
+                                                <td>August 23, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/check.png"> Create Template</td>
+                                                <td>August 20, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/check.png"> Assign Task</td>
+                                                <td>August 14, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/approved.png"> Approve Agreement</td>
+                                                <td>August 12, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/approved.png"> Approve the Document</td>
+                                                <td>August 10, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/approved.png"> Approve Somthing</td>
+                                                <td>August 8, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img alt="icon" class="icon" src="~/Images/themes/approved.png"> Modify Template</td>
+                                                <td>August 1, 2016</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- // My Tasks -->
+                    <!-- Workflow in Progress -->
+
+                    <div class="col-md-8" id="workflow-container">
+                        <div class="panel panel-default table-col-box">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom table-title">
+                                            <tr>
+                                                <th class="text-left">Workflow in Progress</th>
+                                                <th colspan="4" class="text-right"> <a href="#" id="workflow-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="workflow-cross"><img src="~/Images/themes/closs.png" alt="Closs"></a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="workflow-contents">
+                                            <tr>
+                                                <td>Doc Name</td>
+                                                <td>Workflow Type</td>
+                                                <td>Status</td>
+                                                <td>Action by</td>
+                                                <td>Last Update<img src="~/Images/themes/down-arrow.png" class="down-arrow"  alt="icon"></td> @*style="width:14px; padding-top:5px; float:right;" alt="icon"></td>*@
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 1</td>
+                                                <td>Type 1</td>
+                                                <td>Status 1</td>
+                                                <td>Dexian</td>
+                                                <td>August 30, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 2</td>
+                                                <td>Type 2</td>
+                                                <td>Status 2</td>
+                                                <td>Wen Wen</td>
+                                                <td>August 23, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 3</td>
+                                                <td>Type 3</td>
+                                                <td>Status 3</td>
+                                                <td>Randy</td>
+                                                <td>August 20, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 4</td>
+                                                <td>Type 4</td>
+                                                <td>Status 4</td>
+                                                <td>Rizqi</td>
+                                                <td>August 14, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 5</td>
+                                                <td>Type 5</td>
+                                                <td>Status 5</td>
+                                                <td>Hanafi</td>
+                                                <td>August 12, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 6</td>
+                                                <td>Type 6</td>
+                                                <td>Status 6</td>
+                                                <td>Chelsea</td>
+                                                <td>August 10, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 7</td>
+                                                <td>Type 7</td>
+                                                <td>Status 7</td>
+                                                <td>Xiao</td>
+                                                <td>August 8, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workflow 8</td>
+                                                <td>Type 8</td>
+                                                <td>Status 8</td>
+                                                <td>Thomas</td>
+                                                <td>August 1, 2016</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // Workflow in Progress -->
+                    <!-- // My Tasks & Workflow in Progress-->
+                    <div class="clearfix"></div>
+                    <!-- wright new  and shared document -->
+
+                    <div class="col-md-6" id="message-container">
+                        <div class="panel panel-default table-col-box">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom table-title">
+                                            <tr>
+                                                <th class="text-left">Messages <span class="active">Write New</span></th>
+                                                <th colspan="2" class="text-right"> <a href="#" id="message-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="message-cross"><img src="~/Images/themes/closs.png" alt="Closs"></a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="message-contents">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="media">
+                                                        <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Xiao > to all employees</h4>
+                                                            <p class="pull-left">Topic</p>
+                                                            <p class="pull-right">July 1</p>
+                                                            <div class="clearfix"></div>
+                                                            <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                            <div class="clearfix"></div>
+                                                            <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearboth"></div>
+                                                    <div class="media">
+                                                        <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Thomas > to all employees</h4>
+                                                            <p class="pull-left">Topic</p>
+                                                            <p class="pull-right">July 1</p>
+                                                            <div class="clearfix"></div>
+                                                            <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                            <div class="clearfix"></div>
+                                                            <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearboth"></div>
+                                                    <div class="media">
+                                                        <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">April > to all employees</h4>
+                                                            <p class="pull-left">Topic</p>
+                                                            <p class="pull-right">July 1</p>
+                                                            <div class="clearfix"></div>
+                                                            <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                            <div class="clearfix"></div>
+                                                            <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearboth"></div>
+                                                    <div class="media">
+                                                        <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Ben > to all employees</h4>
+                                                            <p class="pull-left">Topic</p>
+                                                            <p class="pull-right">July 1</p>
+                                                            <div class="clearfix"></div>
+                                                            <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                            <div class="clearfix"></div>
+                                                            <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearboth"></div>
+                                                    <div class="col-md-12">
+                                                        <textarea name="" class="post-box" cols="50" rows="5"></textarea>
+                                                        <input name="post" type="button" class="post" value="Post">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default table-col-box" id="s-doc-container">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom table-title">
+                                            <tr>
+                                                <th class="text-left">Shared Documents</th>
+                                                <th colspan="2" class="text-right"> <a href="#" id="s-doc-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="s-doc-cross"><img src="~/Images/themes/closs.png" alt="Closs"></a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="s-doc-contents">
+                                            <tr>
+                                                <td>File Name</td>
+                                                <td>Shared by</td>
+                                                <td>Date<img src="~/Images/themes/down-arrow.png"  class="down-arrow"  alt="icon"></td>@*style="width:14px; padding-top:5px; float:right;" alt="icon"></td>*@
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  1</td>
+                                                <td>Dexian</td>
+                                                <td>August 30, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  2</td>
+                                                <td>Wen Wen</td>
+                                                <td>August 23, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  3</td>
+                                                <td>Randy</td>
+                                                <td>August 20, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  4</td>
+                                                <td>Rizqi</td>
+                                                <td>August 14, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  5</td>
+                                                <td>Thomas</td>
+                                                <td>August 12, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  6</td>
+                                                <td>Ben</td>
+                                                <td>August 10, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  7</td>
+                                                <td>Dexian</td>
+                                                <td>August 8, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  8</td>
+                                                <td>Wen Wen</td>
+                                                <td>August 1, 2016</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="panel panel-default table-col-box" id="frequent-container">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom table-title">
+                                            <tr>
+                                                <th class="text-left">Frequent Accessed File</th>
+                                                <th colspan="2" class="text-right"> <a href="#" id="frequent-minus"><img src="~/Images/themes/min.jpg" alt="min"></a> <a href="#" id="frequent-cross"><img src="~/Images/themes/closs.png" alt="Closs"></a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="frequent-contents">
+                                            <tr>
+                                                <td>File Name</td>
+                                                <td>Number of Access</td>
+                                                <td>Last Accessed<img src="~/Images/themes/down-arrow.png" class="down-arrow"  alt="icon"></td> @*style="width:14px; padding-top:5px; float:right;" alt="icon"></td>*@
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  1</td>
+                                                <td>90</td>
+                                                <td>August 30, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  2</td>
+                                                <td>89</td>
+                                                <td>August 23, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  3</td>
+                                                <td>88</td>
+                                                <td>August 20, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  4</td>
+                                                <td>77</td>
+                                                <td>August 14, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  5</td>
+                                                <td>67</td>
+                                                <td>August 12, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  6</td>
+                                                <td>65</td>
+                                                <td>August 10, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  7</td>
+                                                <td>64</td>
+                                                <td>August 8, 2016</td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="~/Images/themes/document.png" class="icon" alt="Document"> Document  8</td>
+                                                <td>60</td>
+                                                <td>August 1, 2016</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- wright new  and shared document --> <!--// end row -->
+                </div>
+            </div>
+        </div>
+    </div><div id="page-wrapper">
+    <div id="dashboard" class="hide">
+        <div id="dashboard-content">
+            <div id="breadcrumbs" class="breadcrumbs">
+                <div class="pull-left"> <a href="#" class="dash-link">DASHBOARD</a> <a href="#" class="dash-link active">TASKS </a> <a href="#" class="dash-link">REPORTS</a> </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart" id="report-container">
+                <div class="pull-right"> <a href="#" id="report-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="report-cross"><img src="assets/images/avatars/closs.png" alt="closs"></a> </div>
+                <div id="report-contents">
+                    <div class="col-md-7" style="border-right:1px solid #ccc;">
+                        <div class=" col-md-4">
+                            <div class="panel-body">
+                                <div id="urgent" class="pie-title-center" data-percent="50">
+                                    <span class="report-display">
+                                        5/10<br>
+                                        <small>URGENT TASK</small>
+                                    </span>
+                                </div>
+
+                                <!--End Chart -->
+
+                            </div>
+                        </div>
+                        <div class=" col-md-4">
+                            <div class="panel-body">
+                                <div id="done" class="pie-title-center" data-percent="70">
+                                    <span class="report-display">
+                                        7/10<br>
+                                        <small> TASK DONE</small>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!--End Chart -->
+                        </div>
+                        <div class=" col-md-4">
+                            <div class="panel-body">
+                                <div id="read-messages" class="pie-title-center" data-percent="91">
+                                    <span class="report-display">
+                                        2/3<br>
+                                        <small>READ MESSAGES </small>
+                                    </span>
+                                </div>
+
+                                <!--End Chart -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--// 1-->
+
+                    <div class="col-md-5">
+                        <div class="panel-body">
+                            <div class="title"><i class="fa r-icon fa-circle" aria-hidden="true"></i> URGENT TASK </div>
+                            <p>This is the outstanding task that always did by the user </p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="title"><i class="fa g-icon fa-circle" aria-hidden="true"></i> TASK DONE</div>
+                            <p>This is number of file saved by the user</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="title"><i class="fa b-icon fa-circle" aria-hidden="true"></i> MESSAGES </div>
+                            <p>This is the total storage used by the user</p>
+                        </div>
+                    </div>
+                    <!-- // 2 -->
+
+                </div>
+            </div>
+
+            <!--// Chart -->
+
+            <div class="clearfix"></div>
+            <div class="data-view">
+                <!-- My Tasks & Workflow in Progress-->
+                <!-- My Tasks -->
+                <div class="col-md-4 task" id="task-container">
+                    <div class="panel panel-default table-col-box">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom table-title">
+                                        <tr>
+                                            <th class="text-left">My Tasks <span class="num-bg">8</span></th>
+                                            <th class="text-right" id="task-header"> <a href="#" id="task-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="task-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="task-contents">
+                                        <tr>
+                                            <td>Task</td>
+                                            <td>Date <img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Start Workflow</td>
+                                            <td>August 30, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Create Workflow</td>
+                                            <td>August 23, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Create Template</td>
+                                            <td>August 20, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Assign Task</td>
+                                            <td>August 14, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve Agreement</td>
+                                            <td>August 12, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve the Document</td>
+                                            <td>August 10, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve Somthing</td>
+                                            <td>August 8, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Modify Template</td>
+                                            <td>August 1, 2016</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- // My Tasks -->
+                <!-- Workflow in Progress -->
+
+                <div class="col-md-8" id="workflow-container">
+                    <div class="panel panel-default table-col-box">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom table-title">
+                                        <tr>
+                                            <th class="text-left">Workflow in Progress</th>
+                                            <th colspan="4" class="text-right"> <a href="#" id="workflow-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="workflow-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="workflow-contents">
+                                        <tr>
+                                            <td>Doc Name</td>
+                                            <td>Workflow Type</td>
+                                            <td>Status</td>
+                                            <td>Action by</td>
+                                            <td>Last Update<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 1</td>
+                                            <td>Type 1</td>
+                                            <td>Status 1</td>
+                                            <td>Dexian</td>
+                                            <td>August 30, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 2</td>
+                                            <td>Type 2</td>
+                                            <td>Status 2</td>
+                                            <td>Wen Wen</td>
+                                            <td>August 23, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 3</td>
+                                            <td>Type 3</td>
+                                            <td>Status 3</td>
+                                            <td>Randy</td>
+                                            <td>August 20, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 4</td>
+                                            <td>Type 4</td>
+                                            <td>Status 4</td>
+                                            <td>Rizqi</td>
+                                            <td>August 14, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 5</td>
+                                            <td>Type 5</td>
+                                            <td>Status 5</td>
+                                            <td>Hanafi</td>
+                                            <td>August 12, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 6</td>
+                                            <td>Type 6</td>
+                                            <td>Status 6</td>
+                                            <td>Chelsea</td>
+                                            <td>August 10, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 7</td>
+                                            <td>Type 7</td>
+                                            <td>Status 7</td>
+                                            <td>Xiao</td>
+                                            <td>August 8, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Workflow 8</td>
+                                            <td>Type 8</td>
+                                            <td>Status 8</td>
+                                            <td>Thomas</td>
+                                            <td>August 1, 2016</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Workflow in Progress -->
+                <!-- // My Tasks & Workflow in Progress-->
+                <div class="clearfix"></div>
+                <!-- wright new  and shared document -->
+
+                <div class="col-md-6" id="message-container">
+                    <div class="panel panel-default table-col-box">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom table-title">
+                                        <tr>
+                                            <th class="text-left">Messages <span class="active">Write New</span></th>
+                                            <th colspan="2" class="text-right"> <a href="#" id="message-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="message-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="message-contents">
+                                        <tr>
+                                            <td colspan="3">
+                                                <div class="media">
+                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Xiao > to all employees</h4>
+                                                        <p class="pull-left">Topic</p>
+                                                        <p class="pull-right">July 1</p>
+                                                        <div class="clearfix"></div>
+                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                        <div class="clearfix"></div>
+                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearboth"></div>
+                                                <div class="media">
+                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Thomas > to all employees</h4>
+                                                        <p class="pull-left">Topic</p>
+                                                        <p class="pull-right">July 1</p>
+                                                        <div class="clearfix"></div>
+                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                        <div class="clearfix"></div>
+                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearboth"></div>
+                                                <div class="media">
+                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">April > to all employees</h4>
+                                                        <p class="pull-left">Topic</p>
+                                                        <p class="pull-right">July 1</p>
+                                                        <div class="clearfix"></div>
+                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                        <div class="clearfix"></div>
+                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearboth"></div>
+                                                <div class="media">
+                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Ben > to all employees</h4>
+                                                        <p class="pull-left">Topic</p>
+                                                        <p class="pull-right">July 1</p>
+                                                        <div class="clearfix"></div>
+                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                        <div class="clearfix"></div>
+                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearboth"></div>
+                                                <div class="col-md-12">
+                                                    <textarea name="" class="post-box" cols="50" rows="5"></textarea>
+                                                    <input name="post" type="button" class="post" value="Post">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default table-col-box" id="s-doc-container">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom table-title">
+                                        <tr>
+                                            <th class="text-left">Shared Documents</th>
+                                            <th colspan="2" class="text-right"> <a href="#" id="s-doc-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="s-doc-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="s-doc-contents">
+                                        <tr>
+                                            <td>File Name</td>
+                                            <td>Shared by</td>
+                                            <td>Date<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  1</td>
+                                            <td>Dexian</td>
+                                            <td>August 30, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  2</td>
+                                            <td>Wen Wen</td>
+                                            <td>August 23, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  3</td>
+                                            <td>Randy</td>
+                                            <td>August 20, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  4</td>
+                                            <td>Rizqi</td>
+                                            <td>August 14, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  5</td>
+                                            <td>Thomas</td>
+                                            <td>August 12, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  6</td>
+                                            <td>Ben</td>
+                                            <td>August 10, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  7</td>
+                                            <td>Dexian</td>
+                                            <td>August 8, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  8</td>
+                                            <td>Wen Wen</td>
+                                            <td>August 1, 2016</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="panel panel-default table-col-box" id="frequent-container">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom table-title">
+                                        <tr>
+                                            <th class="text-left">Frequent Accessed File</th>
+                                            <th colspan="2" class="text-right"> <a href="#" id="frequent-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="frequent-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="frequent-contents">
+                                        <tr>
+                                            <td>File Name</td>
+                                            <td>Number of Access</td>
+                                            <td>Last Accessed<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  1</td>
+                                            <td>90</td>
+                                            <td>August 30, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  2</td>
+                                            <td>89</td>
+                                            <td>August 23, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  3</td>
+                                            <td>88</td>
+                                            <td>August 20, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  4</td>
+                                            <td>77</td>
+                                            <td>August 14, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  5</td>
+                                            <td>67</td>
+                                            <td>August 12, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  6</td>
+                                            <td>65</td>
+                                            <td>August 10, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  7</td>
+                                            <td>64</td>
+                                            <td>August 8, 2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  8</td>
+                                            <td>60</td>
+                                            <td>August 1, 2016</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- wright new  and shared document --> <!--// end row -->
+            </div>
+        </div>
+    </div>
+</div>

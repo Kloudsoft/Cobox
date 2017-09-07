@@ -1,0 +1,208 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.ClassificationImagelist
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Classification";
+}
+
+<div style="padding-left:25px">
+
+    <h2>Classification</h2>
+
+
+    @ViewBag.UploadStatus
+
+     
+
+    <style>
+        .container {
+            height: 180px;
+            width: 98%;
+            margin: 5px auto;
+            position: relative;
+        }
+
+        .block {
+            height: 160px;
+            width: 160px;
+            float: left;
+            margin: 5px;
+            border: 1px solid #e0e0e0;
+            padding: 3px 3px 3px 3px;
+        }
+        .ccspin {
+            background: #444; /* outline */
+            /*background: #EEE;*/ /* hand */
+        }
+
+        
+
+    </style>
+
+    <script src=@Url.Content("~/Scripts/jquery.spin.js")></script>
+    <link rel="stylesheet" href=@Url.Content("~/Content/jquery.spin.css") />
+           
+        <div style="float:left;height:450px;overflow:scroll;width:1100px">
+
+            <table><tr><td>Project Name :&nbsp;</td><td><b><label id="lblprojectName">@TempData["ProjectName"] </label> </b></td></tr></table>
+            <br />
+            <input id="hdnid" type="hidden" value="" />
+            <input id="hdnProjectName" type="hidden" value="@TempData["ProjectName"]" />
+
+            <table width="50%" cellpadding="35">
+                <tr>
+                    <td width="20%" colspan="4">
+                        <label id="lblprojecttags">Select Tags</label>&nbsp;&nbsp; 
+                        @*@Html.DropDownListFor(model => model.TemplateNames, (IEnumerable<SelectListItem>)ViewBag.Templates, "Select Templates", new { id = "ddlTemplateNames", @class = "selectclass" })*@
+
+                        @if(TempData["Templates"] != null)
+                        {
+                            @Html.DropDownList("TemplateNames", ((List<string>)TempData["Templates"]).Select(m => new SelectListItem { Text = m, Value = m }));
+                        }
+                    </td>
+                    </tr> 
+                <tr>
+                    <td width="20%"><input type="file" id="postedFiles" name="postedFiles" multiple="multiple" style="width:180px" /></td>
+                    <td width="15%" align="left"><input type="submit" id="btnUpload" value="Upload Files" class="=btn btn-primary btn-radius" /></td>
+                    <td width="15%" align="right"><input type="submit" id="btnTrain" value="Train" class="=btn btn-primary btn-radius" /> <div id="DivTrainResult"></div></td>
+                    <td><div class="spin" data-spin /></td>
+                </tr>
+                
+            </table>
+
+            @*@if (Model != null)
+            {
+                <div class="container">
+
+                    @foreach (var image in Model.Images)
+                    {
+                        <div class="block">
+                            <img src="@Url.Content(image)" alt="" width="150" height="150" />
+                        </div>
+
+                    }
+
+
+                </div>
+            }*@
+
+            <div id="DivlistTagIMages" style="width:900px"></div>
+
+
+            
+            <script>
+
+
+    $('#btnUpload').click(function () {
+
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#postedFiles").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            // Adding one more key to FormData object
+
+                 var ProjectName = $("#hdnProjectName").val();
+                 var TemplateNames = $("#TemplateNames").val();
+
+            fileData.append('ProjectName', ProjectName);
+                fileData.append('TemplateNames', TemplateNames);
+
+            $.ajax({
+                url: '/TenantClassification/Index',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    alert("Files Uplaoded Successfully!!");
+                 document.getElementById('DivlistTagIMages').innerHTML = result;
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+
+
+                //---------  TRAIN
+
+
+ $('#btnTrain').click(function () {
+
+
+                // $.blockUI();
+
+                //$('.spin').spin();
+                $('.spin').spin('show');
+
+
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Adding one more key to FormData object
+
+                 var ProjectName = $("#hdnProjectName").val();
+
+            fileData.append('ProjectName', ProjectName);
+
+
+            $.ajax({
+                url: '/TenantClassification/Train',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    alert("Training Processed Succesfully!");
+                // $.unblockUI();
+                $('.spin').spin('hide');
+                 //document.getElementById('DivTrainResult').innerHTML = result;
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+
+
+   $('.spin').spin('hide');
+
+            </script>  
+
+               
+
+
+
+        </div>
+
+   
+
+   
+
+
+</div>
+

@@ -1,0 +1,118 @@
+﻿@model HouseOfSynergy.AffinityDms.Entities.Tenants.Document
+
+<style type="text/css">
+    .viewer-container {
+        height: 470px;
+    }
+
+    .thumbnails-container {
+        height: 130px;
+        font-size: 8px;
+    }
+
+    @@media (min-width: 768px) {
+        .viewer-container,
+        .thumbnails-container {
+            height: 600px;
+        }
+    }
+</style>
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    //var docViewer = new AffinityDms.Entities.DocumentViewer();
+    @*$(document).ready(function () {
+        var H_Div6Val = document.getElementById("H_Div6Val");
+        alert(H_Div6Val.getAttribute("data-id"));
+        var documentNameDiv6 = document.getElementById("documentNameDiv6");
+        if (documentNameDiv6 != null)
+        {
+           // $("#documentNameDiv6").text(@this.Model.Name)
+            var DocViewerType = document.getElementById("DocViewerType");
+            if(DocViewerType!=null)
+            {
+               // alert(@this.ViewBag.Id);
+              //  DocViewerType.setAttribute("data-id",@this.ViewBag.Id);
+                //DocViewerType.setAttribute("data-type",@this.ViewBag.Type);
+            }
+        }
+       // var docViewer = new AffinityDms.Entities.DocumentViewer();
+      //  docViewer.run();
+    });*@
+</script>
+
+<div id="documentViewerDemoLoadingDlg" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog loading-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <br />
+                <label id="processText"></label>
+                <br />
+                <br />
+                <div class="progress">
+                    <div id="progressbar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        <span id="progressPercentage"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="cancelDiv" class="modal-footer">
+                <button id="cancel" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@if (this.ViewBag.ErrorMessage != null)
+{
+    <pre style="color:red">@this.ViewBag.ErrorMessage</pre>
+}*@
+
+@{
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DocumentViewerErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentViewerErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentViewerErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentViewerSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentViewerSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentViewerSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+
+@if (this.Model != null)
+{
+    if (this.Model.Id > 0)
+    {
+        if (this.ViewBag.Type != null)
+        {
+            <input type="hidden" value="" id="DocViewerType" data-id="@this.Model.Id" data-type="@this.ViewBag.Type">
+        }
+    }
+}
+<div class="row no-gutter">
+    <div class="col-sm-2 col-md-2 col-lg-2" id="thumbnails-container-Div">
+        <div id="thumbnails-container" class="thumbnails-container"></div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div id="viewer-container" class="viewer-container"></div>
+    </div>
+</div>

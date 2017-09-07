@@ -1,0 +1,321 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.Template>
+
+@{
+    ViewBag.Title = "Forms";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+    var designer = new AffinityDms.Entities.FormDesigner();
+    function createtemplate(){
+        window.location.href = "/TenantForm/Index";
+    }
+
+</script>
+<input type="hidden" id="SelectedTemplate" value="-1" data-type="Form">
+<input type="hidden" id="ViewId" value="-1" style="display:none" class="btn btn-primary">
+<input type="hidden" id="ViewType" value="" style="display:none" class="btn btn-primary">
+@{
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="FormsErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#FormsErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="FormsErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="FormsSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#FormsSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="FormsSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="InviteExternalUserModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite External Users</h4>
+                <div style="display:none;color:red" id="EmailErrorDiv"></div>
+                <div style="display:none;color:green" id="EmailSuccessDiv"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantInviteExternalUserListGrid" style="padding-left: 15px;padding-right: 15px;">
+                    @*<input type="text" id="InviteUserName" class="form-control text-box" placeholder="Enter User Name">*@
+                    <input type="email" id="InviteUserEmail" class="form-control text-box" placeholder="Enter User Email" style="max-width: none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeInviteExternalUserModalBtn">Close</button>
+                <button type="button" class="btn btn-primary"  id="InviteUserBtn" onclick="javascript: designer.SendExternalUserInvite(event)">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserSelectionModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite Internal Users</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantUsersSelectionListGrid">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeUserSelectionModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: designer.SaveUserSelectionModal(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="width:100%;display:inline-block;margin-bottom:7px">
+    <div style="width:70%;display:inline-block">
+        <div id="MessageDiv">
+            @*@{
+                string errormessage = (this.ViewBag.ErrorMessage != null) ? this.ViewBag.ErrorMessage : string.Empty;
+                string successmessage = (this.ViewBag.SuccessMessage != null) ? this.ViewBag.SuccessMessage : string.Empty;
+
+                if (!(string.IsNullOrEmpty(errormessage)))
+                {
+                    <p style="color:Red;font-size:1.5em">@errormessage</p>
+                }
+
+                if (!(string.IsNullOrEmpty(successmessage)))
+                {
+                    <p style="color:Green;font-size:1.5em">@successmessage</p>
+                }
+
+            }*@
+        </div>
+    </div>
+    <div style="width:30%;display:inline-block;float:right">
+        <input type="button" class="btn btn-default" style="float:right" value="Create Template" onclick="createtemplate(); return false">
+    </div>
+</div>
+
+@(Html.Kendo().Grid(Model)
+      .Name("FormListingGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "TemplateNo" });
+          //columns.Bound(item => item.Title);
+          columns.Template(
+              item =>
+              (item.CheckedOut)
+              ?
+                  ((item.IsVisible)
+                  ?
+                     "<span style=color:red;font-size:20px;>**&nbsp;</span>" + item.Title
+                  :
+                     "<span style=color:red;font-size:20px;>*&nbsp;</span>" + item.Title
+                  )
+
+             :
+                 item.Title
+            )
+          .Title("Title");
+          columns.Bound(item => item.Description);
+          columns.Bound(item => item.TemplateType).Title("Type");
+          columns.Template(item => ((item.IsFinalized) ? ("Yes") : ("No"))).Title("Finalized");
+          columns.Template(item => ((item.IsActive) ? ("Active") : ("InActive"))).Title("Status");
+          columns.Template(i => (i.VersionMajor + "." + i.VersionMinor)).Title("Version Number");
+          columns.Bound(i => (i.VersionCount)).Title("Total Versions");
+          columns.Template(item => ((item.TemplateType == HouseOfSynergy.AffinityDms.Entities.Lookup.TemplateType.Form)
+          //?
+          //    ((item.IsFinalized == true)
+          //    ?
+          //       ("<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //        + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //        + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //         + ((item.CheckedOut == true) ?("<a href='" + @Url.Action("Index", "TenantFormProtectedView", new { id = item.Id }) + "'><img src='/Images/EditDesign.png' title='View Form Design' style='height:20px;width:20px' id='" + item.Id + "'  ></a>") :("<a href='" + @Url.Action("CheckoutTemplate", "TenantForms", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"))).ToString()
+          //    :
+          //        ("<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //        + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //        + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //        + "|" + "<a href='" + @Url.Action("Index", "TenantForm", new { id = item.Id }) + "'><img src='/Images/EditTemplate.jpg' title='Edit Form' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+          //         + ((item.CheckedOut == true) ? ("<a href='" + @Url.Action("Index", "TenantFormDesign", new { id = item.Id }) + "'><img src='/Images/EditDesign.png' title='Edit Form Deisgn' style='height:20px;width:20px' id='" + item.Id + "'  ></a>") : ("<a href='" + @Url.Action("CheckoutTemplate", "TenantForms", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"))).ToString()
+          //    )
+          //:
+          //    ("")
+          //    )
+          //    + "<a href='#' data-toggle='modal' data-target='#RightsModal' data-id='" + item.Id + "' data-type='Form'><img src='/Images/user_lock.png' title='User Rights Management' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+          //    + "<a onclick='javascript: UserSelection(event)' data-id='" + item.Id + "' data-type='Form'><img src='/Images/InternalUser.png' title='Add/Remove Internal Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+          //    + "<a onclick='javascript: InviteExternalUser(event)' data-id='" + item.Id + "' data-type='Template'><img src='/Images/ExternalUser.png' title='Invite External Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+
+          //    ).Title("Actions");
+          ?
+                                        ((item.IsFinalized == true)
+                                        ?
+                                        (
+                                             
+                                             (
+                                                (item.CheckedOut == true)
+                                                ?
+                                                    (item.IsVisible)
+                                                        ?
+                                                            "<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                              + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                              + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                                                                    :
+                                                            "<a href='" + @Url.Action("CheckoutTemplate", "TenantTemplates", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                :
+                                                (
+                                                    "<a href='" + @Url.Action("CheckoutTemplate", "TenantForms", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>" +
+                                                    "<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                )
+                                              )
+                                        ).ToString()
+                                        :
+                                        (
+                                                    "<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantForm", new { id = item.Id }) + "'><img src='/Images/EditTemplate.jpg' title='Edit Form' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                            +
+                                            (
+                                                    (item.CheckedOut == true)
+                                                    ?
+                                                         (item.IsVisible)
+                                                         ?
+                                                              "<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                                + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                                + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                         :
+                                                            "<a href='" + @Url.Action("Index", "TenantFormDesign", new { id = item.Id }) + "'><img src='/Images/EditDesign.png' title='Edit Form Deisgn' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    :
+
+                                                    "<a href='" + @Url.Action("CheckoutTemplate", "TenantTemplates", new { id = item.Id }) + "'><img src='/Images/checkout.png' title='Check Out' style='height:20px;width:20px' id='" + item.Id + "'  ></a>" +
+                                                    "<a href='" + @Url.Action("Index", "TenantFormRenderWeb", new { id = item.Id }) + "'><img src='/Images/WebView.jpg' title='Form Web View' style='height:20px;width:20px' id='" + item.Id + "'  ></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderMobile", new { id = item.Id }) + "'><img src='/Images/MobileView.jpg' title='Form Mobile View' style='height:20px;width:20px' id='" + item.Id + "'></a>"
+                                                    + "|" + "<a href='" + @Url.Action("Index", "TenantFormRenderPrint", new { id = item.Id }) + "'><img src='/Images/PrintView.png' title='Form Print View' style='height:20px;width:20px' id='" + item.Id + "'></a>"
+                                              )
+                                        ).ToString()
+                                        )
+                                    :
+                                    ("")
+                                    )
+                                    + "<a href='#' data-toggle='modal' data-target='#RightsModal' data-id='" + item.Id + "' data-type='Template'><img src='/Images/user_lock.png' title='User Rights Management' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                    + "<a onclick='javascript: UserSelection(event)' data-id='" + item.Id + "' data-type='Template'><img src='/Images/InternalUser.png' title='Add/Remove Internal Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                    + "<a onclick='javascript: InviteExternalUser(event)' data-id='" + item.Id + "' data-type='Template'><img src='/Images/ExternalUser.png' title='Invite External Users' style='height:25px;width:25px' id='" + item.Id + "'  ></a>"
+                                    ).Title("Actions");
+
+      })
+       .Pageable()
+      .Sortable()
+)
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel" id="RightsModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">User Rights</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="RightsModalBodyDiv">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn" onclick="javascript: CloseRightsModal(event)">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveRights(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.onload = designer.Run();
+    function CloseRightsModal(event) {
+        $('#RightsModal').modal('hide');
+    }
+
+    $("#RightsModal").on("show.bs.modal", function (e) {
+        var ViewType = document.getElementById("ViewType");
+        var ViewId = document.getElementById("ViewId");
+        if (ViewType != null && ViewId != null) {
+            var valuetype = AffinityDms.Entities.Documents.prototype.CheckViewType(e.relatedTarget.getAttribute("data-type"));
+            ViewType.value = valuetype;
+            ViewId.value = e.relatedTarget.getAttribute("data-id");
+            if ((ViewType.value != null && ViewType.value != "") && (ViewId.value != null && ViewId.value != "")) {
+                $(this).find(".modal-body").load(("/TenantUsers/GetUserRightsList?id=" + ViewId.value + "&Type=" + ViewType.value));
+            }
+            else {
+                alert("An error occurred while proccessing the request");
+            }
+        }
+    });
+    function UserSelection(event) {
+        //href='#' data-toggle='modal' data-target='#UserSelectionModal'
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedTemplate = document.getElementById("SelectedTemplate");
+            SelectedTemplate.value = anchor.getAttribute("data-id");
+            $("#UserSelectionModal").modal("show");
+        }
+    }
+    $("#closeInviteExternalUserModalBtn").on("click", function (e) {
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.value = "";
+    });
+    $("#InviteUserEmail").keypress(function (event) {
+        if (event.which || event.keyCode) { if ((event.which == 13) || (event.keyCode == 13)) { $("#InviteUserBtn").click(); return false; } else { return true; } }
+    });
+    $("#InviteExternalUserModal").on("show.bs.modal", function (e) {
+        var EmailErrorDiv = document.getElementById("EmailErrorDiv");
+        EmailErrorDiv.textContent = "";
+        var EmailSuccessDiv = document.getElementById("EmailSuccessDiv");
+        EmailSuccessDiv.textContent = "";
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.textContent = "";
+    });
+    function InviteExternalUser(event) {
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedTemplate = document.getElementById("SelectedTemplate");
+            SelectedTemplate.value = anchor.getAttribute("data-id");
+            $("#InviteExternalUserModal").modal("show");
+        }
+    }
+    $("#UserSelectionModal").on("show.bs.modal", function (e) {
+        var SelectedTemplate = document.getElementById("SelectedTemplate");
+        if (SelectedTemplate != null) {
+            var TenantUsersSelectionListGrid = document.getElementById("TenantUsersSelectionListGrid");
+            TenantUsersSelectionListGrid.textContent = "";
+            $(this).find(".modal-body").load("/TenantForms/GetAllUsersForForm?templateId=" + SelectedTemplate.value);
+        }
+    });
+
+
+</script>

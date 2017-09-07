@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.DiscoursePostVersion>
+
+
+
+@foreach (var postVersion in Model)
+{
+
+
+    var AttachmentsId = "PostHistoryAttachments" + postVersion.PostId;
+    var PostComment = "PostHistoryComment" + postVersion.PostId;
+    <div class="col-md-12">
+        <div class="post-display"  style="background-color:white">
+            <p id="@PostComment">
+                @Html.Raw(postVersion.Comments)
+            </p><br />
+            <div id="@AttachmentsId">
+                @if (postVersion.Attachments != null)
+                {
+                    foreach (var attachment in postVersion.Attachments)
+                    {
+                        var attachmentStr = HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers.CustomHtmlHelpers.GetAttachmentsString(attachment);
+                        <span>@Html.Raw(attachmentStr)</span>
+                    }
+                }
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <span class="pull-left">
+                <img src="../../Images/Themes/time.png" width="15" height="15">@postVersion.DateTime
+            </span>
+            <div class="clearfix"></div>
+        </div>
+        <hr size="1">
+    </div>
+
+}

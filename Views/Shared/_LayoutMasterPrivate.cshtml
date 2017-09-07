@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+
+@using HouseOfSynergy.AffinityDms.BusinessLayer
+@using HouseOfSynergy.AffinityDms.Library
+@using HouseOfSynergy.AffinityDms.WebRole.Models.Master
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+
+	<title>@this.ViewBag.Title</title>
+
+	<link href="~/Styles/TenantPrivate.css" rel="stylesheet" />
+
+	@Styles.Render("~/bundles/kendoCSS");
+    @Styles.Render("~/bundles/css");
+	@Scripts.Render("~/bundles/jQuery");
+	@Scripts.Render("~/bundles/kendoJS");
+	@Scripts.Render("~/bundles/GreenSock");
+	@Scripts.Render("~/bundles/bootstrapJS");
+
+	@{
+	//Styles.Render("~/Content/css");
+	//Styles.Render("~/Content/kendo/css");
+
+	//Scripts.Render("~/Scripts/jQuery");
+	//Scripts.Render("~/bundles/kendo");
+	//Scripts.Render("~/bundles/bootstrap");
+	//Scripts.Render("~/bundles/TypeScript");
+	//Scripts.Render("~/bundles/GreenSock");
+	}
+
+	<!--[if lt IE 9]><script type="text/javascript" src="../../Scripts/Explorer Canvas/excanvas.js"></script><![endif]-->
+	<script src="../../Scripts/Tag Canvas/Tag Canvas/Standalone/tagcanvas.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+	<div id="DivMain">
+		<div id="DivHeader">
+			<div id="DivHeaderLeft">
+				<img src="~/Multimedia/Graphics/Images/Logo - Kloud-Soft.png" alt="Kloud-Soft" style="width: 300px; height: 100px;" />
+			</div>
+			<div id="DivHeaderMiddle">
+				Affinity DMS
+				<br />
+				Section Name
+			</div>
+			<div id="DivHeaderRight">
+				@Html.Action("Index", "MasterUserCurrent")
+			</div>
+		</div>
+		<div id="DivNavigation">
+			<div style="float: left;">
+				Section Menus
+			</div>
+			<div style="float: right; text-align: right; padding-right: 20px;">
+				<div class="DivMenuNavigationLanguage" style="float: left;">
+					<select id=" comboboxculture" style="width: 250px;" onchange="alert('Selected Language: ' + ComboBoxCulture.value + ' - ' + ComboBoxCulture.options[ComboBoxCulture.selectedIndex].text);">
+						<option value="en" selected>English</option>
+						<option value="en-US">English (United States)</option>
+						<option value="en-GB">English (United Kingdom)</option>
+						<option value="zh-Hans">Chinese (Simplified) - 中文(简体)</option>
+						<option value="zh-Hant">Chinese (Traditional) - 中文(繁體)</option>
+						<option value="zh-SG">Chinese (Simplified, Singapore) - 中文(新加坡)</option>
+						<option value="zh-TX">Chinese (Traditional, Taiwan) - 中文(台灣)</option>
+						<option value="ur">Urdu - اُردو</option>
+						<option value="ur-PK">Urdu (Pakistan) - اُردو (پاکستان)</option>
+					</select>
+				</div>
+				<div style="float: left; margin-right: 80px;">
+					<div id="google_translate_element" style="margin-right: 10px;">
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function googleTranslateElementInit()
+				{
+					new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+				}
+			</script>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		</div>
+		<div id="DivMenuMain">
+			<a href="#" title="Expand Menu">
+				<div id="DivMenuMainItemDisplayToggle" class="DivMenuMainItem" onclick="javascript: ToggleMenu();">
+					<img src="~/Multimedia/Graphics/Images/Expand.png" alt="Toggle Menu" style="width: 16px; height: 16px;" />
+				</div>
+			</a>
+			<a href="/Master/Home" , title="Home">
+				<div id="DivMenuMainItemHome" class="DivMenuMainItem">
+					<img src="~/Multimedia/Graphics/Images/Home.png" alt="Home" style="width: 16px; height: 16px;" />
+				</div>
+			</a>
+			<a href="/Master/Users" title="Users">
+				<div id="DivMenuMainItemUsers" class="DivMenuMainItem">
+					<img src="~/Multimedia/Graphics/Images/Users.png" alt="Users" style="width: 16px; height: 16px;" />
+				</div>
+			</a>
+			<a href="/Master/Tenants" title="Tenants">
+				<div id="DivMenuMainItemTenants" class="DivMenuMainItem">
+					<img src="~/Multimedia/Graphics/Images/Template.png" alt="Templates" style="width: 16px; height: 16px;" />
+				</div>
+			</a>
+			<a href="/Master/Subscriptions" title="Subscriptions">
+				<div id="DivMenuMainItemSubscriptions" class="DivMenuMainItem">
+					<img src="~/Multimedia/Graphics/Images/Document.png" alt="Documents" style="width: 16px; height: 16px;" />
+				</div>
+			</a>
+		</div>
+		<div id="DivBody">
+			@RenderBody()
+		</div>
+		<div id="DivFooter">
+			Copyright © 2016 Kloud-Soft Pte Ltd. All rights reserved.
+		</div>
+	</div>
+
+	<div class="DivMenuNavigationAlerts">
+		<a href="#" title="Notifications (0)">
+			<img src="../Multimedia/Graphics/Images/Alert.png" alt="Alerts" />&nbsp;<span id="SpanMenuNavigationAlerts">(0)</span>
+		</a>
+	</div>
+	<div class="DivMenuNavigationMessages">
+		<a href="#" title="Messages (0)">
+			<img src="../Multimedia/Graphics/Images/Email.png" alt="Messages" />&nbsp;<span id="SpanMenuNavigationMessages">(0)</span>
+		</a>
+	</div>
+
+	<div id="DivSizeMeasure" style="position: absolute; visibility: hidden; height: auto; width: auto; white-space: nowrap;">Sample text.</div>
+
+	<script type="text/javascript">
+
+		var IsCurrentViewDashboard = false;
+		var MenuExpanded = false;
+
+		IsCurrentViewDashboard = (window.location.toString().slice(window.location.toString().indexOf("/Tenants/Dashboard"), window.location.toString().indexOf("/Tenants/Dashboard") + "/Tenants/Dashboard".length) == "/Tenants/Dashboard");
+
+		function ToggleMenu()
+		{
+			var width = 50;
+			var widthDefaultString = "50px";
+			var widthString = width.toString() + "px";
+
+			MenuExpanded = !MenuExpanded;
+			IsCurrentViewDashboard = (window.location.toString().slice(window.location.toString().indexOf("/Tenants/Dashboard"), window.location.toString().indexOf("/Tenants/Dashboard") + "/Tenants/Dashboard".length) == "/Tenants/Dashboard");
+
+			DivMenuMainItemDisplayToggle.title = ((MenuExpanded) ? ("Collapse Menu") : ("Expand Menu"));
+			DivMenuMainItemDisplayToggle.innerHTML = ((MenuExpanded) ? ("&nbsp;<img src=\"../Multimedia/Graphics/Images/Expand.png\" alt=\"Toggle Menu\" style=\"width: 16px; height: 16px;\" />" + "&nbsp;Collapse") : ("<img src=\"../Multimedia/Graphics/Images/Expand.png\" alt=\"Toggle Menu\" style=\"width: 16px; height: 16px;\" />"));
+			DivMenuMainItemHome.innerHTML = ((MenuExpanded) ? ("&nbsp;<img src=\"../Multimedia/Graphics/Images/Home.png\" alt=\"Home\" style=\"width: 16px; height: 16px;\" />" + "&nbsp;Home") : ("<img src=\"../Multimedia/Graphics/Images/Home.png\" alt=\"Home\" style=\"width: 16px; height: 16px;\" />"));
+			DivMenuMainItemUsers.innerHTML = ((MenuExpanded) ? ("&nbsp;<img src=\"../Multimedia/Graphics/Images/Users.png\" alt=\"Users\" style=\"width: 16px; height: 16px;\" />" + "&nbsp;Users") : ("<img src=\"../Multimedia/Graphics/Images/Users.png\" alt=\"Users\" style=\"width: 16px; height: 16px;\" />"));
+			DivMenuMainItemTenants.innerHTML = ((MenuExpanded) ? ("&nbsp;<img src=\"../Multimedia/Graphics/Images/Template.png\" alt=\"Tenants\" style=\"width: 16px; height: 16px;\" />" + "&nbsp;Tenants") : ("<img src=\"../Multimedia/Graphics/Images/Template.png\" alt=\"Tenants\" style=\"width: 16px; height: 16px;\" />"));
+			DivMenuMainItemSubscriptions.innerHTML = ((MenuExpanded) ? ("&nbsp;<img src=\"../Multimedia/Graphics/Images/Form.png\" alt=\"Subscriptions\" style=\"width: 16px; height: 16px;\" />" + "&nbsp;Subscriptions") : ("<img src=\"../Multimedia/Graphics/Images/Form.png\" alt=\"Subscriptions\" style=\"width: 16px; height: 16px;\" />"));
+
+			if (MenuExpanded)
+			{
+				for (var i = 0; i < DivMenuMain.childNodes.length; i++)
+				{
+					if (DivMenuMain.childNodes[i].innerHTML === "undefined")
+					{
+					}
+					else
+					{
+						DivSizeMeasure.innerHTML = DivMenuMain.childNodes[i].innerHTML;
+
+						if (width < DivSizeMeasure.clientWidth)
+						{
+							width = DivSizeMeasure.clientWidth;
+						}
+					}
+				}
+
+				width = Math.max(100, width + 50);
+			}
+			else
+			{
+				width = 50;
+			}
+
+			widthString = width.toString() + "px";
+			DivMenuMain.style.width = widthString;
+			DivNavigation.style.left = ((IsCurrentViewDashboard) ? (((MenuExpanded) ? (widthString) : (widthDefaultString))) : (widthDefaultString));
+			DivBody.style.left = ((IsCurrentViewDashboard) ? (((MenuExpanded) ? (widthString) : (widthDefaultString))) : (widthDefaultString));
+			DivFooter.style.left = ((IsCurrentViewDashboard) ? (((MenuExpanded) ? (widthString) : (widthDefaultString))) : (widthDefaultString));
+
+			DivMenuMainItemDisplayToggle.style.textAlign = ((MenuExpanded) ? ("left") : ("center"));
+			DivMenuMainItemHome.style.textAlign = ((MenuExpanded) ? ("left") : ("center"));
+			DivMenuMainItemUsers.style.textAlign = ((MenuExpanded) ? ("left") : ("center"));
+			DivMenuMainItemTenants.style.textAlign = ((MenuExpanded) ? ("left") : ("center"));
+			DivMenuMainItemSubscriptions.style.textAlign = ((MenuExpanded) ? ("left") : ("center"));
+		}
+
+	</script>
+
+</body>
+</html>
