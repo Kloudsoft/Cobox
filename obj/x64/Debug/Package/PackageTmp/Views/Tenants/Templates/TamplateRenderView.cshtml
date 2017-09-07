@@ -1,0 +1,72 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.TemplateElementListAndElementDetailListViewModel
+
+@{
+    ViewBag.Title = "RenderTamplateView";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+<h2 style="text-align:center">RenderTamplateView</h2>
+
+@if (Model == null)
+{
+    <div style="color:red;text-align:center"><b>This is an Empty Template </b></div>
+}
+@*<div id="DivElementTempRow0" draggable="true" data-elementtype="OCRControl" data-tool="table" data-name="Null" data-value="None" data-indexvaluetype="0" style="z-index: 1500; width: 330px; height: 118px; margin: 0px; left: 161px; top: 71px; border: 5px solid grey; opacity: 0.7; resize: both; overflow: auto; display: flex; position: absolute;" data-lastupdatedwidth="330" data-lastupdatedheight="118">
+    <div id="DivElementColumnContainerDiv0" data-name="Null" data-elementtype="OCRControl" data-tool="tablecolumn" style="display: flex; width: 42px; left: 0px; top: 0px; height: 96%; resize: horizontal; overflow: auto; border: 1px solid black; background-color: grey;">
+    <div id="DivElementColumn0" style="display: inline-block; height: 80%; text-align: center;">DivElementColumn0</div>
+    </div>
+    <div id="DivElementColumnContainerDiv1" data-name="Null" data-elementtype="OCRControl" data-tool="tablecolumn" style="display: flex; width: 139px; left: 42px; top: 0px; height: 96%; resize: horizontal; overflow: auto; border: 1px solid black; background-color: grey;">
+    <div id="DivElementColumn1" style="display: inline-block; height: 80%; text-align: center;">DivElementColumn1</div>
+    </div>
+</div>*@
+
+
+<div style="width:100%;display: inline-block; height:550px">
+
+    <div id="MainContainer" class="col-md-8" style="height: 750px;background-repeat: no-repeat;background-size: cover;position: relative !important;display: inline-block;">
+        <div id="ElementsContainer" style="overflow:visible;width: 100%;height: 100%;zoom:1;transform:scale(1);transform-origin:left top">
+            <div id="DivPage" style="z-index:500">
+                @{
+                    var item = Model;
+                    if (item != null)
+                    {
+                        foreach (var element in item.elements)
+                        {
+                            if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Table)
+                            {
+                                <div id="@element.Id" style="z-index: 1500; width: @element.Width.ToString()px; height: @element.Height.ToString()px; margin: 0px; left: @element.X.ToString()px; top: @element.Y.ToString()px; border: 5px solid grey; opacity: 0.7; overflow: auto; display: flex; position: absolute;">
+                                    @foreach (var elementdetail in item.elementsdetails)
+                                    {
+                                        if (elementdetail.ElementId == element.Id)
+                                        {
+                                            <div id="DivElement_@elementdetail.Id.ToString()" style="display: flex; width: @elementdetail.Width.ToString()px; left: @elementdetail.X.ToString()px; top: 0px; height: 96%;  overflow: auto; border: 1px solid black; background-color: grey;">
+                                                <div id="@elementdetail.Id.ToString()" style="display: inline-block; height: 80%; text-align: center;">@elementdetail.Id.ToString()</div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            }
+                            else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Rectangle)
+                            {
+                                <div id="@element.ElementId" style="z-index:300; width: @element.DivWidth.ToString()px; height: @element.DivHeight.ToString()px; left: @element.DivX.ToString()px; top: @element.DivY.ToString()px; opacity: 0.7; border: 5px solid grey; padding-bottom: 5px; z-index: 1500; padding-right: 5px; resize: both; overflow: hidden; min-width: 5px; min-height: 5px; position: absolute;"></div>
+                            }
+                        }
+                    }
+                }
+            </div>
+            @{
+                var model = Model;
+                if (model.template != null)
+                {
+                    string imageBase64Data = Convert.ToBase64String(model.template.TemplateImage);
+                    MemoryStream ms = new MemoryStream(model.template.TemplateImage);
+                    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+                    string imageDataURL = string.Format("data:image/png;base64,{0}", imageBase64Data);
+                    <img src="@imageDataURL" draggable="false" id="TemplateImage" width="@img.Size.Width.ToString() px" height="@img.Size.Height.ToString() px" style="z-index:3;position: relative;" />
+                }
+
+            }
+
+        </div>
+    </div>
+</div>

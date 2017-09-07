@@ -1,0 +1,114 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.TemplateElementListAndElementDetailListViewModel
+@{
+    this.ViewBag.Title = "Form Design";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    var designer = new AffinityDms.Entities.FormDesigner();
+</script>
+<div id="DivBody" style="display: inline-block; height:750px" class="col-md-11">
+    <div id="DivToolBox" style="display: inline-block; left: 1%;margin-left: 30px;top: 5%; width: 5%; height: 100%; background-color: steelblue;float:left">
+        <img src="~/Images/Label.png" id="DivToolLabel" title="Label" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/txt.png" id="DivToolTextBox" title="TextBox" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/txt-area.png" id="DivToolTextArea" title="TextArea" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/Img.png" id="DivToolImage" title="Image" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/radio.png" id="DivToolRadioButton" title="Radio Button" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/chk-box.png" id="DivToolCheckBox" title="CheckBox" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/Form/HorizontalLine.png" id="DivToolLineHorizontal" title="Horizontal Line" style="width:30px;height: 5px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/Form/VerticalLine.png" id="DivToolLineVertical" title="Vertical Line" style="width:  5px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/circle.png" id="DivToolCircle" title="Circle" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <img src="~/Images/Bar-cod-e.png" id="DivToolBarcode2D" title="Barcode 2D" style="width: 30px;height: 30px;display: block;margin-left: auto;    margin-top: 10px;margin-right: auto" draggable="true" ondragstart="javascript:designer.OnDragStart(event);">
+        <input type="hidden" id="colcounter" value="0" />
+        <input type="hidden" id="divcounter" value="0" />
+        <input type="hidden" id="Hidfind" value="0" />
+        <input type="hidden" id="CurTarget" value="0" />
+        <input type="hidden" id="TempType" value="Form" />
+    </div>
+    <div id="DivPage" ondragover="javascript:designer.OnDragOver(event);" ondrop="javascript:designer.OnDrop(event);" style="display: inline-block;position: absolute;width: 65%; height: 100%;background-color: steelblue;margin-left: 10px">
+    </div>
+
+    <div id="DivPropertiesBox" style="display: inline-block;margin-right: 3%;top: 5%;width: 200px; height: 100%; background-color: steelblue;float:right;z-index:1500">
+
+        <div id="addnamedivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Name:</label>
+            <input type="text" placeholder="Name" id="addnameid" class="PropertyElement" onkeyup="javascript: designer.AddName(event)">
+        </div>
+        <div id="adddescriptiondivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Description:</label>
+            <input type="text" placeholder="Description" id="adddescriptionid" class="PropertyElement" onkeyup="javascript: designer.AddDescription(event)">
+        </div>
+        <div id="addtextdivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Text:</label>
+            <input type="text" placeholder="Text" id="addtextid" class="PropertyElement" onkeyup="javascript: designer.AddText(event)">
+        </div>
+        <div id="fileuploader" style="display: none;margin: 10px;">
+
+            <label class="PropertyLabel">Choose a File:</label>
+            <input type="file" name="FileName" id="fileChooser" style="width: 100%;" onchange="javascript: designer.OnFileSelected(event)">
+        </div>
+        <div id="addxdivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">X-Axis:</label>
+            <input type="number" placeholder="X-Axis" id="addxid" class="PropertyElement" onchange="javascript: designer.AddX(event)" onkeyup=" javascript designer.AddX(event)">
+        </div>
+        <div id="addydivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Y-Axis:</label>
+            <input type="number" placeholder="Y-Axis" id="addyid" class="PropertyElement" onchange="javascript: designer.AddY(event)" onkeyup=" javascript designer.AddY(event)">
+        </div>
+        <div id="addx2divid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">X2-Axis:</label>
+            <input type="number" placeholder="X2-Axis" id="addx2id" class="PropertyElement" onchange="javascript: designer.AddColumnToOCRTableZone(event)" onkeyup="javascript: designer.AddColumnToOCRTableZone(event)">
+        </div>
+        <div id="addy2divid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Y2-Axis:</label>
+            <input type="number" placeholder="Y2-Axis" id="addy2id" class="PropertyElement" onchange="javascript: designer.AddColumnToOCRTableZone(event)" onkeyup="javascript: designer.AddColumnToOCRTableZone(event)">
+        </div>
+        <div id="addmaxchardivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Max Length:</label>
+            <input type="number" placeholder="Max Character" id="addmaxcharid" class="PropertyElement" onchange="javascript: designer.AddMaxChar(event)" onkeyup="javascript: designer.AddMaxChar(event)">
+        </div>
+        <div id="addfontsizedivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Font Size:</label>
+            <input type="number" placeholder="FontSize" id="addfontsizeid" class="PropertyElement" onkeyup="javascript: designer.AddFontSize(event)" onchange="javascript: designer.AddFontSize(event)">
+        </div>
+
+        <div id="addwidthdivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Width:</label>
+            <input type="number" placeholder="Width" id="addwidthid" class="PropertyElement" onkeyup="javascript: designer.AddWidth(event)" onchange=" javascript designer.AddWidth(event)">
+        </div>
+        <div id="addheightdivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Height:</label>
+            <input type="number" placeholder="Height" id="addheightid" class="PropertyElement" onkeyup="javascript: designer.AddHeight(event)" onchange=" javascript designer.AddHeight(event)">
+        </div>
+
+        <div id="addelementindextypedivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">   <input type="checkbox" id="addelementindextypeid" onchange="javascript: designer.AddIndexValueType(event)">  Index Type:</label>
+        </div>
+        <div id="addvaluedivid" style="display: none;margin: 10px;">
+            <label class="PropertyLabel">Value:</label>
+            <input type="text" placeholder="Value" id="addvalueid" class="PropertyElement" onkeyup="javascript: designer.AddValue(event)">
+        </div>
+        <div id="addcolumndivid" style="display: none;margin: 10px;">
+          
+        </div>
+        <div id="adddeletecolumnbtndivid" style="display: none;margin: 10px;">
+         
+        </div>
+        <div id="adddeletebtndivid" style="display: none;margin: 10px;">
+          
+        </div>
+
+    </div>
+</div>
+@if (Model != null)
+{
+    <script type="text/javascript">
+        document.onload = designer.editFormDesign('@Html.Raw(Json.Encode(Model.elements))');
+    </script>
+}
+else
+{
+    <script type="text/javascript">
+        document.onload = designer.Run();
+    </script>
+}

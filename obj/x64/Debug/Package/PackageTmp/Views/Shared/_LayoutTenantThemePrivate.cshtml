@@ -1,0 +1,1288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @{
+        HouseOfSynergy.AffinityDms.BusinessLayer.Tenants.TenantUserSession tenantuserSession = null;
+        Exception exception = null;
+        var logoSrc = "";
+        long tenantId = 0;
+        if (!HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants.TenantAuthenticationHelper.ValidateToken(this.Request, HouseOfSynergy.AffinityDms.Entities.Lookup.SessionType.Mvc, out tenantuserSession, out exception)) { }
+        var username = "";
+        if (exception == null)
+        {
+            username = tenantuserSession.User.NameFull;
+            tenantId = tenantuserSession.Tenant.Id;
+        }
+        if (tenantId == 1)
+        {
+            logoSrc = "../../Images/TenantLogos/kloudsoft_logo.png";
+        }
+        else if (tenantId == 2)
+        {
+            logoSrc = "../../Images/TenantLogos/kloudsoft_logo.png";
+            // logoSrc = "../../Images/TenantLogos/national_library_board_logo.png";
+        }
+
+    }
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>@tenantuserSession.Tenant.CompanyName - @((this.ViewBag.Title != null) ? (this.ViewBag.Title) : (""))</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    @*<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <!--<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+        <!--<link rel="stylesheet" href="assets/css/ace-skins.min.css" />-->
+        <!--<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />-->
+        <link rel="stylesheet" href="assets/css/custeme.css" />
+        <link rel="stylesheet" href="assets/css/optiscroll.css" />*@
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="~/Images/Favicon/32.png" />
+    @*affinity-ecm-globaladmin.azurewebsites.net*@
+    @Styles.Render("~/bundles/kendoCSS")
+    @*@Styles.Render("~/Content/css")*@
+    @Styles.Render("~/bundles/SiteCSS")
+    @Styles.Render("~/bundles/ThemeCSS")
+    @Scripts.Render("~/bundles/jQuery")
+    @Scripts.Render("~/bundles/ThemeJS")
+
+    <style>
+        a {
+            cursor: pointer !important;
+        }
+    </style>
+    @*<script src="../../Scripts/Tag Canvas/Tag Canvas/Standalone/tagcanvas.min.js" type="text/javascript"></script>*@
+    <style>
+        .modal-backdrop {
+            z-index: 99998 !important;
+        }
+
+        .col {
+            float: left;
+        }
+
+        .last {
+            clear: left;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .breadcrumb > li > a {
+            color: #fff;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="no-skin">
+
+    <div class="main-container ace-save-state row1" id="main-container">
+        <script type="text/javascript">
+            try {
+                ace.settings.loadState('main-container', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <div id="navbar" class="navbar navbar-default  ace-save-state custom-height47">
+            <script type="text/javascript">
+                try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+            </script>
+            <div class="navbar-container ace-save-state" id="navbar-container">
+                <div id="navbar-logo" class="navbar-header-top">
+                    <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                        <span class="sr-only">Toggle sidebar</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-header pull-left">
+                        <a href="index.html" class="navbar-brand">
+                            <img id="ImgLogo" src="@logoSrc" class="logo" alt="logo">
+                        </a>
+                        <button type="button" class="navbar-toggle menu-toggler visible-lg visible-md pull-left" id="menu-toggler01">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <div style="border-top:1px solid transparent;">
+                    <script type="text/javascript">
+                        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+                    </script>
+                    <ul class="breadcrumb" id="BreadCrumbsMenu">
+                        @{
+                            string BreadCrumbsPath = string.Empty;
+                            if (this.ViewBag.CurrentFolderId != null)
+                            {
+                                try
+                                {
+                                    Html.RenderAction("GetFolderBreadcrumb", "TenantDocumentsFolderWise", new { currentFolderId = this.ViewBag.CurrentFolderId, firstNodeName = this.ViewBag.FirstNodeName, FirstNodeUrl = this.ViewBag.FirstNodeUrl, lastNodeName = this.ViewBag.lastNodeName, lastNodeUrl = this.ViewBag.LastNodeUrl, lastNodeIdentity = this.ViewBag.lastNodeIdentity, lastNodeIdentityUrl = this.ViewBag.lastNodeIdentityUrl, isSharedFolder = this.ViewBag.isShared, isPrivateFolder = this.ViewBag.isPrivate });
+                                }
+                                catch (Exception ex)
+                                {
+                                    var exx = ex;
+                                }
+                            }
+                            else
+                            {
+                                BreadCrumbsPath = ((this.ViewBag.BreadCrumbsPath != null) ? (this.ViewBag.BreadCrumbsPath.ToString()) : ("<li><a href='#'>Home</a></li><li><a href='#'>Tasks</a></li>").ToString());
+                                @Html.Raw(BreadCrumbsPath)
+                            }
+                        }
+
+
+                    </ul>
+                    <div class="navbar-buttons navbar-header pull-right custom-height47" role="navigation">
+                        <ul class="nav ace-nav custom-height47">
+                            <li class="dropdown-modal custom-height47">
+                                <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#">
+                                    <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                                    <span class="badge badge-important">2</span>
+                                </a>
+                            </li>
+                            @*<li class="dropdown-modal custom-height47">
+                                    <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#">
+                                        <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+                                        <span class="badge badge-success">5</span>
+                                    </a>
+                                </li>*@
+                            <li class="light-blue dropdown-modal custom-height47" style="max-width: 300px;">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle custom-height47">
+                                    <img class="nav-user-photo" src="~/Images/themes/user.jpg" alt="Jason's Photo" />
+                                    <span class="user-info">
+
+                                        <small>Welcome, @username </small>
+                                    </span>
+                                    <i class="ace-icon fa fa-caret-down"></i>
+                                </a>
+                                <ul class="user-menu dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                    <li>
+                                        <a href="">
+                                            <i class="ace-icon fa fa-cog"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="profile.html">
+                                            <i class="ace-icon fa fa-user"></i>
+                                            Profile
+                                        </a>
+                                    </li>
+                                    @*<li class="divider"></li>*@
+                                    <li onclick="javascript:signOut()">
+                                        <a href="#">
+                                            <i class="ace-icon fa fa-power-off"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div class="nav-search" id="nav-search">
+                            <form class="form-search">
+                                <span class="input-icon">
+                                    <input type="text" placeholder="Search for documents" class="nav-search-input" id="nav-search-input" autocomplete="off">
+                                    <i class="ace-icon fa fa-search nav-search-icon btnSearchfolderDocs"></i>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.navbar-container -->
+        </div>
+
+        <div id="menu-toggler-box" style="float: left;position:relative; z-index:1001;">
+            <div id="sidebar" class="menu01 sidebar responsive  ace-save-state" style="z-index:9999">
+                <script type="text/javascript">
+                    try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+                </script>
+                <ul class="nav nav-list menu1">
+                    @if (tenantuserSession.User.AuthenticationType != HouseOfSynergy.AffinityDms.Entities.Lookup.AuthenticationType.External)
+                    {
+                        <li class="active custom-border" id="home">
+                            <a href="/Tenants/Dashboard">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon1.png" /></i>
+                                <span class="menu-text"> Home</span>
+                            </a>
+                        </li>
+                    }
+                    @if (tenantuserSession.User.AuthenticationType != HouseOfSynergy.AffinityDms.Entities.Lookup.AuthenticationType.External)
+                    {
+                        @*<li class="custom-border" id="home">
+                            <a href="#">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon3.png" /></i>
+                                <span class="menu-text">Capture</span>
+                            </a>
+                            <ul class="submenu menu1">
+
+                                <li class="custom-border"> <a href="capturing.html"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon3.png") /></i> <span class="menu-text">AF Capturing </span> </a> </li>
+                                <li class="custom-border"> <a href="/tenants/TenantTemplateIndexList"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> AF Documents</span> </a> </li>
+                                <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/ThemeTheme/images/avatars/icon4.png") /></i> <span class="menu-text">AF Forms </span> </a> </li>
+                                <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Themes/images/avatars/icon5.png") /></i> <span class="menu-text">AF Flow </span> </a> </li>
+                                <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">AF Reports</span> </a> </li>
+                                <li class="active custom-border"> <a href="/tenants/templates"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon7.png") /></i> <span class="menu-text">Setting</span> </a> </li>
+                            </ul>
+                        </li>*@
+
+                        <li class="custom-border" id="home">
+                            <a class="dropdown-toggle showcontent" href="#" data-display-divid="1">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon3.png" /></i>
+                                <span class="menu-text">Capture</span>
+                            </a>
+                            <ul class="submenu menu1">
+
+                                <li class="custom-border"> <a href="capturing.html"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon3.png") /></i> <span class="menu-text">AF Capturing </span> </a> </li>
+                                <li class="custom-border"> <a href="/tenants/TenantTemplateIndexList"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> AF Documents</span> </a> </li>
+                                <li class="custom-border"> <a href="/TenantTemplateIndexListLT/Index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> AF Documents M2</span> </a> </li>
+                                <li class="custom-border"> <a href="/tenants/TemplatesWorkflow"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon4.png") /></i> <span class="menu-text">AF Forms </span> </a> </li>
+                                <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon5.png") /></i> <span class="menu-text">AF Flow </span> </a> </li>
+                                <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">AF Reports</span> </a> </li>
+                                <li class="custom-border"> <a href="/VendorDetails/Index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">Vendors List</span> </a> </li>
+                                <li class="custom-border"> <a href="/TestAzureSearch/index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">AZURE Search</span> </a> </li>
+                                
+                                <li class="active custom-border"> <a href="/tenants/templates"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon7.png") /></i> <span class="menu-text">Setting</span> </a> </li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="custom-border">
+                        <a href="/TenantDiscourses/Index">
+                            <i class="menu-icon"><img src="~/Theme/images/avatars/icon6.png" /></i>
+                            <span class="menu-text">Chats</span>
+                        </a>
+
+                    </li>
+
+                    <li class="row col custom-border" id="DocumentsFolderWise">
+                        <a href="/TenantDocumentsFolderWise/index">
+                            <i class="menu-icon"><img src="~/Theme/images/avatars/icon2.png" /></i>
+
+                            <span class="menu-text">Knowledge</span>
+                        </a>
+                    </li>
+                    @*<li class="custom-border">
+                            <a href="/Tenants/Users">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon5.png" /></i>
+                                <span class="menu-text">Users </span>
+                            </a>
+                        </li>*@
+                    @*<li class="custom-border">
+                            <a href="/Tenants/Templates">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon3.png" /></i>
+                                <span class="menu-text">Templates </span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="/Tenants/Forms">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon4.png" /></i>
+                                <span class="menu-text">AF Forms </span>
+                            </a>
+                        </li>*@
+
+                    @*
+                        <li class="row col custom-border" id="divid1">*@
+
+                    @*<li class="custom-border">
+                            <a href="/Tenants/Documents">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon3.png" /></i>
+
+                                <span class="menu-text">Documents </span>
+                            </a>
+                        </li>*@
+
+                    @*<li class="custom-border">
+                            <a href="/Designer/Index">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon5.png" /></i>
+                                <span class="menu-text">Workflow </span>
+                            </a>
+                        </li>*@
+                    @*<li class="custom-border">
+                            <a href="/WebScanning/Index">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon5.png" /></i>
+                                <span class="menu-text">Web Scanner </span>
+                            </a>
+                        </li>*@
+                    <li class="custom-border">
+                        <a href="../../TenantSettings/Index">
+                            <i class="menu-icon"><img src="~/Theme/images/avatars/icon7.png" /></i>
+                            <span class="menu-text">Settings</span>
+                        </a>
+                    </li>
+                    @*
+                        <li class="active custom-border" id="home">
+                            <a href="/Tenants/Templates">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon1.png" /></i>
+                                <span class="menu-text"> Home</span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="#">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon5.png" /></i>
+                                <span class="menu-text">AF Flow </span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="#">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon3.png" /></i>
+
+                                <span class="menu-text">AF Capturing </span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="#">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon4.png" /></i>
+                                <span class="menu-text">AF Forms </span>
+                            </a>
+                        </li>
+
+                        <li class="row col custom-border" id="DocumentsFolderWise">
+                            <a href="/TenantDocumentsFolderWise/index">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon2.png" /></i>
+
+                                <span class="menu-text"> AF Documents</span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon6.png" /></i>
+                                <span class="menu-text">AF Reports</span>
+                            </a>
+                        </li>
+                        <li class="custom-border">
+                            <a href="">
+                                <i class="menu-icon"><img src="~/Theme/images/avatars/icon7.png" /></i>
+                                <span class="menu-text">Setting</span>
+                            </a>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+
+            @if (this.ViewBag.IsDocument != null)
+            {
+                <div id="nav-search" class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); width: 241px; height: 54px; padding-top: 8px; margin-top: -12px;">
+                    <form class="form-search">
+                        <span style="width: 100%;" class="input-icon">
+                            <input type="text" autocomplete="off" id="nav-search-folderinput" class="nav-search-input foldersearch" placeholder="Search in Folders" style="width: 207px;">
+                            <i class="ace-icon fa fa-search nav-search-icon btnFolderSearch"></i>
+                        </span>
+                    </form>
+                </div>
+                <div class="pull-left" style="margin-left:10px;">
+                    <button class="btn btn-primary btn-radius" data-toggle="modal" data-target="#DocumentUploadModal" disabled id="docUploadBtn">Upload</button>&nbsp;
+                    <button class="btn btn-primary btn-radius" data-toggle="modal" data-target="#addFolderModal" disabled id="docNewFolderBtn">New Folder </button>
+                </div>
+                <div id="divid3-menu" class="hide navbar-buttons white-manu navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="dropdown-modal">
+                            <a href="#" style="color:#000 !important;">
+                                @*100 GB  |  *@Created by Dex
+                            </a>
+                        </li>
+                        <li class="light-blue dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <i class="fa fa fa-sort" aria-hidden="true"></i>
+                                Sort by
+
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-cog"></i>
+                                        01
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="ace-icon fa fa-user"></i>
+                                        02
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-power-off"></i>
+                                        03
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (this.ViewBag.IsDocumentPostViewer != null)
+            {
+                @*<div class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); font-size:14px;  height: 54px; padding: 16px 12px 5px; margin-top: -12px;">
+
+        <b class="arrow fa fa-angle-left" style="padding-right:10px;"></b>  @this.ViewBag.DocumentInformation <img src="../../Images/Themes//nag.png" style="margin:0 10px;" width="20" height="21" alt="icon" id="ZoomOutPercentageId"><span id="ZoomPercentageId"> @this.ViewBag.ZoomPercentage</span><img src="../../Images/Themes//plus.png" style="margin:0 10px;" width="20" height="20" alt="icon" id="ZoomInPercentageId">
+    </div>
+    <div class="pull-left text-center" style="border-right: 1px solid rgb(204, 204, 204); font-size: 14px; margin-top: -12px; height: 61px; padding: 12px 7px 5px;">
+        <b class="arrow fa fa-angle-left" style="padding-right:15px;" id="DocPreviousPageId"></b> <span id="DocCurrentPageNumberId">@this.ViewBag.DocCurrentPageNumber</span> of <span id="DocTotalPageNumberId">@this.ViewBag.DocTotalPageNumber</span> <b class="arrow fa fa-angle-right" style="padding-left:15px;" id="DocNextPageId"></b>
+    </div>*@
+            var downloadUrl = "";
+            if (this.Model != null)
+            {
+                if (this.Model.Id > 0)
+                {
+                    downloadUrl = "../../TenantDocumentsFolderWise/DownloadDocument/" + this.Model.Id;
+                }
+            }
+
+                @*
+                    @{ var downloadUrl = "../../TenantDocumentsFolderWise/DownloadDocument/" + this.ViewBag.DocumentIndexModel.Document.Id;}*@
+                <div id="divid3-menu" class="navbar-buttons white-manu navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="dropdown-modal" style="border:0px;">
+                            @*<button class="btn btn-primary  btn-radius" style="height: 35px;  padding-top: 2px;">Check in/out</button>
+                                <button class="btn btn-white btn-info btn-radius">Share </button>*@
+                            <button class="btn btn-white btn-info btn-radius" onclick="javascript: discourses.ShowCreatePostModal(event)">Start Chat </button>
+                        </li>
+                        <li class="light-blue dropdown-modal" style="border-left:0px; padding:0; margin:0;">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <button class="btn btn-white btn-info btn-radius">
+                                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                                </button>
+
+                            </a>
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close dark-nav">
+                                <li>
+                                    <a href="javascript: window.open('@downloadUrl')">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        Download
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (this.ViewBag.IsScanSessionDocumentTemplate != null)
+            {
+                <div class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); font-size:14px;  height: 54px; padding: 16px 12px 5px; margin-top: -12px;">
+                    <b class="arrow fa fa-angle-left" style="padding-right:10px;"></b>  @this.ViewBag.DocumentInformation <img src="../../Images/Themes//nag.png" style="margin:0 10px;" width="20" height="21" alt="icon" id="ZoomOutPercentageId"><span id="ZoomPercentageId"> @this.ViewBag.ZoomPercentage</span><img src="../../Images/Themes//plus.png" style="margin:0 10px;" width="20" height="20" alt="icon" id="ZoomInPercentageId">
+                </div>
+                <div class="pull-left text-center" style="border-right: 1px solid rgb(204, 204, 204); font-size: 14px; margin-top: -12px; height: 61px; padding: 12px 7px 5px;">
+                    <b class="arrow fa fa-angle-left" style="padding-right:15px;" id="DocPreviousPageId"></b> <span id="DocCurrentPageNumberId">@this.ViewBag.DocCurrentPageNumber</span> of <span id="DocTotalPageNumberId">@this.ViewBag.DocTotalPageNumber</span> <b class="arrow fa fa-angle-right" style="padding-left:15px;" id="DocNextPageId"></b>
+                </div>
+                <div id="divid3-menu" class="navbar-buttons white-manu navbar-header pull-right" role="navigation" style="width:350px">
+                    <div id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                        Select Template  <strong class="pull-right">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        </strong>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="position:absolute!important;width: 360px !important; background-color: #fff !important;">
+                                <div class="card-block">
+                                    @{
+                                        Html.RenderAction("GetTemplates", "TenantScanSession");
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                                        }
+
+                                        else if (this.ViewBag.IsDocumentViewer != null)
+                                        {
+                                            <div class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); font-size:14px;  height: 54px; padding: 16px 12px 5px; margin-top: -12px;">
+                                                <b class="arrow fa fa-angle-left" style="padding-right:10px;"></b>@this.ViewBag.DocumentInformation <img src="../../Images/Themes//nag.png" style="margin:0 10px;" width="20" height="21" alt="icon" id="ZoomOutPercentageId"><span id="ZoomPercentageId"> @this.ViewBag.ZoomPercentage</span><img src="../../Images/Themes//plus.png" style="margin:0 10px;" width="20" height="20" alt="icon" id="ZoomInPercentageId">
+                                            </div>
+                                            <div class="pull-left text-center" style="border-right: 1px solid rgb(204, 204, 204); font-size: 14px; margin-top: -12px; height: 61px; padding: 12px 7px 5px;">
+                                                <b class="arrow fa fa-angle-left" style="padding-right:15px;" id="DocPreviousPageId"></b> <span id="DocCurrentPageNumberId">@this.ViewBag.DocCurrentPageNumber</span> of <span id="DocTotalPageNumberId">@this.ViewBag.DocTotalPageNumber</span> <b class="arrow fa fa-angle-right" style="padding-left:15px;" id="DocNextPageId"></b>
+                                            </div>
+                                        }
+                                        else if (this.ViewBag.IsDocumentIndexViewer != null)
+                                        {
+                                            var DocumentIndexModel = (HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentIndexViewModel)this.ViewBag.DocumentIndexModel ?? new HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentIndexViewModel();
+                                            DocumentIndexModel.Document = DocumentIndexModel.Document ?? new HouseOfSynergy.AffinityDms.Entities.Tenants.Document();
+                                            DocumentIndexModel.Document.Folder = DocumentIndexModel.Document.Folder ?? new HouseOfSynergy.AffinityDms.Entities.Tenants.Folder();
+                                            var folderName = DocumentIndexModel.Document.Folder.Name;
+                                            var versionNumber = DocumentIndexModel.Document.VersionMajor + "." + DocumentIndexModel.Document.VersionMinor;
+                                            var docVM = (List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>)this.ViewBag.DocumentVersions ?? new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+                                            var downloadUrl = "../../TenantDocumentsFolderWise/DownloadDocument/" + DocumentIndexModel.Document.Id;
+
+                                            @*<div class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); font-size:14px;  height: 54px; padding: 16px 12px 5px; margin-top: -12px;">
+
+                                                <b class="arrow fa fa-angle-left" style="padding-right:10px;"></b>@this.ViewBag.DocumentInformation <img src="../../Images/Themes//nag.png" style="margin:0 10px;" width="20" height="21" alt="icon" id="ZoomOutPercentageId"><span id="ZoomPercentageId"> @this.ViewBag.ZoomPercentage</span><img src="../../Images/Themes//plus.png" style="margin:0 10px;" width="20" height="20" alt="icon" id="ZoomInPercentageId">
+                                            </div>
+                                            <div class="pull-left text-center" style="border-right: 1px solid rgb(204, 204, 204); font-size: 14px; margin-top: -12px; height: 61px; padding: 12px 7px 5px;">
+                                                <b class="arrow fa fa-angle-left" style="padding-right:15px;" id="DocPreviousPageId"></b> <span id="DocCurrentPageNumberId">@this.ViewBag.DocCurrentPageNumber</span> of <span id="DocTotalPageNumberId">@this.ViewBag.DocTotalPageNumber</span> <b class="arrow fa fa-angle-right" style="padding-left:15px;" id="DocNextPageId"></b>
+                                            </div>*@
+                                            <div>
+                                                @if (this.ViewBag.IsDocumentReadOnly != null)
+                                                {
+                                                    <span>&nbsp;</span>
+                                                    <span>&nbsp;</span>
+                                                    <label>Version No</label>
+                                                    <span>&nbsp;</span>
+                                                    <input type="text" class="form-control text-box" id="VersionNo" value="@versionNumber" disabled="disabled" name="VersionNo" style="width:120px;display: inline !important;">
+                                                    <span>&nbsp;</span>
+
+                                                    if (DocumentIndexModel.Document.LatestCheckedOutByUserId == tenantuserSession.User.Id)
+                                                    {
+                                                        <input type="button" value="Move" class="btn btn-primary" data-id="@DocumentIndexModel.Document.Id" onclick="javascript: RenderTreeViewModal(event)">
+                                                        <span>&nbsp;</span>
+                                                        <input type="button" value="Edit" class="btn btn-primary" data-id="@DocumentIndexModel.Document.Id" onclick="window.location.href='@Url.Action("Index", "TenantDocumentIndex", new { id = DocumentIndexModel.Document.Id })'">
+                                                        <span>&nbsp;</span>
+                                                        <input type="button" class="btn btn-primary" value="Check In" id="btnCheckin" style="" onclick="javascript: documents.onCheckin(event);">
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (DocumentIndexModel.Document.LatestCheckedOutByUserId == tenantuserSession.User.Id)
+                                                    {
+                                                        
+                                                        @*<span>&nbsp;</span>
+                                                        <span>&nbsp;</span>
+                                                        <label style="">Version No</label>
+                                                        <span>&nbsp;</span>
+                                                        <input type="text" class="form-control text-box" id="VersionNo" value="@versionNumber" name="VersionNo" style="width:60px;height:40px; padding-top: 0px;display: inline-block !important;">
+                                                        <span>&nbsp;</span>
+                                                        <input type="button" class="btn btn-primary" value="Submit Version" style="" onclick="javascript: documents.onVersionSubmit(event);">
+                                                        <span>&nbsp;</span>
+                                                        if (docVM.Count > 1)
+                                                        {
+                                                            <input type="button" class="btn btn-primary" value="Cancel Checkout" style="" data-toggle="modal" data-target="#CancelCheckoutConfirmationModal">
+                                                            <span>&nbsp;</span>
+                                                        }
+                                                        <input type="button" class="btn btn-primary" value="Check In" id="btnCheckin" style="" onclick="javascript: documents.onCheckin(event);">
+                                                        <span>&nbsp;</span>
+                                                        <input type="button" value="Move" class="btn btn-primary" data-id="@DocumentIndexModel.Document.Id" onclick="javascript: RenderTreeViewModal(event)">
+                                                        <span>&nbsp;</span>*@
+                                                    }
+                                                }
+
+
+
+                                                @* ("<li style='cursor:pointer'><a style='cursor:pointer' data-id='" + item.Id + "' href='" +  + "'><i class='ace-icon fa fa-pencil'></i>Edit Document</a></li>") *@
+
+
+
+                                                @*<input type="button" value="Download" class="btn btn-primary" data-id="@DocumentIndexModel.Document.Id" onclick="javascript: window.open('@downloadUrl')">
+                                                <span>&nbsp;</span>*@
+
+                                                @if (DocumentIndexModel.Document.Id > 0)
+                                                {
+                                                    <input type="hidden" value="@DocumentIndexModel.Document.Id" id="H_Documentid">
+                                                }
+
+                                                <input type="hidden" value="@ViewBag.CheckedOut" id="H_CheckedOut" />
+
+                                            </div>
+                                        }
+                                        else if (this.ViewBag.IsDashBoard != null)
+                                        {
+                                            <div class="pull-left" style="margin-left:10px;"> <a href="#" class="dash-link">DASHBOARD</a> <a href="#" class="dash-link active">TASKS </a> <a href="#" class="dash-link">REPORTS</a> </div>
+                                        }
+                                        else if (this.ViewBag.IsScanSessionsList != null)
+                                        {
+                                            <div id="nav-search" class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); width: 241px; height: 54px; padding-top: 8px; margin-top: -12px;">
+                                                <form class="form-search">
+                                                    <span style="width: 100%;" class="input-icon">
+                                                        <input type="text" autocomplete="off" id="nav-search-folderinput" class="nav-search-input foldersearch" placeholder="Search in Folders" style="width: 207px;">
+                                                        <i class="ace-icon fa fa-search nav-search-icon btnFolderSearch"></i>
+                                                    </span>
+                                                </form>
+                                            </div>
+                                            <div class="pull-left" style="margin-left:10px;">
+                                                <button class="btn btn-primary btn-radius" data-toggle="modal" data-target="#DocumentUploadModal" disabled id="docUploadBtn">Upload</button>&nbsp;
+                                                @*<button class="btn btn-primary btn-radius" data-toggle="modal" data-target="#addFolderModal" disabled id="mergeBatchBtn">Merge Batch </button>*@
+                                            </div>
+                                        }
+                                        else if (this.ViewBag.IsScanSession != null)
+                                        {
+                                            //data-count="@((this.Model.Documents!=null)?(this.Model.Documents.Count):(0))" data-status="@((this.Model.Finalized)?("Completed"):("Incomplete"))"
+                                            var Classified = (this.ViewBag.IsClassifiedActive) ?? true;
+                                            var scanSessionModal = (HouseOfSynergy.AffinityDms.Entities.Tenants.ScanSession)this.Model;
+                                            <div class="pull-left">
+                                                <a onclick="javascript: scanSessions.GetScanSessionsInfo(event)" data-type="Classified" id="TabClassified" class="dash-link @((Classified)?("active"):(""))"> CLASSIFIED </a>
+                                                <a onclick="javascript: scanSessions.GetScanSessionsInfo(event)" data-type="Unclassified" id="TabUnClassified" class="dash-link @((!Classified)?("active"):(""))">UNCLASSIFIED</a>
+                                            </div>
+                                            <div style="border-right: 1px solid rgb(204, 204, 204);border-left: 1px solid rgb(204, 204, 204); float:left; font-size: 14px;/* margin-top: -12px; */ height: 50px; padding: 12px 7px 5px;">
+                                                <small> @scanSessionModal.Name | Quantity : <span id="scanSessionDocCount">@scanSessionModal.Documents.Count</span> | Uploaded by : @scanSessionModal.User.NameFull | Status :<span id="scanSessionDocStatus"> @((this.Model.Finalized) ? ("Completed") : ("Incomplete")) </span></small>
+                                            </div>
+                                            <div id="divid3-menu" class="navbar-buttons white-manu navbar-header pull-right">
+                                                <ul class="nav ace-nav">
+                                                    <li class="dropdown-modal" style="border:0px;">
+                                                        <button class="btn btn-primary  btn-radius" style="height: 35px;  padding-top: 2px;">Start Indexing</button>
+                                                        <button class="btn btn-white btn-info btn-radius">Add to Batch</button>
+
+                                                        <button class="btn btn-white btn-info btn-radius"> <i class="fa fa-trash" aria-hidden="true"></i> </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        }
+        </div>
+
+        @*<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <div id="nav-search" class="nav-search pull-left" style="border-right: 1px solid rgb(204, 204, 204); width: 241px; height: 54px; padding-top: 8px; margin-top: -12px;">
+                    <form class="form-search">
+                        <span style="width: 100%;" class="input-icon">
+                            <input type="text" autocomplete="off" id="nav-search-input" class="nav-search-input" placeholder="Search ..." style="width: 207px;">
+                            <i class="ace-icon fa fa-search nav-search-icon"></i>
+                        </span>
+                    </form>
+                </div>
+                <div class="pull-left" style="margin-left:10px;">
+                    <button class="btn btn-primary btn-radius">Upload</button>&nbsp;
+                    <button class="btn btn-primary btn-radius">New Folder </button>
+                </div>
+                <div id="divid3-menu" class="hide navbar-buttons white-manu navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="dropdown-modal">
+                            <a href="#" style="color:#000 !important;">
+                                100 GB  |  Created by Dex
+                            </a>
+                        </li>
+                        <li class="light-blue dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <i class="fa fa fa-sort" aria-hidden="true"></i>
+                                Sort by
+
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-cog"></i>
+                                        01
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="ace-icon fa fa-user"></i>
+                                        02
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-power-off"></i>
+                                        03
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>*@
+        <div id="side-content" class="side-content">
+            @*style="float: left; overflow: auto; border: 0px solid green; position: relative;overflow-y: auto; ">*@
+            <div>
+                @*padding: 10px 10px 10px 10px;*@
+
+                <!-- Dashbord -->
+                @RenderBody()
+
+                <!-- End Dashbord -->
+                @*<div id="divid2" class="row01 sidebar responsive  col hide">
+                        <ul class="nav nav-list">
+                            <li>
+                                <a href="">
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Personal Folder</span>
+                                    <b class="arrow fa fa-angle-right"></b>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#">
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text">
+                                        Shared Folder
+                                    </span>
+                                    <b class="arrow fa fa-angle-right"></b>
+                                </a>
+
+                            </li>
+                            <li class="">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Enterprise Folder </span>
+                                    <b class="arrow fa fa-angle-right"></b>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Projects </span>
+                                    <b class="arrow fa fa-angle-right"></b>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class=" col hide sidebar responsive " id="divid3">
+                        <span class="cloas01" style="float:right; margin-right: 10px; color: red;overflow: hidden;" id="cross">X</span>
+                        <ul class="nav nav-list" style="margin:0 10px;">
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 1 </span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="">
+                                <a href="#" class="dropdown-toggle">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text">
+                                        Folder 2
+                                    </span>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="#" class="dropdown-toggle">
+                                            <!--<i class="menu-icon fa fa-folder"></i>-->
+                                            Folder a
+                                            <b class="arrow fa fa-angle-right"></b>
+                                        </a>
+                                        <b class="arrow"></b>
+                                        <ul class="submenu">
+                                            <li class="showcontent">
+                                                <a href="javascript:void(0);">
+                                                    <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                    Folder I
+                                                </a>
+                                                <b class="arrow"></b>
+                                            </li>
+                                            <li class="showcontent">
+                                                <a href="javascript:void(0);">
+                                                    <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                    Folder II
+                                                </a>
+                                                <b class="arrow"></b>
+                                            </li>
+                                            <li class="showcontent">
+                                                <a href="javascript:void(0);">
+                                                    <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                    Folder III
+                                                </a>
+                                                <b class="arrow"></b>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="showcontent">
+                                        <a href="javascript:void(0);">
+                                            <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                            Folder b
+                                            <b class="arrow fa fa-angle-right"></b>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li class="showcontent">
+                                        <a href="javascript:void(0);">
+                                            <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                            Folder c
+                                            <b class="arrow fa fa-angle-right"></b>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li class="showcontent">
+                                        <a href="javascript:void(0);">
+                                            <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                            Folder d
+                                            <b class="arrow fa fa-angle-right"></b>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="#" class="dropdown-toggle">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 3 </span>
+                                    <!--<b class="arrow fa fa-angle-down"></b>-->
+                                </a>
+                                <ul class="submenu">
+                                    <li class="showcontent">
+                                        <a href="javascript:void(0);">
+                                            <i class="menu-icon fa fa-folder"></i>
+                                            Folder 4
+                                        </a>
+                                    </li>
+                                    <li class="showcontent">
+                                        <a href="javascript:void(0);">
+                                            <i class="menu-icon fa fa-folder"></i>
+                                            Folder 5
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);" class="dropdown-toggle">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 6 </span>
+                                </a>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 7 </span>
+                                </a>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 7 </span>
+                                </a>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 7 </span>
+                                </a>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 7 </span>
+                                </a>
+                            </li>
+                            <li class="showcontent">
+                                <a href="javascript:void(0);">
+                                    <b class="arrow fa fa-angle-right pull-left"></b>
+                                    <i class="menu-icon fa fa-folder"></i>
+                                    <i class="menu-icon fa fa-folder-o"></i>
+                                    <span class="menu-text"> Folder 7 </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<div>-->
+                    <div id="divid5" class="hide" style="overflow: hidden;">
+                        <div class="widget-box transparent">
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table class="table  table-bordered">
+                                        <thead class="thin-border-bottom">
+                                            <tr>
+                                                <th width="160px">
+                                                    <p class="font-16"><strong>Name</strong></p>
+                                                </th>
+                                                <th width="160px">
+                                                    <p class="font-16"><strong>Status</strong></p>
+                                                </th>
+                                                <th class="hidden-480">
+                                                    <p class="font-16"><strong>Action</strong></p>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder I</p></td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16 btn-click"><i class="fa fa-file-text " aria-hidden="true"></i> Folder I</p></td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="font-16 btn-click">
+                                                        <i class="fa fa-file-text" aria-hidden="true"></i>Folder II
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="font-16 btn-click">
+                                                        <i class="fa fa-file-text" aria-hidden="true"></i>Folder III
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="font-16 btn-click">
+                                                        <i class="fa fa-file-text" aria-hidden="true"></i> Folder IV
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="font-16 btn-click">
+                                                        <i class="fa fa-file-text" aria-hidden="true"></i>  Folder V
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16 btn-click"><i class="fa fa-file-text" aria-hidden="true"></i> Folder VI</p></td>
+                                                <td>
+                                                    <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                    <button class="btn-light-min">V2</button>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <button type="button" class="btn btn-blu01 btn-white btn-info" style="background:#11A4FC !important; color:#fff !important;">Check In/Out</button>
+                                                    <button type="button" class="btn btn-white btn-info">Version</button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-white btn-info"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><!-- /.widget-body -->
+                        </div><!-- /.widget-box -->
+                    </div>
+                    <div id="divid6" class="responsive hide" style="overflow: hidden;">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div id="faq-tab-1" class="tab-pane fade in active">
+                            <div class="space-8"></div>
+                            <div class="panel-group accordion-style1 accordion-style2">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a href="#faq-1-2" data-parent="#faq-list-1" data-toggle="collapse" class="accordion-toggle">
+                                            <i class="ace-icon fa fa-chevron-up1 pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </i>
+                                            Company Agreement
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <p>Short-term rental of all sorts of products (excluding real estate and holiday apartments) already represents an estimated €108 billion ($160 billion) annual market in Europe and is expected to grow further as the internet makes it easier to find specific items available for rent.[2] According to a poll by YouGov, 76% of people looking to rent would go to the internet first to find what they need; rising to 88% for those aged 25–34</p>
+                                            <p>It has been widely reported that the financial crisis of 2007–2010 may have contributed to the rapid growth of online rental marketplaces, such as erento, as consumers are more likely to consider renting instead of buying in times of financial hardship.[4] Environmental concerns, fast depreciation of goods, and a more transient workforce also mean that consumers are increasingly searching for rentals online.</p>
+                                            <p>It has been widely reported that the financial crisis of 2007–2010 may have contributed to the rapid growth of online rental marketplaces, such as erento, as consumers are more likely to consider renting instead of buying in times of financial hardship.[4] Environmental concerns, fast depreciation of goods, and a more transient workforce also mean that consumers are increasingly searching for rentals online.[2]</p>
+                                            <div id="faq-list-nested-1" class="panel-group accordion-style1 accordion-style2">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <a href="#faq-list-1-sub-1" data-parent="#faq-list-nested-1" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                            <i class="ace-icon fa fa-plus smaller-80 middle" data-icon-hide="ace-icon fa fa-minus" data-icon-show="ace-icon fa fa-plus"></i>&nbsp;
+                                                            Document Status
+                                                        </a>
+                                                    </div>
+                                                    <div class="panel-collapse collapse" id="faq-list-1-sub-1">
+                                                        <div class="panel-body">
+                                                            <table>
+                                                                <tr>
+                                                                    <td style="width:100px;">reated on   :</td>
+                                                                    <td>June 20, 2016</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width:100px;">Created by   :</td>
+                                                                    <td>Wen Wen</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width:100px;">Last edited   :</td>
+                                                                    <td>June 22, 2016</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width:100px;">Shared with   :</td>
+                                                                    <td> Dex, Randy, Rizqi</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width:100px;">Indexes   :</td>
+                                                                    <td><button class="btn btn-xs btn">Company </button> <button class="btn btn-xs">Index 1</button> <button class="btn btn-xs">Index 1</button> <button class="btn btn-xs">Index 1</button>  </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default document">
+                                    <div class="panel-heading">
+                                        <a href="#faq-1-3" data-parent="#faq-list-1" data-toggle="collapse" class="accordion-toggle collapsed">
+                                            <i class="ace-icon fa fa-chevron-up pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i>
+                                            Related Documents
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="faq-1-3">
+                                        <div class="panel-body" style="background:#EBEDF2;">
+                                            <button class="btn btn-primary btn-radius bth-2" style="float: right; margin-bottom: 10px;">All Print </button>
+                                            <table width="100%" border="0" class="table  table-bordered">
+                                                <tr>
+                                                    <td width="25px">
+                                                        <div class="roundedTwo">
+                                                            <input type="checkbox" value="None" id="roundedTwo1" name="check" />
+                                                            <label for="roundedTwo1"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-file-text icon-file" aria-hidden="true"></i>
+                                                        <span class="tag-line">Work Permit</span>
+                                                    </td>
+                                                    <td width="80px"><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                                    <td width="80px"><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="25px">
+                                                        <div class="roundedTwo">
+                                                            <input type="checkbox" value="None" id="roundedTwo2" name="check" />
+                                                            <label for="roundedTwo2"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-file-text icon-file" aria-hidden="true"></i>
+                                                        <span class="tag-line">Work Permit</span>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                                    <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="25px">
+                                                        <div class="roundedTwo">
+                                                            <input type="checkbox" value="None" id="roundedTwo3" name="check" />
+                                                            <label for="roundedTwo3"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-file-text icon-file" aria-hidden="true"></i>
+                                                        <span class="tag-line">Work Permit</span>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                                    <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="25px">
+                                                        <div class="roundedTwo">
+                                                            <input type="checkbox" value="None" id="roundedTwo4" name="check" />
+                                                            <label for="roundedTwo4"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-file-text icon-file" aria-hidden="true"></i>
+                                                        <span class="tag-line">Work Permit</span>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                                    <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->*@
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div class="last"></div>
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div><!-- /.main-container -->
+    @*<!-- basic scripts -->
+        <!--[if !IE]> -->
+        <script src="Theme/js/jquery-2.1.4.min.js"></script>
+        <!-- <![endif]-->
+        <!--[if IE]>
+        <script src="assets/js/jquery-1.11.3.min.js"></script>
+        <![endif]-->
+    *@
+
+    @Scripts.Render("~/bundles/kendoJS")
+    @Scripts.Render("~/bundles/bootstrapJS")
+    @Scripts.Render("~/bundles/TypeScript")
+    @Scripts.Render("~/bundles/GreenSock")
+    @Scripts.Render("~/bundles/LeadtoolsJS")
+
+
+
+
+
+    <script type="text/javascript">
+        // pop over
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        if ('ontouchstart' in document.documentElement)
+            document.write("<script src='theme/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        function signOut(e) {
+            window.location.href = '../../Tenants/SignOut';
+        }
+        function  hideErrorMessageDiv(e)
+        {
+            var target = e.target;
+            if (target != null) {
+                var id = target.getAttribute("data-hideMessageDiv");
+                if (id != null) {
+                    $(id).css("display", "none");
+                }
+            }
+        }
+        function hideSuccessMessageDiv(e)
+        {
+            var target = e.target;
+            if (target != null) {
+                var id = target.getAttribute("data-hideMessageDiv");
+                if (id != null) {
+                    $(id).css("display", "none");
+                }
+            }
+        }
+        $(document).ready(function () {
+            $("#hideErrorMessageDiv").on("click", function (e) {
+                hideErrorMessageDiv(e)
+            });
+            $("#hideSuccessMessageDiv").on("click", function (e) {
+                hideSuccessMessageDiv(e)
+            });
+            $('.btnFolderSearch').click(function () {
+
+                var folderId = parseInt($("#CurrentFolderId").val());
+                window.location = "/TenantDocumentsFolderWise/DocumentsFoldersSearchResult?QueryDocument=" + $("#nav-search-folderinput").val() + "&folderId="+folderId;
+                //SearchSelectedElement($("#nav-search-folderinput").val());
+
+
+            });
+            $('.btnSearchfolderDocs').click(function () {
+
+                window.location = "/TenantDocumentsFolderWise/DocumentsFoldersSearchResult?QueryDocument=" + $("#nav-search-input").val();
+                //SearchSelectedElement($("#nav-search-folderinput").val());
+
+
+            });
+
+
+        });
+        function SelectAllRelatedCheckboxesByClass(checkBoxid, checkBoxesClassName) {
+            if (typeof (checkBoxesClassName) === "string" && typeof (checkBoxid) === "string") {
+                var currentCheckBoxState = document.getElementById(checkBoxid);
+                if (currentCheckBoxState != null) {
+                    var checkboxes = document.getElementsByClassName(checkBoxesClassName);
+
+                    if (checkboxes != null) {
+                        for (var i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].checked = currentCheckBoxState.checked;
+                        }
+                    }
+                }
+
+            }
+        }
+        function GetCurrentLoggedInUser() {
+            var user = document.cookie.match("TenantUserSession_User_Id=(.*?)&TenantUserSession_User_NameGiven=");
+            if (user != null) {
+                return parseInt(atob(user[1]));
+            }
+            else {
+                return 0;
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

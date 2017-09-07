@@ -1,0 +1,28 @@
+﻿@model HouseOfSynergy.AffinityDms.BusinessLayer.Tenants.TenantUserSession
+
+@using HouseOfSynergy.AffinityDms.BusinessLayer
+
+<style type="text/css">
+	.DivUserCurrent,
+	.DivUserCurrent a,
+	.DivUserCurrent a:hover,
+	.DivUserCurrent a:visited
+	{
+		color: white;
+	}
+	.goog-te-gadget-simple
+	{
+		margin-top: 5px;
+	}
+</style>
+
+<div class="DivUserCurrent">
+	@Html.RouteLink(linkText : this.Model.User.NameFull, routeName : "TenantUser", routeValues : new { }, htmlAttributes : new { title = "Manage your profile." })
+	&nbsp;
+	@Html.RouteLink(linkText : "Sign Out", routeName : "TenantSignOut", routeValues : new { }, htmlAttributes : new { title = "Sign out of your account." })
+	<br />
+	<a href="http://www.@this.Model.Tenant.Domain" title="Visit your company domain." target="_blank">@Html.DisplayFor(model => model.Tenant.Domain)</a>
+	<br />
+	@Html.RouteLink(linkText : this.Model.Tenant.CompanyName, routeName : "TenantDashboard", routeValues : new { }, htmlAttributes : new { title = "Manage your company subscription." })
+	<br />
+</div>

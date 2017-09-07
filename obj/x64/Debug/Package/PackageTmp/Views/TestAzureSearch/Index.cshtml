@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+<h2>Index</h2>
+
+<table width="100%">
+    <tr>
+        <td>
+            <a href="#" onclick="fnUploadIndex()"> Upload Indexes</a>
+        </td>
+        <td>
+        Search&nbsp;&nbsp;:&nbsp;&nbsp;
+            <input id="txtsearch" name="txtsearch" type="text" />
+            <a href="#" onclick="fnsearchIndex()"> Search Indexes</a>
+        </td>
+    
+    </tr>
+</table>
+
+<div id="divresults" style="padding-left:20px"></div>
+
+<script>
+
+    function fnUploadIndex() {
+
+
+
+        var urlnew = "@Url.Action("uploadjson", "TestAzureSearch")";
+
+        alert(urlnew)
+
+        $.ajax({
+            url: urlnew,
+            type: "POST",
+            //contentType: "application/json",
+            dataType: "json",
+            data: { id: 0 },
+            error: function (result) { alert("error"); },
+            success: function (result) {
+                alert("Indexes uploaded successfully!");
+
+
+            }
+        });
+    }
+
+    function fnsearchIndex() {
+
+        $("#divresults").html("");
+
+        var searchtxt = $("#txtsearch").val();
+
+        var urlneww = "@Url.Action("searchindex", "TestAzureSearch")";
+
+        $.ajax({
+            url: urlneww,
+            type: "POST",
+            //contentType: "application/json",
+            dataType: "json",
+            data: { searchtxt: searchtxt },
+            error: function (result) { alert("error"); },
+            success: function (json) {
+
+              //  alert(json);
+
+                var data = JSON.parse(json);;
+                var str = "";
+                $.each(data.Results.Document, function (key, value) {
+                    str += key + ': ' + value + "<br><br>";
+                   // alert(str);
+                });
+
+
+
+
+                //alert([JSON].Results[0].Document.account_no);
+
+                //var obj = JSON.parse(json);
+
+                //alert(obj);
+                //alert(obj.Results.length);
+                //alert(json.Results[0].Document.account_no);
+
+                //var obj = JSON.parse(json);
+
+                //alert(obj.Results[0].Document.account_no);
+
+                //debugger;
+                //var obj = JSON.parse(json);
+                //alert(obj);
+                //var j = JSON.stringify(json.account_no);
+
+                //alert(j);
+
+                //alert(data.Results);
+
+                //for (var i = 0; i < data.Results.length; i++) {
+
+                //}
+
+                //alert("Indexes uploaded successfully!");
+                $("#divresults").html(str);
+                
+            }
+        });
+    }
+
+
+
+</script>

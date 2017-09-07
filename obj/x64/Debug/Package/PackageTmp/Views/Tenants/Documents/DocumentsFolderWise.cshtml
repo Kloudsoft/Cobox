@@ -1,0 +1,624 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentFolderTreeViewModel
+@{
+    ViewBag.Title = "Documents Folder Wise";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+<style>
+    #FolderListGrid tbody tr:hover td {
+        background: #3a9cc1;
+        color: white;
+    }
+
+        #FolderListGrid tbody tr:hover td a {
+            color: white;
+        }
+</style>
+
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+</script>
+@*@{
+    string ErrorMessage = (this.ViewBag.ErrorMessage != null) ? (this.ViewBag.ErrorMessage) : (string.Empty);
+    string SuccessMessage = (this.ViewBag.SuccessMessage != null) ? (this.ViewBag.SuccessMessage) : (string.Empty);
+}
+@if (!(string.IsNullOrEmpty(ErrorMessage)))
+{
+    <div><label id="Exception" style="color:#e80c4d;font-weight:bold;font-size:1.1em">@ErrorMessage</label></div>
+}
+@if (!(string.IsNullOrEmpty(SuccessMessage)))
+{
+    <div><label id="Exception" style="color:#00ff21;font-weight:bold;font-size:1.1em">@SuccessMessage</label></div>
+}*@
+
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DocumentFolderWiseIndexErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentFolderWiseErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentFolderWiseErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentFolderWiseSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentFolderWiseSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentFolderWiseSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+
+@*<div style="display:none" id="tempFolderTreeViewModalDiv"></div>*@
+<input type="hidden" id="SelectedId" value="-1" data-type="Document">
+<input type="hidden" id="ViewId" value="-1">
+<input type="hidden" id="ViewType" value="">
+<input type="hidden" id="ModalBodyId" value="">
+<input type="hidden" id="MoveFolderTo" value="0">@*@Model.Parentfolder.Id*@
+<input type="hidden" id="CurrentFolderId" value="0">
+<input type="hidden" value="-1" id="hdocId" />
+
+<div id="MessageDiv">
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="InviteExternalUserModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite External Users</h4>
+                <div style="display:none;color:red" id="EmailErrorDiv"></div>
+                <div style="display:none;color:green" id="EmailSuccessDiv"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantInviteExternalUserListGrid" style="padding-left: 15px;padding-right: 15px;">
+                    @*<input type="text" id="InviteUserName" class="form-control text-box" placeholder="Enter User Name">*@
+                    <input type="email" id="InviteUserEmail" class="form-control text-box" placeholder="Enter User Email" style="max-width: none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeInviteExternalUserModalBtn">Close</button>
+                <button type="button" class="btn btn-primary"    id="InviteUserBtn" onclick="javascript: documents.SendExternalUserInvite(event)">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserSelectionModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite Internal Users</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantUsersSelectionListGrid">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeUserSelectionModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveUserSelectionModal(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserAssignmentModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Assign Document</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="AssignUserRow" style="padding-left: 15px;padding-right: 15px;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeAssignUserModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" id="AssignUserBtn" onclick="javascript: documents.SubmitAssignment(event)">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="RightsModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">User Rights</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="RightsModalBodyDiv">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn" onclick="javascript: CloseRightsModal(event)">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveRights(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="folderTreeViewModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Folder</h4>
+            </div>
+            <div id="folderTreeViewModalBody" class="modal-body">
+                <div id="folderTreeViewModal_row">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderAddBtn" onclick="javascript: CloseFolderTreeViewModal(event)">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.MoveDocuemtinFolder(event)">Move</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="width:100%">
+
+    <div style="width:20%;float:left" id="TreeViewDiv">
+        @{
+            Html.RenderPartial("~/Views/Tenants/Documents/_FolderTreeView.cshtml", (object)this.ViewBag.FolderTreeVM);
+        }
+    </div>
+    <div style="width:78%;float:right;margin-left:10px" id="GridViewDiv">
+        <div style="float:right;margin-left:10px">
+            <input type="button" value="Add Documents" class="btn btn-primary" data-toggle="modal" data-target="#DocumentUploadModal">
+            <input type="button" value="Add Folder" class="btn btn-primary" data-toggle="modal" data-target="#addFolderModal">
+        </div>
+        <br>
+        <br>
+        <div>
+            <div id="FolderGrid" style="display:inline-block">
+                @{
+                    Html.RenderPartial("~/Views/Tenants/Documents/_FolderListGridView.cshtml", (object)Model.ChildFolders);
+                }
+            </div>
+            <br />
+            <div id="DocumentGrid" style="margin-top:20px;display:inline-block">
+                @{
+                    Html.RenderPartial("~/Views/Tenants/Documents/_DocumentListGridView.cshtml", (object)Model.ParentFolderDocuments);
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="addFolderModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Add Folder</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="text" placeholder="Enter Folder Name" style="margin:10px" class="form-control" id="folderNameTxtbx" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderAddBtn" onclick="javascript: CloseAddFolderModal(event)">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.AddFolder(event)">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="DocumentUploadModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Upload Documents</h4>
+            </div>
+            <div class="modal-body" id="divUploadModalBody" style="max-height:700px;overflow-y: scroll">
+                <div id="DocumentUploadBody">
+                    <div class="row" id="DocumentUploadRow">
+
+                    </div>
+                </div>
+                <div id="divFilesUpload">
+                    <input name="files" id="files" type="file" />
+                </div>
+                <div id="divStatus" style="max-height:300px;">
+
+                </div>
+
+                @*<table class="table">
+                    <thead>
+                        <tr>
+                            <th>Document</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="success">
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr class="info">
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>*@
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.UploadDocumentsToAzure(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        if ($("DocumentFolderWiseIndexErrorMessageText") != null) {
+            if ($("#DocumentFolderWiseIndexErrorMessageText").text() != null || $("#DocumentFolderWiseIndexErrorMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentFolderWiseIndexErrorMessage').fadeOut('fast');
+                    $("#DocumentFolderWiseIndexErrorMessage").css("display", "none");
+                    $("#DocumentFolderWiseIndexErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("DocumentFolderWiseIndexSuccessMessageText") != null) {
+            if ($("#DocumentFolderWiseIndexSuccessMessageText").text() != null || $("#DocumentFolderWiseIndexSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentFolderWiseIndexSuccessMessage').fadeOut('fast');
+                    $("#DocumentFolderWiseIndexSuccessMessage").css("display", "none");
+                    $("#DocumentFolderWiseIndexSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+    });
+    function InviteExternalUser(event) {
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedId = document.getElementById("SelectedId");
+            SelectedId.value = anchor.getAttribute("data-id");
+            $("#InviteExternalUserModal").modal("show");
+        }
+    }
+
+    $("#closeInviteExternalUserModalBtn").on("click", function (e) {
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.value = "";
+    });
+    $("#InviteExternalUserModal").on("show.bs.modal", function (e) {
+        var EmailErrorDiv = document.getElementById("EmailErrorDiv");
+        EmailErrorDiv.textContent = "";
+        var EmailSuccessDiv = document.getElementById("EmailSuccessDiv");
+        EmailSuccessDiv.textContent = "";
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.textContent = "";
+    });
+
+    function UserSelection(event) {
+        //href='#' data-toggle='modal' data-target='#UserSelectionModal'
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedId = document.getElementById("SelectedId");
+            SelectedId.value = anchor.getAttribute("data-id");
+            $("#UserSelectionModal").modal("show");
+        }
+    }
+    $("#UserSelectionModal").on("show.bs.modal", function (e) {
+        var SelectedId = document.getElementById("SelectedId");
+        if (SelectedId != null) {
+            var TenantUsersSelectionListGrid = document.getElementById("TenantUsersSelectionListGrid");
+            TenantUsersSelectionListGrid.textContent = "";
+            $(this).find(".modal-body").load("/TenantDocuments/GetAllUsersForDocument?documentId=" + SelectedId.value);
+        }
+    });
+   
+    $("#UserAssignmentModal").on("shown.bs.modal", function () {
+        var ModalBodyId = document.getElementById("ModalBodyId");
+        ModalBodyId.value = "AssignUserRow";
+        AffinityDms.Entities.Documents.prototype.GetIndexUserForAssignment("AssignUserRow");
+    });
+
+    $("#folderTreeViewModal").on("shown.bs.modal", function () {
+        var ModalBodyId = document.getElementById("ModalBodyId");
+        ModalBodyId.value = "folderTreeViewModalBody";
+        LoadFolderTreeView("folderTreeViewModalBody", "folderTreeViewModal_row");
+
+    });
+    function CloseFolderTreeViewModal(event) {
+        $('#folderTreeViewModal').modal('hide');
+    }
+    //function onDataBoundFolderTreeViewModal(e) {
+    //    if (e != null) {
+    //        if (e.node != null) {
+    //            var ModalBodyId = document.getElementById("ModalBodyId");
+    //            var ModalBody = document.getElementById(ModalBodyId.value);
+    //            var rowid = "#" + ModalBody.childNodes[0].id;
+    //            var FolderTreeViewObj = $(rowid);
+    //            if (FolderTreeViewObj != null) {
+    //                //$("#FolderTreeViewModal").data("kendoTreeView").expand(".k-item");
+    //                var CurrentFolderId = document.getElementById("CurrentFolderId");
+    //                var nodeId = CurrentFolderId.value;
+    //                SelectNode(nodeId, FolderTreeViewObj)
+    //            }
+    //            //var div = this.element.find('div ul li:first').addClass('k-state-selected');
+    //        }
+    //    }
+
+    //}
+    //function OnSelectedFolderTreeViewModal(event) {
+    //    var MoveFolderTo = document.getElementById("MoveFolderTo");
+    //    var dataItem = this.dataItem(event.node);
+    //    MoveFolderTo.value = dataItem.id;
+    //}
+    //function LoadFolderTreeView(folderTreeViewModalBody, folderTreeViewModalRow) {
+    //    var folderTreeViewModalBody = document.getElementById(folderTreeViewModalBody);
+    //    folderTreeViewModalBody.textContent = "";
+    //    var Row = document.createElement("div");
+    //    Row.id = folderTreeViewModalRow;
+    //    folderTreeViewModalBody.appendChild(Row);
+    //    var rowid = "#" + folderTreeViewModalRow;
+    //    $(rowid).kendoTreeView(
+    //                {
+    //                    "select": OnSelectedFolderTreeViewModal,
+    //                    "dataBound": onDataBoundFolderTreeViewModal,
+    //                    "expanded": true,
+    //                    "dataSource": {
+    //                        "transport": {
+    //                            "read": { "url": "/TenantDocumentsFolderWise/Folder_Read" }
+    //                        },
+    //                        "schema": {
+    //                            "model": { "id": "Id", "hasChildren": "HasChildren" }
+    //                        }
+    //                    }, "loadOnDemand": false, "template": jQuery('#treeview-template-FolderTreeViewModal').html(), "dataTextField": ["Name"]
+    //                });
+    //}
+
+
+
+    //function SelectNode(nodeId, FolderTreeViewObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        FolderTreeViewObj.data("kendoTreeView").expand(".k-item");
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        if (treeView != null) {
+    //            var dataItem = treeView.dataSource.get(nodeId);
+    //            if (dataItem != null) {
+    //                var node = treeView.findByUid(dataItem.uid);
+    //                if (node != null) {
+    //                    treeView.expand("li:first");
+    //                    treeView.expand(node);
+    //                    treeView.select(node);
+    //                }
+    //            }
+    //        }
+    //    }
+    //    //else {
+    //    //    alert("Unable to find the folder")
+    //    //}
+    //}
+    function AssignForIndexing(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#UserAssignmentModal").modal("show");
+
+        }
+    }
+    function RenderTreeViewModal(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var doc = document.getElementById("folderTreeViewModal");
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#folderTreeViewModal").modal("show");
+
+        }
+    }
+
+    function CloseAddFolderModal(event) {
+        $('#addFolderModal').modal('hide');
+    }
+    function CloseRightsModal(event) {
+        $('#RightsModal').modal('hide');
+    }
+
+    $("#RightsModal").on("show.bs.modal", function (e) {
+        var ViewType = document.getElementById("ViewType");
+        var ViewId = document.getElementById("ViewId");
+        if (ViewType != null && ViewId != null) {
+            var valuetype = AffinityDms.Entities.Documents.prototype.CheckViewType(e.relatedTarget.getAttribute("data-type"));
+            ViewType.value = valuetype;
+            ViewId.value = e.relatedTarget.getAttribute("data-id");
+            if ((ViewType.value != null && ViewType.value != "") && (ViewId.value != null && ViewId.value != "")) {
+                $(this).find(".modal-body").load(("/TenantUsers/GetUserRightsList?id=" + ViewId.value + "&Type=" + ViewType.value));
+            }
+            else {
+                alert("An error occurred while proccessing the request");
+            }
+        }
+    });
+    function onDataBound(e) {
+        //below Statement Expand all data in tree view
+        var treeView = document.getElementById("treeview");
+        if (treeView != null) {
+            $("#treeview").data("kendoTreeView").expand(".k-item");
+        }
+    }
+    $("#InviteUserEmail").keypress(function (event) {
+        if (event.which || event.keyCode) { if ((event.which == 13) || (event.keyCode == 13)) { $("#InviteUserBtn").click(); return false; } else { return true; } }
+    });
+    function OnSelected(event) {
+        var CurrentFolderId = document.getElementById("CurrentFolderId");
+        var treeView = $("#treeview").data('kendoTreeView');
+
+        //var dataItem = treeView.dataSource.get(CurrentFolderId.value);
+        //var node = treeView.findByUid(dataItem.uid);
+        //if (node != null)
+        //{
+        //    var li = node[0];
+        //    li.setAttribute("aria-selected", "false");
+        //    li.removeAttribute("id");
+        //    //k-in k-state-selected
+        //    for (var i = 0; i < li.childNodes.length; i++)
+        //    {
+        //        var chkdiv = li.childNodes[i]
+        //        if (chkdiv instanceof HTMLDivElement)
+        //        {
+        //            for (var j = 0; j < chkdiv.childNodes.length; j++) {
+        //                var chkspan = chkdiv.childNodes[j];
+        //                if (chkspan instanceof HTMLSpanElement) {
+        //                    chkspan.class = "k-in";
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        dataItem = this.dataItem(event.node);
+        //node = treeView.findByUid(dataItem.uid);
+        //if (node != null) {
+        //    var li = node[0];
+        //    li.setAttribute("aria-selected", "true");
+        //    li.setAttribute("id", "treeview_tv_active");
+        //    for (var i = 0; i < li.childNodes.length; i++) {
+        //        var chkdiv = li.childNodes[i]
+        //        if (chkdiv instanceof HTMLDivElement) {
+        //            for (var j = 0; j < chkdiv.childNodes.length; j++) {
+        //                var chkspan = chkdiv.childNodes[j];
+        //                if (chkspan instanceof HTMLSpanElement) {
+        //                    chkspan.class = "k-in k-state-selected";
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        CurrentFolderId.value = dataItem.id;
+        var MoveFolderTo = document.getElementById("MoveFolderTo");
+        MoveFolderTo.value = dataItem.id;
+        SetSelectedElement(dataItem.id);
+    }
+
+    function ExpandSelectedNode(event) {
+        var nodeId = event.getAttribute("data-id");
+        var FolderTreeViewObj = $("#treeview");
+        ExpandNode(nodeId, FolderTreeViewObj)
+    }
+    function ExpandNode(nodeId, FolderTreeViewObj) {
+        if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+            var treeView = FolderTreeViewObj.data('kendoTreeView');
+            var dataItem = treeView.dataSource.get(nodeId);
+            var node = treeView.findByUid(dataItem.uid);
+            treeView.expand("li:first");
+            treeView.expand(node);
+            treeView.select(node);
+            var CurrentFolderId = document.getElementById("CurrentFolderId");
+            CurrentFolderId.value = nodeId;
+            SetSelectedElement(nodeId);
+        }
+        else {
+            alert("Unable to find the folder")
+        }
+    }
+   
+
+    //==============================================Upload Document Folder TreeView===================================//
+    $("#DocumentUploadModal").on("shown.bs.modal", function () {
+
+        //========= Start clear status div when load popup=========//
+        var divStatus = document.getElementById("divStatus");
+        divStatus.textContent = "";
+        //========= End clear status div when load popup=========//
+        
+        resetFileControl();
+
+        //========= Start Rebind Treeview========================================//
+        var ModalBodyId = document.getElementById("ModalBodyId");
+        ModalBodyId.value = "DocumentUploadBody";
+        LoadFolderTreeView("DocumentUploadBody", "DocumentUploadRow");
+        //========= End Rebind Treeview==========================================//
+    });
+    $(document).on("ready",function () {
+        $("#files").kendoUpload({
+            async: {
+                saveUrl: "../../TenantDocumentsFolderWise/UploadDocumentsToFolder",
+                removeUrl: "../../TenantDocumentsFolderWise/RemoveDocumentsToFolder",
+                autoUpload: true
+            },
+            success: onSuccess
+        });
+    });
+
+    function onSuccess(e) {
+        // Array with information about the uploaded files
+        //var files = e.files;
+
+        //if (e.operation == "upload") {
+        //    alert("Successfully uploaded " + files.length + " files");
+        //}
+    }
+
+    function CloseUploadDocumentModal(event) {
+
+        //========= Start clear status div when load popup=========//
+        var divStatus = document.getElementById("divStatus");
+        divStatus.textContent = "";
+        //========= End clear status div when load popup=========//
+
+        resetFileControl();
+
+        $('#DocumentUploadModal').modal('hide');
+    }
+
+    //===============================================End Upload Document Folder TreeView==============================//
+</script>

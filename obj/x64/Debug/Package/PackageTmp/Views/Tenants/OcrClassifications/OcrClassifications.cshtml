@@ -1,0 +1,124 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.OcrLibrary.OcrResultInfo>
+
+@{
+    ViewBag.Title = "Ocr Classfications";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+<style type="text/css">
+
+    p {
+        clear: both;
+        margin: 0;
+        padding: .5em 0;
+    }
+
+    img {
+        border: none;
+    }
+
+    pre {
+        display: block;
+        font: 100% "Courier New", Courier, monospace;
+        padding: 10px;
+        border: 1px solid #bae2f0;
+        background: #e3f4f9;
+        margin: .5em 0;
+        overflow: auto;
+        width: 800px;
+    }
+
+
+    #preview {
+        position: absolute;
+        border: 1px solid #ccc;
+        background: #333;
+        padding: 5px;
+        display: none;
+        color: #fff;
+    }
+</style>
+
+<script type="text/javascript">
+    
+    function PreviewImage(event) {
+        xOffset = 100;
+        yOffset = 100;
+
+        $("body").append("<p id='preview'><input type='button' class='btn btn-default' style='float:right' value='Close' onclick='javascript:RemovePreview()'><br/><br/><img src='" + event.target.getAttribute('src')+ "' style='width:600px;height:600px;overflow:scroll;' alt='Image preview' /></p>");
+        $("#preview")
+            .css("margin-top", (10) + "%")//(event.pageY - yOffset) + "px")
+            .css("margin-left",(25) + "%") //(event.pageX - xOffset) + "px")
+            .fadeIn("fast");
+    }
+    function RemovePreview() {
+        $("#preview").remove();
+    }
+    
+    function DisplayData(id) {
+        xOffset = 100;
+        yOffset = 100;
+        var ocrdata = document.getElementById(id);
+        $("body").append("<div id='preview' style='min-width:200px;min-height:200px'><input type='button' class='btn btn-default' style='float:right' value='Close' onclick='javascript:RemovePreview()'><br/><br/><pre style='padding:10px; display: block;width:600px;height:600px;overflow:scroll;background-color:white; color:black'>" +  ocrdata.textContent.toString() + "</pre></div>");
+        $("#preview")
+            .css("margin-top", (10) + "%")//(event.pageY - yOffset) + "px")
+            .css("margin-left",(25) + "%") //(event.pageX - xOffset) + "px")
+            .fadeIn("fast");
+    }
+    function RemoveDisplayData() {
+        $("#preview").remove();
+    }
+  
+</script>
+<h2>Ocr Classfications</h2>
+@{
+    string ErrorMessage = (ViewBag.ErrorMessage != null) ? ViewBag.ErrorMessage : string.Empty;
+    string SuccessMessage = (ViewBag.SuccessMessage != null) ? ViewBag.SuccessMessage : string.Empty;
+    if (!(string.IsNullOrEmpty(ErrorMessage)))
+    {
+        <p style="color:Red;font-size:1.5em">@ErrorMessage</p>
+    }
+    if (!(string.IsNullOrEmpty(SuccessMessage)))
+    {
+        <p style="color:green;font-size:1.5em">@SuccessMessage</p>
+    }
+}
+@{
+    foreach (var item in Model)
+    {
+        string textid = "ocrtext"+item.DocumentId;
+        string xmlid =  "ocrxml"+item.DocumentId;
+        <div id='@textid' style="display:none">@item.OcrFullTextData</div>
+        <div id='@xmlid' style="display:none">@item.OcrFullXmlData</div>
+    }
+}
+@(Html.Kendo().Grid(Model) //Bind the grid to ViewBag.Products
+      .Name("OcrtListGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(item => item.DocumentId).Hidden().HtmlAttributes(new { @name = "DocumentNo" });
+          columns.Bound(item => item.Document.Name).Title("Documents");
+          columns.Template(item => (item.DoucmentState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentState.Matched) ? (item.MatchedTemplates.FirstOrDefault().TemplateName) : ("")).Title("Template");
+
+          columns.Template(item => ((item.OcrFullTextData != null)
+                                    ?
+                                        ("<a href='#' onclick='DisplayData(\"" + "ocrtext" + item.DocumentId + "\")'>Click to View</a>").ToString()
+                                    :
+                                        ("").ToString()
+                                    ).ToString()
+                          ).Title("Ocr Text Data");
+          columns.Template(item => ((item.OcrFullXmlData != null)
+                                    ?
+                                        ("<a href='#' onclick='DisplayData(\"" + "ocrxml" + item.DocumentId + "\")'>Click to View</a>").ToString()
+                                    :
+                                        ("").ToString()
+                                    ).ToString()
+                          ).Title("Ocr XML Data");
+          columns.Template(item => ((item.DoucmentState).ToString())).Title("Template State");
+          columns.Bound(item => item.TemplateType).Title("Template Type");
+          columns.Template(item => (item.MatchedTemplatesCount).ToString()).Title("Matched Templates");
+          columns.Template(item => ("<img src='"+item.ImagePath+"' onclick='PreviewImage(event)' width='120ox' height='150px'/>").ToString()).Title("Uploaded Image");
+      })
+       .Pageable()
+)
+
+

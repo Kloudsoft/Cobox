@@ -1,0 +1,288 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+@using HouseOfSynergy.AffinityDms.Entities.Lookup;
+@using HouseOfSynergy.AffinityDms.WebRole.Classes.CustomHelpers
+<style>
+    #DocumentListGridModal > table /* header + data table */ {
+        table-layout: auto;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        documentGridBind(null);
+    });
+    function documentGridBind(e) {
+        var documentTooltipTemp = document.getElementsByName("documentTooltipTemp");
+        if (documentTooltipTemp != null) {
+            for (var a = 0; a < documentTooltipTemp.length; a++) {
+                if (documentTooltipTemp[a] != null) {
+                    var id = documentTooltipTemp[a].getAttribute("data-id");
+                    var holderId = "documentTooltipHolder" + id;
+                    var documentTooltipHolder = document.getElementById(holderId);
+                    if (documentTooltipHolder != null) {
+                        var str = documentTooltipTemp[a].innerHTML.toString().replaceAll('"', '^').replaceAll("'", '"').replaceAll("^", "'");
+                        document.getElementById(holderId).title = str;
+                        var idd = '#' + holderId;
+                        $(idd).tooltip({
+                            placement: "auto bottom",
+                            html: "true",
+                            trigger: "focus",
+                            container: "div#divid5",
+
+                            title: function () {
+                                return $(this).attr('title');
+                            },
+                        });
+                    }
+                }
+
+            }
+        }
+
+
+        var documentTooltipShareTemp = document.getElementsByName("documentTooltipShareTemp");
+        if (documentTooltipShareTemp != null) {
+            for (var a = 0; a < documentTooltipShareTemp.length; a++) {
+                if (documentTooltipShareTemp[a] != null) {
+                    var id = documentTooltipShareTemp[a].getAttribute("data-id");
+                    var ShareId = "documentTooltipShare" + id;
+                    var documentTooltipShare = document.getElementById(ShareId);
+                    if (documentTooltipShare != null) {
+                        var str = documentTooltipShareTemp[a].innerHTML.toString().replaceAll('"', '^').replaceAll("'", '"').replaceAll("^", "'");
+                        document.getElementById(ShareId).title = str;
+                        var shreId = '#' + ShareId;
+                        $(shreId).tooltip({
+                            placement: "auto bottom",
+                            html: "true",
+                            trigger: "focus",
+                            title: function () {
+                                return $(this).attr('title');
+                            },
+                        });
+                    }
+                }
+
+            }
+        }
+
+
+    }
+</script>
+@{
+    var GridModel = this.Model;
+    if (this.Model == null) { GridModel = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>(); }
+    var isFolderColumnEnabled = (this.ViewBag.EnableFolderColumn) ?? (false);
+}
+@(Html.Kendo().Grid(Model)
+      .Name("DocumentListGridModal")
+      .Columns(columns =>
+      {
+          // columns.Template(item => (@Html.CheckBoxFor(i => item.MoveItem))).Title("Items");// ((item.MoveItem == true) ? (@Html.CheckBoxFor(i => item.MoveItem, new { @checked = "checked" })) :
+
+          columns.Template(item => item.Id)
+                          .Hidden()
+                          .HtmlAttributes(new { @name = "DocumentNo" })
+                          .ClientTemplate("#: Id #");
+          columns.Template(
+              item =>
+              //"<a style='cursor:pointer' href='/TenantDocumentIndex/DocumentIndexReadOnlyView/" + item.Id + "' data-type='document' data-id='" + item.Id + "'  data-name='" + item.Name + "'  style='cursor: pointer;' title=" + item.Name + ">" +
+              "<a style='cursor:pointer' href='" + System.Configuration.ConfigurationManager.AppSettings["openfile"] +  item.Name + "' target='_blank' data-type='document' data-id='" + item.Id + "'  data-name='" + item.Name + "'  style='cursor: pointer;' title=" + item.Name + ">" +
+              (
+                    (item.LatestCheckedOutByUserId == (this.ViewBag.CurrentLoggedinUser.Id ?? 0))
+                    ?
+                    (
+                        ("<span style=color:red;font-size:20px;>*&nbsp;</span>" + item.Name)
+                    )
+                    :
+                    (
+                        (item.LatestCheckedOutByUserId > 0)
+                        ?
+                        ("<span style=color:red;font-size:20px;>**&nbsp;</span>" + item.Name)
+                        :
+                        (item.Name)
+                    )
+              ) +
+                 "</a>"
+            )
+          .Title("Documents")
+          .ClientTemplate
+          (
+              "<a style='cursor:pointer' href='/TenantDocumentIndex/DocumentIndexReadOnlyView/#: Id #' data-type='document' data-id='#: Id #'  data-name='#: Name #'  style='cursor: pointer;' title='#:Name#'>" +//"<a onclick='javascript: instantDocumentViewer(event)' data-type='document' data-id='#: Id #'  data-name='#: Name #'  style='cursor: pointer;' title='#:Name#'>" +
+              "#if(LatestCheckedOutByUserId == GetCurrentLoggedInUser()){#" +
+                    "<span style=color:red;font-size:20px;>*&nbsp;</span>#:Name#" +
+              "#}else{#" +
+                    "#if(LatestCheckedOutByUserId>0){#" +
+                             "<span style=color:red;font-size:20px;>**&nbsp;</span>#:Name#" +
+                    "#}else{#" +
+                            "#:Name#" +
+                    "#}#" +
+              "#}#" +
+             "</a>"
+          ).HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+          if (isFolderColumnEnabled)
+          {
+              columns.Bound(item => item.Folder.Name)
+                     .ClientTemplate("#: Folder.Name #")
+                     .Title("Folder")
+                     .HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+          }
+          columns.Template(item =>
+                    (
+                        ((item.User.Id == (this.ViewBag.CurrentLoggedinUser.Id ?? 0)) && (item.LatestCheckedOutByUserId <= 0))
+                            ?
+                             (
+                                 "<button class='btn-light-min'  data-toggle='tooltip' data-original-title='' id='documentTooltipShare" + item.Id + "'  style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                                    "<i class='fa fa-share-alt' aria-hidden='true'></i>" +
+                                        "<span name='documentTooltipShareTemp' data-id='"+item.Id+"'class='hide'>" +
+                                        "<ul>" +
+                                        "<li style='cursor:pointer'><a style='cursor:pointer' href='#' data-toggle='modal' data-target='#RightsModal' data-id='" + item.Id + "' data-type='Document'><i class='ace-icon fa fa-users' data-type='document' data-id='" + item.Id + "'></i>User Rights</a></li>" +
+                                        "<li style='cursor:pointer'><a style='cursor:pointer' onclick='javascript: InviteExternalUser(event)'  data-id='" + item.Id + "' data-type='Document'><i class='ace-icon fa fa-envelope' data-id='" + item.Id + "'></i>Invite External Users</a></li>" +
+                                        "</ul>" +
+                                        "</span>" +
+                                "</button>"
+                            )
+                            :
+                            (
+                            "<button class='btn-light-min'  data-toggle='tooltip' data-original-title='' id='documentTooltipShare" + item.Id + "'  style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                                "<i class='fa fa-share-alt' aria-hidden='true'></i>" +
+                                "<span name='documentTooltipShareTemp' data-id='"+item.Id+"'class='hide'>" +
+                                    "<ul>" +
+                                        (CustomHtmlHelpers.GetDocumentUsersCommaSeperated(item)) +
+                                    "</ul>" +
+                                "</span>" +
+                            "</button>"
+                            )
+                        ) +
+
+                        "<button class='btn-light-min' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title='Preview Document' onclick='javascript: instantDocumentViewer(event)' data-type='document' data-id='"+item.Id+ "'  data-name='" + item.Name + "'>" +
+                                "<i class='fa fa-share-square-o' aria-hidden='true' data-type='document' data-id='" + item.Id + "'  data-name='" + item.Name + "'></i>" +
+                            "</button>" +
+                            "<button class='btn-light-min' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title='Current Version: " + item.VersionMajor + "." + item.VersionMinor + "' onclick='javascript:DisplayVersionsModal(" + item.Id + ")'>" +
+                                "<strong>v" + item.VersionMajor + "." + item.VersionMinor + "" +
+                            "</button>"
+                        )
+                        .Title("Status")
+                        .ClientTemplate(
+                    "#if((User.Id == GetCurrentLoggedInUser())&&(LatestCheckedOutByUserId<=0)){#" +
+                                "<button class='btn-light-min'  data-toggle='tooltip' data-original-title='' id='documentTooltipShare#:Id#'  style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                                    "<i class='fa fa-share-alt' aria-hidden='true'></i>" +
+                                        "<span name='documentTooltipShareTemp' data-id='#: Id #'class='hide'>" +
+                                        "<ul>" +
+                                        "<li style='cursor:pointer'><a style='cursor:pointer' href='\\#' data-toggle='modal' data-target='\\#RightsModal' data-id='#: Id #' data-type='Document'><i class='ace-icon fa fa-users' data-type='document' data-id='#: Id #'></i>User Rights</a></li>" +
+                                        "<li style='cursor:pointer'><a style='cursor:pointer' onclick='javascript: InviteExternalUser(event)'  data-id='#: Id #' data-type='Document'><i class='ace-icon fa fa-envelope' data-id='#: Id #'></i>Invite External Users</a></li>" +
+                                        "</ul>" +
+                                        "</span>" +
+                                "</button>" +
+                        "#}else{#" +
+                            "<button class='btn-light-min'  data-toggle='tooltip' data-original-title='' id='documentTooltipShare#:Id#'  style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title=''>" +
+                            "<i class='fa fa-share-alt' aria-hidden='true'></i>" +
+                                "<span name='documentTooltipShareTemp' data-id='#: Id #'class='hide'>" +
+                                "<ul>" +
+                                    "#if(DocumentUsers!=null){#" +
+                                    "#var NameStr = DocumentUsers.length#" +
+                                        "#if(DocumentUsers.length>0){#" +
+                                                "#for(var i=0;i<DocumentUsers.length;i++){#" +
+                                                    "#if(DocumentUsers[i].NameFull.trim()==''){#"+
+                                                    "   # NameStr += DocumentUsers[i].Email#," +
+                                                    "#}else{#"+
+                                                        "# NameStr += DocumentUsers[i].NameFull#," +
+                                                    "#}#"+
+                                                "#}#" +
+                                                "#:NameStr#" +
+                                        "#}else{#" +
+                                                "#:NameStr#" +
+                                        "#}#" +
+                                    "#}else{#" +
+                                        "#:NameStr#" +
+                                    "#}#" +
+                                 "</ul>" +
+                              "</span>" +
+                            "</button>" +
+                    "#}#" +
+                            "<button class='btn-light-min' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title='Preview Document' onclick='javascript: instantDocumentViewer(event)' data-type='document' data-id='#: Id #'  data-name='#: Name #'>" +
+                                "<i class='fa fa-share-square-o' aria-hidden='true' data-type='document' data-id='#: Id #'  data-name='#: Name #'></i>" +
+                            "</button>" +
+                            "<button class='btn-light-min' style='width:25px!important;height:35px!important;margin-left:3px;cursor:pointer' title='Current Version: #:VersionMajor#.#:VersionMinor#' onclick='javascript:DisplayVersionsModal(#:Id#)'>" +
+                                "<strong>v#:VersionMajor#.#:VersionMinor#</strong>" +
+                            "</button>"
+
+
+                        ).HeaderHtmlAttributes(new { style = "min-width: 120px !important; width: 140px !important;padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+
+          columns.Template(item =>
+                                  (
+
+                                        "<span class='hidden-480'> <a style='cursor:pointer' onClick='' data-toggle='tooltip' data-original-title='' id='documentTooltipHolder" + item.Id + "'><button type='button' class='btn btn-white '><i class='fa fa-ellipsis-h' aria-hidden='true'></i></button></a></span>" +
+                                        "<span name='documentTooltipTemp' data-id='"+item.Id+"'class='hide'>" +
+                                        "<ul>" +
+                                        (
+                                           (
+                                                ((item.User.Id == (this.ViewBag.CurrentLoggedinUser.Id ?? 0)) &&(item.LatestCheckedOutByUserId<=0))
+                                                ?
+                                                    (
+                                                        (
+                                                            (item.IsPrivate)
+                                                            ?
+                                                                ("<li style='cursor:pointer'><a style='cursor:pointer' data-id='" + item.Id + "' onclick='javascript: documents.MarkPublic(event)'><i class='ace-icon fa fa-unlock'></i>Mark Public</a></li>")
+                                                            :
+                                                                ("<li style='cursor:pointer'><a style='cursor:pointer' data-id='" + item.Id + "' onclick='javascript: documents.MarkPrivate(event)'><i class='ace-icon fa fa-lock'></i>Mark Private</a></li>")
+                                                        ) +
+                                                        (
+                                                            "<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='"+item.Id+ "' data-name='" + item.Name + "' onclick='javascript: ShowDocumentRenameModal(event)'><i class='ace-icon fa fa-pencil-square-o' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "'></i>Rename</a></li>" +
+                                                            "<li style='cursor:pointer'><a style='cursor:pointer' data-type='document'  data-id='" + item.Id + "' onclick='javascript: RenderTreeViewModal(event);'><i class='ace-icon fa fa-folder-open' data-type='document' id='" + item.Id + "'></i>Move</a></li>" +
+                                                            "<li style='cursor:pointer'><a style='cursor:pointer' href='#' data-toggle='modal' data-target='#RightsModal' data-id='" + item.Id + "' data-type='Document'><i class='ace-icon fa fa-users' data-type='document' data-id='" + item.Id + "'></i>User Rights</a></li>"
+                                                        )
+                                                    )
+                                                :
+                                                    ("")
+                                            ) +
+                                            (
+                                                ((item.LatestCheckedOutByUserId <= 0) &&(!((item.Folder.Name =="Shared")&&(item.Folder.ParentId ==1))))
+                                                ?
+                                                    ("<li style='cursor:pointer'><a style='cursor:pointer' data-id='"+item.Id+ "'  href='/TenantDocuments/CheckoutDocument/" + item.Id + "'><i class='ace-icon fa fa-share-square-o' id='" + item.Id + "'></i>Check Out</a></li>")
+                                                :
+                                                    ("")
+                                            ) +
+                                            (
+                                              ("<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "' href='" + @Url.Action("DocumentDiscourseViewer", "Document", new { id = item.Id }) + "'><i class='ace-icon fa fa-newspaper-o' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "'></i>Chat View</a></li>") +
+                                              ("<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "' href='" + @Url.Action("Index", "DocumentMerge", new { id = item.Id }) + "'><i class='ace-icon fa fa-newspaper-o' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "'></i>Merge</a></li>") +
+                                              ("<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "' href='" + @Url.Action("GetmovedocumenttoDraftmanually", "TenantDocumentsFolderWise", new { id = item.Id }) + "'><i class='ace-icon fa fa-newspaper-o' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "'></i>To Draft</a></li>") +
+                                              ("<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "' href='javascript: window.open(\"" + @Url.Action("DownloadDocument", "TenantDocumentsFolderWise", new { id = item.Id }) + "\")'><i class='ace-icon fa fa-download' data-type='document' data-id='" + item.Id + "' data-name='" + item.Name + "'></i>Download</a></li>")
+                                              
+
+                                            //+("<li style='cursor:pointer'><a style='cursor:pointer' href='" + @Url.Action("TemplateListing", "TenantDocumentManualClassification", new { id = item.Id }) + "'><i class='ace-icon fa fa-clone' data-id='" + item.Id + "'></i>Manual Classification</a></li>")
+                                            )
+                                        ) +
+                                        "</ul></span>"
+                                    )
+                    ).Title("Actions").HtmlAttributes(new { style = "text-align:left !important;" })
+                    .ClientTemplate(
+                        "<span class='hidden-480'> <a style='cursor:pointer' onClick='' data-toggle='tooltip' data-original-title='' id='documentTooltipHolder#:Id#'><button type='button' class='btn btn-white '><i class='fa fa-ellipsis-h' aria-hidden='true'></i></button></a></span>" +
+                        "<span name='documentTooltipTemp' data-id='#: Id #'class='hide'>" +
+                        "<ul>" +
+
+                        "#if((User.Id == GetCurrentLoggedInUser())&&(LatestCheckedOutByUserId<=0)){#" +
+                            "#if(IsPrivate){#" +
+                                "<li style='cursor:pointer'><a style='cursor:pointer' data-id='#: Id #' onclick='javascript: documents.MarkPublic(event)'><i class='ace-icon fa fa-unlock'></i>Mark Public</a></li>" +
+                            "#}else{#" +
+                                "<li style='cursor:pointer'><a style='cursor:pointer' data-id='#: Id #'  onclick='javascript: documents.MarkPrivate(event)'><i class='ace-icon fa fa-lock'></i>Mark Private</a></li>" +
+                            "#}#" +
+                            "<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='#: Id #' data-name='#: Name #' onclick='javascript: ShowDocumentRenameModal(event)'><i class='ace-icon fa fa-pencil-square-o' data-type='document' data-id='#: Id #' data-name='#: Name #'></i>Rename</a></li>" +
+                            "<li style='cursor:pointer'><a style='cursor:pointer' data-type='document'  data-id='#: Id #' onclick='javascript: RenderTreeViewModal(event);'><i class='ace-icon fa fa-folder-open' data-type='document' id='#: Id #'></i>Move</a></li>" +
+                            "<li style='cursor:pointer'><a style='cursor:pointer' href='\\#' data-toggle='modal' data-target='\\#RightsModal' data-id='#: Id #' data-type='Document'><i class='ace-icon fa fa-users' data-type='document' data-id='#: Id #'></i>User Rights</a></li>" +
+                        "#}#" +
+                        "#if((LatestCheckedOutByUserId <= 0)&&(!((Folder.Name =='Shared')&&(Folder.ParentId ==1)))){#" +
+                            "<li style='cursor:pointer'><a style='cursor:pointer' data-id='#: Id #'  href='/TenantDocuments/CheckoutDocument/#: Id #'><i class='ace-icon fa fa-share-square-o' id='#: Id #'></i>Check Out</a></li>" +
+                        "#}else{#" +
+                            "" +
+                        "#}#" +
+                        "<li style='cursor:pointer'><a style='cursor:pointer' data-type='document' data-id='#: Id #' data-name='#: Name #' href='/Document/DocumentDiscourseViewer/#: Id #'><i class='ace-icon fa fa-newspaper-o' data-type='document' data-id='#: Id #'  data-name='#: Name #'></i>Chat View</a></li>" +
+                        "<li style='cursor:pointer'><a style='cursor:pointer'  href='javascript: window.open(\"/TenantDocumentsFolderWise/DownloadDocument/#: Id #\")'><i class='ace-icon fa fa-download' data-id='#: Id #'></i>Download</a></li>" +
+                        "</ul></span>"
+                ).HeaderHtmlAttributes(new { style = "padding: 8px 20px 20px 8px;line-height: 1.42857143;text-align: left;font-weight: bold;font-family: 'Lato', sans-serif!important;color:#707070!important;background-color: white;" });
+
+      })
+      .Filterable()
+      .HtmlAttributes(new { @style = "height:96%;overflow:auto;" })
+      .Events(x => { x.DataBound("documentGridBind"); })
+      )
+

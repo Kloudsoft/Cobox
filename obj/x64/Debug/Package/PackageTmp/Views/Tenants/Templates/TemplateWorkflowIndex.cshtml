@@ -1,0 +1,877 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentIndexViewModel
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    this.ViewBag.Title = "Document Index";
+    this.ViewBag.IsDocumentIndexViewer = true;
+    this.ViewBag.DocumentInformation = "";//docName + "   |   " + createdBy;// +"   |   Last Edited Aug 1, 2016";
+    this.ViewBag.DocCurrentPageNumber = "NaN";
+    this.ViewBag.DocTotalPageNumber = "NaN";
+    this.ViewBag.ZoomPercentage = "100 %";
+    this.ViewBag.Type = "Document";
+    this.ViewBag.DocumentIndexModel = this.Model;
+    var documentName = "";// (this.Model.Document != null) ? (Path.GetFileNameWithoutExtension(this.Model.Document.Name)) : ("");
+    var userFullName = "";// (this.Model.Document.User != null) ? (Path.GetFileNameWithoutExtension(this.Model.Document.Name)) : ("");
+    if (this.Model.Document != null)
+    {
+        documentName = Path.GetFileNameWithoutExtension(this.Model.Document.Name);
+        if (this.Model.Document.User != null)
+        {
+            userFullName = this.Model.Document.User.NameFull;
+        }
+    }
+    this.ViewBag.DocumentInformation = documentName + "   |   " + userFullName;
+    if (!Model.Document.IsFinalized)
+    {
+        this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + ((Model.Document.Folder != null) ? (Model.Document.Folder.Name) : ("")) + "</a></li><li><a href='../../TenantDocumentIndex/Index/" + Model.Document.Id + "'>Edit Document</a></li>";
+    }
+    else
+    {
+        this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + ((Model.Document.Folder != null) ? (Model.Document.Folder.Name) : ("")) + "</a></li><li><a href='../../TenantDocumentIndex/DocumentIndexReadOnlyView/" + Model.Document.Id + "'>View Document</a></li>";
+    }
+}
+@Scripts.Render("~/bundles/TypeScript")
+@*@if (this.ViewBag.ErrorMessage != null)
+        {
+            if (!string.IsNullOrEmpty(this.ViewBag.ErrorMessage))
+            {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage">@this.ViewBag.ErrorMessage</div>
+            }
+            else
+            {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage" style="display:none">@this.ViewBag.ErrorMessage</div>
+            }
+        }
+        else
+        {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage" style="display:none">@this.ViewBag.ErrorMessage</div>
+
+        }
+        @if (this.ViewBag.SuccessMessage != null)
+        {
+            if (!string.IsNullOrEmpty(this.ViewBag.SuccessMessage))
+            {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage">@this.ViewBag.SuccessMessage</div>
+            }
+            else
+            {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage" style="display:none">@this.ViewBag.SuccessMessage</div>
+            }
+        }
+        else
+        {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage" style="display:none">@this.ViewBag.SuccessMessage</div>
+
+        }*@
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+
+    <input type="hidden" name="H_Templateid" value="@ViewBag.hdndocId" id="h_templateid">
+
+    <div id="DocumentIndexErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentIndexErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentIndexErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentIndexSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentIndexSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentIndexSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+<style>
+    div#thumbnails-container-Div {
+        display: none;
+    }
+
+    .k-grid tr td {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    pre {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+</script>
+
+<input type="hidden" value="@this.ViewBag.Id" id="hdocId" />
+@if (this.Model != null)
+{
+    if (this.Model.DocumentIndexes != null)
+    {
+        <input type="hidden" value="@Model.DocumentIndexes.Count" id="divcounter">
+
+    }
+    else
+    {
+        <input type="hidden" value="0" id="divcounter">
+    }
+}
+else
+{
+    <input type="hidden" value="0" id="divcounter">
+}
+<input type="hidden" id="FolderTreeSelectedItem" value="0" style="display:none" class="btn btn-primary">
+<input type="hidden" id="ModalBodyId" value="" style="display:none">
+@*<input type="hidden" id="MoveFolderTo" value="-1">*@
+<input type="hidden" id="CurrentFolderId" value="@Model.Document.FolderId" style="display:none">
+<input type="hidden" value="@Model.Document.Id" id="hdocId" />
+<input type="hidden" id="Hidfind" value="0" />
+<input type="hidden" id="ImageMove" value="false">
+
+
+
+
+@{
+
+}
+
+
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="CancelCheckoutConfirmationModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Cancel Checkout</h4>
+            </div>
+            <div class="modal-body" id="divCancelCheckoutModalBody" style="max-height:700px;overflow-y: auto">
+                Are you sure you want to cancel checkout. This will rollback any changes made.
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: window.location.href= '@Url.Action("CancelCheckout", "TenantDocumentIndex", new { id = this.ViewBag.DocumentIndexModel.Document.Id })'">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="max-height:650px;overflow:auto;padding-left:10px">
+    <h2>Document View</h2> <br />
+    
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 40%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+           
+            
+        }
+        /*td:nth-child(odd) {
+            background-color: #f7f7f7;
+        }*/
+
+        /*tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    tr:nth-child(odd) {
+    background-color: #e8e8e8;
+}*/
+    </style>
+
+
+
+   
+    </div>
+    <div>
+        <div id="document">
+            <!-- top -->
+            <!-- Left side -->
+            <div class="data-view" style="background-color:white!important">
+                <div class="col-xs-7">
+
+
+                    <div class="panel table-col-box" style="border: 1px solid #cccccc">
+                        <div class="widget-body" style="overflow:hidden!important">
+                            <div id="left-doc" class="widget-main" style="overflow:hidden!important">
+                                <!-- top -->
+                                @{
+                                    //  Html.RenderPartial("~/Views/Tenants/DocumentViewer/_DocumentViewer.cshtml", this.Model.Document);
+                                    if (ViewBag.PdfName != null) { 
+                                <iframe id="myframe" src='@(System.Configuration.ConfigurationManager.AppSettings["openfile"] + ViewBag.PdfName)'  width="596" height="1273"></iframe>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- //Left side -->
+                <!-- right side -->
+                <div class="col-xs-5"  style="float:right;overflow:scroll;height:450px" >
+
+                    <div class="panel" >
+                        <div class="widget-body">
+
+                            <div style="font-size:15px;font-weight:bold"> Vendor Details </div>
+
+                            <div style="float:right">
+                                <table>
+                                    @if (ViewBag.VendorInfo!=null){ 
+                                    @Html.Raw(HttpUtility.HtmlDecode(@ViewBag.VendorInfo.ToString().Replace("&nbsp;&nbsp;", "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;")))
+                                    }
+                                </table>
+
+                            <br />
+
+
+                                <div class="widget-main no-padding-right">
+                                   
+
+                                    @{
+                                        int I = 1;
+                                        if (ViewBag.ObjDocIndexes != null)
+                                        {
+
+
+                                            foreach (var iList in ViewBag.ObjDocIndexes)
+                                            {
+
+
+                                              
+
+                                    if (I == 1)
+                                    {
+
+                                        if (ViewBag.CreateFolderName != "" && ViewBag.CreateFolderName != "NoName")
+                                        {
+                                         
+                                            <div class='col-md-1'><span class='num-bg'>@I</span></div>
+                                            <div class='col-md-11'>
+
+                                                @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+                                                {<p>DELIVERY ORDER NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("INVNO"))
+                                                {<p>INVOICE NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
+                                                {<p>INVOICE NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                                {<p>ACCOUNT NO</p>}
+
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <td align="left">
+                                                            • &nbsp;
+                                                            <label id="lbl-@iList.NewindexId">
+                                                                @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
+                                                            </label>
+                                                            <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
+                                                            &nbsp;
+                                                            <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
+                                                                <img src="@Url.Content("~/Images/edit-32.png")" />
+                                                            </a><a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
+                                                                <img src="@Url.Content("~/Images/save-32.png")" />
+                                                            </a>
+                                                            @*<div style="height:5px"></div>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments" style="display:none" id="txtc-@iList.NewindexId" value="" />*@
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+
+                                                
+
+
+
+                                            </div>
+                                            <div class='clearfix'> </div>
+                                            @*<hr size='1'>*@
+
+
+                                        }
+                                        else
+                                        {
+                                            @*<div class='col-md-1'><span class='num-bg'>@I</span> </div>
+                                            <div class='col-md-11'>
+                                                <p>No Vendor Matched</p><p></p>
+                                            </div><div class='clearfix'> </div><hr size='1'>*@
+
+                                            I++;
+
+                                            <div class='col-md-1'>
+                                                <span class='num-bg'>@I</span>
+
+                                            </div><div class='col-md-11'>
+
+                                                @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+                                                {<p>DELIVERY ORDER NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("INVNO"))
+                                                {    <p>INVOICE NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
+                                                {   <p>INVOICE NO</p>}
+
+                                                      @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                                      {<p>ACCOUNT NO</p>}
+
+
+                                                      <table style="width:100%">
+                                                          <tr>
+                                                              <td align="left">
+                                                                  • &nbsp;
+                                                                  <label id="lbl-@iList.NewindexId">
+                                                                      @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
+                                                                  </label>
+                                                                  <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
+                                                                  
+                                                                  &nbsp;
+                                                                  <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
+                                                                      <img src="@Url.Content("~/Images/edit-32.png")" />
+                                                                  </a><a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
+                                                                      <img src="@Url.Content("~/Images/save-32.png")" />
+                                                                  </a>
+                                                                  @*<div style="height:5px"></div>
+                                                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments" style="display:none" id="txtc-@iList.NewindexId" value="" />*@
+                                                              </td>
+                                                          </tr>
+                                                      </table>
+
+
+
+                                        
+
+                                            </div>  <div class='clearfix'> </div>@*<hr size='1'>*@
+
+
+                                        }
+
+                                    }
+                                    else
+                                    {
+
+                                        <div class='col-md-1'>  <span class='num-bg'>@I</span></div>
+                                        <div class='col-md-11'>
+
+                                            @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+                                            {<p>DELIVERY ORDER NO</p>}
+
+                                            @if (iList.Newindexname.ToUpper().Contains("INVNO"))
+                                            {<p>INVOICE NO</p>}
+
+                                            @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
+                                            {<p>INVOICE NO</p>}
+
+                                            @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                            {<p>ACCOUNT NO</p>}
+
+                                            <table style="width:100%">
+                                                <tr>
+                                                    <td align="left">
+                                                        • &nbsp;
+                                                        <label id="lbl-@iList.NewindexId">
+                                                            @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
+                                                        </label>
+                                                        <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
+                                                      
+                                                        &nbsp;
+                                                        <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
+                                                            <img src="@Url.Content("~/Images/edit-32.png")" />
+                                                        </a><a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
+                                                            <img src="@Url.Content("~/Images/save-32.png")" />
+                                                        </a>
+
+                                                        @*<div style="height:5px"></div>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments" style="display:none" id="txtc-@iList.NewindexId" value="" />*@
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+      
+
+                                        </div><div class='clearfix'> </div>
+                                        @*<hr size='1'>*@
+                                            }
+                                            I++;
+
+                                        }
+
+                                    }
+
+
+                                    }
+
+                                    <br /><br />
+
+                                    <div style="font-size:15px;font-weight:bold"> Recomendation </div>
+                                    <div style="height:10px"></div>
+                                    <select id="radiorecommend">
+                                        <option>Work done satisfactory</option>
+                                        <option>Recommended for payment</option>
+                                        <option>Payment authorized by</option>
+                                        <option>Expense code</option>
+                                    </select>
+                                    <div style="height:10px"></div>
+                                    <input type="text" placeholder="Remarks" id="txtRemarks" value="" style="width:192px" />
+                                    <a class="edit" id="lnkremarks" href="#" onclick="addremarks()">
+                                        <img src="@Url.Content("~/Images/1save-32.png") " />
+                                    </a>
+                                  
+                                    <br /><br />
+                                    <hr size='1'>
+                                    <div style="height:5px"></div>
+                                        Any Comments &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments"  id="txtcommentscommon" value="" />
+                                    <div style="height:20px"></div>
+
+
+                                        @if (this.Model != null)
+                                        {
+                                            if (this.Model.Document != null)
+                                            {
+                                                if ((this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Draft) || (this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSM))
+                                                {
+                                                    @*<a href="#" id="btnaction" onclick="OnActionClick(8)" class="dash-link active"> RECOMMEND </a>*@
+                                                    <a href="#" id="btnaction" onclick="OnActionClick(8)" class="dash-link active"> SUBMIT </a>
+                                                    <a href="#" onclick="OnActionClick(3)" class="dash-link">Cancel</a>
+
+                                                }
+                                                if ((this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Recommend) || (this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkPM))
+                                                {
+                                                    @*<a href="#" id="btnaction" onclick="OnActionClick(9)" class="dash-link active"> ADVISE </a>*@
+                                                    <a href="#" id="btnaction" onclick="OnActionClick(9)" class="dash-link active"> SUBMIT </a>
+                                                    <a href="#" onclick="OnActionClick(11)" class="dash-link">Rework</a>
+                                                    <a href="#" onclick="OnActionClick(8)" class="dash-link">Cancel</a>
+                                                }
+                                                if ((this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Advised) || (this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSSOAD))
+                                                {
+                                                    @*<a href="#" id="btnaction" onclick="OnActionClick(5)" class="dash-link active"> APPROVE </a>*@
+                                                    <a href="#" id="btnaction" onclick="OnActionClick(5)" class="dash-link active"> SUBMIT </a>
+                                                    <a href="#" onclick="OnActionClick(12)" class="dash-link">Rework</a>
+                                                    <a href="#" onclick="OnActionClick(9)" class="dash-link">Cancel</a>
+                                                }
+                                                if (this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Approved)
+                                                {
+                                                    @*<a href="#" id="btnaction" onclick="OnActionClick(10)" class="dash-link active"> PROCESS PAYMENT </a>*@
+                                                    <a href="#" id="btnaction" onclick="OnActionClick(10)" class="dash-link active"> SUBMIT </a>
+                                                    <a href="#" onclick="OnActionClick(5)" class="dash-link">Cancel</a>
+                                                }
+                                                if (this.Model.Document.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ProcessPayment)
+                                                {
+                                                    @*<a href="#" id="btnaction" onclick="OnActionClick(7)" class="dash-link active"> COMPLETE </a>*@
+                                                    <a href="#" id="btnaction" onclick="OnActionClick(7)" class="dash-link active"> SUBMIT </a>
+                                                    <a href="#" onclick="OnActionClick(10)" class="dash-link">Cancel</a>
+                                                }
+
+
+                                            }
+                                        }
+                                    <hr size='1'>
+                                      <br /><br />
+
+
+
+                                    <div style="font-size:15px;font-weight:bold"> Audit Log </div>
+
+                                    @*<table style="width:350px">
+                                        <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>DateTime</th>
+                                                <th>User</th>
+                                                <th>Comments</th>
+                                            </tr>
+                                        </thead>
+                                        @if (ViewBag.VendorInfo != null)
+                                        {
+                                            @Html.Raw(HttpUtility.HtmlDecode(@ViewBag.Loginfo.ToString()))
+                                        }
+                                    </table>*@
+
+
+                                    
+
+                                    <div id="divlog">
+
+                                    </div>
+
+                                  
+
+
+</div>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- / right side -->
+            </div>
+        </div>
+
+    
+
+    <div style="width:100%;display:inline-block !important;">
+        @*padding-left:80px*@
+        @{
+            IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+                parentDocuments = null;
+            if (this.ViewBag.ParentDocuments != null)
+            {
+                parentDocuments = this.ViewBag.ParentDocuments;
+            }
+            if (parentDocuments == null)
+            {
+                parentDocuments = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+            }
+            IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document> documentVersions = null;
+            if (this.ViewBag.DocumentVersions != null)
+            {
+                documentVersions = this.ViewBag.DocumentVersions;
+            }
+            if (documentVersions == null)
+            {
+                documentVersions = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+            }
+        }
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            @{
+                Html.RenderPartial("~/Views/Tenants/Documents/_RelatedDocuments.cshtml", parentDocuments.OrderBy(x => x.Name).ToList());
+            }
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            @{
+                Html.RenderPartial("~/Views/Tenants/Documents/_DocumentHistory.cshtml", documentVersions.OrderByDescending(x => x.Id).ToList());
+            }
+        </div>
+
+
+    </div>
+
+
+@if(ViewBag.Loginfo != null)
+{
+    <script>
+
+        
+        var resultn = '@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.Loginfo.ToString()))';
+        
+        var strlog = ""
+        strlog += "<table style='width:350px'>";
+        strlog += "<thead><tr><th>Action</th><th>DateTime</th><th>User</th><th>Comments</th></tr></thead>";
+        strlog += resultn;
+        strlog += "</table>";
+
+        $("#divlog").html(strlog);
+
+    </script>
+}
+
+
+<script>
+
+     
+                //}
+
+
+               
+
+
+
+
+
+        function edit(element) {
+
+           // alert(element);
+
+            var input = "#txt-" + element;
+            var inputc = "#txtc-" + element;
+            var label="#lbl-" + element;
+            var link="#lnk-" + element;
+            var linkup="#lnkup-" + element;
+
+           // alert(label);
+           // alert(input);
+
+            $(input).show();
+            $(inputc).show();
+            $(label).hide();
+            $(link).hide();
+            $(linkup).show();
+
+           // $(update).show();
+
+            //$(lbl-+element).show();
+            //$(edit).hide();
+            //$(update).show();
+            //$(input).attr('placeholder', placeholder);
+        }
+
+        function Update(element) {
+
+           // alert(element);
+
+            var input = "#txt-" + element;
+            var inputc = "#txtc-" + element;
+            var label="#lbl-" + element;
+            var link="#lnk-" + element;
+            var linkup = "#lnkup-" + element;
+            var id = $("#h_templateid").val();
+
+          //   alert(label);
+            //   alert(input);
+               alert(inputc);
+          //   alert(link);
+          //   alert(linkup);
+
+               var test= $(input).val();
+               var testcomment= $(inputc).val();
+           // alert(test);
+
+        $(input).hide();
+        $(inputc).hide();
+            $(label).show();
+            $(link).show();
+            $(linkup).hide();
+            $(label).text(test);
+
+
+            var urlnew = "@Url.Action("Updateindex", "TemplatesWorkflowIndex")";
+
+            $.ajax({
+                url: urlnew,
+                type: "POST",
+                //contentType: "application/json",
+                dataType: "json",
+                data: { id: element, val: test, log: testcomment, docid: id },
+                error: function (result) { alert("error"); },
+                success: function (result) {
+                    alert("Index value updated successfully!");
+
+                   
+                }
+            });
+
+
+
+
+        }
+
+
+    function addremarks() {
+
+        var action = $("#radiorecommend").val();
+        var comments = $("#txtRemarks").val();
+        var id = $("#h_templateid").val();
+
+        var urlnew = "@Url.Action("AddLog", "TemplatesWorkflowIndex")";
+
+        $.ajax({
+            url: urlnew,
+            type: "POST",
+            //contentType: "application/json",
+            dataType: "json",
+            data: { action: action, log: comments, docid: id },
+            error: function (response) { alert("error"); },
+            success: function (result) {
+                //alert(result);
+                
+
+                var strlog = ""
+                strlog += "<table style='width:350px'>";
+                strlog += "<thead><tr><th>Action</th><th>DateTime</th><th>User</th><th>Comments</th></tr></thead>";
+                strlog += result;
+                strlog += "</table>";
+
+                $("#divlog").html(strlog);
+
+                alert("Remarks Added successfully!");
+            }
+        });
+
+
+
+    }
+
+</script>
+
+<script>
+     var urll = "@Url.Action("processdocument", "TemplatesWorkflowIndex")";
+    var urlworkflow = "@Url.Action("processdocument", "TemplatesWorkflowIndex")";
+
+    function OnActionClick(arg) {
+
+        var id = $("#h_templateid").val();
+        var comments = $("#txtcommentscommon").val();
+        
+   // alert(arg);
+   // alert(id);
+        $.ajax({
+            url: urll, type: "POST", dataType: "json", data: { id: id, mode: arg, comments: comments },
+                error: function (response) {alert("error");},
+                success: function (response)
+                {
+    alert("Action completed!");
+   // alerty(response);
+                //  var responseA=jQuery.parseJSON(response);
+   // alerty(responseA);
+               //     alert(responseA.rtnmode);
+
+                   //  var mode = responseA.rtnmode;
+                 //   if (mode == 4)
+                 //   {
+                 //       Rtnmsg = "Document SUBMITTED successfully!";
+                //    }
+                //    if (mode == 5)
+                //    {
+                 //       Rtnmsg = "Document APPROVED successfully!";
+                 //   }
+                 //   if (mode == 6)
+                //    {
+                //        Rtnmsg = "Document set back to DRAFT successfully!";
+                //    }
+               //     if (mode == 7)
+                //    {
+               //         Rtnmsg = "Document set back to DRAFT successfully!";
+                //    }
+
+                //    alert(Rtnmsg);
+
+                    window.location.href="/tenants/TemplatesWorkflow";
+              }
+    });
+    }
+
+                function JsonpCallback(json)  {}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    function RenderTreeViewModal(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var doc = document.getElementById("folderTreeViewModal");
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#folderTreeViewModal").modal("show");
+
+        }
+    }
+    //function SelectNode(nodeId, FolderTreeViewObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        FolderTreeViewObj.data("kendoTreeView").expand(".k-item");
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        if (treeView != null) {
+    //            var dataItem = treeView.dataSource.get(nodeId);
+    //            if (dataItem != null) {
+    //                var node = treeView.findByUid(dataItem.uid);
+    //                if (node != null) {
+    //                    treeView.expand("li:first");
+    //                    treeView.expand(node);
+    //                    treeView.select(node);
+    //                }
+    //            }
+    //        }
+    //    }
+    //    //else {
+    //    //    alert("Unable to find the folder")
+    //    //}
+    //}
+    //function ExpandSelectedNode(event) {
+    //    var nodeId = event.getAttribute("data-id");
+    //    var FolderTreeViewObj = $("#treeview");
+    //    ExpandNode(nodeId, FolderTreeViewObj)
+    //}
+    //function ExpandNode(nodeId, FolderTreeViewObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        var dataItem = treeView.dataSource.get(nodeId);
+    //        var node = treeView.findByUid(dataItem.uid);
+    //        treeView.expand("li:first");
+    //        treeView.expand(node);
+    //        treeView.select(node);
+    //        var CurrentFolderId = document.getElementById("CurrentFolderId");
+    //        CurrentFolderId.value = nodeId;
+    //        SetSelectedElement(nodeId);
+    //    }
+    //    else {
+    //        alert("Unable to find the folder")
+    //    }
+    //}
+
+
+    $(document).ready(function (e) {
+        var docViewer = new AffinityDms.Entities.DocumentViewer();
+        docViewer.run();
+
+        if ($("DocumentIndexSuccessMessageText") != null) {
+            if ($("#DocumentIndexSuccessMessageText").text() != null || $("#DocumentIndexSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentIndexSuccessMessage').fadeOut('fast');
+                    $("#DocumentIndexSuccessMessage").css("display", "none");
+                    $("#DocumentIndexSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("DocumentIndexErrorMessageText") != null) {
+            if ($("#DocumentIndexSuccessMessageText").text() != null || $("#DocumentIndexSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentIndexErrorMessage').fadeOut('fast');
+                    $("#DocumentIndexErrorMessage").css("display", "none");
+                    $("#DocumentIndexErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+
+
+    });
+    function ViewDiscourseModal(event) {
+
+        var id = event.target.getAttribute("data-id");
+        var url = "../../TenantDiscourse/PartialDiscourse/" + id;
+        $("#DiscourseModalContainer").text("");
+        $("#DiscourseModalContainer").load(url);
+        $("#DiscourseModal").modal({ backdrop: 'static' })
+    }
+    function CloseDiscourseModal(event) {
+        $("#DiscourseModalContainer").text("");
+        $("#DiscourseModal").modal("hide")
+
+
+    }
+</script>

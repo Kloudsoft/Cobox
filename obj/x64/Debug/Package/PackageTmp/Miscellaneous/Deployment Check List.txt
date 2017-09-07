@@ -1,0 +1,4 @@
+﻿Check-list of things to change when switching between local and live.
+
+HouseOfSynergy.AffinityDms.Library.AffinityConfigurationMaster.UriMaster.
+HouseOfSynergy.AffinityDms.Library.AffinityConfiguration.DeploymentLocation.

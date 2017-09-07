@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+
+@(Html.Kendo().Grid(Model).Name("TenantDocumentsSelectionListGrid").Columns
+    (
+    columns =>
+    {
+
+        columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "DocumentNo" });
+        columns.Template(item => item.Name).Title("Name");
+        columns.Bound(item => (item.Folder.Name)).Title("Folder Name");
+        columns.Template(item => ((item.IsSelected) ? ("<input type='checkbox' class='check-box' data-id='" + item.Id + "'  checked='checked' value='" + item.IsSelected + "' name='CheckDocumentSelection'  data-name=" + item.Name + "><input name='CheckDocumentSelection_H' type='hidden' value='false' />") : ("<input type='checkbox' class='check-box' data-id='" + item.Id + "' value='" + item.IsSelected + "' name='CheckDocumentSelection' data-name=" + item.Name + "><input name='CheckDocumentSelection_H' type='hidden' value='false' />"))).Title("Add/Remove");
+    }
+    )
+    .Resizable(resize => resize.Columns(true))
+    .Filterable()
+    .Sortable()
+     .HtmlAttributes(new { @style = "max-height:170px;overflow-y:auto" })
+)
+
+
+
+
