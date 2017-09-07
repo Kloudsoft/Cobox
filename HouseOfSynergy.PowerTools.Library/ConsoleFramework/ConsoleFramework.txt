@@ -1,0 +1,56 @@
+﻿Product: Power Tools
+Module : Console Framework
+Version: 1.0.0.0
+
+
+The power tools console framework facilitates development of robust, large-scale console applications. It provides a screen-based development paradigm that streamlines user interaction in the form of dialogs and menus.
+
+To start off, create a class inheriting from [HouseOfSynergy.PowerTools.Library.ConsoleFramework.Application<T>] where [<T>] should be the derived class itself.
+
+The [Program.cs] should look like this:
+
+	using System;
+	using System.Linq;
+	using HouseOfSynergy.PowerTools.Samples.ConsoleFramework;
+
+	namespace YourNameSpace
+	{
+		public static class Program
+		{
+			private static void Main (string [] args)
+			{
+				Application.Instance.Run(args);
+			}
+		}
+	}
+
+The derived application class should look like follows:
+
+	using System;
+	using System.Linq;
+
+	namespace YourNameSpace
+	{
+		public sealed class Application:
+			HouseOfSynergy.PowerTools.Library.ConsoleFramework.Application<Application>
+		{
+			private Application ()
+			{
+				this.ApplicationInfo = new ApplicationInfo
+				(
+					productName : "Product Name",
+					productVersion : new HouseOfSynergy.PowerTools.Library.Utility.Version(1, 0, 0, 0),
+					companyName : "Company Name",
+					manufacturerName : "Manufacturer Name",
+					manufacturerUrl : new Uri("http://www.yourdomain.com/"),
+					productGuid : new Guid("{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}"),
+					copyright : "Copyright (c) " + DateTime.Now.ToString("yyyy") + " Company Name. All rights reserved."
+				);
+			}
+
+			public sealed override bool AllowMultipleInstances { get { return (false); } }
+
+			protected sealed override void OnLoad () { }
+			protected sealed override void OnUnLoad () { }
+		}
+	}

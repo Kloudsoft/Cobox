@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" />
+        <title>System Error Codes (1300-1699) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681385(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681385(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681385(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681385(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="61C41DD4-7:31:50 PM" />
+
+<meta name="Search.ShortId" content="ms681385" />
+
+<meta name="ms.shortidmsdn" content="ms681385" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="7b04a2ba-7bf9-4bff-93c8-cbb0060e069d" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996310&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (1300-1699)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a>  for errors 1300 to 1699. They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_NOT_ALL_ASSIGNED"></a><a id="error_not_all_assigned"></a><strong>ERROR_NOT_ALL_ASSIGNED</strong></dt>
+<dd>
+<dl>
+<dt>1300 (0x514)</dt>
+<dt>
+<p>Not all privileges or groups referenced are assigned to the caller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SOME_NOT_MAPPED"></a><a id="error_some_not_mapped"></a><strong>ERROR_SOME_NOT_MAPPED</strong></dt>
+<dd>
+<dl>
+<dt>1301 (0x515)</dt>
+<dt>
+<p>Some mapping between account names and security IDs was not done.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_QUOTAS_FOR_ACCOUNT"></a><a id="error_no_quotas_for_account"></a><strong>ERROR_NO_QUOTAS_FOR_ACCOUNT</strong></dt>
+<dd>
+<dl>
+<dt>1302 (0x516)</dt>
+<dt>
+<p>No system quota limits are specifically set for this account.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOCAL_USER_SESSION_KEY"></a><a id="error_local_user_session_key"></a><strong>ERROR_LOCAL_USER_SESSION_KEY</strong></dt>
+<dd>
+<dl>
+<dt>1303 (0x517)</dt>
+<dt>
+<p>No encryption key is available. A well-known encryption key was returned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NULL_LM_PASSWORD"></a><a id="error_null_lm_password"></a><strong>ERROR_NULL_LM_PASSWORD</strong></dt>
+<dd>
+<dl>
+<dt>1304 (0x518)</dt>
+<dt>
+<p>The password is too complex to be converted to a LAN Manager password. The LAN Manager password returned is 
+     a <strong>NULL</strong> string.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_REVISION"></a><a id="error_unknown_revision"></a><strong>ERROR_UNKNOWN_REVISION</strong></dt>
+<dd>
+<dl>
+<dt>1305 (0x519)</dt>
+<dt>
+<p>The revision level is unknown.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REVISION_MISMATCH"></a><a id="error_revision_mismatch"></a><strong>ERROR_REVISION_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>1306 (0x51A)</dt>
+<dt>
+<p>Indicates two revision levels are incompatible.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_OWNER"></a><a id="error_invalid_owner"></a><strong>ERROR_INVALID_OWNER</strong></dt>
+<dd>
+<dl>
+<dt>1307 (0x51B)</dt>
+<dt>
+<p>This security ID may not be assigned as the owner of this object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PRIMARY_GROUP"></a><a id="error_invalid_primary_group"></a><strong>ERROR_INVALID_PRIMARY_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1308 (0x51C)</dt>
+<dt>
+<p>This security ID may not be assigned as the primary group of an object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_IMPERSONATION_TOKEN"></a><a id="error_no_impersonation_token"></a><strong>ERROR_NO_IMPERSONATION_TOKEN</strong></dt>
+<dd>
+<dl>
+<dt>1309 (0x51D)</dt>
+<dt>
+<p>An attempt has been made to operate on an impersonation token by a thread that is not currently 
+     impersonating a client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_DISABLE_MANDATORY"></a><a id="error_cant_disable_mandatory"></a><strong>ERROR_CANT_DISABLE_MANDATORY</strong></dt>
+<dd>
+<dl>
+<dt>1310 (0x51E)</dt>
+<dt>
+<p>The group may not be disabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_LOGON_SERVERS"></a><a id="error_no_logon_servers"></a><strong>ERROR_NO_LOGON_SERVERS</strong></dt>
+<dd>
+<dl>
+<dt>1311 (0x51F)</dt>
+<dt>
+<p>There are currently no logon servers available to service the logon request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_LOGON_SESSION"></a><a id="error_no_such_logon_session"></a><strong>ERROR_NO_SUCH_LOGON_SESSION</strong></dt>
+<dd>
+<dl>
+<dt>1312 (0x520)</dt>
+<dt>
+<p>A specified logon session does not exist. It may already have been terminated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_PRIVILEGE"></a><a id="error_no_such_privilege"></a><strong>ERROR_NO_SUCH_PRIVILEGE</strong></dt>
+<dd>
+<dl>
+<dt>1313 (0x521)</dt>
+<dt>
+<p>A specified privilege does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRIVILEGE_NOT_HELD"></a><a id="error_privilege_not_held"></a><strong>ERROR_PRIVILEGE_NOT_HELD</strong></dt>
+<dd>
+<dl>
+<dt>1314 (0x522)</dt>
+<dt>
+<p>A required privilege is not held by the client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ACCOUNT_NAME"></a><a id="error_invalid_account_name"></a><strong>ERROR_INVALID_ACCOUNT_NAME</strong></dt>
+<dd>
+<dl>
+<dt>1315 (0x523)</dt>
+<dt>
+<p>The name provided is not a properly formed account name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_USER_EXISTS"></a><a id="error_user_exists"></a><strong>ERROR_USER_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1316 (0x524)</dt>
+<dt>
+<p>The specified account already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_USER"></a><a id="error_no_such_user"></a><strong>ERROR_NO_SUCH_USER</strong></dt>
+<dd>
+<dl>
+<dt>1317 (0x525)</dt>
+<dt>
+<p>The specified account does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GROUP_EXISTS"></a><a id="error_group_exists"></a><strong>ERROR_GROUP_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1318 (0x526)</dt>
+<dt>
+<p>The specified group already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_GROUP"></a><a id="error_no_such_group"></a><strong>ERROR_NO_SUCH_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1319 (0x527)</dt>
+<dt>
+<p>The specified group does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMBER_IN_GROUP"></a><a id="error_member_in_group"></a><strong>ERROR_MEMBER_IN_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1320 (0x528)</dt>
+<dt>
+<p>Either the specified user account is already a member of the specified group, or the specified group cannot 
+     be deleted because it contains a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMBER_NOT_IN_GROUP"></a><a id="error_member_not_in_group"></a><strong>ERROR_MEMBER_NOT_IN_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1321 (0x529)</dt>
+<dt>
+<p>The specified user account is not a member of the specified group account.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LAST_ADMIN"></a><a id="error_last_admin"></a><strong>ERROR_LAST_ADMIN</strong></dt>
+<dd>
+<dl>
+<dt>1322 (0x52A)</dt>
+<dt>
+<p>This operation is disallowed as it could result in an administration account being disabled, deleted or unable to log on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRONG_PASSWORD"></a><a id="error_wrong_password"></a><strong>ERROR_WRONG_PASSWORD</strong></dt>
+<dd>
+<dl>
+<dt>1323 (0x52B)</dt>
+<dt>
+<p>Unable to update the password. The value provided as the current password is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ILL_FORMED_PASSWORD"></a><a id="error_ill_formed_password"></a><strong>ERROR_ILL_FORMED_PASSWORD</strong></dt>
+<dd>
+<dl>
+<dt>1324 (0x52C)</dt>
+<dt>
+<p>Unable to update the password. The value provided for the new password contains values that are not allowed 
+     in passwords.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PASSWORD_RESTRICTION"></a><a id="error_password_restriction"></a><strong>ERROR_PASSWORD_RESTRICTION</strong></dt>
+<dd>
+<dl>
+<dt>1325 (0x52D)</dt>
+<dt>
+<p>Unable to update the password. The value provided for the new password does not meet the length, complexity, 
+     or history requirements of the domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_FAILURE"></a><a id="error_logon_failure"></a><strong>ERROR_LOGON_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1326 (0x52E)</dt>
+<dt>
+<p>The user name or password is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACCOUNT_RESTRICTION"></a><a id="error_account_restriction"></a><strong>ERROR_ACCOUNT_RESTRICTION</strong></dt>
+<dd>
+<dl>
+<dt>1327 (0x52F)</dt>
+<dt>
+<p>Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, 
+     sign-in times are limited, or a policy restriction has been enforced.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LOGON_HOURS"></a><a id="error_invalid_logon_hours"></a><strong>ERROR_INVALID_LOGON_HOURS</strong></dt>
+<dd>
+<dl>
+<dt>1328 (0x530)</dt>
+<dt>
+<p>Your account has time restrictions that keep you from signing in right now.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_WORKSTATION"></a><a id="error_invalid_workstation"></a><strong>ERROR_INVALID_WORKSTATION</strong></dt>
+<dd>
+<dl>
+<dt>1329 (0x531)</dt>
+<dt>
+<p>This user isn't allowed to sign in to this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PASSWORD_EXPIRED"></a><a id="error_password_expired"></a><strong>ERROR_PASSWORD_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>1330 (0x532)</dt>
+<dt>
+<p>The password for this account has expired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACCOUNT_DISABLED"></a><a id="error_account_disabled"></a><strong>ERROR_ACCOUNT_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>1331 (0x533)</dt>
+<dt>
+<p>This user can't sign in because this account is currently disabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NONE_MAPPED"></a><a id="error_none_mapped"></a><strong>ERROR_NONE_MAPPED</strong></dt>
+<dd>
+<dl>
+<dt>1332 (0x534)</dt>
+<dt>
+<p>No mapping between account names and security IDs was done.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_LUIDS_REQUESTED"></a><a id="error_too_many_luids_requested"></a><strong>ERROR_TOO_MANY_LUIDS_REQUESTED</strong></dt>
+<dd>
+<dl>
+<dt>1333 (0x535)</dt>
+<dt>
+<p>Too many local user identifiers (LUIDs) were requested at one time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LUIDS_EXHAUSTED"></a><a id="error_luids_exhausted"></a><strong>ERROR_LUIDS_EXHAUSTED</strong></dt>
+<dd>
+<dl>
+<dt>1334 (0x536)</dt>
+<dt>
+<p>No more local user identifiers (LUIDs) are available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SUB_AUTHORITY"></a><a id="error_invalid_sub_authority"></a><strong>ERROR_INVALID_SUB_AUTHORITY</strong></dt>
+<dd>
+<dl>
+<dt>1335 (0x537)</dt>
+<dt>
+<p>The subauthority part of a security ID is invalid for this particular use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ACL"></a><a id="error_invalid_acl"></a><strong>ERROR_INVALID_ACL</strong></dt>
+<dd>
+<dl>
+<dt>1336 (0x538)</dt>
+<dt>
+<p>The access control list (ACL) structure is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SID"></a><a id="error_invalid_sid"></a><strong>ERROR_INVALID_SID</strong></dt>
+<dd>
+<dl>
+<dt>1337 (0x539)</dt>
+<dt>
+<p>The security ID structure is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SECURITY_DESCR"></a><a id="error_invalid_security_descr"></a><strong>ERROR_INVALID_SECURITY_DESCR</strong></dt>
+<dd>
+<dl>
+<dt>1338 (0x53A)</dt>
+<dt>
+<p>The security descriptor structure is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_INHERITANCE_ACL"></a><a id="error_bad_inheritance_acl"></a><strong>ERROR_BAD_INHERITANCE_ACL</strong></dt>
+<dd>
+<dl>
+<dt>1340 (0x53C)</dt>
+<dt>
+<p>The inherited access control list (ACL) or access control entry (ACE) could not be built.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SERVER_DISABLED"></a><a id="error_server_disabled"></a><strong>ERROR_SERVER_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>1341 (0x53D)</dt>
+<dt>
+<p>The server is currently disabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SERVER_NOT_DISABLED"></a><a id="error_server_not_disabled"></a><strong>ERROR_SERVER_NOT_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>1342 (0x53E)</dt>
+<dt>
+<p>The server is currently enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ID_AUTHORITY"></a><a id="error_invalid_id_authority"></a><strong>ERROR_INVALID_ID_AUTHORITY</strong></dt>
+<dd>
+<dl>
+<dt>1343 (0x53F)</dt>
+<dt>
+<p>The value provided was an invalid value for an identifier authority.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALLOTTED_SPACE_EXCEEDED"></a><a id="error_allotted_space_exceeded"></a><strong>ERROR_ALLOTTED_SPACE_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>1344 (0x540)</dt>
+<dt>
+<p>No more memory is available for security information updates.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_GROUP_ATTRIBUTES"></a><a id="error_invalid_group_attributes"></a><strong>ERROR_INVALID_GROUP_ATTRIBUTES</strong></dt>
+<dd>
+<dl>
+<dt>1345 (0x541)</dt>
+<dt>
+<p>The specified attributes are invalid, or incompatible with the attributes for the group as a whole.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_IMPERSONATION_LEVEL"></a><a id="error_bad_impersonation_level"></a><strong>ERROR_BAD_IMPERSONATION_LEVEL</strong></dt>
+<dd>
+<dl>
+<dt>1346 (0x542)</dt>
+<dt>
+<p>Either a required impersonation level was not provided, or the provided impersonation level is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_OPEN_ANONYMOUS"></a><a id="error_cant_open_anonymous"></a><strong>ERROR_CANT_OPEN_ANONYMOUS</strong></dt>
+<dd>
+<dl>
+<dt>1347 (0x543)</dt>
+<dt>
+<p>Cannot open an anonymous level security token.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_VALIDATION_CLASS"></a><a id="error_bad_validation_class"></a><strong>ERROR_BAD_VALIDATION_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>1348 (0x544)</dt>
+<dt>
+<p>The validation information class requested was invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_TOKEN_TYPE"></a><a id="error_bad_token_type"></a><strong>ERROR_BAD_TOKEN_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>1349 (0x545)</dt>
+<dt>
+<p>The type of the token is inappropriate for its attempted use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SECURITY_ON_OBJECT"></a><a id="error_no_security_on_object"></a><strong>ERROR_NO_SECURITY_ON_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>1350 (0x546)</dt>
+<dt>
+<p>Unable to perform a security operation on an object that has no associated security.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_ACCESS_DOMAIN_INFO"></a><a id="error_cant_access_domain_info"></a><strong>ERROR_CANT_ACCESS_DOMAIN_INFO</strong></dt>
+<dd>
+<dl>
+<dt>1351 (0x547)</dt>
+<dt>
+<p>Configuration information could not be read from the domain controller, either because the machine is 
+     unavailable, or access has been denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SERVER_STATE"></a><a id="error_invalid_server_state"></a><strong>ERROR_INVALID_SERVER_STATE</strong></dt>
+<dd>
+<dl>
+<dt>1352 (0x548)</dt>
+<dt>
+<p>The security account manager (SAM) or local security authority (LSA) server was in the wrong state to 
+     perform the security operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DOMAIN_STATE"></a><a id="error_invalid_domain_state"></a><strong>ERROR_INVALID_DOMAIN_STATE</strong></dt>
+<dd>
+<dl>
+<dt>1353 (0x549)</dt>
+<dt>
+<p>The domain was in the wrong state to perform the security operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DOMAIN_ROLE"></a><a id="error_invalid_domain_role"></a><strong>ERROR_INVALID_DOMAIN_ROLE</strong></dt>
+<dd>
+<dl>
+<dt>1354 (0x54A)</dt>
+<dt>
+<p>This operation is only allowed for the Primary Domain Controller of the domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_DOMAIN"></a><a id="error_no_such_domain"></a><strong>ERROR_NO_SUCH_DOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>1355 (0x54B)</dt>
+<dt>
+<p>The specified domain either does not exist or could not be contacted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DOMAIN_EXISTS"></a><a id="error_domain_exists"></a><strong>ERROR_DOMAIN_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1356 (0x54C)</dt>
+<dt>
+<p>The specified domain already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DOMAIN_LIMIT_EXCEEDED"></a><a id="error_domain_limit_exceeded"></a><strong>ERROR_DOMAIN_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>1357 (0x54D)</dt>
+<dt>
+<p>An attempt was made to exceed the limit on the number of domains per server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERNAL_DB_CORRUPTION"></a><a id="error_internal_db_corruption"></a><strong>ERROR_INTERNAL_DB_CORRUPTION</strong></dt>
+<dd>
+<dl>
+<dt>1358 (0x54E)</dt>
+<dt>
+<p>Unable to complete the requested operation because of either a catastrophic media failure or a data 
+     structure corruption on the disk.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERNAL_ERROR"></a><a id="error_internal_error"></a><strong>ERROR_INTERNAL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>1359 (0x54F)</dt>
+<dt>
+<p>An internal error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GENERIC_NOT_MAPPED"></a><a id="error_generic_not_mapped"></a><strong>ERROR_GENERIC_NOT_MAPPED</strong></dt>
+<dd>
+<dl>
+<dt>1360 (0x550)</dt>
+<dt>
+<p>Generic access types were contained in an access mask which should already be mapped to nongeneric 
+     types.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_DESCRIPTOR_FORMAT"></a><a id="error_bad_descriptor_format"></a><strong>ERROR_BAD_DESCRIPTOR_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>1361 (0x551)</dt>
+<dt>
+<p>A security descriptor is not in the right format (absolute or self-relative).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_LOGON_PROCESS"></a><a id="error_not_logon_process"></a><strong>ERROR_NOT_LOGON_PROCESS</strong></dt>
+<dd>
+<dl>
+<dt>1362 (0x552)</dt>
+<dt>
+<p>The requested action is restricted for use by logon processes only. The calling process has not registered 
+     as a logon process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_SESSION_EXISTS"></a><a id="error_logon_session_exists"></a><strong>ERROR_LOGON_SESSION_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1363 (0x553)</dt>
+<dt>
+<p>Cannot start a new logon session with an ID that is already in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_PACKAGE"></a><a id="error_no_such_package"></a><strong>ERROR_NO_SUCH_PACKAGE</strong></dt>
+<dd>
+<dl>
+<dt>1364 (0x554)</dt>
+<dt>
+<p>A specified authentication package is unknown.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_LOGON_SESSION_STATE"></a><a id="error_bad_logon_session_state"></a><strong>ERROR_BAD_LOGON_SESSION_STATE</strong></dt>
+<dd>
+<dl>
+<dt>1365 (0x555)</dt>
+<dt>
+<p>The logon session is not in a state that is consistent with the requested operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_SESSION_COLLISION"></a><a id="error_logon_session_collision"></a><strong>ERROR_LOGON_SESSION_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>1366 (0x556)</dt>
+<dt>
+<p>The logon session ID is already in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LOGON_TYPE"></a><a id="error_invalid_logon_type"></a><strong>ERROR_INVALID_LOGON_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>1367 (0x557)</dt>
+<dt>
+<p>A logon request contained an invalid logon type value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_IMPERSONATE"></a><a id="error_cannot_impersonate"></a><strong>ERROR_CANNOT_IMPERSONATE</strong></dt>
+<dd>
+<dl>
+<dt>1368 (0x558)</dt>
+<dt>
+<p>Unable to impersonate using a named pipe until data has been read from that pipe.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RXACT_INVALID_STATE"></a><a id="error_rxact_invalid_state"></a><strong>ERROR_RXACT_INVALID_STATE</strong></dt>
+<dd>
+<dl>
+<dt>1369 (0x559)</dt>
+<dt>
+<p>The transaction state of a registry subtree is incompatible with the requested operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RXACT_COMMIT_FAILURE"></a><a id="error_rxact_commit_failure"></a><strong>ERROR_RXACT_COMMIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1370 (0x55A)</dt>
+<dt>
+<p>An internal security database corruption has been encountered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SPECIAL_ACCOUNT"></a><a id="error_special_account"></a><strong>ERROR_SPECIAL_ACCOUNT</strong></dt>
+<dd>
+<dl>
+<dt>1371 (0x55B)</dt>
+<dt>
+<p>Cannot perform this operation on built-in accounts.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SPECIAL_GROUP"></a><a id="error_special_group"></a><strong>ERROR_SPECIAL_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1372 (0x55C)</dt>
+<dt>
+<p>Cannot perform this operation on this built-in special group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SPECIAL_USER"></a><a id="error_special_user"></a><strong>ERROR_SPECIAL_USER</strong></dt>
+<dd>
+<dl>
+<dt>1373 (0x55D)</dt>
+<dt>
+<p>Cannot perform this operation on this built-in special user.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMBERS_PRIMARY_GROUP"></a><a id="error_members_primary_group"></a><strong>ERROR_MEMBERS_PRIMARY_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>1374 (0x55E)</dt>
+<dt>
+<p>The user cannot be removed from a group because the group is currently the user's primary group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOKEN_ALREADY_IN_USE"></a><a id="error_token_already_in_use"></a><strong>ERROR_TOKEN_ALREADY_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>1375 (0x55F)</dt>
+<dt>
+<p>The token is already in use as a primary token.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_ALIAS"></a><a id="error_no_such_alias"></a><strong>ERROR_NO_SUCH_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>1376 (0x560)</dt>
+<dt>
+<p>The specified local group does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMBER_NOT_IN_ALIAS"></a><a id="error_member_not_in_alias"></a><strong>ERROR_MEMBER_NOT_IN_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>1377 (0x561)</dt>
+<dt>
+<p>The specified account name is not a member of the group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMBER_IN_ALIAS"></a><a id="error_member_in_alias"></a><strong>ERROR_MEMBER_IN_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>1378 (0x562)</dt>
+<dt>
+<p>The specified account name is already a member of the group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALIAS_EXISTS"></a><a id="error_alias_exists"></a><strong>ERROR_ALIAS_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1379 (0x563)</dt>
+<dt>
+<p>The specified local group already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_NOT_GRANTED"></a><a id="error_logon_not_granted"></a><strong>ERROR_LOGON_NOT_GRANTED</strong></dt>
+<dd>
+<dl>
+<dt>1380 (0x564)</dt>
+<dt>
+<p>Logon failure: the user has not been granted the requested logon type at this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_SECRETS"></a><a id="error_too_many_secrets"></a><strong>ERROR_TOO_MANY_SECRETS</strong></dt>
+<dd>
+<dl>
+<dt>1381 (0x565)</dt>
+<dt>
+<p>The maximum number of secrets that may be stored in a single system has been exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SECRET_TOO_LONG"></a><a id="error_secret_too_long"></a><strong>ERROR_SECRET_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>1382 (0x566)</dt>
+<dt>
+<p>The length of a secret exceeds the maximum length allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERNAL_DB_ERROR"></a><a id="error_internal_db_error"></a><strong>ERROR_INTERNAL_DB_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>1383 (0x567)</dt>
+<dt>
+<p>The local security authority database contains an internal inconsistency.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_CONTEXT_IDS"></a><a id="error_too_many_context_ids"></a><strong>ERROR_TOO_MANY_CONTEXT_IDS</strong></dt>
+<dd>
+<dl>
+<dt>1384 (0x568)</dt>
+<dt>
+<p>During a logon attempt, the user's security context accumulated too many security IDs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_TYPE_NOT_GRANTED"></a><a id="error_logon_type_not_granted"></a><strong>ERROR_LOGON_TYPE_NOT_GRANTED</strong></dt>
+<dd>
+<dl>
+<dt>1385 (0x569)</dt>
+<dt>
+<p>Logon failure: the user has not been granted the requested logon type at this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NT_CROSS_ENCRYPTION_REQUIRED"></a><a id="error_nt_cross_encryption_required"></a><strong>ERROR_NT_CROSS_ENCRYPTION_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>1386 (0x56A)</dt>
+<dt>
+<p>A cross-encrypted password is necessary to change a user password.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SUCH_MEMBER"></a><a id="error_no_such_member"></a><strong>ERROR_NO_SUCH_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>1387 (0x56B)</dt>
+<dt>
+<p>A member could not be added to or removed from the local group because the member does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MEMBER"></a><a id="error_invalid_member"></a><strong>ERROR_INVALID_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>1388 (0x56C)</dt>
+<dt>
+<p>A new member could not be added to a local group because the member has the wrong account type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_SIDS"></a><a id="error_too_many_sids"></a><strong>ERROR_TOO_MANY_SIDS</strong></dt>
+<dd>
+<dl>
+<dt>1389 (0x56D)</dt>
+<dt>
+<p>Too many security IDs have been specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LM_CROSS_ENCRYPTION_REQUIRED"></a><a id="error_lm_cross_encryption_required"></a><strong>ERROR_LM_CROSS_ENCRYPTION_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>1390 (0x56E)</dt>
+<dt>
+<p>A cross-encrypted password is necessary to change this user password.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_INHERITANCE"></a><a id="error_no_inheritance"></a><strong>ERROR_NO_INHERITANCE</strong></dt>
+<dd>
+<dl>
+<dt>1391 (0x56F)</dt>
+<dt>
+<p>Indicates an ACL contains no inheritable components.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_CORRUPT"></a><a id="error_file_corrupt"></a><strong>ERROR_FILE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>1392 (0x570)</dt>
+<dt>
+<p>The file or directory is corrupted and unreadable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_CORRUPT"></a><a id="error_disk_corrupt"></a><strong>ERROR_DISK_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>1393 (0x571)</dt>
+<dt>
+<p>The disk structure is corrupted and unreadable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_USER_SESSION_KEY"></a><a id="error_no_user_session_key"></a><strong>ERROR_NO_USER_SESSION_KEY</strong></dt>
+<dd>
+<dl>
+<dt>1394 (0x572)</dt>
+<dt>
+<p>There is no user session key for the specified logon session.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LICENSE_QUOTA_EXCEEDED"></a><a id="error_license_quota_exceeded"></a><strong>ERROR_LICENSE_QUOTA_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>1395 (0x573)</dt>
+<dt>
+<p>The service being accessed is licensed for a particular number of connections. No more connections can be 
+     made to the service at this time because there are already as many connections as the service can accept.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRONG_TARGET_NAME"></a><a id="error_wrong_target_name"></a><strong>ERROR_WRONG_TARGET_NAME</strong></dt>
+<dd>
+<dl>
+<dt>1396 (0x574)</dt>
+<dt>
+<p>The target account name is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUTUAL_AUTH_FAILED"></a><a id="error_mutual_auth_failed"></a><strong>ERROR_MUTUAL_AUTH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>1397 (0x575)</dt>
+<dt>
+<p>Mutual Authentication failed. The server's password is out of date at the domain controller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TIME_SKEW"></a><a id="error_time_skew"></a><strong>ERROR_TIME_SKEW</strong></dt>
+<dd>
+<dl>
+<dt>1398 (0x576)</dt>
+<dt>
+<p>There is a time and/or date difference between the client and server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CURRENT_DOMAIN_NOT_ALLOWED"></a><a id="error_current_domain_not_allowed"></a><strong>ERROR_CURRENT_DOMAIN_NOT_ALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>1399 (0x577)</dt>
+<dt>
+<p>This operation cannot be performed on the current domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_WINDOW_HANDLE"></a><a id="error_invalid_window_handle"></a><strong>ERROR_INVALID_WINDOW_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1400 (0x578)</dt>
+<dt>
+<p>Invalid window handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MENU_HANDLE"></a><a id="error_invalid_menu_handle"></a><strong>ERROR_INVALID_MENU_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1401 (0x579)</dt>
+<dt>
+<p>Invalid menu handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_CURSOR_HANDLE"></a><a id="error_invalid_cursor_handle"></a><strong>ERROR_INVALID_CURSOR_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1402 (0x57A)</dt>
+<dt>
+<p>Invalid cursor handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ACCEL_HANDLE"></a><a id="error_invalid_accel_handle"></a><strong>ERROR_INVALID_ACCEL_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1403 (0x57B)</dt>
+<dt>
+<p>Invalid accelerator table handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_HOOK_HANDLE"></a><a id="error_invalid_hook_handle"></a><strong>ERROR_INVALID_HOOK_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1404 (0x57C)</dt>
+<dt>
+<p>Invalid hook handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DWP_HANDLE"></a><a id="error_invalid_dwp_handle"></a><strong>ERROR_INVALID_DWP_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1405 (0x57D)</dt>
+<dt>
+<p>Invalid handle to a multiple-window position structure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TLW_WITH_WSCHILD"></a><a id="error_tlw_with_wschild"></a><strong>ERROR_TLW_WITH_WSCHILD</strong></dt>
+<dd>
+<dl>
+<dt>1406 (0x57E)</dt>
+<dt>
+<p>Cannot create a top-level child window.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_FIND_WND_CLASS"></a><a id="error_cannot_find_wnd_class"></a><strong>ERROR_CANNOT_FIND_WND_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>1407 (0x57F)</dt>
+<dt>
+<p>Cannot find window class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WINDOW_OF_OTHER_THREAD"></a><a id="error_window_of_other_thread"></a><strong>ERROR_WINDOW_OF_OTHER_THREAD</strong></dt>
+<dd>
+<dl>
+<dt>1408 (0x580)</dt>
+<dt>
+<p>Invalid window; it belongs to other thread.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HOTKEY_ALREADY_REGISTERED"></a><a id="error_hotkey_already_registered"></a><strong>ERROR_HOTKEY_ALREADY_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>1409 (0x581)</dt>
+<dt>
+<p>Hot key is already registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CLASS_ALREADY_EXISTS"></a><a id="error_class_already_exists"></a><strong>ERROR_CLASS_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>1410 (0x582)</dt>
+<dt>
+<p>Class already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CLASS_DOES_NOT_EXIST"></a><a id="error_class_does_not_exist"></a><strong>ERROR_CLASS_DOES_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>1411 (0x583)</dt>
+<dt>
+<p>Class does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CLASS_HAS_WINDOWS"></a><a id="error_class_has_windows"></a><strong>ERROR_CLASS_HAS_WINDOWS</strong></dt>
+<dd>
+<dl>
+<dt>1412 (0x584)</dt>
+<dt>
+<p>Class still has open windows.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_INDEX"></a><a id="error_invalid_index"></a><strong>ERROR_INVALID_INDEX</strong></dt>
+<dd>
+<dl>
+<dt>1413 (0x585)</dt>
+<dt>
+<p>Invalid index.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ICON_HANDLE"></a><a id="error_invalid_icon_handle"></a><strong>ERROR_INVALID_ICON_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1414 (0x586)</dt>
+<dt>
+<p>Invalid icon handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRIVATE_DIALOG_INDEX"></a><a id="error_private_dialog_index"></a><strong>ERROR_PRIVATE_DIALOG_INDEX</strong></dt>
+<dd>
+<dl>
+<dt>1415 (0x587)</dt>
+<dt>
+<p>Using private DIALOG window words.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LISTBOX_ID_NOT_FOUND"></a><a id="error_listbox_id_not_found"></a><strong>ERROR_LISTBOX_ID_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>1416 (0x588)</dt>
+<dt>
+<p>The list box identifier was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_WILDCARD_CHARACTERS"></a><a id="error_no_wildcard_characters"></a><strong>ERROR_NO_WILDCARD_CHARACTERS</strong></dt>
+<dd>
+<dl>
+<dt>1417 (0x589)</dt>
+<dt>
+<p>No wildcards were found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CLIPBOARD_NOT_OPEN"></a><a id="error_clipboard_not_open"></a><strong>ERROR_CLIPBOARD_NOT_OPEN</strong></dt>
+<dd>
+<dl>
+<dt>1418 (0x58A)</dt>
+<dt>
+<p>Thread does not have a clipboard open.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HOTKEY_NOT_REGISTERED"></a><a id="error_hotkey_not_registered"></a><strong>ERROR_HOTKEY_NOT_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>1419 (0x58B)</dt>
+<dt>
+<p>Hot key is not registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WINDOW_NOT_DIALOG"></a><a id="error_window_not_dialog"></a><strong>ERROR_WINDOW_NOT_DIALOG</strong></dt>
+<dd>
+<dl>
+<dt>1420 (0x58C)</dt>
+<dt>
+<p>The window is not a valid dialog window.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CONTROL_ID_NOT_FOUND"></a><a id="error_control_id_not_found"></a><strong>ERROR_CONTROL_ID_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>1421 (0x58D)</dt>
+<dt>
+<p>Control ID not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_COMBOBOX_MESSAGE"></a><a id="error_invalid_combobox_message"></a><strong>ERROR_INVALID_COMBOBOX_MESSAGE</strong></dt>
+<dd>
+<dl>
+<dt>1422 (0x58E)</dt>
+<dt>
+<p>Invalid message for a combo box because it does not have an edit control.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WINDOW_NOT_COMBOBOX"></a><a id="error_window_not_combobox"></a><strong>ERROR_WINDOW_NOT_COMBOBOX</strong></dt>
+<dd>
+<dl>
+<dt>1423 (0x58F)</dt>
+<dt>
+<p>The window is not a combo box.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EDIT_HEIGHT"></a><a id="error_invalid_edit_height"></a><strong>ERROR_INVALID_EDIT_HEIGHT</strong></dt>
+<dd>
+<dl>
+<dt>1424 (0x590)</dt>
+<dt>
+<p>Height must be less than 256.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DC_NOT_FOUND"></a><a id="error_dc_not_found"></a><strong>ERROR_DC_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>1425 (0x591)</dt>
+<dt>
+<p>Invalid device context (DC) handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_HOOK_FILTER"></a><a id="error_invalid_hook_filter"></a><strong>ERROR_INVALID_HOOK_FILTER</strong></dt>
+<dd>
+<dl>
+<dt>1426 (0x592)</dt>
+<dt>
+<p>Invalid hook procedure type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_FILTER_PROC"></a><a id="error_invalid_filter_proc"></a><strong>ERROR_INVALID_FILTER_PROC</strong></dt>
+<dd>
+<dl>
+<dt>1427 (0x593)</dt>
+<dt>
+<p>Invalid hook procedure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HOOK_NEEDS_HMOD"></a><a id="error_hook_needs_hmod"></a><strong>ERROR_HOOK_NEEDS_HMOD</strong></dt>
+<dd>
+<dl>
+<dt>1428 (0x594)</dt>
+<dt>
+<p>Cannot set nonlocal hook without a module handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GLOBAL_ONLY_HOOK"></a><a id="error_global_only_hook"></a><strong>ERROR_GLOBAL_ONLY_HOOK</strong></dt>
+<dd>
+<dl>
+<dt>1429 (0x595)</dt>
+<dt>
+<p>This hook procedure can only be set globally.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_JOURNAL_HOOK_SET"></a><a id="error_journal_hook_set"></a><strong>ERROR_JOURNAL_HOOK_SET</strong></dt>
+<dd>
+<dl>
+<dt>1430 (0x596)</dt>
+<dt>
+<p>The journal hook procedure is already installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HOOK_NOT_INSTALLED"></a><a id="error_hook_not_installed"></a><strong>ERROR_HOOK_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>1431 (0x597)</dt>
+<dt>
+<p>The hook procedure is not installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LB_MESSAGE"></a><a id="error_invalid_lb_message"></a><strong>ERROR_INVALID_LB_MESSAGE</strong></dt>
+<dd>
+<dl>
+<dt>1432 (0x598)</dt>
+<dt>
+<p>Invalid message for single-selection list box.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SETCOUNT_ON_BAD_LB"></a><a id="error_setcount_on_bad_lb"></a><strong>ERROR_SETCOUNT_ON_BAD_LB</strong></dt>
+<dd>
+<dl>
+<dt>1433 (0x599)</dt>
+<dt>
+<p>LB_SETCOUNT sent to non-lazy list box.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LB_WITHOUT_TABSTOPS"></a><a id="error_lb_without_tabstops"></a><strong>ERROR_LB_WITHOUT_TABSTOPS</strong></dt>
+<dd>
+<dl>
+<dt>1434 (0x59A)</dt>
+<dt>
+<p>This list box does not support tab stops.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DESTROY_OBJECT_OF_OTHER_THREAD"></a><a id="error_destroy_object_of_other_thread"></a><strong>ERROR_DESTROY_OBJECT_OF_OTHER_THREAD</strong></dt>
+<dd>
+<dl>
+<dt>1435 (0x59B)</dt>
+<dt>
+<p>Cannot destroy object created by another thread.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CHILD_WINDOW_MENU"></a><a id="error_child_window_menu"></a><strong>ERROR_CHILD_WINDOW_MENU</strong></dt>
+<dd>
+<dl>
+<dt>1436 (0x59C)</dt>
+<dt>
+<p>Child windows cannot have menus.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SYSTEM_MENU"></a><a id="error_no_system_menu"></a><strong>ERROR_NO_SYSTEM_MENU</strong></dt>
+<dd>
+<dl>
+<dt>1437 (0x59D)</dt>
+<dt>
+<p>The window does not have a system menu.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MSGBOX_STYLE"></a><a id="error_invalid_msgbox_style"></a><strong>ERROR_INVALID_MSGBOX_STYLE</strong></dt>
+<dd>
+<dl>
+<dt>1438 (0x59E)</dt>
+<dt>
+<p>Invalid message box style.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SPI_VALUE"></a><a id="error_invalid_spi_value"></a><strong>ERROR_INVALID_SPI_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>1439 (0x59F)</dt>
+<dt>
+<p>Invalid system-wide (SPI_*) parameter.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SCREEN_ALREADY_LOCKED"></a><a id="error_screen_already_locked"></a><strong>ERROR_SCREEN_ALREADY_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>1440 (0x5A0)</dt>
+<dt>
+<p>Screen already locked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HWNDS_HAVE_DIFF_PARENT"></a><a id="error_hwnds_have_diff_parent"></a><strong>ERROR_HWNDS_HAVE_DIFF_PARENT</strong></dt>
+<dd>
+<dl>
+<dt>1441 (0x5A1)</dt>
+<dt>
+<p>All handles to windows in a multiple-window position structure must have the same parent.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_CHILD_WINDOW"></a><a id="error_not_child_window"></a><strong>ERROR_NOT_CHILD_WINDOW</strong></dt>
+<dd>
+<dl>
+<dt>1442 (0x5A2)</dt>
+<dt>
+<p>The window is not a child window.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_GW_COMMAND"></a><a id="error_invalid_gw_command"></a><strong>ERROR_INVALID_GW_COMMAND</strong></dt>
+<dd>
+<dl>
+<dt>1443 (0x5A3)</dt>
+<dt>
+<p>Invalid GW_* command.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_THREAD_ID"></a><a id="error_invalid_thread_id"></a><strong>ERROR_INVALID_THREAD_ID</strong></dt>
+<dd>
+<dl>
+<dt>1444 (0x5A4)</dt>
+<dt>
+<p>Invalid thread identifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NON_MDICHILD_WINDOW"></a><a id="error_non_mdichild_window"></a><strong>ERROR_NON_MDICHILD_WINDOW</strong></dt>
+<dd>
+<dl>
+<dt>1445 (0x5A5)</dt>
+<dt>
+<p>Cannot process a message from a window that is not a multiple document interface (MDI) window.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_POPUP_ALREADY_ACTIVE"></a><a id="error_popup_already_active"></a><strong>ERROR_POPUP_ALREADY_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>1446 (0x5A6)</dt>
+<dt>
+<p>Popup menu already active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SCROLLBARS"></a><a id="error_no_scrollbars"></a><strong>ERROR_NO_SCROLLBARS</strong></dt>
+<dd>
+<dl>
+<dt>1447 (0x5A7)</dt>
+<dt>
+<p>The window does not have scroll bars.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SCROLLBAR_RANGE"></a><a id="error_invalid_scrollbar_range"></a><strong>ERROR_INVALID_SCROLLBAR_RANGE</strong></dt>
+<dd>
+<dl>
+<dt>1448 (0x5A8)</dt>
+<dt>
+<p>Scroll bar range cannot be greater than MAXLONG.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SHOWWIN_COMMAND"></a><a id="error_invalid_showwin_command"></a><strong>ERROR_INVALID_SHOWWIN_COMMAND</strong></dt>
+<dd>
+<dl>
+<dt>1449 (0x5A9)</dt>
+<dt>
+<p>Cannot show or remove the window in the way specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SYSTEM_RESOURCES"></a><a id="error_no_system_resources"></a><strong>ERROR_NO_SYSTEM_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>1450 (0x5AA)</dt>
+<dt>
+<p>Insufficient system resources exist to complete the requested service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NONPAGED_SYSTEM_RESOURCES"></a><a id="error_nonpaged_system_resources"></a><strong>ERROR_NONPAGED_SYSTEM_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>1451 (0x5AB)</dt>
+<dt>
+<p>Insufficient system resources exist to complete the requested service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGED_SYSTEM_RESOURCES"></a><a id="error_paged_system_resources"></a><strong>ERROR_PAGED_SYSTEM_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>1452 (0x5AC)</dt>
+<dt>
+<p>Insufficient system resources exist to complete the requested service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WORKING_SET_QUOTA"></a><a id="error_working_set_quota"></a><strong>ERROR_WORKING_SET_QUOTA</strong></dt>
+<dd>
+<dl>
+<dt>1453 (0x5AD)</dt>
+<dt>
+<p>Insufficient quota to complete the requested service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGEFILE_QUOTA"></a><a id="error_pagefile_quota"></a><strong>ERROR_PAGEFILE_QUOTA</strong></dt>
+<dd>
+<dl>
+<dt>1454 (0x5AE)</dt>
+<dt>
+<p>Insufficient quota to complete the requested service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COMMITMENT_LIMIT"></a><a id="error_commitment_limit"></a><strong>ERROR_COMMITMENT_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>1455 (0x5AF)</dt>
+<dt>
+<p>The paging file is too small for this operation to complete.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MENU_ITEM_NOT_FOUND"></a><a id="error_menu_item_not_found"></a><strong>ERROR_MENU_ITEM_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>1456 (0x5B0)</dt>
+<dt>
+<p>A menu item was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_KEYBOARD_HANDLE"></a><a id="error_invalid_keyboard_handle"></a><strong>ERROR_INVALID_KEYBOARD_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1457 (0x5B1)</dt>
+<dt>
+<p>Invalid keyboard layout handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HOOK_TYPE_NOT_ALLOWED"></a><a id="error_hook_type_not_allowed"></a><strong>ERROR_HOOK_TYPE_NOT_ALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>1458 (0x5B2)</dt>
+<dt>
+<p>Hook type not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION"></a><a id="error_requires_interactive_windowstation"></a><strong>ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION</strong></dt>
+<dd>
+<dl>
+<dt>1459 (0x5B3)</dt>
+<dt>
+<p>This operation requires an interactive window station.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TIMEOUT"></a><a id="error_timeout"></a><strong>ERROR_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>1460 (0x5B4)</dt>
+<dt>
+<p>This operation returned because the timeout period expired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MONITOR_HANDLE"></a><a id="error_invalid_monitor_handle"></a><strong>ERROR_INVALID_MONITOR_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>1461 (0x5B5)</dt>
+<dt>
+<p>Invalid monitor handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INCORRECT_SIZE"></a><a id="error_incorrect_size"></a><strong>ERROR_INCORRECT_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>1462 (0x5B6)</dt>
+<dt>
+<p>Incorrect size argument.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYMLINK_CLASS_DISABLED"></a><a id="error_symlink_class_disabled"></a><strong>ERROR_SYMLINK_CLASS_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>1463 (0x5B7)</dt>
+<dt>
+<p>The symbolic link cannot be followed because its type is disabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYMLINK_NOT_SUPPORTED"></a><a id="error_symlink_not_supported"></a><strong>ERROR_SYMLINK_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>1464 (0x5B8)</dt>
+<dt>
+<p>This application does not support the current operation on symbolic links.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_XML_PARSE_ERROR"></a><a id="error_xml_parse_error"></a><strong>ERROR_XML_PARSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>1465 (0x5B9)</dt>
+<dt>
+<p>Windows was unable to parse the requested XML data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_XMLDSIG_ERROR"></a><a id="error_xmldsig_error"></a><strong>ERROR_XMLDSIG_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>1466 (0x5BA)</dt>
+<dt>
+<p>An error was encountered while processing an XML digital signature.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESTART_APPLICATION"></a><a id="error_restart_application"></a><strong>ERROR_RESTART_APPLICATION</strong></dt>
+<dd>
+<dl>
+<dt>1467 (0x5BB)</dt>
+<dt>
+<p>This application must be restarted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRONG_COMPARTMENT"></a><a id="error_wrong_compartment"></a><strong>ERROR_WRONG_COMPARTMENT</strong></dt>
+<dd>
+<dl>
+<dt>1468 (0x5BC)</dt>
+<dt>
+<p>The caller made the connection request in the wrong routing compartment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_AUTHIP_FAILURE"></a><a id="error_authip_failure"></a><strong>ERROR_AUTHIP_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1469 (0x5BD)</dt>
+<dt>
+<p>There was an AuthIP failure when attempting to connect to the remote host.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_NVRAM_RESOURCES"></a><a id="error_no_nvram_resources"></a><strong>ERROR_NO_NVRAM_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>1470 (0x5BE)</dt>
+<dt>
+<p>Insufficient NVRAM resources exist to complete the requested service. A reboot might be required.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_GUI_PROCESS"></a><a id="error_not_gui_process"></a><strong>ERROR_NOT_GUI_PROCESS</strong></dt>
+<dd>
+<dl>
+<dt>1471 (0x5BF)</dt>
+<dt>
+<p>Unable to finish the requested operation because the specified process is not a GUI process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVENTLOG_FILE_CORRUPT"></a><a id="error_eventlog_file_corrupt"></a><strong>ERROR_EVENTLOG_FILE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>1500 (0x5DC)</dt>
+<dt>
+<p>The event log file is corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVENTLOG_CANT_START"></a><a id="error_eventlog_cant_start"></a><strong>ERROR_EVENTLOG_CANT_START</strong></dt>
+<dd>
+<dl>
+<dt>1501 (0x5DD)</dt>
+<dt>
+<p>No event log file could be opened, so the event logging service did not start.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_FILE_FULL"></a><a id="error_log_file_full"></a><strong>ERROR_LOG_FILE_FULL</strong></dt>
+<dd>
+<dl>
+<dt>1502 (0x5DE)</dt>
+<dt>
+<p>The event log file is full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVENTLOG_FILE_CHANGED"></a><a id="error_eventlog_file_changed"></a><strong>ERROR_EVENTLOG_FILE_CHANGED</strong></dt>
+<dd>
+<dl>
+<dt>1503 (0x5DF)</dt>
+<dt>
+<p>The event log file has changed between read operations.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TASK_NAME"></a><a id="error_invalid_task_name"></a><strong>ERROR_INVALID_TASK_NAME</strong></dt>
+<dd>
+<dl>
+<dt>1550 (0x60E)</dt>
+<dt>
+<p>The specified task name is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TASK_INDEX"></a><a id="error_invalid_task_index"></a><strong>ERROR_INVALID_TASK_INDEX</strong></dt>
+<dd>
+<dl>
+<dt>1551 (0x60F)</dt>
+<dt>
+<p>The specified task index is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_ALREADY_IN_TASK"></a><a id="error_thread_already_in_task"></a><strong>ERROR_THREAD_ALREADY_IN_TASK</strong></dt>
+<dd>
+<dl>
+<dt>1552 (0x610)</dt>
+<dt>
+<p>The specified thread is already joining a task.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_SERVICE_FAILURE"></a><a id="error_install_service_failure"></a><strong>ERROR_INSTALL_SERVICE_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1601 (0x641)</dt>
+<dt>
+<p>The Windows Installer Service could not be accessed. This can occur if the Windows Installer is not 
+     correctly installed. Contact your support personnel for assistance.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_USEREXIT"></a><a id="error_install_userexit"></a><strong>ERROR_INSTALL_USEREXIT</strong></dt>
+<dd>
+<dl>
+<dt>1602 (0x642)</dt>
+<dt>
+<p>User cancelled installation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_FAILURE"></a><a id="error_install_failure"></a><strong>ERROR_INSTALL_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1603 (0x643)</dt>
+<dt>
+<p>Fatal error during installation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_SUSPEND"></a><a id="error_install_suspend"></a><strong>ERROR_INSTALL_SUSPEND</strong></dt>
+<dd>
+<dl>
+<dt>1604 (0x644)</dt>
+<dt>
+<p>Installation suspended, incomplete.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_PRODUCT"></a><a id="error_unknown_product"></a><strong>ERROR_UNKNOWN_PRODUCT</strong></dt>
+<dd>
+<dl>
+<dt>1605 (0x645)</dt>
+<dt>
+<p>This action is only valid for products that are currently installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_FEATURE"></a><a id="error_unknown_feature"></a><strong>ERROR_UNKNOWN_FEATURE</strong></dt>
+<dd>
+<dl>
+<dt>1606 (0x646)</dt>
+<dt>
+<p>Feature ID not registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_COMPONENT"></a><a id="error_unknown_component"></a><strong>ERROR_UNKNOWN_COMPONENT</strong></dt>
+<dd>
+<dl>
+<dt>1607 (0x647)</dt>
+<dt>
+<p>Component ID not registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_PROPERTY"></a><a id="error_unknown_property"></a><strong>ERROR_UNKNOWN_PROPERTY</strong></dt>
+<dd>
+<dl>
+<dt>1608 (0x648)</dt>
+<dt>
+<p>Unknown property.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_HANDLE_STATE"></a><a id="error_invalid_handle_state"></a><strong>ERROR_INVALID_HANDLE_STATE</strong></dt>
+<dd>
+<dl>
+<dt>1609 (0x649)</dt>
+<dt>
+<p>Handle is in an invalid state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_CONFIGURATION"></a><a id="error_bad_configuration"></a><strong>ERROR_BAD_CONFIGURATION</strong></dt>
+<dd>
+<dl>
+<dt>1610 (0x64A)</dt>
+<dt>
+<p>The configuration data for this product is corrupt. Contact your support personnel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INDEX_ABSENT"></a><a id="error_index_absent"></a><strong>ERROR_INDEX_ABSENT</strong></dt>
+<dd>
+<dl>
+<dt>1611 (0x64B)</dt>
+<dt>
+<p>Component qualifier not present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_SOURCE_ABSENT"></a><a id="error_install_source_absent"></a><strong>ERROR_INSTALL_SOURCE_ABSENT</strong></dt>
+<dd>
+<dl>
+<dt>1612 (0x64C)</dt>
+<dt>
+<p>The installation source for this product is not available. Verify that the source exists and that you can 
+     access it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_VERSION"></a><a id="error_install_package_version"></a><strong>ERROR_INSTALL_PACKAGE_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>1613 (0x64D)</dt>
+<dt>
+<p>This installation package cannot be installed by the Windows Installer service. You must install a Windows 
+     service pack that contains a newer version of the Windows Installer service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRODUCT_UNINSTALLED"></a><a id="error_product_uninstalled"></a><strong>ERROR_PRODUCT_UNINSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>1614 (0x64E)</dt>
+<dt>
+<p>Product is uninstalled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_QUERY_SYNTAX"></a><a id="error_bad_query_syntax"></a><strong>ERROR_BAD_QUERY_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>1615 (0x64F)</dt>
+<dt>
+<p>SQL query syntax invalid or unsupported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_FIELD"></a><a id="error_invalid_field"></a><strong>ERROR_INVALID_FIELD</strong></dt>
+<dd>
+<dl>
+<dt>1616 (0x650)</dt>
+<dt>
+<p>Record field does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_REMOVED"></a><a id="error_device_removed"></a><strong>ERROR_DEVICE_REMOVED</strong></dt>
+<dd>
+<dl>
+<dt>1617 (0x651)</dt>
+<dt>
+<p>The device has been removed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_ALREADY_RUNNING"></a><a id="error_install_already_running"></a><strong>ERROR_INSTALL_ALREADY_RUNNING</strong></dt>
+<dd>
+<dl>
+<dt>1618 (0x652)</dt>
+<dt>
+<p>Another installation is already in progress. Complete that installation before proceeding with this 
+     install.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_OPEN_FAILED"></a><a id="error_install_package_open_failed"></a><strong>ERROR_INSTALL_PACKAGE_OPEN_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>1619 (0x653)</dt>
+<dt>
+<p>This installation package could not be opened. Verify that the package exists and that you can access it, or 
+     contact the application vendor to verify that this is a valid Windows Installer package.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_INVALID"></a><a id="error_install_package_invalid"></a><strong>ERROR_INSTALL_PACKAGE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>1620 (0x654)</dt>
+<dt>
+<p>This installation package could not be opened. Contact the application vendor to verify that this is a valid 
+     Windows Installer package.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_UI_FAILURE"></a><a id="error_install_ui_failure"></a><strong>ERROR_INSTALL_UI_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1621 (0x655)</dt>
+<dt>
+<p>There was an error starting the Windows Installer service user interface. Contact your support 
+     personnel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_LOG_FAILURE"></a><a id="error_install_log_failure"></a><strong>ERROR_INSTALL_LOG_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1622 (0x656)</dt>
+<dt>
+<p>Error opening installation log file. Verify that the specified log file location exists and that you can 
+     write to it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_LANGUAGE_UNSUPPORTED"></a><a id="error_install_language_unsupported"></a><strong>ERROR_INSTALL_LANGUAGE_UNSUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>1623 (0x657)</dt>
+<dt>
+<p>The language of this installation package is not supported by your system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_TRANSFORM_FAILURE"></a><a id="error_install_transform_failure"></a><strong>ERROR_INSTALL_TRANSFORM_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>1624 (0x658)</dt>
+<dt>
+<p>Error applying transforms. Verify that the specified transform paths are valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_REJECTED"></a><a id="error_install_package_rejected"></a><strong>ERROR_INSTALL_PACKAGE_REJECTED</strong></dt>
+<dd>
+<dl>
+<dt>1625 (0x659)</dt>
+<dt>
+<p>This installation is forbidden by system policy. Contact your system administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FUNCTION_NOT_CALLED"></a><a id="error_function_not_called"></a><strong>ERROR_FUNCTION_NOT_CALLED</strong></dt>
+<dd>
+<dl>
+<dt>1626 (0x65A)</dt>
+<dt>
+<p>Function could not be executed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FUNCTION_FAILED"></a><a id="error_function_failed"></a><strong>ERROR_FUNCTION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>1627 (0x65B)</dt>
+<dt>
+<p>Function failed during execution.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TABLE"></a><a id="error_invalid_table"></a><strong>ERROR_INVALID_TABLE</strong></dt>
+<dd>
+<dl>
+<dt>1628 (0x65C)</dt>
+<dt>
+<p>Invalid or unknown table specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DATATYPE_MISMATCH"></a><a id="error_datatype_mismatch"></a><strong>ERROR_DATATYPE_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>1629 (0x65D)</dt>
+<dt>
+<p>Data supplied is of wrong type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNSUPPORTED_TYPE"></a><a id="error_unsupported_type"></a><strong>ERROR_UNSUPPORTED_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>1630 (0x65E)</dt>
+<dt>
+<p>Data of this type is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CREATE_FAILED"></a><a id="error_create_failed"></a><strong>ERROR_CREATE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>1631 (0x65F)</dt>
+<dt>
+<p>The Windows Installer service failed to start. Contact your support personnel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_TEMP_UNWRITABLE"></a><a id="error_install_temp_unwritable"></a><strong>ERROR_INSTALL_TEMP_UNWRITABLE</strong></dt>
+<dd>
+<dl>
+<dt>1632 (0x660)</dt>
+<dt>
+<p>The Temp folder is on a drive that is full or is inaccessible. Free up space on the drive or verify that you 
+     have write permission on the Temp folder.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PLATFORM_UNSUPPORTED"></a><a id="error_install_platform_unsupported"></a><strong>ERROR_INSTALL_PLATFORM_UNSUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>1633 (0x661)</dt>
+<dt>
+<p>This installation package is not supported by this processor type. Contact your product vendor.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_NOTUSED"></a><a id="error_install_notused"></a><strong>ERROR_INSTALL_NOTUSED</strong></dt>
+<dd>
+<dl>
+<dt>1634 (0x662)</dt>
+<dt>
+<p>Component not used on this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_PACKAGE_OPEN_FAILED"></a><a id="error_patch_package_open_failed"></a><strong>ERROR_PATCH_PACKAGE_OPEN_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>1635 (0x663)</dt>
+<dt>
+<p>This update package could not be opened. Verify that the update package exists and that you can access it, 
+     or contact the application vendor to verify that this is a valid Windows Installer update package.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_PACKAGE_INVALID"></a><a id="error_patch_package_invalid"></a><strong>ERROR_PATCH_PACKAGE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>1636 (0x664)</dt>
+<dt>
+<p>This update package could not be opened. Contact the application vendor to verify that this is a valid 
+     Windows Installer update package.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_PACKAGE_UNSUPPORTED"></a><a id="error_patch_package_unsupported"></a><strong>ERROR_PATCH_PACKAGE_UNSUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>1637 (0x665)</dt>
+<dt>
+<p>This update package cannot be processed by the Windows Installer service. You must install a Windows service 
+     pack that contains a newer version of the Windows Installer service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRODUCT_VERSION"></a><a id="error_product_version"></a><strong>ERROR_PRODUCT_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>1638 (0x666)</dt>
+<dt>
+<p>Another version of this product is already installed. Installation of this version cannot continue. To 
+     configure or remove the existing version of this product, use Add/Remove Programs on the Control Panel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_COMMAND_LINE"></a><a id="error_invalid_command_line"></a><strong>ERROR_INVALID_COMMAND_LINE</strong></dt>
+<dd>
+<dl>
+<dt>1639 (0x667)</dt>
+<dt>
+<p>Invalid command line argument. Consult the Windows Installer SDK for detailed command line help.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_REMOTE_DISALLOWED"></a><a id="error_install_remote_disallowed"></a><strong>ERROR_INSTALL_REMOTE_DISALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>1640 (0x668)</dt>
+<dt>
+<p>Only administrators have permission to add, remove, or configure server software during a Terminal services 
+     remote session. If you want to install or configure software on the server, contact your network 
+     administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SUCCESS_REBOOT_INITIATED"></a><a id="error_success_reboot_initiated"></a><strong>ERROR_SUCCESS_REBOOT_INITIATED</strong></dt>
+<dd>
+<dl>
+<dt>1641 (0x669)</dt>
+<dt>
+<p>The requested operation completed successfully. The system will be restarted so the changes can take 
+     effect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_TARGET_NOT_FOUND"></a><a id="error_patch_target_not_found"></a><strong>ERROR_PATCH_TARGET_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>1642 (0x66A)</dt>
+<dt>
+<p>The upgrade cannot be installed by the Windows Installer service because the program to be upgraded may be 
+     missing, or the upgrade may update a different version of the program. Verify that the program to be upgraded 
+     exists on your computer and that you have the correct upgrade.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_PACKAGE_REJECTED"></a><a id="error_patch_package_rejected"></a><strong>ERROR_PATCH_PACKAGE_REJECTED</strong></dt>
+<dd>
+<dl>
+<dt>1643 (0x66B)</dt>
+<dt>
+<p>The update package is not permitted by software restriction policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_TRANSFORM_REJECTED"></a><a id="error_install_transform_rejected"></a><strong>ERROR_INSTALL_TRANSFORM_REJECTED</strong></dt>
+<dd>
+<dl>
+<dt>1644 (0x66C)</dt>
+<dt>
+<p>One or more customizations are not permitted by software restriction policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_REMOTE_PROHIBITED"></a><a id="error_install_remote_prohibited"></a><strong>ERROR_INSTALL_REMOTE_PROHIBITED</strong></dt>
+<dd>
+<dl>
+<dt>1645 (0x66D)</dt>
+<dt>
+<p>The Windows Installer does not permit installation from a Remote Desktop Connection.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_REMOVAL_UNSUPPORTED"></a><a id="error_patch_removal_unsupported"></a><strong>ERROR_PATCH_REMOVAL_UNSUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>1646 (0x66E)</dt>
+<dt>
+<p>Uninstallation of the update package is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNKNOWN_PATCH"></a><a id="error_unknown_patch"></a><strong>ERROR_UNKNOWN_PATCH</strong></dt>
+<dd>
+<dl>
+<dt>1647 (0x66F)</dt>
+<dt>
+<p>The update is not applied to this product.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_NO_SEQUENCE"></a><a id="error_patch_no_sequence"></a><strong>ERROR_PATCH_NO_SEQUENCE</strong></dt>
+<dd>
+<dl>
+<dt>1648 (0x670)</dt>
+<dt>
+<p>No valid sequence could be found for the set of updates.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_REMOVAL_DISALLOWED"></a><a id="error_patch_removal_disallowed"></a><strong>ERROR_PATCH_REMOVAL_DISALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>1649 (0x671)</dt>
+<dt>
+<p>Update removal was disallowed by policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PATCH_XML"></a><a id="error_invalid_patch_xml"></a><strong>ERROR_INVALID_PATCH_XML</strong></dt>
+<dd>
+<dl>
+<dt>1650 (0x672)</dt>
+<dt>
+<p>The XML update data is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT"></a><a id="error_patch_managed_advertised_product"></a><strong>ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT</strong></dt>
+<dd>
+<dl>
+<dt>1651 (0x673)</dt>
+<dt>
+<p>Windows Installer does not permit updating of managed advertised products. At least one feature of the 
+     product must be installed before applying the update.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_SERVICE_SAFEBOOT"></a><a id="error_install_service_safeboot"></a><strong>ERROR_INSTALL_SERVICE_SAFEBOOT</strong></dt>
+<dd>
+<dl>
+<dt>1652 (0x674)</dt>
+<dt>
+<p>The Windows Installer service is not accessible in Safe Mode. Please try again when your computer is not in 
+     Safe Mode or you can use System Restore to return your machine to a previous good state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAIL_FAST_EXCEPTION"></a><a id="error_fail_fast_exception"></a><strong>ERROR_FAIL_FAST_EXCEPTION</strong></dt>
+<dd>
+<dl>
+<dt>1653 (0x675)</dt>
+<dt>
+<p>A fail fast exception occurred. Exception handlers will not be invoked and the process will be terminated 
+     immediately.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_REJECTED"></a><a id="error_install_rejected"></a><strong>ERROR_INSTALL_REJECTED</strong></dt>
+<dd>
+<dl>
+<dt>1654 (0x676)</dt>
+<dt>
+<p>The app that you are trying to run is not supported on this version of Windows.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681385(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681385(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="AGPHy430isnA4uGCmODdksdNpizgGhS2fh-mH3_TMp4Gt3M6kxhOZAT_4V5iOvEaVLakRBCgvAvMEkLQxpkgEqUs2H41" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681385(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681385(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="E0B5jqdU6MoDCDPOwNR1CS8unZi1HPOFshqbpJ9DmIoB0Dha-x5ccJM6Nlt7W9-BmoeLNBAC4iYCTuJQ1EbJDWVwxRI1" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://10.16.79.227\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681385(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"b342a66b-ce6a-4c74-82e8-3720d0ef30a7\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i3.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

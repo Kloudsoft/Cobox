@@ -1,0 +1,4525 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" />
+        <title>System Error Codes (12000-15999) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681384(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681384(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681384(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681384(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="BF1CA93B-7:33:27 PM" />
+
+<meta name="Search.ShortId" content="ms681384" />
+
+<meta name="ms.shortidmsdn" content="ms681384" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="bb3c658d-96db-495a-a0dc-e93949c3835d" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996407&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (12000-15999)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> (errors 12000 to 15999). They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_INTERNET__"></a><a id="error_internet__"></a><strong>ERROR_INTERNET_*</strong></dt>
+<dd>
+<dl>
+<dt>12000 - 12175 (0x2EE0)</dt>
+<dt>
+<p>See <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa385465(v=vs.85).aspx">Internet Error Codes</a> and 
+     WinInet.h.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_QM_POLICY_EXISTS"></a><a id="error_ipsec_qm_policy_exists"></a><strong>ERROR_IPSEC_QM_POLICY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13000 (0x32C8)</dt>
+<dt>
+<p>The specified quick mode policy already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_QM_POLICY_NOT_FOUND"></a><a id="error_ipsec_qm_policy_not_found"></a><strong>ERROR_IPSEC_QM_POLICY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13001 (0x32C9)</dt>
+<dt>
+<p>The specified quick mode policy was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_QM_POLICY_IN_USE"></a><a id="error_ipsec_qm_policy_in_use"></a><strong>ERROR_IPSEC_QM_POLICY_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>13002 (0x32CA)</dt>
+<dt>
+<p>The specified quick mode policy is being used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_POLICY_EXISTS"></a><a id="error_ipsec_mm_policy_exists"></a><strong>ERROR_IPSEC_MM_POLICY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13003 (0x32CB)</dt>
+<dt>
+<p>The specified main mode policy already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_POLICY_NOT_FOUND"></a><a id="error_ipsec_mm_policy_not_found"></a><strong>ERROR_IPSEC_MM_POLICY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13004 (0x32CC)</dt>
+<dt>
+<p>The specified main mode policy was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_POLICY_IN_USE"></a><a id="error_ipsec_mm_policy_in_use"></a><strong>ERROR_IPSEC_MM_POLICY_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>13005 (0x32CD)</dt>
+<dt>
+<p>The specified main mode policy is being used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_FILTER_EXISTS"></a><a id="error_ipsec_mm_filter_exists"></a><strong>ERROR_IPSEC_MM_FILTER_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13006 (0x32CE)</dt>
+<dt>
+<p>The specified main mode filter already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_FILTER_NOT_FOUND"></a><a id="error_ipsec_mm_filter_not_found"></a><strong>ERROR_IPSEC_MM_FILTER_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13007 (0x32CF)</dt>
+<dt>
+<p>The specified main mode filter was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TRANSPORT_FILTER_EXISTS"></a><a id="error_ipsec_transport_filter_exists"></a><strong>ERROR_IPSEC_TRANSPORT_FILTER_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13008 (0x32D0)</dt>
+<dt>
+<p>The specified transport mode filter already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND"></a><a id="error_ipsec_transport_filter_not_found"></a><strong>ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13009 (0x32D1)</dt>
+<dt>
+<p>The specified transport mode filter does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_AUTH_EXISTS"></a><a id="error_ipsec_mm_auth_exists"></a><strong>ERROR_IPSEC_MM_AUTH_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13010 (0x32D2)</dt>
+<dt>
+<p>The specified main mode authentication list exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_AUTH_NOT_FOUND"></a><a id="error_ipsec_mm_auth_not_found"></a><strong>ERROR_IPSEC_MM_AUTH_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13011 (0x32D3)</dt>
+<dt>
+<p>The specified main mode authentication list was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_AUTH_IN_USE"></a><a id="error_ipsec_mm_auth_in_use"></a><strong>ERROR_IPSEC_MM_AUTH_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>13012 (0x32D4)</dt>
+<dt>
+<p>The specified main mode authentication list is being used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND"></a><a id="error_ipsec_default_mm_policy_not_found"></a><strong>ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13013 (0x32D5)</dt>
+<dt>
+<p>The specified default main mode policy was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND"></a><a id="error_ipsec_default_mm_auth_not_found"></a><strong>ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13014 (0x32D6)</dt>
+<dt>
+<p>The specified default main mode authentication list was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND"></a><a id="error_ipsec_default_qm_policy_not_found"></a><strong>ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13015 (0x32D7)</dt>
+<dt>
+<p>The specified default quick mode policy was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TUNNEL_FILTER_EXISTS"></a><a id="error_ipsec_tunnel_filter_exists"></a><strong>ERROR_IPSEC_TUNNEL_FILTER_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>13016 (0x32D8)</dt>
+<dt>
+<p>The specified tunnel mode filter exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND"></a><a id="error_ipsec_tunnel_filter_not_found"></a><strong>ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>13017 (0x32D9)</dt>
+<dt>
+<p>The specified tunnel mode filter was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_FILTER_PENDING_DELETION"></a><a id="error_ipsec_mm_filter_pending_deletion"></a><strong>ERROR_IPSEC_MM_FILTER_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13018 (0x32DA)</dt>
+<dt>
+<p>The Main Mode filter is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION"></a><a id="error_ipsec_transport_filter_pending_deletion"></a><strong>ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13019 (0x32DB)</dt>
+<dt>
+<p>The transport filter is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION"></a><a id="error_ipsec_tunnel_filter_pending_deletion"></a><strong>ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13020 (0x32DC)</dt>
+<dt>
+<p>The tunnel filter is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_POLICY_PENDING_DELETION"></a><a id="error_ipsec_mm_policy_pending_deletion"></a><strong>ERROR_IPSEC_MM_POLICY_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13021 (0x32DD)</dt>
+<dt>
+<p>The Main Mode policy is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_MM_AUTH_PENDING_DELETION"></a><a id="error_ipsec_mm_auth_pending_deletion"></a><strong>ERROR_IPSEC_MM_AUTH_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13022 (0x32DE)</dt>
+<dt>
+<p>The Main Mode authentication bundle is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_QM_POLICY_PENDING_DELETION"></a><a id="error_ipsec_qm_policy_pending_deletion"></a><strong>ERROR_IPSEC_QM_POLICY_PENDING_DELETION</strong></dt>
+<dd>
+<dl>
+<dt>13023 (0x32DF)</dt>
+<dt>
+<p>The Quick Mode policy is pending deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WARNING_IPSEC_MM_POLICY_PRUNED"></a><a id="warning_ipsec_mm_policy_pruned"></a><strong>WARNING_IPSEC_MM_POLICY_PRUNED</strong></dt>
+<dd>
+<dl>
+<dt>13024 (0x32E0)</dt>
+<dt>
+<p>The Main Mode policy was successfully added, but some of the requested offers are not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WARNING_IPSEC_QM_POLICY_PRUNED"></a><a id="warning_ipsec_qm_policy_pruned"></a><strong>WARNING_IPSEC_QM_POLICY_PRUNED</strong></dt>
+<dd>
+<dl>
+<dt>13025 (0x32E1)</dt>
+<dt>
+<p>The Quick Mode policy was successfully added, but some of the requested offers are not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NEG_STATUS_BEGIN"></a><a id="error_ipsec_ike_neg_status_begin"></a><strong>ERROR_IPSEC_IKE_NEG_STATUS_BEGIN</strong></dt>
+<dd>
+<dl>
+<dt>13800 (0x35E8)</dt>
+<dt>
+<p>ERROR_IPSEC_IKE_NEG_STATUS_BEGIN</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_AUTH_FAIL"></a><a id="error_ipsec_ike_auth_fail"></a><strong>ERROR_IPSEC_IKE_AUTH_FAIL</strong></dt>
+<dd>
+<dl>
+<dt>13801 (0x35E9)</dt>
+<dt>
+<p>IKE authentication credentials are unacceptable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_ATTRIB_FAIL"></a><a id="error_ipsec_ike_attrib_fail"></a><strong>ERROR_IPSEC_IKE_ATTRIB_FAIL</strong></dt>
+<dd>
+<dl>
+<dt>13802 (0x35EA)</dt>
+<dt>
+<p>IKE security attributes are unacceptable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NEGOTIATION_PENDING"></a><a id="error_ipsec_ike_negotiation_pending"></a><strong>ERROR_IPSEC_IKE_NEGOTIATION_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>13803 (0x35EB)</dt>
+<dt>
+<p>IKE Negotiation in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR"></a><a id="error_ipsec_ike_general_processing_error"></a><strong>ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>13804 (0x35EC)</dt>
+<dt>
+<p>General processing error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_TIMED_OUT"></a><a id="error_ipsec_ike_timed_out"></a><strong>ERROR_IPSEC_IKE_TIMED_OUT</strong></dt>
+<dd>
+<dl>
+<dt>13805 (0x35ED)</dt>
+<dt>
+<p>Negotiation timed out.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_CERT"></a><a id="error_ipsec_ike_no_cert"></a><strong>ERROR_IPSEC_IKE_NO_CERT</strong></dt>
+<dd>
+<dl>
+<dt>13806 (0x35EE)</dt>
+<dt>
+<p>IKE failed to find valid machine certificate. Contact your Network Security Administrator about installing a 
+     valid certificate in the appropriate Certificate Store.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SA_DELETED"></a><a id="error_ipsec_ike_sa_deleted"></a><strong>ERROR_IPSEC_IKE_SA_DELETED</strong></dt>
+<dd>
+<dl>
+<dt>13807 (0x35EF)</dt>
+<dt>
+<p>IKE SA deleted by peer before establishment completed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SA_REAPED"></a><a id="error_ipsec_ike_sa_reaped"></a><strong>ERROR_IPSEC_IKE_SA_REAPED</strong></dt>
+<dd>
+<dl>
+<dt>13808 (0x35F0)</dt>
+<dt>
+<p>IKE SA deleted before establishment completed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_MM_ACQUIRE_DROP"></a><a id="error_ipsec_ike_mm_acquire_drop"></a><strong>ERROR_IPSEC_IKE_MM_ACQUIRE_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13809 (0x35F1)</dt>
+<dt>
+<p>Negotiation request sat in Queue too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QM_ACQUIRE_DROP"></a><a id="error_ipsec_ike_qm_acquire_drop"></a><strong>ERROR_IPSEC_IKE_QM_ACQUIRE_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13810 (0x35F2)</dt>
+<dt>
+<p>Negotiation request sat in Queue too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QUEUE_DROP_MM"></a><a id="error_ipsec_ike_queue_drop_mm"></a><strong>ERROR_IPSEC_IKE_QUEUE_DROP_MM</strong></dt>
+<dd>
+<dl>
+<dt>13811 (0x35F3)</dt>
+<dt>
+<p>Negotiation request sat in Queue too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM"></a><a id="error_ipsec_ike_queue_drop_no_mm"></a><strong>ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM</strong></dt>
+<dd>
+<dl>
+<dt>13812 (0x35F4)</dt>
+<dt>
+<p>Negotiation request sat in Queue too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_DROP_NO_RESPONSE"></a><a id="error_ipsec_ike_drop_no_response"></a><strong>ERROR_IPSEC_IKE_DROP_NO_RESPONSE</strong></dt>
+<dd>
+<dl>
+<dt>13813 (0x35F5)</dt>
+<dt>
+<p>No response from peer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_MM_DELAY_DROP"></a><a id="error_ipsec_ike_mm_delay_drop"></a><strong>ERROR_IPSEC_IKE_MM_DELAY_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13814 (0x35F6)</dt>
+<dt>
+<p>Negotiation took too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QM_DELAY_DROP"></a><a id="error_ipsec_ike_qm_delay_drop"></a><strong>ERROR_IPSEC_IKE_QM_DELAY_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13815 (0x35F7)</dt>
+<dt>
+<p>Negotiation took too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_ERROR"></a><a id="error_ipsec_ike_error"></a><strong>ERROR_IPSEC_IKE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>13816 (0x35F8)</dt>
+<dt>
+<p>Unknown error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_CRL_FAILED"></a><a id="error_ipsec_ike_crl_failed"></a><strong>ERROR_IPSEC_IKE_CRL_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13817 (0x35F9)</dt>
+<dt>
+<p>Certificate Revocation Check failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_KEY_USAGE"></a><a id="error_ipsec_ike_invalid_key_usage"></a><strong>ERROR_IPSEC_IKE_INVALID_KEY_USAGE</strong></dt>
+<dd>
+<dl>
+<dt>13818 (0x35FA)</dt>
+<dt>
+<p>Invalid certificate key usage.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_CERT_TYPE"></a><a id="error_ipsec_ike_invalid_cert_type"></a><strong>ERROR_IPSEC_IKE_INVALID_CERT_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>13819 (0x35FB)</dt>
+<dt>
+<p>Invalid certificate type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_PRIVATE_KEY"></a><a id="error_ipsec_ike_no_private_key"></a><strong>ERROR_IPSEC_IKE_NO_PRIVATE_KEY</strong></dt>
+<dd>
+<dl>
+<dt>13820 (0x35FC)</dt>
+<dt>
+<p>IKE negotiation failed because the machine certificate used does not have a private key. IPsec certificates 
+     require a private key. Contact your Network Security administrator about replacing with a certificate that has a 
+     private key.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY"></a><a id="error_ipsec_ike_simultaneous_rekey"></a><strong>ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY</strong></dt>
+<dd>
+<dl>
+<dt>13821 (0x35FD)</dt>
+<dt>
+<p>Simultaneous rekeys were detected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_DH_FAIL"></a><a id="error_ipsec_ike_dh_fail"></a><strong>ERROR_IPSEC_IKE_DH_FAIL</strong></dt>
+<dd>
+<dl>
+<dt>13822 (0x35FE)</dt>
+<dt>
+<p>Failure in Diffie-Hellman computation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED"></a><a id="error_ipsec_ike_critical_payload_not_recognized"></a><strong>ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED</strong></dt>
+<dd>
+<dl>
+<dt>13823 (0x35FF)</dt>
+<dt>
+<p>Don't know how to process critical payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_HEADER"></a><a id="error_ipsec_ike_invalid_header"></a><strong>ERROR_IPSEC_IKE_INVALID_HEADER</strong></dt>
+<dd>
+<dl>
+<dt>13824 (0x3600)</dt>
+<dt>
+<p>Invalid header.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_POLICY"></a><a id="error_ipsec_ike_no_policy"></a><strong>ERROR_IPSEC_IKE_NO_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>13825 (0x3601)</dt>
+<dt>
+<p>No policy configured.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_SIGNATURE"></a><a id="error_ipsec_ike_invalid_signature"></a><strong>ERROR_IPSEC_IKE_INVALID_SIGNATURE</strong></dt>
+<dd>
+<dl>
+<dt>13826 (0x3602)</dt>
+<dt>
+<p>Failed to verify signature.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_KERBEROS_ERROR"></a><a id="error_ipsec_ike_kerberos_error"></a><strong>ERROR_IPSEC_IKE_KERBEROS_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>13827 (0x3603)</dt>
+<dt>
+<p>Failed to authenticate using Kerberos.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_PUBLIC_KEY"></a><a id="error_ipsec_ike_no_public_key"></a><strong>ERROR_IPSEC_IKE_NO_PUBLIC_KEY</strong></dt>
+<dd>
+<dl>
+<dt>13828 (0x3604)</dt>
+<dt>
+<p>Peer's certificate did not have a public key.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR"></a><a id="error_ipsec_ike_process_err"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR</strong></dt>
+<dd>
+<dl>
+<dt>13829 (0x3605)</dt>
+<dt>
+<p>Error processing error payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_SA"></a><a id="error_ipsec_ike_process_err_sa"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_SA</strong></dt>
+<dd>
+<dl>
+<dt>13830 (0x3606)</dt>
+<dt>
+<p>Error processing SA payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_PROP"></a><a id="error_ipsec_ike_process_err_prop"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_PROP</strong></dt>
+<dd>
+<dl>
+<dt>13831 (0x3607)</dt>
+<dt>
+<p>Error processing Proposal payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_TRANS"></a><a id="error_ipsec_ike_process_err_trans"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_TRANS</strong></dt>
+<dd>
+<dl>
+<dt>13832 (0x3608)</dt>
+<dt>
+<p>Error processing Transform payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_KE"></a><a id="error_ipsec_ike_process_err_ke"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_KE</strong></dt>
+<dd>
+<dl>
+<dt>13833 (0x3609)</dt>
+<dt>
+<p>Error processing KE payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_ID"></a><a id="error_ipsec_ike_process_err_id"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_ID</strong></dt>
+<dd>
+<dl>
+<dt>13834 (0x360A)</dt>
+<dt>
+<p>Error processing ID payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_CERT"></a><a id="error_ipsec_ike_process_err_cert"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_CERT</strong></dt>
+<dd>
+<dl>
+<dt>13835 (0x360B)</dt>
+<dt>
+<p>Error processing Cert payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ"></a><a id="error_ipsec_ike_process_err_cert_req"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ</strong></dt>
+<dd>
+<dl>
+<dt>13836 (0x360C)</dt>
+<dt>
+<p>Error processing Certificate Request payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_HASH"></a><a id="error_ipsec_ike_process_err_hash"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_HASH</strong></dt>
+<dd>
+<dl>
+<dt>13837 (0x360D)</dt>
+<dt>
+<p>Error processing Hash payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_SIG"></a><a id="error_ipsec_ike_process_err_sig"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_SIG</strong></dt>
+<dd>
+<dl>
+<dt>13838 (0x360E)</dt>
+<dt>
+<p>Error processing Signature payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_NONCE"></a><a id="error_ipsec_ike_process_err_nonce"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_NONCE</strong></dt>
+<dd>
+<dl>
+<dt>13839 (0x360F)</dt>
+<dt>
+<p>Error processing Nonce payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY"></a><a id="error_ipsec_ike_process_err_notify"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY</strong></dt>
+<dd>
+<dl>
+<dt>13840 (0x3610)</dt>
+<dt>
+<p>Error processing Notify payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_DELETE"></a><a id="error_ipsec_ike_process_err_delete"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>13841 (0x3611)</dt>
+<dt>
+<p>Error processing Delete Payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR"></a><a id="error_ipsec_ike_process_err_vendor"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR</strong></dt>
+<dd>
+<dl>
+<dt>13842 (0x3612)</dt>
+<dt>
+<p>Error processing VendorId payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_PAYLOAD"></a><a id="error_ipsec_ike_invalid_payload"></a><strong>ERROR_IPSEC_IKE_INVALID_PAYLOAD</strong></dt>
+<dd>
+<dl>
+<dt>13843 (0x3613)</dt>
+<dt>
+<p>Invalid payload received.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_LOAD_SOFT_SA"></a><a id="error_ipsec_ike_load_soft_sa"></a><strong>ERROR_IPSEC_IKE_LOAD_SOFT_SA</strong></dt>
+<dd>
+<dl>
+<dt>13844 (0x3614)</dt>
+<dt>
+<p>Soft SA loaded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN"></a><a id="error_ipsec_ike_soft_sa_torn_down"></a><strong>ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN</strong></dt>
+<dd>
+<dl>
+<dt>13845 (0x3615)</dt>
+<dt>
+<p>Soft SA torn down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_COOKIE"></a><a id="error_ipsec_ike_invalid_cookie"></a><strong>ERROR_IPSEC_IKE_INVALID_COOKIE</strong></dt>
+<dd>
+<dl>
+<dt>13846 (0x3616)</dt>
+<dt>
+<p>Invalid cookie received.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_PEER_CERT"></a><a id="error_ipsec_ike_no_peer_cert"></a><strong>ERROR_IPSEC_IKE_NO_PEER_CERT</strong></dt>
+<dd>
+<dl>
+<dt>13847 (0x3617)</dt>
+<dt>
+<p>Peer failed to send valid machine certificate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PEER_CRL_FAILED"></a><a id="error_ipsec_ike_peer_crl_failed"></a><strong>ERROR_IPSEC_IKE_PEER_CRL_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13848 (0x3618)</dt>
+<dt>
+<p>Certification Revocation check of peer's certificate failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_POLICY_CHANGE"></a><a id="error_ipsec_ike_policy_change"></a><strong>ERROR_IPSEC_IKE_POLICY_CHANGE</strong></dt>
+<dd>
+<dl>
+<dt>13849 (0x3619)</dt>
+<dt>
+<p>New policy invalidated SAs formed with old policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NO_MM_POLICY"></a><a id="error_ipsec_ike_no_mm_policy"></a><strong>ERROR_IPSEC_IKE_NO_MM_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>13850 (0x361A)</dt>
+<dt>
+<p>There is no available Main Mode IKE policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NOTCBPRIV"></a><a id="error_ipsec_ike_notcbpriv"></a><strong>ERROR_IPSEC_IKE_NOTCBPRIV</strong></dt>
+<dd>
+<dl>
+<dt>13851 (0x361B)</dt>
+<dt>
+<p>Failed to enabled TCB privilege.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SECLOADFAIL"></a><a id="error_ipsec_ike_secloadfail"></a><strong>ERROR_IPSEC_IKE_SECLOADFAIL</strong></dt>
+<dd>
+<dl>
+<dt>13852 (0x361C)</dt>
+<dt>
+<p>Failed to load SECURITY.DLL.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_FAILSSPINIT"></a><a id="error_ipsec_ike_failsspinit"></a><strong>ERROR_IPSEC_IKE_FAILSSPINIT</strong></dt>
+<dd>
+<dl>
+<dt>13853 (0x361D)</dt>
+<dt>
+<p>Failed to obtain security function table dispatch address from SSPI.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_FAILQUERYSSP"></a><a id="error_ipsec_ike_failqueryssp"></a><strong>ERROR_IPSEC_IKE_FAILQUERYSSP</strong></dt>
+<dd>
+<dl>
+<dt>13854 (0x361E)</dt>
+<dt>
+<p>Failed to query Kerberos package to obtain max token size.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SRVACQFAIL"></a><a id="error_ipsec_ike_srvacqfail"></a><strong>ERROR_IPSEC_IKE_SRVACQFAIL</strong></dt>
+<dd>
+<dl>
+<dt>13855 (0x361F)</dt>
+<dt>
+<p>Failed to obtain Kerberos server credentials for ISAKMP/ERROR_IPSEC_IKE service. Kerberos authentication 
+     will not function. The most likely reason for this is lack of domain membership. This is normal if your computer 
+     is a member of a workgroup.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SRVQUERYCRED"></a><a id="error_ipsec_ike_srvquerycred"></a><strong>ERROR_IPSEC_IKE_SRVQUERYCRED</strong></dt>
+<dd>
+<dl>
+<dt>13856 (0x3620)</dt>
+<dt>
+<p>Failed to determine SSPI principal name for ISAKMP/ERROR_IPSEC_IKE service 
+     (<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa379342(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">QueryCredentialsAttributes</strong></a>).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_GETSPIFAIL"></a><a id="error_ipsec_ike_getspifail"></a><strong>ERROR_IPSEC_IKE_GETSPIFAIL</strong></dt>
+<dd>
+<dl>
+<dt>13857 (0x3621)</dt>
+<dt>
+<p>Failed to obtain new SPI for the inbound SA from IPsec driver. The most common cause for this is that the 
+     driver does not have the correct filter. Check your policy to verify the filters.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_FILTER"></a><a id="error_ipsec_ike_invalid_filter"></a><strong>ERROR_IPSEC_IKE_INVALID_FILTER</strong></dt>
+<dd>
+<dl>
+<dt>13858 (0x3622)</dt>
+<dt>
+<p>Given filter is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_OUT_OF_MEMORY"></a><a id="error_ipsec_ike_out_of_memory"></a><strong>ERROR_IPSEC_IKE_OUT_OF_MEMORY</strong></dt>
+<dd>
+<dl>
+<dt>13859 (0x3623)</dt>
+<dt>
+<p>Memory allocation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED"></a><a id="error_ipsec_ike_add_update_key_failed"></a><strong>ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13860 (0x3624)</dt>
+<dt>
+<p>Failed to add Security Association to IPsec Driver. The most common cause for this is if the IKE negotiation 
+     took too long to complete. If the problem persists, reduce the load on the faulting machine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_POLICY"></a><a id="error_ipsec_ike_invalid_policy"></a><strong>ERROR_IPSEC_IKE_INVALID_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>13861 (0x3625)</dt>
+<dt>
+<p>Invalid policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_UNKNOWN_DOI"></a><a id="error_ipsec_ike_unknown_doi"></a><strong>ERROR_IPSEC_IKE_UNKNOWN_DOI</strong></dt>
+<dd>
+<dl>
+<dt>13862 (0x3626)</dt>
+<dt>
+<p>Invalid DOI.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_SITUATION"></a><a id="error_ipsec_ike_invalid_situation"></a><strong>ERROR_IPSEC_IKE_INVALID_SITUATION</strong></dt>
+<dd>
+<dl>
+<dt>13863 (0x3627)</dt>
+<dt>
+<p>Invalid situation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_DH_FAILURE"></a><a id="error_ipsec_ike_dh_failure"></a><strong>ERROR_IPSEC_IKE_DH_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>13864 (0x3628)</dt>
+<dt>
+<p>Diffie-Hellman failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_GROUP"></a><a id="error_ipsec_ike_invalid_group"></a><strong>ERROR_IPSEC_IKE_INVALID_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>13865 (0x3629)</dt>
+<dt>
+<p>Invalid Diffie-Hellman group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_ENCRYPT"></a><a id="error_ipsec_ike_encrypt"></a><strong>ERROR_IPSEC_IKE_ENCRYPT</strong></dt>
+<dd>
+<dl>
+<dt>13866 (0x362A)</dt>
+<dt>
+<p>Error encrypting payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_DECRYPT"></a><a id="error_ipsec_ike_decrypt"></a><strong>ERROR_IPSEC_IKE_DECRYPT</strong></dt>
+<dd>
+<dl>
+<dt>13867 (0x362B)</dt>
+<dt>
+<p>Error decrypting payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_POLICY_MATCH"></a><a id="error_ipsec_ike_policy_match"></a><strong>ERROR_IPSEC_IKE_POLICY_MATCH</strong></dt>
+<dd>
+<dl>
+<dt>13868 (0x362C)</dt>
+<dt>
+<p>Policy match error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_UNSUPPORTED_ID"></a><a id="error_ipsec_ike_unsupported_id"></a><strong>ERROR_IPSEC_IKE_UNSUPPORTED_ID</strong></dt>
+<dd>
+<dl>
+<dt>13869 (0x362D)</dt>
+<dt>
+<p>Unsupported ID.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_HASH"></a><a id="error_ipsec_ike_invalid_hash"></a><strong>ERROR_IPSEC_IKE_INVALID_HASH</strong></dt>
+<dd>
+<dl>
+<dt>13870 (0x362E)</dt>
+<dt>
+<p>Hash verification failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_HASH_ALG"></a><a id="error_ipsec_ike_invalid_hash_alg"></a><strong>ERROR_IPSEC_IKE_INVALID_HASH_ALG</strong></dt>
+<dd>
+<dl>
+<dt>13871 (0x362F)</dt>
+<dt>
+<p>Invalid hash algorithm.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_HASH_SIZE"></a><a id="error_ipsec_ike_invalid_hash_size"></a><strong>ERROR_IPSEC_IKE_INVALID_HASH_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>13872 (0x3630)</dt>
+<dt>
+<p>Invalid hash size.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG"></a><a id="error_ipsec_ike_invalid_encrypt_alg"></a><strong>ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG</strong></dt>
+<dd>
+<dl>
+<dt>13873 (0x3631)</dt>
+<dt>
+<p>Invalid encryption algorithm.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_AUTH_ALG"></a><a id="error_ipsec_ike_invalid_auth_alg"></a><strong>ERROR_IPSEC_IKE_INVALID_AUTH_ALG</strong></dt>
+<dd>
+<dl>
+<dt>13874 (0x3632)</dt>
+<dt>
+<p>Invalid authentication algorithm.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_SIG"></a><a id="error_ipsec_ike_invalid_sig"></a><strong>ERROR_IPSEC_IKE_INVALID_SIG</strong></dt>
+<dd>
+<dl>
+<dt>13875 (0x3633)</dt>
+<dt>
+<p>Invalid certificate signature.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_LOAD_FAILED"></a><a id="error_ipsec_ike_load_failed"></a><strong>ERROR_IPSEC_IKE_LOAD_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13876 (0x3634)</dt>
+<dt>
+<p>Load failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_RPC_DELETE"></a><a id="error_ipsec_ike_rpc_delete"></a><strong>ERROR_IPSEC_IKE_RPC_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>13877 (0x3635)</dt>
+<dt>
+<p>Deleted via RPC call.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_BENIGN_REINIT"></a><a id="error_ipsec_ike_benign_reinit"></a><strong>ERROR_IPSEC_IKE_BENIGN_REINIT</strong></dt>
+<dd>
+<dl>
+<dt>13878 (0x3636)</dt>
+<dt>
+<p>Temporary state created to perform reinitialization. This is not a real failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY"></a><a id="error_ipsec_ike_invalid_responder_lifetime_notify"></a><strong>ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY</strong></dt>
+<dd>
+<dl>
+<dt>13879 (0x3637)</dt>
+<dt>
+<p>The lifetime value received in the Responder Lifetime Notify is below the Windows 2000 configured minimum 
+     value. Please fix the policy on the peer machine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION"></a><a id="error_ipsec_ike_invalid_major_version"></a><strong>ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>13880 (0x3638)</dt>
+<dt>
+<p>The recipient cannot handle version of IKE specified in the header.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN"></a><a id="error_ipsec_ike_invalid_cert_keylen"></a><strong>ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN</strong></dt>
+<dd>
+<dl>
+<dt>13881 (0x3639)</dt>
+<dt>
+<p>Key length in certificate is too small for configured security requirements.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_MM_LIMIT"></a><a id="error_ipsec_ike_mm_limit"></a><strong>ERROR_IPSEC_IKE_MM_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>13882 (0x363A)</dt>
+<dt>
+<p>Max number of established MM SAs to peer exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NEGOTIATION_DISABLED"></a><a id="error_ipsec_ike_negotiation_disabled"></a><strong>ERROR_IPSEC_IKE_NEGOTIATION_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>13883 (0x363B)</dt>
+<dt>
+<p>IKE received a policy that disables negotiation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QM_LIMIT"></a><a id="error_ipsec_ike_qm_limit"></a><strong>ERROR_IPSEC_IKE_QM_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>13884 (0x363C)</dt>
+<dt>
+<p>Reached maximum quick mode limit for the main mode. New main mode will be started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_MM_EXPIRED"></a><a id="error_ipsec_ike_mm_expired"></a><strong>ERROR_IPSEC_IKE_MM_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>13885 (0x363D)</dt>
+<dt>
+<p>Main mode SA lifetime expired or peer sent a main mode delete.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID"></a><a id="error_ipsec_ike_peer_mm_assumed_invalid"></a><strong>ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>13886 (0x363E)</dt>
+<dt>
+<p>Main mode SA assumed to be invalid because peer stopped responding.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH"></a><a id="error_ipsec_ike_cert_chain_policy_mismatch"></a><strong>ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>13887 (0x363F)</dt>
+<dt>
+<p>Certificate doesn't chain to a trusted root in IPsec policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID"></a><a id="error_ipsec_ike_unexpected_message_id"></a><strong>ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID</strong></dt>
+<dd>
+<dl>
+<dt>13888 (0x3640)</dt>
+<dt>
+<p>Received unexpected message ID.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD"></a><a id="error_ipsec_ike_invalid_auth_payload"></a><strong>ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD</strong></dt>
+<dd>
+<dl>
+<dt>13889 (0x3641)</dt>
+<dt>
+<p>Received invalid authentication offers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_DOS_COOKIE_SENT"></a><a id="error_ipsec_ike_dos_cookie_sent"></a><strong>ERROR_IPSEC_IKE_DOS_COOKIE_SENT</strong></dt>
+<dd>
+<dl>
+<dt>13890 (0x3642)</dt>
+<dt>
+<p>Sent DoS cookie notify to initiator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_SHUTTING_DOWN"></a><a id="error_ipsec_ike_shutting_down"></a><strong>ERROR_IPSEC_IKE_SHUTTING_DOWN</strong></dt>
+<dd>
+<dl>
+<dt>13891 (0x3643)</dt>
+<dt>
+<p>IKE service is shutting down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_CGA_AUTH_FAILED"></a><a id="error_ipsec_ike_cga_auth_failed"></a><strong>ERROR_IPSEC_IKE_CGA_AUTH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13892 (0x3644)</dt>
+<dt>
+<p>Could not verify binding between CGA address and certificate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PROCESS_ERR_NATOA"></a><a id="error_ipsec_ike_process_err_natoa"></a><strong>ERROR_IPSEC_IKE_PROCESS_ERR_NATOA</strong></dt>
+<dd>
+<dl>
+<dt>13893 (0x3645)</dt>
+<dt>
+<p>Error processing NatOA payload.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INVALID_MM_FOR_QM"></a><a id="error_ipsec_ike_invalid_mm_for_qm"></a><strong>ERROR_IPSEC_IKE_INVALID_MM_FOR_QM</strong></dt>
+<dd>
+<dl>
+<dt>13894 (0x3646)</dt>
+<dt>
+<p>Parameters of the main mode are invalid for this quick mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_QM_EXPIRED"></a><a id="error_ipsec_ike_qm_expired"></a><strong>ERROR_IPSEC_IKE_QM_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>13895 (0x3647)</dt>
+<dt>
+<p>Quick mode SA was expired by IPsec driver.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_TOO_MANY_FILTERS"></a><a id="error_ipsec_ike_too_many_filters"></a><strong>ERROR_IPSEC_IKE_TOO_MANY_FILTERS</strong></dt>
+<dd>
+<dl>
+<dt>13896 (0x3648)</dt>
+<dt>
+<p>Too many dynamically added IKEEXT filters were detected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NEG_STATUS_END"></a><a id="error_ipsec_ike_neg_status_end"></a><strong>ERROR_IPSEC_IKE_NEG_STATUS_END</strong></dt>
+<dd>
+<dl>
+<dt>13897 (0x3649)</dt>
+<dt>
+<p>ERROR_IPSEC_IKE_NEG_STATUS_END</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL"></a><a id="error_ipsec_ike_kill_dummy_nap_tunnel"></a><strong>ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL</strong></dt>
+<dd>
+<dl>
+<dt>13898 (0x364A)</dt>
+<dt>
+<p>NAP reauth succeeded and must delete the dummy NAP IKEv2 tunnel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE"></a><a id="error_ipsec_ike_inner_ip_assignment_failure"></a><strong>ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>13899 (0x364B)</dt>
+<dt>
+<p>Error in assigning inner IP address to initiator in tunnel mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING"></a><a id="error_ipsec_ike_require_cp_payload_missing"></a><strong>ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>13900 (0x364C)</dt>
+<dt>
+<p>Require configuration payload missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING"></a><a id="error_ipsec_key_module_impersonation_negotiation_pending"></a><strong>ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>13901 (0x364D)</dt>
+<dt>
+<p>A negotiation running as the security principle who issued the connection is in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS"></a><a id="error_ipsec_ike_coexistence_suppress"></a><strong>ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS</strong></dt>
+<dd>
+<dl>
+<dt>13902 (0x364E)</dt>
+<dt>
+<p>SA was deleted due to IKEv1/AuthIP co-existence suppress check.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_RATELIMIT_DROP"></a><a id="error_ipsec_ike_ratelimit_drop"></a><strong>ERROR_IPSEC_IKE_RATELIMIT_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13903 (0x364F)</dt>
+<dt>
+<p>Incoming SA request was dropped due to peer IP address rate limiting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE"></a><a id="error_ipsec_ike_peer_doesnt_support_mobike"></a><strong>ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE</strong></dt>
+<dd>
+<dl>
+<dt>13904 (0x3650)</dt>
+<dt>
+<p>Peer does not support MOBIKE.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE"></a><a id="error_ipsec_ike_authorization_failure"></a><strong>ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>13905 (0x3651)</dt>
+<dt>
+<p>SA establishment is not authorized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE"></a><a id="error_ipsec_ike_strong_cred_authorization_failure"></a><strong>ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>13906 (0x3652)</dt>
+<dt>
+<p>SA establishment is not authorized because there is not a sufficiently strong PKINIT-based credential.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY"></a><a id="error_ipsec_ike_authorization_failure_with_optional_retry"></a><strong>ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY</strong></dt>
+<dd>
+<dl>
+<dt>13907 (0x3653)</dt>
+<dt>
+<p>SA establishment is not authorized.  You may need to enter updated or different credentials such as a 
+     smartcard.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE"></a><a id="error_ipsec_ike_strong_cred_authorization_and_certmap_failure"></a><strong>ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>13908 (0x3654)</dt>
+<dt>
+<p>SA establishment is not authorized because there is not a sufficiently strong PKINIT-based credential. This 
+     might be related to certificate-to-account mapping failure for the SA.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END"></a><a id="error_ipsec_ike_neg_status_extended_end"></a><strong>ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END</strong></dt>
+<dd>
+<dl>
+<dt>13909 (0x3655)</dt>
+<dt>
+<p>ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_BAD_SPI"></a><a id="error_ipsec_bad_spi"></a><strong>ERROR_IPSEC_BAD_SPI</strong></dt>
+<dd>
+<dl>
+<dt>13910 (0x3656)</dt>
+<dt>
+<p>The SPI in the packet does not match a valid IPsec SA.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_SA_LIFETIME_EXPIRED"></a><a id="error_ipsec_sa_lifetime_expired"></a><strong>ERROR_IPSEC_SA_LIFETIME_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>13911 (0x3657)</dt>
+<dt>
+<p>Packet was received on an IPsec SA whose lifetime has expired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_WRONG_SA"></a><a id="error_ipsec_wrong_sa"></a><strong>ERROR_IPSEC_WRONG_SA</strong></dt>
+<dd>
+<dl>
+<dt>13912 (0x3658)</dt>
+<dt>
+<p>Packet was received on an IPsec SA that does not match the packet characteristics.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_REPLAY_CHECK_FAILED"></a><a id="error_ipsec_replay_check_failed"></a><strong>ERROR_IPSEC_REPLAY_CHECK_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13913 (0x3659)</dt>
+<dt>
+<p>Packet sequence number replay check failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_INVALID_PACKET"></a><a id="error_ipsec_invalid_packet"></a><strong>ERROR_IPSEC_INVALID_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>13914 (0x365A)</dt>
+<dt>
+<p>IPsec header and/or trailer in the packet is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_INTEGRITY_CHECK_FAILED"></a><a id="error_ipsec_integrity_check_failed"></a><strong>ERROR_IPSEC_INTEGRITY_CHECK_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13915 (0x365B)</dt>
+<dt>
+<p>IPsec integrity check failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_CLEAR_TEXT_DROP"></a><a id="error_ipsec_clear_text_drop"></a><strong>ERROR_IPSEC_CLEAR_TEXT_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13916 (0x365C)</dt>
+<dt>
+<p>IPsec dropped a clear text packet.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_AUTH_FIREWALL_DROP"></a><a id="error_ipsec_auth_firewall_drop"></a><strong>ERROR_IPSEC_AUTH_FIREWALL_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13917 (0x365D)</dt>
+<dt>
+<p>IPsec dropped an incoming ESP packet in authenticated firewall mode. This drop is benign.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_THROTTLE_DROP"></a><a id="error_ipsec_throttle_drop"></a><strong>ERROR_IPSEC_THROTTLE_DROP</strong></dt>
+<dd>
+<dl>
+<dt>13918 (0x365E)</dt>
+<dt>
+<p>IPsec dropped a packet due to DoS throttling.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_BLOCK"></a><a id="error_ipsec_dosp_block"></a><strong>ERROR_IPSEC_DOSP_BLOCK</strong></dt>
+<dd>
+<dl>
+<dt>13925 (0x3665)</dt>
+<dt>
+<p>IPsec DoS Protection matched an explicit block rule.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_RECEIVED_MULTICAST"></a><a id="error_ipsec_dosp_received_multicast"></a><strong>ERROR_IPSEC_DOSP_RECEIVED_MULTICAST</strong></dt>
+<dd>
+<dl>
+<dt>13926 (0x3666)</dt>
+<dt>
+<p>IPsec DoS Protection received an IPsec specific multicast packet which is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_INVALID_PACKET"></a><a id="error_ipsec_dosp_invalid_packet"></a><strong>ERROR_IPSEC_DOSP_INVALID_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>13927 (0x3667)</dt>
+<dt>
+<p>IPsec DoS Protection received an incorrectly formatted packet.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED"></a><a id="error_ipsec_dosp_state_lookup_failed"></a><strong>ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>13928 (0x3668)</dt>
+<dt>
+<p>IPsec DoS Protection failed to look up state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_MAX_ENTRIES"></a><a id="error_ipsec_dosp_max_entries"></a><strong>ERROR_IPSEC_DOSP_MAX_ENTRIES</strong></dt>
+<dd>
+<dl>
+<dt>13929 (0x3669)</dt>
+<dt>
+<p>IPsec DoS Protection failed to create state because the maximum number of entries allowed by policy has been 
+     reached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED"></a><a id="error_ipsec_dosp_keymod_not_allowed"></a><strong>ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>13930 (0x366A)</dt>
+<dt>
+<p>IPsec DoS Protection received an IPsec negotiation packet for a keying module which is not allowed by 
+     policy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_NOT_INSTALLED"></a><a id="error_ipsec_dosp_not_installed"></a><strong>ERROR_IPSEC_DOSP_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>13931 (0x366B)</dt>
+<dt>
+<p>IPsec DoS Protection has not been enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES"></a><a id="error_ipsec_dosp_max_per_ip_ratelimit_queues"></a><strong>ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES</strong></dt>
+<dd>
+<dl>
+<dt>13932 (0x366C)</dt>
+<dt>
+<p>IPsec DoS Protection failed to create a per internal IP rate limit queue because the maximum number of 
+     queues allowed by policy has been reached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_SECTION_NOT_FOUND"></a><a id="error_sxs_section_not_found"></a><strong>ERROR_SXS_SECTION_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>14000 (0x36B0)</dt>
+<dt>
+<p>The requested section was not present in the activation context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_CANT_GEN_ACTCTX"></a><a id="error_sxs_cant_gen_actctx"></a><strong>ERROR_SXS_CANT_GEN_ACTCTX</strong></dt>
+<dd>
+<dl>
+<dt>14001 (0x36B1)</dt>
+<dt>
+<p>The application has failed to start because its side-by-side configuration is incorrect. Please see the 
+     application event log or use the command-line sxstrace.exe tool for more detail.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_ACTCTXDATA_FORMAT"></a><a id="error_sxs_invalid_actctxdata_format"></a><strong>ERROR_SXS_INVALID_ACTCTXDATA_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>14002 (0x36B2)</dt>
+<dt>
+<p>The application binding data format is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ASSEMBLY_NOT_FOUND"></a><a id="error_sxs_assembly_not_found"></a><strong>ERROR_SXS_ASSEMBLY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>14003 (0x36B3)</dt>
+<dt>
+<p>The referenced assembly is not installed on your system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_FORMAT_ERROR"></a><a id="error_sxs_manifest_format_error"></a><strong>ERROR_SXS_MANIFEST_FORMAT_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>14004 (0x36B4)</dt>
+<dt>
+<p>The manifest file does not begin with the required tag and format information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_PARSE_ERROR"></a><a id="error_sxs_manifest_parse_error"></a><strong>ERROR_SXS_MANIFEST_PARSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>14005 (0x36B5)</dt>
+<dt>
+<p>The manifest file contains one or more syntax errors.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ACTIVATION_CONTEXT_DISABLED"></a><a id="error_sxs_activation_context_disabled"></a><strong>ERROR_SXS_ACTIVATION_CONTEXT_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>14006 (0x36B6)</dt>
+<dt>
+<p>The application attempted to activate a disabled activation context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_KEY_NOT_FOUND"></a><a id="error_sxs_key_not_found"></a><strong>ERROR_SXS_KEY_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>14007 (0x36B7)</dt>
+<dt>
+<p>The requested lookup key was not found in any active activation context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_VERSION_CONFLICT"></a><a id="error_sxs_version_conflict"></a><strong>ERROR_SXS_VERSION_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>14008 (0x36B8)</dt>
+<dt>
+<p>A component version required by the application conflicts with another component version already 
+     active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_WRONG_SECTION_TYPE"></a><a id="error_sxs_wrong_section_type"></a><strong>ERROR_SXS_WRONG_SECTION_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>14009 (0x36B9)</dt>
+<dt>
+<p>The type requested activation context section does not match the query API used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_THREAD_QUERIES_DISABLED"></a><a id="error_sxs_thread_queries_disabled"></a><strong>ERROR_SXS_THREAD_QUERIES_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>14010 (0x36BA)</dt>
+<dt>
+<p>Lack of system resources has required isolated activation to be disabled for the current thread of 
+     execution.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET"></a><a id="error_sxs_process_default_already_set"></a><strong>ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET</strong></dt>
+<dd>
+<dl>
+<dt>14011 (0x36BB)</dt>
+<dt>
+<p>An attempt to set the process default activation context failed because the process default activation 
+     context was already set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_UNKNOWN_ENCODING_GROUP"></a><a id="error_sxs_unknown_encoding_group"></a><strong>ERROR_SXS_UNKNOWN_ENCODING_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>14012 (0x36BC)</dt>
+<dt>
+<p>The encoding group identifier specified is not recognized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_UNKNOWN_ENCODING"></a><a id="error_sxs_unknown_encoding"></a><strong>ERROR_SXS_UNKNOWN_ENCODING</strong></dt>
+<dd>
+<dl>
+<dt>14013 (0x36BD)</dt>
+<dt>
+<p>The encoding requested is not recognized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_XML_NAMESPACE_URI"></a><a id="error_sxs_invalid_xml_namespace_uri"></a><strong>ERROR_SXS_INVALID_XML_NAMESPACE_URI</strong></dt>
+<dd>
+<dl>
+<dt>14014 (0x36BE)</dt>
+<dt>
+<p>The manifest contains a reference to an invalid URI.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED"></a><a id="error_sxs_root_manifest_dependency_not_installed"></a><strong>ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>14015 (0x36BF)</dt>
+<dt>
+<p>The application manifest contains a reference to a dependent assembly which is not installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED"></a><a id="error_sxs_leaf_manifest_dependency_not_installed"></a><strong>ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>14016 (0x36C0)</dt>
+<dt>
+<p>The manifest for an assembly used by the application has a reference to a dependent assembly which is not 
+     installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE"></a><a id="error_sxs_invalid_assembly_identity_attribute"></a><strong>ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE</strong></dt>
+<dd>
+<dl>
+<dt>14017 (0x36C1)</dt>
+<dt>
+<p>The manifest contains an attribute for the assembly identity which is not valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE"></a><a id="error_sxs_manifest_missing_required_default_namespace"></a><strong>ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE</strong></dt>
+<dd>
+<dl>
+<dt>14018 (0x36C2)</dt>
+<dt>
+<p>The manifest is missing the required default namespace specification on the assembly element.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE"></a><a id="error_sxs_manifest_invalid_required_default_namespace"></a><strong>ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE</strong></dt>
+<dd>
+<dl>
+<dt>14019 (0x36C3)</dt>
+<dt>
+<p>The manifest has a default namespace specified on the assembly element but its value is not 
+     "urn:schemas-microsoft-com:asm.v1".</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT"></a><a id="error_sxs_private_manifest_cross_path_with_reparse_point"></a><strong>ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT</strong></dt>
+<dd>
+<dl>
+<dt>14020 (0x36C4)</dt>
+<dt>
+<p>The private manifest probed has crossed a path with an unsupported reparse point.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_DLL_NAME"></a><a id="error_sxs_duplicate_dll_name"></a><strong>ERROR_SXS_DUPLICATE_DLL_NAME</strong></dt>
+<dd>
+<dl>
+<dt>14021 (0x36C5)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have files by the same 
+     name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME"></a><a id="error_sxs_duplicate_windowclass_name"></a><strong>ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME</strong></dt>
+<dd>
+<dl>
+<dt>14022 (0x36C6)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have window classes 
+     with the same name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_CLSID"></a><a id="error_sxs_duplicate_clsid"></a><strong>ERROR_SXS_DUPLICATE_CLSID</strong></dt>
+<dd>
+<dl>
+<dt>14023 (0x36C7)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have the same COM 
+     server CLSIDs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_IID"></a><a id="error_sxs_duplicate_iid"></a><strong>ERROR_SXS_DUPLICATE_IID</strong></dt>
+<dd>
+<dl>
+<dt>14024 (0x36C8)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have proxies for the 
+     same COM interface IIDs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_TLBID"></a><a id="error_sxs_duplicate_tlbid"></a><strong>ERROR_SXS_DUPLICATE_TLBID</strong></dt>
+<dd>
+<dl>
+<dt>14025 (0x36C9)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have the same COM type 
+     library TLBIDs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_PROGID"></a><a id="error_sxs_duplicate_progid"></a><strong>ERROR_SXS_DUPLICATE_PROGID</strong></dt>
+<dd>
+<dl>
+<dt>14026 (0x36CA)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest have the same COM 
+     ProgIDs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_DUPLICATE_ASSEMBLY_NAME"></a><a id="error_sxs_duplicate_assembly_name"></a><strong>ERROR_SXS_DUPLICATE_ASSEMBLY_NAME</strong></dt>
+<dd>
+<dl>
+<dt>14027 (0x36CB)</dt>
+<dt>
+<p>Two or more components referenced directly or indirectly by the application manifest are different versions 
+     of the same component which is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_FILE_HASH_MISMATCH"></a><a id="error_sxs_file_hash_mismatch"></a><strong>ERROR_SXS_FILE_HASH_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>14028 (0x36CC)</dt>
+<dt>
+<p>A component's file does not match the verification information present in the component manifest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_POLICY_PARSE_ERROR"></a><a id="error_sxs_policy_parse_error"></a><strong>ERROR_SXS_POLICY_PARSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>14029 (0x36CD)</dt>
+<dt>
+<p>The policy manifest contains one or more syntax errors.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSINGQUOTE"></a><a id="error_sxs_xml_e_missingquote"></a><strong>ERROR_SXS_XML_E_MISSINGQUOTE</strong></dt>
+<dd>
+<dl>
+<dt>14030 (0x36CE)</dt>
+<dt>
+<p>Manifest Parse Error : A string literal was expected, but no opening quote character was found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_COMMENTSYNTAX"></a><a id="error_sxs_xml_e_commentsyntax"></a><strong>ERROR_SXS_XML_E_COMMENTSYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>14031 (0x36CF)</dt>
+<dt>
+<p>Manifest Parse Error : Incorrect syntax was used in a comment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADSTARTNAMECHAR"></a><a id="error_sxs_xml_e_badstartnamechar"></a><strong>ERROR_SXS_XML_E_BADSTARTNAMECHAR</strong></dt>
+<dd>
+<dl>
+<dt>14032 (0x36D0)</dt>
+<dt>
+<p>Manifest Parse Error : A name was started with an invalid character.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADNAMECHAR"></a><a id="error_sxs_xml_e_badnamechar"></a><strong>ERROR_SXS_XML_E_BADNAMECHAR</strong></dt>
+<dd>
+<dl>
+<dt>14033 (0x36D1)</dt>
+<dt>
+<p>Manifest Parse Error : A name contained an invalid character.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADCHARINSTRING"></a><a id="error_sxs_xml_e_badcharinstring"></a><strong>ERROR_SXS_XML_E_BADCHARINSTRING</strong></dt>
+<dd>
+<dl>
+<dt>14034 (0x36D2)</dt>
+<dt>
+<p>Manifest Parse Error : A string literal contained an invalid character.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_XMLDECLSYNTAX"></a><a id="error_sxs_xml_e_xmldeclsyntax"></a><strong>ERROR_SXS_XML_E_XMLDECLSYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>14035 (0x36D3)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid syntax for an xml declaration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADCHARDATA"></a><a id="error_sxs_xml_e_badchardata"></a><strong>ERROR_SXS_XML_E_BADCHARDATA</strong></dt>
+<dd>
+<dl>
+<dt>14036 (0x36D4)</dt>
+<dt>
+<p>Manifest Parse Error : An Invalid character was found in text content.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSINGWHITESPACE"></a><a id="error_sxs_xml_e_missingwhitespace"></a><strong>ERROR_SXS_XML_E_MISSINGWHITESPACE</strong></dt>
+<dd>
+<dl>
+<dt>14037 (0x36D5)</dt>
+<dt>
+<p>Manifest Parse Error : Required white space was missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_EXPECTINGTAGEND"></a><a id="error_sxs_xml_e_expectingtagend"></a><strong>ERROR_SXS_XML_E_EXPECTINGTAGEND</strong></dt>
+<dd>
+<dl>
+<dt>14038 (0x36D6)</dt>
+<dt>
+<p>Manifest Parse Error : The character '&gt;' was expected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSINGSEMICOLON"></a><a id="error_sxs_xml_e_missingsemicolon"></a><strong>ERROR_SXS_XML_E_MISSINGSEMICOLON</strong></dt>
+<dd>
+<dl>
+<dt>14039 (0x36D7)</dt>
+<dt>
+<p>Manifest Parse Error : A semi colon character was expected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNBALANCEDPAREN"></a><a id="error_sxs_xml_e_unbalancedparen"></a><strong>ERROR_SXS_XML_E_UNBALANCEDPAREN</strong></dt>
+<dd>
+<dl>
+<dt>14040 (0x36D8)</dt>
+<dt>
+<p>Manifest Parse Error : Unbalanced parentheses.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INTERNALERROR"></a><a id="error_sxs_xml_e_internalerror"></a><strong>ERROR_SXS_XML_E_INTERNALERROR</strong></dt>
+<dd>
+<dl>
+<dt>14041 (0x36D9)</dt>
+<dt>
+<p>Manifest Parse Error : Internal error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE"></a><a id="error_sxs_xml_e_unexpected_whitespace"></a><strong>ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE</strong></dt>
+<dd>
+<dl>
+<dt>14042 (0x36DA)</dt>
+<dt>
+<p>Manifest Parse Error : Whitespace is not allowed at this location.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INCOMPLETE_ENCODING"></a><a id="error_sxs_xml_e_incomplete_encoding"></a><strong>ERROR_SXS_XML_E_INCOMPLETE_ENCODING</strong></dt>
+<dd>
+<dl>
+<dt>14043 (0x36DB)</dt>
+<dt>
+<p>Manifest Parse Error : End of file reached in invalid state for current encoding.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSING_PAREN"></a><a id="error_sxs_xml_e_missing_paren"></a><strong>ERROR_SXS_XML_E_MISSING_PAREN</strong></dt>
+<dd>
+<dl>
+<dt>14044 (0x36DC)</dt>
+<dt>
+<p>Manifest Parse Error : Missing parenthesis.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE"></a><a id="error_sxs_xml_e_expectingclosequote"></a><strong>ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE</strong></dt>
+<dd>
+<dl>
+<dt>14045 (0x36DD)</dt>
+<dt>
+<p>Manifest Parse Error : A single or double closing quote character (\' or \") is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MULTIPLE_COLONS"></a><a id="error_sxs_xml_e_multiple_colons"></a><strong>ERROR_SXS_XML_E_MULTIPLE_COLONS</strong></dt>
+<dd>
+<dl>
+<dt>14046 (0x36DE)</dt>
+<dt>
+<p>Manifest Parse Error : Multiple colons are not allowed in a name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALID_DECIMAL"></a><a id="error_sxs_xml_e_invalid_decimal"></a><strong>ERROR_SXS_XML_E_INVALID_DECIMAL</strong></dt>
+<dd>
+<dl>
+<dt>14047 (0x36DF)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid character for decimal digit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALID_HEXIDECIMAL"></a><a id="error_sxs_xml_e_invalid_hexidecimal"></a><strong>ERROR_SXS_XML_E_INVALID_HEXIDECIMAL</strong></dt>
+<dd>
+<dl>
+<dt>14048 (0x36E0)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid character for hexadecimal digit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALID_UNICODE"></a><a id="error_sxs_xml_e_invalid_unicode"></a><strong>ERROR_SXS_XML_E_INVALID_UNICODE</strong></dt>
+<dd>
+<dl>
+<dt>14049 (0x36E1)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid unicode character value for this platform.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK"></a><a id="error_sxs_xml_e_whitespaceorquestionmark"></a><strong>ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK</strong></dt>
+<dd>
+<dl>
+<dt>14050 (0x36E2)</dt>
+<dt>
+<p>Manifest Parse Error : Expecting whitespace or '?'.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNEXPECTEDENDTAG"></a><a id="error_sxs_xml_e_unexpectedendtag"></a><strong>ERROR_SXS_XML_E_UNEXPECTEDENDTAG</strong></dt>
+<dd>
+<dl>
+<dt>14051 (0x36E3)</dt>
+<dt>
+<p>Manifest Parse Error : End tag was not expected at this location.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDTAG"></a><a id="error_sxs_xml_e_unclosedtag"></a><strong>ERROR_SXS_XML_E_UNCLOSEDTAG</strong></dt>
+<dd>
+<dl>
+<dt>14052 (0x36E4)</dt>
+<dt>
+<p>Manifest Parse Error : The following tags were not closed: %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_DUPLICATEATTRIBUTE"></a><a id="error_sxs_xml_e_duplicateattribute"></a><strong>ERROR_SXS_XML_E_DUPLICATEATTRIBUTE</strong></dt>
+<dd>
+<dl>
+<dt>14053 (0x36E5)</dt>
+<dt>
+<p>Manifest Parse Error : Duplicate attribute.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MULTIPLEROOTS"></a><a id="error_sxs_xml_e_multipleroots"></a><strong>ERROR_SXS_XML_E_MULTIPLEROOTS</strong></dt>
+<dd>
+<dl>
+<dt>14054 (0x36E6)</dt>
+<dt>
+<p>Manifest Parse Error : Only one top level element is allowed in an XML document.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALIDATROOTLEVEL"></a><a id="error_sxs_xml_e_invalidatrootlevel"></a><strong>ERROR_SXS_XML_E_INVALIDATROOTLEVEL</strong></dt>
+<dd>
+<dl>
+<dt>14055 (0x36E7)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid at the top level of the document.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADXMLDECL"></a><a id="error_sxs_xml_e_badxmldecl"></a><strong>ERROR_SXS_XML_E_BADXMLDECL</strong></dt>
+<dd>
+<dl>
+<dt>14056 (0x36E8)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid xml declaration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSINGROOT"></a><a id="error_sxs_xml_e_missingroot"></a><strong>ERROR_SXS_XML_E_MISSINGROOT</strong></dt>
+<dd>
+<dl>
+<dt>14057 (0x36E9)</dt>
+<dt>
+<p>Manifest Parse Error : XML document must have a top level element.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNEXPECTEDEOF"></a><a id="error_sxs_xml_e_unexpectedeof"></a><strong>ERROR_SXS_XML_E_UNEXPECTEDEOF</strong></dt>
+<dd>
+<dl>
+<dt>14058 (0x36EA)</dt>
+<dt>
+<p>Manifest Parse Error : Unexpected end of file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADPEREFINSUBSET"></a><a id="error_sxs_xml_e_badperefinsubset"></a><strong>ERROR_SXS_XML_E_BADPEREFINSUBSET</strong></dt>
+<dd>
+<dl>
+<dt>14059 (0x36EB)</dt>
+<dt>
+<p>Manifest Parse Error : Parameter entities cannot be used inside markup declarations in an internal 
+     subset.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDSTARTTAG"></a><a id="error_sxs_xml_e_unclosedstarttag"></a><strong>ERROR_SXS_XML_E_UNCLOSEDSTARTTAG</strong></dt>
+<dd>
+<dl>
+<dt>14060 (0x36EC)</dt>
+<dt>
+<p>Manifest Parse Error : Element was not closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDENDTAG"></a><a id="error_sxs_xml_e_unclosedendtag"></a><strong>ERROR_SXS_XML_E_UNCLOSEDENDTAG</strong></dt>
+<dd>
+<dl>
+<dt>14061 (0x36ED)</dt>
+<dt>
+<p>Manifest Parse Error : End element was missing the character '&gt;'.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDSTRING"></a><a id="error_sxs_xml_e_unclosedstring"></a><strong>ERROR_SXS_XML_E_UNCLOSEDSTRING</strong></dt>
+<dd>
+<dl>
+<dt>14062 (0x36EE)</dt>
+<dt>
+<p>Manifest Parse Error : A string literal was not closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDCOMMENT"></a><a id="error_sxs_xml_e_unclosedcomment"></a><strong>ERROR_SXS_XML_E_UNCLOSEDCOMMENT</strong></dt>
+<dd>
+<dl>
+<dt>14063 (0x36EF)</dt>
+<dt>
+<p>Manifest Parse Error : A comment was not closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDDECL"></a><a id="error_sxs_xml_e_uncloseddecl"></a><strong>ERROR_SXS_XML_E_UNCLOSEDDECL</strong></dt>
+<dd>
+<dl>
+<dt>14064 (0x36F0)</dt>
+<dt>
+<p>Manifest Parse Error : A declaration was not closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNCLOSEDCDATA"></a><a id="error_sxs_xml_e_unclosedcdata"></a><strong>ERROR_SXS_XML_E_UNCLOSEDCDATA</strong></dt>
+<dd>
+<dl>
+<dt>14065 (0x36F1)</dt>
+<dt>
+<p>Manifest Parse Error : A CDATA section was not closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_RESERVEDNAMESPACE"></a><a id="error_sxs_xml_e_reservednamespace"></a><strong>ERROR_SXS_XML_E_RESERVEDNAMESPACE</strong></dt>
+<dd>
+<dl>
+<dt>14066 (0x36F2)</dt>
+<dt>
+<p>Manifest Parse Error : The namespace prefix is not allowed to start with the reserved string "xml".</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALIDENCODING"></a><a id="error_sxs_xml_e_invalidencoding"></a><strong>ERROR_SXS_XML_E_INVALIDENCODING</strong></dt>
+<dd>
+<dl>
+<dt>14067 (0x36F3)</dt>
+<dt>
+<p>Manifest Parse Error : System does not support the specified encoding.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALIDSWITCH"></a><a id="error_sxs_xml_e_invalidswitch"></a><strong>ERROR_SXS_XML_E_INVALIDSWITCH</strong></dt>
+<dd>
+<dl>
+<dt>14068 (0x36F4)</dt>
+<dt>
+<p>Manifest Parse Error : Switch from current encoding to specified encoding not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_BADXMLCASE"></a><a id="error_sxs_xml_e_badxmlcase"></a><strong>ERROR_SXS_XML_E_BADXMLCASE</strong></dt>
+<dd>
+<dl>
+<dt>14069 (0x36F5)</dt>
+<dt>
+<p>Manifest Parse Error : The name 'xml' is reserved and must be lower case.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALID_STANDALONE"></a><a id="error_sxs_xml_e_invalid_standalone"></a><strong>ERROR_SXS_XML_E_INVALID_STANDALONE</strong></dt>
+<dd>
+<dl>
+<dt>14070 (0x36F6)</dt>
+<dt>
+<p>Manifest Parse Error : The standalone attribute must have the value 'yes' or 'no'.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_UNEXPECTED_STANDALONE"></a><a id="error_sxs_xml_e_unexpected_standalone"></a><strong>ERROR_SXS_XML_E_UNEXPECTED_STANDALONE</strong></dt>
+<dd>
+<dl>
+<dt>14071 (0x36F7)</dt>
+<dt>
+<p>Manifest Parse Error : The standalone attribute cannot be used in external entities.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_INVALID_VERSION"></a><a id="error_sxs_xml_e_invalid_version"></a><strong>ERROR_SXS_XML_E_INVALID_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>14072 (0x36F8)</dt>
+<dt>
+<p>Manifest Parse Error : Invalid version number.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_XML_E_MISSINGEQUALS"></a><a id="error_sxs_xml_e_missingequals"></a><strong>ERROR_SXS_XML_E_MISSINGEQUALS</strong></dt>
+<dd>
+<dl>
+<dt>14073 (0x36F9)</dt>
+<dt>
+<p>Manifest Parse Error : Missing equals sign between attribute and attribute value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROTECTION_RECOVERY_FAILED"></a><a id="error_sxs_protection_recovery_failed"></a><strong>ERROR_SXS_PROTECTION_RECOVERY_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>14074 (0x36FA)</dt>
+<dt>
+<p>Assembly Protection Error : Unable to recover the specified assembly.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT"></a><a id="error_sxs_protection_public_key_too_short"></a><strong>ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT</strong></dt>
+<dd>
+<dl>
+<dt>14075 (0x36FB)</dt>
+<dt>
+<p>Assembly Protection Error : The public key for an assembly was too short to be allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROTECTION_CATALOG_NOT_VALID"></a><a id="error_sxs_protection_catalog_not_valid"></a><strong>ERROR_SXS_PROTECTION_CATALOG_NOT_VALID</strong></dt>
+<dd>
+<dl>
+<dt>14076 (0x36FC)</dt>
+<dt>
+<p>Assembly Protection Error : The catalog for an assembly is not valid, or does not match the assembly's 
+     manifest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_UNTRANSLATABLE_HRESULT"></a><a id="error_sxs_untranslatable_hresult"></a><strong>ERROR_SXS_UNTRANSLATABLE_HRESULT</strong></dt>
+<dd>
+<dl>
+<dt>14077 (0x36FD)</dt>
+<dt>
+<p>An HRESULT could not be translated to a corresponding Win32 error code.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING"></a><a id="error_sxs_protection_catalog_file_missing"></a><strong>ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>14078 (0x36FE)</dt>
+<dt>
+<p>Assembly Protection Error : The catalog for an assembly is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE"></a><a id="error_sxs_missing_assembly_identity_attribute"></a><strong>ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE</strong></dt>
+<dd>
+<dl>
+<dt>14079 (0x36FF)</dt>
+<dt>
+<p>The supplied assembly identity is missing one or more attributes which must be present in this context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME"></a><a id="error_sxs_invalid_assembly_identity_attribute_name"></a><strong>ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME</strong></dt>
+<dd>
+<dl>
+<dt>14080 (0x3700)</dt>
+<dt>
+<p>The supplied assembly identity has one or more attribute names that contain characters not permitted in XML 
+     names.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ASSEMBLY_MISSING"></a><a id="error_sxs_assembly_missing"></a><strong>ERROR_SXS_ASSEMBLY_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>14081 (0x3701)</dt>
+<dt>
+<p>The referenced assembly could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_CORRUPT_ACTIVATION_STACK"></a><a id="error_sxs_corrupt_activation_stack"></a><strong>ERROR_SXS_CORRUPT_ACTIVATION_STACK</strong></dt>
+<dd>
+<dl>
+<dt>14082 (0x3702)</dt>
+<dt>
+<p>The activation context activation stack for the running thread of execution is corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_CORRUPTION"></a><a id="error_sxs_corruption"></a><strong>ERROR_SXS_CORRUPTION</strong></dt>
+<dd>
+<dl>
+<dt>14083 (0x3703)</dt>
+<dt>
+<p>The application isolation metadata for this process or thread has become corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_EARLY_DEACTIVATION"></a><a id="error_sxs_early_deactivation"></a><strong>ERROR_SXS_EARLY_DEACTIVATION</strong></dt>
+<dd>
+<dl>
+<dt>14084 (0x3704)</dt>
+<dt>
+<p>The activation context being deactivated is not the most recently activated one.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_DEACTIVATION"></a><a id="error_sxs_invalid_deactivation"></a><strong>ERROR_SXS_INVALID_DEACTIVATION</strong></dt>
+<dd>
+<dl>
+<dt>14085 (0x3705)</dt>
+<dt>
+<p>The activation context being deactivated is not active for the current thread of execution.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MULTIPLE_DEACTIVATION"></a><a id="error_sxs_multiple_deactivation"></a><strong>ERROR_SXS_MULTIPLE_DEACTIVATION</strong></dt>
+<dd>
+<dl>
+<dt>14086 (0x3706)</dt>
+<dt>
+<p>The activation context being deactivated has already been deactivated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_PROCESS_TERMINATION_REQUESTED"></a><a id="error_sxs_process_termination_requested"></a><strong>ERROR_SXS_PROCESS_TERMINATION_REQUESTED</strong></dt>
+<dd>
+<dl>
+<dt>14087 (0x3707)</dt>
+<dt>
+<p>A component used by the isolation facility has requested to terminate the process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_RELEASE_ACTIVATION_CONTEXT"></a><a id="error_sxs_release_activation_context"></a><strong>ERROR_SXS_RELEASE_ACTIVATION_CONTEXT</strong></dt>
+<dd>
+<dl>
+<dt>14088 (0x3708)</dt>
+<dt>
+<p>A kernel mode component is releasing a reference on an activation context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY"></a><a id="error_sxs_system_default_activation_context_empty"></a><strong>ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY</strong></dt>
+<dd>
+<dl>
+<dt>14089 (0x3709)</dt>
+<dt>
+<p>The activation context of system default assembly could not be generated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE"></a><a id="error_sxs_invalid_identity_attribute_value"></a><strong>ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>14090 (0x370A)</dt>
+<dt>
+<p>The value of an attribute in an identity is not within the legal range.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME"></a><a id="error_sxs_invalid_identity_attribute_name"></a><strong>ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME</strong></dt>
+<dd>
+<dl>
+<dt>14091 (0x370B)</dt>
+<dt>
+<p>The name of an attribute in an identity is not within the legal range.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE"></a><a id="error_sxs_identity_duplicate_attribute"></a><strong>ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE</strong></dt>
+<dd>
+<dl>
+<dt>14092 (0x370C)</dt>
+<dt>
+<p>An identity contains two definitions for the same attribute.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_IDENTITY_PARSE_ERROR"></a><a id="error_sxs_identity_parse_error"></a><strong>ERROR_SXS_IDENTITY_PARSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>14093 (0x370D)</dt>
+<dt>
+<p>The identity string is malformed. This may be due to a trailing comma, more than two unnamed attributes, 
+     missing attribute name or missing attribute value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MALFORMED_SUBSTITUTION_STRING"></a><a id="error_malformed_substitution_string"></a><strong>ERROR_MALFORMED_SUBSTITUTION_STRING</strong></dt>
+<dd>
+<dl>
+<dt>14094 (0x370E)</dt>
+<dt>
+<p>A string containing localized substitutable content was malformed. Either a dollar sign ($) was followed by 
+     something other than a left parenthesis or another dollar sign or an substitution's right parenthesis was not 
+     found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN"></a><a id="error_sxs_incorrect_public_key_token"></a><strong>ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN</strong></dt>
+<dd>
+<dl>
+<dt>14095 (0x370F)</dt>
+<dt>
+<p>The public key token does not correspond to the public key specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNMAPPED_SUBSTITUTION_STRING"></a><a id="error_unmapped_substitution_string"></a><strong>ERROR_UNMAPPED_SUBSTITUTION_STRING</strong></dt>
+<dd>
+<dl>
+<dt>14096 (0x3710)</dt>
+<dt>
+<p>A substitution string had no mapping.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ASSEMBLY_NOT_LOCKED"></a><a id="error_sxs_assembly_not_locked"></a><strong>ERROR_SXS_ASSEMBLY_NOT_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>14097 (0x3711)</dt>
+<dt>
+<p>The component must be locked before making the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_COMPONENT_STORE_CORRUPT"></a><a id="error_sxs_component_store_corrupt"></a><strong>ERROR_SXS_COMPONENT_STORE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>14098 (0x3712)</dt>
+<dt>
+<p>The component store has been corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ADVANCED_INSTALLER_FAILED"></a><a id="error_advanced_installer_failed"></a><strong>ERROR_ADVANCED_INSTALLER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>14099 (0x3713)</dt>
+<dt>
+<p>An advanced installer failed during setup or servicing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_XML_ENCODING_MISMATCH"></a><a id="error_xml_encoding_mismatch"></a><strong>ERROR_XML_ENCODING_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>14100 (0x3714)</dt>
+<dt>
+<p>The character encoding in the XML declaration did not match the encoding used in the document.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT"></a><a id="error_sxs_manifest_identity_same_but_contents_different"></a><strong>ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT</strong></dt>
+<dd>
+<dl>
+<dt>14101 (0x3715)</dt>
+<dt>
+<p>The identities of the manifests are identical but their contents are different.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_IDENTITIES_DIFFERENT"></a><a id="error_sxs_identities_different"></a><strong>ERROR_SXS_IDENTITIES_DIFFERENT</strong></dt>
+<dd>
+<dl>
+<dt>14102 (0x3716)</dt>
+<dt>
+<p>The component identities are different.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT"></a><a id="error_sxs_assembly_is_not_a_deployment"></a><strong>ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT</strong></dt>
+<dd>
+<dl>
+<dt>14103 (0x3717)</dt>
+<dt>
+<p>The assembly is not a deployment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY"></a><a id="error_sxs_file_not_part_of_assembly"></a><strong>ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY</strong></dt>
+<dd>
+<dl>
+<dt>14104 (0x3718)</dt>
+<dt>
+<p>The file is not a part of the assembly.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_MANIFEST_TOO_BIG"></a><a id="error_sxs_manifest_too_big"></a><strong>ERROR_SXS_MANIFEST_TOO_BIG</strong></dt>
+<dd>
+<dl>
+<dt>14105 (0x3719)</dt>
+<dt>
+<p>The size of the manifest exceeds the maximum allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_SETTING_NOT_REGISTERED"></a><a id="error_sxs_setting_not_registered"></a><strong>ERROR_SXS_SETTING_NOT_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>14106 (0x371A)</dt>
+<dt>
+<p>The setting is not registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE"></a><a id="error_sxs_transaction_closure_incomplete"></a><strong>ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>14107 (0x371B)</dt>
+<dt>
+<p>One or more required members of the transaction are not present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SMI_PRIMITIVE_INSTALLER_FAILED"></a><a id="error_smi_primitive_installer_failed"></a><strong>ERROR_SMI_PRIMITIVE_INSTALLER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>14108 (0x371C)</dt>
+<dt>
+<p>The SMI primitive installer failed during setup or servicing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GENERIC_COMMAND_FAILED"></a><a id="error_generic_command_failed"></a><strong>ERROR_GENERIC_COMMAND_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>14109 (0x371D)</dt>
+<dt>
+<p>A generic command executable returned a result that indicates failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SXS_FILE_HASH_MISSING"></a><a id="error_sxs_file_hash_missing"></a><strong>ERROR_SXS_FILE_HASH_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>14110 (0x371E)</dt>
+<dt>
+<p>A component is missing file verification information in its manifest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_CHANNEL_PATH"></a><a id="error_evt_invalid_channel_path"></a><strong>ERROR_EVT_INVALID_CHANNEL_PATH</strong></dt>
+<dd>
+<dl>
+<dt>15000 (0x3A98)</dt>
+<dt>
+<p>The specified channel path is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_QUERY"></a><a id="error_evt_invalid_query"></a><strong>ERROR_EVT_INVALID_QUERY</strong></dt>
+<dd>
+<dl>
+<dt>15001 (0x3A99)</dt>
+<dt>
+<p>The specified query is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND"></a><a id="error_evt_publisher_metadata_not_found"></a><strong>ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15002 (0x3A9A)</dt>
+<dt>
+<p>The publisher metadata cannot be found in the resource.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND"></a><a id="error_evt_event_template_not_found"></a><strong>ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15003 (0x3A9B)</dt>
+<dt>
+<p>The template for an event definition cannot be found in the resource (error = %1).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_PUBLISHER_NAME"></a><a id="error_evt_invalid_publisher_name"></a><strong>ERROR_EVT_INVALID_PUBLISHER_NAME</strong></dt>
+<dd>
+<dl>
+<dt>15004 (0x3A9C)</dt>
+<dt>
+<p>The specified publisher name is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_EVENT_DATA"></a><a id="error_evt_invalid_event_data"></a><strong>ERROR_EVT_INVALID_EVENT_DATA</strong></dt>
+<dd>
+<dl>
+<dt>15005 (0x3A9D)</dt>
+<dt>
+<p>The event data raised by the publisher is not compatible with the event template definition in the 
+     publisher's manifest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_CHANNEL_NOT_FOUND"></a><a id="error_evt_channel_not_found"></a><strong>ERROR_EVT_CHANNEL_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15007 (0x3A9F)</dt>
+<dt>
+<p>The specified channel could not be found. Check channel configuration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_MALFORMED_XML_TEXT"></a><a id="error_evt_malformed_xml_text"></a><strong>ERROR_EVT_MALFORMED_XML_TEXT</strong></dt>
+<dd>
+<dl>
+<dt>15008 (0x3AA0)</dt>
+<dt>
+<p>The specified xml text was not well-formed. See Extended Error for more details.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL"></a><a id="error_evt_subscription_to_direct_channel"></a><strong>ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL</strong></dt>
+<dd>
+<dl>
+<dt>15009 (0x3AA1)</dt>
+<dt>
+<p>The caller is trying to subscribe to a direct channel which is not allowed. The events for a direct channel 
+     go directly to a logfile and cannot be subscribed to.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_CONFIGURATION_ERROR"></a><a id="error_evt_configuration_error"></a><strong>ERROR_EVT_CONFIGURATION_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>15010 (0x3AA2)</dt>
+<dt>
+<p>Configuration error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_QUERY_RESULT_STALE"></a><a id="error_evt_query_result_stale"></a><strong>ERROR_EVT_QUERY_RESULT_STALE</strong></dt>
+<dd>
+<dl>
+<dt>15011 (0x3AA3)</dt>
+<dt>
+<p>The query result is stale / invalid. This may be due to the log being cleared or rolling over after the 
+     query result was created. Users should handle this code by releasing the query result object and reissuing the 
+     query.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_QUERY_RESULT_INVALID_POSITION"></a><a id="error_evt_query_result_invalid_position"></a><strong>ERROR_EVT_QUERY_RESULT_INVALID_POSITION</strong></dt>
+<dd>
+<dl>
+<dt>15012 (0x3AA4)</dt>
+<dt>
+<p>Query result is currently at an invalid position.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_NON_VALIDATING_MSXML"></a><a id="error_evt_non_validating_msxml"></a><strong>ERROR_EVT_NON_VALIDATING_MSXML</strong></dt>
+<dd>
+<dl>
+<dt>15013 (0x3AA5)</dt>
+<dt>
+<p>Registered MSXML doesn't support validation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_ALREADYSCOPED"></a><a id="error_evt_filter_alreadyscoped"></a><strong>ERROR_EVT_FILTER_ALREADYSCOPED</strong></dt>
+<dd>
+<dl>
+<dt>15014 (0x3AA6)</dt>
+<dt>
+<p>An expression can only be followed by a change of scope operation if it itself evaluates to a node set and 
+     is not already part of some other change of scope operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_NOTELTSET"></a><a id="error_evt_filter_noteltset"></a><strong>ERROR_EVT_FILTER_NOTELTSET</strong></dt>
+<dd>
+<dl>
+<dt>15015 (0x3AA7)</dt>
+<dt>
+<p>Can't perform a step operation from a term that does not represent an element set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_INVARG"></a><a id="error_evt_filter_invarg"></a><strong>ERROR_EVT_FILTER_INVARG</strong></dt>
+<dd>
+<dl>
+<dt>15016 (0x3AA8)</dt>
+<dt>
+<p>Left hand side arguments to binary operators must be either attributes, nodes or variables and right hand 
+     side arguments must be constants.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_INVTEST"></a><a id="error_evt_filter_invtest"></a><strong>ERROR_EVT_FILTER_INVTEST</strong></dt>
+<dd>
+<dl>
+<dt>15017 (0x3AA9)</dt>
+<dt>
+<p>A step operation must involve either a node test or, in the case of a predicate, an algebraic expression 
+     against which to test each node in the node set identified by the preceeding node set can be evaluated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_INVTYPE"></a><a id="error_evt_filter_invtype"></a><strong>ERROR_EVT_FILTER_INVTYPE</strong></dt>
+<dd>
+<dl>
+<dt>15018 (0x3AAA)</dt>
+<dt>
+<p>This data type is currently unsupported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_PARSEERR"></a><a id="error_evt_filter_parseerr"></a><strong>ERROR_EVT_FILTER_PARSEERR</strong></dt>
+<dd>
+<dl>
+<dt>15019 (0x3AAB)</dt>
+<dt>
+<p>A syntax error occurred at position %1!d!.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_UNSUPPORTEDOP"></a><a id="error_evt_filter_unsupportedop"></a><strong>ERROR_EVT_FILTER_UNSUPPORTEDOP</strong></dt>
+<dd>
+<dl>
+<dt>15020 (0x3AAC)</dt>
+<dt>
+<p>This operator is unsupported by this implementation of the filter.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_UNEXPECTEDTOKEN"></a><a id="error_evt_filter_unexpectedtoken"></a><strong>ERROR_EVT_FILTER_UNEXPECTEDTOKEN</strong></dt>
+<dd>
+<dl>
+<dt>15021 (0x3AAD)</dt>
+<dt>
+<p>The token encountered was unexpected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL"></a><a id="error_evt_invalid_operation_over_enabled_direct_channel"></a><strong>ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL</strong></dt>
+<dd>
+<dl>
+<dt>15022 (0x3AAE)</dt>
+<dt>
+<p>The requested operation cannot be performed over an enabled direct channel. The channel must first be 
+     disabled before performing the requested operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE"></a><a id="error_evt_invalid_channel_property_value"></a><strong>ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>15023 (0x3AAF)</dt>
+<dt>
+<p>Channel property %1!s! contains invalid value. The value has invalid type, is outside of valid range, can't 
+     be updated or is not supported by this type of channel.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE"></a><a id="error_evt_invalid_publisher_property_value"></a><strong>ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>15024 (0x3AB0)</dt>
+<dt>
+<p>Publisher property %1!s! contains invalid value. The value has invalid type, is outside of valid range, 
+     can't be updated or is not supported by this type of publisher.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_CHANNEL_CANNOT_ACTIVATE"></a><a id="error_evt_channel_cannot_activate"></a><strong>ERROR_EVT_CHANNEL_CANNOT_ACTIVATE</strong></dt>
+<dd>
+<dl>
+<dt>15025 (0x3AB1)</dt>
+<dt>
+<p>The channel fails to activate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_TOO_COMPLEX"></a><a id="error_evt_filter_too_complex"></a><strong>ERROR_EVT_FILTER_TOO_COMPLEX</strong></dt>
+<dd>
+<dl>
+<dt>15026 (0x3AB2)</dt>
+<dt>
+<p>The xpath expression exceeded supported complexity. Please symplify it or split it into two or more simple 
+     expressions.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_MESSAGE_NOT_FOUND"></a><a id="error_evt_message_not_found"></a><strong>ERROR_EVT_MESSAGE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15027 (0x3AB3)</dt>
+<dt>
+<p>the message resource is present but the message is not found in the string/message table.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_MESSAGE_ID_NOT_FOUND"></a><a id="error_evt_message_id_not_found"></a><strong>ERROR_EVT_MESSAGE_ID_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15028 (0x3AB4)</dt>
+<dt>
+<p>The message id for the desired message could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_UNRESOLVED_VALUE_INSERT"></a><a id="error_evt_unresolved_value_insert"></a><strong>ERROR_EVT_UNRESOLVED_VALUE_INSERT</strong></dt>
+<dd>
+<dl>
+<dt>15029 (0x3AB5)</dt>
+<dt>
+<p>The substitution string for insert index (%1) could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_UNRESOLVED_PARAMETER_INSERT"></a><a id="error_evt_unresolved_parameter_insert"></a><strong>ERROR_EVT_UNRESOLVED_PARAMETER_INSERT</strong></dt>
+<dd>
+<dl>
+<dt>15030 (0x3AB6)</dt>
+<dt>
+<p>The description string for parameter reference (%1) could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_MAX_INSERTS_REACHED"></a><a id="error_evt_max_inserts_reached"></a><strong>ERROR_EVT_MAX_INSERTS_REACHED</strong></dt>
+<dd>
+<dl>
+<dt>15031 (0x3AB7)</dt>
+<dt>
+<p>The maximum number of replacements has been reached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_EVENT_DEFINITION_NOT_FOUND"></a><a id="error_evt_event_definition_not_found"></a><strong>ERROR_EVT_EVENT_DEFINITION_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15032 (0x3AB8)</dt>
+<dt>
+<p>The event definition could not be found for event id (%1).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND"></a><a id="error_evt_message_locale_not_found"></a><strong>ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15033 (0x3AB9)</dt>
+<dt>
+<p>The locale specific resource for the desired message is not present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_VERSION_TOO_OLD"></a><a id="error_evt_version_too_old"></a><strong>ERROR_EVT_VERSION_TOO_OLD</strong></dt>
+<dd>
+<dl>
+<dt>15034 (0x3ABA)</dt>
+<dt>
+<p>The resource is too old to be compatible.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_VERSION_TOO_NEW"></a><a id="error_evt_version_too_new"></a><strong>ERROR_EVT_VERSION_TOO_NEW</strong></dt>
+<dd>
+<dl>
+<dt>15035 (0x3ABB)</dt>
+<dt>
+<p>The resource is too new to be compatible.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY"></a><a id="error_evt_cannot_open_channel_of_query"></a><strong>ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY</strong></dt>
+<dd>
+<dl>
+<dt>15036 (0x3ABC)</dt>
+<dt>
+<p>The channel at index %1!d! of the query can't be opened.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_PUBLISHER_DISABLED"></a><a id="error_evt_publisher_disabled"></a><strong>ERROR_EVT_PUBLISHER_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>15037 (0x3ABD)</dt>
+<dt>
+<p>The publisher has been disabled and its resource is not avaiable. This usually occurs when the publisher is 
+     in the process of being uninstalled or upgraded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVT_FILTER_OUT_OF_RANGE"></a><a id="error_evt_filter_out_of_range"></a><strong>ERROR_EVT_FILTER_OUT_OF_RANGE</strong></dt>
+<dd>
+<dl>
+<dt>15038 (0x3ABE)</dt>
+<dt>
+<p>Attempted to create a numeric type that is outside of its valid range.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE"></a><a id="error_ec_subscription_cannot_activate"></a><strong>ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE</strong></dt>
+<dd>
+<dl>
+<dt>15080 (0x3AE8)</dt>
+<dt>
+<p>The subscription fails to activate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_LOG_DISABLED"></a><a id="error_ec_log_disabled"></a><strong>ERROR_EC_LOG_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>15081 (0x3AE9)</dt>
+<dt>
+<p>The log of the subscription is in disabled state, and can not be used to forward events to. The log must 
+     first be enabled before the subscription can be activated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_CIRCULAR_FORWARDING"></a><a id="error_ec_circular_forwarding"></a><strong>ERROR_EC_CIRCULAR_FORWARDING</strong></dt>
+<dd>
+<dl>
+<dt>15082 (0x3AEA)</dt>
+<dt>
+<p>When forwarding events from local machine to itself, the query of the subscription can't contain target log 
+     of the subscription.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_CREDSTORE_FULL"></a><a id="error_ec_credstore_full"></a><strong>ERROR_EC_CREDSTORE_FULL</strong></dt>
+<dd>
+<dl>
+<dt>15083 (0x3AEB)</dt>
+<dt>
+<p>The credential store that is used to save credentials is full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_CRED_NOT_FOUND"></a><a id="error_ec_cred_not_found"></a><strong>ERROR_EC_CRED_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15084 (0x3AEC)</dt>
+<dt>
+<p>The credential used by this subscription can't be found in credential store.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EC_NO_ACTIVE_CHANNEL"></a><a id="error_ec_no_active_channel"></a><strong>ERROR_EC_NO_ACTIVE_CHANNEL</strong></dt>
+<dd>
+<dl>
+<dt>15085 (0x3AED)</dt>
+<dt>
+<p>No active channel is found for the query.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_FILE_NOT_FOUND"></a><a id="error_mui_file_not_found"></a><strong>ERROR_MUI_FILE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15100 (0x3AFC)</dt>
+<dt>
+<p>The resource loader failed to find MUI file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INVALID_FILE"></a><a id="error_mui_invalid_file"></a><strong>ERROR_MUI_INVALID_FILE</strong></dt>
+<dd>
+<dl>
+<dt>15101 (0x3AFD)</dt>
+<dt>
+<p>The resource loader failed to load MUI file because the file fail to pass validation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INVALID_RC_CONFIG"></a><a id="error_mui_invalid_rc_config"></a><strong>ERROR_MUI_INVALID_RC_CONFIG</strong></dt>
+<dd>
+<dl>
+<dt>15102 (0x3AFE)</dt>
+<dt>
+<p>The RC Manifest is corrupted with garbage data or unsupported version or missing required item.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INVALID_LOCALE_NAME"></a><a id="error_mui_invalid_locale_name"></a><strong>ERROR_MUI_INVALID_LOCALE_NAME</strong></dt>
+<dd>
+<dl>
+<dt>15103 (0x3AFF)</dt>
+<dt>
+<p>The RC Manifest has invalid culture name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME"></a><a id="error_mui_invalid_ultimatefallback_name"></a><strong>ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME</strong></dt>
+<dd>
+<dl>
+<dt>15104 (0x3B00)</dt>
+<dt>
+<p>The RC Manifest has invalid ultimatefallback name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_FILE_NOT_LOADED"></a><a id="error_mui_file_not_loaded"></a><strong>ERROR_MUI_FILE_NOT_LOADED</strong></dt>
+<dd>
+<dl>
+<dt>15105 (0x3B01)</dt>
+<dt>
+<p>The resource loader cache doesn't have loaded MUI entry.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESOURCE_ENUM_USER_STOP"></a><a id="error_resource_enum_user_stop"></a><strong>ERROR_RESOURCE_ENUM_USER_STOP</strong></dt>
+<dd>
+<dl>
+<dt>15106 (0x3B02)</dt>
+<dt>
+<p>User stopped resource enumeration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED"></a><a id="error_mui_intlsettings_uilang_not_installed"></a><strong>ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>15107 (0x3B03)</dt>
+<dt>
+<p>UI language installation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME"></a><a id="error_mui_intlsettings_invalid_locale_name"></a><strong>ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME</strong></dt>
+<dd>
+<dl>
+<dt>15108 (0x3B04)</dt>
+<dt>
+<p>Locale installation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE"></a><a id="error_mrm_runtime_no_default_or_neutral_resource"></a><strong>ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE</strong></dt>
+<dd>
+<dl>
+<dt>15110 (0x3B06)</dt>
+<dt>
+<p>A resource does not have default or neutral value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_PRICONFIG"></a><a id="error_mrm_invalid_priconfig"></a><strong>ERROR_MRM_INVALID_PRICONFIG</strong></dt>
+<dd>
+<dl>
+<dt>15111 (0x3B07)</dt>
+<dt>
+<p>Invalid PRI config file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_FILE_TYPE"></a><a id="error_mrm_invalid_file_type"></a><strong>ERROR_MRM_INVALID_FILE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>15112 (0x3B08)</dt>
+<dt>
+<p>Invalid file type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_UNKNOWN_QUALIFIER"></a><a id="error_mrm_unknown_qualifier"></a><strong>ERROR_MRM_UNKNOWN_QUALIFIER</strong></dt>
+<dd>
+<dl>
+<dt>15113 (0x3B09)</dt>
+<dt>
+<p>Unknown qualifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_QUALIFIER_VALUE"></a><a id="error_mrm_invalid_qualifier_value"></a><strong>ERROR_MRM_INVALID_QUALIFIER_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>15114 (0x3B0A)</dt>
+<dt>
+<p>Invalid qualifier value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_NO_CANDIDATE"></a><a id="error_mrm_no_candidate"></a><strong>ERROR_MRM_NO_CANDIDATE</strong></dt>
+<dd>
+<dl>
+<dt>15115 (0x3B0B)</dt>
+<dt>
+<p>No Candidate found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE"></a><a id="error_mrm_no_match_or_default_candidate"></a><strong>ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE</strong></dt>
+<dd>
+<dl>
+<dt>15116 (0x3B0C)</dt>
+<dt>
+<p>The ResourceMap or NamedResource has an item that does not have default or neutral resource..</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_RESOURCE_TYPE_MISMATCH"></a><a id="error_mrm_resource_type_mismatch"></a><strong>ERROR_MRM_RESOURCE_TYPE_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>15117 (0x3B0D)</dt>
+<dt>
+<p>Invalid ResourceCandidate type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_DUPLICATE_MAP_NAME"></a><a id="error_mrm_duplicate_map_name"></a><strong>ERROR_MRM_DUPLICATE_MAP_NAME</strong></dt>
+<dd>
+<dl>
+<dt>15118 (0x3B0E)</dt>
+<dt>
+<p>Duplicate Resource Map.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_DUPLICATE_ENTRY"></a><a id="error_mrm_duplicate_entry"></a><strong>ERROR_MRM_DUPLICATE_ENTRY</strong></dt>
+<dd>
+<dl>
+<dt>15119 (0x3B0F)</dt>
+<dt>
+<p>Duplicate Entry.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_RESOURCE_IDENTIFIER"></a><a id="error_mrm_invalid_resource_identifier"></a><strong>ERROR_MRM_INVALID_RESOURCE_IDENTIFIER</strong></dt>
+<dd>
+<dl>
+<dt>15120 (0x3B10)</dt>
+<dt>
+<p>Invalid Resource Identifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_FILEPATH_TOO_LONG"></a><a id="error_mrm_filepath_too_long"></a><strong>ERROR_MRM_FILEPATH_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>15121 (0x3B11)</dt>
+<dt>
+<p>Filepath too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE"></a><a id="error_mrm_unsupported_directory_type"></a><strong>ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>15122 (0x3B12)</dt>
+<dt>
+<p>Unsupported directory type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_PRI_FILE"></a><a id="error_mrm_invalid_pri_file"></a><strong>ERROR_MRM_INVALID_PRI_FILE</strong></dt>
+<dd>
+<dl>
+<dt>15126 (0x3B16)</dt>
+<dt>
+<p>Invalid PRI File.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_NAMED_RESOURCE_NOT_FOUND"></a><a id="error_mrm_named_resource_not_found"></a><strong>ERROR_MRM_NAMED_RESOURCE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15127 (0x3B17)</dt>
+<dt>
+<p>NamedResource Not Found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_MAP_NOT_FOUND"></a><a id="error_mrm_map_not_found"></a><strong>ERROR_MRM_MAP_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15135 (0x3B1F)</dt>
+<dt>
+<p>ResourceMap Not Found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_UNSUPPORTED_PROFILE_TYPE"></a><a id="error_mrm_unsupported_profile_type"></a><strong>ERROR_MRM_UNSUPPORTED_PROFILE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>15136 (0x3B20)</dt>
+<dt>
+<p>Unsupported MRT profile type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INVALID_QUALIFIER_OPERATOR"></a><a id="error_mrm_invalid_qualifier_operator"></a><strong>ERROR_MRM_INVALID_QUALIFIER_OPERATOR</strong></dt>
+<dd>
+<dl>
+<dt>15137 (0x3B21)</dt>
+<dt>
+<p>Invalid qualifier operator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE"></a><a id="error_mrm_indeterminate_qualifier_value"></a><strong>ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>15138 (0x3B22)</dt>
+<dt>
+<p>Unable to determine qualifier value or qualifier value has not been set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_AUTOMERGE_ENABLED"></a><a id="error_mrm_automerge_enabled"></a><strong>ERROR_MRM_AUTOMERGE_ENABLED</strong></dt>
+<dd>
+<dl>
+<dt>15139 (0x3B23)</dt>
+<dt>
+<p>Automerge is enabled in the PRI file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MRM_TOO_MANY_RESOURCES"></a><a id="error_mrm_too_many_resources"></a><strong>ERROR_MRM_TOO_MANY_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>15140 (0x3B24)</dt>
+<dt>
+<p>Too many resources defined for package.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_INVALID_CAPABILITIES_STRING"></a><a id="error_mca_invalid_capabilities_string"></a><strong>ERROR_MCA_INVALID_CAPABILITIES_STRING</strong></dt>
+<dd>
+<dl>
+<dt>15200 (0x3B60)</dt>
+<dt>
+<p>The monitor returned a DDC/CI capabilities string that did not comply with the ACCESS.bus 3.0, DDC/CI 1.1 or 
+     MCCS 2 Revision 1 specification.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_INVALID_VCP_VERSION"></a><a id="error_mca_invalid_vcp_version"></a><strong>ERROR_MCA_INVALID_VCP_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>15201 (0x3B61)</dt>
+<dt>
+<p>The monitor's VCP Version (0xDF) VCP code returned an invalid version value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION"></a><a id="error_mca_monitor_violates_mccs_specification"></a><strong>ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION</strong></dt>
+<dd>
+<dl>
+<dt>15202 (0x3B62)</dt>
+<dt>
+<p>The monitor does not comply with the MCCS specification it claims to support.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_MCCS_VERSION_MISMATCH"></a><a id="error_mca_mccs_version_mismatch"></a><strong>ERROR_MCA_MCCS_VERSION_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>15203 (0x3B63)</dt>
+<dt>
+<p>The MCCS version in a monitor's mccs_ver capability does not match the MCCS version the monitor reports when 
+     the VCP Version (0xDF) VCP code is used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_UNSUPPORTED_MCCS_VERSION"></a><a id="error_mca_unsupported_mccs_version"></a><strong>ERROR_MCA_UNSUPPORTED_MCCS_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>15204 (0x3B64)</dt>
+<dt>
+<p>The Monitor Configuration API only works with monitors that support the MCCS 1.0 specification, MCCS 2.0 
+     specification or the MCCS 2.0 Revision 1 specification.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_INTERNAL_ERROR"></a><a id="error_mca_internal_error"></a><strong>ERROR_MCA_INTERNAL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>15205 (0x3B65)</dt>
+<dt>
+<p>An internal Monitor Configuration API error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED"></a><a id="error_mca_invalid_technology_type_returned"></a><strong>ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED</strong></dt>
+<dd>
+<dl>
+<dt>15206 (0x3B66)</dt>
+<dt>
+<p>The monitor returned an invalid monitor technology type. CRT, Plasma and LCD (TFT) are examples of monitor 
+     technology types. This error implies that the monitor violated the MCCS 2.0 or MCCS 2.0 Revision 1 
+     specification.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE"></a><a id="error_mca_unsupported_color_temperature"></a><strong>ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE</strong></dt>
+<dd>
+<dl>
+<dt>15207 (0x3B67)</dt>
+<dt>
+<p>The caller of <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd692973(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">SetMonitorColorTemperature</strong></a> specified a color temperature that the current monitor did not 
+     support. This error implies that the monitor violated the MCCS 2.0 or MCCS 2.0 Revision 1 specification.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_AMBIGUOUS_SYSTEM_DEVICE"></a><a id="error_ambiguous_system_device"></a><strong>ERROR_AMBIGUOUS_SYSTEM_DEVICE</strong></dt>
+<dd>
+<dl>
+<dt>15250 (0x3B92)</dt>
+<dt>
+<p>The requested system device cannot be identified due to multiple indistinguishable devices potentially 
+     matching the identification criteria.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_DEVICE_NOT_FOUND"></a><a id="error_system_device_not_found"></a><strong>ERROR_SYSTEM_DEVICE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15299 (0x3BC3)</dt>
+<dt>
+<p>The requested system device cannot be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HASH_NOT_SUPPORTED"></a><a id="error_hash_not_supported"></a><strong>ERROR_HASH_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>15300 (0x3BC4)</dt>
+<dt>
+<p>Hash generation for the specified hash version and hash type is not enabled on the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HASH_NOT_PRESENT"></a><a id="error_hash_not_present"></a><strong>ERROR_HASH_NOT_PRESENT</strong></dt>
+<dd>
+<dl>
+<dt>15301 (0x3BC5)</dt>
+<dt>
+<p>The hash requested from the server is not available or no longer valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED"></a><a id="error_secondary_ic_provider_not_registered"></a><strong>ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>15321 (0x3BD9)</dt>
+<dt>
+<p>The secondary interrupt controller instance that manages the specified interrupt is not registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_CLIENT_INFORMATION_INVALID"></a><a id="error_gpio_client_information_invalid"></a><strong>ERROR_GPIO_CLIENT_INFORMATION_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>15322 (0x3BDA)</dt>
+<dt>
+<p>The information supplied by the GPIO client driver is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_VERSION_NOT_SUPPORTED"></a><a id="error_gpio_version_not_supported"></a><strong>ERROR_GPIO_VERSION_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>15323 (0x3BDB)</dt>
+<dt>
+<p>The version specified by the GPIO client driver is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_INVALID_REGISTRATION_PACKET"></a><a id="error_gpio_invalid_registration_packet"></a><strong>ERROR_GPIO_INVALID_REGISTRATION_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>15324 (0x3BDC)</dt>
+<dt>
+<p>The registration packet supplied by the GPIO client driver is not valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_OPERATION_DENIED"></a><a id="error_gpio_operation_denied"></a><strong>ERROR_GPIO_OPERATION_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>15325 (0x3BDD)</dt>
+<dt>
+<p>The requested operation is not suppported for the specified handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE"></a><a id="error_gpio_incompatible_connect_mode"></a><strong>ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE</strong></dt>
+<dd>
+<dl>
+<dt>15326 (0x3BDE)</dt>
+<dt>
+<p>The requested connect mode conflicts with an existing mode on one or more of the specified pins.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED"></a><a id="error_gpio_interrupt_already_unmasked"></a><strong>ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED</strong></dt>
+<dd>
+<dl>
+<dt>15327 (0x3BDF)</dt>
+<dt>
+<p>The interrupt requested to be unmasked is not masked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_SWITCH_RUNLEVEL"></a><a id="error_cannot_switch_runlevel"></a><strong>ERROR_CANNOT_SWITCH_RUNLEVEL</strong></dt>
+<dd>
+<dl>
+<dt>15400 (0x3C28)</dt>
+<dt>
+<p>The requested run level switch cannot be completed successfully.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_RUNLEVEL_SETTING"></a><a id="error_invalid_runlevel_setting"></a><strong>ERROR_INVALID_RUNLEVEL_SETTING</strong></dt>
+<dd>
+<dl>
+<dt>15401 (0x3C29)</dt>
+<dt>
+<p>The service has an invalid run level setting. The run level for a service must not be higher than the run 
+     level of its dependent services.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RUNLEVEL_SWITCH_TIMEOUT"></a><a id="error_runlevel_switch_timeout"></a><strong>ERROR_RUNLEVEL_SWITCH_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>15402 (0x3C2A)</dt>
+<dt>
+<p>The requested run level switch cannot be completed successfully since one or more services will not stop or 
+     restart within the specified timeout.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT"></a><a id="error_runlevel_switch_agent_timeout"></a><strong>ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>15403 (0x3C2B)</dt>
+<dt>
+<p>A run level switch agent did not respond within the specified timeout.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RUNLEVEL_SWITCH_IN_PROGRESS"></a><a id="error_runlevel_switch_in_progress"></a><strong>ERROR_RUNLEVEL_SWITCH_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>15404 (0x3C2C)</dt>
+<dt>
+<p>A run level switch is currently in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SERVICES_FAILED_AUTOSTART"></a><a id="error_services_failed_autostart"></a><strong>ERROR_SERVICES_FAILED_AUTOSTART</strong></dt>
+<dd>
+<dl>
+<dt>15405 (0x3C2D)</dt>
+<dt>
+<p>One or more services failed to start during the service startup phase of a run level switch.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COM_TASK_STOP_PENDING"></a><a id="error_com_task_stop_pending"></a><strong>ERROR_COM_TASK_STOP_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>15501 (0x3C8D)</dt>
+<dt>
+<p>The task stop request cannot be completed immediately since task needs more time to shutdown.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_OPEN_PACKAGE_FAILED"></a><a id="error_install_open_package_failed"></a><strong>ERROR_INSTALL_OPEN_PACKAGE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15600 (0x3CF0)</dt>
+<dt>
+<p>Package could not be opened.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_NOT_FOUND"></a><a id="error_install_package_not_found"></a><strong>ERROR_INSTALL_PACKAGE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>15601 (0x3CF1)</dt>
+<dt>
+<p>Package was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_INVALID_PACKAGE"></a><a id="error_install_invalid_package"></a><strong>ERROR_INSTALL_INVALID_PACKAGE</strong></dt>
+<dd>
+<dl>
+<dt>15602 (0x3CF2)</dt>
+<dt>
+<p>Package data is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED"></a><a id="error_install_resolve_dependency_failed"></a><strong>ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15603 (0x3CF3)</dt>
+<dt>
+<p>Package failed updates, dependency or conflict validation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_OUT_OF_DISK_SPACE"></a><a id="error_install_out_of_disk_space"></a><strong>ERROR_INSTALL_OUT_OF_DISK_SPACE</strong></dt>
+<dd>
+<dl>
+<dt>15604 (0x3CF4)</dt>
+<dt>
+<p>There is not enough disk space on your computer. Please free up some space and try again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_NETWORK_FAILURE"></a><a id="error_install_network_failure"></a><strong>ERROR_INSTALL_NETWORK_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>15605 (0x3CF5)</dt>
+<dt>
+<p>There was a problem downloading your product.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_REGISTRATION_FAILURE"></a><a id="error_install_registration_failure"></a><strong>ERROR_INSTALL_REGISTRATION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>15606 (0x3CF6)</dt>
+<dt>
+<p>Package could not be registered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_DEREGISTRATION_FAILURE"></a><a id="error_install_deregistration_failure"></a><strong>ERROR_INSTALL_DEREGISTRATION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>15607 (0x3CF7)</dt>
+<dt>
+<p>Package could not be unregistered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_CANCEL"></a><a id="error_install_cancel"></a><strong>ERROR_INSTALL_CANCEL</strong></dt>
+<dd>
+<dl>
+<dt>15608 (0x3CF8)</dt>
+<dt>
+<p>User cancelled the install request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_FAILED"></a><a id="error_install_failed"></a><strong>ERROR_INSTALL_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15609 (0x3CF9)</dt>
+<dt>
+<p>Install failed. Please contact your software vendor.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REMOVE_FAILED"></a><a id="error_remove_failed"></a><strong>ERROR_REMOVE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15610 (0x3CFA)</dt>
+<dt>
+<p>Removal failed. Please contact your software vendor.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PACKAGE_ALREADY_EXISTS"></a><a id="error_package_already_exists"></a><strong>ERROR_PACKAGE_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>15611 (0x3CFB)</dt>
+<dt>
+<p>The provided package is already installed, and reinstallation of the package was blocked. Check the 
+     AppXDeployment-Server event log for details.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NEEDS_REMEDIATION"></a><a id="error_needs_remediation"></a><strong>ERROR_NEEDS_REMEDIATION</strong></dt>
+<dd>
+<dl>
+<dt>15612 (0x3CFC)</dt>
+<dt>
+<p>The application cannot be started. Try reinstalling the application to fix the problem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PREREQUISITE_FAILED"></a><a id="error_install_prerequisite_failed"></a><strong>ERROR_INSTALL_PREREQUISITE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15613 (0x3CFD)</dt>
+<dt>
+<p>A Prerequisite for an install could not be satisfied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PACKAGE_REPOSITORY_CORRUPTED"></a><a id="error_package_repository_corrupted"></a><strong>ERROR_PACKAGE_REPOSITORY_CORRUPTED</strong></dt>
+<dd>
+<dl>
+<dt>15614 (0x3CFE)</dt>
+<dt>
+<p>The package repository is corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_POLICY_FAILURE"></a><a id="error_install_policy_failure"></a><strong>ERROR_INSTALL_POLICY_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>15615 (0x3CFF)</dt>
+<dt>
+<p>To install this application you need either a Windows developer license or a sideloading-enabled 
+     system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PACKAGE_UPDATING"></a><a id="error_package_updating"></a><strong>ERROR_PACKAGE_UPDATING</strong></dt>
+<dd>
+<dl>
+<dt>15616 (0x3D00)</dt>
+<dt>
+<p>The application cannot be started because it is currently updating.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEPLOYMENT_BLOCKED_BY_POLICY"></a><a id="error_deployment_blocked_by_policy"></a><strong>ERROR_DEPLOYMENT_BLOCKED_BY_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>15617 (0x3D01)</dt>
+<dt>
+<p>The package deployment operation is blocked by policy. Please contact your system administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PACKAGES_IN_USE"></a><a id="error_packages_in_use"></a><strong>ERROR_PACKAGES_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>15618 (0x3D02)</dt>
+<dt>
+<p>The package could not be installed because resources it modifies are currently in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RECOVERY_FILE_CORRUPT"></a><a id="error_recovery_file_corrupt"></a><strong>ERROR_RECOVERY_FILE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>15619 (0x3D03)</dt>
+<dt>
+<p>The package could not be recovered because necessary data for recovery have been corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_STAGED_SIGNATURE"></a><a id="error_invalid_staged_signature"></a><strong>ERROR_INVALID_STAGED_SIGNATURE</strong></dt>
+<dd>
+<dl>
+<dt>15620 (0x3D04)</dt>
+<dt>
+<p>The signature is invalid. To register in developer mode, AppxSignature.p7x and 
+     AppxBlockMap.xml must be valid or should not be present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED"></a><a id="error_deleting_existing_applicationdata_store_failed"></a><strong>ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15621 (0x3D05)</dt>
+<dt>
+<p>An error occurred while deleting the package's previously existing application data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_PACKAGE_DOWNGRADE"></a><a id="error_install_package_downgrade"></a><strong>ERROR_INSTALL_PACKAGE_DOWNGRADE</strong></dt>
+<dd>
+<dl>
+<dt>15622 (0x3D06)</dt>
+<dt>
+<p>The package could not be installed because a higher version of this package is already installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_NEEDS_REMEDIATION"></a><a id="error_system_needs_remediation"></a><strong>ERROR_SYSTEM_NEEDS_REMEDIATION</strong></dt>
+<dd>
+<dl>
+<dt>15623 (0x3D07)</dt>
+<dt>
+<p>An error in a system binary was detected. Try refreshing the PC to fix the problem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN"></a><a id="error_appx_integrity_failure_clr_ngen"></a><strong>ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN</strong></dt>
+<dd>
+<dl>
+<dt>15624 (0x3D08)</dt>
+<dt>
+<p>A corrupted CLR NGEN binary was detected on the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESILIENCY_FILE_CORRUPT"></a><a id="error_resiliency_file_corrupt"></a><strong>ERROR_RESILIENCY_FILE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>15625 (0x3D09)</dt>
+<dt>
+<p>The operation could not be resumed because necessary data for recovery have been corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING"></a><a id="error_install_firewall_service_not_running"></a><strong>ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING</strong></dt>
+<dd>
+<dl>
+<dt>15626 (0x3D0A)</dt>
+<dt>
+<p>The package could not be installed because the Windows Firewall service is not running. Enable the Windows 
+     Firewall service and try again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="APPMODEL_ERROR_NO_PACKAGE"></a><a id="appmodel_error_no_package"></a><strong>APPMODEL_ERROR_NO_PACKAGE</strong></dt>
+<dd>
+<dl>
+<dt>15700 (0x3D54)</dt>
+<dt>
+<p>The process has no package identity.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT"></a><a id="appmodel_error_package_runtime_corrupt"></a><strong>APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>15701 (0x3D55)</dt>
+<dt>
+<p>The package runtime information is corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT"></a><a id="appmodel_error_package_identity_corrupt"></a><strong>APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>15702 (0x3D56)</dt>
+<dt>
+<p>The package identity is corrupted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="APPMODEL_ERROR_NO_APPLICATION"></a><a id="appmodel_error_no_application"></a><strong>APPMODEL_ERROR_NO_APPLICATION</strong></dt>
+<dd>
+<dl>
+<dt>15703 (0x3D57)</dt>
+<dt>
+<p>The process has no application identity.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_LOAD_STORE_FAILED"></a><a id="error_state_load_store_failed"></a><strong>ERROR_STATE_LOAD_STORE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15800 (0x3DB8)</dt>
+<dt>
+<p>Loading the state store failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_GET_VERSION_FAILED"></a><a id="error_state_get_version_failed"></a><strong>ERROR_STATE_GET_VERSION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15801 (0x3DB9)</dt>
+<dt>
+<p>Retrieving the state version for the application failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_SET_VERSION_FAILED"></a><a id="error_state_set_version_failed"></a><strong>ERROR_STATE_SET_VERSION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15802 (0x3DBA)</dt>
+<dt>
+<p>Setting the state version for the application failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_STRUCTURED_RESET_FAILED"></a><a id="error_state_structured_reset_failed"></a><strong>ERROR_STATE_STRUCTURED_RESET_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15803 (0x3DBB)</dt>
+<dt>
+<p>Resetting the structured state of the application failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_OPEN_CONTAINER_FAILED"></a><a id="error_state_open_container_failed"></a><strong>ERROR_STATE_OPEN_CONTAINER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15804 (0x3DBC)</dt>
+<dt>
+<p>State Manager failed to open the container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_CREATE_CONTAINER_FAILED"></a><a id="error_state_create_container_failed"></a><strong>ERROR_STATE_CREATE_CONTAINER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15805 (0x3DBD)</dt>
+<dt>
+<p>State Manager failed to create the container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_DELETE_CONTAINER_FAILED"></a><a id="error_state_delete_container_failed"></a><strong>ERROR_STATE_DELETE_CONTAINER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15806 (0x3DBE)</dt>
+<dt>
+<p>State Manager failed to delete the container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_READ_SETTING_FAILED"></a><a id="error_state_read_setting_failed"></a><strong>ERROR_STATE_READ_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15807 (0x3DBF)</dt>
+<dt>
+<p>State Manager failed to read the setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_WRITE_SETTING_FAILED"></a><a id="error_state_write_setting_failed"></a><strong>ERROR_STATE_WRITE_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15808 (0x3DC0)</dt>
+<dt>
+<p>State Manager failed to write the setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_DELETE_SETTING_FAILED"></a><a id="error_state_delete_setting_failed"></a><strong>ERROR_STATE_DELETE_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15809 (0x3DC1)</dt>
+<dt>
+<p>State Manager failed to delete the setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_QUERY_SETTING_FAILED"></a><a id="error_state_query_setting_failed"></a><strong>ERROR_STATE_QUERY_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15810 (0x3DC2)</dt>
+<dt>
+<p>State Manager failed to query the setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_READ_COMPOSITE_SETTING_FAILED"></a><a id="error_state_read_composite_setting_failed"></a><strong>ERROR_STATE_READ_COMPOSITE_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15811 (0x3DC3)</dt>
+<dt>
+<p>State Manager failed to read the composite setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED"></a><a id="error_state_write_composite_setting_failed"></a><strong>ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15812 (0x3DC4)</dt>
+<dt>
+<p>State Manager failed to write the composite setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_ENUMERATE_CONTAINER_FAILED"></a><a id="error_state_enumerate_container_failed"></a><strong>ERROR_STATE_ENUMERATE_CONTAINER_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15813 (0x3DC5)</dt>
+<dt>
+<p>State Manager failed to enumerate the containers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_ENUMERATE_SETTINGS_FAILED"></a><a id="error_state_enumerate_settings_failed"></a><strong>ERROR_STATE_ENUMERATE_SETTINGS_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>15814 (0x3DC6)</dt>
+<dt>
+<p>State Manager failed to enumerate the settings.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED"></a><a id="error_state_composite_setting_value_size_limit_exceeded"></a><strong>ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>15815 (0x3DC7)</dt>
+<dt>
+<p>The size of the state manager composite setting value has exceeded the limit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED"></a><a id="error_state_setting_value_size_limit_exceeded"></a><strong>ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>15816 (0x3DC8)</dt>
+<dt>
+<p>The size of the state manager setting value has exceeded the limit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED"></a><a id="error_state_setting_name_size_limit_exceeded"></a><strong>ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>15817 (0x3DC9)</dt>
+<dt>
+<p>The length of the state manager setting name has exceeded the limit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED"></a><a id="error_state_container_name_size_limit_exceeded"></a><strong>ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>15818 (0x3DCA)</dt>
+<dt>
+<p>The length of the state manager container name has exceeded the limit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_API_UNAVAILABLE"></a><a id="error_api_unavailable"></a><strong>ERROR_API_UNAVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>15841 (0x3DE1)</dt>
+<dt>
+<p>This API cannot be used in the context of the caller's application type.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681384(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681384(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="tRXyzxNCYKXASokUdoRbMnCz__XbnkAoayBD0FUFqAOH_AewPqoN_3c9WiS5ldqMVwYgXMVONbutM7Cy7Q07F9FSIUo1" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681384(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681384(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="msmz0z0t2OFTSlUFnWZhNWT6mr3p6HtJo02jV_nkWac1FB-JiAdRiqSXLSl_KN2xyqhYuw_SyrhaZ26OuvYZqCWv-vg1" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://157.56.49.80\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681384(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"176c49c4-253b-4b50-b6b0-8c09ceaf8b7b\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i2.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

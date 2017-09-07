@@ -1,0 +1,15 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Power Tools.chm
+Contents file=Table of Contents.hhc
+Default Font=Calibri,10,0
+Default topic=Overview.html
+Display compile progress=Yes
+Full-text search=Yes
+Index file=Index.hhk
+Language=0x409 English (United States)
+Title=Power Tools
+
+
+[INFOTYPES]
+

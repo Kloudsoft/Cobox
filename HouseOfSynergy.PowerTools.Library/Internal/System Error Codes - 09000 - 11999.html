@@ -1,0 +1,2759 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" />
+        <title>System Error Codes (9000-11999) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681391(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681391(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681391(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681391(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="BF1CA93C-7:33:23 PM" />
+
+<meta name="Search.ShortId" content="ms681391" />
+
+<meta name="ms.shortidmsdn" content="ms681391" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="27fe3fee-4ae3-43f1-a1f2-91c935e9851b" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996403&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (9000-11999)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> (errors 9000 to 11999). They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="DNS_ERROR_RCODE_FORMAT_ERROR"></a><a id="dns_error_rcode_format_error"></a><strong>DNS_ERROR_RCODE_FORMAT_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9001 (0x2329)</dt>
+<dt>
+<p>DNS server unable to interpret format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_SERVER_FAILURE"></a><a id="dns_error_rcode_server_failure"></a><strong>DNS_ERROR_RCODE_SERVER_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>9002 (0x232A)</dt>
+<dt>
+<p>DNS server failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_NAME_ERROR"></a><a id="dns_error_rcode_name_error"></a><strong>DNS_ERROR_RCODE_NAME_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9003 (0x232B)</dt>
+<dt>
+<p>DNS name does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_NOT_IMPLEMENTED"></a><a id="dns_error_rcode_not_implemented"></a><strong>DNS_ERROR_RCODE_NOT_IMPLEMENTED</strong></dt>
+<dd>
+<dl>
+<dt>9004 (0x232C)</dt>
+<dt>
+<p>DNS request not supported by name server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_REFUSED"></a><a id="dns_error_rcode_refused"></a><strong>DNS_ERROR_RCODE_REFUSED</strong></dt>
+<dd>
+<dl>
+<dt>9005 (0x232D)</dt>
+<dt>
+<p>DNS operation refused.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_YXDOMAIN"></a><a id="dns_error_rcode_yxdomain"></a><strong>DNS_ERROR_RCODE_YXDOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>9006 (0x232E)</dt>
+<dt>
+<p>DNS name that ought not exist, does exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_YXRRSET"></a><a id="dns_error_rcode_yxrrset"></a><strong>DNS_ERROR_RCODE_YXRRSET</strong></dt>
+<dd>
+<dl>
+<dt>9007 (0x232F)</dt>
+<dt>
+<p>DNS RR set that ought not exist, does exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_NXRRSET"></a><a id="dns_error_rcode_nxrrset"></a><strong>DNS_ERROR_RCODE_NXRRSET</strong></dt>
+<dd>
+<dl>
+<dt>9008 (0x2330)</dt>
+<dt>
+<p>DNS RR set that ought to exist, does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_NOTAUTH"></a><a id="dns_error_rcode_notauth"></a><strong>DNS_ERROR_RCODE_NOTAUTH</strong></dt>
+<dd>
+<dl>
+<dt>9009 (0x2331)</dt>
+<dt>
+<p>DNS server not authoritative for zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_NOTZONE"></a><a id="dns_error_rcode_notzone"></a><strong>DNS_ERROR_RCODE_NOTZONE</strong></dt>
+<dd>
+<dl>
+<dt>9010 (0x2332)</dt>
+<dt>
+<p>DNS name in update or prereq is not in zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_BADSIG"></a><a id="dns_error_rcode_badsig"></a><strong>DNS_ERROR_RCODE_BADSIG</strong></dt>
+<dd>
+<dl>
+<dt>9016 (0x2338)</dt>
+<dt>
+<p>DNS signature failed to verify.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_BADKEY"></a><a id="dns_error_rcode_badkey"></a><strong>DNS_ERROR_RCODE_BADKEY</strong></dt>
+<dd>
+<dl>
+<dt>9017 (0x2339)</dt>
+<dt>
+<p>DNS bad key.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE_BADTIME"></a><a id="dns_error_rcode_badtime"></a><strong>DNS_ERROR_RCODE_BADTIME</strong></dt>
+<dd>
+<dl>
+<dt>9018 (0x233A)</dt>
+<dt>
+<p>DNS signature validity expired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_KEYMASTER_REQUIRED"></a><a id="dns_error_keymaster_required"></a><strong>DNS_ERROR_KEYMASTER_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>9101 (0x238D)</dt>
+<dt>
+<p>Only the DNS server acting as the key master for the zone may perform this operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE"></a><a id="dns_error_not_allowed_on_signed_zone"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE</strong></dt>
+<dd>
+<dl>
+<dt>9102 (0x238E)</dt>
+<dt>
+<p>This operation is not allowed on a zone that is signed or has signing keys.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1"></a><a id="dns_error_nsec3_incompatible_with_rsa_sha1"></a><strong>DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1</strong></dt>
+<dd>
+<dl>
+<dt>9103 (0x238F)</dt>
+<dt>
+<p>NSEC3 is not compatible with the RSA-SHA-1 algorithm. Choose a different algorithm or use NSEC.</p>
+<p>This value was also named <strong>DNS_ERROR_INVALID_NSEC3_PARAMETERS</strong></p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS"></a><a id="dns_error_not_enough_signing_key_descriptors"></a><strong>DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS</strong></dt>
+<dd>
+<dl>
+<dt>9104 (0x2390)</dt>
+<dt>
+<p>The zone does not have enough signing keys. There must be at least one key signing key (KSK) and at least 
+     one zone signing key (ZSK).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNSUPPORTED_ALGORITHM"></a><a id="dns_error_unsupported_algorithm"></a><strong>DNS_ERROR_UNSUPPORTED_ALGORITHM</strong></dt>
+<dd>
+<dl>
+<dt>9105 (0x2391)</dt>
+<dt>
+<p>The specified algorithm is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_KEY_SIZE"></a><a id="dns_error_invalid_key_size"></a><strong>DNS_ERROR_INVALID_KEY_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>9106 (0x2392)</dt>
+<dt>
+<p>The specified key size is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE"></a><a id="dns_error_signing_key_not_accessible"></a><strong>DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE</strong></dt>
+<dd>
+<dl>
+<dt>9107 (0x2393)</dt>
+<dt>
+<p>One or more of the signing keys for a zone are not accessible to the DNS server. Zone signing will not be 
+     operational until this error is resolved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION"></a><a id="dns_error_ksp_does_not_support_protection"></a><strong>DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION</strong></dt>
+<dd>
+<dl>
+<dt>9108 (0x2394)</dt>
+<dt>
+<p>The specified key storage provider does not support DPAPI++ data protection. Zone signing will not be 
+     operational until this error is resolved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR"></a><a id="dns_error_unexpected_data_protection_error"></a><strong>DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9109 (0x2395)</dt>
+<dt>
+<p>An unexpected DPAPI++ error was encountered. Zone signing will not be operational until this error is 
+     resolved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNEXPECTED_CNG_ERROR"></a><a id="dns_error_unexpected_cng_error"></a><strong>DNS_ERROR_UNEXPECTED_CNG_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9110 (0x2396)</dt>
+<dt>
+<p>An unexpected crypto error was encountered. Zone signing may not be operational until this error is 
+     resolved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION"></a><a id="dns_error_unknown_signing_parameter_version"></a><strong>DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>9111 (0x2397)</dt>
+<dt>
+<p>The DNS server encountered a signing key with an unknown version. Zone signing will not be operational until 
+     this error is resolved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_KSP_NOT_ACCESSIBLE"></a><a id="dns_error_ksp_not_accessible"></a><strong>DNS_ERROR_KSP_NOT_ACCESSIBLE</strong></dt>
+<dd>
+<dl>
+<dt>9112 (0x2398)</dt>
+<dt>
+<p>The specified key service provider cannot be opened by the DNS server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_TOO_MANY_SKDS"></a><a id="dns_error_too_many_skds"></a><strong>DNS_ERROR_TOO_MANY_SKDS</strong></dt>
+<dd>
+<dl>
+<dt>9113 (0x2399)</dt>
+<dt>
+<p>The DNS server cannot accept any more signing keys with the specified algorithm and KSK flag value for this 
+     zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_ROLLOVER_PERIOD"></a><a id="dns_error_invalid_rollover_period"></a><strong>DNS_ERROR_INVALID_ROLLOVER_PERIOD</strong></dt>
+<dd>
+<dl>
+<dt>9114 (0x239A)</dt>
+<dt>
+<p>The specified rollover period is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET"></a><a id="dns_error_invalid_initial_rollover_offset"></a><strong>DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET</strong></dt>
+<dd>
+<dl>
+<dt>9115 (0x239B)</dt>
+<dt>
+<p>The specified initial rollover offset is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ROLLOVER_IN_PROGRESS"></a><a id="dns_error_rollover_in_progress"></a><strong>DNS_ERROR_ROLLOVER_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>9116 (0x239C)</dt>
+<dt>
+<p>The specified signing key is already in process of rolling over keys.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_STANDBY_KEY_NOT_PRESENT"></a><a id="dns_error_standby_key_not_present"></a><strong>DNS_ERROR_STANDBY_KEY_NOT_PRESENT</strong></dt>
+<dd>
+<dl>
+<dt>9117 (0x239D)</dt>
+<dt>
+<p>The specified signing key does not have a standby key to revoke.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_ZSK"></a><a id="dns_error_not_allowed_on_zsk"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_ZSK</strong></dt>
+<dd>
+<dl>
+<dt>9118 (0x239E)</dt>
+<dt>
+<p>This operation is not allowed on a zone signing key (ZSK).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD"></a><a id="dns_error_not_allowed_on_active_skd"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD</strong></dt>
+<dd>
+<dl>
+<dt>9119 (0x239F)</dt>
+<dt>
+<p>This operation is not allowed on an active signing key.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ROLLOVER_ALREADY_QUEUED"></a><a id="dns_error_rollover_already_queued"></a><strong>DNS_ERROR_ROLLOVER_ALREADY_QUEUED</strong></dt>
+<dd>
+<dl>
+<dt>9120 (0x23A0)</dt>
+<dt>
+<p>The specified signing key is already queued for rollover.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE"></a><a id="dns_error_not_allowed_on_unsigned_zone"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE</strong></dt>
+<dd>
+<dl>
+<dt>9121 (0x23A1)</dt>
+<dt>
+<p>This operation is not allowed on an unsigned zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_BAD_KEYMASTER"></a><a id="dns_error_bad_keymaster"></a><strong>DNS_ERROR_BAD_KEYMASTER</strong></dt>
+<dd>
+<dl>
+<dt>9122 (0x23A2)</dt>
+<dt>
+<p>This operation could not be completed because the DNS server listed as the current key master for this zone 
+     is down or misconfigured. Resolve the problem on the current key master for this zone or use another DNS server 
+     to seize the key master role.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD"></a><a id="dns_error_invalid_signature_validity_period"></a><strong>DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD</strong></dt>
+<dd>
+<dl>
+<dt>9123 (0x23A3)</dt>
+<dt>
+<p>The specified signature validity period is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT"></a><a id="dns_error_invalid_nsec3_iteration_count"></a><strong>DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT</strong></dt>
+<dd>
+<dl>
+<dt>9124 (0x23A4)</dt>
+<dt>
+<p>The specified NSEC3 iteration count is higher than allowed by the minimum key length used in the zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DNSSEC_IS_DISABLED"></a><a id="dns_error_dnssec_is_disabled"></a><strong>DNS_ERROR_DNSSEC_IS_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>9125 (0x23A5)</dt>
+<dt>
+<p>This operation could not be completed because the DNS server has been configured with DNSSEC features 
+     disabled. Enable DNSSEC on the DNS server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_XML"></a><a id="dns_error_invalid_xml"></a><strong>DNS_ERROR_INVALID_XML</strong></dt>
+<dd>
+<dl>
+<dt>9126 (0x23A6)</dt>
+<dt>
+<p>This operation could not be completed because the XML stream received is empty or syntactically 
+     invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_VALID_TRUST_ANCHORS"></a><a id="dns_error_no_valid_trust_anchors"></a><strong>DNS_ERROR_NO_VALID_TRUST_ANCHORS</strong></dt>
+<dd>
+<dl>
+<dt>9127 (0x23A7)</dt>
+<dt>
+<p>This operation completed, but no trust anchors were added because all of the trust anchors received were 
+     either invalid, unsupported, expired, or would not become valid in less than 30 days.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ROLLOVER_NOT_POKEABLE"></a><a id="dns_error_rollover_not_pokeable"></a><strong>DNS_ERROR_ROLLOVER_NOT_POKEABLE</strong></dt>
+<dd>
+<dl>
+<dt>9128 (0x23A8)</dt>
+<dt>
+<p>The specified signing key is not waiting for parental DS update.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NSEC3_NAME_COLLISION"></a><a id="dns_error_nsec3_name_collision"></a><strong>DNS_ERROR_NSEC3_NAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>9129 (0x23A9)</dt>
+<dt>
+<p>Hash collision detected during NSEC3 signing. Specify a different user-provided salt, or use a randomly 
+     generated salt, and attempt to sign the zone again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NSEC_INCOMPATIBLE_WITH_NSEC3_RSA_SHA1"></a><a id="dns_error_nsec_incompatible_with_nsec3_rsa_sha1"></a><strong>DNS_ERROR_NSEC_INCOMPATIBLE_WITH_NSEC3_RSA_SHA1</strong></dt>
+<dd>
+<dl>
+<dt>9130 (0x23AA)</dt>
+<dt>
+<p>NSEC is not compatible with the NSEC3-RSA-SHA-1 algorithm. Choose a different algorithm or use NSEC3.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_INFO_NO_RECORDS"></a><a id="dns_info_no_records"></a><strong>DNS_INFO_NO_RECORDS</strong></dt>
+<dd>
+<dl>
+<dt>9501 (0x251D)</dt>
+<dt>
+<p>No records found for given DNS query.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_BAD_PACKET"></a><a id="dns_error_bad_packet"></a><strong>DNS_ERROR_BAD_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>9502 (0x251E)</dt>
+<dt>
+<p>Bad DNS packet.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_PACKET"></a><a id="dns_error_no_packet"></a><strong>DNS_ERROR_NO_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>9503 (0x251F)</dt>
+<dt>
+<p>No DNS packet.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RCODE"></a><a id="dns_error_rcode"></a><strong>DNS_ERROR_RCODE</strong></dt>
+<dd>
+<dl>
+<dt>9504 (0x2520)</dt>
+<dt>
+<p>DNS error, check rcode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNSECURE_PACKET"></a><a id="dns_error_unsecure_packet"></a><strong>DNS_ERROR_UNSECURE_PACKET</strong></dt>
+<dd>
+<dl>
+<dt>9505 (0x2521)</dt>
+<dt>
+<p>Unsecured DNS packet.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_REQUEST_PENDING"></a><a id="dns_request_pending"></a><strong>DNS_REQUEST_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>9506 (0x2522)</dt>
+<dt>
+<p>DNS query request is pending.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_TYPE"></a><a id="dns_error_invalid_type"></a><strong>DNS_ERROR_INVALID_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>9551 (0x254F)</dt>
+<dt>
+<p>Invalid DNS type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_IP_ADDRESS"></a><a id="dns_error_invalid_ip_address"></a><strong>DNS_ERROR_INVALID_IP_ADDRESS</strong></dt>
+<dd>
+<dl>
+<dt>9552 (0x2550)</dt>
+<dt>
+<p>Invalid IP address.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_PROPERTY"></a><a id="dns_error_invalid_property"></a><strong>DNS_ERROR_INVALID_PROPERTY</strong></dt>
+<dd>
+<dl>
+<dt>9553 (0x2551)</dt>
+<dt>
+<p>Invalid property.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_TRY_AGAIN_LATER"></a><a id="dns_error_try_again_later"></a><strong>DNS_ERROR_TRY_AGAIN_LATER</strong></dt>
+<dd>
+<dl>
+<dt>9554 (0x2552)</dt>
+<dt>
+<p>Try DNS operation again later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_UNIQUE"></a><a id="dns_error_not_unique"></a><strong>DNS_ERROR_NOT_UNIQUE</strong></dt>
+<dd>
+<dl>
+<dt>9555 (0x2553)</dt>
+<dt>
+<p>Record for given name and type is not unique.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NON_RFC_NAME"></a><a id="dns_error_non_rfc_name"></a><strong>DNS_ERROR_NON_RFC_NAME</strong></dt>
+<dd>
+<dl>
+<dt>9556 (0x2554)</dt>
+<dt>
+<p>DNS name does not comply with RFC specifications.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_STATUS_FQDN"></a><a id="dns_status_fqdn"></a><strong>DNS_STATUS_FQDN</strong></dt>
+<dd>
+<dl>
+<dt>9557 (0x2555)</dt>
+<dt>
+<p>DNS name is a fully-qualified DNS name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_STATUS_DOTTED_NAME"></a><a id="dns_status_dotted_name"></a><strong>DNS_STATUS_DOTTED_NAME</strong></dt>
+<dd>
+<dl>
+<dt>9558 (0x2556)</dt>
+<dt>
+<p>DNS name is dotted (multi-label).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_STATUS_SINGLE_PART_NAME"></a><a id="dns_status_single_part_name"></a><strong>DNS_STATUS_SINGLE_PART_NAME</strong></dt>
+<dd>
+<dl>
+<dt>9559 (0x2557)</dt>
+<dt>
+<p>DNS name is a single-part name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_NAME_CHAR"></a><a id="dns_error_invalid_name_char"></a><strong>DNS_ERROR_INVALID_NAME_CHAR</strong></dt>
+<dd>
+<dl>
+<dt>9560 (0x2558)</dt>
+<dt>
+<p>DNS name contains an invalid character.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NUMERIC_NAME"></a><a id="dns_error_numeric_name"></a><strong>DNS_ERROR_NUMERIC_NAME</strong></dt>
+<dd>
+<dl>
+<dt>9561 (0x2559)</dt>
+<dt>
+<p>DNS name is entirely numeric.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER"></a><a id="dns_error_not_allowed_on_root_server"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER</strong></dt>
+<dd>
+<dl>
+<dt>9562 (0x255A)</dt>
+<dt>
+<p>The operation requested is not permitted on a DNS root server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION"></a><a id="dns_error_not_allowed_under_delegation"></a><strong>DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION</strong></dt>
+<dd>
+<dl>
+<dt>9563 (0x255B)</dt>
+<dt>
+<p>The record could not be created because this part of the DNS namespace has been delegated to another 
+     server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_CANNOT_FIND_ROOT_HINTS"></a><a id="dns_error_cannot_find_root_hints"></a><strong>DNS_ERROR_CANNOT_FIND_ROOT_HINTS</strong></dt>
+<dd>
+<dl>
+<dt>9564 (0x255C)</dt>
+<dt>
+<p>The DNS server could not find a set of root hints.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INCONSISTENT_ROOT_HINTS"></a><a id="dns_error_inconsistent_root_hints"></a><strong>DNS_ERROR_INCONSISTENT_ROOT_HINTS</strong></dt>
+<dd>
+<dl>
+<dt>9565 (0x255D)</dt>
+<dt>
+<p>The DNS server found root hints but they were not consistent across all adapters.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DWORD_VALUE_TOO_SMALL"></a><a id="dns_error_dword_value_too_small"></a><strong>DNS_ERROR_DWORD_VALUE_TOO_SMALL</strong></dt>
+<dd>
+<dl>
+<dt>9566 (0x255E)</dt>
+<dt>
+<p>The specified value is too small for this parameter.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DWORD_VALUE_TOO_LARGE"></a><a id="dns_error_dword_value_too_large"></a><strong>DNS_ERROR_DWORD_VALUE_TOO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>9567 (0x255F)</dt>
+<dt>
+<p>The specified value is too large for this parameter.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_BACKGROUND_LOADING"></a><a id="dns_error_background_loading"></a><strong>DNS_ERROR_BACKGROUND_LOADING</strong></dt>
+<dd>
+<dl>
+<dt>9568 (0x2560)</dt>
+<dt>
+<p>This operation is not allowed while the DNS server is loading zones in the background. Please try again 
+     later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_ON_RODC"></a><a id="dns_error_not_allowed_on_rodc"></a><strong>DNS_ERROR_NOT_ALLOWED_ON_RODC</strong></dt>
+<dd>
+<dl>
+<dt>9569 (0x2561)</dt>
+<dt>
+<p>The operation requested is not permitted on against a DNS server running on a read-only DC.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NOT_ALLOWED_UNDER_DNAME"></a><a id="dns_error_not_allowed_under_dname"></a><strong>DNS_ERROR_NOT_ALLOWED_UNDER_DNAME</strong></dt>
+<dd>
+<dl>
+<dt>9570 (0x2562)</dt>
+<dt>
+<p>No data is allowed to exist underneath a DNAME record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DELEGATION_REQUIRED"></a><a id="dns_error_delegation_required"></a><strong>DNS_ERROR_DELEGATION_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>9571 (0x2563)</dt>
+<dt>
+<p>This operation requires credentials delegation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_POLICY_TABLE"></a><a id="dns_error_invalid_policy_table"></a><strong>DNS_ERROR_INVALID_POLICY_TABLE</strong></dt>
+<dd>
+<dl>
+<dt>9572 (0x2564)</dt>
+<dt>
+<p>Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your 
+     network administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_DOES_NOT_EXIST"></a><a id="dns_error_zone_does_not_exist"></a><strong>DNS_ERROR_ZONE_DOES_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>9601 (0x2581)</dt>
+<dt>
+<p>DNS zone does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_ZONE_INFO"></a><a id="dns_error_no_zone_info"></a><strong>DNS_ERROR_NO_ZONE_INFO</strong></dt>
+<dd>
+<dl>
+<dt>9602 (0x2582)</dt>
+<dt>
+<p>DNS zone information not available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_ZONE_OPERATION"></a><a id="dns_error_invalid_zone_operation"></a><strong>DNS_ERROR_INVALID_ZONE_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>9603 (0x2583)</dt>
+<dt>
+<p>Invalid operation for DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_CONFIGURATION_ERROR"></a><a id="dns_error_zone_configuration_error"></a><strong>DNS_ERROR_ZONE_CONFIGURATION_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9604 (0x2584)</dt>
+<dt>
+<p>Invalid DNS zone configuration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_HAS_NO_SOA_RECORD"></a><a id="dns_error_zone_has_no_soa_record"></a><strong>DNS_ERROR_ZONE_HAS_NO_SOA_RECORD</strong></dt>
+<dd>
+<dl>
+<dt>9605 (0x2585)</dt>
+<dt>
+<p>DNS zone has no start of authority (SOA) record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_HAS_NO_NS_RECORDS"></a><a id="dns_error_zone_has_no_ns_records"></a><strong>DNS_ERROR_ZONE_HAS_NO_NS_RECORDS</strong></dt>
+<dd>
+<dl>
+<dt>9606 (0x2586)</dt>
+<dt>
+<p>DNS zone has no Name Server (NS) record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_LOCKED"></a><a id="dns_error_zone_locked"></a><strong>DNS_ERROR_ZONE_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>9607 (0x2587)</dt>
+<dt>
+<p>DNS zone is locked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_CREATION_FAILED"></a><a id="dns_error_zone_creation_failed"></a><strong>DNS_ERROR_ZONE_CREATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9608 (0x2588)</dt>
+<dt>
+<p>DNS zone creation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_ALREADY_EXISTS"></a><a id="dns_error_zone_already_exists"></a><strong>DNS_ERROR_ZONE_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9609 (0x2589)</dt>
+<dt>
+<p>DNS zone already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_AUTOZONE_ALREADY_EXISTS"></a><a id="dns_error_autozone_already_exists"></a><strong>DNS_ERROR_AUTOZONE_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9610 (0x258A)</dt>
+<dt>
+<p>DNS automatic zone already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_ZONE_TYPE"></a><a id="dns_error_invalid_zone_type"></a><strong>DNS_ERROR_INVALID_ZONE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>9611 (0x258B)</dt>
+<dt>
+<p>Invalid DNS zone type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP"></a><a id="dns_error_secondary_requires_master_ip"></a><strong>DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP</strong></dt>
+<dd>
+<dl>
+<dt>9612 (0x258C)</dt>
+<dt>
+<p>Secondary DNS zone requires master IP address.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_NOT_SECONDARY"></a><a id="dns_error_zone_not_secondary"></a><strong>DNS_ERROR_ZONE_NOT_SECONDARY</strong></dt>
+<dd>
+<dl>
+<dt>9613 (0x258D)</dt>
+<dt>
+<p>DNS zone not secondary.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NEED_SECONDARY_ADDRESSES"></a><a id="dns_error_need_secondary_addresses"></a><strong>DNS_ERROR_NEED_SECONDARY_ADDRESSES</strong></dt>
+<dd>
+<dl>
+<dt>9614 (0x258E)</dt>
+<dt>
+<p>Need secondary IP address.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_WINS_INIT_FAILED"></a><a id="dns_error_wins_init_failed"></a><strong>DNS_ERROR_WINS_INIT_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9615 (0x258F)</dt>
+<dt>
+<p>WINS initialization failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NEED_WINS_SERVERS"></a><a id="dns_error_need_wins_servers"></a><strong>DNS_ERROR_NEED_WINS_SERVERS</strong></dt>
+<dd>
+<dl>
+<dt>9616 (0x2590)</dt>
+<dt>
+<p>Need WINS servers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NBSTAT_INIT_FAILED"></a><a id="dns_error_nbstat_init_failed"></a><strong>DNS_ERROR_NBSTAT_INIT_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9617 (0x2591)</dt>
+<dt>
+<p>NBTSTAT initialization call failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_SOA_DELETE_INVALID"></a><a id="dns_error_soa_delete_invalid"></a><strong>DNS_ERROR_SOA_DELETE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>9618 (0x2592)</dt>
+<dt>
+<p>Invalid delete of start of authority (SOA).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_FORWARDER_ALREADY_EXISTS"></a><a id="dns_error_forwarder_already_exists"></a><strong>DNS_ERROR_FORWARDER_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9619 (0x2593)</dt>
+<dt>
+<p>A conditional forwarding zone already exists for that name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_REQUIRES_MASTER_IP"></a><a id="dns_error_zone_requires_master_ip"></a><strong>DNS_ERROR_ZONE_REQUIRES_MASTER_IP</strong></dt>
+<dd>
+<dl>
+<dt>9620 (0x2594)</dt>
+<dt>
+<p>This zone must be configured with one or more master DNS server IP addresses.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_IS_SHUTDOWN"></a><a id="dns_error_zone_is_shutdown"></a><strong>DNS_ERROR_ZONE_IS_SHUTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>9621 (0x2595)</dt>
+<dt>
+<p>The operation cannot be performed because this zone is shut down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ZONE_LOCKED_FOR_SIGNING"></a><a id="dns_error_zone_locked_for_signing"></a><strong>DNS_ERROR_ZONE_LOCKED_FOR_SIGNING</strong></dt>
+<dd>
+<dl>
+<dt>9622 (0x2596)</dt>
+<dt>
+<p>This operation cannot be performed because the zone is currently being signed. Please try again later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_PRIMARY_REQUIRES_DATAFILE"></a><a id="dns_error_primary_requires_datafile"></a><strong>DNS_ERROR_PRIMARY_REQUIRES_DATAFILE</strong></dt>
+<dd>
+<dl>
+<dt>9651 (0x25B3)</dt>
+<dt>
+<p>Primary DNS zone requires datafile.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_INVALID_DATAFILE_NAME"></a><a id="dns_error_invalid_datafile_name"></a><strong>DNS_ERROR_INVALID_DATAFILE_NAME</strong></dt>
+<dd>
+<dl>
+<dt>9652 (0x25B4)</dt>
+<dt>
+<p>Invalid datafile name for DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DATAFILE_OPEN_FAILURE"></a><a id="dns_error_datafile_open_failure"></a><strong>DNS_ERROR_DATAFILE_OPEN_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>9653 (0x25B5)</dt>
+<dt>
+<p>Failed to open datafile for DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_FILE_WRITEBACK_FAILED"></a><a id="dns_error_file_writeback_failed"></a><strong>DNS_ERROR_FILE_WRITEBACK_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9654 (0x25B6)</dt>
+<dt>
+<p>Failed to write datafile for DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DATAFILE_PARSING"></a><a id="dns_error_datafile_parsing"></a><strong>DNS_ERROR_DATAFILE_PARSING</strong></dt>
+<dd>
+<dl>
+<dt>9655 (0x25B7)</dt>
+<dt>
+<p>Failure while reading datafile for DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RECORD_DOES_NOT_EXIST"></a><a id="dns_error_record_does_not_exist"></a><strong>DNS_ERROR_RECORD_DOES_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>9701 (0x25E5)</dt>
+<dt>
+<p>DNS record does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RECORD_FORMAT"></a><a id="dns_error_record_format"></a><strong>DNS_ERROR_RECORD_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>9702 (0x25E6)</dt>
+<dt>
+<p>DNS record format error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NODE_CREATION_FAILED"></a><a id="dns_error_node_creation_failed"></a><strong>DNS_ERROR_NODE_CREATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9703 (0x25E7)</dt>
+<dt>
+<p>Node creation failure in DNS.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_UNKNOWN_RECORD_TYPE"></a><a id="dns_error_unknown_record_type"></a><strong>DNS_ERROR_UNKNOWN_RECORD_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>9704 (0x25E8)</dt>
+<dt>
+<p>Unknown DNS record type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RECORD_TIMED_OUT"></a><a id="dns_error_record_timed_out"></a><strong>DNS_ERROR_RECORD_TIMED_OUT</strong></dt>
+<dd>
+<dl>
+<dt>9705 (0x25E9)</dt>
+<dt>
+<p>DNS record timed out.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NAME_NOT_IN_ZONE"></a><a id="dns_error_name_not_in_zone"></a><strong>DNS_ERROR_NAME_NOT_IN_ZONE</strong></dt>
+<dd>
+<dl>
+<dt>9706 (0x25EA)</dt>
+<dt>
+<p>Name not in DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_CNAME_LOOP"></a><a id="dns_error_cname_loop"></a><strong>DNS_ERROR_CNAME_LOOP</strong></dt>
+<dd>
+<dl>
+<dt>9707 (0x25EB)</dt>
+<dt>
+<p>CNAME loop detected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NODE_IS_CNAME"></a><a id="dns_error_node_is_cname"></a><strong>DNS_ERROR_NODE_IS_CNAME</strong></dt>
+<dd>
+<dl>
+<dt>9708 (0x25EC)</dt>
+<dt>
+<p>Node is a CNAME DNS record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_CNAME_COLLISION"></a><a id="dns_error_cname_collision"></a><strong>DNS_ERROR_CNAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>9709 (0x25ED)</dt>
+<dt>
+<p>A CNAME record already exists for given name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT"></a><a id="dns_error_record_only_at_zone_root"></a><strong>DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT</strong></dt>
+<dd>
+<dl>
+<dt>9710 (0x25EE)</dt>
+<dt>
+<p>Record only at DNS zone root.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_RECORD_ALREADY_EXISTS"></a><a id="dns_error_record_already_exists"></a><strong>DNS_ERROR_RECORD_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9711 (0x25EF)</dt>
+<dt>
+<p>DNS record already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_SECONDARY_DATA"></a><a id="dns_error_secondary_data"></a><strong>DNS_ERROR_SECONDARY_DATA</strong></dt>
+<dd>
+<dl>
+<dt>9712 (0x25F0)</dt>
+<dt>
+<p>Secondary DNS zone data error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_CREATE_CACHE_DATA"></a><a id="dns_error_no_create_cache_data"></a><strong>DNS_ERROR_NO_CREATE_CACHE_DATA</strong></dt>
+<dd>
+<dl>
+<dt>9713 (0x25F1)</dt>
+<dt>
+<p>Could not create DNS cache data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NAME_DOES_NOT_EXIST"></a><a id="dns_error_name_does_not_exist"></a><strong>DNS_ERROR_NAME_DOES_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>9714 (0x25F2)</dt>
+<dt>
+<p>DNS name does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_WARNING_PTR_CREATE_FAILED"></a><a id="dns_warning_ptr_create_failed"></a><strong>DNS_WARNING_PTR_CREATE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>9715 (0x25F3)</dt>
+<dt>
+<p>Could not create pointer (PTR) record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_WARNING_DOMAIN_UNDELETED"></a><a id="dns_warning_domain_undeleted"></a><strong>DNS_WARNING_DOMAIN_UNDELETED</strong></dt>
+<dd>
+<dl>
+<dt>9716 (0x25F4)</dt>
+<dt>
+<p>DNS domain was undeleted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DS_UNAVAILABLE"></a><a id="dns_error_ds_unavailable"></a><strong>DNS_ERROR_DS_UNAVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>9717 (0x25F5)</dt>
+<dt>
+<p>The directory service is unavailable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DS_ZONE_ALREADY_EXISTS"></a><a id="dns_error_ds_zone_already_exists"></a><strong>DNS_ERROR_DS_ZONE_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9718 (0x25F6)</dt>
+<dt>
+<p>DNS zone already exists in the directory service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE"></a><a id="dns_error_no_bootfile_if_ds_zone"></a><strong>DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE</strong></dt>
+<dd>
+<dl>
+<dt>9719 (0x25F7)</dt>
+<dt>
+<p>DNS server not creating or reading the boot file for the directory service integrated DNS zone.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NODE_IS_DNAME"></a><a id="dns_error_node_is_dname"></a><strong>DNS_ERROR_NODE_IS_DNAME</strong></dt>
+<dd>
+<dl>
+<dt>9720 (0x25F8)</dt>
+<dt>
+<p>Node is a DNAME DNS record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DNAME_COLLISION"></a><a id="dns_error_dname_collision"></a><strong>DNS_ERROR_DNAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>9721 (0x25F9)</dt>
+<dt>
+<p>A DNAME record already exists for given name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_ALIAS_LOOP"></a><a id="dns_error_alias_loop"></a><strong>DNS_ERROR_ALIAS_LOOP</strong></dt>
+<dd>
+<dl>
+<dt>9722 (0x25FA)</dt>
+<dt>
+<p>An alias loop has been detected with either CNAME or DNAME records.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_INFO_AXFR_COMPLETE"></a><a id="dns_info_axfr_complete"></a><strong>DNS_INFO_AXFR_COMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>9751 (0x2617)</dt>
+<dt>
+<p>DNS AXFR (zone transfer) complete.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_AXFR"></a><a id="dns_error_axfr"></a><strong>DNS_ERROR_AXFR</strong></dt>
+<dd>
+<dl>
+<dt>9752 (0x2618)</dt>
+<dt>
+<p>DNS zone transfer failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_INFO_ADDED_LOCAL_WINS"></a><a id="dns_info_added_local_wins"></a><strong>DNS_INFO_ADDED_LOCAL_WINS</strong></dt>
+<dd>
+<dl>
+<dt>9753 (0x2619)</dt>
+<dt>
+<p>Added local WINS server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_STATUS_CONTINUE_NEEDED"></a><a id="dns_status_continue_needed"></a><strong>DNS_STATUS_CONTINUE_NEEDED</strong></dt>
+<dd>
+<dl>
+<dt>9801 (0x2649)</dt>
+<dt>
+<p>Secure update call needs to continue update request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_TCPIP"></a><a id="dns_error_no_tcpip"></a><strong>DNS_ERROR_NO_TCPIP</strong></dt>
+<dd>
+<dl>
+<dt>9851 (0x267B)</dt>
+<dt>
+<p>TCP/IP network protocol not installed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_NO_DNS_SERVERS"></a><a id="dns_error_no_dns_servers"></a><strong>DNS_ERROR_NO_DNS_SERVERS</strong></dt>
+<dd>
+<dl>
+<dt>9852 (0x267C)</dt>
+<dt>
+<p>No DNS servers configured for local system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_DOES_NOT_EXIST"></a><a id="dns_error_dp_does_not_exist"></a><strong>DNS_ERROR_DP_DOES_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>9901 (0x26AD)</dt>
+<dt>
+<p>The specified directory partition does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_ALREADY_EXISTS"></a><a id="dns_error_dp_already_exists"></a><strong>DNS_ERROR_DP_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>9902 (0x26AE)</dt>
+<dt>
+<p>The specified directory partition already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_NOT_ENLISTED"></a><a id="dns_error_dp_not_enlisted"></a><strong>DNS_ERROR_DP_NOT_ENLISTED</strong></dt>
+<dd>
+<dl>
+<dt>9903 (0x26AF)</dt>
+<dt>
+<p>This DNS server is not enlisted in the specified directory partition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_ALREADY_ENLISTED"></a><a id="dns_error_dp_already_enlisted"></a><strong>DNS_ERROR_DP_ALREADY_ENLISTED</strong></dt>
+<dd>
+<dl>
+<dt>9904 (0x26B0)</dt>
+<dt>
+<p>This DNS server is already enlisted in the specified directory partition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_NOT_AVAILABLE"></a><a id="dns_error_dp_not_available"></a><strong>DNS_ERROR_DP_NOT_AVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>9905 (0x26B1)</dt>
+<dt>
+<p>The directory partition is not available at this time. Please wait a few minutes and try again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="DNS_ERROR_DP_FSMO_ERROR"></a><a id="dns_error_dp_fsmo_error"></a><strong>DNS_ERROR_DP_FSMO_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>9906 (0x26B2)</dt>
+<dt>
+<p>The operation failed because the domain naming master FSMO role could not be reached. The domain controller 
+     holding the domain naming master FSMO role is down or unable to service the request or is not running 
+     Windows Server 2003 or later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEINTR"></a><a id="wsaeintr"></a><strong>WSAEINTR</strong></dt>
+<dd>
+<dl>
+<dt>10004 (0x2714)</dt>
+<dt>
+<p>A blocking operation was interrupted by a call to WSACancelBlockingCall.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEBADF"></a><a id="wsaebadf"></a><strong>WSAEBADF</strong></dt>
+<dd>
+<dl>
+<dt>10009 (0x2719)</dt>
+<dt>
+<p>The file handle supplied is not valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEACCES"></a><a id="wsaeacces"></a><strong>WSAEACCES</strong></dt>
+<dd>
+<dl>
+<dt>10013 (0x271D)</dt>
+<dt>
+<p>An attempt was made to access a socket in a way forbidden by its access permissions.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEFAULT"></a><a id="wsaefault"></a><strong>WSAEFAULT</strong></dt>
+<dd>
+<dl>
+<dt>10014 (0x271E)</dt>
+<dt>
+<p>The system detected an invalid pointer address in attempting to use a pointer argument in a call.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEINVAL"></a><a id="wsaeinval"></a><strong>WSAEINVAL</strong></dt>
+<dd>
+<dl>
+<dt>10022 (0x2726)</dt>
+<dt>
+<p>An invalid argument was supplied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEMFILE"></a><a id="wsaemfile"></a><strong>WSAEMFILE</strong></dt>
+<dd>
+<dl>
+<dt>10024 (0x2728)</dt>
+<dt>
+<p>Too many open sockets.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEWOULDBLOCK"></a><a id="wsaewouldblock"></a><strong>WSAEWOULDBLOCK</strong></dt>
+<dd>
+<dl>
+<dt>10035 (0x2733)</dt>
+<dt>
+<p>A non-blocking socket operation could not be completed immediately.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEINPROGRESS"></a><a id="wsaeinprogress"></a><strong>WSAEINPROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>10036 (0x2734)</dt>
+<dt>
+<p>A blocking operation is currently executing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEALREADY"></a><a id="wsaealready"></a><strong>WSAEALREADY</strong></dt>
+<dd>
+<dl>
+<dt>10037 (0x2735)</dt>
+<dt>
+<p>An operation was attempted on a non-blocking socket that already had an operation in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOTSOCK"></a><a id="wsaenotsock"></a><strong>WSAENOTSOCK</strong></dt>
+<dd>
+<dl>
+<dt>10038 (0x2736)</dt>
+<dt>
+<p>An operation was attempted on something that is not a socket.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEDESTADDRREQ"></a><a id="wsaedestaddrreq"></a><strong>WSAEDESTADDRREQ</strong></dt>
+<dd>
+<dl>
+<dt>10039 (0x2737)</dt>
+<dt>
+<p>A required address was omitted from an operation on a socket.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEMSGSIZE"></a><a id="wsaemsgsize"></a><strong>WSAEMSGSIZE</strong></dt>
+<dd>
+<dl>
+<dt>10040 (0x2738)</dt>
+<dt>
+<p>A message sent on a datagram socket was larger than the internal message buffer or some other network limit, 
+     or the buffer used to receive a datagram into was smaller than the datagram itself.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEPROTOTYPE"></a><a id="wsaeprototype"></a><strong>WSAEPROTOTYPE</strong></dt>
+<dd>
+<dl>
+<dt>10041 (0x2739)</dt>
+<dt>
+<p>A protocol was specified in the socket function call that does not support the semantics of the socket type 
+     requested.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOPROTOOPT"></a><a id="wsaenoprotoopt"></a><strong>WSAENOPROTOOPT</strong></dt>
+<dd>
+<dl>
+<dt>10042 (0x273A)</dt>
+<dt>
+<p>An unknown, invalid, or unsupported option or level was specified in a getsockopt or setsockopt call.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEPROTONOSUPPORT"></a><a id="wsaeprotonosupport"></a><strong>WSAEPROTONOSUPPORT</strong></dt>
+<dd>
+<dl>
+<dt>10043 (0x273B)</dt>
+<dt>
+<p>The requested protocol has not been configured into the system, or no implementation for it exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAESOCKTNOSUPPORT"></a><a id="wsaesocktnosupport"></a><strong>WSAESOCKTNOSUPPORT</strong></dt>
+<dd>
+<dl>
+<dt>10044 (0x273C)</dt>
+<dt>
+<p>The support for the specified socket type does not exist in this address family.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEOPNOTSUPP"></a><a id="wsaeopnotsupp"></a><strong>WSAEOPNOTSUPP</strong></dt>
+<dd>
+<dl>
+<dt>10045 (0x273D)</dt>
+<dt>
+<p>The attempted operation is not supported for the type of object referenced.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEPFNOSUPPORT"></a><a id="wsaepfnosupport"></a><strong>WSAEPFNOSUPPORT</strong></dt>
+<dd>
+<dl>
+<dt>10046 (0x273E)</dt>
+<dt>
+<p>The protocol family has not been configured into the system or no implementation for it exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEAFNOSUPPORT"></a><a id="wsaeafnosupport"></a><strong>WSAEAFNOSUPPORT</strong></dt>
+<dd>
+<dl>
+<dt>10047 (0x273F)</dt>
+<dt>
+<p>An address incompatible with the requested protocol was used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEADDRINUSE"></a><a id="wsaeaddrinuse"></a><strong>WSAEADDRINUSE</strong></dt>
+<dd>
+<dl>
+<dt>10048 (0x2740)</dt>
+<dt>
+<p>Only one usage of each socket address (protocol/network address/port) is normally permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEADDRNOTAVAIL"></a><a id="wsaeaddrnotavail"></a><strong>WSAEADDRNOTAVAIL</strong></dt>
+<dd>
+<dl>
+<dt>10049 (0x2741)</dt>
+<dt>
+<p>The requested address is not valid in its context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENETDOWN"></a><a id="wsaenetdown"></a><strong>WSAENETDOWN</strong></dt>
+<dd>
+<dl>
+<dt>10050 (0x2742)</dt>
+<dt>
+<p>A socket operation encountered a dead network.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENETUNREACH"></a><a id="wsaenetunreach"></a><strong>WSAENETUNREACH</strong></dt>
+<dd>
+<dl>
+<dt>10051 (0x2743)</dt>
+<dt>
+<p>A socket operation was attempted to an unreachable network.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENETRESET"></a><a id="wsaenetreset"></a><strong>WSAENETRESET</strong></dt>
+<dd>
+<dl>
+<dt>10052 (0x2744)</dt>
+<dt>
+<p>The connection has been broken due to keep-alive activity detecting a failure while the operation was in 
+     progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAECONNABORTED"></a><a id="wsaeconnaborted"></a><strong>WSAECONNABORTED</strong></dt>
+<dd>
+<dl>
+<dt>10053 (0x2745)</dt>
+<dt>
+<p>An established connection was aborted by the software in your host machine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAECONNRESET"></a><a id="wsaeconnreset"></a><strong>WSAECONNRESET</strong></dt>
+<dd>
+<dl>
+<dt>10054 (0x2746)</dt>
+<dt>
+<p>An existing connection was forcibly closed by the remote host.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOBUFS"></a><a id="wsaenobufs"></a><strong>WSAENOBUFS</strong></dt>
+<dd>
+<dl>
+<dt>10055 (0x2747)</dt>
+<dt>
+<p>An operation on a socket could not be performed because the system lacked sufficient buffer space or because 
+     a queue was full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEISCONN"></a><a id="wsaeisconn"></a><strong>WSAEISCONN</strong></dt>
+<dd>
+<dl>
+<dt>10056 (0x2748)</dt>
+<dt>
+<p>A connect request was made on an already connected socket.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOTCONN"></a><a id="wsaenotconn"></a><strong>WSAENOTCONN</strong></dt>
+<dd>
+<dl>
+<dt>10057 (0x2749)</dt>
+<dt>
+<p>A request to send or receive data was disallowed because the socket is not connected and (when sending on a 
+     datagram socket using a sendto call) no address was supplied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAESHUTDOWN"></a><a id="wsaeshutdown"></a><strong>WSAESHUTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>10058 (0x274A)</dt>
+<dt>
+<p>A request to send or receive data was disallowed because the socket had already been shut down in that 
+     direction with a previous shutdown call.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAETOOMANYREFS"></a><a id="wsaetoomanyrefs"></a><strong>WSAETOOMANYREFS</strong></dt>
+<dd>
+<dl>
+<dt>10059 (0x274B)</dt>
+<dt>
+<p>Too many references to some kernel object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAETIMEDOUT"></a><a id="wsaetimedout"></a><strong>WSAETIMEDOUT</strong></dt>
+<dd>
+<dl>
+<dt>10060 (0x274C)</dt>
+<dt>
+<p>A connection attempt failed because the connected party did not properly respond after a period of time, or 
+     established connection failed because connected host has failed to respond.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAECONNREFUSED"></a><a id="wsaeconnrefused"></a><strong>WSAECONNREFUSED</strong></dt>
+<dd>
+<dl>
+<dt>10061 (0x274D)</dt>
+<dt>
+<p>No connection could be made because the target machine actively refused it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAELOOP"></a><a id="wsaeloop"></a><strong>WSAELOOP</strong></dt>
+<dd>
+<dl>
+<dt>10062 (0x274E)</dt>
+<dt>
+<p>Cannot translate name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENAMETOOLONG"></a><a id="wsaenametoolong"></a><strong>WSAENAMETOOLONG</strong></dt>
+<dd>
+<dl>
+<dt>10063 (0x274F)</dt>
+<dt>
+<p>Name component or name was too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEHOSTDOWN"></a><a id="wsaehostdown"></a><strong>WSAEHOSTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>10064 (0x2750)</dt>
+<dt>
+<p>A socket operation failed because the destination host was down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEHOSTUNREACH"></a><a id="wsaehostunreach"></a><strong>WSAEHOSTUNREACH</strong></dt>
+<dd>
+<dl>
+<dt>10065 (0x2751)</dt>
+<dt>
+<p>A socket operation was attempted to an unreachable host.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOTEMPTY"></a><a id="wsaenotempty"></a><strong>WSAENOTEMPTY</strong></dt>
+<dd>
+<dl>
+<dt>10066 (0x2752)</dt>
+<dt>
+<p>Cannot remove a directory that is not empty.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEPROCLIM"></a><a id="wsaeproclim"></a><strong>WSAEPROCLIM</strong></dt>
+<dd>
+<dl>
+<dt>10067 (0x2753)</dt>
+<dt>
+<p>A Windows Sockets implementation may have a limit on the number of applications that may use it 
+     simultaneously.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEUSERS"></a><a id="wsaeusers"></a><strong>WSAEUSERS</strong></dt>
+<dd>
+<dl>
+<dt>10068 (0x2754)</dt>
+<dt>
+<p>Ran out of quota.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEDQUOT"></a><a id="wsaedquot"></a><strong>WSAEDQUOT</strong></dt>
+<dd>
+<dl>
+<dt>10069 (0x2755)</dt>
+<dt>
+<p>Ran out of disk quota.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAESTALE"></a><a id="wsaestale"></a><strong>WSAESTALE</strong></dt>
+<dd>
+<dl>
+<dt>10070 (0x2756)</dt>
+<dt>
+<p>File handle reference is no longer available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEREMOTE"></a><a id="wsaeremote"></a><strong>WSAEREMOTE</strong></dt>
+<dd>
+<dl>
+<dt>10071 (0x2757)</dt>
+<dt>
+<p>Item is not available locally.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSASYSNOTREADY"></a><a id="wsasysnotready"></a><strong>WSASYSNOTREADY</strong></dt>
+<dd>
+<dl>
+<dt>10091 (0x276B)</dt>
+<dt>
+<p>WSAStartup cannot function at this time because the underlying system it uses to provide network services is 
+     currently unavailable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAVERNOTSUPPORTED"></a><a id="wsavernotsupported"></a><strong>WSAVERNOTSUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>10092 (0x276C)</dt>
+<dt>
+<p>The Windows Sockets version requested is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSANOTINITIALISED"></a><a id="wsanotinitialised"></a><strong>WSANOTINITIALISED</strong></dt>
+<dd>
+<dl>
+<dt>10093 (0x276D)</dt>
+<dt>
+<p>Either the application has not called WSAStartup, or WSAStartup failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEDISCON"></a><a id="wsaediscon"></a><strong>WSAEDISCON</strong></dt>
+<dd>
+<dl>
+<dt>10101 (0x2775)</dt>
+<dt>
+<p>Returned by WSARecv or WSARecvFrom to indicate the remote party has initiated a graceful shutdown 
+     sequence.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAENOMORE"></a><a id="wsaenomore"></a><strong>WSAENOMORE</strong></dt>
+<dd>
+<dl>
+<dt>10102 (0x2776)</dt>
+<dt>
+<p>No more results can be returned by WSALookupServiceNext.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAECANCELLED"></a><a id="wsaecancelled"></a><strong>WSAECANCELLED</strong></dt>
+<dd>
+<dl>
+<dt>10103 (0x2777)</dt>
+<dt>
+<p>A call to WSALookupServiceEnd was made while this call was still processing. The call has been 
+     canceled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEINVALIDPROCTABLE"></a><a id="wsaeinvalidproctable"></a><strong>WSAEINVALIDPROCTABLE</strong></dt>
+<dd>
+<dl>
+<dt>10104 (0x2778)</dt>
+<dt>
+<p>The procedure call table is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEINVALIDPROVIDER"></a><a id="wsaeinvalidprovider"></a><strong>WSAEINVALIDPROVIDER</strong></dt>
+<dd>
+<dl>
+<dt>10105 (0x2779)</dt>
+<dt>
+<p>The requested service provider is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEPROVIDERFAILEDINIT"></a><a id="wsaeproviderfailedinit"></a><strong>WSAEPROVIDERFAILEDINIT</strong></dt>
+<dd>
+<dl>
+<dt>10106 (0x277A)</dt>
+<dt>
+<p>The requested service provider could not be loaded or initialized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSASYSCALLFAILURE"></a><a id="wsasyscallfailure"></a><strong>WSASYSCALLFAILURE</strong></dt>
+<dd>
+<dl>
+<dt>10107 (0x277B)</dt>
+<dt>
+<p>A system call has failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSASERVICE_NOT_FOUND"></a><a id="wsaservice_not_found"></a><strong>WSASERVICE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>10108 (0x277C)</dt>
+<dt>
+<p>No such service is known. The service cannot be found in the specified name space.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSATYPE_NOT_FOUND"></a><a id="wsatype_not_found"></a><strong>WSATYPE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>10109 (0x277D)</dt>
+<dt>
+<p>The specified class was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_E_NO_MORE"></a><a id="wsa_e_no_more"></a><strong>WSA_E_NO_MORE</strong></dt>
+<dd>
+<dl>
+<dt>10110 (0x277E)</dt>
+<dt>
+<p>No more results can be returned by WSALookupServiceNext.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_E_CANCELLED"></a><a id="wsa_e_cancelled"></a><strong>WSA_E_CANCELLED</strong></dt>
+<dd>
+<dl>
+<dt>10111 (0x277F)</dt>
+<dt>
+<p>A call to WSALookupServiceEnd was made while this call was still processing. The call has been 
+     canceled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAEREFUSED"></a><a id="wsaerefused"></a><strong>WSAEREFUSED</strong></dt>
+<dd>
+<dl>
+<dt>10112 (0x2780)</dt>
+<dt>
+<p>A database query failed because it was actively refused.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSAHOST_NOT_FOUND"></a><a id="wsahost_not_found"></a><strong>WSAHOST_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>11001 (0x2AF9)</dt>
+<dt>
+<p>No such host is known.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSATRY_AGAIN"></a><a id="wsatry_again"></a><strong>WSATRY_AGAIN</strong></dt>
+<dd>
+<dl>
+<dt>11002 (0x2AFA)</dt>
+<dt>
+<p>This is usually a temporary error during hostname resolution and means that the local server did not receive 
+     a response from an authoritative server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSANO_RECOVERY"></a><a id="wsano_recovery"></a><strong>WSANO_RECOVERY</strong></dt>
+<dd>
+<dl>
+<dt>11003 (0x2AFB)</dt>
+<dt>
+<p>A non-recoverable error occurred during a database lookup.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSANO_DATA"></a><a id="wsano_data"></a><strong>WSANO_DATA</strong></dt>
+<dd>
+<dl>
+<dt>11004 (0x2AFC)</dt>
+<dt>
+<p>The requested name is valid, but no data of the requested type was found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_RECEIVERS"></a><a id="wsa_qos_receivers"></a><strong>WSA_QOS_RECEIVERS</strong></dt>
+<dd>
+<dl>
+<dt>11005 (0x2AFD)</dt>
+<dt>
+<p>At least one reserve has arrived.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_SENDERS"></a><a id="wsa_qos_senders"></a><strong>WSA_QOS_SENDERS</strong></dt>
+<dd>
+<dl>
+<dt>11006 (0x2AFE)</dt>
+<dt>
+<p>At least one path has arrived.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_NO_SENDERS"></a><a id="wsa_qos_no_senders"></a><strong>WSA_QOS_NO_SENDERS</strong></dt>
+<dd>
+<dl>
+<dt>11007 (0x2AFF)</dt>
+<dt>
+<p>There are no senders.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_NO_RECEIVERS"></a><a id="wsa_qos_no_receivers"></a><strong>WSA_QOS_NO_RECEIVERS</strong></dt>
+<dd>
+<dl>
+<dt>11008 (0x2B00)</dt>
+<dt>
+<p>There are no receivers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_REQUEST_CONFIRMED"></a><a id="wsa_qos_request_confirmed"></a><strong>WSA_QOS_REQUEST_CONFIRMED</strong></dt>
+<dd>
+<dl>
+<dt>11009 (0x2B01)</dt>
+<dt>
+<p>Reserve has been confirmed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_ADMISSION_FAILURE"></a><a id="wsa_qos_admission_failure"></a><strong>WSA_QOS_ADMISSION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>11010 (0x2B02)</dt>
+<dt>
+<p>Error due to lack of resources.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_POLICY_FAILURE"></a><a id="wsa_qos_policy_failure"></a><strong>WSA_QOS_POLICY_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>11011 (0x2B03)</dt>
+<dt>
+<p>Rejected for administrative reasons - bad credentials.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_BAD_STYLE"></a><a id="wsa_qos_bad_style"></a><strong>WSA_QOS_BAD_STYLE</strong></dt>
+<dd>
+<dl>
+<dt>11012 (0x2B04)</dt>
+<dt>
+<p>Unknown or conflicting style.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_BAD_OBJECT"></a><a id="wsa_qos_bad_object"></a><strong>WSA_QOS_BAD_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>11013 (0x2B05)</dt>
+<dt>
+<p>Problem with some part of the filterspec or providerspecific buffer in general.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_TRAFFIC_CTRL_ERROR"></a><a id="wsa_qos_traffic_ctrl_error"></a><strong>WSA_QOS_TRAFFIC_CTRL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>11014 (0x2B06)</dt>
+<dt>
+<p>Problem with some part of the flowspec.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_GENERIC_ERROR"></a><a id="wsa_qos_generic_error"></a><strong>WSA_QOS_GENERIC_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>11015 (0x2B07)</dt>
+<dt>
+<p>General QOS error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_ESERVICETYPE"></a><a id="wsa_qos_eservicetype"></a><strong>WSA_QOS_ESERVICETYPE</strong></dt>
+<dd>
+<dl>
+<dt>11016 (0x2B08)</dt>
+<dt>
+<p>An invalid or unrecognized service type was found in the flowspec.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFLOWSPEC"></a><a id="wsa_qos_eflowspec"></a><strong>WSA_QOS_EFLOWSPEC</strong></dt>
+<dd>
+<dl>
+<dt>11017 (0x2B09)</dt>
+<dt>
+<p>An invalid or inconsistent flowspec was found in the QOS structure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EPROVSPECBUF"></a><a id="wsa_qos_eprovspecbuf"></a><strong>WSA_QOS_EPROVSPECBUF</strong></dt>
+<dd>
+<dl>
+<dt>11018 (0x2B0A)</dt>
+<dt>
+<p>Invalid QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFILTERSTYLE"></a><a id="wsa_qos_efilterstyle"></a><strong>WSA_QOS_EFILTERSTYLE</strong></dt>
+<dd>
+<dl>
+<dt>11019 (0x2B0B)</dt>
+<dt>
+<p>An invalid QOS filter style was used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFILTERTYPE"></a><a id="wsa_qos_efiltertype"></a><strong>WSA_QOS_EFILTERTYPE</strong></dt>
+<dd>
+<dl>
+<dt>11020 (0x2B0C)</dt>
+<dt>
+<p>An invalid QOS filter type was used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFILTERCOUNT"></a><a id="wsa_qos_efiltercount"></a><strong>WSA_QOS_EFILTERCOUNT</strong></dt>
+<dd>
+<dl>
+<dt>11021 (0x2B0D)</dt>
+<dt>
+<p>An incorrect number of QOS FILTERSPECs were specified in the FLOWDESCRIPTOR.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EOBJLENGTH"></a><a id="wsa_qos_eobjlength"></a><strong>WSA_QOS_EOBJLENGTH</strong></dt>
+<dd>
+<dl>
+<dt>11022 (0x2B0E)</dt>
+<dt>
+<p>An object with an invalid ObjectLength field was specified in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFLOWCOUNT"></a><a id="wsa_qos_eflowcount"></a><strong>WSA_QOS_EFLOWCOUNT</strong></dt>
+<dd>
+<dl>
+<dt>11023 (0x2B0F)</dt>
+<dt>
+<p>An incorrect number of flow descriptors was specified in the QOS structure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EUNKOWNPSOBJ"></a><a id="wsa_qos_eunkownpsobj"></a><strong>WSA_QOS_EUNKOWNPSOBJ</strong></dt>
+<dd>
+<dl>
+<dt>11024 (0x2B10)</dt>
+<dt>
+<p>An unrecognized object was found in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EPOLICYOBJ"></a><a id="wsa_qos_epolicyobj"></a><strong>WSA_QOS_EPOLICYOBJ</strong></dt>
+<dd>
+<dl>
+<dt>11025 (0x2B11)</dt>
+<dt>
+<p>An invalid policy object was found in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EFLOWDESC"></a><a id="wsa_qos_eflowdesc"></a><strong>WSA_QOS_EFLOWDESC</strong></dt>
+<dd>
+<dl>
+<dt>11026 (0x2B12)</dt>
+<dt>
+<p>An invalid QOS flow descriptor was found in the flow descriptor list.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EPSFLOWSPEC"></a><a id="wsa_qos_epsflowspec"></a><strong>WSA_QOS_EPSFLOWSPEC</strong></dt>
+<dd>
+<dl>
+<dt>11027 (0x2B13)</dt>
+<dt>
+<p>An invalid or inconsistent flowspec was found in the QOS provider specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_EPSFILTERSPEC"></a><a id="wsa_qos_epsfilterspec"></a><strong>WSA_QOS_EPSFILTERSPEC</strong></dt>
+<dd>
+<dl>
+<dt>11028 (0x2B14)</dt>
+<dt>
+<p>An invalid FILTERSPEC was found in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_ESDMODEOBJ"></a><a id="wsa_qos_esdmodeobj"></a><strong>WSA_QOS_ESDMODEOBJ</strong></dt>
+<dd>
+<dl>
+<dt>11029 (0x2B15)</dt>
+<dt>
+<p>An invalid shape discard mode object was found in the QOS provider specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_ESHAPERATEOBJ"></a><a id="wsa_qos_eshaperateobj"></a><strong>WSA_QOS_ESHAPERATEOBJ</strong></dt>
+<dd>
+<dl>
+<dt>11030 (0x2B16)</dt>
+<dt>
+<p>An invalid shaping rate object was found in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_QOS_RESERVED_PETYPE"></a><a id="wsa_qos_reserved_petype"></a><strong>WSA_QOS_RESERVED_PETYPE</strong></dt>
+<dd>
+<dl>
+<dt>11031 (0x2B17)</dt>
+<dt>
+<p>A reserved policy element was found in the QOS provider-specific buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_SECURE_HOST_NOT_FOUND"></a><a id="wsa_secure_host_not_found"></a><strong>WSA_SECURE_HOST_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>11032 (0x2B18)</dt>
+<dt>
+<p>No such host is known securely.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WSA_IPSEC_NAME_POLICY_ERROR"></a><a id="wsa_ipsec_name_policy_error"></a><strong>WSA_IPSEC_NAME_POLICY_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>11033 (0x2B19)</dt>
+<dt>
+<p>Name based IPSEC policy could not be added.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681391(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681391(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="phi4av_Csl9WNljdGJgMlarKUBSkY7LXu_2jMtZggeynV96yy-5mnGZVufCZFYI269N_VYrMpo0UqjU2DM2gVIx7XTs1" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681391(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681391(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="mIPKJ8L1BmCEuxUyAFLp2vGr_As4ak9TUqMByAIAeOgilIXf00IQJDjvbDlRDa1F7wz4g5LwLmQlp4hwJK_wZo-tk9E1" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://157.56.75.93\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681391(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"1c9a3b82-a982-41aa-8609-ce7df09a1a73\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

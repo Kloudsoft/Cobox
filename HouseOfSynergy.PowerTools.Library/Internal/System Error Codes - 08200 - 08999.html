@@ -1,0 +1,4500 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" />
+        <title>System Error Codes (8200-8999) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681390(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681390(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681390(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681390(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="BF1CA93A-7:33:16 PM" />
+
+<meta name="Search.ShortId" content="ms681390" />
+
+<meta name="ms.shortidmsdn" content="ms681390" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="f16fdfa3-b080-47ee-a7dd-241fe2d24278" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996396&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (8200-8999)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> for errors 8200 to 8999. They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_DS_NOT_INSTALLED"></a><a id="error_ds_not_installed"></a><strong>ERROR_DS_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>8200 (0x2008)</dt>
+<dt>
+<p>An error occurred while installing the directory service. For more information, see the event log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY"></a><a id="error_ds_membership_evaluated_locally"></a><strong>ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY</strong></dt>
+<dd>
+<dl>
+<dt>8201 (0x2009)</dt>
+<dt>
+<p>The directory service evaluated group memberships locally.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_ATTRIBUTE_OR_VALUE"></a><a id="error_ds_no_attribute_or_value"></a><strong>ERROR_DS_NO_ATTRIBUTE_OR_VALUE</strong></dt>
+<dd>
+<dl>
+<dt>8202 (0x200A)</dt>
+<dt>
+<p>The specified directory service attribute or value does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_ATTRIBUTE_SYNTAX"></a><a id="error_ds_invalid_attribute_syntax"></a><strong>ERROR_DS_INVALID_ATTRIBUTE_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8203 (0x200B)</dt>
+<dt>
+<p>The attribute syntax specified to the directory service is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED"></a><a id="error_ds_attribute_type_undefined"></a><strong>ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED</strong></dt>
+<dd>
+<dl>
+<dt>8204 (0x200C)</dt>
+<dt>
+<p>The attribute type specified to the directory service is not defined.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS"></a><a id="error_ds_attribute_or_value_exists"></a><strong>ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8205 (0x200D)</dt>
+<dt>
+<p>The specified directory service attribute or value already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BUSY"></a><a id="error_ds_busy"></a><strong>ERROR_DS_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>8206 (0x200E)</dt>
+<dt>
+<p>The directory service is busy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNAVAILABLE"></a><a id="error_ds_unavailable"></a><strong>ERROR_DS_UNAVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>8207 (0x200F)</dt>
+<dt>
+<p>The directory service is unavailable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_RIDS_ALLOCATED"></a><a id="error_ds_no_rids_allocated"></a><strong>ERROR_DS_NO_RIDS_ALLOCATED</strong></dt>
+<dd>
+<dl>
+<dt>8208 (0x2010)</dt>
+<dt>
+<p>The directory service was unable to allocate a relative identifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_MORE_RIDS"></a><a id="error_ds_no_more_rids"></a><strong>ERROR_DS_NO_MORE_RIDS</strong></dt>
+<dd>
+<dl>
+<dt>8209 (0x2011)</dt>
+<dt>
+<p>The directory service has exhausted the pool of relative identifiers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INCORRECT_ROLE_OWNER"></a><a id="error_ds_incorrect_role_owner"></a><strong>ERROR_DS_INCORRECT_ROLE_OWNER</strong></dt>
+<dd>
+<dl>
+<dt>8210 (0x2012)</dt>
+<dt>
+<p>The requested operation could not be performed because the directory service is not the master for that 
+     type of operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RIDMGR_INIT_ERROR"></a><a id="error_ds_ridmgr_init_error"></a><strong>ERROR_DS_RIDMGR_INIT_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8211 (0x2013)</dt>
+<dt>
+<p>The directory service was unable to initialize the subsystem that allocates relative identifiers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_CLASS_VIOLATION"></a><a id="error_ds_obj_class_violation"></a><strong>ERROR_DS_OBJ_CLASS_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>8212 (0x2014)</dt>
+<dt>
+<p>The requested operation did not satisfy one or more constraints associated with the class of the 
+     object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ON_NON_LEAF"></a><a id="error_ds_cant_on_non_leaf"></a><strong>ERROR_DS_CANT_ON_NON_LEAF</strong></dt>
+<dd>
+<dl>
+<dt>8213 (0x2015)</dt>
+<dt>
+<p>The directory service can perform the requested operation only on a leaf object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ON_RDN"></a><a id="error_ds_cant_on_rdn"></a><strong>ERROR_DS_CANT_ON_RDN</strong></dt>
+<dd>
+<dl>
+<dt>8214 (0x2016)</dt>
+<dt>
+<p>The directory service cannot perform the requested operation on the RDN attribute of an object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOD_OBJ_CLASS"></a><a id="error_ds_cant_mod_obj_class"></a><strong>ERROR_DS_CANT_MOD_OBJ_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>8215 (0x2017)</dt>
+<dt>
+<p>The directory service detected an attempt to modify the object class of an object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CROSS_DOM_MOVE_ERROR"></a><a id="error_ds_cross_dom_move_error"></a><strong>ERROR_DS_CROSS_DOM_MOVE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8216 (0x2018)</dt>
+<dt>
+<p>The requested cross-domain move operation could not be performed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GC_NOT_AVAILABLE"></a><a id="error_ds_gc_not_available"></a><strong>ERROR_DS_GC_NOT_AVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>8217 (0x2019)</dt>
+<dt>
+<p>Unable to contact the global catalog server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SHARED_POLICY"></a><a id="error_shared_policy"></a><strong>ERROR_SHARED_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>8218 (0x201A)</dt>
+<dt>
+<p>The policy object is shared and can only be modified at the root.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_POLICY_OBJECT_NOT_FOUND"></a><a id="error_policy_object_not_found"></a><strong>ERROR_POLICY_OBJECT_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8219 (0x201B)</dt>
+<dt>
+<p>The policy object does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_POLICY_ONLY_IN_DS"></a><a id="error_policy_only_in_ds"></a><strong>ERROR_POLICY_ONLY_IN_DS</strong></dt>
+<dd>
+<dl>
+<dt>8220 (0x201C)</dt>
+<dt>
+<p>The requested policy information is only in the directory service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROMOTION_ACTIVE"></a><a id="error_promotion_active"></a><strong>ERROR_PROMOTION_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>8221 (0x201D)</dt>
+<dt>
+<p>A domain controller promotion is currently active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_PROMOTION_ACTIVE"></a><a id="error_no_promotion_active"></a><strong>ERROR_NO_PROMOTION_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>8222 (0x201E)</dt>
+<dt>
+<p>A domain controller promotion is not currently active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OPERATIONS_ERROR"></a><a id="error_ds_operations_error"></a><strong>ERROR_DS_OPERATIONS_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8224 (0x2020)</dt>
+<dt>
+<p>An operations error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_PROTOCOL_ERROR"></a><a id="error_ds_protocol_error"></a><strong>ERROR_DS_PROTOCOL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8225 (0x2021)</dt>
+<dt>
+<p>A protocol error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_TIMELIMIT_EXCEEDED"></a><a id="error_ds_timelimit_exceeded"></a><strong>ERROR_DS_TIMELIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8226 (0x2022)</dt>
+<dt>
+<p>The time limit for this request was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SIZELIMIT_EXCEEDED"></a><a id="error_ds_sizelimit_exceeded"></a><strong>ERROR_DS_SIZELIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8227 (0x2023)</dt>
+<dt>
+<p>The size limit for this request was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ADMIN_LIMIT_EXCEEDED"></a><a id="error_ds_admin_limit_exceeded"></a><strong>ERROR_DS_ADMIN_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8228 (0x2024)</dt>
+<dt>
+<p>The administrative limit for this request was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COMPARE_FALSE"></a><a id="error_ds_compare_false"></a><strong>ERROR_DS_COMPARE_FALSE</strong></dt>
+<dd>
+<dl>
+<dt>8229 (0x2025)</dt>
+<dt>
+<p>The compare response was false.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COMPARE_TRUE"></a><a id="error_ds_compare_true"></a><strong>ERROR_DS_COMPARE_TRUE</strong></dt>
+<dd>
+<dl>
+<dt>8230 (0x2026)</dt>
+<dt>
+<p>The compare response was true.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AUTH_METHOD_NOT_SUPPORTED"></a><a id="error_ds_auth_method_not_supported"></a><strong>ERROR_DS_AUTH_METHOD_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>8231 (0x2027)</dt>
+<dt>
+<p>The requested authentication method is not supported by the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_STRONG_AUTH_REQUIRED"></a><a id="error_ds_strong_auth_required"></a><strong>ERROR_DS_STRONG_AUTH_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8232 (0x2028)</dt>
+<dt>
+<p>A more secure authentication method is required for this server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INAPPROPRIATE_AUTH"></a><a id="error_ds_inappropriate_auth"></a><strong>ERROR_DS_INAPPROPRIATE_AUTH</strong></dt>
+<dd>
+<dl>
+<dt>8233 (0x2029)</dt>
+<dt>
+<p>Inappropriate authentication.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AUTH_UNKNOWN"></a><a id="error_ds_auth_unknown"></a><strong>ERROR_DS_AUTH_UNKNOWN</strong></dt>
+<dd>
+<dl>
+<dt>8234 (0x202A)</dt>
+<dt>
+<p>The authentication mechanism is unknown.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REFERRAL"></a><a id="error_ds_referral"></a><strong>ERROR_DS_REFERRAL</strong></dt>
+<dd>
+<dl>
+<dt>8235 (0x202B)</dt>
+<dt>
+<p>A referral was returned from the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNAVAILABLE_CRIT_EXTENSION"></a><a id="error_ds_unavailable_crit_extension"></a><strong>ERROR_DS_UNAVAILABLE_CRIT_EXTENSION</strong></dt>
+<dd>
+<dl>
+<dt>8236 (0x202C)</dt>
+<dt>
+<p>The server does not support the requested critical extension.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CONFIDENTIALITY_REQUIRED"></a><a id="error_ds_confidentiality_required"></a><strong>ERROR_DS_CONFIDENTIALITY_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8237 (0x202D)</dt>
+<dt>
+<p>This request requires a secure connection.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INAPPROPRIATE_MATCHING"></a><a id="error_ds_inappropriate_matching"></a><strong>ERROR_DS_INAPPROPRIATE_MATCHING</strong></dt>
+<dd>
+<dl>
+<dt>8238 (0x202E)</dt>
+<dt>
+<p>Inappropriate matching.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CONSTRAINT_VIOLATION"></a><a id="error_ds_constraint_violation"></a><strong>ERROR_DS_CONSTRAINT_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>8239 (0x202F)</dt>
+<dt>
+<p>A constraint violation occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_SUCH_OBJECT"></a><a id="error_ds_no_such_object"></a><strong>ERROR_DS_NO_SUCH_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8240 (0x2030)</dt>
+<dt>
+<p>There is no such object on the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ALIAS_PROBLEM"></a><a id="error_ds_alias_problem"></a><strong>ERROR_DS_ALIAS_PROBLEM</strong></dt>
+<dd>
+<dl>
+<dt>8241 (0x2031)</dt>
+<dt>
+<p>There is an alias problem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_DN_SYNTAX"></a><a id="error_ds_invalid_dn_syntax"></a><strong>ERROR_DS_INVALID_DN_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8242 (0x2032)</dt>
+<dt>
+<p>An invalid dn syntax has been specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_IS_LEAF"></a><a id="error_ds_is_leaf"></a><strong>ERROR_DS_IS_LEAF</strong></dt>
+<dd>
+<dl>
+<dt>8243 (0x2033)</dt>
+<dt>
+<p>The object is a leaf object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ALIAS_DEREF_PROBLEM"></a><a id="error_ds_alias_deref_problem"></a><strong>ERROR_DS_ALIAS_DEREF_PROBLEM</strong></dt>
+<dd>
+<dl>
+<dt>8244 (0x2034)</dt>
+<dt>
+<p>There is an alias dereferencing problem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNWILLING_TO_PERFORM"></a><a id="error_ds_unwilling_to_perform"></a><strong>ERROR_DS_UNWILLING_TO_PERFORM</strong></dt>
+<dd>
+<dl>
+<dt>8245 (0x2035)</dt>
+<dt>
+<p>The server is unwilling to process the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOOP_DETECT"></a><a id="error_ds_loop_detect"></a><strong>ERROR_DS_LOOP_DETECT</strong></dt>
+<dd>
+<dl>
+<dt>8246 (0x2036)</dt>
+<dt>
+<p>A loop has been detected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAMING_VIOLATION"></a><a id="error_ds_naming_violation"></a><strong>ERROR_DS_NAMING_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>8247 (0x2037)</dt>
+<dt>
+<p>There is a naming violation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJECT_RESULTS_TOO_LARGE"></a><a id="error_ds_object_results_too_large"></a><strong>ERROR_DS_OBJECT_RESULTS_TOO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>8248 (0x2038)</dt>
+<dt>
+<p>The result set is too large.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AFFECTS_MULTIPLE_DSAS"></a><a id="error_ds_affects_multiple_dsas"></a><strong>ERROR_DS_AFFECTS_MULTIPLE_DSAS</strong></dt>
+<dd>
+<dl>
+<dt>8249 (0x2039)</dt>
+<dt>
+<p>The operation affects multiple DSAs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SERVER_DOWN"></a><a id="error_ds_server_down"></a><strong>ERROR_DS_SERVER_DOWN</strong></dt>
+<dd>
+<dl>
+<dt>8250 (0x203A)</dt>
+<dt>
+<p>The server is not operational.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOCAL_ERROR"></a><a id="error_ds_local_error"></a><strong>ERROR_DS_LOCAL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8251 (0x203B)</dt>
+<dt>
+<p>A local error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ENCODING_ERROR"></a><a id="error_ds_encoding_error"></a><strong>ERROR_DS_ENCODING_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8252 (0x203C)</dt>
+<dt>
+<p>An encoding error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DECODING_ERROR"></a><a id="error_ds_decoding_error"></a><strong>ERROR_DS_DECODING_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8253 (0x203D)</dt>
+<dt>
+<p>A decoding error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_FILTER_UNKNOWN"></a><a id="error_ds_filter_unknown"></a><strong>ERROR_DS_FILTER_UNKNOWN</strong></dt>
+<dd>
+<dl>
+<dt>8254 (0x203E)</dt>
+<dt>
+<p>The search filter cannot be recognized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_PARAM_ERROR"></a><a id="error_ds_param_error"></a><strong>ERROR_DS_PARAM_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8255 (0x203F)</dt>
+<dt>
+<p>One or more parameters are illegal.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_SUPPORTED"></a><a id="error_ds_not_supported"></a><strong>ERROR_DS_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>8256 (0x2040)</dt>
+<dt>
+<p>The specified method is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_RESULTS_RETURNED"></a><a id="error_ds_no_results_returned"></a><strong>ERROR_DS_NO_RESULTS_RETURNED</strong></dt>
+<dd>
+<dl>
+<dt>8257 (0x2041)</dt>
+<dt>
+<p>No results were returned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CONTROL_NOT_FOUND"></a><a id="error_ds_control_not_found"></a><strong>ERROR_DS_CONTROL_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8258 (0x2042)</dt>
+<dt>
+<p>The specified control is not supported by the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CLIENT_LOOP"></a><a id="error_ds_client_loop"></a><strong>ERROR_DS_CLIENT_LOOP</strong></dt>
+<dd>
+<dl>
+<dt>8259 (0x2043)</dt>
+<dt>
+<p>A referral loop was detected by the client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REFERRAL_LIMIT_EXCEEDED"></a><a id="error_ds_referral_limit_exceeded"></a><strong>ERROR_DS_REFERRAL_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8260 (0x2044)</dt>
+<dt>
+<p>The preset referral limit was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SORT_CONTROL_MISSING"></a><a id="error_ds_sort_control_missing"></a><strong>ERROR_DS_SORT_CONTROL_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>8261 (0x2045)</dt>
+<dt>
+<p>The search requires a SORT control.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OFFSET_RANGE_ERROR"></a><a id="error_ds_offset_range_error"></a><strong>ERROR_DS_OFFSET_RANGE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8262 (0x2046)</dt>
+<dt>
+<p>The search results exceed the offset range specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RIDMGR_DISABLED"></a><a id="error_ds_ridmgr_disabled"></a><strong>ERROR_DS_RIDMGR_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>8263 (0x2047)</dt>
+<dt>
+<p>The directory service detected the subsystem that allocates relative identifiers is disabled. This can occur 
+     as a protective mechanism when the system determines a significant portion of relative identifiers (RIDs) have 
+     been exhausted. Please see 
+     <a href="http://go.microsoft.com/fwlink/p/?linkid=228610">http://go.microsoft.com/fwlink/p/?linkid=228610</a> 
+     for recommended diagnostic steps and the procedure to re-enable account creation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ROOT_MUST_BE_NC"></a><a id="error_ds_root_must_be_nc"></a><strong>ERROR_DS_ROOT_MUST_BE_NC</strong></dt>
+<dd>
+<dl>
+<dt>8301 (0x206D)</dt>
+<dt>
+<p>The root object must be the head of a naming context. The root object cannot have an instantiated 
+     parent.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ADD_REPLICA_INHIBITED"></a><a id="error_ds_add_replica_inhibited"></a><strong>ERROR_DS_ADD_REPLICA_INHIBITED</strong></dt>
+<dd>
+<dl>
+<dt>8302 (0x206E)</dt>
+<dt>
+<p>The add replica operation cannot be performed. The naming context must be writeable in order to create the 
+     replica.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_NOT_DEF_IN_SCHEMA"></a><a id="error_ds_att_not_def_in_schema"></a><strong>ERROR_DS_ATT_NOT_DEF_IN_SCHEMA</strong></dt>
+<dd>
+<dl>
+<dt>8303 (0x206F)</dt>
+<dt>
+<p>A reference to an attribute that is not defined in the schema occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MAX_OBJ_SIZE_EXCEEDED"></a><a id="error_ds_max_obj_size_exceeded"></a><strong>ERROR_DS_MAX_OBJ_SIZE_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8304 (0x2070)</dt>
+<dt>
+<p>The maximum size of an object has been exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_STRING_NAME_EXISTS"></a><a id="error_ds_obj_string_name_exists"></a><strong>ERROR_DS_OBJ_STRING_NAME_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8305 (0x2071)</dt>
+<dt>
+<p>An attempt was made to add an object to the directory with a name that is already in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA"></a><a id="error_ds_no_rdn_defined_in_schema"></a><strong>ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA</strong></dt>
+<dd>
+<dl>
+<dt>8306 (0x2072)</dt>
+<dt>
+<p>An attempt was made to add an object of a class that does not have an RDN defined in the schema.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RDN_DOESNT_MATCH_SCHEMA"></a><a id="error_ds_rdn_doesnt_match_schema"></a><strong>ERROR_DS_RDN_DOESNT_MATCH_SCHEMA</strong></dt>
+<dd>
+<dl>
+<dt>8307 (0x2073)</dt>
+<dt>
+<p>An attempt was made to add an object using an RDN that is not the RDN defined in the schema.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_REQUESTED_ATTS_FOUND"></a><a id="error_ds_no_requested_atts_found"></a><strong>ERROR_DS_NO_REQUESTED_ATTS_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8308 (0x2074)</dt>
+<dt>
+<p>None of the requested attributes were found on the objects.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_USER_BUFFER_TO_SMALL"></a><a id="error_ds_user_buffer_to_small"></a><strong>ERROR_DS_USER_BUFFER_TO_SMALL</strong></dt>
+<dd>
+<dl>
+<dt>8309 (0x2075)</dt>
+<dt>
+<p>The user buffer is too small.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_IS_NOT_ON_OBJ"></a><a id="error_ds_att_is_not_on_obj"></a><strong>ERROR_DS_ATT_IS_NOT_ON_OBJ</strong></dt>
+<dd>
+<dl>
+<dt>8310 (0x2076)</dt>
+<dt>
+<p>The attribute specified in the operation is not present on the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ILLEGAL_MOD_OPERATION"></a><a id="error_ds_illegal_mod_operation"></a><strong>ERROR_DS_ILLEGAL_MOD_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>8311 (0x2077)</dt>
+<dt>
+<p>Illegal modify operation. Some aspect of the modification is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_TOO_LARGE"></a><a id="error_ds_obj_too_large"></a><strong>ERROR_DS_OBJ_TOO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>8312 (0x2078)</dt>
+<dt>
+<p>The specified object is too large.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BAD_INSTANCE_TYPE"></a><a id="error_ds_bad_instance_type"></a><strong>ERROR_DS_BAD_INSTANCE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>8313 (0x2079)</dt>
+<dt>
+<p>The specified instance type is not valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MASTERDSA_REQUIRED"></a><a id="error_ds_masterdsa_required"></a><strong>ERROR_DS_MASTERDSA_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8314 (0x207A)</dt>
+<dt>
+<p>The operation must be performed at a master DSA.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJECT_CLASS_REQUIRED"></a><a id="error_ds_object_class_required"></a><strong>ERROR_DS_OBJECT_CLASS_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8315 (0x207B)</dt>
+<dt>
+<p>The object class attribute must be specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MISSING_REQUIRED_ATT"></a><a id="error_ds_missing_required_att"></a><strong>ERROR_DS_MISSING_REQUIRED_ATT</strong></dt>
+<dd>
+<dl>
+<dt>8316 (0x207C)</dt>
+<dt>
+<p>A required attribute is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_NOT_DEF_FOR_CLASS"></a><a id="error_ds_att_not_def_for_class"></a><strong>ERROR_DS_ATT_NOT_DEF_FOR_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>8317 (0x207D)</dt>
+<dt>
+<p>An attempt was made to modify an object to include an attribute that is not legal for its class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_ALREADY_EXISTS"></a><a id="error_ds_att_already_exists"></a><strong>ERROR_DS_ATT_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8318 (0x207E)</dt>
+<dt>
+<p>The specified attribute is already present on the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ADD_ATT_VALUES"></a><a id="error_ds_cant_add_att_values"></a><strong>ERROR_DS_CANT_ADD_ATT_VALUES</strong></dt>
+<dd>
+<dl>
+<dt>8320 (0x2080)</dt>
+<dt>
+<p>The specified attribute is not present, or has no values.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SINGLE_VALUE_CONSTRAINT"></a><a id="error_ds_single_value_constraint"></a><strong>ERROR_DS_SINGLE_VALUE_CONSTRAINT</strong></dt>
+<dd>
+<dl>
+<dt>8321 (0x2081)</dt>
+<dt>
+<p>Multiple values were specified for an attribute that can have only one value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RANGE_CONSTRAINT"></a><a id="error_ds_range_constraint"></a><strong>ERROR_DS_RANGE_CONSTRAINT</strong></dt>
+<dd>
+<dl>
+<dt>8322 (0x2082)</dt>
+<dt>
+<p>A value for the attribute was not in the acceptable range of values.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_VAL_ALREADY_EXISTS"></a><a id="error_ds_att_val_already_exists"></a><strong>ERROR_DS_ATT_VAL_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8323 (0x2083)</dt>
+<dt>
+<p>The specified value already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_REM_MISSING_ATT"></a><a id="error_ds_cant_rem_missing_att"></a><strong>ERROR_DS_CANT_REM_MISSING_ATT</strong></dt>
+<dd>
+<dl>
+<dt>8324 (0x2084)</dt>
+<dt>
+<p>The attribute cannot be removed because it is not present on the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_REM_MISSING_ATT_VAL"></a><a id="error_ds_cant_rem_missing_att_val"></a><strong>ERROR_DS_CANT_REM_MISSING_ATT_VAL</strong></dt>
+<dd>
+<dl>
+<dt>8325 (0x2085)</dt>
+<dt>
+<p>The attribute value cannot be removed because it is not present on the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ROOT_CANT_BE_SUBREF"></a><a id="error_ds_root_cant_be_subref"></a><strong>ERROR_DS_ROOT_CANT_BE_SUBREF</strong></dt>
+<dd>
+<dl>
+<dt>8326 (0x2086)</dt>
+<dt>
+<p>The specified root object cannot be a subref.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_CHAINING"></a><a id="error_ds_no_chaining"></a><strong>ERROR_DS_NO_CHAINING</strong></dt>
+<dd>
+<dl>
+<dt>8327 (0x2087)</dt>
+<dt>
+<p>Chaining is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_CHAINED_EVAL"></a><a id="error_ds_no_chained_eval"></a><strong>ERROR_DS_NO_CHAINED_EVAL</strong></dt>
+<dd>
+<dl>
+<dt>8328 (0x2088)</dt>
+<dt>
+<p>Chained evaluation is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_PARENT_OBJECT"></a><a id="error_ds_no_parent_object"></a><strong>ERROR_DS_NO_PARENT_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8329 (0x2089)</dt>
+<dt>
+<p>The operation could not be performed because the object's parent is either uninstantiated or deleted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_PARENT_IS_AN_ALIAS"></a><a id="error_ds_parent_is_an_alias"></a><strong>ERROR_DS_PARENT_IS_AN_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>8330 (0x208A)</dt>
+<dt>
+<p>Having a parent that is an alias is not permitted. Aliases are leaf objects.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MIX_MASTER_AND_REPS"></a><a id="error_ds_cant_mix_master_and_reps"></a><strong>ERROR_DS_CANT_MIX_MASTER_AND_REPS</strong></dt>
+<dd>
+<dl>
+<dt>8331 (0x208B)</dt>
+<dt>
+<p>The object and parent must be of the same type, either both masters or both replicas.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CHILDREN_EXIST"></a><a id="error_ds_children_exist"></a><strong>ERROR_DS_CHILDREN_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>8332 (0x208C)</dt>
+<dt>
+<p>The operation cannot be performed because child objects exist. This operation can only be performed on a 
+     leaf object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_NOT_FOUND"></a><a id="error_ds_obj_not_found"></a><strong>ERROR_DS_OBJ_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8333 (0x208D)</dt>
+<dt>
+<p>Directory object not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ALIASED_OBJ_MISSING"></a><a id="error_ds_aliased_obj_missing"></a><strong>ERROR_DS_ALIASED_OBJ_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>8334 (0x208E)</dt>
+<dt>
+<p>The aliased object is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BAD_NAME_SYNTAX"></a><a id="error_ds_bad_name_syntax"></a><strong>ERROR_DS_BAD_NAME_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8335 (0x208F)</dt>
+<dt>
+<p>The object name has bad syntax.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ALIAS_POINTS_TO_ALIAS"></a><a id="error_ds_alias_points_to_alias"></a><strong>ERROR_DS_ALIAS_POINTS_TO_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>8336 (0x2090)</dt>
+<dt>
+<p>It is not permitted for an alias to refer to another alias.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DEREF_ALIAS"></a><a id="error_ds_cant_deref_alias"></a><strong>ERROR_DS_CANT_DEREF_ALIAS</strong></dt>
+<dd>
+<dl>
+<dt>8337 (0x2091)</dt>
+<dt>
+<p>The alias cannot be dereferenced.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OUT_OF_SCOPE"></a><a id="error_ds_out_of_scope"></a><strong>ERROR_DS_OUT_OF_SCOPE</strong></dt>
+<dd>
+<dl>
+<dt>8338 (0x2092)</dt>
+<dt>
+<p>The operation is out of scope.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJECT_BEING_REMOVED"></a><a id="error_ds_object_being_removed"></a><strong>ERROR_DS_OBJECT_BEING_REMOVED</strong></dt>
+<dd>
+<dl>
+<dt>8339 (0x2093)</dt>
+<dt>
+<p>The operation cannot continue because the object is in the process of being removed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DELETE_DSA_OBJ"></a><a id="error_ds_cant_delete_dsa_obj"></a><strong>ERROR_DS_CANT_DELETE_DSA_OBJ</strong></dt>
+<dd>
+<dl>
+<dt>8340 (0x2094)</dt>
+<dt>
+<p>The DSA object cannot be deleted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GENERIC_ERROR"></a><a id="error_ds_generic_error"></a><strong>ERROR_DS_GENERIC_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8341 (0x2095)</dt>
+<dt>
+<p>A directory service error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DSA_MUST_BE_INT_MASTER"></a><a id="error_ds_dsa_must_be_int_master"></a><strong>ERROR_DS_DSA_MUST_BE_INT_MASTER</strong></dt>
+<dd>
+<dl>
+<dt>8342 (0x2096)</dt>
+<dt>
+<p>The operation can only be performed on an internal master DSA object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CLASS_NOT_DSA"></a><a id="error_ds_class_not_dsa"></a><strong>ERROR_DS_CLASS_NOT_DSA</strong></dt>
+<dd>
+<dl>
+<dt>8343 (0x2097)</dt>
+<dt>
+<p>The object must be of class DSA.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INSUFF_ACCESS_RIGHTS"></a><a id="error_ds_insuff_access_rights"></a><strong>ERROR_DS_INSUFF_ACCESS_RIGHTS</strong></dt>
+<dd>
+<dl>
+<dt>8344 (0x2098)</dt>
+<dt>
+<p>Insufficient access rights to perform the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ILLEGAL_SUPERIOR"></a><a id="error_ds_illegal_superior"></a><strong>ERROR_DS_ILLEGAL_SUPERIOR</strong></dt>
+<dd>
+<dl>
+<dt>8345 (0x2099)</dt>
+<dt>
+<p>The object cannot be added because the parent is not on the list of possible superiors.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATTRIBUTE_OWNED_BY_SAM"></a><a id="error_ds_attribute_owned_by_sam"></a><strong>ERROR_DS_ATTRIBUTE_OWNED_BY_SAM</strong></dt>
+<dd>
+<dl>
+<dt>8346 (0x209A)</dt>
+<dt>
+<p>Access to the attribute is not permitted because the attribute is owned by the Security Accounts Manager 
+     (SAM).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_TOO_MANY_PARTS"></a><a id="error_ds_name_too_many_parts"></a><strong>ERROR_DS_NAME_TOO_MANY_PARTS</strong></dt>
+<dd>
+<dl>
+<dt>8347 (0x209B)</dt>
+<dt>
+<p>The name has too many parts.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_TOO_LONG"></a><a id="error_ds_name_too_long"></a><strong>ERROR_DS_NAME_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>8348 (0x209C)</dt>
+<dt>
+<p>The name is too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_VALUE_TOO_LONG"></a><a id="error_ds_name_value_too_long"></a><strong>ERROR_DS_NAME_VALUE_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>8349 (0x209D)</dt>
+<dt>
+<p>The name value is too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_UNPARSEABLE"></a><a id="error_ds_name_unparseable"></a><strong>ERROR_DS_NAME_UNPARSEABLE</strong></dt>
+<dd>
+<dl>
+<dt>8350 (0x209E)</dt>
+<dt>
+<p>The directory service encountered an error parsing a name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_TYPE_UNKNOWN"></a><a id="error_ds_name_type_unknown"></a><strong>ERROR_DS_NAME_TYPE_UNKNOWN</strong></dt>
+<dd>
+<dl>
+<dt>8351 (0x209F)</dt>
+<dt>
+<p>The directory service cannot get the attribute type for a name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_AN_OBJECT"></a><a id="error_ds_not_an_object"></a><strong>ERROR_DS_NOT_AN_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8352 (0x20A0)</dt>
+<dt>
+<p>The name does not identify an object; the name identifies a phantom.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SEC_DESC_TOO_SHORT"></a><a id="error_ds_sec_desc_too_short"></a><strong>ERROR_DS_SEC_DESC_TOO_SHORT</strong></dt>
+<dd>
+<dl>
+<dt>8353 (0x20A1)</dt>
+<dt>
+<p>The security descriptor is too short.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SEC_DESC_INVALID"></a><a id="error_ds_sec_desc_invalid"></a><strong>ERROR_DS_SEC_DESC_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>8354 (0x20A2)</dt>
+<dt>
+<p>The security descriptor is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_DELETED_NAME"></a><a id="error_ds_no_deleted_name"></a><strong>ERROR_DS_NO_DELETED_NAME</strong></dt>
+<dd>
+<dl>
+<dt>8355 (0x20A3)</dt>
+<dt>
+<p>Failed to create name for deleted object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SUBREF_MUST_HAVE_PARENT"></a><a id="error_ds_subref_must_have_parent"></a><strong>ERROR_DS_SUBREF_MUST_HAVE_PARENT</strong></dt>
+<dd>
+<dl>
+<dt>8356 (0x20A4)</dt>
+<dt>
+<p>The parent of a new subref must exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NCNAME_MUST_BE_NC"></a><a id="error_ds_ncname_must_be_nc"></a><strong>ERROR_DS_NCNAME_MUST_BE_NC</strong></dt>
+<dd>
+<dl>
+<dt>8357 (0x20A5)</dt>
+<dt>
+<p>The object must be a naming context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ADD_SYSTEM_ONLY"></a><a id="error_ds_cant_add_system_only"></a><strong>ERROR_DS_CANT_ADD_SYSTEM_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>8358 (0x20A6)</dt>
+<dt>
+<p>It is not permitted to add an attribute which is owned by the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CLASS_MUST_BE_CONCRETE"></a><a id="error_ds_class_must_be_concrete"></a><strong>ERROR_DS_CLASS_MUST_BE_CONCRETE</strong></dt>
+<dd>
+<dl>
+<dt>8359 (0x20A7)</dt>
+<dt>
+<p>The class of the object must be structural; you cannot instantiate an abstract class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_DMD"></a><a id="error_ds_invalid_dmd"></a><strong>ERROR_DS_INVALID_DMD</strong></dt>
+<dd>
+<dl>
+<dt>8360 (0x20A8)</dt>
+<dt>
+<p>The schema object could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_GUID_EXISTS"></a><a id="error_ds_obj_guid_exists"></a><strong>ERROR_DS_OBJ_GUID_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8361 (0x20A9)</dt>
+<dt>
+<p>A local object with this GUID (dead or alive) already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_ON_BACKLINK"></a><a id="error_ds_not_on_backlink"></a><strong>ERROR_DS_NOT_ON_BACKLINK</strong></dt>
+<dd>
+<dl>
+<dt>8362 (0x20AA)</dt>
+<dt>
+<p>The operation cannot be performed on a back link.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_CROSSREF_FOR_NC"></a><a id="error_ds_no_crossref_for_nc"></a><strong>ERROR_DS_NO_CROSSREF_FOR_NC</strong></dt>
+<dd>
+<dl>
+<dt>8363 (0x20AB)</dt>
+<dt>
+<p>The cross reference for the specified naming context could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SHUTTING_DOWN"></a><a id="error_ds_shutting_down"></a><strong>ERROR_DS_SHUTTING_DOWN</strong></dt>
+<dd>
+<dl>
+<dt>8364 (0x20AC)</dt>
+<dt>
+<p>The operation could not be performed because the directory service is shutting down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNKNOWN_OPERATION"></a><a id="error_ds_unknown_operation"></a><strong>ERROR_DS_UNKNOWN_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>8365 (0x20AD)</dt>
+<dt>
+<p>The directory service request is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_ROLE_OWNER"></a><a id="error_ds_invalid_role_owner"></a><strong>ERROR_DS_INVALID_ROLE_OWNER</strong></dt>
+<dd>
+<dl>
+<dt>8366 (0x20AE)</dt>
+<dt>
+<p>The role owner attribute could not be read.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COULDNT_CONTACT_FSMO"></a><a id="error_ds_couldnt_contact_fsmo"></a><strong>ERROR_DS_COULDNT_CONTACT_FSMO</strong></dt>
+<dd>
+<dl>
+<dt>8367 (0x20AF)</dt>
+<dt>
+<p>The requested FSMO operation failed. The current FSMO holder could not be contacted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CROSS_NC_DN_RENAME"></a><a id="error_ds_cross_nc_dn_rename"></a><strong>ERROR_DS_CROSS_NC_DN_RENAME</strong></dt>
+<dd>
+<dl>
+<dt>8368 (0x20B0)</dt>
+<dt>
+<p>Modification of a DN across a naming context is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOD_SYSTEM_ONLY"></a><a id="error_ds_cant_mod_system_only"></a><strong>ERROR_DS_CANT_MOD_SYSTEM_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>8369 (0x20B1)</dt>
+<dt>
+<p>The attribute cannot be modified because it is owned by the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REPLICATOR_ONLY"></a><a id="error_ds_replicator_only"></a><strong>ERROR_DS_REPLICATOR_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>8370 (0x20B2)</dt>
+<dt>
+<p>Only the replicator can perform this function.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_CLASS_NOT_DEFINED"></a><a id="error_ds_obj_class_not_defined"></a><strong>ERROR_DS_OBJ_CLASS_NOT_DEFINED</strong></dt>
+<dd>
+<dl>
+<dt>8371 (0x20B3)</dt>
+<dt>
+<p>The specified class is not defined.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OBJ_CLASS_NOT_SUBCLASS"></a><a id="error_ds_obj_class_not_subclass"></a><strong>ERROR_DS_OBJ_CLASS_NOT_SUBCLASS</strong></dt>
+<dd>
+<dl>
+<dt>8372 (0x20B4)</dt>
+<dt>
+<p>The specified class is not a subclass.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_REFERENCE_INVALID"></a><a id="error_ds_name_reference_invalid"></a><strong>ERROR_DS_NAME_REFERENCE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>8373 (0x20B5)</dt>
+<dt>
+<p>The name reference is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CROSS_REF_EXISTS"></a><a id="error_ds_cross_ref_exists"></a><strong>ERROR_DS_CROSS_REF_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8374 (0x20B6)</dt>
+<dt>
+<p>A cross reference already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DEL_MASTER_CROSSREF"></a><a id="error_ds_cant_del_master_crossref"></a><strong>ERROR_DS_CANT_DEL_MASTER_CROSSREF</strong></dt>
+<dd>
+<dl>
+<dt>8375 (0x20B7)</dt>
+<dt>
+<p>It is not permitted to delete a master cross reference.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD"></a><a id="error_ds_subtree_notify_not_nc_head"></a><strong>ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD</strong></dt>
+<dd>
+<dl>
+<dt>8376 (0x20B8)</dt>
+<dt>
+<p>Subtree notifications are only supported on NC heads.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX"></a><a id="error_ds_notify_filter_too_complex"></a><strong>ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX</strong></dt>
+<dd>
+<dl>
+<dt>8377 (0x20B9)</dt>
+<dt>
+<p>Notification filter is too complex.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_RDN"></a><a id="error_ds_dup_rdn"></a><strong>ERROR_DS_DUP_RDN</strong></dt>
+<dd>
+<dl>
+<dt>8378 (0x20BA)</dt>
+<dt>
+<p>Schema update failed: duplicate RDN.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_OID"></a><a id="error_ds_dup_oid"></a><strong>ERROR_DS_DUP_OID</strong></dt>
+<dd>
+<dl>
+<dt>8379 (0x20BB)</dt>
+<dt>
+<p>Schema update failed: duplicate OID.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_MAPI_ID"></a><a id="error_ds_dup_mapi_id"></a><strong>ERROR_DS_DUP_MAPI_ID</strong></dt>
+<dd>
+<dl>
+<dt>8380 (0x20BC)</dt>
+<dt>
+<p>Schema update failed: duplicate MAPI identifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_SCHEMA_ID_GUID"></a><a id="error_ds_dup_schema_id_guid"></a><strong>ERROR_DS_DUP_SCHEMA_ID_GUID</strong></dt>
+<dd>
+<dl>
+<dt>8381 (0x20BD)</dt>
+<dt>
+<p>Schema update failed: duplicate schema-id GUID.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_LDAP_DISPLAY_NAME"></a><a id="error_ds_dup_ldap_display_name"></a><strong>ERROR_DS_DUP_LDAP_DISPLAY_NAME</strong></dt>
+<dd>
+<dl>
+<dt>8382 (0x20BE)</dt>
+<dt>
+<p>Schema update failed: duplicate LDAP display name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SEMANTIC_ATT_TEST"></a><a id="error_ds_semantic_att_test"></a><strong>ERROR_DS_SEMANTIC_ATT_TEST</strong></dt>
+<dd>
+<dl>
+<dt>8383 (0x20BF)</dt>
+<dt>
+<p>Schema update failed: range-lower less than range upper.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SYNTAX_MISMATCH"></a><a id="error_ds_syntax_mismatch"></a><strong>ERROR_DS_SYNTAX_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8384 (0x20C0)</dt>
+<dt>
+<p>Schema update failed: syntax mismatch.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_MUST_HAVE"></a><a id="error_ds_exists_in_must_have"></a><strong>ERROR_DS_EXISTS_IN_MUST_HAVE</strong></dt>
+<dd>
+<dl>
+<dt>8385 (0x20C1)</dt>
+<dt>
+<p>Schema deletion failed: attribute is used in must-contain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_MAY_HAVE"></a><a id="error_ds_exists_in_may_have"></a><strong>ERROR_DS_EXISTS_IN_MAY_HAVE</strong></dt>
+<dd>
+<dl>
+<dt>8386 (0x20C2)</dt>
+<dt>
+<p>Schema deletion failed: attribute is used in may-contain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NONEXISTENT_MAY_HAVE"></a><a id="error_ds_nonexistent_may_have"></a><strong>ERROR_DS_NONEXISTENT_MAY_HAVE</strong></dt>
+<dd>
+<dl>
+<dt>8387 (0x20C3)</dt>
+<dt>
+<p>Schema update failed: attribute in may-contain does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NONEXISTENT_MUST_HAVE"></a><a id="error_ds_nonexistent_must_have"></a><strong>ERROR_DS_NONEXISTENT_MUST_HAVE</strong></dt>
+<dd>
+<dl>
+<dt>8388 (0x20C4)</dt>
+<dt>
+<p>Schema update failed: attribute in must-contain does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AUX_CLS_TEST_FAIL"></a><a id="error_ds_aux_cls_test_fail"></a><strong>ERROR_DS_AUX_CLS_TEST_FAIL</strong></dt>
+<dd>
+<dl>
+<dt>8389 (0x20C5)</dt>
+<dt>
+<p>Schema update failed: class in aux-class list does not exist or is not an auxiliary class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NONEXISTENT_POSS_SUP"></a><a id="error_ds_nonexistent_poss_sup"></a><strong>ERROR_DS_NONEXISTENT_POSS_SUP</strong></dt>
+<dd>
+<dl>
+<dt>8390 (0x20C6)</dt>
+<dt>
+<p>Schema update failed: class in poss-superiors does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SUB_CLS_TEST_FAIL"></a><a id="error_ds_sub_cls_test_fail"></a><strong>ERROR_DS_SUB_CLS_TEST_FAIL</strong></dt>
+<dd>
+<dl>
+<dt>8391 (0x20C7)</dt>
+<dt>
+<p>Schema update failed: class in subclassof list does not exist or does not satisfy hierarchy rules.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BAD_RDN_ATT_ID_SYNTAX"></a><a id="error_ds_bad_rdn_att_id_syntax"></a><strong>ERROR_DS_BAD_RDN_ATT_ID_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8392 (0x20C8)</dt>
+<dt>
+<p>Schema update failed: Rdn-Att-Id has wrong syntax.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_AUX_CLS"></a><a id="error_ds_exists_in_aux_cls"></a><strong>ERROR_DS_EXISTS_IN_AUX_CLS</strong></dt>
+<dd>
+<dl>
+<dt>8393 (0x20C9)</dt>
+<dt>
+<p>Schema deletion failed: class is used as auxiliary class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_SUB_CLS"></a><a id="error_ds_exists_in_sub_cls"></a><strong>ERROR_DS_EXISTS_IN_SUB_CLS</strong></dt>
+<dd>
+<dl>
+<dt>8394 (0x20CA)</dt>
+<dt>
+<p>Schema deletion failed: class is used as sub class.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_POSS_SUP"></a><a id="error_ds_exists_in_poss_sup"></a><strong>ERROR_DS_EXISTS_IN_POSS_SUP</strong></dt>
+<dd>
+<dl>
+<dt>8395 (0x20CB)</dt>
+<dt>
+<p>Schema deletion failed: class is used as poss superior.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RECALCSCHEMA_FAILED"></a><a id="error_ds_recalcschema_failed"></a><strong>ERROR_DS_RECALCSCHEMA_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8396 (0x20CC)</dt>
+<dt>
+<p>Schema update failed in recalculating validation cache.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_TREE_DELETE_NOT_FINISHED"></a><a id="error_ds_tree_delete_not_finished"></a><strong>ERROR_DS_TREE_DELETE_NOT_FINISHED</strong></dt>
+<dd>
+<dl>
+<dt>8397 (0x20CD)</dt>
+<dt>
+<p>The tree deletion is not finished. The request must be made again to continue deleting the tree.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DELETE"></a><a id="error_ds_cant_delete"></a><strong>ERROR_DS_CANT_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>8398 (0x20CE)</dt>
+<dt>
+<p>The requested delete operation could not be performed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_SCHEMA_REQ_ID"></a><a id="error_ds_att_schema_req_id"></a><strong>ERROR_DS_ATT_SCHEMA_REQ_ID</strong></dt>
+<dd>
+<dl>
+<dt>8399 (0x20CF)</dt>
+<dt>
+<p>Cannot read the governs class identifier for the schema record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BAD_ATT_SCHEMA_SYNTAX"></a><a id="error_ds_bad_att_schema_syntax"></a><strong>ERROR_DS_BAD_ATT_SCHEMA_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8400 (0x20D0)</dt>
+<dt>
+<p>The attribute schema has bad syntax.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_CACHE_ATT"></a><a id="error_ds_cant_cache_att"></a><strong>ERROR_DS_CANT_CACHE_ATT</strong></dt>
+<dd>
+<dl>
+<dt>8401 (0x20D1)</dt>
+<dt>
+<p>The attribute could not be cached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_CACHE_CLASS"></a><a id="error_ds_cant_cache_class"></a><strong>ERROR_DS_CANT_CACHE_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>8402 (0x20D2)</dt>
+<dt>
+<p>The class could not be cached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_REMOVE_ATT_CACHE"></a><a id="error_ds_cant_remove_att_cache"></a><strong>ERROR_DS_CANT_REMOVE_ATT_CACHE</strong></dt>
+<dd>
+<dl>
+<dt>8403 (0x20D3)</dt>
+<dt>
+<p>The attribute could not be removed from the cache.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_REMOVE_CLASS_CACHE"></a><a id="error_ds_cant_remove_class_cache"></a><strong>ERROR_DS_CANT_REMOVE_CLASS_CACHE</strong></dt>
+<dd>
+<dl>
+<dt>8404 (0x20D4)</dt>
+<dt>
+<p>The class could not be removed from the cache.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_RETRIEVE_DN"></a><a id="error_ds_cant_retrieve_dn"></a><strong>ERROR_DS_CANT_RETRIEVE_DN</strong></dt>
+<dd>
+<dl>
+<dt>8405 (0x20D5)</dt>
+<dt>
+<p>The distinguished name attribute could not be read.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MISSING_SUPREF"></a><a id="error_ds_missing_supref"></a><strong>ERROR_DS_MISSING_SUPREF</strong></dt>
+<dd>
+<dl>
+<dt>8406 (0x20D6)</dt>
+<dt>
+<p>No superior reference has been configured for the directory service. The directory service is therefore 
+     unable to issue referrals to objects outside this forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_RETRIEVE_INSTANCE"></a><a id="error_ds_cant_retrieve_instance"></a><strong>ERROR_DS_CANT_RETRIEVE_INSTANCE</strong></dt>
+<dd>
+<dl>
+<dt>8407 (0x20D7)</dt>
+<dt>
+<p>The instance type attribute could not be retrieved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CODE_INCONSISTENCY"></a><a id="error_ds_code_inconsistency"></a><strong>ERROR_DS_CODE_INCONSISTENCY</strong></dt>
+<dd>
+<dl>
+<dt>8408 (0x20D8)</dt>
+<dt>
+<p>An internal error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DATABASE_ERROR"></a><a id="error_ds_database_error"></a><strong>ERROR_DS_DATABASE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8409 (0x20D9)</dt>
+<dt>
+<p>A database error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GOVERNSID_MISSING"></a><a id="error_ds_governsid_missing"></a><strong>ERROR_DS_GOVERNSID_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>8410 (0x20DA)</dt>
+<dt>
+<p>The attribute GOVERNSID is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MISSING_EXPECTED_ATT"></a><a id="error_ds_missing_expected_att"></a><strong>ERROR_DS_MISSING_EXPECTED_ATT</strong></dt>
+<dd>
+<dl>
+<dt>8411 (0x20DB)</dt>
+<dt>
+<p>An expected attribute is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NCNAME_MISSING_CR_REF"></a><a id="error_ds_ncname_missing_cr_ref"></a><strong>ERROR_DS_NCNAME_MISSING_CR_REF</strong></dt>
+<dd>
+<dl>
+<dt>8412 (0x20DC)</dt>
+<dt>
+<p>The specified naming context is missing a cross reference.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SECURITY_CHECKING_ERROR"></a><a id="error_ds_security_checking_error"></a><strong>ERROR_DS_SECURITY_CHECKING_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8413 (0x20DD)</dt>
+<dt>
+<p>A security checking error has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SCHEMA_NOT_LOADED"></a><a id="error_ds_schema_not_loaded"></a><strong>ERROR_DS_SCHEMA_NOT_LOADED</strong></dt>
+<dd>
+<dl>
+<dt>8414 (0x20DE)</dt>
+<dt>
+<p>The schema is not loaded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SCHEMA_ALLOC_FAILED"></a><a id="error_ds_schema_alloc_failed"></a><strong>ERROR_DS_SCHEMA_ALLOC_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8415 (0x20DF)</dt>
+<dt>
+<p>Schema allocation failed. Please check if the machine is running low on memory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ATT_SCHEMA_REQ_SYNTAX"></a><a id="error_ds_att_schema_req_syntax"></a><strong>ERROR_DS_ATT_SCHEMA_REQ_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8416 (0x20E0)</dt>
+<dt>
+<p>Failed to obtain the required syntax for the attribute schema.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GCVERIFY_ERROR"></a><a id="error_ds_gcverify_error"></a><strong>ERROR_DS_GCVERIFY_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8417 (0x20E1)</dt>
+<dt>
+<p>The global catalog verification failed. The global catalog is not available or does not support the 
+     operation. Some part of the directory is currently not available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SCHEMA_MISMATCH"></a><a id="error_ds_dra_schema_mismatch"></a><strong>ERROR_DS_DRA_SCHEMA_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8418 (0x20E2)</dt>
+<dt>
+<p>The replication operation failed because of a schema mismatch between the servers involved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_FIND_DSA_OBJ"></a><a id="error_ds_cant_find_dsa_obj"></a><strong>ERROR_DS_CANT_FIND_DSA_OBJ</strong></dt>
+<dd>
+<dl>
+<dt>8419 (0x20E3)</dt>
+<dt>
+<p>The DSA object could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_FIND_EXPECTED_NC"></a><a id="error_ds_cant_find_expected_nc"></a><strong>ERROR_DS_CANT_FIND_EXPECTED_NC</strong></dt>
+<dd>
+<dl>
+<dt>8420 (0x20E4)</dt>
+<dt>
+<p>The naming context could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_FIND_NC_IN_CACHE"></a><a id="error_ds_cant_find_nc_in_cache"></a><strong>ERROR_DS_CANT_FIND_NC_IN_CACHE</strong></dt>
+<dd>
+<dl>
+<dt>8421 (0x20E5)</dt>
+<dt>
+<p>The naming context could not be found in the cache.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_RETRIEVE_CHILD"></a><a id="error_ds_cant_retrieve_child"></a><strong>ERROR_DS_CANT_RETRIEVE_CHILD</strong></dt>
+<dd>
+<dl>
+<dt>8422 (0x20E6)</dt>
+<dt>
+<p>The child object could not be retrieved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SECURITY_ILLEGAL_MODIFY"></a><a id="error_ds_security_illegal_modify"></a><strong>ERROR_DS_SECURITY_ILLEGAL_MODIFY</strong></dt>
+<dd>
+<dl>
+<dt>8423 (0x20E7)</dt>
+<dt>
+<p>The modification was not permitted for security reasons.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_REPLACE_HIDDEN_REC"></a><a id="error_ds_cant_replace_hidden_rec"></a><strong>ERROR_DS_CANT_REPLACE_HIDDEN_REC</strong></dt>
+<dd>
+<dl>
+<dt>8424 (0x20E8)</dt>
+<dt>
+<p>The operation cannot replace the hidden record.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BAD_HIERARCHY_FILE"></a><a id="error_ds_bad_hierarchy_file"></a><strong>ERROR_DS_BAD_HIERARCHY_FILE</strong></dt>
+<dd>
+<dl>
+<dt>8425 (0x20E9)</dt>
+<dt>
+<p>The hierarchy file is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED"></a><a id="error_ds_build_hierarchy_table_failed"></a><strong>ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8426 (0x20EA)</dt>
+<dt>
+<p>The attempt to build the hierarchy table failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CONFIG_PARAM_MISSING"></a><a id="error_ds_config_param_missing"></a><strong>ERROR_DS_CONFIG_PARAM_MISSING</strong></dt>
+<dd>
+<dl>
+<dt>8427 (0x20EB)</dt>
+<dt>
+<p>The directory configuration parameter is missing from the registry.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COUNTING_AB_INDICES_FAILED"></a><a id="error_ds_counting_ab_indices_failed"></a><strong>ERROR_DS_COUNTING_AB_INDICES_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8428 (0x20EC)</dt>
+<dt>
+<p>The attempt to count the address book indices failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED"></a><a id="error_ds_hierarchy_table_malloc_failed"></a><strong>ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8429 (0x20ED)</dt>
+<dt>
+<p>The allocation of the hierarchy table failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INTERNAL_FAILURE"></a><a id="error_ds_internal_failure"></a><strong>ERROR_DS_INTERNAL_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8430 (0x20EE)</dt>
+<dt>
+<p>The directory service encountered an internal failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNKNOWN_ERROR"></a><a id="error_ds_unknown_error"></a><strong>ERROR_DS_UNKNOWN_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8431 (0x20EF)</dt>
+<dt>
+<p>The directory service encountered an unknown failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ROOT_REQUIRES_CLASS_TOP"></a><a id="error_ds_root_requires_class_top"></a><strong>ERROR_DS_ROOT_REQUIRES_CLASS_TOP</strong></dt>
+<dd>
+<dl>
+<dt>8432 (0x20F0)</dt>
+<dt>
+<p>A root object requires a class of 'top'.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REFUSING_FSMO_ROLES"></a><a id="error_ds_refusing_fsmo_roles"></a><strong>ERROR_DS_REFUSING_FSMO_ROLES</strong></dt>
+<dd>
+<dl>
+<dt>8433 (0x20F1)</dt>
+<dt>
+<p>This directory server is shutting down, and cannot take ownership of new floating single-master operation 
+     roles.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MISSING_FSMO_SETTINGS"></a><a id="error_ds_missing_fsmo_settings"></a><strong>ERROR_DS_MISSING_FSMO_SETTINGS</strong></dt>
+<dd>
+<dl>
+<dt>8434 (0x20F2)</dt>
+<dt>
+<p>The directory service is missing mandatory configuration information, and is unable to determine the 
+     ownership of floating single-master operation roles.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNABLE_TO_SURRENDER_ROLES"></a><a id="error_ds_unable_to_surrender_roles"></a><strong>ERROR_DS_UNABLE_TO_SURRENDER_ROLES</strong></dt>
+<dd>
+<dl>
+<dt>8435 (0x20F3)</dt>
+<dt>
+<p>The directory service was unable to transfer ownership of one or more floating single-master operation roles 
+     to other servers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_GENERIC"></a><a id="error_ds_dra_generic"></a><strong>ERROR_DS_DRA_GENERIC</strong></dt>
+<dd>
+<dl>
+<dt>8436 (0x20F4)</dt>
+<dt>
+<p>The replication operation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_INVALID_PARAMETER"></a><a id="error_ds_dra_invalid_parameter"></a><strong>ERROR_DS_DRA_INVALID_PARAMETER</strong></dt>
+<dd>
+<dl>
+<dt>8437 (0x20F5)</dt>
+<dt>
+<p>An invalid parameter was specified for this replication operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_BUSY"></a><a id="error_ds_dra_busy"></a><strong>ERROR_DS_DRA_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>8438 (0x20F6)</dt>
+<dt>
+<p>The directory service is too busy to complete the replication operation at this time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_BAD_DN"></a><a id="error_ds_dra_bad_dn"></a><strong>ERROR_DS_DRA_BAD_DN</strong></dt>
+<dd>
+<dl>
+<dt>8439 (0x20F7)</dt>
+<dt>
+<p>The distinguished name specified for this replication operation is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_BAD_NC"></a><a id="error_ds_dra_bad_nc"></a><strong>ERROR_DS_DRA_BAD_NC</strong></dt>
+<dd>
+<dl>
+<dt>8440 (0x20F8)</dt>
+<dt>
+<p>The naming context specified for this replication operation is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_DN_EXISTS"></a><a id="error_ds_dra_dn_exists"></a><strong>ERROR_DS_DRA_DN_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8441 (0x20F9)</dt>
+<dt>
+<p>The distinguished name specified for this replication operation already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_INTERNAL_ERROR"></a><a id="error_ds_dra_internal_error"></a><strong>ERROR_DS_DRA_INTERNAL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8442 (0x20FA)</dt>
+<dt>
+<p>The replication system encountered an internal error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_INCONSISTENT_DIT"></a><a id="error_ds_dra_inconsistent_dit"></a><strong>ERROR_DS_DRA_INCONSISTENT_DIT</strong></dt>
+<dd>
+<dl>
+<dt>8443 (0x20FB)</dt>
+<dt>
+<p>The replication operation encountered a database inconsistency.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_CONNECTION_FAILED"></a><a id="error_ds_dra_connection_failed"></a><strong>ERROR_DS_DRA_CONNECTION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8444 (0x20FC)</dt>
+<dt>
+<p>The server specified for this replication operation could not be contacted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_BAD_INSTANCE_TYPE"></a><a id="error_ds_dra_bad_instance_type"></a><strong>ERROR_DS_DRA_BAD_INSTANCE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>8445 (0x20FD)</dt>
+<dt>
+<p>The replication operation encountered an object with an invalid instance type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_OUT_OF_MEM"></a><a id="error_ds_dra_out_of_mem"></a><strong>ERROR_DS_DRA_OUT_OF_MEM</strong></dt>
+<dd>
+<dl>
+<dt>8446 (0x20FE)</dt>
+<dt>
+<p>The replication operation failed to allocate memory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_MAIL_PROBLEM"></a><a id="error_ds_dra_mail_problem"></a><strong>ERROR_DS_DRA_MAIL_PROBLEM</strong></dt>
+<dd>
+<dl>
+<dt>8447 (0x20FF)</dt>
+<dt>
+<p>The replication operation encountered an error with the mail system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_REF_ALREADY_EXISTS"></a><a id="error_ds_dra_ref_already_exists"></a><strong>ERROR_DS_DRA_REF_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>8448 (0x2100)</dt>
+<dt>
+<p>The replication reference information for the target server already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_REF_NOT_FOUND"></a><a id="error_ds_dra_ref_not_found"></a><strong>ERROR_DS_DRA_REF_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8449 (0x2101)</dt>
+<dt>
+<p>The replication reference information for the target server does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_OBJ_IS_REP_SOURCE"></a><a id="error_ds_dra_obj_is_rep_source"></a><strong>ERROR_DS_DRA_OBJ_IS_REP_SOURCE</strong></dt>
+<dd>
+<dl>
+<dt>8450 (0x2102)</dt>
+<dt>
+<p>The naming context cannot be removed because it is replicated to another server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_DB_ERROR"></a><a id="error_ds_dra_db_error"></a><strong>ERROR_DS_DRA_DB_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8451 (0x2103)</dt>
+<dt>
+<p>The replication operation encountered a database error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_NO_REPLICA"></a><a id="error_ds_dra_no_replica"></a><strong>ERROR_DS_DRA_NO_REPLICA</strong></dt>
+<dd>
+<dl>
+<dt>8452 (0x2104)</dt>
+<dt>
+<p>The naming context is in the process of being removed or is not replicated from the specified server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_ACCESS_DENIED"></a><a id="error_ds_dra_access_denied"></a><strong>ERROR_DS_DRA_ACCESS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>8453 (0x2105)</dt>
+<dt>
+<p>Replication access was denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_NOT_SUPPORTED"></a><a id="error_ds_dra_not_supported"></a><strong>ERROR_DS_DRA_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>8454 (0x2106)</dt>
+<dt>
+<p>The requested operation is not supported by this version of the directory service.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_RPC_CANCELLED"></a><a id="error_ds_dra_rpc_cancelled"></a><strong>ERROR_DS_DRA_RPC_CANCELLED</strong></dt>
+<dd>
+<dl>
+<dt>8455 (0x2107)</dt>
+<dt>
+<p>The replication remote procedure call was cancelled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SOURCE_DISABLED"></a><a id="error_ds_dra_source_disabled"></a><strong>ERROR_DS_DRA_SOURCE_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>8456 (0x2108)</dt>
+<dt>
+<p>The source server is currently rejecting replication requests.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SINK_DISABLED"></a><a id="error_ds_dra_sink_disabled"></a><strong>ERROR_DS_DRA_SINK_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>8457 (0x2109)</dt>
+<dt>
+<p>The destination server is currently rejecting replication requests.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_NAME_COLLISION"></a><a id="error_ds_dra_name_collision"></a><strong>ERROR_DS_DRA_NAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>8458 (0x210A)</dt>
+<dt>
+<p>The replication operation failed due to a collision of object names.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SOURCE_REINSTALLED"></a><a id="error_ds_dra_source_reinstalled"></a><strong>ERROR_DS_DRA_SOURCE_REINSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>8459 (0x210B)</dt>
+<dt>
+<p>The replication source has been reinstalled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_MISSING_PARENT"></a><a id="error_ds_dra_missing_parent"></a><strong>ERROR_DS_DRA_MISSING_PARENT</strong></dt>
+<dd>
+<dl>
+<dt>8460 (0x210C)</dt>
+<dt>
+<p>The replication operation failed because a required parent object is missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_PREEMPTED"></a><a id="error_ds_dra_preempted"></a><strong>ERROR_DS_DRA_PREEMPTED</strong></dt>
+<dd>
+<dl>
+<dt>8461 (0x210D)</dt>
+<dt>
+<p>The replication operation was preempted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_ABANDON_SYNC"></a><a id="error_ds_dra_abandon_sync"></a><strong>ERROR_DS_DRA_ABANDON_SYNC</strong></dt>
+<dd>
+<dl>
+<dt>8462 (0x210E)</dt>
+<dt>
+<p>The replication synchronization attempt was abandoned because of a lack of updates.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SHUTDOWN"></a><a id="error_ds_dra_shutdown"></a><strong>ERROR_DS_DRA_SHUTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>8463 (0x210F)</dt>
+<dt>
+<p>The replication operation was terminated because the system is shutting down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET"></a><a id="error_ds_dra_incompatible_partial_set"></a><strong>ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET</strong></dt>
+<dd>
+<dl>
+<dt>8464 (0x2110)</dt>
+<dt>
+<p>Synchronization attempt failed because the destination DC is currently waiting to synchronize new partial 
+     attributes from source. This condition is normal if a recent schema change modified the partial attribute set. 
+     The destination partial attribute set is not a subset of source partial attribute set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA"></a><a id="error_ds_dra_source_is_partial_replica"></a><strong>ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA</strong></dt>
+<dd>
+<dl>
+<dt>8465 (0x2111)</dt>
+<dt>
+<p>The replication synchronization attempt failed because a master replica attempted to sync from a partial 
+     replica.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_EXTN_CONNECTION_FAILED"></a><a id="error_ds_dra_extn_connection_failed"></a><strong>ERROR_DS_DRA_EXTN_CONNECTION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8466 (0x2112)</dt>
+<dt>
+<p>The server specified for this replication operation was contacted, but that server was unable to contact an 
+     additional server needed to complete the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INSTALL_SCHEMA_MISMATCH"></a><a id="error_ds_install_schema_mismatch"></a><strong>ERROR_DS_INSTALL_SCHEMA_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8467 (0x2113)</dt>
+<dt>
+<p>The version of the directory service schema of the source forest is not compatible with the version of 
+     directory service on this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_LINK_ID"></a><a id="error_ds_dup_link_id"></a><strong>ERROR_DS_DUP_LINK_ID</strong></dt>
+<dd>
+<dl>
+<dt>8468 (0x2114)</dt>
+<dt>
+<p>Schema update failed: An attribute with the same link identifier already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_RESOLVING"></a><a id="error_ds_name_error_resolving"></a><strong>ERROR_DS_NAME_ERROR_RESOLVING</strong></dt>
+<dd>
+<dl>
+<dt>8469 (0x2115)</dt>
+<dt>
+<p>Name translation: Generic processing error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_NOT_FOUND"></a><a id="error_ds_name_error_not_found"></a><strong>ERROR_DS_NAME_ERROR_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8470 (0x2116)</dt>
+<dt>
+<p>Name translation: Could not find the name or insufficient right to see name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_NOT_UNIQUE"></a><a id="error_ds_name_error_not_unique"></a><strong>ERROR_DS_NAME_ERROR_NOT_UNIQUE</strong></dt>
+<dd>
+<dl>
+<dt>8471 (0x2117)</dt>
+<dt>
+<p>Name translation: Input name mapped to more than one output name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_NO_MAPPING"></a><a id="error_ds_name_error_no_mapping"></a><strong>ERROR_DS_NAME_ERROR_NO_MAPPING</strong></dt>
+<dd>
+<dl>
+<dt>8472 (0x2118)</dt>
+<dt>
+<p>Name translation: Input name found, but not the associated output format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_DOMAIN_ONLY"></a><a id="error_ds_name_error_domain_only"></a><strong>ERROR_DS_NAME_ERROR_DOMAIN_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>8473 (0x2119)</dt>
+<dt>
+<p>Name translation: Unable to resolve completely, only the domain was found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING"></a><a id="error_ds_name_error_no_syntactical_mapping"></a><strong>ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING</strong></dt>
+<dd>
+<dl>
+<dt>8474 (0x211A)</dt>
+<dt>
+<p>Name translation: Unable to perform purely syntactical mapping at the client without going out to the 
+     wire.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CONSTRUCTED_ATT_MOD"></a><a id="error_ds_constructed_att_mod"></a><strong>ERROR_DS_CONSTRUCTED_ATT_MOD</strong></dt>
+<dd>
+<dl>
+<dt>8475 (0x211B)</dt>
+<dt>
+<p>Modification of a constructed attribute is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_WRONG_OM_OBJ_CLASS"></a><a id="error_ds_wrong_om_obj_class"></a><strong>ERROR_DS_WRONG_OM_OBJ_CLASS</strong></dt>
+<dd>
+<dl>
+<dt>8476 (0x211C)</dt>
+<dt>
+<p>The OM-Object-Class specified is incorrect for an attribute with the specified syntax.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_REPL_PENDING"></a><a id="error_ds_dra_repl_pending"></a><strong>ERROR_DS_DRA_REPL_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>8477 (0x211D)</dt>
+<dt>
+<p>The replication request has been posted; waiting for reply.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DS_REQUIRED"></a><a id="error_ds_ds_required"></a><strong>ERROR_DS_DS_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8478 (0x211E)</dt>
+<dt>
+<p>The requested operation requires a directory service, and none was available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_LDAP_DISPLAY_NAME"></a><a id="error_ds_invalid_ldap_display_name"></a><strong>ERROR_DS_INVALID_LDAP_DISPLAY_NAME</strong></dt>
+<dd>
+<dl>
+<dt>8479 (0x211F)</dt>
+<dt>
+<p>The LDAP display name of the class or attribute contains non-ASCII characters.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NON_BASE_SEARCH"></a><a id="error_ds_non_base_search"></a><strong>ERROR_DS_NON_BASE_SEARCH</strong></dt>
+<dd>
+<dl>
+<dt>8480 (0x2120)</dt>
+<dt>
+<p>The requested search operation is only supported for base searches.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_RETRIEVE_ATTS"></a><a id="error_ds_cant_retrieve_atts"></a><strong>ERROR_DS_CANT_RETRIEVE_ATTS</strong></dt>
+<dd>
+<dl>
+<dt>8481 (0x2121)</dt>
+<dt>
+<p>The search failed to retrieve attributes from the database.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_BACKLINK_WITHOUT_LINK"></a><a id="error_ds_backlink_without_link"></a><strong>ERROR_DS_BACKLINK_WITHOUT_LINK</strong></dt>
+<dd>
+<dl>
+<dt>8482 (0x2122)</dt>
+<dt>
+<p>The schema update operation tried to add a backward link attribute that has no corresponding forward 
+     link.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EPOCH_MISMATCH"></a><a id="error_ds_epoch_mismatch"></a><strong>ERROR_DS_EPOCH_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8483 (0x2123)</dt>
+<dt>
+<p>Source and destination of a cross-domain move do not agree on the object's epoch number. Either source or 
+     destination does not have the latest version of the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_NAME_MISMATCH"></a><a id="error_ds_src_name_mismatch"></a><strong>ERROR_DS_SRC_NAME_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8484 (0x2124)</dt>
+<dt>
+<p>Source and destination of a cross-domain move do not agree on the object's current name. Either source or 
+     destination does not have the latest version of the object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_AND_DST_NC_IDENTICAL"></a><a id="error_ds_src_and_dst_nc_identical"></a><strong>ERROR_DS_SRC_AND_DST_NC_IDENTICAL</strong></dt>
+<dd>
+<dl>
+<dt>8485 (0x2125)</dt>
+<dt>
+<p>Source and destination for the cross-domain move operation are identical. Caller should use local move 
+     operation instead of cross-domain move operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DST_NC_MISMATCH"></a><a id="error_ds_dst_nc_mismatch"></a><strong>ERROR_DS_DST_NC_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8486 (0x2126)</dt>
+<dt>
+<p>Source and destination for a cross-domain move are not in agreement on the naming contexts in the forest. 
+     Either source or destination does not have the latest version of the Partitions container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC"></a><a id="error_ds_not_authoritive_for_dst_nc"></a><strong>ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC</strong></dt>
+<dd>
+<dl>
+<dt>8487 (0x2127)</dt>
+<dt>
+<p>Destination of a cross-domain move is not authoritative for the destination naming context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_GUID_MISMATCH"></a><a id="error_ds_src_guid_mismatch"></a><strong>ERROR_DS_SRC_GUID_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8488 (0x2128)</dt>
+<dt>
+<p>Source and destination of a cross-domain move do not agree on the identity of the source object. Either 
+     source or destination does not have the latest version of the source object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOVE_DELETED_OBJECT"></a><a id="error_ds_cant_move_deleted_object"></a><strong>ERROR_DS_CANT_MOVE_DELETED_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8489 (0x2129)</dt>
+<dt>
+<p>Object being moved across-domains is already known to be deleted by the destination server. The source 
+     server does not have the latest version of the source object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_PDC_OPERATION_IN_PROGRESS"></a><a id="error_ds_pdc_operation_in_progress"></a><strong>ERROR_DS_PDC_OPERATION_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>8490 (0x212A)</dt>
+<dt>
+<p>Another operation which requires exclusive access to the PDC FSMO is already in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD"></a><a id="error_ds_cross_domain_cleanup_reqd"></a><strong>ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD</strong></dt>
+<dd>
+<dl>
+<dt>8491 (0x212B)</dt>
+<dt>
+<p>A cross-domain move operation failed such that two versions of the moved object exist - one each in the 
+     source and destination domains. The destination object needs to be removed to restore the system to a consistent 
+     state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION"></a><a id="error_ds_illegal_xdom_move_operation"></a><strong>ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>8492 (0x212C)</dt>
+<dt>
+<p>This object may not be moved across domain boundaries either because cross-domain moves for this class are 
+     disallowed, or the object has some special characteristics, e.g.: trust account or restricted RID, which prevent 
+     its move.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS"></a><a id="error_ds_cant_with_acct_group_membershps"></a><strong>ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS</strong></dt>
+<dd>
+<dl>
+<dt>8493 (0x212D)</dt>
+<dt>
+<p>Can't move objects with memberships across domain boundaries as once moved, this would violate the 
+     membership conditions of the account group. Remove the object from any account group memberships and retry.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NC_MUST_HAVE_NC_PARENT"></a><a id="error_ds_nc_must_have_nc_parent"></a><strong>ERROR_DS_NC_MUST_HAVE_NC_PARENT</strong></dt>
+<dd>
+<dl>
+<dt>8494 (0x212E)</dt>
+<dt>
+<p>A naming context head must be the immediate child of another naming context head, not of an interior 
+     node.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE"></a><a id="error_ds_cr_impossible_to_validate"></a><strong>ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE</strong></dt>
+<dd>
+<dl>
+<dt>8495 (0x212F)</dt>
+<dt>
+<p>The directory cannot validate the proposed naming context name because it does not hold a replica of the 
+     naming context above the proposed naming context. Please ensure that the domain naming master role is held by a 
+     server that is configured as a global catalog server, and that the server is up to date with its replication 
+     partners. (Applies only to Windows 2000 Domain Naming masters.)</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DST_DOMAIN_NOT_NATIVE"></a><a id="error_ds_dst_domain_not_native"></a><strong>ERROR_DS_DST_DOMAIN_NOT_NATIVE</strong></dt>
+<dd>
+<dl>
+<dt>8496 (0x2130)</dt>
+<dt>
+<p>Destination domain must be in native mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER"></a><a id="error_ds_missing_infrastructure_container"></a><strong>ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER</strong></dt>
+<dd>
+<dl>
+<dt>8497 (0x2131)</dt>
+<dt>
+<p>The operation cannot be performed because the server does not have an infrastructure container in the domain 
+     of interest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOVE_ACCOUNT_GROUP"></a><a id="error_ds_cant_move_account_group"></a><strong>ERROR_DS_CANT_MOVE_ACCOUNT_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>8498 (0x2132)</dt>
+<dt>
+<p>Cross-domain move of non-empty account groups is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOVE_RESOURCE_GROUP"></a><a id="error_ds_cant_move_resource_group"></a><strong>ERROR_DS_CANT_MOVE_RESOURCE_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>8499 (0x2133)</dt>
+<dt>
+<p>Cross-domain move of non-empty resource groups is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_SEARCH_FLAG"></a><a id="error_ds_invalid_search_flag"></a><strong>ERROR_DS_INVALID_SEARCH_FLAG</strong></dt>
+<dd>
+<dl>
+<dt>8500 (0x2134)</dt>
+<dt>
+<p>The search flags for the attribute are invalid. The ANR bit is valid only on attributes of Unicode or 
+     Teletex strings.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_TREE_DELETE_ABOVE_NC"></a><a id="error_ds_no_tree_delete_above_nc"></a><strong>ERROR_DS_NO_TREE_DELETE_ABOVE_NC</strong></dt>
+<dd>
+<dl>
+<dt>8501 (0x2135)</dt>
+<dt>
+<p>Tree deletions starting at an object which has an NC head as a descendant are not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE"></a><a id="error_ds_couldnt_lock_tree_for_delete"></a><strong>ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>8502 (0x2136)</dt>
+<dt>
+<p>The directory service failed to lock a tree in preparation for a tree deletion because the tree was in 
+     use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE"></a><a id="error_ds_couldnt_identify_objects_for_tree_delete"></a><strong>ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>8503 (0x2137)</dt>
+<dt>
+<p>The directory service failed to identify the list of objects to delete while attempting a tree 
+     deletion.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SAM_INIT_FAILURE"></a><a id="error_ds_sam_init_failure"></a><strong>ERROR_DS_SAM_INIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8504 (0x2138)</dt>
+<dt>
+<p>Security Accounts Manager initialization failed because of the following error: %1. Error Status: 0x%2. 
+     Please shutdown this system and reboot into Directory Services Restore Mode, check the event log for more 
+      detailed information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SENSITIVE_GROUP_VIOLATION"></a><a id="error_ds_sensitive_group_violation"></a><strong>ERROR_DS_SENSITIVE_GROUP_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>8505 (0x2139)</dt>
+<dt>
+<p>Only an administrator can modify the membership list of an administrative group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOD_PRIMARYGROUPID"></a><a id="error_ds_cant_mod_primarygroupid"></a><strong>ERROR_DS_CANT_MOD_PRIMARYGROUPID</strong></dt>
+<dd>
+<dl>
+<dt>8506 (0x213A)</dt>
+<dt>
+<p>Cannot change the primary group ID of a domain controller account.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD"></a><a id="error_ds_illegal_base_schema_mod"></a><strong>ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD</strong></dt>
+<dd>
+<dl>
+<dt>8507 (0x213B)</dt>
+<dt>
+<p>An attempt is made to modify the base schema.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NONSAFE_SCHEMA_CHANGE"></a><a id="error_ds_nonsafe_schema_change"></a><strong>ERROR_DS_NONSAFE_SCHEMA_CHANGE</strong></dt>
+<dd>
+<dl>
+<dt>8508 (0x213C)</dt>
+<dt>
+<p>Adding a new mandatory attribute to an existing class, deleting a mandatory attribute from an existing 
+     class, or adding an optional attribute to the special class Top that is not a backlink attribute (directly or 
+      through inheritance, for example, by adding or deleting an auxiliary class) is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SCHEMA_UPDATE_DISALLOWED"></a><a id="error_ds_schema_update_disallowed"></a><strong>ERROR_DS_SCHEMA_UPDATE_DISALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>8509 (0x213D)</dt>
+<dt>
+<p>Schema update is not allowed on this DC because the DC is not the schema FSMO Role Owner.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_CREATE_UNDER_SCHEMA"></a><a id="error_ds_cant_create_under_schema"></a><strong>ERROR_DS_CANT_CREATE_UNDER_SCHEMA</strong></dt>
+<dd>
+<dl>
+<dt>8510 (0x213E)</dt>
+<dt>
+<p>An object of this class cannot be created under the schema container. You can only create attribute-schema 
+     and class-schema objects under the schema container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INSTALL_NO_SRC_SCH_VERSION"></a><a id="error_ds_install_no_src_sch_version"></a><strong>ERROR_DS_INSTALL_NO_SRC_SCH_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>8511 (0x213F)</dt>
+<dt>
+<p>The replica/child install failed to get the objectVersion attribute on the schema container on the source 
+     DC. Either the attribute is missing on the schema container or the credentials supplied do not have permission to 
+     read it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE"></a><a id="error_ds_install_no_sch_version_in_inifile"></a><strong>ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE</strong></dt>
+<dd>
+<dl>
+<dt>8512 (0x2140)</dt>
+<dt>
+<p>The replica/child install failed to read the objectVersion attribute in the SCHEMA section of the file 
+     schema.ini in the system32 directory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_GROUP_TYPE"></a><a id="error_ds_invalid_group_type"></a><strong>ERROR_DS_INVALID_GROUP_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>8513 (0x2141)</dt>
+<dt>
+<p>The specified group type is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN"></a><a id="error_ds_no_nest_globalgroup_in_mixeddomain"></a><strong>ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8514 (0x2142)</dt>
+<dt>
+<p>You cannot nest global groups in a mixed domain if the group is security-enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN"></a><a id="error_ds_no_nest_localgroup_in_mixeddomain"></a><strong>ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8515 (0x2143)</dt>
+<dt>
+<p>You cannot nest local groups in a mixed domain if the group is security-enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER"></a><a id="error_ds_global_cant_have_local_member"></a><strong>ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8516 (0x2144)</dt>
+<dt>
+<p>A global group cannot have a local group as a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER"></a><a id="error_ds_global_cant_have_universal_member"></a><strong>ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8517 (0x2145)</dt>
+<dt>
+<p>A global group cannot have a universal group as a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER"></a><a id="error_ds_universal_cant_have_local_member"></a><strong>ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8518 (0x2146)</dt>
+<dt>
+<p>A universal group cannot have a local group as a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER"></a><a id="error_ds_global_cant_have_crossdomain_member"></a><strong>ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8519 (0x2147)</dt>
+<dt>
+<p>A global group cannot have a cross-domain member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER"></a><a id="error_ds_local_cant_have_crossdomain_local_member"></a><strong>ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8520 (0x2148)</dt>
+<dt>
+<p>A local group cannot have another cross domain local group as a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_HAVE_PRIMARY_MEMBERS"></a><a id="error_ds_have_primary_members"></a><strong>ERROR_DS_HAVE_PRIMARY_MEMBERS</strong></dt>
+<dd>
+<dl>
+<dt>8521 (0x2149)</dt>
+<dt>
+<p>A group with primary members cannot change to a security-disabled group.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_STRING_SD_CONVERSION_FAILED"></a><a id="error_ds_string_sd_conversion_failed"></a><strong>ERROR_DS_STRING_SD_CONVERSION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8522 (0x214A)</dt>
+<dt>
+<p>The schema cache load failed to convert the string default SD on a class-schema object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAMING_MASTER_GC"></a><a id="error_ds_naming_master_gc"></a><strong>ERROR_DS_NAMING_MASTER_GC</strong></dt>
+<dd>
+<dl>
+<dt>8523 (0x214B)</dt>
+<dt>
+<p>Only DSAs configured to be Global Catalog servers should be allowed to hold the Domain Naming Master FSMO 
+     role. (Applies only to Windows 2000 servers.)</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DNS_LOOKUP_FAILURE"></a><a id="error_ds_dns_lookup_failure"></a><strong>ERROR_DS_DNS_LOOKUP_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8524 (0x214C)</dt>
+<dt>
+<p>The DSA operation is unable to proceed because of a DNS lookup failure.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_COULDNT_UPDATE_SPNS"></a><a id="error_ds_couldnt_update_spns"></a><strong>ERROR_DS_COULDNT_UPDATE_SPNS</strong></dt>
+<dd>
+<dl>
+<dt>8525 (0x214D)</dt>
+<dt>
+<p>While processing a change to the DNS Host Name for an object, the Service Principal Name values could not be 
+     kept in sync.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_RETRIEVE_SD"></a><a id="error_ds_cant_retrieve_sd"></a><strong>ERROR_DS_CANT_RETRIEVE_SD</strong></dt>
+<dd>
+<dl>
+<dt>8526 (0x214E)</dt>
+<dt>
+<p>The Security Descriptor attribute could not be read.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_KEY_NOT_UNIQUE"></a><a id="error_ds_key_not_unique"></a><strong>ERROR_DS_KEY_NOT_UNIQUE</strong></dt>
+<dd>
+<dl>
+<dt>8527 (0x214F)</dt>
+<dt>
+<p>The object requested was not found, but an object with that key was found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_WRONG_LINKED_ATT_SYNTAX"></a><a id="error_ds_wrong_linked_att_syntax"></a><strong>ERROR_DS_WRONG_LINKED_ATT_SYNTAX</strong></dt>
+<dd>
+<dl>
+<dt>8528 (0x2150)</dt>
+<dt>
+<p>The syntax of the linked attribute being added is incorrect. Forward links can only have syntax 2.5.5.1, 
+     2.5.5.7, and 2.5.5.14, and backlinks can only have syntax 2.5.5.1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD"></a><a id="error_ds_sam_need_bootkey_password"></a><strong>ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD</strong></dt>
+<dd>
+<dl>
+<dt>8529 (0x2151)</dt>
+<dt>
+<p>Security Account Manager needs to get the boot password.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY"></a><a id="error_ds_sam_need_bootkey_floppy"></a><strong>ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY</strong></dt>
+<dd>
+<dl>
+<dt>8530 (0x2152)</dt>
+<dt>
+<p>Security Account Manager needs to get the boot key from floppy disk.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_START"></a><a id="error_ds_cant_start"></a><strong>ERROR_DS_CANT_START</strong></dt>
+<dd>
+<dl>
+<dt>8531 (0x2153)</dt>
+<dt>
+<p>Directory Service cannot start.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INIT_FAILURE"></a><a id="error_ds_init_failure"></a><strong>ERROR_DS_INIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8532 (0x2154)</dt>
+<dt>
+<p>Directory Services could not start.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION"></a><a id="error_ds_no_pkt_privacy_on_connection"></a><strong>ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION</strong></dt>
+<dd>
+<dl>
+<dt>8533 (0x2155)</dt>
+<dt>
+<p>The connection between client and server requires packet privacy or better.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SOURCE_DOMAIN_IN_FOREST"></a><a id="error_ds_source_domain_in_forest"></a><strong>ERROR_DS_SOURCE_DOMAIN_IN_FOREST</strong></dt>
+<dd>
+<dl>
+<dt>8534 (0x2156)</dt>
+<dt>
+<p>The source domain may not be in the same forest as destination.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST"></a><a id="error_ds_destination_domain_not_in_forest"></a><strong>ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST</strong></dt>
+<dd>
+<dl>
+<dt>8535 (0x2157)</dt>
+<dt>
+<p>The destination domain must be in the forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED"></a><a id="error_ds_destination_auditing_not_enabled"></a><strong>ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED</strong></dt>
+<dd>
+<dl>
+<dt>8536 (0x2158)</dt>
+<dt>
+<p>The operation requires that destination domain auditing be enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN"></a><a id="error_ds_cant_find_dc_for_src_domain"></a><strong>ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8537 (0x2159)</dt>
+<dt>
+<p>The operation couldn't locate a DC for the source domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER"></a><a id="error_ds_src_obj_not_group_or_user"></a><strong>ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER</strong></dt>
+<dd>
+<dl>
+<dt>8538 (0x215A)</dt>
+<dt>
+<p>The source object must be a group or user.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_SID_EXISTS_IN_FOREST"></a><a id="error_ds_src_sid_exists_in_forest"></a><strong>ERROR_DS_SRC_SID_EXISTS_IN_FOREST</strong></dt>
+<dd>
+<dl>
+<dt>8539 (0x215B)</dt>
+<dt>
+<p>The source object's SID already exists in destination forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH"></a><a id="error_ds_src_and_dst_object_class_mismatch"></a><strong>ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8540 (0x215C)</dt>
+<dt>
+<p>The source and destination object must be of the same type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SAM_INIT_FAILURE"></a><a id="error_sam_init_failure"></a><strong>ERROR_SAM_INIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8541 (0x215D)</dt>
+<dt>
+<p>Security Accounts Manager initialization failed because of the following error: %1. Error Status: 0x%2. 
+     Click OK to shut down the system and reboot into Safe Mode. Check the event log for detailed information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SCHEMA_INFO_SHIP"></a><a id="error_ds_dra_schema_info_ship"></a><strong>ERROR_DS_DRA_SCHEMA_INFO_SHIP</strong></dt>
+<dd>
+<dl>
+<dt>8542 (0x215E)</dt>
+<dt>
+<p>Schema information could not be included in the replication request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SCHEMA_CONFLICT"></a><a id="error_ds_dra_schema_conflict"></a><strong>ERROR_DS_DRA_SCHEMA_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>8543 (0x215F)</dt>
+<dt>
+<p>The replication operation could not be completed due to a schema incompatibility.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT"></a><a id="error_ds_dra_earlier_schema_conflict"></a><strong>ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>8544 (0x2160)</dt>
+<dt>
+<p>The replication operation could not be completed due to a previous schema incompatibility.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_OBJ_NC_MISMATCH"></a><a id="error_ds_dra_obj_nc_mismatch"></a><strong>ERROR_DS_DRA_OBJ_NC_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>8545 (0x2161)</dt>
+<dt>
+<p>The replication update could not be applied because either the source or the destination has not yet 
+     received information regarding a recent cross-domain move operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NC_STILL_HAS_DSAS"></a><a id="error_ds_nc_still_has_dsas"></a><strong>ERROR_DS_NC_STILL_HAS_DSAS</strong></dt>
+<dd>
+<dl>
+<dt>8546 (0x2162)</dt>
+<dt>
+<p>The requested domain could not be deleted because there exist domain controllers that still host this 
+     domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GC_REQUIRED"></a><a id="error_ds_gc_required"></a><strong>ERROR_DS_GC_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>8547 (0x2163)</dt>
+<dt>
+<p>The requested operation can be performed only on a global catalog server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY"></a><a id="error_ds_local_member_of_local_only"></a><strong>ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>8548 (0x2164)</dt>
+<dt>
+<p>A local group can only be a member of other local groups in the same domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS"></a><a id="error_ds_no_fpo_in_universal_groups"></a><strong>ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS</strong></dt>
+<dd>
+<dl>
+<dt>8549 (0x2165)</dt>
+<dt>
+<p>Foreign security principals cannot be members of universal groups.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ADD_TO_GC"></a><a id="error_ds_cant_add_to_gc"></a><strong>ERROR_DS_CANT_ADD_TO_GC</strong></dt>
+<dd>
+<dl>
+<dt>8550 (0x2166)</dt>
+<dt>
+<p>The attribute is not allowed to be replicated to the GC because of security reasons.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_CHECKPOINT_WITH_PDC"></a><a id="error_ds_no_checkpoint_with_pdc"></a><strong>ERROR_DS_NO_CHECKPOINT_WITH_PDC</strong></dt>
+<dd>
+<dl>
+<dt>8551 (0x2167)</dt>
+<dt>
+<p>The checkpoint with the PDC could not be taken because there too many modifications being processed 
+     currently.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SOURCE_AUDITING_NOT_ENABLED"></a><a id="error_ds_source_auditing_not_enabled"></a><strong>ERROR_DS_SOURCE_AUDITING_NOT_ENABLED</strong></dt>
+<dd>
+<dl>
+<dt>8552 (0x2168)</dt>
+<dt>
+<p>The operation requires that source domain auditing be enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC"></a><a id="error_ds_cant_create_in_nondomain_nc"></a><strong>ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC</strong></dt>
+<dd>
+<dl>
+<dt>8553 (0x2169)</dt>
+<dt>
+<p>Security principal objects can only be created inside domain naming contexts.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_NAME_FOR_SPN"></a><a id="error_ds_invalid_name_for_spn"></a><strong>ERROR_DS_INVALID_NAME_FOR_SPN</strong></dt>
+<dd>
+<dl>
+<dt>8554 (0x216A)</dt>
+<dt>
+<p>A Service Principal Name (SPN) could not be constructed because the provided hostname is not in the 
+     necessary format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS"></a><a id="error_ds_filter_uses_contructed_attrs"></a><strong>ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS</strong></dt>
+<dd>
+<dl>
+<dt>8555 (0x216B)</dt>
+<dt>
+<p>A Filter was passed that uses constructed attributes.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNICODEPWD_NOT_IN_QUOTES"></a><a id="error_ds_unicodepwd_not_in_quotes"></a><strong>ERROR_DS_UNICODEPWD_NOT_IN_QUOTES</strong></dt>
+<dd>
+<dl>
+<dt>8556 (0x216C)</dt>
+<dt>
+<p>The unicodePwd attribute value must be enclosed in double quotes.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"></a><a id="error_ds_machine_account_quota_exceeded"></a><strong>ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8557 (0x216D)</dt>
+<dt>
+<p>Your computer could not be joined to the domain. You have exceeded the maximum number of computer accounts 
+     you are allowed to create in this domain. Contact your system administrator to have this limit reset or 
+     increased.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MUST_BE_RUN_ON_DST_DC"></a><a id="error_ds_must_be_run_on_dst_dc"></a><strong>ERROR_DS_MUST_BE_RUN_ON_DST_DC</strong></dt>
+<dd>
+<dl>
+<dt>8558 (0x216E)</dt>
+<dt>
+<p>For security reasons, the operation must be run on the destination DC.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER"></a><a id="error_ds_src_dc_must_be_sp4_or_greater"></a><strong>ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER</strong></dt>
+<dd>
+<dl>
+<dt>8559 (0x216F)</dt>
+<dt>
+<p>For security reasons, the source DC must be NT4SP4 or greater.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ"></a><a id="error_ds_cant_tree_delete_critical_obj"></a><strong>ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ</strong></dt>
+<dd>
+<dl>
+<dt>8560 (0x2170)</dt>
+<dt>
+<p>Critical Directory Service System objects cannot be deleted during tree delete operations. The tree delete 
+     may have been partially performed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INIT_FAILURE_CONSOLE"></a><a id="error_ds_init_failure_console"></a><strong>ERROR_DS_INIT_FAILURE_CONSOLE</strong></dt>
+<dd>
+<dl>
+<dt>8561 (0x2171)</dt>
+<dt>
+<p>Directory Services could not start because of the following error: %1. Error Status: 0x%2. Please click OK 
+     to shutdown the system. You can use the recovery console to diagnose the system further.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SAM_INIT_FAILURE_CONSOLE"></a><a id="error_ds_sam_init_failure_console"></a><strong>ERROR_DS_SAM_INIT_FAILURE_CONSOLE</strong></dt>
+<dd>
+<dl>
+<dt>8562 (0x2172)</dt>
+<dt>
+<p>Security Accounts Manager initialization failed because of the following error: %1. Error Status: 0x%2. 
+     Please click OK to shutdown the system. You can use the recovery console to diagnose the system further.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_FOREST_VERSION_TOO_HIGH"></a><a id="error_ds_forest_version_too_high"></a><strong>ERROR_DS_FOREST_VERSION_TOO_HIGH</strong></dt>
+<dd>
+<dl>
+<dt>8563 (0x2173)</dt>
+<dt>
+<p>The version of the operating system is incompatible with the current AD DS forest functional level or AD 
+     LDS Configuration Set functional level. You must upgrade to a new version of the operating system before this 
+     server can become an AD DS Domain Controller or add an AD LDS Instance in this AD DS Forest or AD LDS 
+     Configuration Set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DOMAIN_VERSION_TOO_HIGH"></a><a id="error_ds_domain_version_too_high"></a><strong>ERROR_DS_DOMAIN_VERSION_TOO_HIGH</strong></dt>
+<dd>
+<dl>
+<dt>8564 (0x2174)</dt>
+<dt>
+<p>The version of the operating system installed is incompatible with the current domain functional level. You 
+     must upgrade to a new version of the operating system before this server can become a domain controller in this 
+     domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_FOREST_VERSION_TOO_LOW"></a><a id="error_ds_forest_version_too_low"></a><strong>ERROR_DS_FOREST_VERSION_TOO_LOW</strong></dt>
+<dd>
+<dl>
+<dt>8565 (0x2175)</dt>
+<dt>
+<p>The version of the operating system installed on this server no longer supports the current AD DS Forest 
+     functional level or AD LDS Configuration Set functional level. You must raise the AD DS Forest functional level 
+     or AD LDS Configuration Set functional level before this server can become an AD DS Domain Controller or an AD 
+     LDS Instance in this Forest or Configuration Set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DOMAIN_VERSION_TOO_LOW"></a><a id="error_ds_domain_version_too_low"></a><strong>ERROR_DS_DOMAIN_VERSION_TOO_LOW</strong></dt>
+<dd>
+<dl>
+<dt>8566 (0x2176)</dt>
+<dt>
+<p>The version of the operating system installed on this server no longer supports the current domain 
+     functional level. You must raise the domain functional level before this server can become a domain controller in 
+     this domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INCOMPATIBLE_VERSION"></a><a id="error_ds_incompatible_version"></a><strong>ERROR_DS_INCOMPATIBLE_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>8567 (0x2177)</dt>
+<dt>
+<p>The version of the operating system installed on this server is incompatible with the functional level of 
+     the domain or forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOW_DSA_VERSION"></a><a id="error_ds_low_dsa_version"></a><strong>ERROR_DS_LOW_DSA_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>8568 (0x2178)</dt>
+<dt>
+<p>The functional level of the domain (or forest) cannot be raised to the requested value, because there exist 
+     one or more domain controllers in the domain (or forest) that are at a lower incompatible functional level.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN"></a><a id="error_ds_no_behavior_version_in_mixeddomain"></a><strong>ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8569 (0x2179)</dt>
+<dt>
+<p>The forest functional level cannot be raised to the requested value since one or more domains are still in 
+     mixed domain mode. All domains in the forest must be in native mode, for you to raise the forest functional level.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_SUPPORTED_SORT_ORDER"></a><a id="error_ds_not_supported_sort_order"></a><strong>ERROR_DS_NOT_SUPPORTED_SORT_ORDER</strong></dt>
+<dd>
+<dl>
+<dt>8570 (0x217A)</dt>
+<dt>
+<p>The sort order requested is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_NOT_UNIQUE"></a><a id="error_ds_name_not_unique"></a><strong>ERROR_DS_NAME_NOT_UNIQUE</strong></dt>
+<dd>
+<dl>
+<dt>8571 (0x217B)</dt>
+<dt>
+<p>The requested name already exists as a unique identifier.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4"></a><a id="error_ds_machine_account_created_prent4"></a><strong>ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4</strong></dt>
+<dd>
+<dl>
+<dt>8572 (0x217C)</dt>
+<dt>
+<p>The machine account was created pre-NT4. The account needs to be recreated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OUT_OF_VERSION_STORE"></a><a id="error_ds_out_of_version_store"></a><strong>ERROR_DS_OUT_OF_VERSION_STORE</strong></dt>
+<dd>
+<dl>
+<dt>8573 (0x217D)</dt>
+<dt>
+<p>The database is out of version store.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INCOMPATIBLE_CONTROLS_USED"></a><a id="error_ds_incompatible_controls_used"></a><strong>ERROR_DS_INCOMPATIBLE_CONTROLS_USED</strong></dt>
+<dd>
+<dl>
+<dt>8574 (0x217E)</dt>
+<dt>
+<p>Unable to continue operation because multiple conflicting controls were used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_REF_DOMAIN"></a><a id="error_ds_no_ref_domain"></a><strong>ERROR_DS_NO_REF_DOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8575 (0x217F)</dt>
+<dt>
+<p>Unable to find a valid security descriptor reference domain for this partition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RESERVED_LINK_ID"></a><a id="error_ds_reserved_link_id"></a><strong>ERROR_DS_RESERVED_LINK_ID</strong></dt>
+<dd>
+<dl>
+<dt>8576 (0x2180)</dt>
+<dt>
+<p>Schema update failed: The link identifier is reserved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LINK_ID_NOT_AVAILABLE"></a><a id="error_ds_link_id_not_available"></a><strong>ERROR_DS_LINK_ID_NOT_AVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>8577 (0x2181)</dt>
+<dt>
+<p>Schema update failed: There are no link identifiers available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER"></a><a id="error_ds_ag_cant_have_universal_member"></a><strong>ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER</strong></dt>
+<dd>
+<dl>
+<dt>8578 (0x2182)</dt>
+<dt>
+<p>An account group cannot have a universal group as a member.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE"></a><a id="error_ds_modifydn_disallowed_by_instance_type"></a><strong>ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>8579 (0x2183)</dt>
+<dt>
+<p>Rename or move operations on naming context heads or read-only objects are not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC"></a><a id="error_ds_no_object_move_in_schema_nc"></a><strong>ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC</strong></dt>
+<dd>
+<dl>
+<dt>8580 (0x2184)</dt>
+<dt>
+<p>Move operations on objects in the schema naming context are not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG"></a><a id="error_ds_modifydn_disallowed_by_flag"></a><strong>ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG</strong></dt>
+<dd>
+<dl>
+<dt>8581 (0x2185)</dt>
+<dt>
+<p>A system flag has been set on the object and does not allow the object to be moved or renamed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MODIFYDN_WRONG_GRANDPARENT"></a><a id="error_ds_modifydn_wrong_grandparent"></a><strong>ERROR_DS_MODIFYDN_WRONG_GRANDPARENT</strong></dt>
+<dd>
+<dl>
+<dt>8582 (0x2186)</dt>
+<dt>
+<p>This object is not allowed to change its grandparent container. Moves are not forbidden on this object, but 
+     are restricted to sibling containers.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NAME_ERROR_TRUST_REFERRAL"></a><a id="error_ds_name_error_trust_referral"></a><strong>ERROR_DS_NAME_ERROR_TRUST_REFERRAL</strong></dt>
+<dd>
+<dl>
+<dt>8583 (0x2187)</dt>
+<dt>
+<p>Unable to resolve completely, a referral to another forest is generated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER"></a><a id="error_not_supported_on_standard_server"></a><strong>ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER</strong></dt>
+<dd>
+<dl>
+<dt>8584 (0x2188)</dt>
+<dt>
+<p>The requested action is not supported on standard server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD"></a><a id="error_ds_cant_access_remote_part_of_ad"></a><strong>ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD</strong></dt>
+<dd>
+<dl>
+<dt>8585 (0x2189)</dt>
+<dt>
+<p>Could not access a partition of the directory service located on a remote server. Make sure at least one 
+     server is running for the partition in question.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2"></a><a id="error_ds_cr_impossible_to_validate_v2"></a><strong>ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2</strong></dt>
+<dd>
+<dl>
+<dt>8586 (0x218A)</dt>
+<dt>
+<p>The directory cannot validate the proposed naming context (or partition) name because it does not hold a 
+     replica nor can it contact a replica of the naming context above the proposed naming context. Please ensure that 
+     the parent naming context is properly registered in DNS, and at least one replica of this naming context is 
+     reachable by the Domain Naming master.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_THREAD_LIMIT_EXCEEDED"></a><a id="error_ds_thread_limit_exceeded"></a><strong>ERROR_DS_THREAD_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8587 (0x218B)</dt>
+<dt>
+<p>The thread limit for this request was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NOT_CLOSEST"></a><a id="error_ds_not_closest"></a><strong>ERROR_DS_NOT_CLOSEST</strong></dt>
+<dd>
+<dl>
+<dt>8588 (0x218C)</dt>
+<dt>
+<p>The Global catalog server is not in the closest site.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF"></a><a id="error_ds_cant_derive_spn_without_server_ref"></a><strong>ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF</strong></dt>
+<dd>
+<dl>
+<dt>8589 (0x218D)</dt>
+<dt>
+<p>The DS cannot derive a service principal name (SPN) with which to mutually authenticate the target server 
+     because the corresponding server object in the local DS database has no serverReference attribute.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_SINGLE_USER_MODE_FAILED"></a><a id="error_ds_single_user_mode_failed"></a><strong>ERROR_DS_SINGLE_USER_MODE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8590 (0x218E)</dt>
+<dt>
+<p>The Directory Service failed to enter single user mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NTDSCRIPT_SYNTAX_ERROR"></a><a id="error_ds_ntdscript_syntax_error"></a><strong>ERROR_DS_NTDSCRIPT_SYNTAX_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8591 (0x218F)</dt>
+<dt>
+<p>The Directory Service cannot parse the script because of a syntax error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NTDSCRIPT_PROCESS_ERROR"></a><a id="error_ds_ntdscript_process_error"></a><strong>ERROR_DS_NTDSCRIPT_PROCESS_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8592 (0x2190)</dt>
+<dt>
+<p>The Directory Service cannot process the script because of an error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DIFFERENT_REPL_EPOCHS"></a><a id="error_ds_different_repl_epochs"></a><strong>ERROR_DS_DIFFERENT_REPL_EPOCHS</strong></dt>
+<dd>
+<dl>
+<dt>8593 (0x2191)</dt>
+<dt>
+<p>The directory service cannot perform the requested operation because the servers involved are of different 
+     replication epochs (which is usually related to a domain rename that is in progress).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRS_EXTENSIONS_CHANGED"></a><a id="error_ds_drs_extensions_changed"></a><strong>ERROR_DS_DRS_EXTENSIONS_CHANGED</strong></dt>
+<dd>
+<dl>
+<dt>8594 (0x2192)</dt>
+<dt>
+<p>The directory service binding must be renegotiated due to a change in the server extensions 
+     information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR"></a><a id="error_ds_replica_set_change_not_allowed_on_disabled_cr"></a><strong>ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR</strong></dt>
+<dd>
+<dl>
+<dt>8595 (0x2193)</dt>
+<dt>
+<p>Operation not allowed on a disabled cross ref.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_MSDS_INTID"></a><a id="error_ds_no_msds_intid"></a><strong>ERROR_DS_NO_MSDS_INTID</strong></dt>
+<dd>
+<dl>
+<dt>8596 (0x2194)</dt>
+<dt>
+<p>Schema update failed: No values for msDS-IntId are available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUP_MSDS_INTID"></a><a id="error_ds_dup_msds_intid"></a><strong>ERROR_DS_DUP_MSDS_INTID</strong></dt>
+<dd>
+<dl>
+<dt>8597 (0x2195)</dt>
+<dt>
+<p>Schema update failed: Duplicate msDS-INtId. Retry the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTS_IN_RDNATTID"></a><a id="error_ds_exists_in_rdnattid"></a><strong>ERROR_DS_EXISTS_IN_RDNATTID</strong></dt>
+<dd>
+<dl>
+<dt>8598 (0x2196)</dt>
+<dt>
+<p>Schema deletion failed: attribute is used in rDNAttID.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AUTHORIZATION_FAILED"></a><a id="error_ds_authorization_failed"></a><strong>ERROR_DS_AUTHORIZATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8599 (0x2197)</dt>
+<dt>
+<p>The directory service failed to authorize the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_SCRIPT"></a><a id="error_ds_invalid_script"></a><strong>ERROR_DS_INVALID_SCRIPT</strong></dt>
+<dd>
+<dl>
+<dt>8600 (0x2198)</dt>
+<dt>
+<p>The Directory Service cannot process the script because it is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REMOTE_CROSSREF_OP_FAILED"></a><a id="error_ds_remote_crossref_op_failed"></a><strong>ERROR_DS_REMOTE_CROSSREF_OP_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8601 (0x2199)</dt>
+<dt>
+<p>The remote create cross reference operation failed on the Domain Naming Master FSMO. The operation's error 
+     is in the extended data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CROSS_REF_BUSY"></a><a id="error_ds_cross_ref_busy"></a><strong>ERROR_DS_CROSS_REF_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>8602 (0x219A)</dt>
+<dt>
+<p>A cross reference is in use locally with the same name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN"></a><a id="error_ds_cant_derive_spn_for_deleted_domain"></a><strong>ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN</strong></dt>
+<dd>
+<dl>
+<dt>8603 (0x219B)</dt>
+<dt>
+<p>The DS cannot derive a service principal name (SPN) with which to mutually authenticate the target server 
+     because the server's domain has been deleted from the forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC"></a><a id="error_ds_cant_demote_with_writeable_nc"></a><strong>ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC</strong></dt>
+<dd>
+<dl>
+<dt>8604 (0x219C)</dt>
+<dt>
+<p>Writeable NCs prevent this DC from demoting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DUPLICATE_ID_FOUND"></a><a id="error_ds_duplicate_id_found"></a><strong>ERROR_DS_DUPLICATE_ID_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8605 (0x219D)</dt>
+<dt>
+<p>The requested object has a non-unique identifier and cannot be retrieved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT"></a><a id="error_ds_insufficient_attr_to_create_object"></a><strong>ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8606 (0x219E)</dt>
+<dt>
+<p>Insufficient attributes were given to create an object. This object may not exist because it may have been 
+     deleted and already garbage collected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_GROUP_CONVERSION_ERROR"></a><a id="error_ds_group_conversion_error"></a><strong>ERROR_DS_GROUP_CONVERSION_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>8607 (0x219F)</dt>
+<dt>
+<p>The group cannot be converted due to attribute restrictions on the requested group type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOVE_APP_BASIC_GROUP"></a><a id="error_ds_cant_move_app_basic_group"></a><strong>ERROR_DS_CANT_MOVE_APP_BASIC_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>8608 (0x21A0)</dt>
+<dt>
+<p>Cross-domain move of non-empty basic application groups is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_CANT_MOVE_APP_QUERY_GROUP"></a><a id="error_ds_cant_move_app_query_group"></a><strong>ERROR_DS_CANT_MOVE_APP_QUERY_GROUP</strong></dt>
+<dd>
+<dl>
+<dt>8609 (0x21A1)</dt>
+<dt>
+<p>Cross-domain move of non-empty query based application groups is not allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_ROLE_NOT_VERIFIED"></a><a id="error_ds_role_not_verified"></a><strong>ERROR_DS_ROLE_NOT_VERIFIED</strong></dt>
+<dd>
+<dl>
+<dt>8610 (0x21A2)</dt>
+<dt>
+<p>The FSMO role ownership could not be verified because its directory partition has not replicated 
+     successfully with at least one replication partner.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL"></a><a id="error_ds_wko_container_cannot_be_special"></a><strong>ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL</strong></dt>
+<dd>
+<dl>
+<dt>8611 (0x21A3)</dt>
+<dt>
+<p>The target container for a redirection of a well known object container cannot already be a special 
+     container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DOMAIN_RENAME_IN_PROGRESS"></a><a id="error_ds_domain_rename_in_progress"></a><strong>ERROR_DS_DOMAIN_RENAME_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>8612 (0x21A4)</dt>
+<dt>
+<p>The Directory Service cannot perform the requested operation because a domain rename operation is in 
+     progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_EXISTING_AD_CHILD_NC"></a><a id="error_ds_existing_ad_child_nc"></a><strong>ERROR_DS_EXISTING_AD_CHILD_NC</strong></dt>
+<dd>
+<dl>
+<dt>8613 (0x21A5)</dt>
+<dt>
+<p>The directory service detected a child partition below the requested partition name. The partition hierarchy 
+     must be created in a top down method.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_REPL_LIFETIME_EXCEEDED"></a><a id="error_ds_repl_lifetime_exceeded"></a><strong>ERROR_DS_REPL_LIFETIME_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>8614 (0x21A6)</dt>
+<dt>
+<p>The directory service cannot replicate with this server because the time since the last replication with 
+     this server has exceeded the tombstone lifetime.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER"></a><a id="error_ds_disallowed_in_system_container"></a><strong>ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER</strong></dt>
+<dd>
+<dl>
+<dt>8615 (0x21A7)</dt>
+<dt>
+<p>The requested operation is not allowed on an object under the system container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LDAP_SEND_QUEUE_FULL"></a><a id="error_ds_ldap_send_queue_full"></a><strong>ERROR_DS_LDAP_SEND_QUEUE_FULL</strong></dt>
+<dd>
+<dl>
+<dt>8616 (0x21A8)</dt>
+<dt>
+<p>The LDAP servers network send queue has filled up because the client is not processing the results of its 
+     requests fast enough. No more requests will be processed until the client catches up. If the client does not 
+     catch up then it will be disconnected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_OUT_SCHEDULE_WINDOW"></a><a id="error_ds_dra_out_schedule_window"></a><strong>ERROR_DS_DRA_OUT_SCHEDULE_WINDOW</strong></dt>
+<dd>
+<dl>
+<dt>8617 (0x21A9)</dt>
+<dt>
+<p>The scheduled replication did not take place because the system was too busy to execute the request within 
+     the schedule window. The replication queue is overloaded. Consider reducing the number of partners or decreasing 
+     the scheduled replication frequency.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_POLICY_NOT_KNOWN"></a><a id="error_ds_policy_not_known"></a><strong>ERROR_DS_POLICY_NOT_KNOWN</strong></dt>
+<dd>
+<dl>
+<dt>8618 (0x21AA)</dt>
+<dt>
+<p>At this time, it cannot be determined if the branch replication policy is available on the hub domain 
+     controller. Please retry at a later time to account for replication latencies.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SITE_SETTINGS_OBJECT"></a><a id="error_no_site_settings_object"></a><strong>ERROR_NO_SITE_SETTINGS_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8619 (0x21AB)</dt>
+<dt>
+<p>The site settings object for the specified site does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SECRETS"></a><a id="error_no_secrets"></a><strong>ERROR_NO_SECRETS</strong></dt>
+<dd>
+<dl>
+<dt>8620 (0x21AC)</dt>
+<dt>
+<p>The local account store does not contain secret material for the specified account.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_WRITABLE_DC_FOUND"></a><a id="error_no_writable_dc_found"></a><strong>ERROR_NO_WRITABLE_DC_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8621 (0x21AD)</dt>
+<dt>
+<p>Could not find a writable domain controller in the domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_SERVER_OBJECT"></a><a id="error_ds_no_server_object"></a><strong>ERROR_DS_NO_SERVER_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8622 (0x21AE)</dt>
+<dt>
+<p>The server object for the domain controller does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NO_NTDSA_OBJECT"></a><a id="error_ds_no_ntdsa_object"></a><strong>ERROR_DS_NO_NTDSA_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>8623 (0x21AF)</dt>
+<dt>
+<p>The NTDS Settings object for the domain controller does not exist.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_NON_ASQ_SEARCH"></a><a id="error_ds_non_asq_search"></a><strong>ERROR_DS_NON_ASQ_SEARCH</strong></dt>
+<dd>
+<dl>
+<dt>8624 (0x21B0)</dt>
+<dt>
+<p>The requested search operation is not supported for ASQ searches.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_AUDIT_FAILURE"></a><a id="error_ds_audit_failure"></a><strong>ERROR_DS_AUDIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>8625 (0x21B1)</dt>
+<dt>
+<p>A required audit event could not be generated for the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE"></a><a id="error_ds_invalid_search_flag_subtree"></a><strong>ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE</strong></dt>
+<dd>
+<dl>
+<dt>8626 (0x21B2)</dt>
+<dt>
+<p>The search flags for the attribute are invalid. The subtree index bit is valid only on single valued 
+     attributes.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_INVALID_SEARCH_FLAG_TUPLE"></a><a id="error_ds_invalid_search_flag_tuple"></a><strong>ERROR_DS_INVALID_SEARCH_FLAG_TUPLE</strong></dt>
+<dd>
+<dl>
+<dt>8627 (0x21B3)</dt>
+<dt>
+<p>The search flags for the attribute are invalid. The tuple index bit is valid only on attributes of Unicode 
+     strings.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_HIERARCHY_TABLE_TOO_DEEP"></a><a id="error_ds_hierarchy_table_too_deep"></a><strong>ERROR_DS_HIERARCHY_TABLE_TOO_DEEP</strong></dt>
+<dd>
+<dl>
+<dt>8628 (0x21B4)</dt>
+<dt>
+<p>The address books are nested too deeply. Failed to build the hierarchy table.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_CORRUPT_UTD_VECTOR"></a><a id="error_ds_dra_corrupt_utd_vector"></a><strong>ERROR_DS_DRA_CORRUPT_UTD_VECTOR</strong></dt>
+<dd>
+<dl>
+<dt>8629 (0x21B5)</dt>
+<dt>
+<p>The specified up-to-date-ness vector is corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_SECRETS_DENIED"></a><a id="error_ds_dra_secrets_denied"></a><strong>ERROR_DS_DRA_SECRETS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>8630 (0x21B6)</dt>
+<dt>
+<p>The request to replicate secrets is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_RESERVED_MAPI_ID"></a><a id="error_ds_reserved_mapi_id"></a><strong>ERROR_DS_RESERVED_MAPI_ID</strong></dt>
+<dd>
+<dl>
+<dt>8631 (0x21B7)</dt>
+<dt>
+<p>Schema update failed: The MAPI identifier is reserved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_MAPI_ID_NOT_AVAILABLE"></a><a id="error_ds_mapi_id_not_available"></a><strong>ERROR_DS_MAPI_ID_NOT_AVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>8632 (0x21B8)</dt>
+<dt>
+<p>Schema update failed: There are no MAPI identifiers available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_MISSING_KRBTGT_SECRET"></a><a id="error_ds_dra_missing_krbtgt_secret"></a><strong>ERROR_DS_DRA_MISSING_KRBTGT_SECRET</strong></dt>
+<dd>
+<dl>
+<dt>8633 (0x21B9)</dt>
+<dt>
+<p>The replication operation failed because the required attributes of the local krbtgt object are 
+     missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST"></a><a id="error_ds_domain_name_exists_in_forest"></a><strong>ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST</strong></dt>
+<dd>
+<dl>
+<dt>8634 (0x21BA)</dt>
+<dt>
+<p>The domain name of the trusted domain already exists in the forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST"></a><a id="error_ds_flat_name_exists_in_forest"></a><strong>ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST</strong></dt>
+<dd>
+<dl>
+<dt>8635 (0x21BB)</dt>
+<dt>
+<p>The flat name of the trusted domain already exists in the forest.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_USER_PRINCIPAL_NAME"></a><a id="error_invalid_user_principal_name"></a><strong>ERROR_INVALID_USER_PRINCIPAL_NAME</strong></dt>
+<dd>
+<dl>
+<dt>8636 (0x21BC)</dt>
+<dt>
+<p>The User Principal Name (UPN) is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS"></a><a id="error_ds_oid_mapped_group_cant_have_members"></a><strong>ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS</strong></dt>
+<dd>
+<dl>
+<dt>8637 (0x21BD)</dt>
+<dt>
+<p>OID mapped groups cannot have members.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_OID_NOT_FOUND"></a><a id="error_ds_oid_not_found"></a><strong>ERROR_DS_OID_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>8638 (0x21BE)</dt>
+<dt>
+<p>The specified OID cannot be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DRA_RECYCLED_TARGET"></a><a id="error_ds_dra_recycled_target"></a><strong>ERROR_DS_DRA_RECYCLED_TARGET</strong></dt>
+<dd>
+<dl>
+<dt>8639 (0x21BF)</dt>
+<dt>
+<p>The replication operation failed because the target object referred by a link value is recycled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_DISALLOWED_NC_REDIRECT"></a><a id="error_ds_disallowed_nc_redirect"></a><strong>ERROR_DS_DISALLOWED_NC_REDIRECT</strong></dt>
+<dd>
+<dl>
+<dt>8640 (0x21C0)</dt>
+<dt>
+<p>The redirect operation failed because the target object is in a NC different from the domain NC of the 
+     current domain controller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_HIGH_ADLDS_FFL"></a><a id="error_ds_high_adlds_ffl"></a><strong>ERROR_DS_HIGH_ADLDS_FFL</strong></dt>
+<dd>
+<dl>
+<dt>8641 (0x21C1)</dt>
+<dt>
+<p>The functional level of the AD LDS configuration set cannot be lowered to the requested value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_HIGH_DSA_VERSION"></a><a id="error_ds_high_dsa_version"></a><strong>ERROR_DS_HIGH_DSA_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>8642 (0x21C2)</dt>
+<dt>
+<p>The functional level of the domain (or forest) cannot be lowered to the requested value.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_LOW_ADLDS_FFL"></a><a id="error_ds_low_adlds_ffl"></a><strong>ERROR_DS_LOW_ADLDS_FFL</strong></dt>
+<dd>
+<dl>
+<dt>8643 (0x21C3)</dt>
+<dt>
+<p>The functional level of the AD LDS configuration set cannot be raised to the requested value, because there 
+     exist one or more ADLDS instances that are at a lower incompatible functional level.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION"></a><a id="error_domain_sid_same_as_local_workstation"></a><strong>ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION</strong></dt>
+<dd>
+<dl>
+<dt>8644 (0x21C4)</dt>
+<dt>
+<p>The domain join cannot be completed because the SID of the domain you attempted to join was identical to the 
+     SID of this machine. This is a symptom of an improperly cloned operating system install.  You should run sysprep 
+     on this machine in order to generate a new machine SID. Please see 
+     <a href="http://go.microsoft.com/fwlink/p/?linkid=168895">http://go.microsoft.com/fwlink/p/?linkid=168895</a> 
+     for more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED"></a><a id="error_ds_undelete_sam_validation_failed"></a><strong>ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>8645 (0x21C5)</dt>
+<dt>
+<p>The undelete operation failed because the Sam Account Name or Additional Sam Account Name of the object 
+     being undeleted conflicts with an existing live object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INCORRECT_ACCOUNT_TYPE"></a><a id="error_incorrect_account_type"></a><strong>ERROR_INCORRECT_ACCOUNT_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>8646 (0x21C6)</dt>
+<dt>
+<p>The system is not authoritative for the specified account and therefore cannot complete the operation. 
+     Please retry the operation using the provider associated with this account. If this is an online provider please 
+     use the provider's online site.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681390(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681390(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="WD-U5ZZBVNKjbufxaLAS7z5b67n3zQHh87IWlPU-EwM5Usuu-YGXBI7fL_vdJjO-H55Wd9ayYslvb2XdP2q31wjI0qU1" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681390(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681390(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="BvX0u6qbpusFZ8AP1eKAmm8lYeLP_WFpFohNT0qO2CLGf5mnxAP5rvkfGx5z0ge2XdAgq0ulLct0LZY4by_qbvAygic1" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://10.16.79.229\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681390(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"541dbf78-74f3-40c0-8713-0277add0474f\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

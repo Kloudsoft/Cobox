@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" />
+        <title>System Error Codes (6000-8199) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681389(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681389(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681389(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681389(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="61C41DCF-7:33:14 PM" />
+
+<meta name="Search.ShortId" content="ms681389" />
+
+<meta name="ms.shortidmsdn" content="ms681389" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="eaaf9f65-e8ff-4e54-90a9-04252cdd773a" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996394&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (6000-8199)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> (errors 6000 to 8199). They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_ENCRYPTION_FAILED"></a><a id="error_encryption_failed"></a><strong>ERROR_ENCRYPTION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6000 (0x1770)</dt>
+<dt>
+<p>The specified file could not be encrypted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DECRYPTION_FAILED"></a><a id="error_decryption_failed"></a><strong>ERROR_DECRYPTION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6001 (0x1771)</dt>
+<dt>
+<p>The specified file could not be decrypted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_ENCRYPTED"></a><a id="error_file_encrypted"></a><strong>ERROR_FILE_ENCRYPTED</strong></dt>
+<dd>
+<dl>
+<dt>6002 (0x1772)</dt>
+<dt>
+<p>The specified file is encrypted and the user does not have the ability to decrypt it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_RECOVERY_POLICY"></a><a id="error_no_recovery_policy"></a><strong>ERROR_NO_RECOVERY_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>6003 (0x1773)</dt>
+<dt>
+<p>There is no valid encryption recovery policy configured for this system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_EFS"></a><a id="error_no_efs"></a><strong>ERROR_NO_EFS</strong></dt>
+<dd>
+<dl>
+<dt>6004 (0x1774)</dt>
+<dt>
+<p>The required encryption driver is not loaded for this system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRONG_EFS"></a><a id="error_wrong_efs"></a><strong>ERROR_WRONG_EFS</strong></dt>
+<dd>
+<dl>
+<dt>6005 (0x1775)</dt>
+<dt>
+<p>The file was encrypted with a different encryption driver than is currently loaded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_USER_KEYS"></a><a id="error_no_user_keys"></a><strong>ERROR_NO_USER_KEYS</strong></dt>
+<dd>
+<dl>
+<dt>6006 (0x1776)</dt>
+<dt>
+<p>There are no EFS keys defined for the user.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_NOT_ENCRYPTED"></a><a id="error_file_not_encrypted"></a><strong>ERROR_FILE_NOT_ENCRYPTED</strong></dt>
+<dd>
+<dl>
+<dt>6007 (0x1777)</dt>
+<dt>
+<p>The specified file is not encrypted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_EXPORT_FORMAT"></a><a id="error_not_export_format"></a><strong>ERROR_NOT_EXPORT_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>6008 (0x1778)</dt>
+<dt>
+<p>The specified file is not in the defined EFS export format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_READ_ONLY"></a><a id="error_file_read_only"></a><strong>ERROR_FILE_READ_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>6009 (0x1779)</dt>
+<dt>
+<p>The specified file is read only.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIR_EFS_DISALLOWED"></a><a id="error_dir_efs_disallowed"></a><strong>ERROR_DIR_EFS_DISALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>6010 (0x177A)</dt>
+<dt>
+<p>The directory has been disabled for encryption.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EFS_SERVER_NOT_TRUSTED"></a><a id="error_efs_server_not_trusted"></a><strong>ERROR_EFS_SERVER_NOT_TRUSTED</strong></dt>
+<dd>
+<dl>
+<dt>6011 (0x177B)</dt>
+<dt>
+<p>The server is not trusted for remote encryption operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_RECOVERY_POLICY"></a><a id="error_bad_recovery_policy"></a><strong>ERROR_BAD_RECOVERY_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>6012 (0x177C)</dt>
+<dt>
+<p>Recovery policy configured for this system contains invalid recovery certificate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EFS_ALG_BLOB_TOO_BIG"></a><a id="error_efs_alg_blob_too_big"></a><strong>ERROR_EFS_ALG_BLOB_TOO_BIG</strong></dt>
+<dd>
+<dl>
+<dt>6013 (0x177D)</dt>
+<dt>
+<p>The encryption algorithm used on the source file needs a bigger key buffer than the one on the destination 
+     file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VOLUME_NOT_SUPPORT_EFS"></a><a id="error_volume_not_support_efs"></a><strong>ERROR_VOLUME_NOT_SUPPORT_EFS</strong></dt>
+<dd>
+<dl>
+<dt>6014 (0x177E)</dt>
+<dt>
+<p>The disk partition does not support file encryption.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EFS_DISABLED"></a><a id="error_efs_disabled"></a><strong>ERROR_EFS_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>6015 (0x177F)</dt>
+<dt>
+<p>This machine is disabled for file encryption.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EFS_VERSION_NOT_SUPPORT"></a><a id="error_efs_version_not_support"></a><strong>ERROR_EFS_VERSION_NOT_SUPPORT</strong></dt>
+<dd>
+<dl>
+<dt>6016 (0x1780)</dt>
+<dt>
+<p>A newer system is required to decrypt this encrypted file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE"></a><a id="error_cs_encryption_invalid_server_response"></a><strong>ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE</strong></dt>
+<dd>
+<dl>
+<dt>6017 (0x1781)</dt>
+<dt>
+<p>The remote server sent an invalid response for a file being opened with Client Side Encryption.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER"></a><a id="error_cs_encryption_unsupported_server"></a><strong>ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER</strong></dt>
+<dd>
+<dl>
+<dt>6018 (0x1782)</dt>
+<dt>
+<p>Client Side Encryption is not supported by the remote server even though it claims to support it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE"></a><a id="error_cs_encryption_existing_encrypted_file"></a><strong>ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE</strong></dt>
+<dd>
+<dl>
+<dt>6019 (0x1783)</dt>
+<dt>
+<p>File is encrypted and should be opened in Client Side Encryption mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE"></a><a id="error_cs_encryption_new_encrypted_file"></a><strong>ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE</strong></dt>
+<dd>
+<dl>
+<dt>6020 (0x1784)</dt>
+<dt>
+<p>A new encrypted file is being created and a $EFS needs to be provided.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CS_ENCRYPTION_FILE_NOT_CSE"></a><a id="error_cs_encryption_file_not_cse"></a><strong>ERROR_CS_ENCRYPTION_FILE_NOT_CSE</strong></dt>
+<dd>
+<dl>
+<dt>6021 (0x1785)</dt>
+<dt>
+<p>The SMB client requested a CSE FSCTL on a non-CSE file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ENCRYPTION_POLICY_DENIES_OPERATION"></a><a id="error_encryption_policy_denies_operation"></a><strong>ERROR_ENCRYPTION_POLICY_DENIES_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>6022 (0x1786)</dt>
+<dt>
+<p>The requested operation was blocked by policy. For more information, contact your system 
+     administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_BROWSER_SERVERS_FOUND"></a><a id="error_no_browser_servers_found"></a><strong>ERROR_NO_BROWSER_SERVERS_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6118 (0x17E6)</dt>
+<dt>
+<p>The list of servers for this workgroup is not currently available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="SCHED_E_SERVICE_NOT_LOCALSYSTEM"></a><a id="sched_e_service_not_localsystem"></a><strong>SCHED_E_SERVICE_NOT_LOCALSYSTEM</strong></dt>
+<dd>
+<dl>
+<dt>6200 (0x1838)</dt>
+<dt>
+<p>The Task Scheduler service must be configured to run in the System account to function properly. Individual 
+     tasks may be configured to run in other accounts.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_SECTOR_INVALID"></a><a id="error_log_sector_invalid"></a><strong>ERROR_LOG_SECTOR_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6600 (0x19C8)</dt>
+<dt>
+<p>Log service encountered an invalid log sector.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_SECTOR_PARITY_INVALID"></a><a id="error_log_sector_parity_invalid"></a><strong>ERROR_LOG_SECTOR_PARITY_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6601 (0x19C9)</dt>
+<dt>
+<p>Log service encountered a log sector with invalid block parity.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_SECTOR_REMAPPED"></a><a id="error_log_sector_remapped"></a><strong>ERROR_LOG_SECTOR_REMAPPED</strong></dt>
+<dd>
+<dl>
+<dt>6602 (0x19CA)</dt>
+<dt>
+<p>Log service encountered a remapped log sector.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_BLOCK_INCOMPLETE"></a><a id="error_log_block_incomplete"></a><strong>ERROR_LOG_BLOCK_INCOMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>6603 (0x19CB)</dt>
+<dt>
+<p>Log service encountered a partial or incomplete log block.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_INVALID_RANGE"></a><a id="error_log_invalid_range"></a><strong>ERROR_LOG_INVALID_RANGE</strong></dt>
+<dd>
+<dl>
+<dt>6604 (0x19CC)</dt>
+<dt>
+<p>Log service encountered an attempt access data outside the active log range.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_BLOCKS_EXHAUSTED"></a><a id="error_log_blocks_exhausted"></a><strong>ERROR_LOG_BLOCKS_EXHAUSTED</strong></dt>
+<dd>
+<dl>
+<dt>6605 (0x19CD)</dt>
+<dt>
+<p>Log service user marshalling buffers are exhausted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_READ_CONTEXT_INVALID"></a><a id="error_log_read_context_invalid"></a><strong>ERROR_LOG_READ_CONTEXT_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6606 (0x19CE)</dt>
+<dt>
+<p>Log service encountered an attempt read from a marshalling area with an invalid read context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_RESTART_INVALID"></a><a id="error_log_restart_invalid"></a><strong>ERROR_LOG_RESTART_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6607 (0x19CF)</dt>
+<dt>
+<p>Log service encountered an invalid log restart area.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_BLOCK_VERSION"></a><a id="error_log_block_version"></a><strong>ERROR_LOG_BLOCK_VERSION</strong></dt>
+<dd>
+<dl>
+<dt>6608 (0x19D0)</dt>
+<dt>
+<p>Log service encountered an invalid log block version.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_BLOCK_INVALID"></a><a id="error_log_block_invalid"></a><strong>ERROR_LOG_BLOCK_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6609 (0x19D1)</dt>
+<dt>
+<p>Log service encountered an invalid log block.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_READ_MODE_INVALID"></a><a id="error_log_read_mode_invalid"></a><strong>ERROR_LOG_READ_MODE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6610 (0x19D2)</dt>
+<dt>
+<p>Log service encountered an attempt to read the log with an invalid read mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_NO_RESTART"></a><a id="error_log_no_restart"></a><strong>ERROR_LOG_NO_RESTART</strong></dt>
+<dd>
+<dl>
+<dt>6611 (0x19D3)</dt>
+<dt>
+<p>Log service encountered a log stream with no restart area.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_METADATA_CORRUPT"></a><a id="error_log_metadata_corrupt"></a><strong>ERROR_LOG_METADATA_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>6612 (0x19D4)</dt>
+<dt>
+<p>Log service encountered a corrupted metadata file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_METADATA_INVALID"></a><a id="error_log_metadata_invalid"></a><strong>ERROR_LOG_METADATA_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6613 (0x19D5)</dt>
+<dt>
+<p>Log service encountered a metadata file that could not be created by the log file system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_METADATA_INCONSISTENT"></a><a id="error_log_metadata_inconsistent"></a><strong>ERROR_LOG_METADATA_INCONSISTENT</strong></dt>
+<dd>
+<dl>
+<dt>6614 (0x19D6)</dt>
+<dt>
+<p>Log service encountered a metadata file with inconsistent data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_RESERVATION_INVALID"></a><a id="error_log_reservation_invalid"></a><strong>ERROR_LOG_RESERVATION_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6615 (0x19D7)</dt>
+<dt>
+<p>Log service encountered an attempt to erroneous allocate or dispose reservation space.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CANT_DELETE"></a><a id="error_log_cant_delete"></a><strong>ERROR_LOG_CANT_DELETE</strong></dt>
+<dd>
+<dl>
+<dt>6616 (0x19D8)</dt>
+<dt>
+<p>Log service cannot delete log file or file system container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CONTAINER_LIMIT_EXCEEDED"></a><a id="error_log_container_limit_exceeded"></a><strong>ERROR_LOG_CONTAINER_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>6617 (0x19D9)</dt>
+<dt>
+<p>Log service has reached the maximum allowable containers allocated to a log file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_START_OF_LOG"></a><a id="error_log_start_of_log"></a><strong>ERROR_LOG_START_OF_LOG</strong></dt>
+<dd>
+<dl>
+<dt>6618 (0x19DA)</dt>
+<dt>
+<p>Log service has attempted to read or write backward past the start of the log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_POLICY_ALREADY_INSTALLED"></a><a id="error_log_policy_already_installed"></a><strong>ERROR_LOG_POLICY_ALREADY_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>6619 (0x19DB)</dt>
+<dt>
+<p>Log policy could not be installed because a policy of the same type is already present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_POLICY_NOT_INSTALLED"></a><a id="error_log_policy_not_installed"></a><strong>ERROR_LOG_POLICY_NOT_INSTALLED</strong></dt>
+<dd>
+<dl>
+<dt>6620 (0x19DC)</dt>
+<dt>
+<p>Log policy in question was not installed at the time of the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_POLICY_INVALID"></a><a id="error_log_policy_invalid"></a><strong>ERROR_LOG_POLICY_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6621 (0x19DD)</dt>
+<dt>
+<p>The installed set of policies on the log is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_POLICY_CONFLICT"></a><a id="error_log_policy_conflict"></a><strong>ERROR_LOG_POLICY_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>6622 (0x19DE)</dt>
+<dt>
+<p>A policy on the log in question prevented the operation from completing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_PINNED_ARCHIVE_TAIL"></a><a id="error_log_pinned_archive_tail"></a><strong>ERROR_LOG_PINNED_ARCHIVE_TAIL</strong></dt>
+<dd>
+<dl>
+<dt>6623 (0x19DF)</dt>
+<dt>
+<p>Log space cannot be reclaimed because the log is pinned by the archive tail.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_RECORD_NONEXISTENT"></a><a id="error_log_record_nonexistent"></a><strong>ERROR_LOG_RECORD_NONEXISTENT</strong></dt>
+<dd>
+<dl>
+<dt>6624 (0x19E0)</dt>
+<dt>
+<p>Log record is not a record in the log file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_RECORDS_RESERVED_INVALID"></a><a id="error_log_records_reserved_invalid"></a><strong>ERROR_LOG_RECORDS_RESERVED_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6625 (0x19E1)</dt>
+<dt>
+<p>Number of reserved log records or the adjustment of the number of reserved log records is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_SPACE_RESERVED_INVALID"></a><a id="error_log_space_reserved_invalid"></a><strong>ERROR_LOG_SPACE_RESERVED_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6626 (0x19E2)</dt>
+<dt>
+<p>Reserved log space or the adjustment of the log space is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_TAIL_INVALID"></a><a id="error_log_tail_invalid"></a><strong>ERROR_LOG_TAIL_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6627 (0x19E3)</dt>
+<dt>
+<p>An new or existing archive tail or base of the active log is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_FULL"></a><a id="error_log_full"></a><strong>ERROR_LOG_FULL</strong></dt>
+<dd>
+<dl>
+<dt>6628 (0x19E4)</dt>
+<dt>
+<p>Log space is exhausted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COULD_NOT_RESIZE_LOG"></a><a id="error_could_not_resize_log"></a><strong>ERROR_COULD_NOT_RESIZE_LOG</strong></dt>
+<dd>
+<dl>
+<dt>6629 (0x19E5)</dt>
+<dt>
+<p>The log could not be set to the requested size.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_MULTIPLEXED"></a><a id="error_log_multiplexed"></a><strong>ERROR_LOG_MULTIPLEXED</strong></dt>
+<dd>
+<dl>
+<dt>6630 (0x19E6)</dt>
+<dt>
+<p>Log is multiplexed, no direct writes to the physical log is allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_DEDICATED"></a><a id="error_log_dedicated"></a><strong>ERROR_LOG_DEDICATED</strong></dt>
+<dd>
+<dl>
+<dt>6631 (0x19E7)</dt>
+<dt>
+<p>The operation failed because the log is a dedicated log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS"></a><a id="error_log_archive_not_in_progress"></a><strong>ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>6632 (0x19E8)</dt>
+<dt>
+<p>The operation requires an archive context.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_ARCHIVE_IN_PROGRESS"></a><a id="error_log_archive_in_progress"></a><strong>ERROR_LOG_ARCHIVE_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>6633 (0x19E9)</dt>
+<dt>
+<p>Log archival is in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_EPHEMERAL"></a><a id="error_log_ephemeral"></a><strong>ERROR_LOG_EPHEMERAL</strong></dt>
+<dd>
+<dl>
+<dt>6634 (0x19EA)</dt>
+<dt>
+<p>The operation requires a non-ephemeral log, but the log is ephemeral.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_NOT_ENOUGH_CONTAINERS"></a><a id="error_log_not_enough_containers"></a><strong>ERROR_LOG_NOT_ENOUGH_CONTAINERS</strong></dt>
+<dd>
+<dl>
+<dt>6635 (0x19EB)</dt>
+<dt>
+<p>The log must have at least two containers before it can be read from or written to.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CLIENT_ALREADY_REGISTERED"></a><a id="error_log_client_already_registered"></a><strong>ERROR_LOG_CLIENT_ALREADY_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>6636 (0x19EC)</dt>
+<dt>
+<p>A log client has already registered on the stream.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CLIENT_NOT_REGISTERED"></a><a id="error_log_client_not_registered"></a><strong>ERROR_LOG_CLIENT_NOT_REGISTERED</strong></dt>
+<dd>
+<dl>
+<dt>6637 (0x19ED)</dt>
+<dt>
+<p>A log client has not been registered on the stream.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_FULL_HANDLER_IN_PROGRESS"></a><a id="error_log_full_handler_in_progress"></a><strong>ERROR_LOG_FULL_HANDLER_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>6638 (0x19EE)</dt>
+<dt>
+<p>A request has already been made to handle the log full condition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CONTAINER_READ_FAILED"></a><a id="error_log_container_read_failed"></a><strong>ERROR_LOG_CONTAINER_READ_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6639 (0x19EF)</dt>
+<dt>
+<p>Log service encountered an error when attempting to read from a log container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CONTAINER_WRITE_FAILED"></a><a id="error_log_container_write_failed"></a><strong>ERROR_LOG_CONTAINER_WRITE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6640 (0x19F0)</dt>
+<dt>
+<p>Log service encountered an error when attempting to write to a log container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CONTAINER_OPEN_FAILED"></a><a id="error_log_container_open_failed"></a><strong>ERROR_LOG_CONTAINER_OPEN_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6641 (0x19F1)</dt>
+<dt>
+<p>Log service encountered an error when attempting open a log container.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CONTAINER_STATE_INVALID"></a><a id="error_log_container_state_invalid"></a><strong>ERROR_LOG_CONTAINER_STATE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6642 (0x19F2)</dt>
+<dt>
+<p>Log service encountered an invalid container state when attempting a requested action.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_STATE_INVALID"></a><a id="error_log_state_invalid"></a><strong>ERROR_LOG_STATE_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>6643 (0x19F3)</dt>
+<dt>
+<p>Log service is not in the correct state to perform a requested action.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_PINNED"></a><a id="error_log_pinned"></a><strong>ERROR_LOG_PINNED</strong></dt>
+<dd>
+<dl>
+<dt>6644 (0x19F4)</dt>
+<dt>
+<p>Log space cannot be reclaimed because the log is pinned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_METADATA_FLUSH_FAILED"></a><a id="error_log_metadata_flush_failed"></a><strong>ERROR_LOG_METADATA_FLUSH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6645 (0x19F5)</dt>
+<dt>
+<p>Log metadata flush failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_INCONSISTENT_SECURITY"></a><a id="error_log_inconsistent_security"></a><strong>ERROR_LOG_INCONSISTENT_SECURITY</strong></dt>
+<dd>
+<dl>
+<dt>6646 (0x19F6)</dt>
+<dt>
+<p>Security on the log and its containers is inconsistent.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_APPENDED_FLUSH_FAILED"></a><a id="error_log_appended_flush_failed"></a><strong>ERROR_LOG_APPENDED_FLUSH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6647 (0x19F7)</dt>
+<dt>
+<p>Records were appended to the log or reservation changes were made, but the log could not be flushed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_PINNED_RESERVATION"></a><a id="error_log_pinned_reservation"></a><strong>ERROR_LOG_PINNED_RESERVATION</strong></dt>
+<dd>
+<dl>
+<dt>6648 (0x19F8)</dt>
+<dt>
+<p>The log is pinned due to reservation consuming most of the log space. Free some reserved records to make 
+     space available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TRANSACTION"></a><a id="error_invalid_transaction"></a><strong>ERROR_INVALID_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6700 (0x1A2C)</dt>
+<dt>
+<p>The transaction handle associated with this operation is not valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_ACTIVE"></a><a id="error_transaction_not_active"></a><strong>ERROR_TRANSACTION_NOT_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>6701 (0x1A2D)</dt>
+<dt>
+<p>The requested operation was made in the context of a transaction that is no longer active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_REQUEST_NOT_VALID"></a><a id="error_transaction_request_not_valid"></a><strong>ERROR_TRANSACTION_REQUEST_NOT_VALID</strong></dt>
+<dd>
+<dl>
+<dt>6702 (0x1A2E)</dt>
+<dt>
+<p>The requested operation is not valid on the Transaction object in its current state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_REQUESTED"></a><a id="error_transaction_not_requested"></a><strong>ERROR_TRANSACTION_NOT_REQUESTED</strong></dt>
+<dd>
+<dl>
+<dt>6703 (0x1A2F)</dt>
+<dt>
+<p>The caller has called a response API, but the response is not expected because the TM did not issue the 
+     corresponding request to the caller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_ALREADY_ABORTED"></a><a id="error_transaction_already_aborted"></a><strong>ERROR_TRANSACTION_ALREADY_ABORTED</strong></dt>
+<dd>
+<dl>
+<dt>6704 (0x1A30)</dt>
+<dt>
+<p>It is too late to perform the requested operation, since the Transaction has already been aborted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_ALREADY_COMMITTED"></a><a id="error_transaction_already_committed"></a><strong>ERROR_TRANSACTION_ALREADY_COMMITTED</strong></dt>
+<dd>
+<dl>
+<dt>6705 (0x1A31)</dt>
+<dt>
+<p>It is too late to perform the requested operation, since the Transaction has already been committed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TM_INITIALIZATION_FAILED"></a><a id="error_tm_initialization_failed"></a><strong>ERROR_TM_INITIALIZATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6706 (0x1A32)</dt>
+<dt>
+<p>The Transaction Manager was unable to be successfully initialized. Transacted operations are not 
+     supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESOURCEMANAGER_READ_ONLY"></a><a id="error_resourcemanager_read_only"></a><strong>ERROR_RESOURCEMANAGER_READ_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>6707 (0x1A33)</dt>
+<dt>
+<p>The specified ResourceManager made no changes or updates to the resource under this transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_JOINED"></a><a id="error_transaction_not_joined"></a><strong>ERROR_TRANSACTION_NOT_JOINED</strong></dt>
+<dd>
+<dl>
+<dt>6708 (0x1A34)</dt>
+<dt>
+<p>The resource manager has attempted to prepare a transaction that it has not successfully joined.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_SUPERIOR_EXISTS"></a><a id="error_transaction_superior_exists"></a><strong>ERROR_TRANSACTION_SUPERIOR_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>6709 (0x1A35)</dt>
+<dt>
+<p>The Transaction object already has a superior enlistment, and the caller attempted an operation that would 
+     have created a new superior. Only a single superior enlistment is allow.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CRM_PROTOCOL_ALREADY_EXISTS"></a><a id="error_crm_protocol_already_exists"></a><strong>ERROR_CRM_PROTOCOL_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>6710 (0x1A36)</dt>
+<dt>
+<p>The RM tried to register a protocol that already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_PROPAGATION_FAILED"></a><a id="error_transaction_propagation_failed"></a><strong>ERROR_TRANSACTION_PROPAGATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6711 (0x1A37)</dt>
+<dt>
+<p>The attempt to propagate the Transaction failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CRM_PROTOCOL_NOT_FOUND"></a><a id="error_crm_protocol_not_found"></a><strong>ERROR_CRM_PROTOCOL_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6712 (0x1A38)</dt>
+<dt>
+<p>The requested propagation protocol was not registered as a CRM.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER"></a><a id="error_transaction_invalid_marshall_buffer"></a><strong>ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER</strong></dt>
+<dd>
+<dl>
+<dt>6713 (0x1A39)</dt>
+<dt>
+<p>The buffer passed in to PushTransaction or PullTransaction is not in a valid format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CURRENT_TRANSACTION_NOT_VALID"></a><a id="error_current_transaction_not_valid"></a><strong>ERROR_CURRENT_TRANSACTION_NOT_VALID</strong></dt>
+<dd>
+<dl>
+<dt>6714 (0x1A3A)</dt>
+<dt>
+<p>The current transaction context associated with the thread is not a valid handle to a transaction 
+     object.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_FOUND"></a><a id="error_transaction_not_found"></a><strong>ERROR_TRANSACTION_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6715 (0x1A3B)</dt>
+<dt>
+<p>The specified Transaction object could not be opened, because it was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESOURCEMANAGER_NOT_FOUND"></a><a id="error_resourcemanager_not_found"></a><strong>ERROR_RESOURCEMANAGER_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6716 (0x1A3C)</dt>
+<dt>
+<p>The specified ResourceManager object could not be opened, because it was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ENLISTMENT_NOT_FOUND"></a><a id="error_enlistment_not_found"></a><strong>ERROR_ENLISTMENT_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6717 (0x1A3D)</dt>
+<dt>
+<p>The specified Enlistment object could not be opened, because it was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONMANAGER_NOT_FOUND"></a><a id="error_transactionmanager_not_found"></a><strong>ERROR_TRANSACTIONMANAGER_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6718 (0x1A3E)</dt>
+<dt>
+<p>The specified TransactionManager object could not be opened, because it was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONMANAGER_NOT_ONLINE"></a><a id="error_transactionmanager_not_online"></a><strong>ERROR_TRANSACTIONMANAGER_NOT_ONLINE</strong></dt>
+<dd>
+<dl>
+<dt>6719 (0x1A3F)</dt>
+<dt>
+<p>The object specified could not be created or opened, because its associated TransactionManager is not 
+     online. The TransactionManager must be brought fully Online by calling RecoverTransactionManager to recover to 
+     the end of its LogFile before objects in its Transaction or ResourceManager namespaces can be opened.  In 
+     addition, errors in writing records to its LogFile can cause a TransactionManager to go offline.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION"></a><a id="error_transactionmanager_recovery_name_collision"></a><strong>ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>6720 (0x1A40)</dt>
+<dt>
+<p>The specified TransactionManager was unable to create the objects contained in its logfile in the Ob 
+     namespace. Therefore, the TransactionManager was unable to recover.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_ROOT"></a><a id="error_transaction_not_root"></a><strong>ERROR_TRANSACTION_NOT_ROOT</strong></dt>
+<dd>
+<dl>
+<dt>6721 (0x1A41)</dt>
+<dt>
+<p>The call to create a superior Enlistment on this Transaction object could not be completed, because the 
+     Transaction object specified for the enlistment is a subordinate branch of the Transaction. Only the root of the 
+     Transaction can be enlisted on as a superior.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_OBJECT_EXPIRED"></a><a id="error_transaction_object_expired"></a><strong>ERROR_TRANSACTION_OBJECT_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>6722 (0x1A42)</dt>
+<dt>
+<p>Because the associated transaction manager or resource manager has been closed, the handle is no longer 
+     valid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED"></a><a id="error_transaction_response_not_enlisted"></a><strong>ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED</strong></dt>
+<dd>
+<dl>
+<dt>6723 (0x1A43)</dt>
+<dt>
+<p>The specified operation could not be performed on this Superior enlistment, because the enlistment was not 
+     created with the corresponding completion response in the NotificationMask.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_RECORD_TOO_LONG"></a><a id="error_transaction_record_too_long"></a><strong>ERROR_TRANSACTION_RECORD_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>6724 (0x1A44)</dt>
+<dt>
+<p>The specified operation could not be performed, because the record that would be logged was too long. This 
+     can occur because of two conditions: either there are too many Enlistments on this Transaction, or the combined 
+     RecoveryInformation being logged on behalf of those Enlistments is too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED"></a><a id="error_implicit_transaction_not_supported"></a><strong>ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>6725 (0x1A45)</dt>
+<dt>
+<p>Implicit transaction are not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_INTEGRITY_VIOLATED"></a><a id="error_transaction_integrity_violated"></a><strong>ERROR_TRANSACTION_INTEGRITY_VIOLATED</strong></dt>
+<dd>
+<dl>
+<dt>6726 (0x1A46)</dt>
+<dt>
+<p>The kernel transaction manager had to abort or forget the transaction because it blocked forward 
+     progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH"></a><a id="error_transactionmanager_identity_mismatch"></a><strong>ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>6727 (0x1A47)</dt>
+<dt>
+<p>The TransactionManager identity that was supplied did not match the one recorded in the TransactionManager's 
+     log file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT"></a><a id="error_rm_cannot_be_frozen_for_snapshot"></a><strong>ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT</strong></dt>
+<dd>
+<dl>
+<dt>6728 (0x1A48)</dt>
+<dt>
+<p>This snapshot operation cannot continue because a transactional resource manager cannot be frozen in its 
+     current state.  Please try again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_MUST_WRITETHROUGH"></a><a id="error_transaction_must_writethrough"></a><strong>ERROR_TRANSACTION_MUST_WRITETHROUGH</strong></dt>
+<dd>
+<dl>
+<dt>6729 (0x1A49)</dt>
+<dt>
+<p>The transaction cannot be enlisted on with the specified EnlistmentMask, because the transaction has already 
+     completed the PrePrepare phase.  In order to ensure correctness, the ResourceManager must switch to a write-
+     through mode and cease caching data within this transaction.  Enlisting for only subsequent transaction phases 
+     may still succeed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NO_SUPERIOR"></a><a id="error_transaction_no_superior"></a><strong>ERROR_TRANSACTION_NO_SUPERIOR</strong></dt>
+<dd>
+<dl>
+<dt>6730 (0x1A4A)</dt>
+<dt>
+<p>The transaction does not have a superior enlistment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HEURISTIC_DAMAGE_POSSIBLE"></a><a id="error_heuristic_damage_possible"></a><strong>ERROR_HEURISTIC_DAMAGE_POSSIBLE</strong></dt>
+<dd>
+<dl>
+<dt>6731 (0x1A4B)</dt>
+<dt>
+<p>The attempt to commit the Transaction completed, but it is possible that some portion of the transaction 
+     tree did not commit successfully due to heuristics.  Therefore it is possible that some data modified in the 
+     transaction may not have committed, resulting in transactional inconsistency.  If possible, check the consistency 
+     of the associated data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONAL_CONFLICT"></a><a id="error_transactional_conflict"></a><strong>ERROR_TRANSACTIONAL_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>6800 (0x1A90)</dt>
+<dt>
+<p>The function attempted to use a name that is reserved for use by another transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RM_NOT_ACTIVE"></a><a id="error_rm_not_active"></a><strong>ERROR_RM_NOT_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>6801 (0x1A91)</dt>
+<dt>
+<p>Transaction support within the specified resource manager is not started or was shut down due to an 
+     error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RM_METADATA_CORRUPT"></a><a id="error_rm_metadata_corrupt"></a><strong>ERROR_RM_METADATA_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>6802 (0x1A92)</dt>
+<dt>
+<p>The metadata of the RM has been corrupted. The RM will not function.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIRECTORY_NOT_RM"></a><a id="error_directory_not_rm"></a><strong>ERROR_DIRECTORY_NOT_RM</strong></dt>
+<dd>
+<dl>
+<dt>6803 (0x1A93)</dt>
+<dt>
+<p>The specified directory does not contain a resource manager.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE"></a><a id="error_transactions_unsupported_remote"></a><strong>ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE</strong></dt>
+<dd>
+<dl>
+<dt>6805 (0x1A95)</dt>
+<dt>
+<p>The remote server or share does not support transacted file operations.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_RESIZE_INVALID_SIZE"></a><a id="error_log_resize_invalid_size"></a><strong>ERROR_LOG_RESIZE_INVALID_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>6806 (0x1A96)</dt>
+<dt>
+<p>The requested log size is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OBJECT_NO_LONGER_EXISTS"></a><a id="error_object_no_longer_exists"></a><strong>ERROR_OBJECT_NO_LONGER_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>6807 (0x1A97)</dt>
+<dt>
+<p>The object (file, stream, link) corresponding to the handle has been deleted by a Transaction Savepoint 
+     Rollback.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STREAM_MINIVERSION_NOT_FOUND"></a><a id="error_stream_miniversion_not_found"></a><strong>ERROR_STREAM_MINIVERSION_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>6808 (0x1A98)</dt>
+<dt>
+<p>The specified file miniversion was not found for this transacted file open.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STREAM_MINIVERSION_NOT_VALID"></a><a id="error_stream_miniversion_not_valid"></a><strong>ERROR_STREAM_MINIVERSION_NOT_VALID</strong></dt>
+<dd>
+<dl>
+<dt>6809 (0x1A99)</dt>
+<dt>
+<p>The specified file miniversion was found but has been invalidated. Most likely cause is a transaction 
+     savepoint rollback.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION"></a><a id="error_miniversion_inaccessible_from_specified_transaction"></a><strong>ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6810 (0x1A9A)</dt>
+<dt>
+<p>A miniversion may only be opened in the context of the transaction that created it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT"></a><a id="error_cant_open_miniversion_with_modify_intent"></a><strong>ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT</strong></dt>
+<dd>
+<dl>
+<dt>6811 (0x1A9B)</dt>
+<dt>
+<p>It is not possible to open a miniversion with modify access.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS"></a><a id="error_cant_create_more_stream_miniversions"></a><strong>ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS</strong></dt>
+<dd>
+<dl>
+<dt>6812 (0x1A9C)</dt>
+<dt>
+<p>It is not possible to create any more miniversions for this stream.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REMOTE_FILE_VERSION_MISMATCH"></a><a id="error_remote_file_version_mismatch"></a><strong>ERROR_REMOTE_FILE_VERSION_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>6814 (0x1A9E)</dt>
+<dt>
+<p>The remote server sent mismatching version number or Fid for a file opened with transactions.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HANDLE_NO_LONGER_VALID"></a><a id="error_handle_no_longer_valid"></a><strong>ERROR_HANDLE_NO_LONGER_VALID</strong></dt>
+<dd>
+<dl>
+<dt>6815 (0x1A9F)</dt>
+<dt>
+<p>The handle has been invalidated by a transaction. The most likely cause is the presence of memory mapping on 
+     a file or an open handle when the transaction ended or rolled back to savepoint.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_TXF_METADATA"></a><a id="error_no_txf_metadata"></a><strong>ERROR_NO_TXF_METADATA</strong></dt>
+<dd>
+<dl>
+<dt>6816 (0x1AA0)</dt>
+<dt>
+<p>There is no transaction metadata on the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_CORRUPTION_DETECTED"></a><a id="error_log_corruption_detected"></a><strong>ERROR_LOG_CORRUPTION_DETECTED</strong></dt>
+<dd>
+<dl>
+<dt>6817 (0x1AA1)</dt>
+<dt>
+<p>The log data is corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_RECOVER_WITH_HANDLE_OPEN"></a><a id="error_cant_recover_with_handle_open"></a><strong>ERROR_CANT_RECOVER_WITH_HANDLE_OPEN</strong></dt>
+<dd>
+<dl>
+<dt>6818 (0x1AA2)</dt>
+<dt>
+<p>The file can't be recovered because there is a handle still open on it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RM_DISCONNECTED"></a><a id="error_rm_disconnected"></a><strong>ERROR_RM_DISCONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>6819 (0x1AA3)</dt>
+<dt>
+<p>The transaction outcome is unavailable because the resource manager responsible for it has 
+     disconnected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ENLISTMENT_NOT_SUPERIOR"></a><a id="error_enlistment_not_superior"></a><strong>ERROR_ENLISTMENT_NOT_SUPERIOR</strong></dt>
+<dd>
+<dl>
+<dt>6820 (0x1AA4)</dt>
+<dt>
+<p>The request was rejected because the enlistment in question is not a superior enlistment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RECOVERY_NOT_NEEDED"></a><a id="error_recovery_not_needed"></a><strong>ERROR_RECOVERY_NOT_NEEDED</strong></dt>
+<dd>
+<dl>
+<dt>6821 (0x1AA5)</dt>
+<dt>
+<p>The transactional resource manager is already consistent. Recovery is not needed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RM_ALREADY_STARTED"></a><a id="error_rm_already_started"></a><strong>ERROR_RM_ALREADY_STARTED</strong></dt>
+<dd>
+<dl>
+<dt>6822 (0x1AA6)</dt>
+<dt>
+<p>The transactional resource manager has already been started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_IDENTITY_NOT_PERSISTENT"></a><a id="error_file_identity_not_persistent"></a><strong>ERROR_FILE_IDENTITY_NOT_PERSISTENT</strong></dt>
+<dd>
+<dl>
+<dt>6823 (0x1AA7)</dt>
+<dt>
+<p>The file cannot be opened transactionally, because its identity depends on the outcome of an unresolved 
+     transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY"></a><a id="error_cant_break_transactional_dependency"></a><strong>ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY</strong></dt>
+<dd>
+<dl>
+<dt>6824 (0x1AA8)</dt>
+<dt>
+<p>The operation cannot be performed because another transaction is depending on the fact that this property 
+     will not change.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_CROSS_RM_BOUNDARY"></a><a id="error_cant_cross_rm_boundary"></a><strong>ERROR_CANT_CROSS_RM_BOUNDARY</strong></dt>
+<dd>
+<dl>
+<dt>6825 (0x1AA9)</dt>
+<dt>
+<p>The operation would involve a single file with two transactional resource managers and is therefore not 
+     allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TXF_DIR_NOT_EMPTY"></a><a id="error_txf_dir_not_empty"></a><strong>ERROR_TXF_DIR_NOT_EMPTY</strong></dt>
+<dd>
+<dl>
+<dt>6826 (0x1AAA)</dt>
+<dt>
+<p>The $Txf directory must be empty for this operation to succeed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INDOUBT_TRANSACTIONS_EXIST"></a><a id="error_indoubt_transactions_exist"></a><strong>ERROR_INDOUBT_TRANSACTIONS_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>6827 (0x1AAB)</dt>
+<dt>
+<p>The operation would leave a transactional resource manager in an inconsistent state and is therefore not 
+     allowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TM_VOLATILE"></a><a id="error_tm_volatile"></a><strong>ERROR_TM_VOLATILE</strong></dt>
+<dd>
+<dl>
+<dt>6828 (0x1AAC)</dt>
+<dt>
+<p>The operation could not be completed because the transaction manager does not have a log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ROLLBACK_TIMER_EXPIRED"></a><a id="error_rollback_timer_expired"></a><strong>ERROR_ROLLBACK_TIMER_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>6829 (0x1AAD)</dt>
+<dt>
+<p>A rollback could not be scheduled because a previously scheduled rollback has already executed or been 
+     queued for execution.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TXF_ATTRIBUTE_CORRUPT"></a><a id="error_txf_attribute_corrupt"></a><strong>ERROR_TXF_ATTRIBUTE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>6830 (0x1AAE)</dt>
+<dt>
+<p>The transactional metadata attribute on the file or directory is corrupt and unreadable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION"></a><a id="error_efs_not_allowed_in_transaction"></a><strong>ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6831 (0x1AAF)</dt>
+<dt>
+<p>The encryption operation could not be completed because a transaction is active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED"></a><a id="error_transactional_open_not_allowed"></a><strong>ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>6832 (0x1AB0)</dt>
+<dt>
+<p>This object is not allowed to be opened in a transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_GROWTH_FAILED"></a><a id="error_log_growth_failed"></a><strong>ERROR_LOG_GROWTH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>6833 (0x1AB1)</dt>
+<dt>
+<p>An attempt to create space in the transactional resource manager's log failed. The failure status has been 
+     recorded in the event log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE"></a><a id="error_transacted_mapping_unsupported_remote"></a><strong>ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE</strong></dt>
+<dd>
+<dl>
+<dt>6834 (0x1AB2)</dt>
+<dt>
+<p>Memory mapping (creating a mapped section) a remote file under a transaction is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TXF_METADATA_ALREADY_PRESENT"></a><a id="error_txf_metadata_already_present"></a><strong>ERROR_TXF_METADATA_ALREADY_PRESENT</strong></dt>
+<dd>
+<dl>
+<dt>6835 (0x1AB3)</dt>
+<dt>
+<p>Transaction metadata is already present on this file and cannot be superseded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET"></a><a id="error_transaction_scope_callbacks_not_set"></a><strong>ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET</strong></dt>
+<dd>
+<dl>
+<dt>6836 (0x1AB4)</dt>
+<dt>
+<p>A transaction scope could not be entered because the scope handler has not been initialized.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_REQUIRED_PROMOTION"></a><a id="error_transaction_required_promotion"></a><strong>ERROR_TRANSACTION_REQUIRED_PROMOTION</strong></dt>
+<dd>
+<dl>
+<dt>6837 (0x1AB5)</dt>
+<dt>
+<p>Promotion was required in order to allow the resource manager to enlist, but the transaction was set to 
+     disallow it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION"></a><a id="error_cannot_execute_file_in_transaction"></a><strong>ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6838 (0x1AB6)</dt>
+<dt>
+<p>This file is open for modification in an unresolved transaction and may be opened for execute only by a 
+     transacted reader.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTIONS_NOT_FROZEN"></a><a id="error_transactions_not_frozen"></a><strong>ERROR_TRANSACTIONS_NOT_FROZEN</strong></dt>
+<dd>
+<dl>
+<dt>6839 (0x1AB7)</dt>
+<dt>
+<p>The request to thaw frozen transactions was ignored because transactions had not previously been 
+     frozen.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_FREEZE_IN_PROGRESS"></a><a id="error_transaction_freeze_in_progress"></a><strong>ERROR_TRANSACTION_FREEZE_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>6840 (0x1AB8)</dt>
+<dt>
+<p>Transactions cannot be frozen because a freeze is already in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SNAPSHOT_VOLUME"></a><a id="error_not_snapshot_volume"></a><strong>ERROR_NOT_SNAPSHOT_VOLUME</strong></dt>
+<dd>
+<dl>
+<dt>6841 (0x1AB9)</dt>
+<dt>
+<p>The target volume is not a snapshot volume. This operation is only valid on a volume mounted as a 
+     snapshot.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SAVEPOINT_WITH_OPEN_FILES"></a><a id="error_no_savepoint_with_open_files"></a><strong>ERROR_NO_SAVEPOINT_WITH_OPEN_FILES</strong></dt>
+<dd>
+<dl>
+<dt>6842 (0x1ABA)</dt>
+<dt>
+<p>The savepoint operation failed because files are open on the transaction. This is not permitted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DATA_LOST_REPAIR"></a><a id="error_data_lost_repair"></a><strong>ERROR_DATA_LOST_REPAIR</strong></dt>
+<dd>
+<dl>
+<dt>6843 (0x1ABB)</dt>
+<dt>
+<p>Windows has discovered corruption in a file, and that file has since been repaired. Data loss may have 
+     occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION"></a><a id="error_sparse_not_allowed_in_transaction"></a><strong>ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6844 (0x1ABC)</dt>
+<dt>
+<p>The sparse operation could not be completed because a transaction is active on the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TM_IDENTITY_MISMATCH"></a><a id="error_tm_identity_mismatch"></a><strong>ERROR_TM_IDENTITY_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>6845 (0x1ABD)</dt>
+<dt>
+<p>The call to create a TransactionManager object failed because the Tm Identity stored in the logfile does 
+     not match the Tm Identity that was passed in as an argument.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FLOATED_SECTION"></a><a id="error_floated_section"></a><strong>ERROR_FLOATED_SECTION</strong></dt>
+<dd>
+<dl>
+<dt>6846 (0x1ABE)</dt>
+<dt>
+<p>I/O was attempted on a section object that has been floated as a result of a transaction ending. There is no 
+     valid data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_ACCEPT_TRANSACTED_WORK"></a><a id="error_cannot_accept_transacted_work"></a><strong>ERROR_CANNOT_ACCEPT_TRANSACTED_WORK</strong></dt>
+<dd>
+<dl>
+<dt>6847 (0x1ABF)</dt>
+<dt>
+<p>The transactional resource manager cannot currently accept transacted work due to a transient condition such 
+     as low resources.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_ABORT_TRANSACTIONS"></a><a id="error_cannot_abort_transactions"></a><strong>ERROR_CANNOT_ABORT_TRANSACTIONS</strong></dt>
+<dd>
+<dl>
+<dt>6848 (0x1AC0)</dt>
+<dt>
+<p>The transactional resource manager had too many tranactions outstanding that could not be aborted. The 
+     transactional resource manger has been shut down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_CLUSTERS"></a><a id="error_bad_clusters"></a><strong>ERROR_BAD_CLUSTERS</strong></dt>
+<dd>
+<dl>
+<dt>6849 (0x1AC1)</dt>
+<dt>
+<p>The operation could not be completed due to bad clusters on disk.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION"></a><a id="error_compression_not_allowed_in_transaction"></a><strong>ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6850 (0x1AC2)</dt>
+<dt>
+<p>The compression operation could not be completed because a transaction is active on the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VOLUME_DIRTY"></a><a id="error_volume_dirty"></a><strong>ERROR_VOLUME_DIRTY</strong></dt>
+<dd>
+<dl>
+<dt>6851 (0x1AC3)</dt>
+<dt>
+<p>The operation could not be completed because the volume is dirty. Please run chkdsk and try again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_LINK_TRACKING_IN_TRANSACTION"></a><a id="error_no_link_tracking_in_transaction"></a><strong>ERROR_NO_LINK_TRACKING_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6852 (0x1AC4)</dt>
+<dt>
+<p>The link tracking operation could not be completed because a transaction is active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION"></a><a id="error_operation_not_supported_in_transaction"></a><strong>ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION</strong></dt>
+<dd>
+<dl>
+<dt>6853 (0x1AC5)</dt>
+<dt>
+<p>This operation cannot be performed in a transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXPIRED_HANDLE"></a><a id="error_expired_handle"></a><strong>ERROR_EXPIRED_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>6854 (0x1AC6)</dt>
+<dt>
+<p>The handle is no longer properly associated with its transaction.  It may have been opened in a 
+     transactional resource manager that was subsequently forced to restart.  Please close the handle and open a new 
+     one.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSACTION_NOT_ENLISTED"></a><a id="error_transaction_not_enlisted"></a><strong>ERROR_TRANSACTION_NOT_ENLISTED</strong></dt>
+<dd>
+<dl>
+<dt>6855 (0x1AC7)</dt>
+<dt>
+<p>The specified operation could not be performed because the resource manager is not enlisted in the 
+     transaction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATION_NAME_INVALID"></a><a id="error_ctx_winstation_name_invalid"></a><strong>ERROR_CTX_WINSTATION_NAME_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>7001 (0x1B59)</dt>
+<dt>
+<p>The specified session name is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_INVALID_PD"></a><a id="error_ctx_invalid_pd"></a><strong>ERROR_CTX_INVALID_PD</strong></dt>
+<dd>
+<dl>
+<dt>7002 (0x1B5A)</dt>
+<dt>
+<p>The specified protocol driver is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_PD_NOT_FOUND"></a><a id="error_ctx_pd_not_found"></a><strong>ERROR_CTX_PD_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>7003 (0x1B5B)</dt>
+<dt>
+<p>The specified protocol driver was not found in the system path.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WD_NOT_FOUND"></a><a id="error_ctx_wd_not_found"></a><strong>ERROR_CTX_WD_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>7004 (0x1B5C)</dt>
+<dt>
+<p>The specified terminal connection driver was not found in the system path.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY"></a><a id="error_ctx_cannot_make_eventlog_entry"></a><strong>ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY</strong></dt>
+<dd>
+<dl>
+<dt>7005 (0x1B5D)</dt>
+<dt>
+<p>A registry key for event logging could not be created for this session.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SERVICE_NAME_COLLISION"></a><a id="error_ctx_service_name_collision"></a><strong>ERROR_CTX_SERVICE_NAME_COLLISION</strong></dt>
+<dd>
+<dl>
+<dt>7006 (0x1B5E)</dt>
+<dt>
+<p>A service with the same name already exists on the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CLOSE_PENDING"></a><a id="error_ctx_close_pending"></a><strong>ERROR_CTX_CLOSE_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>7007 (0x1B5F)</dt>
+<dt>
+<p>A close operation is pending on the session.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_NO_OUTBUF"></a><a id="error_ctx_no_outbuf"></a><strong>ERROR_CTX_NO_OUTBUF</strong></dt>
+<dd>
+<dl>
+<dt>7008 (0x1B60)</dt>
+<dt>
+<p>There are no free output buffers available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_INF_NOT_FOUND"></a><a id="error_ctx_modem_inf_not_found"></a><strong>ERROR_CTX_MODEM_INF_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>7009 (0x1B61)</dt>
+<dt>
+<p>The MODEM.INF file was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_INVALID_MODEMNAME"></a><a id="error_ctx_invalid_modemname"></a><strong>ERROR_CTX_INVALID_MODEMNAME</strong></dt>
+<dd>
+<dl>
+<dt>7010 (0x1B62)</dt>
+<dt>
+<p>The modem name was not found in MODEM.INF.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_ERROR"></a><a id="error_ctx_modem_response_error"></a><strong>ERROR_CTX_MODEM_RESPONSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>7011 (0x1B63)</dt>
+<dt>
+<p>The modem did not accept the command sent to it. Verify that the configured modem name matches the attached 
+     modem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_TIMEOUT"></a><a id="error_ctx_modem_response_timeout"></a><strong>ERROR_CTX_MODEM_RESPONSE_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>7012 (0x1B64)</dt>
+<dt>
+<p>The modem did not respond to the command sent to it. Verify that the modem is properly cabled and powered 
+     on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_NO_CARRIER"></a><a id="error_ctx_modem_response_no_carrier"></a><strong>ERROR_CTX_MODEM_RESPONSE_NO_CARRIER</strong></dt>
+<dd>
+<dl>
+<dt>7013 (0x1B65)</dt>
+<dt>
+<p>Carrier detect has failed or carrier has been dropped due to disconnect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE"></a><a id="error_ctx_modem_response_no_dialtone"></a><strong>ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE</strong></dt>
+<dd>
+<dl>
+<dt>7014 (0x1B66)</dt>
+<dt>
+<p>Dial tone not detected within the required time. Verify that the phone cable is properly attached and 
+     functional.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_BUSY"></a><a id="error_ctx_modem_response_busy"></a><strong>ERROR_CTX_MODEM_RESPONSE_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>7015 (0x1B67)</dt>
+<dt>
+<p>Busy signal detected at remote site on callback.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_MODEM_RESPONSE_VOICE"></a><a id="error_ctx_modem_response_voice"></a><strong>ERROR_CTX_MODEM_RESPONSE_VOICE</strong></dt>
+<dd>
+<dl>
+<dt>7016 (0x1B68)</dt>
+<dt>
+<p>Voice detected at remote site on callback.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_TD_ERROR"></a><a id="error_ctx_td_error"></a><strong>ERROR_CTX_TD_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>7017 (0x1B69)</dt>
+<dt>
+<p>Transport driver error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATION_NOT_FOUND"></a><a id="error_ctx_winstation_not_found"></a><strong>ERROR_CTX_WINSTATION_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>7022 (0x1B6E)</dt>
+<dt>
+<p>The specified session cannot be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATION_ALREADY_EXISTS"></a><a id="error_ctx_winstation_already_exists"></a><strong>ERROR_CTX_WINSTATION_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>7023 (0x1B6F)</dt>
+<dt>
+<p>The specified session name is already in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATION_BUSY"></a><a id="error_ctx_winstation_busy"></a><strong>ERROR_CTX_WINSTATION_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>7024 (0x1B70)</dt>
+<dt>
+<p>The task you are trying to do can't be completed because Remote Desktop Services is currently busy. Please 
+     try again in a few minutes. Other users should still be able to log on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_BAD_VIDEO_MODE"></a><a id="error_ctx_bad_video_mode"></a><strong>ERROR_CTX_BAD_VIDEO_MODE</strong></dt>
+<dd>
+<dl>
+<dt>7025 (0x1B71)</dt>
+<dt>
+<p>An attempt has been made to connect to a session whose video mode is not supported by the current 
+     client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_GRAPHICS_INVALID"></a><a id="error_ctx_graphics_invalid"></a><strong>ERROR_CTX_GRAPHICS_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>7035 (0x1B7B)</dt>
+<dt>
+<p>The application attempted to enable DOS graphics mode. DOS graphics mode is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_LOGON_DISABLED"></a><a id="error_ctx_logon_disabled"></a><strong>ERROR_CTX_LOGON_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>7037 (0x1B7D)</dt>
+<dt>
+<p>Your interactive logon privilege has been disabled. Please contact your administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_NOT_CONSOLE"></a><a id="error_ctx_not_console"></a><strong>ERROR_CTX_NOT_CONSOLE</strong></dt>
+<dd>
+<dl>
+<dt>7038 (0x1B7E)</dt>
+<dt>
+<p>The requested operation can be performed only on the system console. This is most often the result of a 
+     driver or system DLL requiring direct console access.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CLIENT_QUERY_TIMEOUT"></a><a id="error_ctx_client_query_timeout"></a><strong>ERROR_CTX_CLIENT_QUERY_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>7040 (0x1B80)</dt>
+<dt>
+<p>The client failed to respond to the server connect message.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CONSOLE_DISCONNECT"></a><a id="error_ctx_console_disconnect"></a><strong>ERROR_CTX_CONSOLE_DISCONNECT</strong></dt>
+<dd>
+<dl>
+<dt>7041 (0x1B81)</dt>
+<dt>
+<p>Disconnecting the console session is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CONSOLE_CONNECT"></a><a id="error_ctx_console_connect"></a><strong>ERROR_CTX_CONSOLE_CONNECT</strong></dt>
+<dd>
+<dl>
+<dt>7042 (0x1B82)</dt>
+<dt>
+<p>Reconnecting a disconnected session to the console is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SHADOW_DENIED"></a><a id="error_ctx_shadow_denied"></a><strong>ERROR_CTX_SHADOW_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>7044 (0x1B84)</dt>
+<dt>
+<p>The request to control another session remotely was denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATION_ACCESS_DENIED"></a><a id="error_ctx_winstation_access_denied"></a><strong>ERROR_CTX_WINSTATION_ACCESS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>7045 (0x1B85)</dt>
+<dt>
+<p>The requested session access is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_INVALID_WD"></a><a id="error_ctx_invalid_wd"></a><strong>ERROR_CTX_INVALID_WD</strong></dt>
+<dd>
+<dl>
+<dt>7049 (0x1B89)</dt>
+<dt>
+<p>The specified terminal connection driver is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SHADOW_INVALID"></a><a id="error_ctx_shadow_invalid"></a><strong>ERROR_CTX_SHADOW_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>7050 (0x1B8A)</dt>
+<dt>
+<p>The requested session cannot be controlled remotely. This may be because the session is disconnected or does 
+     not currently have a user logged on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SHADOW_DISABLED"></a><a id="error_ctx_shadow_disabled"></a><strong>ERROR_CTX_SHADOW_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>7051 (0x1B8B)</dt>
+<dt>
+<p>The requested session is not configured to allow remote control.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CLIENT_LICENSE_IN_USE"></a><a id="error_ctx_client_license_in_use"></a><strong>ERROR_CTX_CLIENT_LICENSE_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>7052 (0x1B8C)</dt>
+<dt>
+<p>Your request to connect to this Terminal Server has been rejected. Your Terminal Server client license 
+     number is currently being used by another user. Please call your system administrator to obtain a unique license 
+     number.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CLIENT_LICENSE_NOT_SET"></a><a id="error_ctx_client_license_not_set"></a><strong>ERROR_CTX_CLIENT_LICENSE_NOT_SET</strong></dt>
+<dd>
+<dl>
+<dt>7053 (0x1B8D)</dt>
+<dt>
+<p>Your request to connect to this Terminal Server has been rejected. Your Terminal Server client license 
+     number has not been entered for this copy of the Terminal Server client. Please contact your system 
+     administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_LICENSE_NOT_AVAILABLE"></a><a id="error_ctx_license_not_available"></a><strong>ERROR_CTX_LICENSE_NOT_AVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>7054 (0x1B8E)</dt>
+<dt>
+<p>The number of connections to this computer is limited and all connections are in use right now. Try 
+     connecting later or contact your system administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_LICENSE_CLIENT_INVALID"></a><a id="error_ctx_license_client_invalid"></a><strong>ERROR_CTX_LICENSE_CLIENT_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>7055 (0x1B8F)</dt>
+<dt>
+<p>The client you are using is not licensed to use this system. Your logon request is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_LICENSE_EXPIRED"></a><a id="error_ctx_license_expired"></a><strong>ERROR_CTX_LICENSE_EXPIRED</strong></dt>
+<dd>
+<dl>
+<dt>7056 (0x1B90)</dt>
+<dt>
+<p>The system license has expired. Your logon request is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SHADOW_NOT_RUNNING"></a><a id="error_ctx_shadow_not_running"></a><strong>ERROR_CTX_SHADOW_NOT_RUNNING</strong></dt>
+<dd>
+<dl>
+<dt>7057 (0x1B91)</dt>
+<dt>
+<p>Remote control could not be terminated because the specified session is not currently being remotely 
+     controlled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE"></a><a id="error_ctx_shadow_ended_by_mode_change"></a><strong>ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE</strong></dt>
+<dd>
+<dl>
+<dt>7058 (0x1B92)</dt>
+<dt>
+<p>The remote control of the console was terminated because the display mode was changed. Changing the display 
+     mode in a remote control session is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACTIVATION_COUNT_EXCEEDED"></a><a id="error_activation_count_exceeded"></a><strong>ERROR_ACTIVATION_COUNT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>7059 (0x1B93)</dt>
+<dt>
+<p>Activation has already been reset the maximum number of times for this installation. Your activation timer 
+     will not be cleared.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_WINSTATIONS_DISABLED"></a><a id="error_ctx_winstations_disabled"></a><strong>ERROR_CTX_WINSTATIONS_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>7060 (0x1B94)</dt>
+<dt>
+<p>Remote logins are currently disabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED"></a><a id="error_ctx_encryption_level_required"></a><strong>ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>7061 (0x1B95)</dt>
+<dt>
+<p>You do not have the proper encryption level to access this Session.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SESSION_IN_USE"></a><a id="error_ctx_session_in_use"></a><strong>ERROR_CTX_SESSION_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>7062 (0x1B96)</dt>
+<dt>
+<p>The user %s\\%s is currently logged on to this computer. Only the current user or an administrator can log 
+     on to this computer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_NO_FORCE_LOGOFF"></a><a id="error_ctx_no_force_logoff"></a><strong>ERROR_CTX_NO_FORCE_LOGOFF</strong></dt>
+<dd>
+<dl>
+<dt>7063 (0x1B97)</dt>
+<dt>
+<p>The user %s\\%s is already logged on to the console of this computer. You do not have permission to log in 
+     at this time. To resolve this issue, contact %s\\%s and have them log off.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_ACCOUNT_RESTRICTION"></a><a id="error_ctx_account_restriction"></a><strong>ERROR_CTX_ACCOUNT_RESTRICTION</strong></dt>
+<dd>
+<dl>
+<dt>7064 (0x1B98)</dt>
+<dt>
+<p>Unable to log you on because of an account restriction.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RDP_PROTOCOL_ERROR"></a><a id="error_rdp_protocol_error"></a><strong>ERROR_RDP_PROTOCOL_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>7065 (0x1B99)</dt>
+<dt>
+<p>The RDP protocol component %2 detected an error in the protocol stream and has disconnected the 
+     client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CDM_CONNECT"></a><a id="error_ctx_cdm_connect"></a><strong>ERROR_CTX_CDM_CONNECT</strong></dt>
+<dd>
+<dl>
+<dt>7066 (0x1B9A)</dt>
+<dt>
+<p>The Client Drive Mapping Service Has Connected on Terminal Connection.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_CDM_DISCONNECT"></a><a id="error_ctx_cdm_disconnect"></a><strong>ERROR_CTX_CDM_DISCONNECT</strong></dt>
+<dd>
+<dl>
+<dt>7067 (0x1B9B)</dt>
+<dt>
+<p>The Client Drive Mapping Service Has Disconnected on Terminal Connection.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CTX_SECURITY_LAYER_ERROR"></a><a id="error_ctx_security_layer_error"></a><strong>ERROR_CTX_SECURITY_LAYER_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>7068 (0x1B9C)</dt>
+<dt>
+<p>The Terminal Server security layer detected an error in the protocol stream and has disconnected the 
+     client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TS_INCOMPATIBLE_SESSIONS"></a><a id="error_ts_incompatible_sessions"></a><strong>ERROR_TS_INCOMPATIBLE_SESSIONS</strong></dt>
+<dd>
+<dl>
+<dt>7069 (0x1B9D)</dt>
+<dt>
+<p>The target session is incompatible with the current session.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TS_VIDEO_SUBSYSTEM_ERROR"></a><a id="error_ts_video_subsystem_error"></a><strong>ERROR_TS_VIDEO_SUBSYSTEM_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>7070 (0x1B9E)</dt>
+<dt>
+<p>Windows can't connect to your session because a problem occurred in the Windows video subsystem. Try 
+     connecting again later, or contact the server administrator for assistance.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_INVALID_API_SEQUENCE"></a><a id="frs_err_invalid_api_sequence"></a><strong>FRS_ERR_INVALID_API_SEQUENCE</strong></dt>
+<dd>
+<dl>
+<dt>8001 (0x1F41)</dt>
+<dt>
+<p>The file replication service API was called incorrectly.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_STARTING_SERVICE"></a><a id="frs_err_starting_service"></a><strong>FRS_ERR_STARTING_SERVICE</strong></dt>
+<dd>
+<dl>
+<dt>8002 (0x1F42)</dt>
+<dt>
+<p>The file replication service cannot be started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_STOPPING_SERVICE"></a><a id="frs_err_stopping_service"></a><strong>FRS_ERR_STOPPING_SERVICE</strong></dt>
+<dd>
+<dl>
+<dt>8003 (0x1F43)</dt>
+<dt>
+<p>The file replication service cannot be stopped.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_INTERNAL_API"></a><a id="frs_err_internal_api"></a><strong>FRS_ERR_INTERNAL_API</strong></dt>
+<dd>
+<dl>
+<dt>8004 (0x1F44)</dt>
+<dt>
+<p>The file replication service API terminated the request. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_INTERNAL"></a><a id="frs_err_internal"></a><strong>FRS_ERR_INTERNAL</strong></dt>
+<dd>
+<dl>
+<dt>8005 (0x1F45)</dt>
+<dt>
+<p>The file replication service terminated the request. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_SERVICE_COMM"></a><a id="frs_err_service_comm"></a><strong>FRS_ERR_SERVICE_COMM</strong></dt>
+<dd>
+<dl>
+<dt>8006 (0x1F46)</dt>
+<dt>
+<p>The file replication service cannot be contacted. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_INSUFFICIENT_PRIV"></a><a id="frs_err_insufficient_priv"></a><strong>FRS_ERR_INSUFFICIENT_PRIV</strong></dt>
+<dd>
+<dl>
+<dt>8007 (0x1F47)</dt>
+<dt>
+<p>The file replication service cannot satisfy the request because the user has insufficient privileges. The 
+     event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_AUTHENTICATION"></a><a id="frs_err_authentication"></a><strong>FRS_ERR_AUTHENTICATION</strong></dt>
+<dd>
+<dl>
+<dt>8008 (0x1F48)</dt>
+<dt>
+<p>The file replication service cannot satisfy the request because authenticated RPC is not available. The 
+     event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_PARENT_INSUFFICIENT_PRIV"></a><a id="frs_err_parent_insufficient_priv"></a><strong>FRS_ERR_PARENT_INSUFFICIENT_PRIV</strong></dt>
+<dd>
+<dl>
+<dt>8009 (0x1F49)</dt>
+<dt>
+<p>The file replication service cannot satisfy the request because the user has insufficient privileges on the 
+     domain controller. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_PARENT_AUTHENTICATION"></a><a id="frs_err_parent_authentication"></a><strong>FRS_ERR_PARENT_AUTHENTICATION</strong></dt>
+<dd>
+<dl>
+<dt>8010 (0x1F4A)</dt>
+<dt>
+<p>The file replication service cannot satisfy the request because authenticated RPC is not available on the 
+     domain controller. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_CHILD_TO_PARENT_COMM"></a><a id="frs_err_child_to_parent_comm"></a><strong>FRS_ERR_CHILD_TO_PARENT_COMM</strong></dt>
+<dd>
+<dl>
+<dt>8011 (0x1F4B)</dt>
+<dt>
+<p>The file replication service cannot communicate with the file replication service on the domain controller. 
+     The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_PARENT_TO_CHILD_COMM"></a><a id="frs_err_parent_to_child_comm"></a><strong>FRS_ERR_PARENT_TO_CHILD_COMM</strong></dt>
+<dd>
+<dl>
+<dt>8012 (0x1F4C)</dt>
+<dt>
+<p>The file replication service on the domain controller cannot communicate with the file replication service 
+     on this computer. The event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_SYSVOL_POPULATE"></a><a id="frs_err_sysvol_populate"></a><strong>FRS_ERR_SYSVOL_POPULATE</strong></dt>
+<dd>
+<dl>
+<dt>8013 (0x1F4D)</dt>
+<dt>
+<p>The file replication service cannot populate the system volume because of an internal error. The event log 
+     may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_SYSVOL_POPULATE_TIMEOUT"></a><a id="frs_err_sysvol_populate_timeout"></a><strong>FRS_ERR_SYSVOL_POPULATE_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>8014 (0x1F4E)</dt>
+<dt>
+<p>The file replication service cannot populate the system volume because of an internal timeout. The event log 
+     may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_SYSVOL_IS_BUSY"></a><a id="frs_err_sysvol_is_busy"></a><strong>FRS_ERR_SYSVOL_IS_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>8015 (0x1F4F)</dt>
+<dt>
+<p>The file replication service cannot process the request. The system volume is busy with a previous 
+     request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_SYSVOL_DEMOTE"></a><a id="frs_err_sysvol_demote"></a><strong>FRS_ERR_SYSVOL_DEMOTE</strong></dt>
+<dd>
+<dl>
+<dt>8016 (0x1F50)</dt>
+<dt>
+<p>The file replication service cannot stop replicating the system volume because of an internal error. The 
+     event log may have more information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="FRS_ERR_INVALID_SERVICE_PARAMETER"></a><a id="frs_err_invalid_service_parameter"></a><strong>FRS_ERR_INVALID_SERVICE_PARAMETER</strong></dt>
+<dd>
+<dl>
+<dt>8017 (0x1F51)</dt>
+<dt>
+<p>The file replication service detected an invalid parameter.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681389(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681389(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="S6nwebvs7pzo39hRh_9CNyosQBIOuiEz7KX-mZw_l8yWUVXJF2OM_f0ecXGAxrfFWZeO3E5GD3x8LQhqTUFxAysmTU41" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681389(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681389(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="VcgcHRlGwUEkWv7ZCYYeUri94bdyMqEKtnggNhFF2wgafkgUJ0_SzyjRVVzolOqL6goqNbXQIspwBR3a2J61qeTq0gU1" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://157.56.49.156\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681389(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"3ffa8d5e-9099-4220-bb38-071749681edb\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i4.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

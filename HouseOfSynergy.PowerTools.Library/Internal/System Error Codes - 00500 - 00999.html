@@ -1,0 +1,3260 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" />
+        <title>System Error Codes (500-999) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681388(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681388(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681388(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681388(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="61C41DD5-7:31:46 PM" />
+
+<meta name="Search.ShortId" content="ms681388" />
+
+<meta name="ms.shortidmsdn" content="ms681388" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="8d8b427b-b761-4023-a834-a6eff96d6ba1" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996306&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (500-999)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> (errors 500 to 999). They are 
+    returned by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions 
+    fail. To retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_USER_PROFILE_LOAD"></a><a id="error_user_profile_load"></a><strong>ERROR_USER_PROFILE_LOAD</strong></dt>
+<dd>
+<dl>
+<dt>500 (0x1F4)</dt>
+<dt>
+<p>User profile cannot be loaded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ARITHMETIC_OVERFLOW"></a><a id="error_arithmetic_overflow"></a><strong>ERROR_ARITHMETIC_OVERFLOW</strong></dt>
+<dd>
+<dl>
+<dt>534 (0x216)</dt>
+<dt>
+<p>Arithmetic result exceeded 32 bits.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PIPE_CONNECTED"></a><a id="error_pipe_connected"></a><strong>ERROR_PIPE_CONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>535 (0x217)</dt>
+<dt>
+<p>There is a process on other end of the pipe.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PIPE_LISTENING"></a><a id="error_pipe_listening"></a><strong>ERROR_PIPE_LISTENING</strong></dt>
+<dd>
+<dl>
+<dt>536 (0x218)</dt>
+<dt>
+<p>Waiting for a process to open the other end of the pipe.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VERIFIER_STOP"></a><a id="error_verifier_stop"></a><strong>ERROR_VERIFIER_STOP</strong></dt>
+<dd>
+<dl>
+<dt>537 (0x219)</dt>
+<dt>
+<p>Application verifier has found an error in the current process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ABIOS_ERROR"></a><a id="error_abios_error"></a><strong>ERROR_ABIOS_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>538 (0x21A)</dt>
+<dt>
+<p>An error occurred in the ABIOS subsystem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WX86_WARNING"></a><a id="error_wx86_warning"></a><strong>ERROR_WX86_WARNING</strong></dt>
+<dd>
+<dl>
+<dt>539 (0x21B)</dt>
+<dt>
+<p>A warning occurred in the WX86 subsystem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WX86_ERROR"></a><a id="error_wx86_error"></a><strong>ERROR_WX86_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>540 (0x21C)</dt>
+<dt>
+<p>An error occurred in the WX86 subsystem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TIMER_NOT_CANCELED"></a><a id="error_timer_not_canceled"></a><strong>ERROR_TIMER_NOT_CANCELED</strong></dt>
+<dd>
+<dl>
+<dt>541 (0x21D)</dt>
+<dt>
+<p>An attempt was made to cancel or set a timer that has an associated APC and the subject thread is not the 
+     thread that originally set the timer with an associated APC routine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNWIND"></a><a id="error_unwind"></a><strong>ERROR_UNWIND</strong></dt>
+<dd>
+<dl>
+<dt>542 (0x21E)</dt>
+<dt>
+<p>Unwind exception code.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_STACK"></a><a id="error_bad_stack"></a><strong>ERROR_BAD_STACK</strong></dt>
+<dd>
+<dl>
+<dt>543 (0x21F)</dt>
+<dt>
+<p>An invalid or unaligned stack was encountered during an unwind operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_UNWIND_TARGET"></a><a id="error_invalid_unwind_target"></a><strong>ERROR_INVALID_UNWIND_TARGET</strong></dt>
+<dd>
+<dl>
+<dt>544 (0x220)</dt>
+<dt>
+<p>An invalid unwind target was encountered during an unwind operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PORT_ATTRIBUTES"></a><a id="error_invalid_port_attributes"></a><strong>ERROR_INVALID_PORT_ATTRIBUTES</strong></dt>
+<dd>
+<dl>
+<dt>545 (0x221)</dt>
+<dt>
+<p>Invalid Object Attributes specified to NtCreatePort or invalid Port Attributes specified to 
+     NtConnectPort</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PORT_MESSAGE_TOO_LONG"></a><a id="error_port_message_too_long"></a><strong>ERROR_PORT_MESSAGE_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>546 (0x222)</dt>
+<dt>
+<p>Length of message passed to NtRequestPort or NtRequestWaitReplyPort was longer than the maximum message 
+     allowed by the port.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_QUOTA_LOWER"></a><a id="error_invalid_quota_lower"></a><strong>ERROR_INVALID_QUOTA_LOWER</strong></dt>
+<dd>
+<dl>
+<dt>547 (0x223)</dt>
+<dt>
+<p>An attempt was made to lower a quota limit below the current usage.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_ALREADY_ATTACHED"></a><a id="error_device_already_attached"></a><strong>ERROR_DEVICE_ALREADY_ATTACHED</strong></dt>
+<dd>
+<dl>
+<dt>548 (0x224)</dt>
+<dt>
+<p>An attempt was made to attach to a device that was already attached to another device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSTRUCTION_MISALIGNMENT"></a><a id="error_instruction_misalignment"></a><strong>ERROR_INSTRUCTION_MISALIGNMENT</strong></dt>
+<dd>
+<dl>
+<dt>549 (0x225)</dt>
+<dt>
+<p>An attempt was made to execute an instruction at an unaligned address and the host system does not support 
+     unaligned instruction references.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROFILING_NOT_STARTED"></a><a id="error_profiling_not_started"></a><strong>ERROR_PROFILING_NOT_STARTED</strong></dt>
+<dd>
+<dl>
+<dt>550 (0x226)</dt>
+<dt>
+<p>Profiling not started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROFILING_NOT_STOPPED"></a><a id="error_profiling_not_stopped"></a><strong>ERROR_PROFILING_NOT_STOPPED</strong></dt>
+<dd>
+<dl>
+<dt>551 (0x227)</dt>
+<dt>
+<p>Profiling not stopped.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COULD_NOT_INTERPRET"></a><a id="error_could_not_interpret"></a><strong>ERROR_COULD_NOT_INTERPRET</strong></dt>
+<dd>
+<dl>
+<dt>552 (0x228)</dt>
+<dt>
+<p>The passed ACL did not contain the minimum required information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROFILING_AT_LIMIT"></a><a id="error_profiling_at_limit"></a><strong>ERROR_PROFILING_AT_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>553 (0x229)</dt>
+<dt>
+<p>The number of active profiling objects is at the maximum and no more may be started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_WAIT"></a><a id="error_cant_wait"></a><strong>ERROR_CANT_WAIT</strong></dt>
+<dd>
+<dl>
+<dt>554 (0x22A)</dt>
+<dt>
+<p>Used to indicate that an operation cannot continue without blocking for I/O.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_TERMINATE_SELF"></a><a id="error_cant_terminate_self"></a><strong>ERROR_CANT_TERMINATE_SELF</strong></dt>
+<dd>
+<dl>
+<dt>555 (0x22B)</dt>
+<dt>
+<p>Indicates that a thread attempted to terminate itself by default (called NtTerminateThread with 
+     <strong>NULL</strong>) and it was the last thread in the current process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNEXPECTED_MM_CREATE_ERR"></a><a id="error_unexpected_mm_create_err"></a><strong>ERROR_UNEXPECTED_MM_CREATE_ERR</strong></dt>
+<dd>
+<dl>
+<dt>556 (0x22C)</dt>
+<dt>
+<p>If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the 
+     following errors which is guaranteed to be in the filter. In this case information is lost, however, the filter 
+     correctly handles the exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNEXPECTED_MM_MAP_ERROR"></a><a id="error_unexpected_mm_map_error"></a><strong>ERROR_UNEXPECTED_MM_MAP_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>557 (0x22D)</dt>
+<dt>
+<p>If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the 
+     following errors which is guaranteed to be in the filter. In this case information is lost, however, the filter 
+     correctly handles the exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNEXPECTED_MM_EXTEND_ERR"></a><a id="error_unexpected_mm_extend_err"></a><strong>ERROR_UNEXPECTED_MM_EXTEND_ERR</strong></dt>
+<dd>
+<dl>
+<dt>558 (0x22E)</dt>
+<dt>
+<p>If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the 
+     following errors which is guaranteed to be in the filter. In this case information is lost, however, the filter 
+     correctly handles the exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_FUNCTION_TABLE"></a><a id="error_bad_function_table"></a><strong>ERROR_BAD_FUNCTION_TABLE</strong></dt>
+<dd>
+<dl>
+<dt>559 (0x22F)</dt>
+<dt>
+<p>A malformed function table was encountered during an unwind operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_GUID_TRANSLATION"></a><a id="error_no_guid_translation"></a><strong>ERROR_NO_GUID_TRANSLATION</strong></dt>
+<dd>
+<dl>
+<dt>560 (0x230)</dt>
+<dt>
+<p>Indicates that an attempt was made to assign protection to a file system file or directory and one of the 
+     SIDs in the security descriptor could not be translated into a GUID that could be stored by the file system. This 
+     causes the protection attempt to fail, which may cause a file creation attempt to fail.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LDT_SIZE"></a><a id="error_invalid_ldt_size"></a><strong>ERROR_INVALID_LDT_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>561 (0x231)</dt>
+<dt>
+<p>Indicates that an attempt was made to grow an LDT by setting its size, or that the size was not an even 
+     number of selectors.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LDT_OFFSET"></a><a id="error_invalid_ldt_offset"></a><strong>ERROR_INVALID_LDT_OFFSET</strong></dt>
+<dd>
+<dl>
+<dt>563 (0x233)</dt>
+<dt>
+<p>Indicates that the starting value for the LDT information was not an integral multiple of the selector 
+     size.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LDT_DESCRIPTOR"></a><a id="error_invalid_ldt_descriptor"></a><strong>ERROR_INVALID_LDT_DESCRIPTOR</strong></dt>
+<dd>
+<dl>
+<dt>564 (0x234)</dt>
+<dt>
+<p>Indicates that the user supplied an invalid descriptor when trying to set up Ldt descriptors.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_THREADS"></a><a id="error_too_many_threads"></a><strong>ERROR_TOO_MANY_THREADS</strong></dt>
+<dd>
+<dl>
+<dt>565 (0x235)</dt>
+<dt>
+<p>Indicates a process has too many threads to perform the requested action. For example, assignment of a 
+     primary token may only be performed when a process has zero or one threads.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_NOT_IN_PROCESS"></a><a id="error_thread_not_in_process"></a><strong>ERROR_THREAD_NOT_IN_PROCESS</strong></dt>
+<dd>
+<dl>
+<dt>566 (0x236)</dt>
+<dt>
+<p>An attempt was made to operate on a thread within a specific process, but the thread specified is not in the 
+     process specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGEFILE_QUOTA_EXCEEDED"></a><a id="error_pagefile_quota_exceeded"></a><strong>ERROR_PAGEFILE_QUOTA_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>567 (0x237)</dt>
+<dt>
+<p>Page file quota was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOGON_SERVER_CONFLICT"></a><a id="error_logon_server_conflict"></a><strong>ERROR_LOGON_SERVER_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>568 (0x238)</dt>
+<dt>
+<p>The Netlogon service cannot start because another Netlogon service running in the domain conflicts with the 
+     specified role.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYNCHRONIZATION_REQUIRED"></a><a id="error_synchronization_required"></a><strong>ERROR_SYNCHRONIZATION_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>569 (0x239)</dt>
+<dt>
+<p>The SAM database on a Windows Server is significantly out of synchronization with the copy on the Domain 
+     Controller. A complete synchronization is required.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NET_OPEN_FAILED"></a><a id="error_net_open_failed"></a><strong>ERROR_NET_OPEN_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>570 (0x23A)</dt>
+<dt>
+<p>The NtCreateFile API failed. This error should never be returned to an application, it is a place holder for 
+     the Windows Lan Manager Redirector to use in its internal error mapping routines.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IO_PRIVILEGE_FAILED"></a><a id="error_io_privilege_failed"></a><strong>ERROR_IO_PRIVILEGE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>571 (0x23B)</dt>
+<dt>
+<p>{Privilege Failed} The I/O permissions for the process could not be changed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CONTROL_C_EXIT"></a><a id="error_control_c_exit"></a><strong>ERROR_CONTROL_C_EXIT</strong></dt>
+<dd>
+<dl>
+<dt>572 (0x23C)</dt>
+<dt>
+<p>{Application Exit by CTRL+C} The application terminated as a result of a CTRL+C.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MISSING_SYSTEMFILE"></a><a id="error_missing_systemfile"></a><strong>ERROR_MISSING_SYSTEMFILE</strong></dt>
+<dd>
+<dl>
+<dt>573 (0x23D)</dt>
+<dt>
+<p>{Missing System File} The required system file %hs is bad or missing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNHANDLED_EXCEPTION"></a><a id="error_unhandled_exception"></a><strong>ERROR_UNHANDLED_EXCEPTION</strong></dt>
+<dd>
+<dl>
+<dt>574 (0x23E)</dt>
+<dt>
+<p>{Application Error} The exception %s (0x%08lx) occurred in the application at location 0x%08lx.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_APP_INIT_FAILURE"></a><a id="error_app_init_failure"></a><strong>ERROR_APP_INIT_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>575 (0x23F)</dt>
+<dt>
+<p>{Application Error} The application was unable to start correctly (0x%lx). Click OK to close the 
+     application.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGEFILE_CREATE_FAILED"></a><a id="error_pagefile_create_failed"></a><strong>ERROR_PAGEFILE_CREATE_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>576 (0x240)</dt>
+<dt>
+<p>{Unable to Create Paging File} The creation of the paging file %hs failed (%lx). The requested size was 
+     %ld.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_IMAGE_HASH"></a><a id="error_invalid_image_hash"></a><strong>ERROR_INVALID_IMAGE_HASH</strong></dt>
+<dd>
+<dl>
+<dt>577 (0x241)</dt>
+<dt>
+<p>Windows cannot verify the digital signature for this file. A recent hardware or software change might have 
+     installed a file that is signed incorrectly or damaged, or that might be malicious software from an unknown 
+     source.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_PAGEFILE"></a><a id="error_no_pagefile"></a><strong>ERROR_NO_PAGEFILE</strong></dt>
+<dd>
+<dl>
+<dt>578 (0x242)</dt>
+<dt>
+<p>{No Paging File Specified} No paging file was specified in the system configuration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ILLEGAL_FLOAT_CONTEXT"></a><a id="error_illegal_float_context"></a><strong>ERROR_ILLEGAL_FLOAT_CONTEXT</strong></dt>
+<dd>
+<dl>
+<dt>579 (0x243)</dt>
+<dt>
+<p>{EXCEPTION} A real-mode application issued a floating-point instruction and floating-point hardware is not 
+     present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_EVENT_PAIR"></a><a id="error_no_event_pair"></a><strong>ERROR_NO_EVENT_PAIR</strong></dt>
+<dd>
+<dl>
+<dt>580 (0x244)</dt>
+<dt>
+<p>An event pair synchronization operation was performed using the thread specific client/server event pair 
+     object, but no event pair object was associated with the thread.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DOMAIN_CTRLR_CONFIG_ERROR"></a><a id="error_domain_ctrlr_config_error"></a><strong>ERROR_DOMAIN_CTRLR_CONFIG_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>581 (0x245)</dt>
+<dt>
+<p>A Windows Server has an incorrect configuration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ILLEGAL_CHARACTER"></a><a id="error_illegal_character"></a><strong>ERROR_ILLEGAL_CHARACTER</strong></dt>
+<dd>
+<dl>
+<dt>582 (0x246)</dt>
+<dt>
+<p>An illegal character was encountered. For a multi-byte character set this includes a lead byte without a 
+     succeeding trail byte. For the Unicode character set this includes the characters 0xFFFF and 0xFFFE.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNDEFINED_CHARACTER"></a><a id="error_undefined_character"></a><strong>ERROR_UNDEFINED_CHARACTER</strong></dt>
+<dd>
+<dl>
+<dt>583 (0x247)</dt>
+<dt>
+<p>The Unicode character is not defined in the Unicode character set installed on the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FLOPPY_VOLUME"></a><a id="error_floppy_volume"></a><strong>ERROR_FLOPPY_VOLUME</strong></dt>
+<dd>
+<dl>
+<dt>584 (0x248)</dt>
+<dt>
+<p>The paging file cannot be created on a floppy diskette.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT"></a><a id="error_bios_failed_to_connect_interrupt"></a><strong>ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT</strong></dt>
+<dd>
+<dl>
+<dt>585 (0x249)</dt>
+<dt>
+<p>The system BIOS failed to connect a system interrupt to the device or bus for which the device is 
+     connected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BACKUP_CONTROLLER"></a><a id="error_backup_controller"></a><strong>ERROR_BACKUP_CONTROLLER</strong></dt>
+<dd>
+<dl>
+<dt>586 (0x24A)</dt>
+<dt>
+<p>This operation is only allowed for the Primary Domain Controller of the domain.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MUTANT_LIMIT_EXCEEDED"></a><a id="error_mutant_limit_exceeded"></a><strong>ERROR_MUTANT_LIMIT_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>587 (0x24B)</dt>
+<dt>
+<p>An attempt was made to acquire a mutant such that its maximum count would have been exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FS_DRIVER_REQUIRED"></a><a id="error_fs_driver_required"></a><strong>ERROR_FS_DRIVER_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>588 (0x24C)</dt>
+<dt>
+<p>A volume has been accessed for which a file system driver is required that has not yet been loaded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_LOAD_REGISTRY_FILE"></a><a id="error_cannot_load_registry_file"></a><strong>ERROR_CANNOT_LOAD_REGISTRY_FILE</strong></dt>
+<dd>
+<dl>
+<dt>589 (0x24D)</dt>
+<dt>
+<p>{Registry File Failure} The registry cannot load the hive (file): %hs or its log or alternate. It is corrupt, 
+     absent, or not writable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEBUG_ATTACH_FAILED"></a><a id="error_debug_attach_failed"></a><strong>ERROR_DEBUG_ATTACH_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>590 (0x24E)</dt>
+<dt>
+<p>{Unexpected Failure in <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679295(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">DebugActiveProcess</strong></a>} An 
+     unexpected failure occurred while processing a 
+     <strong>DebugActiveProcess</strong> API request. You may choose OK 
+     to terminate the process, or Cancel to ignore the error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_PROCESS_TERMINATED"></a><a id="error_system_process_terminated"></a><strong>ERROR_SYSTEM_PROCESS_TERMINATED</strong></dt>
+<dd>
+<dl>
+<dt>591 (0x24F)</dt>
+<dt>
+<p>{Fatal System Error} The %hs system process terminated unexpectedly with a status of 0x%08x (0x%08x 0x%08x). 
+     The system has been shut down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DATA_NOT_ACCEPTED"></a><a id="error_data_not_accepted"></a><strong>ERROR_DATA_NOT_ACCEPTED</strong></dt>
+<dd>
+<dl>
+<dt>592 (0x250)</dt>
+<dt>
+<p>{Data Not Accepted} The TDI client could not handle the data received during an indication.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VDM_HARD_ERROR"></a><a id="error_vdm_hard_error"></a><strong>ERROR_VDM_HARD_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>593 (0x251)</dt>
+<dt>
+<p>NTVDM encountered a hard error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVER_CANCEL_TIMEOUT"></a><a id="error_driver_cancel_timeout"></a><strong>ERROR_DRIVER_CANCEL_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>594 (0x252)</dt>
+<dt>
+<p>{Cancel Timeout} The driver %hs failed to complete a cancelled I/O request in the allotted time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REPLY_MESSAGE_MISMATCH"></a><a id="error_reply_message_mismatch"></a><strong>ERROR_REPLY_MESSAGE_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>595 (0x253)</dt>
+<dt>
+<p>{Reply Message Mismatch} An attempt was made to reply to an LPC message, but the thread specified by the 
+     client ID in the message was not waiting on that message.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOST_WRITEBEHIND_DATA"></a><a id="error_lost_writebehind_data"></a><strong>ERROR_LOST_WRITEBEHIND_DATA</strong></dt>
+<dd>
+<dl>
+<dt>596 (0x254)</dt>
+<dt>
+<p>{Delayed Write Failed} Windows was unable to save all the data for the file %hs. The data has been lost. 
+     This error may be caused by a failure of your computer hardware or network connection. Please try to save this 
+     file elsewhere.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CLIENT_SERVER_PARAMETERS_INVALID"></a><a id="error_client_server_parameters_invalid"></a><strong>ERROR_CLIENT_SERVER_PARAMETERS_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>597 (0x255)</dt>
+<dt>
+<p>The parameter(s) passed to the server in the client/server shared memory window were invalid. Too much data 
+     may have been put in the shared memory window.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_TINY_STREAM"></a><a id="error_not_tiny_stream"></a><strong>ERROR_NOT_TINY_STREAM</strong></dt>
+<dd>
+<dl>
+<dt>598 (0x256)</dt>
+<dt>
+<p>The stream is not a tiny stream.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STACK_OVERFLOW_READ"></a><a id="error_stack_overflow_read"></a><strong>ERROR_STACK_OVERFLOW_READ</strong></dt>
+<dd>
+<dl>
+<dt>599 (0x257)</dt>
+<dt>
+<p>The request must be handled by the stack overflow code.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CONVERT_TO_LARGE"></a><a id="error_convert_to_large"></a><strong>ERROR_CONVERT_TO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>600 (0x258)</dt>
+<dt>
+<p>Internal OFS status codes indicating how an allocation operation is handled. Either it is retried after the 
+     containing onode is moved or the extent stream is converted to a large stream.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FOUND_OUT_OF_SCOPE"></a><a id="error_found_out_of_scope"></a><strong>ERROR_FOUND_OUT_OF_SCOPE</strong></dt>
+<dd>
+<dl>
+<dt>601 (0x259)</dt>
+<dt>
+<p>The attempt to find the object found an object matching by ID on the volume but it is out of the scope of 
+     the handle used for the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALLOCATE_BUCKET"></a><a id="error_allocate_bucket"></a><strong>ERROR_ALLOCATE_BUCKET</strong></dt>
+<dd>
+<dl>
+<dt>602 (0x25A)</dt>
+<dt>
+<p>The bucket array must be grown. Retry transaction after doing so.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MARSHALL_OVERFLOW"></a><a id="error_marshall_overflow"></a><strong>ERROR_MARSHALL_OVERFLOW</strong></dt>
+<dd>
+<dl>
+<dt>603 (0x25B)</dt>
+<dt>
+<p>The user/kernel marshalling buffer has overflowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_VARIANT"></a><a id="error_invalid_variant"></a><strong>ERROR_INVALID_VARIANT</strong></dt>
+<dd>
+<dl>
+<dt>604 (0x25C)</dt>
+<dt>
+<p>The supplied variant structure contains invalid data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_COMPRESSION_BUFFER"></a><a id="error_bad_compression_buffer"></a><strong>ERROR_BAD_COMPRESSION_BUFFER</strong></dt>
+<dd>
+<dl>
+<dt>605 (0x25D)</dt>
+<dt>
+<p>The specified buffer contains ill-formed data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_AUDIT_FAILED"></a><a id="error_audit_failed"></a><strong>ERROR_AUDIT_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>606 (0x25E)</dt>
+<dt>
+<p>{Audit Failed} An attempt to generate a security audit failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TIMER_RESOLUTION_NOT_SET"></a><a id="error_timer_resolution_not_set"></a><strong>ERROR_TIMER_RESOLUTION_NOT_SET</strong></dt>
+<dd>
+<dl>
+<dt>607 (0x25F)</dt>
+<dt>
+<p>The timer resolution was not previously set by the current process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSUFFICIENT_LOGON_INFO"></a><a id="error_insufficient_logon_info"></a><strong>ERROR_INSUFFICIENT_LOGON_INFO</strong></dt>
+<dd>
+<dl>
+<dt>608 (0x260)</dt>
+<dt>
+<p>There is insufficient account information to log you on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_DLL_ENTRYPOINT"></a><a id="error_bad_dll_entrypoint"></a><strong>ERROR_BAD_DLL_ENTRYPOINT</strong></dt>
+<dd>
+<dl>
+<dt>609 (0x261)</dt>
+<dt>
+<p>{Invalid DLL Entrypoint} The dynamic link library %hs is not written correctly. The stack pointer has been 
+     left in an inconsistent state. The entrypoint should be declared as WINAPI or STDCALL. Select YES to fail the 
+     DLL load. Select NO to continue execution. Selecting NO may cause the application to operate incorrectly.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_SERVICE_ENTRYPOINT"></a><a id="error_bad_service_entrypoint"></a><strong>ERROR_BAD_SERVICE_ENTRYPOINT</strong></dt>
+<dd>
+<dl>
+<dt>610 (0x262)</dt>
+<dt>
+<p>{Invalid Service Callback Entrypoint} The %hs service is not written correctly. The stack pointer has been 
+     left in an inconsistent state. The callback entrypoint should be declared as WINAPI or STDCALL. Selecting OK will 
+     cause the service to continue operation. However, the service process may operate incorrectly.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IP_ADDRESS_CONFLICT1"></a><a id="error_ip_address_conflict1"></a><strong>ERROR_IP_ADDRESS_CONFLICT1</strong></dt>
+<dd>
+<dl>
+<dt>611 (0x263)</dt>
+<dt>
+<p>There is an IP address conflict with another system on the network.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IP_ADDRESS_CONFLICT2"></a><a id="error_ip_address_conflict2"></a><strong>ERROR_IP_ADDRESS_CONFLICT2</strong></dt>
+<dd>
+<dl>
+<dt>612 (0x264)</dt>
+<dt>
+<p>There is an IP address conflict with another system on the network.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REGISTRY_QUOTA_LIMIT"></a><a id="error_registry_quota_limit"></a><strong>ERROR_REGISTRY_QUOTA_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>613 (0x265)</dt>
+<dt>
+<p>{Low On Registry Space} The system has reached the maximum size allowed for the system part of the registry. 
+     Additional storage requests will be ignored.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_CALLBACK_ACTIVE"></a><a id="error_no_callback_active"></a><strong>ERROR_NO_CALLBACK_ACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>614 (0x266)</dt>
+<dt>
+<p>A callback return system service cannot be executed when no callback is active.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PWD_TOO_SHORT"></a><a id="error_pwd_too_short"></a><strong>ERROR_PWD_TOO_SHORT</strong></dt>
+<dd>
+<dl>
+<dt>615 (0x267)</dt>
+<dt>
+<p>The password provided is too short to meet the policy of your user account. Please choose a longer 
+     password.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PWD_TOO_RECENT"></a><a id="error_pwd_too_recent"></a><strong>ERROR_PWD_TOO_RECENT</strong></dt>
+<dd>
+<dl>
+<dt>616 (0x268)</dt>
+<dt>
+<p>The policy of your user account does not allow you to change passwords too frequently. This is done to 
+     prevent users from changing back to a familiar, but potentially discovered, password. If you feel your password 
+     has been compromised then please contact your administrator immediately to have a new one assigned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PWD_HISTORY_CONFLICT"></a><a id="error_pwd_history_conflict"></a><strong>ERROR_PWD_HISTORY_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>617 (0x269)</dt>
+<dt>
+<p>You have attempted to change your password to one that you have used in the past. The policy of your user 
+     account does not allow this. Please select a password that you have not previously used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNSUPPORTED_COMPRESSION"></a><a id="error_unsupported_compression"></a><strong>ERROR_UNSUPPORTED_COMPRESSION</strong></dt>
+<dd>
+<dl>
+<dt>618 (0x26A)</dt>
+<dt>
+<p>The specified compression format is unsupported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_HW_PROFILE"></a><a id="error_invalid_hw_profile"></a><strong>ERROR_INVALID_HW_PROFILE</strong></dt>
+<dd>
+<dl>
+<dt>619 (0x26B)</dt>
+<dt>
+<p>The specified hardware profile configuration is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PLUGPLAY_DEVICE_PATH"></a><a id="error_invalid_plugplay_device_path"></a><strong>ERROR_INVALID_PLUGPLAY_DEVICE_PATH</strong></dt>
+<dd>
+<dl>
+<dt>620 (0x26C)</dt>
+<dt>
+<p>The specified Plug and Play registry device path is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_QUOTA_LIST_INCONSISTENT"></a><a id="error_quota_list_inconsistent"></a><strong>ERROR_QUOTA_LIST_INCONSISTENT</strong></dt>
+<dd>
+<dl>
+<dt>621 (0x26D)</dt>
+<dt>
+<p>The specified quota list is internally inconsistent with its descriptor.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVALUATION_EXPIRATION"></a><a id="error_evaluation_expiration"></a><strong>ERROR_EVALUATION_EXPIRATION</strong></dt>
+<dd>
+<dl>
+<dt>622 (0x26E)</dt>
+<dt>
+<p>{Windows Evaluation Notification} The evaluation period for this installation of Windows has expired. This 
+     system will shutdown in 1 hour. To restore access to this installation of Windows, please upgrade this 
+     installation using a licensed distribution of this product.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ILLEGAL_DLL_RELOCATION"></a><a id="error_illegal_dll_relocation"></a><strong>ERROR_ILLEGAL_DLL_RELOCATION</strong></dt>
+<dd>
+<dl>
+<dt>623 (0x26F)</dt>
+<dt>
+<p>{Illegal System DLL Relocation} The system DLL %hs was relocated in memory. The application will not run 
+     properly. The relocation occurred because the DLL %hs occupied an address range reserved for Windows system DLLs. 
+     The vendor supplying the DLL should be contacted for a new DLL.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DLL_INIT_FAILED_LOGOFF"></a><a id="error_dll_init_failed_logoff"></a><strong>ERROR_DLL_INIT_FAILED_LOGOFF</strong></dt>
+<dd>
+<dl>
+<dt>624 (0x270)</dt>
+<dt>
+<p>{DLL Initialization Failed} The application failed to initialize because the window station is shutting 
+     down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VALIDATE_CONTINUE"></a><a id="error_validate_continue"></a><strong>ERROR_VALIDATE_CONTINUE</strong></dt>
+<dd>
+<dl>
+<dt>625 (0x271)</dt>
+<dt>
+<p>The validation process needs to continue on to the next step.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_MORE_MATCHES"></a><a id="error_no_more_matches"></a><strong>ERROR_NO_MORE_MATCHES</strong></dt>
+<dd>
+<dl>
+<dt>626 (0x272)</dt>
+<dt>
+<p>There are no more matches for the current index enumeration.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RANGE_LIST_CONFLICT"></a><a id="error_range_list_conflict"></a><strong>ERROR_RANGE_LIST_CONFLICT</strong></dt>
+<dd>
+<dl>
+<dt>627 (0x273)</dt>
+<dt>
+<p>The range could not be added to the range list because of a conflict.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SERVER_SID_MISMATCH"></a><a id="error_server_sid_mismatch"></a><strong>ERROR_SERVER_SID_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>628 (0x274)</dt>
+<dt>
+<p>The server process is running under a SID different than that required by client.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANT_ENABLE_DENY_ONLY"></a><a id="error_cant_enable_deny_only"></a><strong>ERROR_CANT_ENABLE_DENY_ONLY</strong></dt>
+<dd>
+<dl>
+<dt>629 (0x275)</dt>
+<dt>
+<p>A group marked use for deny only cannot be enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FLOAT_MULTIPLE_FAULTS"></a><a id="error_float_multiple_faults"></a><strong>ERROR_FLOAT_MULTIPLE_FAULTS</strong></dt>
+<dd>
+<dl>
+<dt>630 (0x276)</dt>
+<dt>
+<p>{EXCEPTION} Multiple floating point faults.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FLOAT_MULTIPLE_TRAPS"></a><a id="error_float_multiple_traps"></a><strong>ERROR_FLOAT_MULTIPLE_TRAPS</strong></dt>
+<dd>
+<dl>
+<dt>631 (0x277)</dt>
+<dt>
+<p>{EXCEPTION} Multiple floating point traps.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOINTERFACE"></a><a id="error_nointerface"></a><strong>ERROR_NOINTERFACE</strong></dt>
+<dd>
+<dl>
+<dt>632 (0x278)</dt>
+<dt>
+<p>The requested interface is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVER_FAILED_SLEEP"></a><a id="error_driver_failed_sleep"></a><strong>ERROR_DRIVER_FAILED_SLEEP</strong></dt>
+<dd>
+<dl>
+<dt>633 (0x279)</dt>
+<dt>
+<p>{System Standby Failed} The driver %hs does not support standby mode. Updating this driver may allow the 
+     system to go to standby mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_SYSTEM_FILE"></a><a id="error_corrupt_system_file"></a><strong>ERROR_CORRUPT_SYSTEM_FILE</strong></dt>
+<dd>
+<dl>
+<dt>634 (0x27A)</dt>
+<dt>
+<p>The system file %1 has become corrupt and has been replaced.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COMMITMENT_MINIMUM"></a><a id="error_commitment_minimum"></a><strong>ERROR_COMMITMENT_MINIMUM</strong></dt>
+<dd>
+<dl>
+<dt>635 (0x27B)</dt>
+<dt>
+<p>{Virtual Memory Minimum Too Low} Your system is low on virtual memory. Windows is increasing the size of 
+     your virtual memory paging file. During this process, memory requests for some applications may be denied. For 
+     more information, see Help.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_RESTART_ENUMERATION"></a><a id="error_pnp_restart_enumeration"></a><strong>ERROR_PNP_RESTART_ENUMERATION</strong></dt>
+<dd>
+<dl>
+<dt>636 (0x27C)</dt>
+<dt>
+<p>A device was removed so enumeration must be restarted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_IMAGE_BAD_SIGNATURE"></a><a id="error_system_image_bad_signature"></a><strong>ERROR_SYSTEM_IMAGE_BAD_SIGNATURE</strong></dt>
+<dd>
+<dl>
+<dt>637 (0x27D)</dt>
+<dt>
+<p>{Fatal System Error} The system image %s is not properly signed. The file has been replaced with the signed 
+     file. The system has been shut down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_REBOOT_REQUIRED"></a><a id="error_pnp_reboot_required"></a><strong>ERROR_PNP_REBOOT_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>638 (0x27E)</dt>
+<dt>
+<p>Device will not start without a reboot.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSUFFICIENT_POWER"></a><a id="error_insufficient_power"></a><strong>ERROR_INSUFFICIENT_POWER</strong></dt>
+<dd>
+<dl>
+<dt>639 (0x27F)</dt>
+<dt>
+<p>There is not enough power to complete the requested operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MULTIPLE_FAULT_VIOLATION"></a><a id="error_multiple_fault_violation"></a><strong>ERROR_MULTIPLE_FAULT_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>640 (0x280)</dt>
+<dt>
+<p>ERROR_MULTIPLE_FAULT_VIOLATION</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_SHUTDOWN"></a><a id="error_system_shutdown"></a><strong>ERROR_SYSTEM_SHUTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>641 (0x281)</dt>
+<dt>
+<p>The system is in the process of shutting down.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PORT_NOT_SET"></a><a id="error_port_not_set"></a><strong>ERROR_PORT_NOT_SET</strong></dt>
+<dd>
+<dl>
+<dt>642 (0x282)</dt>
+<dt>
+<p>An attempt to remove a processes DebugPort was made, but a port was not already associated with the 
+     process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DS_VERSION_CHECK_FAILURE"></a><a id="error_ds_version_check_failure"></a><strong>ERROR_DS_VERSION_CHECK_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>643 (0x283)</dt>
+<dt>
+<p>This version of Windows is not compatible with the behavior version of directory forest, domain or domain 
+     controller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RANGE_NOT_FOUND"></a><a id="error_range_not_found"></a><strong>ERROR_RANGE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>644 (0x284)</dt>
+<dt>
+<p>The specified range could not be found in the range list.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SAFE_MODE_DRIVER"></a><a id="error_not_safe_mode_driver"></a><strong>ERROR_NOT_SAFE_MODE_DRIVER</strong></dt>
+<dd>
+<dl>
+<dt>646 (0x286)</dt>
+<dt>
+<p>The driver was not loaded because the system is booting into safe mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAILED_DRIVER_ENTRY"></a><a id="error_failed_driver_entry"></a><strong>ERROR_FAILED_DRIVER_ENTRY</strong></dt>
+<dd>
+<dl>
+<dt>647 (0x287)</dt>
+<dt>
+<p>The driver was not loaded because it failed its initialization call.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_ENUMERATION_ERROR"></a><a id="error_device_enumeration_error"></a><strong>ERROR_DEVICE_ENUMERATION_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>648 (0x288)</dt>
+<dt>
+<p>The "%hs" encountered an error while applying power or reading the device configuration. This may be caused 
+     by a failure of your hardware or by a poor connection.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MOUNT_POINT_NOT_RESOLVED"></a><a id="error_mount_point_not_resolved"></a><strong>ERROR_MOUNT_POINT_NOT_RESOLVED</strong></dt>
+<dd>
+<dl>
+<dt>649 (0x289)</dt>
+<dt>
+<p>The create operation failed because the name contained at least one mount point which resolves to a volume 
+     to which the specified device object is not attached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DEVICE_OBJECT_PARAMETER"></a><a id="error_invalid_device_object_parameter"></a><strong>ERROR_INVALID_DEVICE_OBJECT_PARAMETER</strong></dt>
+<dd>
+<dl>
+<dt>650 (0x28A)</dt>
+<dt>
+<p>The device object parameter is either not a valid device object or is not attached to the volume specified 
+     by the file name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_OCCURED"></a><a id="error_mca_occured"></a><strong>ERROR_MCA_OCCURED</strong></dt>
+<dd>
+<dl>
+<dt>651 (0x28B)</dt>
+<dt>
+<p>A Machine Check Error has occurred. Please check the system eventlog for additional information.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVER_DATABASE_ERROR"></a><a id="error_driver_database_error"></a><strong>ERROR_DRIVER_DATABASE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>652 (0x28C)</dt>
+<dt>
+<p>There was error [%2] processing the driver database.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_HIVE_TOO_LARGE"></a><a id="error_system_hive_too_large"></a><strong>ERROR_SYSTEM_HIVE_TOO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>653 (0x28D)</dt>
+<dt>
+<p>System hive size has exceeded its limit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVER_FAILED_PRIOR_UNLOAD"></a><a id="error_driver_failed_prior_unload"></a><strong>ERROR_DRIVER_FAILED_PRIOR_UNLOAD</strong></dt>
+<dd>
+<dl>
+<dt>654 (0x28E)</dt>
+<dt>
+<p>The driver could not be loaded because a previous version of the driver is still in memory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VOLSNAP_PREPARE_HIBERNATE"></a><a id="error_volsnap_prepare_hibernate"></a><strong>ERROR_VOLSNAP_PREPARE_HIBERNATE</strong></dt>
+<dd>
+<dl>
+<dt>655 (0x28F)</dt>
+<dt>
+<p>{Volume Shadow Copy Service} Please wait while the Volume Shadow Copy Service prepares volume %hs for 
+     hibernation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HIBERNATION_FAILURE"></a><a id="error_hibernation_failure"></a><strong>ERROR_HIBERNATION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>656 (0x290)</dt>
+<dt>
+<p>The system has failed to hibernate (The error code is %hs). Hibernation will be disabled until the system is restarted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PWD_TOO_LONG"></a><a id="error_pwd_too_long"></a><strong>ERROR_PWD_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>657 (0x291)</dt>
+<dt>
+<p>The password provided is too long to meet the policy of your user account. Please choose a shorter password.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_SYSTEM_LIMITATION"></a><a id="error_file_system_limitation"></a><strong>ERROR_FILE_SYSTEM_LIMITATION</strong></dt>
+<dd>
+<dl>
+<dt>665 (0x299)</dt>
+<dt>
+<p>The requested operation could not be completed due to a file system limitation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ASSERTION_FAILURE"></a><a id="error_assertion_failure"></a><strong>ERROR_ASSERTION_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>668 (0x29C)</dt>
+<dt>
+<p>An assertion failure has occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACPI_ERROR"></a><a id="error_acpi_error"></a><strong>ERROR_ACPI_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>669 (0x29D)</dt>
+<dt>
+<p>An error occurred in the ACPI subsystem.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WOW_ASSERTION"></a><a id="error_wow_assertion"></a><strong>ERROR_WOW_ASSERTION</strong></dt>
+<dd>
+<dl>
+<dt>670 (0x29E)</dt>
+<dt>
+<p>WOW Assertion Error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_BAD_MPS_TABLE"></a><a id="error_pnp_bad_mps_table"></a><strong>ERROR_PNP_BAD_MPS_TABLE</strong></dt>
+<dd>
+<dl>
+<dt>671 (0x29F)</dt>
+<dt>
+<p>A device is missing in the system BIOS MPS table. This device will not be used. Please contact your system 
+     vendor for system BIOS update.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_TRANSLATION_FAILED"></a><a id="error_pnp_translation_failed"></a><strong>ERROR_PNP_TRANSLATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>672 (0x2A0)</dt>
+<dt>
+<p>A translator failed to translate resources.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_IRQ_TRANSLATION_FAILED"></a><a id="error_pnp_irq_translation_failed"></a><strong>ERROR_PNP_IRQ_TRANSLATION_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>673 (0x2A1)</dt>
+<dt>
+<p>A IRQ translator failed to translate resources.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PNP_INVALID_ID"></a><a id="error_pnp_invalid_id"></a><strong>ERROR_PNP_INVALID_ID</strong></dt>
+<dd>
+<dl>
+<dt>674 (0x2A2)</dt>
+<dt>
+<p>Driver %2 returned invalid ID for a child device (%3).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAKE_SYSTEM_DEBUGGER"></a><a id="error_wake_system_debugger"></a><strong>ERROR_WAKE_SYSTEM_DEBUGGER</strong></dt>
+<dd>
+<dl>
+<dt>675 (0x2A3)</dt>
+<dt>
+<p>{Kernel Debugger Awakened} the system debugger was awakened by an interrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HANDLES_CLOSED"></a><a id="error_handles_closed"></a><strong>ERROR_HANDLES_CLOSED</strong></dt>
+<dd>
+<dl>
+<dt>676 (0x2A4)</dt>
+<dt>
+<p>{Handles Closed} Handles to objects have been automatically closed as a result of the requested 
+     operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXTRANEOUS_INFORMATION"></a><a id="error_extraneous_information"></a><strong>ERROR_EXTRANEOUS_INFORMATION</strong></dt>
+<dd>
+<dl>
+<dt>677 (0x2A5)</dt>
+<dt>
+<p>{Too Much Information} The specified access control list (ACL) contained more information than was 
+     expected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RXACT_COMMIT_NECESSARY"></a><a id="error_rxact_commit_necessary"></a><strong>ERROR_RXACT_COMMIT_NECESSARY</strong></dt>
+<dd>
+<dl>
+<dt>678 (0x2A6)</dt>
+<dt>
+<p>This warning level status indicates that the transaction state already exists for the registry sub-tree, but 
+     that a transaction commit was previously aborted. The commit has NOT been completed, but has not been rolled back 
+     either (so it may still be committed if desired).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEDIA_CHECK"></a><a id="error_media_check"></a><strong>ERROR_MEDIA_CHECK</strong></dt>
+<dd>
+<dl>
+<dt>679 (0x2A7)</dt>
+<dt>
+<p>{Media Changed} The media may have changed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GUID_SUBSTITUTION_MADE"></a><a id="error_guid_substitution_made"></a><strong>ERROR_GUID_SUBSTITUTION_MADE</strong></dt>
+<dd>
+<dl>
+<dt>680 (0x2A8)</dt>
+<dt>
+<p>{GUID Substitution} During the translation of a global identifier (GUID) to a Windows security ID (SID), no 
+     administratively-defined GUID prefix was found. A substitute prefix was used, which will not compromise system 
+     security. However, this may provide a more restrictive access than intended.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_STOPPED_ON_SYMLINK"></a><a id="error_stopped_on_symlink"></a><strong>ERROR_STOPPED_ON_SYMLINK</strong></dt>
+<dd>
+<dl>
+<dt>681 (0x2A9)</dt>
+<dt>
+<p>The create operation stopped after reaching a symbolic link.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LONGJUMP"></a><a id="error_longjump"></a><strong>ERROR_LONGJUMP</strong></dt>
+<dd>
+<dl>
+<dt>682 (0x2AA)</dt>
+<dt>
+<p>A long jump has been executed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PLUGPLAY_QUERY_VETOED"></a><a id="error_plugplay_query_vetoed"></a><strong>ERROR_PLUGPLAY_QUERY_VETOED</strong></dt>
+<dd>
+<dl>
+<dt>683 (0x2AB)</dt>
+<dt>
+<p>The Plug and Play query operation was not successful.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNWIND_CONSOLIDATE"></a><a id="error_unwind_consolidate"></a><strong>ERROR_UNWIND_CONSOLIDATE</strong></dt>
+<dd>
+<dl>
+<dt>684 (0x2AC)</dt>
+<dt>
+<p>A frame consolidation has been executed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REGISTRY_HIVE_RECOVERED"></a><a id="error_registry_hive_recovered"></a><strong>ERROR_REGISTRY_HIVE_RECOVERED</strong></dt>
+<dd>
+<dl>
+<dt>685 (0x2AD)</dt>
+<dt>
+<p>{Registry Hive Recovered} Registry hive (file): %hs was corrupted and it has been recovered. Some data might 
+     have been lost.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DLL_MIGHT_BE_INSECURE"></a><a id="error_dll_might_be_insecure"></a><strong>ERROR_DLL_MIGHT_BE_INSECURE</strong></dt>
+<dd>
+<dl>
+<dt>686 (0x2AE)</dt>
+<dt>
+<p>The application is attempting to run executable code from the module %hs. This may be insecure. An 
+     alternative, %hs, is available. Should the application use the secure module %hs?</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DLL_MIGHT_BE_INCOMPATIBLE"></a><a id="error_dll_might_be_incompatible"></a><strong>ERROR_DLL_MIGHT_BE_INCOMPATIBLE</strong></dt>
+<dd>
+<dl>
+<dt>687 (0x2AF)</dt>
+<dt>
+<p>The application is loading executable code from the module %hs. This is secure, but may be incompatible with 
+     previous releases of the operating system. An alternative, %hs, is available. Should the application use the 
+     secure module %hs?</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_EXCEPTION_NOT_HANDLED"></a><a id="error_dbg_exception_not_handled"></a><strong>ERROR_DBG_EXCEPTION_NOT_HANDLED</strong></dt>
+<dd>
+<dl>
+<dt>688 (0x2B0)</dt>
+<dt>
+<p>Debugger did not handle the exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_REPLY_LATER"></a><a id="error_dbg_reply_later"></a><strong>ERROR_DBG_REPLY_LATER</strong></dt>
+<dd>
+<dl>
+<dt>689 (0x2B1)</dt>
+<dt>
+<p>Debugger will reply later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE"></a><a id="error_dbg_unable_to_provide_handle"></a><strong>ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>690 (0x2B2)</dt>
+<dt>
+<p>Debugger cannot provide handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_TERMINATE_THREAD"></a><a id="error_dbg_terminate_thread"></a><strong>ERROR_DBG_TERMINATE_THREAD</strong></dt>
+<dd>
+<dl>
+<dt>691 (0x2B3)</dt>
+<dt>
+<p>Debugger terminated thread.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_TERMINATE_PROCESS"></a><a id="error_dbg_terminate_process"></a><strong>ERROR_DBG_TERMINATE_PROCESS</strong></dt>
+<dd>
+<dl>
+<dt>692 (0x2B4)</dt>
+<dt>
+<p>Debugger terminated process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_CONTROL_C"></a><a id="error_dbg_control_c"></a><strong>ERROR_DBG_CONTROL_C</strong></dt>
+<dd>
+<dl>
+<dt>693 (0x2B5)</dt>
+<dt>
+<p>Debugger got control C.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_PRINTEXCEPTION_C"></a><a id="error_dbg_printexception_c"></a><strong>ERROR_DBG_PRINTEXCEPTION_C</strong></dt>
+<dd>
+<dl>
+<dt>694 (0x2B6)</dt>
+<dt>
+<p>Debugger printed exception on control C.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_RIPEXCEPTION"></a><a id="error_dbg_ripexception"></a><strong>ERROR_DBG_RIPEXCEPTION</strong></dt>
+<dd>
+<dl>
+<dt>695 (0x2B7)</dt>
+<dt>
+<p>Debugger received RIP exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_CONTROL_BREAK"></a><a id="error_dbg_control_break"></a><strong>ERROR_DBG_CONTROL_BREAK</strong></dt>
+<dd>
+<dl>
+<dt>696 (0x2B8)</dt>
+<dt>
+<p>Debugger received control break.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_COMMAND_EXCEPTION"></a><a id="error_dbg_command_exception"></a><strong>ERROR_DBG_COMMAND_EXCEPTION</strong></dt>
+<dd>
+<dl>
+<dt>697 (0x2B9)</dt>
+<dt>
+<p>Debugger command communication exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OBJECT_NAME_EXISTS"></a><a id="error_object_name_exists"></a><strong>ERROR_OBJECT_NAME_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>698 (0x2BA)</dt>
+<dt>
+<p>{Object Exists} An attempt was made to create an object and the object name already existed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_WAS_SUSPENDED"></a><a id="error_thread_was_suspended"></a><strong>ERROR_THREAD_WAS_SUSPENDED</strong></dt>
+<dd>
+<dl>
+<dt>699 (0x2BB)</dt>
+<dt>
+<p>{Thread Suspended} A thread termination occurred while the thread was suspended. The thread was resumed, and 
+     termination proceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMAGE_NOT_AT_BASE"></a><a id="error_image_not_at_base"></a><strong>ERROR_IMAGE_NOT_AT_BASE</strong></dt>
+<dd>
+<dl>
+<dt>700 (0x2BC)</dt>
+<dt>
+<p>{Image Relocated} An image file could not be mapped at the address specified in the image file. Local fixups 
+     must be performed on this image.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RXACT_STATE_CREATED"></a><a id="error_rxact_state_created"></a><strong>ERROR_RXACT_STATE_CREATED</strong></dt>
+<dd>
+<dl>
+<dt>701 (0x2BD)</dt>
+<dt>
+<p>This informational level status indicates that a specified registry sub-tree transaction state did not yet 
+     exist and had to be created.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEGMENT_NOTIFICATION"></a><a id="error_segment_notification"></a><strong>ERROR_SEGMENT_NOTIFICATION</strong></dt>
+<dd>
+<dl>
+<dt>702 (0x2BE)</dt>
+<dt>
+<p>{Segment Load} A virtual DOS machine (VDM) is loading, unloading, or moving an MS-DOS or Win16 program 
+     segment image. An exception is raised so a debugger can load, unload or track symbols and breakpoints within 
+     these 16-bit segments.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_CURRENT_DIRECTORY"></a><a id="error_bad_current_directory"></a><strong>ERROR_BAD_CURRENT_DIRECTORY</strong></dt>
+<dd>
+<dl>
+<dt>703 (0x2BF)</dt>
+<dt>
+<p>{Invalid Current Directory} The process cannot switch to the startup current directory %hs. Select OK to set 
+     current directory to %hs, or select CANCEL to exit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FT_READ_RECOVERY_FROM_BACKUP"></a><a id="error_ft_read_recovery_from_backup"></a><strong>ERROR_FT_READ_RECOVERY_FROM_BACKUP</strong></dt>
+<dd>
+<dl>
+<dt>704 (0x2C0)</dt>
+<dt>
+<p>{Redundant Read} To satisfy a read request, the NT fault-tolerant file system successfully read the 
+     requested data from a redundant copy. This was done because the file system encountered a failure on a member of 
+     the fault-tolerant volume, but was unable to reassign the failing area of the device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FT_WRITE_RECOVERY"></a><a id="error_ft_write_recovery"></a><strong>ERROR_FT_WRITE_RECOVERY</strong></dt>
+<dd>
+<dl>
+<dt>705 (0x2C1)</dt>
+<dt>
+<p>{Redundant Write} To satisfy a write request, the NT fault-tolerant file system successfully wrote a 
+     redundant copy of the information. This was done because the file system encountered a failure on a member of the 
+     fault-tolerant volume, but was not able to reassign the failing area of the device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMAGE_MACHINE_TYPE_MISMATCH"></a><a id="error_image_machine_type_mismatch"></a><strong>ERROR_IMAGE_MACHINE_TYPE_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>706 (0x2C2)</dt>
+<dt>
+<p>{Machine Type Mismatch} The image file %hs is valid, but is for a machine type other than the current 
+     machine. Select OK to continue, or CANCEL to fail the DLL load.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RECEIVE_PARTIAL"></a><a id="error_receive_partial"></a><strong>ERROR_RECEIVE_PARTIAL</strong></dt>
+<dd>
+<dl>
+<dt>707 (0x2C3)</dt>
+<dt>
+<p>{Partial Data Received} The network transport returned partial data to its client. The remaining data will 
+     be sent later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RECEIVE_EXPEDITED"></a><a id="error_receive_expedited"></a><strong>ERROR_RECEIVE_EXPEDITED</strong></dt>
+<dd>
+<dl>
+<dt>708 (0x2C4)</dt>
+<dt>
+<p>{Expedited Data Received} The network transport returned data to its client that was marked as expedited by 
+     the remote system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RECEIVE_PARTIAL_EXPEDITED"></a><a id="error_receive_partial_expedited"></a><strong>ERROR_RECEIVE_PARTIAL_EXPEDITED</strong></dt>
+<dd>
+<dl>
+<dt>709 (0x2C5)</dt>
+<dt>
+<p>{Partial Expedited Data Received} The network transport returned partial data to its client and this data 
+     was marked as expedited by the remote system. The remaining data will be sent later.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVENT_DONE"></a><a id="error_event_done"></a><strong>ERROR_EVENT_DONE</strong></dt>
+<dd>
+<dl>
+<dt>710 (0x2C6)</dt>
+<dt>
+<p>{TDI Event Done} The TDI indication has completed successfully.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EVENT_PENDING"></a><a id="error_event_pending"></a><strong>ERROR_EVENT_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>711 (0x2C7)</dt>
+<dt>
+<p>{TDI Event Pending} The TDI indication has entered the pending state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CHECKING_FILE_SYSTEM"></a><a id="error_checking_file_system"></a><strong>ERROR_CHECKING_FILE_SYSTEM</strong></dt>
+<dd>
+<dl>
+<dt>712 (0x2C8)</dt>
+<dt>
+<p>Checking file system on %wZ.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FATAL_APP_EXIT"></a><a id="error_fatal_app_exit"></a><strong>ERROR_FATAL_APP_EXIT</strong></dt>
+<dd>
+<dl>
+<dt>713 (0x2C9)</dt>
+<dt>
+<p>{Fatal Application Exit} %hs.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PREDEFINED_HANDLE"></a><a id="error_predefined_handle"></a><strong>ERROR_PREDEFINED_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>714 (0x2CA)</dt>
+<dt>
+<p>The specified registry key is referenced by a predefined handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAS_UNLOCKED"></a><a id="error_was_unlocked"></a><strong>ERROR_WAS_UNLOCKED</strong></dt>
+<dd>
+<dl>
+<dt>715 (0x2CB)</dt>
+<dt>
+<p>{Page Unlocked} The page protection of a locked page was changed to 'No Access' and the page was unlocked 
+     from memory and from the process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SERVICE_NOTIFICATION"></a><a id="error_service_notification"></a><strong>ERROR_SERVICE_NOTIFICATION</strong></dt>
+<dd>
+<dl>
+<dt>716 (0x2CC)</dt>
+<dt>
+<p>%hs</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAS_LOCKED"></a><a id="error_was_locked"></a><strong>ERROR_WAS_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>717 (0x2CD)</dt>
+<dt>
+<p>{Page Locked} One of the pages to lock was already locked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOG_HARD_ERROR"></a><a id="error_log_hard_error"></a><strong>ERROR_LOG_HARD_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>718 (0x2CE)</dt>
+<dt>
+<p>Application popup: %1 : %2</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALREADY_WIN32"></a><a id="error_already_win32"></a><strong>ERROR_ALREADY_WIN32</strong></dt>
+<dd>
+<dl>
+<dt>719 (0x2CF)</dt>
+<dt>
+<p>ERROR_ALREADY_WIN32</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE"></a><a id="error_image_machine_type_mismatch_exe"></a><strong>ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE</strong></dt>
+<dd>
+<dl>
+<dt>720 (0x2D0)</dt>
+<dt>
+<p>{Machine Type Mismatch} The image file %hs is valid, but is for a machine type other than the current 
+     machine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_YIELD_PERFORMED"></a><a id="error_no_yield_performed"></a><strong>ERROR_NO_YIELD_PERFORMED</strong></dt>
+<dd>
+<dl>
+<dt>721 (0x2D1)</dt>
+<dt>
+<p>A yield execution was performed and no thread was available to run.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TIMER_RESUME_IGNORED"></a><a id="error_timer_resume_ignored"></a><strong>ERROR_TIMER_RESUME_IGNORED</strong></dt>
+<dd>
+<dl>
+<dt>722 (0x2D2)</dt>
+<dt>
+<p>The resumable flag to a timer API was ignored.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ARBITRATION_UNHANDLED"></a><a id="error_arbitration_unhandled"></a><strong>ERROR_ARBITRATION_UNHANDLED</strong></dt>
+<dd>
+<dl>
+<dt>723 (0x2D3)</dt>
+<dt>
+<p>The arbiter has deferred arbitration of these resources to its parent.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CARDBUS_NOT_SUPPORTED"></a><a id="error_cardbus_not_supported"></a><strong>ERROR_CARDBUS_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>724 (0x2D4)</dt>
+<dt>
+<p>The inserted CardBus device cannot be started because of a configuration error on "%hs".</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MP_PROCESSOR_MISMATCH"></a><a id="error_mp_processor_mismatch"></a><strong>ERROR_MP_PROCESSOR_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>725 (0x2D5)</dt>
+<dt>
+<p>The CPUs in this multiprocessor system are not all the same revision level. To use all processors the 
+     operating system restricts itself to the features of the least capable processor in the system. Should problems 
+     occur with this system, contact the CPU manufacturer to see if this mix of processors is supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HIBERNATED"></a><a id="error_hibernated"></a><strong>ERROR_HIBERNATED</strong></dt>
+<dd>
+<dl>
+<dt>726 (0x2D6)</dt>
+<dt>
+<p>The system was put into hibernation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESUME_HIBERNATION"></a><a id="error_resume_hibernation"></a><strong>ERROR_RESUME_HIBERNATION</strong></dt>
+<dd>
+<dl>
+<dt>727 (0x2D7)</dt>
+<dt>
+<p>The system was resumed from hibernation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FIRMWARE_UPDATED"></a><a id="error_firmware_updated"></a><strong>ERROR_FIRMWARE_UPDATED</strong></dt>
+<dd>
+<dl>
+<dt>728 (0x2D8)</dt>
+<dt>
+<p>Windows has detected that the system firmware (BIOS) was updated [previous firmware date = %2, current 
+     firmware date %3].</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVERS_LEAKING_LOCKED_PAGES"></a><a id="error_drivers_leaking_locked_pages"></a><strong>ERROR_DRIVERS_LEAKING_LOCKED_PAGES</strong></dt>
+<dd>
+<dl>
+<dt>729 (0x2D9)</dt>
+<dt>
+<p>A device driver is leaking locked I/O pages causing system degradation. The system has automatically enabled 
+     tracking code in order to try and catch the culprit.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAKE_SYSTEM"></a><a id="error_wake_system"></a><strong>ERROR_WAKE_SYSTEM</strong></dt>
+<dd>
+<dl>
+<dt>730 (0x2DA)</dt>
+<dt>
+<p>The system has awoken.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_1"></a><a id="error_wait_1"></a><strong>ERROR_WAIT_1</strong></dt>
+<dd>
+<dl>
+<dt>731 (0x2DB)</dt>
+<dt>
+<p>ERROR_WAIT_1</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_2"></a><a id="error_wait_2"></a><strong>ERROR_WAIT_2</strong></dt>
+<dd>
+<dl>
+<dt>732 (0x2DC)</dt>
+<dt>
+<p>ERROR_WAIT_2</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_3"></a><a id="error_wait_3"></a><strong>ERROR_WAIT_3</strong></dt>
+<dd>
+<dl>
+<dt>733 (0x2DD)</dt>
+<dt>
+<p>ERROR_WAIT_3</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_63"></a><a id="error_wait_63"></a><strong>ERROR_WAIT_63</strong></dt>
+<dd>
+<dl>
+<dt>734 (0x2DE)</dt>
+<dt>
+<p>ERROR_WAIT_63</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ABANDONED_WAIT_0"></a><a id="error_abandoned_wait_0"></a><strong>ERROR_ABANDONED_WAIT_0</strong></dt>
+<dd>
+<dl>
+<dt>735 (0x2DF)</dt>
+<dt>
+<p>ERROR_ABANDONED_WAIT_0</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ABANDONED_WAIT_63"></a><a id="error_abandoned_wait_63"></a><strong>ERROR_ABANDONED_WAIT_63</strong></dt>
+<dd>
+<dl>
+<dt>736 (0x2E0)</dt>
+<dt>
+<p>ERROR_ABANDONED_WAIT_63</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_USER_APC"></a><a id="error_user_apc"></a><strong>ERROR_USER_APC</strong></dt>
+<dd>
+<dl>
+<dt>737 (0x2E1)</dt>
+<dt>
+<p>ERROR_USER_APC</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_KERNEL_APC"></a><a id="error_kernel_apc"></a><strong>ERROR_KERNEL_APC</strong></dt>
+<dd>
+<dl>
+<dt>738 (0x2E2)</dt>
+<dt>
+<p>ERROR_KERNEL_APC</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALERTED"></a><a id="error_alerted"></a><strong>ERROR_ALERTED</strong></dt>
+<dd>
+<dl>
+<dt>739 (0x2E3)</dt>
+<dt>
+<p>ERROR_ALERTED</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ELEVATION_REQUIRED"></a><a id="error_elevation_required"></a><strong>ERROR_ELEVATION_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>740 (0x2E4)</dt>
+<dt>
+<p>The requested operation requires elevation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REPARSE"></a><a id="error_reparse"></a><strong>ERROR_REPARSE</strong></dt>
+<dd>
+<dl>
+<dt>741 (0x2E5)</dt>
+<dt>
+<p>A reparse should be performed by the Object Manager since the name of the file resulted in a symbolic 
+     link.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPLOCK_BREAK_IN_PROGRESS"></a><a id="error_oplock_break_in_progress"></a><strong>ERROR_OPLOCK_BREAK_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>742 (0x2E6)</dt>
+<dt>
+<p>An open/create operation completed while an oplock break is underway.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VOLUME_MOUNTED"></a><a id="error_volume_mounted"></a><strong>ERROR_VOLUME_MOUNTED</strong></dt>
+<dd>
+<dl>
+<dt>743 (0x2E7)</dt>
+<dt>
+<p>A new volume has been mounted by a file system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RXACT_COMMITTED"></a><a id="error_rxact_committed"></a><strong>ERROR_RXACT_COMMITTED</strong></dt>
+<dd>
+<dl>
+<dt>744 (0x2E8)</dt>
+<dt>
+<p>This success level status indicates that the transaction state already exists for the registry sub-tree, but 
+     that a transaction commit was previously aborted. The commit has now been completed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOTIFY_CLEANUP"></a><a id="error_notify_cleanup"></a><strong>ERROR_NOTIFY_CLEANUP</strong></dt>
+<dd>
+<dl>
+<dt>745 (0x2E9)</dt>
+<dt>
+<p>This indicates that a notify change request has been completed due to closing the handle which made the 
+     notify change request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED"></a><a id="error_primary_transport_connect_failed"></a><strong>ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>746 (0x2EA)</dt>
+<dt>
+<p>{Connect Failure on Primary Transport} An attempt was made to connect to the remote server %hs on the 
+     primary transport, but the connection failed. The computer WAS able to connect on a secondary transport.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGE_FAULT_TRANSITION"></a><a id="error_page_fault_transition"></a><strong>ERROR_PAGE_FAULT_TRANSITION</strong></dt>
+<dd>
+<dl>
+<dt>747 (0x2EB)</dt>
+<dt>
+<p>Page fault was a transition fault.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGE_FAULT_DEMAND_ZERO"></a><a id="error_page_fault_demand_zero"></a><strong>ERROR_PAGE_FAULT_DEMAND_ZERO</strong></dt>
+<dd>
+<dl>
+<dt>748 (0x2EC)</dt>
+<dt>
+<p>Page fault was a demand zero fault.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGE_FAULT_COPY_ON_WRITE"></a><a id="error_page_fault_copy_on_write"></a><strong>ERROR_PAGE_FAULT_COPY_ON_WRITE</strong></dt>
+<dd>
+<dl>
+<dt>749 (0x2ED)</dt>
+<dt>
+<p>Page fault was a demand zero fault.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGE_FAULT_GUARD_PAGE"></a><a id="error_page_fault_guard_page"></a><strong>ERROR_PAGE_FAULT_GUARD_PAGE</strong></dt>
+<dd>
+<dl>
+<dt>750 (0x2EE)</dt>
+<dt>
+<p>Page fault was a demand zero fault.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PAGE_FAULT_PAGING_FILE"></a><a id="error_page_fault_paging_file"></a><strong>ERROR_PAGE_FAULT_PAGING_FILE</strong></dt>
+<dd>
+<dl>
+<dt>751 (0x2EF)</dt>
+<dt>
+<p>Page fault was satisfied by reading from a secondary storage device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CACHE_PAGE_LOCKED"></a><a id="error_cache_page_locked"></a><strong>ERROR_CACHE_PAGE_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>752 (0x2F0)</dt>
+<dt>
+<p>Cached page was locked during operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CRASH_DUMP"></a><a id="error_crash_dump"></a><strong>ERROR_CRASH_DUMP</strong></dt>
+<dd>
+<dl>
+<dt>753 (0x2F1)</dt>
+<dt>
+<p>Crash dump exists in paging file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BUFFER_ALL_ZEROS"></a><a id="error_buffer_all_zeros"></a><strong>ERROR_BUFFER_ALL_ZEROS</strong></dt>
+<dd>
+<dl>
+<dt>754 (0x2F2)</dt>
+<dt>
+<p>Specified buffer contains all zeros.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REPARSE_OBJECT"></a><a id="error_reparse_object"></a><strong>ERROR_REPARSE_OBJECT</strong></dt>
+<dd>
+<dl>
+<dt>755 (0x2F3)</dt>
+<dt>
+<p>A reparse should be performed by the Object Manager since the name of the file resulted in a symbolic 
+     link.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESOURCE_REQUIREMENTS_CHANGED"></a><a id="error_resource_requirements_changed"></a><strong>ERROR_RESOURCE_REQUIREMENTS_CHANGED</strong></dt>
+<dd>
+<dl>
+<dt>756 (0x2F4)</dt>
+<dt>
+<p>The device has succeeded a query-stop and its resource requirements have changed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TRANSLATION_COMPLETE"></a><a id="error_translation_complete"></a><strong>ERROR_TRANSLATION_COMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>757 (0x2F5)</dt>
+<dt>
+<p>The translator has translated these resources into the global space and no further translations should be 
+     performed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOTHING_TO_TERMINATE"></a><a id="error_nothing_to_terminate"></a><strong>ERROR_NOTHING_TO_TERMINATE</strong></dt>
+<dd>
+<dl>
+<dt>758 (0x2F6)</dt>
+<dt>
+<p>A process being terminated has no threads to terminate.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROCESS_NOT_IN_JOB"></a><a id="error_process_not_in_job"></a><strong>ERROR_PROCESS_NOT_IN_JOB</strong></dt>
+<dd>
+<dl>
+<dt>759 (0x2F7)</dt>
+<dt>
+<p>The specified process is not part of a job.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROCESS_IN_JOB"></a><a id="error_process_in_job"></a><strong>ERROR_PROCESS_IN_JOB</strong></dt>
+<dd>
+<dl>
+<dt>760 (0x2F8)</dt>
+<dt>
+<p>The specified process is part of a job.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VOLSNAP_HIBERNATE_READY"></a><a id="error_volsnap_hibernate_ready"></a><strong>ERROR_VOLSNAP_HIBERNATE_READY</strong></dt>
+<dd>
+<dl>
+<dt>761 (0x2F9)</dt>
+<dt>
+<p>{Volume Shadow Copy Service} The system is now ready for hibernation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY"></a><a id="error_fsfilter_op_completed_successfully"></a><strong>ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY</strong></dt>
+<dd>
+<dl>
+<dt>762 (0x2FA)</dt>
+<dt>
+<p>A file system or file system filter driver has successfully completed an FsFilter operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED"></a><a id="error_interrupt_vector_already_connected"></a><strong>ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>763 (0x2FB)</dt>
+<dt>
+<p>The specified interrupt vector was already connected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERRUPT_STILL_CONNECTED"></a><a id="error_interrupt_still_connected"></a><strong>ERROR_INTERRUPT_STILL_CONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>764 (0x2FC)</dt>
+<dt>
+<p>The specified interrupt vector is still connected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_FOR_OPLOCK"></a><a id="error_wait_for_oplock"></a><strong>ERROR_WAIT_FOR_OPLOCK</strong></dt>
+<dd>
+<dl>
+<dt>765 (0x2FD)</dt>
+<dt>
+<p>An operation is blocked waiting for an oplock.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_EXCEPTION_HANDLED"></a><a id="error_dbg_exception_handled"></a><strong>ERROR_DBG_EXCEPTION_HANDLED</strong></dt>
+<dd>
+<dl>
+<dt>766 (0x2FE)</dt>
+<dt>
+<p>Debugger handled exception.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DBG_CONTINUE"></a><a id="error_dbg_continue"></a><strong>ERROR_DBG_CONTINUE</strong></dt>
+<dd>
+<dl>
+<dt>767 (0x2FF)</dt>
+<dt>
+<p>Debugger continued.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CALLBACK_POP_STACK"></a><a id="error_callback_pop_stack"></a><strong>ERROR_CALLBACK_POP_STACK</strong></dt>
+<dd>
+<dl>
+<dt>768 (0x300)</dt>
+<dt>
+<p>An exception occurred in a user mode callback and the kernel callback frame should be removed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COMPRESSION_DISABLED"></a><a id="error_compression_disabled"></a><strong>ERROR_COMPRESSION_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>769 (0x301)</dt>
+<dt>
+<p>Compression is disabled for this volume.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANTFETCHBACKWARDS"></a><a id="error_cantfetchbackwards"></a><strong>ERROR_CANTFETCHBACKWARDS</strong></dt>
+<dd>
+<dl>
+<dt>770 (0x302)</dt>
+<dt>
+<p>The data provider cannot fetch backwards through a result set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANTSCROLLBACKWARDS"></a><a id="error_cantscrollbackwards"></a><strong>ERROR_CANTSCROLLBACKWARDS</strong></dt>
+<dd>
+<dl>
+<dt>771 (0x303)</dt>
+<dt>
+<p>The data provider cannot scroll backwards through a result set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ROWSNOTRELEASED"></a><a id="error_rowsnotreleased"></a><strong>ERROR_ROWSNOTRELEASED</strong></dt>
+<dd>
+<dl>
+<dt>772 (0x304)</dt>
+<dt>
+<p>The data provider requires that previously fetched data is released before asking for more data.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_ACCESSOR_FLAGS"></a><a id="error_bad_accessor_flags"></a><strong>ERROR_BAD_ACCESSOR_FLAGS</strong></dt>
+<dd>
+<dl>
+<dt>773 (0x305)</dt>
+<dt>
+<p>The data provider was not able to interpret the flags set for a column binding in an accessor.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ERRORS_ENCOUNTERED"></a><a id="error_errors_encountered"></a><strong>ERROR_ERRORS_ENCOUNTERED</strong></dt>
+<dd>
+<dl>
+<dt>774 (0x306)</dt>
+<dt>
+<p>One or more errors occurred while processing the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_CAPABLE"></a><a id="error_not_capable"></a><strong>ERROR_NOT_CAPABLE</strong></dt>
+<dd>
+<dl>
+<dt>775 (0x307)</dt>
+<dt>
+<p>The implementation is not capable of performing the request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REQUEST_OUT_OF_SEQUENCE"></a><a id="error_request_out_of_sequence"></a><strong>ERROR_REQUEST_OUT_OF_SEQUENCE</strong></dt>
+<dd>
+<dl>
+<dt>776 (0x308)</dt>
+<dt>
+<p>The client of a component requested an operation which is not valid given the state of the component 
+     instance.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VERSION_PARSE_ERROR"></a><a id="error_version_parse_error"></a><strong>ERROR_VERSION_PARSE_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>777 (0x309)</dt>
+<dt>
+<p>A version number could not be parsed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BADSTARTPOSITION"></a><a id="error_badstartposition"></a><strong>ERROR_BADSTARTPOSITION</strong></dt>
+<dd>
+<dl>
+<dt>778 (0x30A)</dt>
+<dt>
+<p>The iterator's start position is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MEMORY_HARDWARE"></a><a id="error_memory_hardware"></a><strong>ERROR_MEMORY_HARDWARE</strong></dt>
+<dd>
+<dl>
+<dt>779 (0x30B)</dt>
+<dt>
+<p>The hardware has reported an uncorrectable memory error.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_REPAIR_DISABLED"></a><a id="error_disk_repair_disabled"></a><strong>ERROR_DISK_REPAIR_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>780 (0x30C)</dt>
+<dt>
+<p>The attempted operation required self healing to be enabled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE"></a><a id="error_insufficient_resource_for_specified_shared_section_size"></a><strong>ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE</strong></dt>
+<dd>
+<dl>
+<dt>781 (0x30D)</dt>
+<dt>
+<p>The Desktop heap encountered an error while allocating session memory. There is more information in the 
+     system event log.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_POWERSTATE_TRANSITION"></a><a id="error_system_powerstate_transition"></a><strong>ERROR_SYSTEM_POWERSTATE_TRANSITION</strong></dt>
+<dd>
+<dl>
+<dt>782 (0x30E)</dt>
+<dt>
+<p>The system power state is transitioning from %2 to %3.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION"></a><a id="error_system_powerstate_complex_transition"></a><strong>ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION</strong></dt>
+<dd>
+<dl>
+<dt>783 (0x30F)</dt>
+<dt>
+<p>The system power state is transitioning from %2 to %3 but could enter %4.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MCA_EXCEPTION"></a><a id="error_mca_exception"></a><strong>ERROR_MCA_EXCEPTION</strong></dt>
+<dd>
+<dl>
+<dt>784 (0x310)</dt>
+<dt>
+<p>A thread is getting dispatched with MCA EXCEPTION because of MCA.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACCESS_AUDIT_BY_POLICY"></a><a id="error_access_audit_by_policy"></a><strong>ERROR_ACCESS_AUDIT_BY_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>785 (0x311)</dt>
+<dt>
+<p>Access to %1 is monitored by policy rule %2.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY"></a><a id="error_access_disabled_no_safer_ui_by_policy"></a><strong>ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY</strong></dt>
+<dd>
+<dl>
+<dt>786 (0x312)</dt>
+<dt>
+<p>Access to %1 has been restricted by your Administrator by policy rule %2.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ABANDON_HIBERFILE"></a><a id="error_abandon_hiberfile"></a><strong>ERROR_ABANDON_HIBERFILE</strong></dt>
+<dd>
+<dl>
+<dt>787 (0x313)</dt>
+<dt>
+<p>A valid hibernation file has been invalidated and should be abandoned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED"></a><a id="error_lost_writebehind_data_network_disconnected"></a><strong>ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>788 (0x314)</dt>
+<dt>
+<p>{Delayed Write Failed} Windows was unable to save all the data for the file %hs; the data has been lost. 
+     This error may be caused by network connectivity issues. Please try to save this file elsewhere.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR"></a><a id="error_lost_writebehind_data_network_server_error"></a><strong>ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>789 (0x315)</dt>
+<dt>
+<p>{Delayed Write Failed} Windows was unable to save all the data for the file %hs; the data has been lost. 
+     This error was returned by the server on which the file exists. Please try to save this file elsewhere.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR"></a><a id="error_lost_writebehind_data_local_disk_error"></a><strong>ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>790 (0x316)</dt>
+<dt>
+<p>{Delayed Write Failed} Windows was unable to save all the data for the file %hs; the data has been lost. 
+     This error may be caused if the device has been removed or the media is write-protected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_MCFG_TABLE"></a><a id="error_bad_mcfg_table"></a><strong>ERROR_BAD_MCFG_TABLE</strong></dt>
+<dd>
+<dl>
+<dt>791 (0x317)</dt>
+<dt>
+<p>The resources required for this device conflict with the MCFG table.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_REPAIR_REDIRECTED"></a><a id="error_disk_repair_redirected"></a><strong>ERROR_DISK_REPAIR_REDIRECTED</strong></dt>
+<dd>
+<dl>
+<dt>792 (0x318)</dt>
+<dt>
+<p>The volume repair could not be performed while it is online. Please schedule to take the volume offline so 
+     that it can be repaired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_REPAIR_UNSUCCESSFUL"></a><a id="error_disk_repair_unsuccessful"></a><strong>ERROR_DISK_REPAIR_UNSUCCESSFUL</strong></dt>
+<dd>
+<dl>
+<dt>793 (0x319)</dt>
+<dt>
+<p>The volume repair was not successful.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_LOG_OVERFULL"></a><a id="error_corrupt_log_overfull"></a><strong>ERROR_CORRUPT_LOG_OVERFULL</strong></dt>
+<dd>
+<dl>
+<dt>794 (0x31A)</dt>
+<dt>
+<p>One of the volume corruption logs is full. Further corruptions that may be detected won't be logged.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_LOG_CORRUPTED"></a><a id="error_corrupt_log_corrupted"></a><strong>ERROR_CORRUPT_LOG_CORRUPTED</strong></dt>
+<dd>
+<dl>
+<dt>795 (0x31B)</dt>
+<dt>
+<p>One of the volume corruption logs is internally corrupted and needs to be recreated. The volume may contain 
+     undetected corruptions and must be scanned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_LOG_UNAVAILABLE"></a><a id="error_corrupt_log_unavailable"></a><strong>ERROR_CORRUPT_LOG_UNAVAILABLE</strong></dt>
+<dd>
+<dl>
+<dt>796 (0x31C)</dt>
+<dt>
+<p>One of the volume corruption logs is unavailable for being operated on.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_LOG_DELETED_FULL"></a><a id="error_corrupt_log_deleted_full"></a><strong>ERROR_CORRUPT_LOG_DELETED_FULL</strong></dt>
+<dd>
+<dl>
+<dt>797 (0x31D)</dt>
+<dt>
+<p>One of the volume corruption logs was deleted while still having corruption records in them. The volume 
+     contains detected corruptions and must be scanned.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CORRUPT_LOG_CLEARED"></a><a id="error_corrupt_log_cleared"></a><strong>ERROR_CORRUPT_LOG_CLEARED</strong></dt>
+<dd>
+<dl>
+<dt>798 (0x31E)</dt>
+<dt>
+<p>One of the volume corruption logs was cleared by chkdsk and no longer contains real corruptions.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ORPHAN_NAME_EXHAUSTED"></a><a id="error_orphan_name_exhausted"></a><strong>ERROR_ORPHAN_NAME_EXHAUSTED</strong></dt>
+<dd>
+<dl>
+<dt>799 (0x31F)</dt>
+<dt>
+<p>Orphaned files exist on the volume but could not be recovered because no more new names could be created in 
+     the recovery directory. Files must be moved from the recovery directory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE"></a><a id="error_oplock_switched_to_new_handle"></a><strong>ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>800 (0x320)</dt>
+<dt>
+<p>The oplock that was associated with this handle is now associated with a different handle.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_GRANT_REQUESTED_OPLOCK"></a><a id="error_cannot_grant_requested_oplock"></a><strong>ERROR_CANNOT_GRANT_REQUESTED_OPLOCK</strong></dt>
+<dd>
+<dl>
+<dt>801 (0x321)</dt>
+<dt>
+<p>An oplock of the requested level cannot be granted. An oplock of a lower level may be available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_BREAK_OPLOCK"></a><a id="error_cannot_break_oplock"></a><strong>ERROR_CANNOT_BREAK_OPLOCK</strong></dt>
+<dd>
+<dl>
+<dt>802 (0x322)</dt>
+<dt>
+<p>The operation did not complete successfully because it would cause an oplock to be broken. The caller has 
+     requested that existing oplocks not be broken.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPLOCK_HANDLE_CLOSED"></a><a id="error_oplock_handle_closed"></a><strong>ERROR_OPLOCK_HANDLE_CLOSED</strong></dt>
+<dd>
+<dl>
+<dt>803 (0x323)</dt>
+<dt>
+<p>The handle with which this oplock was associated has been closed. The oplock is now broken.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_ACE_CONDITION"></a><a id="error_no_ace_condition"></a><strong>ERROR_NO_ACE_CONDITION</strong></dt>
+<dd>
+<dl>
+<dt>804 (0x324)</dt>
+<dt>
+<p>The specified access control entry (ACE) does not contain a condition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ACE_CONDITION"></a><a id="error_invalid_ace_condition"></a><strong>ERROR_INVALID_ACE_CONDITION</strong></dt>
+<dd>
+<dl>
+<dt>805 (0x325)</dt>
+<dt>
+<p>The specified access control entry (ACE) contains an invalid condition.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_HANDLE_REVOKED"></a><a id="error_file_handle_revoked"></a><strong>ERROR_FILE_HANDLE_REVOKED</strong></dt>
+<dd>
+<dl>
+<dt>806 (0x326)</dt>
+<dt>
+<p>Access to the specified file handle has been revoked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMAGE_AT_DIFFERENT_BASE"></a><a id="error_image_at_different_base"></a><strong>ERROR_IMAGE_AT_DIFFERENT_BASE</strong></dt>
+<dd>
+<dl>
+<dt>807 (0x327)</dt>
+<dt>
+<p>An image file was mapped at a different address from the one specified in the image file but fixups will still be automatically performed on the image.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EA_ACCESS_DENIED"></a><a id="error_ea_access_denied"></a><strong>ERROR_EA_ACCESS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>994 (0x3E2)</dt>
+<dt>
+<p>Access to the extended attribute was denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPERATION_ABORTED"></a><a id="error_operation_aborted"></a><strong>ERROR_OPERATION_ABORTED</strong></dt>
+<dd>
+<dl>
+<dt>995 (0x3E3)</dt>
+<dt>
+<p>The I/O operation has been aborted because of either a thread exit or an application request.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IO_INCOMPLETE"></a><a id="error_io_incomplete"></a><strong>ERROR_IO_INCOMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>996 (0x3E4)</dt>
+<dt>
+<p>Overlapped I/O event is not in a signaled state.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IO_PENDING"></a><a id="error_io_pending"></a><strong>ERROR_IO_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>997 (0x3E5)</dt>
+<dt>
+<p>Overlapped I/O operation is in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOACCESS"></a><a id="error_noaccess"></a><strong>ERROR_NOACCESS</strong></dt>
+<dd>
+<dl>
+<dt>998 (0x3E6)</dt>
+<dt>
+<p>Invalid access to memory location.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SWAPERROR"></a><a id="error_swaperror"></a><strong>ERROR_SWAPERROR</strong></dt>
+<dd>
+<dl>
+<dt>999 (0x3E7)</dt>
+<dt>
+<p>Error performing inpage operation.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681388(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681388(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="wlWr7olW8EFjf3iIC1jTrtrTuGW7_CjBv1eFY6ZEHky89ctGHdz3X1bNNSzgV9nFs8x_RqyUMH1T5n9xREujeWVxT0M1" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681388(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681388(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="ssrWUqScBq3viHID--PNkYaO0p4ZMg9KdhG59t1l32a8M1BazgR_ZnqU5AHDvzk6T3JcHIj4EN4jliOP6e_g9pM_oI41" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://157.56.49.72\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681388(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"25783965-a174-490f-8c30-936d73b9630d\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i3.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>

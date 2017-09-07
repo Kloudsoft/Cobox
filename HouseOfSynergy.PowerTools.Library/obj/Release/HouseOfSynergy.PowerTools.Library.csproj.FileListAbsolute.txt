@@ -1,0 +1,9 @@
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\bin\Release\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\bin\Release\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.Database.DatabaseConnectionWizard.resources
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.UserControls.WindowsForms.FormTimedMessageBox.resources
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.UserControls.WindowsForms.PictureBoxCanvas.resources
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.csproj.GenerateResource.Cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Release\HouseOfSynergy.PowerTools.Library.pdb

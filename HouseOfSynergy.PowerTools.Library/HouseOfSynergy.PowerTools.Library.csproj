@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADF4A60A-BF83-499A-9653-43DF5D4F7836}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HouseOfSynergy.PowerTools.Library</RootNamespace>
+    <AssemblyName>HouseOfSynergy.PowerTools.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationInfo.cs" />
+    <Compile Include="Attributes\EnumAttribute.cs" />
+    <Compile Include="Attributes\SuiteGuidAttribute.cs" />
+    <Compile Include="Attributes\SuiteManufacturerNameAttribute.cs" />
+    <Compile Include="Attributes\SuiteManufacturerUrlAttribute.cs" />
+    <Compile Include="Attributes\SuiteVersionAttribute.cs" />
+    <Compile Include="Attributes\Validation\BooleanFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\ByteFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\ByteSignedFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\DecimalFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\DoubleFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\EmailFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\EntityAttribute.cs" />
+    <Compile Include="Attributes\Validation\FieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\FieldAttributeComparer.cs" />
+    <Compile Include="Attributes\Validation\Int16FieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\Int32FieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\Int64FieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\IpAddressFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\MacAddressFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\PasswordFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\SingleFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\StringSingleLineFieldAttribute.cs" />
+    <Compile Include="Attributes\Validation\TextBoxFieldAttribute.cs" />
+    <Compile Include="Captures\CaptureAudio.cs" />
+    <Compile Include="Captures\CaptureBase.cs" />
+    <Compile Include="Captures\CaptureManager.cs" />
+    <Compile Include="Captures\CaptureVideo.cs" />
+    <Compile Include="Captures\Samples\SampleAudio.cs" />
+    <Compile Include="Captures\Samples\SampleBase.cs" />
+    <Compile Include="Captures\Samples\SampleVideo.cs" />
+    <Compile Include="Collections\Cell.cs" />
+    <Compile Include="Collections\Cells.cs" />
+    <Compile Include="Collections\Column.cs" />
+    <Compile Include="Collections\Columns.cs" />
+    <Compile Include="Collections\Grid.cs" />
+    <Compile Include="Collections\IQueue.cs" />
+    <Compile Include="Collections\IReadOnlyCollection.cs" />
+    <Compile Include="Collections\IStack.cs" />
+    <Compile Include="Collections\Node.cs" />
+    <Compile Include="Collections\Nodes.cs" />
+    <Compile Include="Collections\ReadOnlyCells.cs" />
+    <Compile Include="Collections\ReadOnlyColumn.cs" />
+    <Compile Include="Collections\ReadOnlyColumns.cs" />
+    <Compile Include="Collections\ReadOnlyDictionary.cs" />
+    <Compile Include="Collections\ReadOnlyList.cs" />
+    <Compile Include="Collections\ReadOnlyListException.cs" />
+    <Compile Include="Collections\ReadOnlyListItemEditException.cs" />
+    <Compile Include="Collections\ReadOnlyListListEditException.cs" />
+    <Compile Include="Collections\ReadOnlyRow.cs" />
+    <Compile Include="Collections\ReadOnlyRows.cs" />
+    <Compile Include="Collections\Row.cs" />
+    <Compile Include="Collections\Rows.cs" />
+    <Compile Include="Collections\Tag.cs" />
+    <Compile Include="Collections\Tree.cs" />
+    <Compile Include="ConsoleFramework\ApplicationBase.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgument.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgumentKey.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgumentManager.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgumentMap.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgumentMapBuilder.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\CommandLineArgumentValue.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\Exceptions\CommandLineArgumentKeyDuplicateException.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\Exceptions\CommandLineArgumentKeyInvalidNameException.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\Exceptions\CommandLineArgumentsException.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\ICommandLineArgument.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\ICommandLineArgumentElement.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\ICommandLineArgumentKey.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\ICommandLineArgumentMap.cs" />
+    <Compile Include="ConsoleFramework\CommandLine\ICommandLineArgumentValue.cs" />
+    <Compile Include="ConsoleFramework\ConsoleDimension.cs" />
+    <Compile Include="ConsoleFramework\ConsoleFrameworkException.cs" />
+    <Compile Include="ConsoleFramework\ConsolePosition.cs" />
+    <Compile Include="ConsoleFramework\ConsoleWrapper.cs" />
+    <Compile Include="ConsoleFramework\IConsoleApplication.cs" />
+    <Compile Include="ConsoleFramework\IConsoleProvider.cs" />
+    <Compile Include="ConsoleFramework\IRenderable.cs" />
+    <Compile Include="ConsoleFramework\Menus\Menu.cs" />
+    <Compile Include="ConsoleFramework\Menus\MenuFreeText.cs" />
+    <Compile Include="ConsoleFramework\Menus\MenuSingleKey.cs" />
+    <Compile Include="ConsoleFramework\Menus\MenuType.cs" />
+    <Compile Include="ConsoleFramework\Menus\Option.cs" />
+    <Compile Include="ConsoleFramework\Menus\OptionFreeText.cs" />
+    <Compile Include="ConsoleFramework\Menus\OptionSingleKey.cs" />
+    <Compile Include="ConsoleFramework\Screens\IScreen.cs" />
+    <Compile Include="ConsoleFramework\Screens\Screen.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenInfo.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenMenu.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenMenuFreeText.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenMenuSingleKey.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenModal.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenTask.cs" />
+    <Compile Include="ConsoleFramework\Screens\ScreenTimedInfo.cs" />
+    <Compile Include="Database\DatabaseConnectionWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database\DatabaseConnectionWizard.Designer.cs">
+      <DependentUpon>DatabaseConnectionWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EntityTracker\EntityState.cs" />
+    <Compile Include="Data\EntityTracker\EntityTracker.cs" />
+    <Compile Include="Delegates\EventHandler.cs" />
+    <Compile Include="Delegates\Extensions.cs" />
+    <Compile Include="Drawing\ILine.cs" />
+    <Compile Include="Drawing\ILineSegment.cs" />
+    <Compile Include="Drawing\ILineSegmentF.cs" />
+    <Compile Include="Drawing\Imaging\Histogram.cs" />
+    <Compile Include="Drawing\IPoint.cs" />
+    <Compile Include="Drawing\IPoint2D.cs" />
+    <Compile Include="Drawing\IPoint3D.cs" />
+    <Compile Include="Drawing\IPointND.cs" />
+    <Compile Include="Drawing\Line.cs" />
+    <Compile Include="Drawing\LineSegment.cs" />
+    <Compile Include="Drawing\LineSegmentF.cs" />
+    <Compile Include="Drawing\Point.cs" />
+    <Compile Include="Drawing\Point2D.cs" />
+    <Compile Include="Drawing\Point3D.cs" />
+    <Compile Include="Drawing\PointND.cs" />
+    <Compile Include="Drawing\PointType.cs" />
+    <Compile Include="Drawing\Vector2.cs" />
+    <Compile Include="Drawing\Vector3.cs" />
+    <Compile Include="Drawing\Vector4.cs" />
+    <Compile Include="EventArguments\CancelExceptionEventArgs.cs" />
+    <Compile Include="EventArguments\CustomEventArgs.cs" />
+    <Compile Include="EventArguments\ExceptionEventArgs.cs" />
+    <Compile Include="Exceptions\ApplicationException.cs" />
+    <Compile Include="Exceptions\ExceptionContainer.cs" />
+    <Compile Include="Exceptions\ExceptionContainerCollection.cs" />
+    <Compile Include="ExpressionBuilder\Builder.cs" />
+    <Compile Include="ExpressionBuilder\CompilerException.cs" />
+    <Compile Include="ExpressionBuilder\ConstantsNode.cs" />
+    <Compile Include="ExpressionBuilder\CustomMethodAttribute.cs" />
+    <Compile Include="ExpressionBuilder\ExecutionException.cs" />
+    <Compile Include="ExpressionBuilder\ExpressionBuilderException.cs" />
+    <Compile Include="ExpressionBuilder\INode.cs" />
+    <Compile Include="ExpressionBuilder\INodeDouble.cs" />
+    <Compile Include="ExpressionBuilder\INodeDoubleNullable.cs" />
+    <Compile Include="ExpressionBuilder\InvalidOperatorException.cs" />
+    <Compile Include="ExpressionBuilder\Method.cs" />
+    <Compile Include="ExpressionBuilder\OperandType.cs" />
+    <Compile Include="ExpressionBuilder\Parameter.cs" />
+    <Compile Include="ExpressionBuilder\ParserException.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\ConstantToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\FunctionIndentifierToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\FunctionParameterListToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\FunctionParameterToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\FunctionToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\GenericToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\NegationOperatorToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\OperatorToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\ParenthesesToken.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\Token.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\TokenType.cs" />
+    <Compile Include="ExpressionBuilder\Tokens\VariableToken.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\System\ArrayByte.cs" />
+    <Compile Include="Extensions\System\Array\Extensions.cs" />
+    <Compile Include="Extensions\System\Collections\Generic\Extensions.cs" />
+    <Compile Include="Extensions\System\Drawing.cs" />
+    <Compile Include="Extensions\System\Enum.cs" />
+    <Compile Include="Extensions\System\Guid.cs" />
+    <Compile Include="Extensions\System\IO\Extensions.cs" />
+    <Compile Include="Extensions\System\Reflection\Emit\Extensions.cs" />
+    <Compile Include="Extensions\System\Reflection\Extensions.cs" />
+    <Compile Include="Extensions\System\Security\Cryptography\Extensions.cs" />
+    <Compile Include="Extensions\System\String\Extensions.cs" />
+    <Compile Include="Extensions\System\Type.cs" />
+    <Compile Include="Extensions\System\Windows\Forms\Extensions.cs" />
+    <Compile Include="Extensions\System\Xml\Extensions.cs" />
+    <Compile Include="Generics\GenericArgumentTypeException.cs" />
+    <Compile Include="Generics\GenericArgumentTypesException.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Imaging\ImageDifferentialResult.cs" />
+    <Compile Include="Imaging\ImagingUtilities.cs" />
+    <Compile Include="Interfaces\IApplicationInfo.cs" />
+    <Compile Include="Interfaces\IApplicationInfoProvider.cs" />
+    <Compile Include="Interfaces\ICloneable.cs" />
+    <Compile Include="Interfaces\ICopyable.cs" />
+    <Compile Include="Interfaces\IDatabase.cs" />
+    <Compile Include="Interfaces\IDatabaseFile.cs" />
+    <Compile Include="Interfaces\IDirty.cs" />
+    <Compile Include="Interfaces\IGlobal.cs" />
+    <Compile Include="Interfaces\IInitializable.cs" />
+    <Compile Include="Interfaces\IPersistBinary.cs" />
+    <Compile Include="Interfaces\IPersistXDocument.cs" />
+    <Compile Include="Interfaces\IPersistXElement.cs" />
+    <Compile Include="Interfaces\IPersistXElementTo.cs" />
+    <Compile Include="Interfaces\IPersistXmlDocument.cs" />
+    <Compile Include="Interfaces\IPersistXmlDocumentTo.cs" />
+    <Compile Include="Interfaces\IPersistXmlElement.cs" />
+    <Compile Include="Interfaces\IPersistXmlElementTo.cs" />
+    <Compile Include="Internal\WinErrorTools.cs" />
+    <Compile Include="IO\CopyEntry.cs" />
+    <Compile Include="IO\DirectoryCopier.cs" />
+    <Compile Include="IO\DirectoryCopierErrorEventArgs.cs" />
+    <Compile Include="IO\DirectoryCopierEventArgs.cs" />
+    <Compile Include="IO\DirectoryCopierProgressEventArgs.cs" />
+    <Compile Include="IO\DirectoryCopyEntry.cs" />
+    <Compile Include="IO\DirectorySnapshot.cs" />
+    <Compile Include="IO\FileCopyEntry.cs" />
+    <Compile Include="IO\IStream.cs" />
+    <Compile Include="IO\IStreamReadable.cs" />
+    <Compile Include="IO\IStreamWritable.cs" />
+    <Compile Include="IO\Utility.cs" />
+    <Compile Include="Log\ILogger.cs" />
+    <Compile Include="Log\LogEntry.cs" />
+    <Compile Include="Log\LogEntryType.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="Log\MockLogger.cs" />
+    <Compile Include="Mathematics\Fractions\DenominatorZeroArgumentException.cs" />
+    <Compile Include="Mathematics\Fractions\Fraction.cs" />
+    <Compile Include="Mathematics\Fractions\FractionType.cs" />
+    <Compile Include="Mathematics\Fractions\InvalidMixedFractionFormatException.cs" />
+    <Compile Include="Mathematics\Fractions\MixedFraction.cs" />
+    <Compile Include="Mathematics\NumberToWordsConverter.cs" />
+    <Compile Include="Mathematics\Utility.cs" />
+    <Compile Include="Media\Audio\AudioBitsPerSample.cs" />
+    <Compile Include="Media\Audio\AudioBytesPerSample.cs" />
+    <Compile Include="Media\Audio\AudioChannelCount.cs" />
+    <Compile Include="Media\Audio\AudioEncodingFormat.cs" />
+    <Compile Include="Media\Audio\AudioFormatInfo.cs" />
+    <Compile Include="Media\Audio\AudioSampleRate.cs" />
+    <Compile Include="Media\MediaInfo.cs" />
+    <Compile Include="Media\MediaInfoAudio.cs" />
+    <Compile Include="Media\MediaInfoFormatException.cs" />
+    <Compile Include="Media\MediaInfoVideo.cs" />
+    <Compile Include="Media\MediaType.cs" />
+    <Compile Include="Media\Video\VideoAspectRatio.cs" />
+    <Compile Include="Media\Video\VideoSampleRate.cs" />
+    <Compile Include="Media\Video\VideoSampleType.cs" />
+    <Compile Include="Media\Video\VideoSize.cs" />
+    <Compile Include="Media\Video\VideoUtilities.cs" />
+    <Compile Include="Network\AddressBase.cs" />
+    <Compile Include="Network\Computer.cs" />
+    <Compile Include="Network\ComputerCollection.cs" />
+    <Compile Include="Network\IpAddressV4.cs" />
+    <Compile Include="Network\IpAddressV6.cs" />
+    <Compile Include="Network\MacAddress.cs" />
+    <Compile Include="Network\NetworkDevice.cs" />
+    <Compile Include="Network\SubnetMask.cs" />
+    <Compile Include="Network\Utility.cs" />
+    <Compile Include="Network\WakeOnLan.cs" />
+    <Compile Include="Plotting\Graph.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\PropertyOrderAttribute.cs" />
+    <Compile Include="Reflection\PropertyOrderPair.cs" />
+    <Compile Include="Reflection\PropertySorter.cs" />
+    <Compile Include="Reflection\Tools\ReferenceHunter.cs" />
+    <Compile Include="Scheduling\JobEventArgs.cs" />
+    <Compile Include="Scheduling\Jobs\IJob.cs" />
+    <Compile Include="Scheduling\Jobs\IJobDetail.cs" />
+    <Compile Include="Scheduling\Jobs\Job.cs" />
+    <Compile Include="Scheduling\Jobs\JobAction.cs" />
+    <Compile Include="Scheduling\Jobs\JobClass.cs" />
+    <Compile Include="Scheduling\Jobs\JobComparer.cs" />
+    <Compile Include="Scheduling\Jobs\JobType.cs" />
+    <Compile Include="Scheduling\Scheduler.cs" />
+    <Compile Include="Scheduling\Schedules\Schedule.cs" />
+    <Compile Include="Scheduling\Schedules\ScheduleDiscreet.cs" />
+    <Compile Include="Scheduling\Schedules\ScheduleEmpty.cs" />
+    <Compile Include="Scheduling\Schedules\ScheduleSeries.cs" />
+    <Compile Include="Scheduling\Schedules\ScheduleType.cs" />
+    <Compile Include="Scheduling\Triggers\ITrigger.cs" />
+    <Compile Include="Scheduling\Triggers\Trigger.cs" />
+    <Compile Include="Scheduling\Triggers\TriggerComparer.cs" />
+    <Compile Include="Security\Cryptography\PasswordHash.cs" />
+    <Compile Include="Security\Cryptography\Random.cs" />
+    <Compile Include="Security\Cryptography\RijndaelManaged.cs" />
+    <Compile Include="Security\Cryptography\Rsa.cs" />
+    <Compile Include="Security\Cryptography\Sha.cs" />
+    <Compile Include="Security\Utility.cs" />
+    <Compile Include="Signals\Generators\IMultiChannelSignalGenerator.cs" />
+    <Compile Include="Signals\Generators\ISignalGenerator.cs" />
+    <Compile Include="Signals\Generators\ISingleChannelSignalGenerator.cs" />
+    <Compile Include="Signals\Generators\MultiChannelSignalGenerator.cs" />
+    <Compile Include="Signals\Generators\SineSignalGenerator.cs" />
+    <Compile Include="Signals\Generators\SingleChannelSignalGenerator.cs" />
+    <Compile Include="Signals\ISignal.cs" />
+    <Compile Include="Signals\ISignalSettings.cs" />
+    <Compile Include="Signals\Providers\ISignalProvider.cs" />
+    <Compile Include="Signals\Sample.cs" />
+    <Compile Include="Signals\SignalData.cs" />
+    <Compile Include="Signals\Streams\ISignalStream.cs" />
+    <Compile Include="StateMachine\DuplicateTransitionException.cs" />
+    <Compile Include="StateMachine\FiniteStateMachine.cs" />
+    <Compile Include="StateMachine\RouterFiniteStateMachine.cs" />
+    <Compile Include="StateMachine\StateChangedEventArgs.cs" />
+    <Compile Include="StateMachine\StateChangeRequestedEventArgs.cs" />
+    <Compile Include="StateMachine\StateMachine.cs" />
+    <Compile Include="StateMachine\Transition.cs" />
+    <Compile Include="StateMachine\TransitionEqualityComparer.cs" />
+    <Compile Include="StateMachine\TransitionEvent.cs" />
+    <Compile Include="Threading\ApplicationMutex.cs" />
+    <Compile Include="Threading\DegreeOfParallelism.cs" />
+    <Compile Include="Threading\ProgressType.cs" />
+    <Compile Include="Threading\ThreadBase.cs" />
+    <Compile Include="Threading\ThreadBaseStopParameters.cs" />
+    <Compile Include="Threading\ThreadEventArgs.cs" />
+    <Compile Include="Threading\ThreadIterative.cs" />
+    <Compile Include="UserControls\WindowsForms\FormTimedMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\WindowsForms\FormTimedMessageBox.Designer.cs">
+      <DependentUpon>FormTimedMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WindowsForms\GenericStream.cs" />
+    <Compile Include="UserControls\WindowsForms\Graph.cs" />
+    <Compile Include="UserControls\WindowsForms\IDrawable.cs" />
+    <Compile Include="UserControls\WindowsForms\IPannable.cs" />
+    <Compile Include="UserControls\WindowsForms\ISurface.cs" />
+    <Compile Include="UserControls\WindowsForms\IZoomable.cs" />
+    <Compile Include="UserControls\WindowsForms\LiveStream.cs" />
+    <Compile Include="UserControls\WindowsForms\PictureBoxCanvas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\WindowsForms\PictureBoxCanvas.Designer.cs">
+      <DependentUpon>PictureBoxCanvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WindowsForms\TimedMessageBox.cs" />
+    <Compile Include="UserControls\WindowsForms\TimedMessageBoxButtonsStandard.cs" />
+    <Compile Include="Utility\ApplicationInfo.cs" />
+    <Compile Include="Utility\ArrayUtilities.cs" />
+    <Compile Include="Utility\Compatibility.cs" />
+    <Compile Include="Utility\ComUtilities.cs" />
+    <Compile Include="Utility\ConsoleUtilities.cs" />
+    <Compile Include="Utility\ConversionUtilities.cs" />
+    <Compile Include="Utility\Disposable.cs" />
+    <Compile Include="Utility\DisposableUtilities.cs" />
+    <Compile Include="Utility\EnumUtilities.cs" />
+    <Compile Include="Utility\FileUtilities.cs" />
+    <Compile Include="Utility\GeneralUtilities.cs" />
+    <Compile Include="Utility\GenericUtilities.cs" />
+    <Compile Include="Utility\GlobalBase.cs" />
+    <Compile Include="Utility\GuidUtilities.cs" />
+    <Compile Include="Utility\MethodResult.cs" />
+    <Compile Include="Interfaces\IOptions.cs" />
+    <Compile Include="Utility\MiscellaneousUtilities.cs" />
+    <Compile Include="Utility\NetworkUtilities.cs" />
+    <Compile Include="Utility\OptionsBase.cs" />
+    <Compile Include="Utility\PathUtilities.cs" />
+    <Compile Include="Utility\ProcessRestarterExceptions.cs" />
+    <Compile Include="Utility\ProcessRestarterTemplate.cs" />
+    <Compile Include="Utility\ProcessUtilities.cs" />
+    <Compile Include="Utility\ReflectionUtilities.cs" />
+    <Compile Include="Utility\ScreenUtilities.cs" />
+    <Compile Include="Utility\SecurityUtilities.cs" />
+    <Compile Include="Utility\ShellUtilities.cs" />
+    <Compile Include="Utility\Singleton.cs" />
+    <Compile Include="Utility\SingletonDisposable.cs" />
+    <Compile Include="Utility\StringCaseInsensitiveComparer.cs" />
+    <Compile Include="Utility\StringUtilities.cs" />
+    <Compile Include="Utility\ThreadUtilities.cs" />
+    <Compile Include="Web\Data.cs" />
+    <Compile Include="Web\HttpRequestMethod.cs" />
+    <Compile Include="Web\HttpServer.cs" />
+    <Compile Include="Web\ICustomData.cs" />
+    <Compile Include="Web\Proxy.cs" />
+    <Compile Include="Web\Request.cs" />
+    <Compile Include="Web\Response.cs" />
+    <Compile Include="Win32Api\Kernel32.cs" />
+    <Compile Include="Win32Api\Ole32.cs" />
+    <Compile Include="Win32Api\Shell32.cs" />
+    <Compile Include="Win32Api\User32.cs" />
+    <Compile Include="Win32Api\Win32Api.cs" />
+    <Compile Include="Win32Api\Window.cs" />
+    <Compile Include="Win32Api\WindowCollection.cs" />
+    <Compile Include="Win32Api\WindowComparer.cs" />
+    <Compile Include="Win32Api\WinError.cs" />
+    <Compile Include="Win32Api\WinErrorGenerated.cs" />
+    <Compile Include="Win32Api\Wininet.cs" />
+    <Compile Include="Win32Api\WinUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConsoleFramework\ConsoleFramework.txt" />
+    <Content Include="Help\Overview.html" />
+    <Content Include="Internal\System Error Codes - 00000 - 00499.html" />
+    <Content Include="Internal\System Error Codes - 00500 - 00999.html" />
+    <Content Include="Internal\System Error Codes - 01000 - 01299.html" />
+    <Content Include="Internal\System Error Codes - 01300 - 01699.html" />
+    <Content Include="Internal\System Error Codes - 01700 - 03999.html" />
+    <Content Include="Internal\System Error Codes - 04000 - 05999.html" />
+    <Content Include="Internal\System Error Codes - 06000 - 08199.html" />
+    <Content Include="Internal\System Error Codes - 08200 - 08999.html" />
+    <Content Include="Internal\System Error Codes - 09000 - 11999.html" />
+    <Content Include="Internal\System Error Codes - 12000 - 15999.html" />
+    <Content Include="Internal\WinError Template.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Database\DatabaseConnectionWizard.resx">
+      <DependentUpon>DatabaseConnectionWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\WindowsForms\FormTimedMessageBox.resx">
+      <DependentUpon>FormTimedMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\WindowsForms\PictureBoxCanvas.resx">
+      <DependentUpon>PictureBoxCanvas.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Help\Index.hhk" />
+    <None Include="Help\Power Tools.chm" />
+    <None Include="Help\Power Tools.hhp" />
+    <None Include="Help\Table of Contents.hhc" />
+    <None Include="NuGet\HoS-PowerTools-Library.1.0.0.nupkg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

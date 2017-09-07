@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head><link rel="canonical" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" />
+        <title>System Error Codes (0-499) (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms681382(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681382(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681382(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681382(d=default,l=en-us,v=vs.85).aspx" />
+
+<meta name="MN" content="61C41DCE-7:31:44 PM" />
+
+<meta name="Search.ShortId" content="ms681382" />
+
+<meta name="ms.shortidmsdn" content="ms681382" />
+
+<meta name="Ms.Locale" content="en-us" />
+
+<meta name="ms.prodver" content="VS.85" />
+
+<meta name="ms.contentlang" content="EN" />
+
+<meta name="ms.lang" content="EN" />
+
+<meta name="ms.loc" content="US" />
+
+<meta name="ms.sitever" content="2014.07.11.0003" />
+
+<meta name="ms.assetid" content="cacb0aec-d438-4875-a96e-4e0239fdc6ba" />
+
+<meta name="ms.auth" content="0" />
+
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Combined.css?resources=0:Topic,0:CodeSnippet,0:ProgrammingSelector,0:ExpandableCollapsibleArea,1:CommunityContent,0:TopicNotInScope,0:FeedViewerBasic,0:ImageSprite,2:Header,2:sprite,1:Toc,1:NavigationResize,1:LibraryMemberFilter,2:Footer,3:LinkList,3:SelectLocaleFromPopUp,4:Windows;/Areas/Epx/Content/Css:0,/Areas/Library/Content:1,/Areas/Epx/Themes/Windows/Content:2,/Areas/Epx/Themes/Base/Content:3,/Areas/Library/Themes/Windows/Content:4&amp;amp;hashKey=82C3FE275717C28A10588B75F7C04B4C" /></head>
+    <body class="library ">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="http://i.msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Windows_logo.png"></img></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none;">
+        <ul>
+                <li><a href="http://dev.windows.com/" title="Windows">Windows</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    <div class="SearchBox">   
+        <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this);">
+        <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" />            
+        <button id="HeaderSearchButton" value="" type="submit" class="header-search-button"></button>
+        </form>
+         
+            
+             
+    
+    </div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546.aspx" title="Get started">Get started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258.aspx" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962.aspx" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dn553326.aspx" title="Test and deploy">Test and deploy</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/jj134964.aspx" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn">
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1405996304&amp;rver=6.0.5276.0&amp;wp=MCLBI&amp;wlcxt=MSDN%24MSDN%24MSDN&amp;wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382%2528v%3dvs.85%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-US" title="Sign in">Sign in</a></div>
+
+    
+
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg126469.aspx" title="Desktop technologies">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system ">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community">Community</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd571479.aspx" title="Windows 7">Windows 7</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav">
+
+
+
+<div id="tocnav">
+
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663269(v=vs.85).aspx" id="bg126522_VS.85_en-us" mtpsaliasid="" mtpsassetid="8dbc4807-e634-4204-8be7-e200f99ac6e2_VS.85_en-us" mtpsshortid="ee663269_VS.85_en-us" title="Diagnostics">Diagnostics</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ee663265(v=vs.85).aspx" id="dn457820_VS.85_en-us" mtpsaliasid="" mtpsassetid="99745b87-68d9-4190-b81f-06e7107925fa_VS.85_en-us" mtpsshortid="ee663265_VS.85_en-us" title="Debugging and Error Handling">Debugging and Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679320(v=vs.85).aspx" id="ms756814_VS.85_en-us" mtpsaliasid="" mtpsassetid="b8d84980-6ba9-4784-8ab0-d5e9c5c95bae_VS.85_en-us" mtpsshortid="ms679320_VS.85_en-us" title="Error Handling">Error Handling</a>            </div>
+            <div class="toclevel0" data-toclevel="0">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms679323(v=vs.85).aspx" id="ms756918_VS.85_en-us" mtpsaliasid="" mtpsassetid="7d08603d-7baa-4972-962c-50beaeb926f2_VS.85_en-us" mtpsshortid="ms679323_VS.85_en-us" title="Error Handling Reference">Error Handling Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1">
+<a data-tochassubtree="true" href="/en-us/library/windows/desktop/ms681381(v=vs.85).aspx" id="dd935874_VS.85_en-us" mtpsaliasid="" mtpsassetid="4a3a8feb-a05f-4614-8f04-1f507da7e5b7_VS.85_en-us" mtpsshortid="ms681381_VS.85_en-us" title="System Error Codes">System Error Codes</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681382(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (0-499)">System Error Codes (0-499)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681388(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (500-999)">System Error Codes (500-999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681383(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1000-1299)">System Error Codes (1000-1299)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681385(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1300-1699)">System Error Codes (1300-1699)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681386(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (1700-3999)">System Error Codes (1700-3999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681387(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (4000-5999)">System Error Codes (4000-5999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681389(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (6000-8199)">System Error Codes (6000-8199)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681390(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (8200-8999)">System Error Codes (8200-8999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681391(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (9000-11999)">System Error Codes (9000-11999)</a>            </div>
+            <div class="toclevel2" data-toclevel="2">
+<a href="/en-us/library/windows/desktop/ms681384(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="System Error Codes (12000-15999)">System Error Codes (12000-15999)</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)">
+    <img class="cl_nav_resize_open" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Expand" alt="Expand" />
+    <img class="cl_nav_resize_close" src="http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png" title="Minimize" alt="Minimize" />
+</a>
+
+
+
+    </div>
+<div id="content" class="content">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">System Error Codes (0-499)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>
+</p><p><strong>Note</strong>Â Â </p><p class="note">The information on this page is intended to be used by programmers so that the software they write can better 
+       deal with errors. If you are an end-user that is experiencing difficulty with an application you are installing 
+       or running, contact customer support for the software that is displaying the error message. To obtain support 
+       for a Microsoft product, go to 
+       <a href="Http://go.microsoft.com/fwlink/p/?linkid=83978">http://support.microsoft.com</a>.</p>
+
+
+<p>The System Error Codes are very broad. Each one can occur in one of many hundreds of locations in the system. 
+    Consequently the descriptions of these codes cannot be very specific. Use of these codes requires some amount of 
+    investigation and analysis. You need to note both the programmatic and the run-time context in which these errors 
+    occur. Because these codes are defined in WinError.h for anyone to use, sometimes the codes are 
+    returned by non-system software. Sometimes the code is returned by a function deep in the stack and far removed 
+    from your code that is handling the error.</p>
+<p>The following list describes 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">system error codes</a> (errors 0 to 499). They are returned 
+    by the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> function when many functions fail. To 
+    retrieve the description text for the error in your application, use the 
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FormatMessage</strong></a> function with the 
+    <strong>FORMAT_MESSAGE_FROM_SYSTEM</strong> flag.</p>
+<p></p>
+<dl>
+<dt><a id="ERROR_SUCCESS"></a><a id="error_success"></a><strong>ERROR_SUCCESS</strong></dt>
+<dd>
+<dl>
+<dt>0 (0x0)</dt>
+<dt>
+<p>The operation completed successfully.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_FUNCTION"></a><a id="error_invalid_function"></a><strong>ERROR_INVALID_FUNCTION</strong></dt>
+<dd>
+<dl>
+<dt>1 (0x1)</dt>
+<dt>
+<p>Incorrect function.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_NOT_FOUND"></a><a id="error_file_not_found"></a><strong>ERROR_FILE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>2 (0x2)</dt>
+<dt>
+<p>The system cannot find the file specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATH_NOT_FOUND"></a><a id="error_path_not_found"></a><strong>ERROR_PATH_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>3 (0x3)</dt>
+<dt>
+<p>The system cannot find the path specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_OPEN_FILES"></a><a id="error_too_many_open_files"></a><strong>ERROR_TOO_MANY_OPEN_FILES</strong></dt>
+<dd>
+<dl>
+<dt>4 (0x4)</dt>
+<dt>
+<p>The system cannot open the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ACCESS_DENIED"></a><a id="error_access_denied"></a><strong>ERROR_ACCESS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>5 (0x5)</dt>
+<dt>
+<p>Access is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_HANDLE"></a><a id="error_invalid_handle"></a><strong>ERROR_INVALID_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>6 (0x6)</dt>
+<dt>
+<p>The handle is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ARENA_TRASHED"></a><a id="error_arena_trashed"></a><strong>ERROR_ARENA_TRASHED</strong></dt>
+<dd>
+<dl>
+<dt>7 (0x7)</dt>
+<dt>
+<p>The storage control blocks were destroyed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_ENOUGH_MEMORY"></a><a id="error_not_enough_memory"></a><strong>ERROR_NOT_ENOUGH_MEMORY</strong></dt>
+<dd>
+<dl>
+<dt>8 (0x8)</dt>
+<dt>
+<p>Not enough storage is available to process this command.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_BLOCK"></a><a id="error_invalid_block"></a><strong>ERROR_INVALID_BLOCK</strong></dt>
+<dd>
+<dl>
+<dt>9 (0x9)</dt>
+<dt>
+<p>The storage control block address is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_ENVIRONMENT"></a><a id="error_bad_environment"></a><strong>ERROR_BAD_ENVIRONMENT</strong></dt>
+<dd>
+<dl>
+<dt>10 (0xA)</dt>
+<dt>
+<p>The environment is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_FORMAT"></a><a id="error_bad_format"></a><strong>ERROR_BAD_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>11 (0xB)</dt>
+<dt>
+<p>An attempt was made to load a program with an incorrect format.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ACCESS"></a><a id="error_invalid_access"></a><strong>ERROR_INVALID_ACCESS</strong></dt>
+<dd>
+<dl>
+<dt>12 (0xC)</dt>
+<dt>
+<p>The access code is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DATA"></a><a id="error_invalid_data"></a><strong>ERROR_INVALID_DATA</strong></dt>
+<dd>
+<dl>
+<dt>13 (0xD)</dt>
+<dt>
+<p>The data is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OUTOFMEMORY"></a><a id="error_outofmemory"></a><strong>ERROR_OUTOFMEMORY</strong></dt>
+<dd>
+<dl>
+<dt>14 (0xE)</dt>
+<dt>
+<p>Not enough storage is available to complete this operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_DRIVE"></a><a id="error_invalid_drive"></a><strong>ERROR_INVALID_DRIVE</strong></dt>
+<dd>
+<dl>
+<dt>15 (0xF)</dt>
+<dt>
+<p>The system cannot find the drive specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CURRENT_DIRECTORY"></a><a id="error_current_directory"></a><strong>ERROR_CURRENT_DIRECTORY</strong></dt>
+<dd>
+<dl>
+<dt>16 (0x10)</dt>
+<dt>
+<p>The directory cannot be removed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SAME_DEVICE"></a><a id="error_not_same_device"></a><strong>ERROR_NOT_SAME_DEVICE</strong></dt>
+<dd>
+<dl>
+<dt>17 (0x11)</dt>
+<dt>
+<p>The system cannot move the file to a different disk drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_MORE_FILES"></a><a id="error_no_more_files"></a><strong>ERROR_NO_MORE_FILES</strong></dt>
+<dd>
+<dl>
+<dt>18 (0x12)</dt>
+<dt>
+<p>There are no more files.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRITE_PROTECT"></a><a id="error_write_protect"></a><strong>ERROR_WRITE_PROTECT</strong></dt>
+<dd>
+<dl>
+<dt>19 (0x13)</dt>
+<dt>
+<p>The media is write protected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_UNIT"></a><a id="error_bad_unit"></a><strong>ERROR_BAD_UNIT</strong></dt>
+<dd>
+<dl>
+<dt>20 (0x14)</dt>
+<dt>
+<p>The system cannot find the device specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_READY"></a><a id="error_not_ready"></a><strong>ERROR_NOT_READY</strong></dt>
+<dd>
+<dl>
+<dt>21 (0x15)</dt>
+<dt>
+<p>The device is not ready.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_COMMAND"></a><a id="error_bad_command"></a><strong>ERROR_BAD_COMMAND</strong></dt>
+<dd>
+<dl>
+<dt>22 (0x16)</dt>
+<dt>
+<p>The device does not recognize the command.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CRC"></a><a id="error_crc"></a><strong>ERROR_CRC</strong></dt>
+<dd>
+<dl>
+<dt>23 (0x17)</dt>
+<dt>
+<p>Data error (cyclic redundancy check).</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_LENGTH"></a><a id="error_bad_length"></a><strong>ERROR_BAD_LENGTH</strong></dt>
+<dd>
+<dl>
+<dt>24 (0x18)</dt>
+<dt>
+<p>The program issued a command but the command length is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEEK"></a><a id="error_seek"></a><strong>ERROR_SEEK</strong></dt>
+<dd>
+<dl>
+<dt>25 (0x19)</dt>
+<dt>
+<p>The drive cannot locate a specific area or track on the disk.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_DOS_DISK"></a><a id="error_not_dos_disk"></a><strong>ERROR_NOT_DOS_DISK</strong></dt>
+<dd>
+<dl>
+<dt>26 (0x1A)</dt>
+<dt>
+<p>The specified disk or diskette cannot be accessed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SECTOR_NOT_FOUND"></a><a id="error_sector_not_found"></a><strong>ERROR_SECTOR_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>27 (0x1B)</dt>
+<dt>
+<p>The drive cannot find the sector requested.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OUT_OF_PAPER"></a><a id="error_out_of_paper"></a><strong>ERROR_OUT_OF_PAPER</strong></dt>
+<dd>
+<dl>
+<dt>28 (0x1C)</dt>
+<dt>
+<p>The printer is out of paper.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRITE_FAULT"></a><a id="error_write_fault"></a><strong>ERROR_WRITE_FAULT</strong></dt>
+<dd>
+<dl>
+<dt>29 (0x1D)</dt>
+<dt>
+<p>The system cannot write to the specified device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_READ_FAULT"></a><a id="error_read_fault"></a><strong>ERROR_READ_FAULT</strong></dt>
+<dd>
+<dl>
+<dt>30 (0x1E)</dt>
+<dt>
+<p>The system cannot read from the specified device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_GEN_FAILURE"></a><a id="error_gen_failure"></a><strong>ERROR_GEN_FAILURE</strong></dt>
+<dd>
+<dl>
+<dt>31 (0x1F)</dt>
+<dt>
+<p>A device attached to the system is not functioning.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SHARING_VIOLATION"></a><a id="error_sharing_violation"></a><strong>ERROR_SHARING_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>32 (0x20)</dt>
+<dt>
+<p>The process cannot access the file because it is being used by another process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOCK_VIOLATION"></a><a id="error_lock_violation"></a><strong>ERROR_LOCK_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>33 (0x21)</dt>
+<dt>
+<p>The process cannot access the file because another process has locked a portion of the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WRONG_DISK"></a><a id="error_wrong_disk"></a><strong>ERROR_WRONG_DISK</strong></dt>
+<dd>
+<dl>
+<dt>34 (0x22)</dt>
+<dt>
+<p>The wrong diskette is in the drive. Insert %2 (Volume Serial Number: %3) into drive %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SHARING_BUFFER_EXCEEDED"></a><a id="error_sharing_buffer_exceeded"></a><strong>ERROR_SHARING_BUFFER_EXCEEDED</strong></dt>
+<dd>
+<dl>
+<dt>36 (0x24)</dt>
+<dt>
+<p>Too many files opened for sharing.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HANDLE_EOF"></a><a id="error_handle_eof"></a><strong>ERROR_HANDLE_EOF</strong></dt>
+<dd>
+<dl>
+<dt>38 (0x26)</dt>
+<dt>
+<p>Reached the end of the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_HANDLE_DISK_FULL"></a><a id="error_handle_disk_full"></a><strong>ERROR_HANDLE_DISK_FULL</strong></dt>
+<dd>
+<dl>
+<dt>39 (0x27)</dt>
+<dt>
+<p>The disk is full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SUPPORTED"></a><a id="error_not_supported"></a><strong>ERROR_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>50 (0x32)</dt>
+<dt>
+<p>The request is not supported.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REM_NOT_LIST"></a><a id="error_rem_not_list"></a><strong>ERROR_REM_NOT_LIST</strong></dt>
+<dd>
+<dl>
+<dt>51 (0x33)</dt>
+<dt>
+<p>Windows cannot find the network path. Verify that the network path is correct and the destination computer 
+     is not busy or turned off. If Windows still cannot find the network path, contact your network 
+     administrator.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DUP_NAME"></a><a id="error_dup_name"></a><strong>ERROR_DUP_NAME</strong></dt>
+<dd>
+<dl>
+<dt>52 (0x34)</dt>
+<dt>
+<p>You were not connected because a duplicate name exists on the network. If joining a domain, go to System in 
+     Control Panel to change the computer name and try again. If joining a workgroup, choose another workgroup 
+     name.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_NETPATH"></a><a id="error_bad_netpath"></a><strong>ERROR_BAD_NETPATH</strong></dt>
+<dd>
+<dl>
+<dt>53 (0x35)</dt>
+<dt>
+<p>The network path was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NETWORK_BUSY"></a><a id="error_network_busy"></a><strong>ERROR_NETWORK_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>54 (0x36)</dt>
+<dt>
+<p>The network is busy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEV_NOT_EXIST"></a><a id="error_dev_not_exist"></a><strong>ERROR_DEV_NOT_EXIST</strong></dt>
+<dd>
+<dl>
+<dt>55 (0x37)</dt>
+<dt>
+<p>The specified network resource or device is no longer available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_CMDS"></a><a id="error_too_many_cmds"></a><strong>ERROR_TOO_MANY_CMDS</strong></dt>
+<dd>
+<dl>
+<dt>56 (0x38)</dt>
+<dt>
+<p>The network BIOS command limit has been reached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ADAP_HDW_ERR"></a><a id="error_adap_hdw_err"></a><strong>ERROR_ADAP_HDW_ERR</strong></dt>
+<dd>
+<dl>
+<dt>57 (0x39)</dt>
+<dt>
+<p>A network adapter hardware error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_NET_RESP"></a><a id="error_bad_net_resp"></a><strong>ERROR_BAD_NET_RESP</strong></dt>
+<dd>
+<dl>
+<dt>58 (0x3A)</dt>
+<dt>
+<p>The specified server cannot perform the requested operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNEXP_NET_ERR"></a><a id="error_unexp_net_err"></a><strong>ERROR_UNEXP_NET_ERR</strong></dt>
+<dd>
+<dl>
+<dt>59 (0x3B)</dt>
+<dt>
+<p>An unexpected network error occurred.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_REM_ADAP"></a><a id="error_bad_rem_adap"></a><strong>ERROR_BAD_REM_ADAP</strong></dt>
+<dd>
+<dl>
+<dt>60 (0x3C)</dt>
+<dt>
+<p>The remote adapter is not compatible.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRINTQ_FULL"></a><a id="error_printq_full"></a><strong>ERROR_PRINTQ_FULL</strong></dt>
+<dd>
+<dl>
+<dt>61 (0x3D)</dt>
+<dt>
+<p>The printer queue is full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SPOOL_SPACE"></a><a id="error_no_spool_space"></a><strong>ERROR_NO_SPOOL_SPACE</strong></dt>
+<dd>
+<dl>
+<dt>62 (0x3E)</dt>
+<dt>
+<p>Space to store the file waiting to be printed is not available on the server.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PRINT_CANCELLED"></a><a id="error_print_cancelled"></a><strong>ERROR_PRINT_CANCELLED</strong></dt>
+<dd>
+<dl>
+<dt>63 (0x3F)</dt>
+<dt>
+<p>Your file waiting to be printed was deleted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NETNAME_DELETED"></a><a id="error_netname_deleted"></a><strong>ERROR_NETNAME_DELETED</strong></dt>
+<dd>
+<dl>
+<dt>64 (0x40)</dt>
+<dt>
+<p>The specified network name is no longer available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NETWORK_ACCESS_DENIED"></a><a id="error_network_access_denied"></a><strong>ERROR_NETWORK_ACCESS_DENIED</strong></dt>
+<dd>
+<dl>
+<dt>65 (0x41)</dt>
+<dt>
+<p>Network access is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_DEV_TYPE"></a><a id="error_bad_dev_type"></a><strong>ERROR_BAD_DEV_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>66 (0x42)</dt>
+<dt>
+<p>The network resource type is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_NET_NAME"></a><a id="error_bad_net_name"></a><strong>ERROR_BAD_NET_NAME</strong></dt>
+<dd>
+<dl>
+<dt>67 (0x43)</dt>
+<dt>
+<p>The network name cannot be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_NAMES"></a><a id="error_too_many_names"></a><strong>ERROR_TOO_MANY_NAMES</strong></dt>
+<dd>
+<dl>
+<dt>68 (0x44)</dt>
+<dt>
+<p>The name limit for the local computer network adapter card was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_SESS"></a><a id="error_too_many_sess"></a><strong>ERROR_TOO_MANY_SESS</strong></dt>
+<dd>
+<dl>
+<dt>69 (0x45)</dt>
+<dt>
+<p>The network BIOS session limit was exceeded.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SHARING_PAUSED"></a><a id="error_sharing_paused"></a><strong>ERROR_SHARING_PAUSED</strong></dt>
+<dd>
+<dl>
+<dt>70 (0x46)</dt>
+<dt>
+<p>The remote server has been paused or is in the process of being started.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REQ_NOT_ACCEP"></a><a id="error_req_not_accep"></a><strong>ERROR_REQ_NOT_ACCEP</strong></dt>
+<dd>
+<dl>
+<dt>71 (0x47)</dt>
+<dt>
+<p>No more connections can be made to this remote computer at this time because there are already as many 
+     connections as the computer can accept.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_REDIR_PAUSED"></a><a id="error_redir_paused"></a><strong>ERROR_REDIR_PAUSED</strong></dt>
+<dd>
+<dl>
+<dt>72 (0x48)</dt>
+<dt>
+<p>The specified printer or disk device has been paused.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_EXISTS"></a><a id="error_file_exists"></a><strong>ERROR_FILE_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>80 (0x50)</dt>
+<dt>
+<p>The file exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_MAKE"></a><a id="error_cannot_make"></a><strong>ERROR_CANNOT_MAKE</strong></dt>
+<dd>
+<dl>
+<dt>82 (0x52)</dt>
+<dt>
+<p>The directory or file cannot be created.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAIL_I24"></a><a id="error_fail_i24"></a><strong>ERROR_FAIL_I24</strong></dt>
+<dd>
+<dl>
+<dt>83 (0x53)</dt>
+<dt>
+<p>Fail on INT 24.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OUT_OF_STRUCTURES"></a><a id="error_out_of_structures"></a><strong>ERROR_OUT_OF_STRUCTURES</strong></dt>
+<dd>
+<dl>
+<dt>84 (0x54)</dt>
+<dt>
+<p>Storage to process this request is not available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALREADY_ASSIGNED"></a><a id="error_already_assigned"></a><strong>ERROR_ALREADY_ASSIGNED</strong></dt>
+<dd>
+<dl>
+<dt>85 (0x55)</dt>
+<dt>
+<p>The local device name is already in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PASSWORD"></a><a id="error_invalid_password"></a><strong>ERROR_INVALID_PASSWORD</strong></dt>
+<dd>
+<dl>
+<dt>86 (0x56)</dt>
+<dt>
+<p>The specified network password is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_PARAMETER"></a><a id="error_invalid_parameter"></a><strong>ERROR_INVALID_PARAMETER</strong></dt>
+<dd>
+<dl>
+<dt>87 (0x57)</dt>
+<dt>
+<p>The parameter is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NET_WRITE_FAULT"></a><a id="error_net_write_fault"></a><strong>ERROR_NET_WRITE_FAULT</strong></dt>
+<dd>
+<dl>
+<dt>88 (0x58)</dt>
+<dt>
+<p>A write fault occurred on the network.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_PROC_SLOTS"></a><a id="error_no_proc_slots"></a><strong>ERROR_NO_PROC_SLOTS</strong></dt>
+<dd>
+<dl>
+<dt>89 (0x59)</dt>
+<dt>
+<p>The system cannot start another process at this time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_SEMAPHORES"></a><a id="error_too_many_semaphores"></a><strong>ERROR_TOO_MANY_SEMAPHORES</strong></dt>
+<dd>
+<dl>
+<dt>100 (0x64)</dt>
+<dt>
+<p>Cannot create another system semaphore.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXCL_SEM_ALREADY_OWNED"></a><a id="error_excl_sem_already_owned"></a><strong>ERROR_EXCL_SEM_ALREADY_OWNED</strong></dt>
+<dd>
+<dl>
+<dt>101 (0x65)</dt>
+<dt>
+<p>The exclusive semaphore is owned by another process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEM_IS_SET"></a><a id="error_sem_is_set"></a><strong>ERROR_SEM_IS_SET</strong></dt>
+<dd>
+<dl>
+<dt>102 (0x66)</dt>
+<dt>
+<p>The semaphore is set and cannot be closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_SEM_REQUESTS"></a><a id="error_too_many_sem_requests"></a><strong>ERROR_TOO_MANY_SEM_REQUESTS</strong></dt>
+<dd>
+<dl>
+<dt>103 (0x67)</dt>
+<dt>
+<p>The semaphore cannot be set again.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_AT_INTERRUPT_TIME"></a><a id="error_invalid_at_interrupt_time"></a><strong>ERROR_INVALID_AT_INTERRUPT_TIME</strong></dt>
+<dd>
+<dl>
+<dt>104 (0x68)</dt>
+<dt>
+<p>Cannot request exclusive semaphores at interrupt time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEM_OWNER_DIED"></a><a id="error_sem_owner_died"></a><strong>ERROR_SEM_OWNER_DIED</strong></dt>
+<dd>
+<dl>
+<dt>105 (0x69)</dt>
+<dt>
+<p>The previous ownership of this semaphore has ended.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEM_USER_LIMIT"></a><a id="error_sem_user_limit"></a><strong>ERROR_SEM_USER_LIMIT</strong></dt>
+<dd>
+<dl>
+<dt>106 (0x6A)</dt>
+<dt>
+<p>Insert the diskette for drive %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_CHANGE"></a><a id="error_disk_change"></a><strong>ERROR_DISK_CHANGE</strong></dt>
+<dd>
+<dl>
+<dt>107 (0x6B)</dt>
+<dt>
+<p>The program stopped because an alternate diskette was not inserted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DRIVE_LOCKED"></a><a id="error_drive_locked"></a><strong>ERROR_DRIVE_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>108 (0x6C)</dt>
+<dt>
+<p>The disk is in use or locked by another process.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BROKEN_PIPE"></a><a id="error_broken_pipe"></a><strong>ERROR_BROKEN_PIPE</strong></dt>
+<dd>
+<dl>
+<dt>109 (0x6D)</dt>
+<dt>
+<p>The pipe has been ended.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPEN_FAILED"></a><a id="error_open_failed"></a><strong>ERROR_OPEN_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>110 (0x6E)</dt>
+<dt>
+<p>The system cannot open the device or file specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BUFFER_OVERFLOW"></a><a id="error_buffer_overflow"></a><strong>ERROR_BUFFER_OVERFLOW</strong></dt>
+<dd>
+<dl>
+<dt>111 (0x6F)</dt>
+<dt>
+<p>The file name is too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_FULL"></a><a id="error_disk_full"></a><strong>ERROR_DISK_FULL</strong></dt>
+<dd>
+<dl>
+<dt>112 (0x70)</dt>
+<dt>
+<p>There is not enough space on the disk.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_MORE_SEARCH_HANDLES"></a><a id="error_no_more_search_handles"></a><strong>ERROR_NO_MORE_SEARCH_HANDLES</strong></dt>
+<dd>
+<dl>
+<dt>113 (0x71)</dt>
+<dt>
+<p>No more internal file identifiers available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TARGET_HANDLE"></a><a id="error_invalid_target_handle"></a><strong>ERROR_INVALID_TARGET_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>114 (0x72)</dt>
+<dt>
+<p>The target internal file identifier is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_CATEGORY"></a><a id="error_invalid_category"></a><strong>ERROR_INVALID_CATEGORY</strong></dt>
+<dd>
+<dl>
+<dt>117 (0x75)</dt>
+<dt>
+<p>The IOCTL call made by the application program is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_VERIFY_SWITCH"></a><a id="error_invalid_verify_switch"></a><strong>ERROR_INVALID_VERIFY_SWITCH</strong></dt>
+<dd>
+<dl>
+<dt>118 (0x76)</dt>
+<dt>
+<p>The verify-on-write switch parameter value is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_DRIVER_LEVEL"></a><a id="error_bad_driver_level"></a><strong>ERROR_BAD_DRIVER_LEVEL</strong></dt>
+<dd>
+<dl>
+<dt>119 (0x77)</dt>
+<dt>
+<p>The system does not support the command requested.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CALL_NOT_IMPLEMENTED"></a><a id="error_call_not_implemented"></a><strong>ERROR_CALL_NOT_IMPLEMENTED</strong></dt>
+<dd>
+<dl>
+<dt>120 (0x78)</dt>
+<dt>
+<p>This function is not supported on this system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEM_TIMEOUT"></a><a id="error_sem_timeout"></a><strong>ERROR_SEM_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>121 (0x79)</dt>
+<dt>
+<p>The semaphore timeout period has expired.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INSUFFICIENT_BUFFER"></a><a id="error_insufficient_buffer"></a><strong>ERROR_INSUFFICIENT_BUFFER</strong></dt>
+<dd>
+<dl>
+<dt>122 (0x7A)</dt>
+<dt>
+<p>The data area passed to a system call is too small.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_NAME"></a><a id="error_invalid_name"></a><strong>ERROR_INVALID_NAME</strong></dt>
+<dd>
+<dl>
+<dt>123 (0x7B)</dt>
+<dt>
+<p>The filename, directory name, or volume label syntax is incorrect.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LEVEL"></a><a id="error_invalid_level"></a><strong>ERROR_INVALID_LEVEL</strong></dt>
+<dd>
+<dl>
+<dt>124 (0x7C)</dt>
+<dt>
+<p>The system call level is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_VOLUME_LABEL"></a><a id="error_no_volume_label"></a><strong>ERROR_NO_VOLUME_LABEL</strong></dt>
+<dd>
+<dl>
+<dt>125 (0x7D)</dt>
+<dt>
+<p>The disk has no volume label.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MOD_NOT_FOUND"></a><a id="error_mod_not_found"></a><strong>ERROR_MOD_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>126 (0x7E)</dt>
+<dt>
+<p>The specified module could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROC_NOT_FOUND"></a><a id="error_proc_not_found"></a><strong>ERROR_PROC_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>127 (0x7F)</dt>
+<dt>
+<p>The specified procedure could not be found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_WAIT_NO_CHILDREN"></a><a id="error_wait_no_children"></a><strong>ERROR_WAIT_NO_CHILDREN</strong></dt>
+<dd>
+<dl>
+<dt>128 (0x80)</dt>
+<dt>
+<p>There are no child processes to wait for.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CHILD_NOT_COMPLETE"></a><a id="error_child_not_complete"></a><strong>ERROR_CHILD_NOT_COMPLETE</strong></dt>
+<dd>
+<dl>
+<dt>129 (0x81)</dt>
+<dt>
+<p>The %1 application cannot be run in Win32 mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIRECT_ACCESS_HANDLE"></a><a id="error_direct_access_handle"></a><strong>ERROR_DIRECT_ACCESS_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>130 (0x82)</dt>
+<dt>
+<p>Attempt to use a file handle to an open disk partition for an operation other than raw disk I/O.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NEGATIVE_SEEK"></a><a id="error_negative_seek"></a><strong>ERROR_NEGATIVE_SEEK</strong></dt>
+<dd>
+<dl>
+<dt>131 (0x83)</dt>
+<dt>
+<p>An attempt was made to move the file pointer before the beginning of the file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEEK_ON_DEVICE"></a><a id="error_seek_on_device"></a><strong>ERROR_SEEK_ON_DEVICE</strong></dt>
+<dd>
+<dl>
+<dt>132 (0x84)</dt>
+<dt>
+<p>The file pointer cannot be set on the specified device or file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_JOIN_TARGET"></a><a id="error_is_join_target"></a><strong>ERROR_IS_JOIN_TARGET</strong></dt>
+<dd>
+<dl>
+<dt>133 (0x85)</dt>
+<dt>
+<p>A JOIN or SUBST command cannot be used for a drive that contains previously joined drives.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_JOINED"></a><a id="error_is_joined"></a><strong>ERROR_IS_JOINED</strong></dt>
+<dd>
+<dl>
+<dt>134 (0x86)</dt>
+<dt>
+<p>An attempt was made to use a JOIN or SUBST command on a drive that has already been joined.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_SUBSTED"></a><a id="error_is_substed"></a><strong>ERROR_IS_SUBSTED</strong></dt>
+<dd>
+<dl>
+<dt>135 (0x87)</dt>
+<dt>
+<p>An attempt was made to use a JOIN or SUBST command on a drive that has already been substituted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_JOINED"></a><a id="error_not_joined"></a><strong>ERROR_NOT_JOINED</strong></dt>
+<dd>
+<dl>
+<dt>136 (0x88)</dt>
+<dt>
+<p>The system tried to delete the JOIN of a drive that is not joined.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_SUBSTED"></a><a id="error_not_substed"></a><strong>ERROR_NOT_SUBSTED</strong></dt>
+<dd>
+<dl>
+<dt>137 (0x89)</dt>
+<dt>
+<p>The system tried to delete the substitution of a drive that is not substituted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_JOIN_TO_JOIN"></a><a id="error_join_to_join"></a><strong>ERROR_JOIN_TO_JOIN</strong></dt>
+<dd>
+<dl>
+<dt>138 (0x8A)</dt>
+<dt>
+<p>The system tried to join a drive to a directory on a joined drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SUBST_TO_SUBST"></a><a id="error_subst_to_subst"></a><strong>ERROR_SUBST_TO_SUBST</strong></dt>
+<dd>
+<dl>
+<dt>139 (0x8B)</dt>
+<dt>
+<p>The system tried to substitute a drive to a directory on a substituted drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_JOIN_TO_SUBST"></a><a id="error_join_to_subst"></a><strong>ERROR_JOIN_TO_SUBST</strong></dt>
+<dd>
+<dl>
+<dt>140 (0x8C)</dt>
+<dt>
+<p>The system tried to join a drive to a directory on a substituted drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SUBST_TO_JOIN"></a><a id="error_subst_to_join"></a><strong>ERROR_SUBST_TO_JOIN</strong></dt>
+<dd>
+<dl>
+<dt>141 (0x8D)</dt>
+<dt>
+<p>The system tried to SUBST a drive to a directory on a joined drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BUSY_DRIVE"></a><a id="error_busy_drive"></a><strong>ERROR_BUSY_DRIVE</strong></dt>
+<dd>
+<dl>
+<dt>142 (0x8E)</dt>
+<dt>
+<p>The system cannot perform a JOIN or SUBST at this time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SAME_DRIVE"></a><a id="error_same_drive"></a><strong>ERROR_SAME_DRIVE</strong></dt>
+<dd>
+<dl>
+<dt>143 (0x8F)</dt>
+<dt>
+<p>The system cannot join or substitute a drive to or for a directory on the same drive.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIR_NOT_ROOT"></a><a id="error_dir_not_root"></a><strong>ERROR_DIR_NOT_ROOT</strong></dt>
+<dd>
+<dl>
+<dt>144 (0x90)</dt>
+<dt>
+<p>The directory is not a subdirectory of the root directory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIR_NOT_EMPTY"></a><a id="error_dir_not_empty"></a><strong>ERROR_DIR_NOT_EMPTY</strong></dt>
+<dd>
+<dl>
+<dt>145 (0x91)</dt>
+<dt>
+<p>The directory is not empty.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_SUBST_PATH"></a><a id="error_is_subst_path"></a><strong>ERROR_IS_SUBST_PATH</strong></dt>
+<dd>
+<dl>
+<dt>146 (0x92)</dt>
+<dt>
+<p>The path specified is being used in a substitute.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_JOIN_PATH"></a><a id="error_is_join_path"></a><strong>ERROR_IS_JOIN_PATH</strong></dt>
+<dd>
+<dl>
+<dt>147 (0x93)</dt>
+<dt>
+<p>Not enough resources are available to process this command.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PATH_BUSY"></a><a id="error_path_busy"></a><strong>ERROR_PATH_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>148 (0x94)</dt>
+<dt>
+<p>The path specified cannot be used at this time.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IS_SUBST_TARGET"></a><a id="error_is_subst_target"></a><strong>ERROR_IS_SUBST_TARGET</strong></dt>
+<dd>
+<dl>
+<dt>149 (0x95)</dt>
+<dt>
+<p>An attempt was made to join or substitute a drive for which a directory on the drive is the target of a 
+     previous substitute.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SYSTEM_TRACE"></a><a id="error_system_trace"></a><strong>ERROR_SYSTEM_TRACE</strong></dt>
+<dd>
+<dl>
+<dt>150 (0x96)</dt>
+<dt>
+<p>System trace information was not specified in your CONFIG.SYS file, or tracing is disallowed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EVENT_COUNT"></a><a id="error_invalid_event_count"></a><strong>ERROR_INVALID_EVENT_COUNT</strong></dt>
+<dd>
+<dl>
+<dt>151 (0x97)</dt>
+<dt>
+<p>The number of specified semaphore events for DosMuxSemWait is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_MUXWAITERS"></a><a id="error_too_many_muxwaiters"></a><strong>ERROR_TOO_MANY_MUXWAITERS</strong></dt>
+<dd>
+<dl>
+<dt>152 (0x98)</dt>
+<dt>
+<p>DosMuxSemWait did not execute; too many semaphores are already set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LIST_FORMAT"></a><a id="error_invalid_list_format"></a><strong>ERROR_INVALID_LIST_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>153 (0x99)</dt>
+<dt>
+<p>The DosMuxSemWait list is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LABEL_TOO_LONG"></a><a id="error_label_too_long"></a><strong>ERROR_LABEL_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>154 (0x9A)</dt>
+<dt>
+<p>The volume label you entered exceeds the label character limit of the target file system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_TCBS"></a><a id="error_too_many_tcbs"></a><strong>ERROR_TOO_MANY_TCBS</strong></dt>
+<dd>
+<dl>
+<dt>155 (0x9B)</dt>
+<dt>
+<p>Cannot create another thread.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SIGNAL_REFUSED"></a><a id="error_signal_refused"></a><strong>ERROR_SIGNAL_REFUSED</strong></dt>
+<dd>
+<dl>
+<dt>156 (0x9C)</dt>
+<dt>
+<p>The recipient process has refused the signal.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISCARDED"></a><a id="error_discarded"></a><strong>ERROR_DISCARDED</strong></dt>
+<dd>
+<dl>
+<dt>157 (0x9D)</dt>
+<dt>
+<p>The segment is already discarded and cannot be locked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_LOCKED"></a><a id="error_not_locked"></a><strong>ERROR_NOT_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>158 (0x9E)</dt>
+<dt>
+<p>The segment is already unlocked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_THREADID_ADDR"></a><a id="error_bad_threadid_addr"></a><strong>ERROR_BAD_THREADID_ADDR</strong></dt>
+<dd>
+<dl>
+<dt>159 (0x9F)</dt>
+<dt>
+<p>The address for the thread ID is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_ARGUMENTS"></a><a id="error_bad_arguments"></a><strong>ERROR_BAD_ARGUMENTS</strong></dt>
+<dd>
+<dl>
+<dt>160 (0xA0)</dt>
+<dt>
+<p>One or more arguments are not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_PATHNAME"></a><a id="error_bad_pathname"></a><strong>ERROR_BAD_PATHNAME</strong></dt>
+<dd>
+<dl>
+<dt>161 (0xA1)</dt>
+<dt>
+<p>The specified path is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SIGNAL_PENDING"></a><a id="error_signal_pending"></a><strong>ERROR_SIGNAL_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>162 (0xA2)</dt>
+<dt>
+<p>A signal is already pending.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MAX_THRDS_REACHED"></a><a id="error_max_thrds_reached"></a><strong>ERROR_MAX_THRDS_REACHED</strong></dt>
+<dd>
+<dl>
+<dt>164 (0xA4)</dt>
+<dt>
+<p>No more threads can be created in the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOCK_FAILED"></a><a id="error_lock_failed"></a><strong>ERROR_LOCK_FAILED</strong></dt>
+<dd>
+<dl>
+<dt>167 (0xA7)</dt>
+<dt>
+<p>Unable to lock a region of a file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BUSY"></a><a id="error_busy"></a><strong>ERROR_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>170 (0xAA)</dt>
+<dt>
+<p>The requested resource is in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_SUPPORT_IN_PROGRESS"></a><a id="error_device_support_in_progress"></a><strong>ERROR_DEVICE_SUPPORT_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>171 (0xAB)</dt>
+<dt>
+<p>Device's command support detection is in progress.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANCEL_VIOLATION"></a><a id="error_cancel_violation"></a><strong>ERROR_CANCEL_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>173 (0xAD)</dt>
+<dt>
+<p>A lock request was not outstanding for the supplied cancel region.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ATOMIC_LOCKS_NOT_SUPPORTED"></a><a id="error_atomic_locks_not_supported"></a><strong>ERROR_ATOMIC_LOCKS_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>174 (0xAE)</dt>
+<dt>
+<p>The file system does not support atomic changes to the lock type.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SEGMENT_NUMBER"></a><a id="error_invalid_segment_number"></a><strong>ERROR_INVALID_SEGMENT_NUMBER</strong></dt>
+<dd>
+<dl>
+<dt>180 (0xB4)</dt>
+<dt>
+<p>The system detected a segment number that was not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ORDINAL"></a><a id="error_invalid_ordinal"></a><strong>ERROR_INVALID_ORDINAL</strong></dt>
+<dd>
+<dl>
+<dt>182 (0xB6)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ALREADY_EXISTS"></a><a id="error_already_exists"></a><strong>ERROR_ALREADY_EXISTS</strong></dt>
+<dd>
+<dl>
+<dt>183 (0xB7)</dt>
+<dt>
+<p>Cannot create a file when that file already exists.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_FLAG_NUMBER"></a><a id="error_invalid_flag_number"></a><strong>ERROR_INVALID_FLAG_NUMBER</strong></dt>
+<dd>
+<dl>
+<dt>186 (0xBA)</dt>
+<dt>
+<p>The flag passed is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SEM_NOT_FOUND"></a><a id="error_sem_not_found"></a><strong>ERROR_SEM_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>187 (0xBB)</dt>
+<dt>
+<p>The specified system semaphore name was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_STARTING_CODESEG"></a><a id="error_invalid_starting_codeseg"></a><strong>ERROR_INVALID_STARTING_CODESEG</strong></dt>
+<dd>
+<dl>
+<dt>188 (0xBC)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_STACKSEG"></a><a id="error_invalid_stackseg"></a><strong>ERROR_INVALID_STACKSEG</strong></dt>
+<dd>
+<dl>
+<dt>189 (0xBD)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MODULETYPE"></a><a id="error_invalid_moduletype"></a><strong>ERROR_INVALID_MODULETYPE</strong></dt>
+<dd>
+<dl>
+<dt>190 (0xBE)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EXE_SIGNATURE"></a><a id="error_invalid_exe_signature"></a><strong>ERROR_INVALID_EXE_SIGNATURE</strong></dt>
+<dd>
+<dl>
+<dt>191 (0xBF)</dt>
+<dt>
+<p>Cannot run %1 in Win32 mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXE_MARKED_INVALID"></a><a id="error_exe_marked_invalid"></a><strong>ERROR_EXE_MARKED_INVALID</strong></dt>
+<dd>
+<dl>
+<dt>192 (0xC0)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_EXE_FORMAT"></a><a id="error_bad_exe_format"></a><strong>ERROR_BAD_EXE_FORMAT</strong></dt>
+<dd>
+<dl>
+<dt>193 (0xC1)</dt>
+<dt>
+<p>%1 is not a valid Win32 application.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ITERATED_DATA_EXCEEDS_64k"></a><a id="error_iterated_data_exceeds_64k"></a><a id="ERROR_ITERATED_DATA_EXCEEDS_64K"></a><strong>ERROR_ITERATED_DATA_EXCEEDS_64k</strong></dt>
+<dd>
+<dl>
+<dt>194 (0xC2)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_MINALLOCSIZE"></a><a id="error_invalid_minallocsize"></a><strong>ERROR_INVALID_MINALLOCSIZE</strong></dt>
+<dd>
+<dl>
+<dt>195 (0xC3)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DYNLINK_FROM_INVALID_RING"></a><a id="error_dynlink_from_invalid_ring"></a><strong>ERROR_DYNLINK_FROM_INVALID_RING</strong></dt>
+<dd>
+<dl>
+<dt>196 (0xC4)</dt>
+<dt>
+<p>The operating system cannot run this application program.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IOPL_NOT_ENABLED"></a><a id="error_iopl_not_enabled"></a><strong>ERROR_IOPL_NOT_ENABLED</strong></dt>
+<dd>
+<dl>
+<dt>197 (0xC5)</dt>
+<dt>
+<p>The operating system is not presently configured to run this application.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SEGDPL"></a><a id="error_invalid_segdpl"></a><strong>ERROR_INVALID_SEGDPL</strong></dt>
+<dd>
+<dl>
+<dt>198 (0xC6)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_AUTODATASEG_EXCEEDS_64k"></a><a id="error_autodataseg_exceeds_64k"></a><a id="ERROR_AUTODATASEG_EXCEEDS_64K"></a><strong>ERROR_AUTODATASEG_EXCEEDS_64k</strong></dt>
+<dd>
+<dl>
+<dt>199 (0xC7)</dt>
+<dt>
+<p>The operating system cannot run this application program.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RING2SEG_MUST_BE_MOVABLE"></a><a id="error_ring2seg_must_be_movable"></a><strong>ERROR_RING2SEG_MUST_BE_MOVABLE</strong></dt>
+<dd>
+<dl>
+<dt>200 (0xC8)</dt>
+<dt>
+<p>The code segment cannot be greater than or equal to 64K.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RELOC_CHAIN_XEEDS_SEGLIM"></a><a id="error_reloc_chain_xeeds_seglim"></a><strong>ERROR_RELOC_CHAIN_XEEDS_SEGLIM</strong></dt>
+<dd>
+<dl>
+<dt>201 (0xC9)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INFLOOP_IN_RELOC_CHAIN"></a><a id="error_infloop_in_reloc_chain"></a><strong>ERROR_INFLOOP_IN_RELOC_CHAIN</strong></dt>
+<dd>
+<dl>
+<dt>202 (0xCA)</dt>
+<dt>
+<p>The operating system cannot run %1.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_ENVVAR_NOT_FOUND"></a><a id="error_envvar_not_found"></a><strong>ERROR_ENVVAR_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>203 (0xCB)</dt>
+<dt>
+<p>The system could not find the environment option that was entered.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_SIGNAL_SENT"></a><a id="error_no_signal_sent"></a><strong>ERROR_NO_SIGNAL_SENT</strong></dt>
+<dd>
+<dl>
+<dt>205 (0xCD)</dt>
+<dt>
+<p>No process in the command subtree has a signal handler.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILENAME_EXCED_RANGE"></a><a id="error_filename_exced_range"></a><strong>ERROR_FILENAME_EXCED_RANGE</strong></dt>
+<dd>
+<dl>
+<dt>206 (0xCE)</dt>
+<dt>
+<p>The filename or extension is too long.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RING2_STACK_IN_USE"></a><a id="error_ring2_stack_in_use"></a><strong>ERROR_RING2_STACK_IN_USE</strong></dt>
+<dd>
+<dl>
+<dt>207 (0xCF)</dt>
+<dt>
+<p>The ring 2 stack is in use.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_META_EXPANSION_TOO_LONG"></a><a id="error_meta_expansion_too_long"></a><strong>ERROR_META_EXPANSION_TOO_LONG</strong></dt>
+<dd>
+<dl>
+<dt>208 (0xD0)</dt>
+<dt>
+<p>The global filename characters, * or ?, are entered incorrectly or too many global filename characters are 
+     specified.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_SIGNAL_NUMBER"></a><a id="error_invalid_signal_number"></a><strong>ERROR_INVALID_SIGNAL_NUMBER</strong></dt>
+<dd>
+<dl>
+<dt>209 (0xD1)</dt>
+<dt>
+<p>The signal being posted is not correct.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_1_INACTIVE"></a><a id="error_thread_1_inactive"></a><strong>ERROR_THREAD_1_INACTIVE</strong></dt>
+<dd>
+<dl>
+<dt>210 (0xD2)</dt>
+<dt>
+<p>The signal handler cannot be set.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_LOCKED"></a><a id="error_locked"></a><strong>ERROR_LOCKED</strong></dt>
+<dd>
+<dl>
+<dt>212 (0xD4)</dt>
+<dt>
+<p>The segment is locked and cannot be reallocated.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_MODULES"></a><a id="error_too_many_modules"></a><strong>ERROR_TOO_MANY_MODULES</strong></dt>
+<dd>
+<dl>
+<dt>214 (0xD6)</dt>
+<dt>
+<p>Too many dynamic-link modules are attached to this program or dynamic-link module.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NESTING_NOT_ALLOWED"></a><a id="error_nesting_not_allowed"></a><strong>ERROR_NESTING_NOT_ALLOWED</strong></dt>
+<dd>
+<dl>
+<dt>215 (0xD7)</dt>
+<dt>
+<p>Cannot nest calls to LoadModule.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXE_MACHINE_TYPE_MISMATCH"></a><a id="error_exe_machine_type_mismatch"></a><strong>ERROR_EXE_MACHINE_TYPE_MISMATCH</strong></dt>
+<dd>
+<dl>
+<dt>216 (0xD8)</dt>
+<dt>
+<p>This version of %1 is not compatible with the version of Windows you're running. Check your computer's 
+     system information and then 
+     contact the software publisher.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY"></a><a id="error_exe_cannot_modify_signed_binary"></a><strong>ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY</strong></dt>
+<dd>
+<dl>
+<dt>217 (0xD9)</dt>
+<dt>
+<p>The image file %1 is signed, unable to modify.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY"></a><a id="error_exe_cannot_modify_strong_signed_binary"></a><strong>ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY</strong></dt>
+<dd>
+<dl>
+<dt>218 (0xDA)</dt>
+<dt>
+<p>The image file %1 is strong signed, unable to modify.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_CHECKED_OUT"></a><a id="error_file_checked_out"></a><strong>ERROR_FILE_CHECKED_OUT</strong></dt>
+<dd>
+<dl>
+<dt>220 (0xDC)</dt>
+<dt>
+<p>This file is checked out or locked for editing by another user.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CHECKOUT_REQUIRED"></a><a id="error_checkout_required"></a><strong>ERROR_CHECKOUT_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>221 (0xDD)</dt>
+<dt>
+<p>The file must be checked out before saving changes.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_FILE_TYPE"></a><a id="error_bad_file_type"></a><strong>ERROR_BAD_FILE_TYPE</strong></dt>
+<dd>
+<dl>
+<dt>222 (0xDE)</dt>
+<dt>
+<p>The file type being saved or retrieved has been blocked.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_TOO_LARGE"></a><a id="error_file_too_large"></a><strong>ERROR_FILE_TOO_LARGE</strong></dt>
+<dd>
+<dl>
+<dt>223 (0xDF)</dt>
+<dt>
+<p>The file size exceeds the limit allowed and cannot be saved.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FORMS_AUTH_REQUIRED"></a><a id="error_forms_auth_required"></a><strong>ERROR_FORMS_AUTH_REQUIRED</strong></dt>
+<dd>
+<dl>
+<dt>224 (0xE0)</dt>
+<dt>
+<p>Access Denied. Before opening files in this location, you must first add the web site to your trusted sites 
+     list, browse to the web site, and select the option to login automatically.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VIRUS_INFECTED"></a><a id="error_virus_infected"></a><strong>ERROR_VIRUS_INFECTED</strong></dt>
+<dd>
+<dl>
+<dt>225 (0xE1)</dt>
+<dt>
+<p>Operation did not complete successfully because the file contains a virus or potentially unwanted 
+     software.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VIRUS_DELETED"></a><a id="error_virus_deleted"></a><strong>ERROR_VIRUS_DELETED</strong></dt>
+<dd>
+<dl>
+<dt>226 (0xE2)</dt>
+<dt>
+<p>This file contains a virus or potentially unwanted software and cannot be opened. Due to the nature of this 
+     virus or potentially unwanted software, the file has been removed from this location.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PIPE_LOCAL"></a><a id="error_pipe_local"></a><strong>ERROR_PIPE_LOCAL</strong></dt>
+<dd>
+<dl>
+<dt>229 (0xE5)</dt>
+<dt>
+<p>The pipe is local.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_PIPE"></a><a id="error_bad_pipe"></a><strong>ERROR_BAD_PIPE</strong></dt>
+<dd>
+<dl>
+<dt>230 (0xE6)</dt>
+<dt>
+<p>The pipe state is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PIPE_BUSY"></a><a id="error_pipe_busy"></a><strong>ERROR_PIPE_BUSY</strong></dt>
+<dd>
+<dl>
+<dt>231 (0xE7)</dt>
+<dt>
+<p>All pipe instances are busy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_DATA"></a><a id="error_no_data"></a><strong>ERROR_NO_DATA</strong></dt>
+<dd>
+<dl>
+<dt>232 (0xE8)</dt>
+<dt>
+<p>The pipe is being closed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PIPE_NOT_CONNECTED"></a><a id="error_pipe_not_connected"></a><strong>ERROR_PIPE_NOT_CONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>233 (0xE9)</dt>
+<dt>
+<p>No process is on the other end of the pipe.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MORE_DATA"></a><a id="error_more_data"></a><strong>ERROR_MORE_DATA</strong></dt>
+<dd>
+<dl>
+<dt>234 (0xEA)</dt>
+<dt>
+<p>More data is available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_VC_DISCONNECTED"></a><a id="error_vc_disconnected"></a><strong>ERROR_VC_DISCONNECTED</strong></dt>
+<dd>
+<dl>
+<dt>240 (0xF0)</dt>
+<dt>
+<p>The session was canceled.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EA_NAME"></a><a id="error_invalid_ea_name"></a><strong>ERROR_INVALID_EA_NAME</strong></dt>
+<dd>
+<dl>
+<dt>254 (0xFE)</dt>
+<dt>
+<p>The specified extended attribute name was invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EA_LIST_INCONSISTENT"></a><a id="error_ea_list_inconsistent"></a><strong>ERROR_EA_LIST_INCONSISTENT</strong></dt>
+<dd>
+<dl>
+<dt>255 (0xFF)</dt>
+<dt>
+<p>The extended attributes are inconsistent.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="WAIT_TIMEOUT"></a><a id="wait_timeout"></a><strong>WAIT_TIMEOUT</strong></dt>
+<dd>
+<dl>
+<dt>258 (0x102)</dt>
+<dt>
+<p>The wait operation timed out.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_MORE_ITEMS"></a><a id="error_no_more_items"></a><strong>ERROR_NO_MORE_ITEMS</strong></dt>
+<dd>
+<dl>
+<dt>259 (0x103)</dt>
+<dt>
+<p>No more data is available.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_CANNOT_COPY"></a><a id="error_cannot_copy"></a><strong>ERROR_CANNOT_COPY</strong></dt>
+<dd>
+<dl>
+<dt>266 (0x10A)</dt>
+<dt>
+<p>The copy functions cannot be used.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIRECTORY"></a><a id="error_directory"></a><strong>ERROR_DIRECTORY</strong></dt>
+<dd>
+<dl>
+<dt>267 (0x10B)</dt>
+<dt>
+<p>The directory name is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EAS_DIDNT_FIT"></a><a id="error_eas_didnt_fit"></a><strong>ERROR_EAS_DIDNT_FIT</strong></dt>
+<dd>
+<dl>
+<dt>275 (0x113)</dt>
+<dt>
+<p>The extended attributes did not fit in the buffer.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EA_FILE_CORRUPT"></a><a id="error_ea_file_corrupt"></a><strong>ERROR_EA_FILE_CORRUPT</strong></dt>
+<dd>
+<dl>
+<dt>276 (0x114)</dt>
+<dt>
+<p>The extended attribute file on the mounted file system is corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EA_TABLE_FULL"></a><a id="error_ea_table_full"></a><strong>ERROR_EA_TABLE_FULL</strong></dt>
+<dd>
+<dl>
+<dt>277 (0x115)</dt>
+<dt>
+<p>The extended attribute table file is full.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EA_HANDLE"></a><a id="error_invalid_ea_handle"></a><strong>ERROR_INVALID_EA_HANDLE</strong></dt>
+<dd>
+<dl>
+<dt>278 (0x116)</dt>
+<dt>
+<p>The specified extended attribute handle is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_EAS_NOT_SUPPORTED"></a><a id="error_eas_not_supported"></a><strong>ERROR_EAS_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>282 (0x11A)</dt>
+<dt>
+<p>The mounted file system does not support extended attributes.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_OWNER"></a><a id="error_not_owner"></a><strong>ERROR_NOT_OWNER</strong></dt>
+<dd>
+<dl>
+<dt>288 (0x120)</dt>
+<dt>
+<p>Attempt to release mutex not owned by caller.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_POSTS"></a><a id="error_too_many_posts"></a><strong>ERROR_TOO_MANY_POSTS</strong></dt>
+<dd>
+<dl>
+<dt>298 (0x12A)</dt>
+<dt>
+<p>Too many posts were made to a semaphore.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PARTIAL_COPY"></a><a id="error_partial_copy"></a><strong>ERROR_PARTIAL_COPY</strong></dt>
+<dd>
+<dl>
+<dt>299 (0x12B)</dt>
+<dt>
+<p>Only part of a ReadProcessMemory or WriteProcessMemory request was completed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPLOCK_NOT_GRANTED"></a><a id="error_oplock_not_granted"></a><strong>ERROR_OPLOCK_NOT_GRANTED</strong></dt>
+<dd>
+<dl>
+<dt>300 (0x12C)</dt>
+<dt>
+<p>The oplock request is denied.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_OPLOCK_PROTOCOL"></a><a id="error_invalid_oplock_protocol"></a><strong>ERROR_INVALID_OPLOCK_PROTOCOL</strong></dt>
+<dd>
+<dl>
+<dt>301 (0x12D)</dt>
+<dt>
+<p>An invalid oplock acknowledgment was received by the system.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_TOO_FRAGMENTED"></a><a id="error_disk_too_fragmented"></a><strong>ERROR_DISK_TOO_FRAGMENTED</strong></dt>
+<dd>
+<dl>
+<dt>302 (0x12E)</dt>
+<dt>
+<p>The volume is too fragmented to complete this operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DELETE_PENDING"></a><a id="error_delete_pending"></a><strong>ERROR_DELETE_PENDING</strong></dt>
+<dd>
+<dl>
+<dt>303 (0x12F)</dt>
+<dt>
+<p>The file cannot be opened because it is in the process of being deleted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING"></a><a id="error_incompatible_with_global_short_name_registry_setting"></a><strong>ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING</strong></dt>
+<dd>
+<dl>
+<dt>304 (0x130)</dt>
+<dt>
+<p>Short name settings may not be changed on this volume due to the global registry setting.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME"></a><a id="error_short_names_not_enabled_on_volume"></a><strong>ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME</strong></dt>
+<dd>
+<dl>
+<dt>305 (0x131)</dt>
+<dt>
+<p>Short names are not enabled on this volume.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SECURITY_STREAM_IS_INCONSISTENT"></a><a id="error_security_stream_is_inconsistent"></a><strong>ERROR_SECURITY_STREAM_IS_INCONSISTENT</strong></dt>
+<dd>
+<dl>
+<dt>306 (0x132)</dt>
+<dt>
+<p>The security stream for the given volume is in an inconsistent state. Please run CHKDSK on the volume.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_LOCK_RANGE"></a><a id="error_invalid_lock_range"></a><strong>ERROR_INVALID_LOCK_RANGE</strong></dt>
+<dd>
+<dl>
+<dt>307 (0x133)</dt>
+<dt>
+<p>A requested file lock operation cannot be processed due to an invalid byte range.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT"></a><a id="error_image_subsystem_not_present"></a><strong>ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT</strong></dt>
+<dd>
+<dl>
+<dt>308 (0x134)</dt>
+<dt>
+<p>The subsystem needed to support the image type is not present.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOTIFICATION_GUID_ALREADY_DEFINED"></a><a id="error_notification_guid_already_defined"></a><strong>ERROR_NOTIFICATION_GUID_ALREADY_DEFINED</strong></dt>
+<dd>
+<dl>
+<dt>309 (0x135)</dt>
+<dt>
+<p>The specified file already has a notification GUID associated with it.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_EXCEPTION_HANDLER"></a><a id="error_invalid_exception_handler"></a><strong>ERROR_INVALID_EXCEPTION_HANDLER</strong></dt>
+<dd>
+<dl>
+<dt>310 (0x136)</dt>
+<dt>
+<p>An invalid exception handler routine has been detected.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DUPLICATE_PRIVILEGES"></a><a id="error_duplicate_privileges"></a><strong>ERROR_DUPLICATE_PRIVILEGES</strong></dt>
+<dd>
+<dl>
+<dt>311 (0x137)</dt>
+<dt>
+<p>Duplicate privileges were specified for the token.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NO_RANGES_PROCESSED"></a><a id="error_no_ranges_processed"></a><strong>ERROR_NO_RANGES_PROCESSED</strong></dt>
+<dd>
+<dl>
+<dt>312 (0x138)</dt>
+<dt>
+<p>No ranges for the specified operation were able to be processed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_ALLOWED_ON_SYSTEM_FILE"></a><a id="error_not_allowed_on_system_file"></a><strong>ERROR_NOT_ALLOWED_ON_SYSTEM_FILE</strong></dt>
+<dd>
+<dl>
+<dt>313 (0x139)</dt>
+<dt>
+<p>Operation is not allowed on a file system internal file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DISK_RESOURCES_EXHAUSTED"></a><a id="error_disk_resources_exhausted"></a><strong>ERROR_DISK_RESOURCES_EXHAUSTED</strong></dt>
+<dd>
+<dl>
+<dt>314 (0x13A)</dt>
+<dt>
+<p>The physical resources of this disk have been exhausted.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_TOKEN"></a><a id="error_invalid_token"></a><strong>ERROR_INVALID_TOKEN</strong></dt>
+<dd>
+<dl>
+<dt>315 (0x13B)</dt>
+<dt>
+<p>The token representing the data is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_FEATURE_NOT_SUPPORTED"></a><a id="error_device_feature_not_supported"></a><strong>ERROR_DEVICE_FEATURE_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>316 (0x13C)</dt>
+<dt>
+<p>The device does not support the command feature.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MR_MID_NOT_FOUND"></a><a id="error_mr_mid_not_found"></a><strong>ERROR_MR_MID_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>317 (0x13D)</dt>
+<dt>
+<p>The system cannot find message text for message number 0x%1 in the message file for %2.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SCOPE_NOT_FOUND"></a><a id="error_scope_not_found"></a><strong>ERROR_SCOPE_NOT_FOUND</strong></dt>
+<dd>
+<dl>
+<dt>318 (0x13E)</dt>
+<dt>
+<p>The scope specified was not found.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_UNDEFINED_SCOPE"></a><a id="error_undefined_scope"></a><strong>ERROR_UNDEFINED_SCOPE</strong></dt>
+<dd>
+<dl>
+<dt>319 (0x13F)</dt>
+<dt>
+<p>The Central Access Policy specified is not defined on the target machine.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_CAP"></a><a id="error_invalid_cap"></a><strong>ERROR_INVALID_CAP</strong></dt>
+<dd>
+<dl>
+<dt>320 (0x140)</dt>
+<dt>
+<p>The Central Access Policy obtained from Active Directory is invalid.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_UNREACHABLE"></a><a id="error_device_unreachable"></a><strong>ERROR_DEVICE_UNREACHABLE</strong></dt>
+<dd>
+<dl>
+<dt>321 (0x141)</dt>
+<dt>
+<p>The device is unreachable.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DEVICE_NO_RESOURCES"></a><a id="error_device_no_resources"></a><strong>ERROR_DEVICE_NO_RESOURCES</strong></dt>
+<dd>
+<dl>
+<dt>322 (0x142)</dt>
+<dt>
+<p>The target device has insufficient resources to complete the operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DATA_CHECKSUM_ERROR"></a><a id="error_data_checksum_error"></a><strong>ERROR_DATA_CHECKSUM_ERROR</strong></dt>
+<dd>
+<dl>
+<dt>323 (0x143)</dt>
+<dt>
+<p>A data integrity checksum error occurred. Data in the file stream is corrupt.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INTERMIXED_KERNEL_EA_OPERATION"></a><a id="error_intermixed_kernel_ea_operation"></a><strong>ERROR_INTERMIXED_KERNEL_EA_OPERATION</strong></dt>
+<dd>
+<dl>
+<dt>324 (0x144)</dt>
+<dt>
+<p>An attempt was made to modify both a KERNEL and normal Extended Attribute (EA) in the same operation.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED"></a><a id="error_file_level_trim_not_supported"></a><strong>ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>326 (0x146)</dt>
+<dt>
+<p>Device does not support file-level TRIM.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OFFSET_ALIGNMENT_VIOLATION"></a><a id="error_offset_alignment_violation"></a><strong>ERROR_OFFSET_ALIGNMENT_VIOLATION</strong></dt>
+<dd>
+<dl>
+<dt>327 (0x147)</dt>
+<dt>
+<p>The command specified a data offset that does not align to the device's granularity/alignment.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_FIELD_IN_PARAMETER_LIST"></a><a id="error_invalid_field_in_parameter_list"></a><strong>ERROR_INVALID_FIELD_IN_PARAMETER_LIST</strong></dt>
+<dd>
+<dl>
+<dt>328 (0x148)</dt>
+<dt>
+<p>The command specified an invalid field in its parameter list.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_OPERATION_IN_PROGRESS"></a><a id="error_operation_in_progress"></a><strong>ERROR_OPERATION_IN_PROGRESS</strong></dt>
+<dd>
+<dl>
+<dt>329 (0x149)</dt>
+<dt>
+<p>An operation is currently in progress with the device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_BAD_DEVICE_PATH"></a><a id="error_bad_device_path"></a><strong>ERROR_BAD_DEVICE_PATH</strong></dt>
+<dd>
+<dl>
+<dt>330 (0x14A)</dt>
+<dt>
+<p>An attempt was made to send down the command via an invalid path to the target device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_TOO_MANY_DESCRIPTORS"></a><a id="error_too_many_descriptors"></a><strong>ERROR_TOO_MANY_DESCRIPTORS</strong></dt>
+<dd>
+<dl>
+<dt>331 (0x14B)</dt>
+<dt>
+<p>The command specified a number of descriptors that exceeded the maximum supported by the device.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_SCRUB_DATA_DISABLED"></a><a id="error_scrub_data_disabled"></a><strong>ERROR_SCRUB_DATA_DISABLED</strong></dt>
+<dd>
+<dl>
+<dt>332 (0x14C)</dt>
+<dt>
+<p>Scrub is disabled on the specified file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_REDUNDANT_STORAGE"></a><a id="error_not_redundant_storage"></a><strong>ERROR_NOT_REDUNDANT_STORAGE</strong></dt>
+<dd>
+<dl>
+<dt>333 (0x14D)</dt>
+<dt>
+<p>The storage device does not provide redundancy.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_RESIDENT_FILE_NOT_SUPPORTED"></a><a id="error_resident_file_not_supported"></a><strong>ERROR_RESIDENT_FILE_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>334 (0x14E)</dt>
+<dt>
+<p>An operation is not supported on a resident file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_COMPRESSED_FILE_NOT_SUPPORTED"></a><a id="error_compressed_file_not_supported"></a><strong>ERROR_COMPRESSED_FILE_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>335 (0x14F)</dt>
+<dt>
+<p>An operation is not supported on a compressed file.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_DIRECTORY_NOT_SUPPORTED"></a><a id="error_directory_not_supported"></a><strong>ERROR_DIRECTORY_NOT_SUPPORTED</strong></dt>
+<dd>
+<dl>
+<dt>336 (0x150)</dt>
+<dt>
+<p>An operation is not supported on a directory.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_NOT_READ_FROM_COPY"></a><a id="error_not_read_from_copy"></a><strong>ERROR_NOT_READ_FROM_COPY</strong></dt>
+<dd>
+<dl>
+<dt>337 (0x151)</dt>
+<dt>
+<p>The specified copy of the requested data could not be read.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAIL_NOACTION_REBOOT"></a><a id="error_fail_noaction_reboot"></a><strong>ERROR_FAIL_NOACTION_REBOOT</strong></dt>
+<dd>
+<dl>
+<dt>350 (0x15E)</dt>
+<dt>
+<p>No action was taken as a system reboot is required.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAIL_SHUTDOWN"></a><a id="error_fail_shutdown"></a><strong>ERROR_FAIL_SHUTDOWN</strong></dt>
+<dd>
+<dl>
+<dt>351 (0x15F)</dt>
+<dt>
+<p>The shutdown operation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_FAIL_RESTART"></a><a id="error_fail_restart"></a><strong>ERROR_FAIL_RESTART</strong></dt>
+<dd>
+<dl>
+<dt>352 (0x160)</dt>
+<dt>
+<p>The restart operation failed.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_MAX_SESSIONS_REACHED"></a><a id="error_max_sessions_reached"></a><strong>ERROR_MAX_SESSIONS_REACHED</strong></dt>
+<dd>
+<dl>
+<dt>353 (0x161)</dt>
+<dt>
+<p>The maximum number of sessions has been reached.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_MODE_ALREADY_BACKGROUND"></a><a id="error_thread_mode_already_background"></a><strong>ERROR_THREAD_MODE_ALREADY_BACKGROUND</strong></dt>
+<dd>
+<dl>
+<dt>400 (0x190)</dt>
+<dt>
+<p>The thread is already in background processing mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_THREAD_MODE_NOT_BACKGROUND"></a><a id="error_thread_mode_not_background"></a><strong>ERROR_THREAD_MODE_NOT_BACKGROUND</strong></dt>
+<dd>
+<dl>
+<dt>401 (0x191)</dt>
+<dt>
+<p>The thread is not in background processing mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROCESS_MODE_ALREADY_BACKGROUND"></a><a id="error_process_mode_already_background"></a><strong>ERROR_PROCESS_MODE_ALREADY_BACKGROUND</strong></dt>
+<dd>
+<dl>
+<dt>402 (0x192)</dt>
+<dt>
+<p>The process is already in background processing mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_PROCESS_MODE_NOT_BACKGROUND"></a><a id="error_process_mode_not_background"></a><strong>ERROR_PROCESS_MODE_NOT_BACKGROUND</strong></dt>
+<dd>
+<dl>
+<dt>403 (0x193)</dt>
+<dt>
+<p>The process is not in background processing mode.</p>
+</dt>
+</dl>
+</dd>
+<dt><a id="ERROR_INVALID_ADDRESS"></a><a id="error_invalid_address"></a><strong>ERROR_INVALID_ADDRESS</strong></dt>
+<dd>
+<dl>
+<dt>487 (0x1E7)</dt>
+<dt>
+<p>Attempt to access invalid address.</p>
+</dt>
+</dl>
+</dd>
+</dl>
+<h2><a id="Suggestions_"></a><a id="suggestions_"></a><a id="SUGGESTIONS_"></a>Suggestions?</h2>
+<p>If you have additional suggestions regarding the 
+     System Error Codes documentation, given the 
+     constraints enumerated at the top of the page, please click the link labeled 
+     "Send comments about this topic to Microsoft" below. We appreciate the input.</p>
+<h2>Requirements</h2>
+<table>
+<tr><th>
+<p>Minimum supported client</p>
+</th><td>WindowsÂ XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows ServerÂ 2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinError.h (include Windows.h)</dt>
+</dl>
+</td></tr>
+</table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx">System Error Codes</a>
+</dt>
+</dl>
+<p>Â </p>
+<p>Â </p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms681382(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms681382(v=vs.85).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings." />
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="v49IoKzQnO1Pm-LCl1Ao17BYGy1liDH24uIcS7TPDyv9pKBuyNsKA37LfoUgTpQJ_YuuU4gNfCGjgeJ16Q0dsBDlmsA1" />
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms681382(v=vs.85).aspx" />
+<input id="isTopicRated" type="hidden" value="false" />
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentName="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml"></div>
+
+<div class="rating">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br />Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="" />
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols="" maxlength="1500"></textarea>
+        <div class="counter right">
+            <span id="feedbackTextCounter">1500</span> characters remaining
+        </div>
+        <div class="buttons left">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+    
+
+                    <div data-fragmentName="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=393788" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Read the blog</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentName="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Centers</div>
+        <ul class="links">
+          <li>
+            <a href="http://dev.windows.com" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Windows Dev Center</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Related developer sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Other Windows sites</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Downloads</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Support</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentName="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    <div class="listItems">
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Essentials</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="linkList" xmlns="http://www.w3.org/1999/xhtml">
+        <div class="linkListTitle">Stay connected</div>
+        <ul class="links">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Building Apps for Windows Devices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">Â© 2014 Microsoft</div>
+                <div data-fragmentName="BaseFooter" id="Fragment_BaseFooter" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="http://go.microsoft.com/fwlink/?LinkId=248681" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248155" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?linkid=248154" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+      <li>
+        <a href="http://go.microsoft.com/fwlink/p/?LinkId=400453" id="BaseFooter_730_5" xmlns="http://www.w3.org/1999/xhtml">Site map</a>
+      </li>
+    </ul>
+  </div>
+</div>  
+                <div data-fragmentName="HelloText" id="Fragment_HelloText" xmlns="http://www.w3.org/1999/xhtml">Hello from Seattle.
+</div>  
+        
+    
+    <span id="selectLocaleFromPopUp">
+        <div class="locale-selector" style="position: relative">
+            <a class="current-locale" href="javascript:void(0)">
+                <span class="text">English</span>
+                <span class="gear"></span>
+            </a>
+            <div class="locale-selection-panel site-flag site-flag-lang" style="top: -245px; display: none;">
+                <div class="content">
+                    <table class="all-locales" cellspacing="0" autogeneratecolumns="false" allowpaging="false" allowsorting="false" style="border-collapse: collapse;">
+                        <tbody>
+                            <tr>
+
+
+                                    <td><a title="Deutsch" href="/de-de/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">Deutsch</a></td>
+                                    <td><a title="English" href="/en-us/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link selected">English</a></td>
+                                    <td><a title="EspaÃ±ol" href="/es-es/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">EspaÃ±ol</a></td>
+                                    <td><a title="FranÃ§ais" href="/fr-fr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">FranÃ§ais</a></td>
+                                        </tr><tr>
+                                    <td><a title="Italiano" href="/it-it/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">Italiano</a></td>
+                                    <td><a title="æ—¥æœ¬èªž" href="/ja-jp/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">æ—¥æœ¬èªž</a></td>
+                                    <td><a title="í•œêµ­ì–´" href="/ko-kr/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">í•œêµ­ì–´</a></td>
+                                    <td><a title="PortuguÃªs" href="/pt-br/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">PortuguÃªs</a></td>
+                                        </tr><tr>
+                                    <td><a title="PÑƒÑÑÐºÐ¸Ð¹" href="/ru-ru/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">PÑƒÑÑÐºÐ¸Ð¹</a></td>
+                                    <td><a title="ç®€ä½“ä¸­æ–‡" href="/zh-cn/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">ç®€ä½“ä¸­æ–‡</a></td>
+                                    <td><a title="ç¹é«”ä¸­æ–‡" href="/zh-tw/library/preferences/locale/save/?returnurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fms681382(v%3dvs.85).aspx" class="locale-link">ç¹é«”ä¸­æ–‡</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="arrow">
+                        Â </div>
+                </div>
+            </div>
+        </div>
+    </span>
+
+                    <link type="text/css" rel="stylesheet" />
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">Â© 2014 Microsoft</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default" />
+
+
+<![CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use â€“ http://www.asp.net/ajaxlibrary/CDN.ashx. ]]>
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  <a href="http://www.omniture.com" title="Web Analytics">
+    <img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+  </a>
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="Dxnskhnh6sJuTSC-AGjY6iEfYPj1AbN6KsiDZMyiqRSaApiD9Gw3ODzDbxd9husHh04CiPBb7eW-IEfA-oPXm_XebU41" />
+</div>
+
+
+        </div>
+        
+        
+        
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\", \r\n\t\"xap\": \"http://10.16.79.228\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms681382(l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdnlib_es_dev_win32com_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"f3d8d8ee-95d9-4b39-974d-96f28cbc40ac\";\n/**/" },
+	{ txt: "//\n\n            window.appInsightsId = \u002760854590-027a-4ae4-98be-2741a40f355f\u0027;\n            //" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Rating,0:Topic,2:webtrendsscript,3:omni_rsid_MSDN,0:AppInsightsPerf,4:Toc,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Global/Content/Webtrends/resources:2,/Areas/Global/Content/Omniture/resources/MSDN:3,/Areas/Library/Content:4\u0026amp;hashKey=D00A61D5B669422C7F09551606BF68C2" },
+	{ url: "http://i2.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:TocDropDown,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=D158B2010A6B5AB806BFFA399599FB66" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:SelectLocaleFromPopUp,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=4BB532E9E42942706E78C44C9E02E7E8" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script></body>
+</html>
