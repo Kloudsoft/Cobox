@@ -1,0 +1,255 @@
+﻿    .post-box {
+        background: #ebedf2 none repeat scroll 0 0 !important;
+    }
+
+    .close-icon {
+        background-color: red;
+        padding-right: 4px;
+        padding-left: 4px;
+        padding-bottom: 3px;
+        height: 20px;
+        color: white;
+    }
+
+    .data-view {
+        background-color: white;
+    }
+
+   
+    div.lt-imageviewer-main {
+        overflow-X: auto !important;
+        overflow-Y: auto !important;
+    }
+
+    #divid5 > .k-grid > div.k-grid-content {
+        height: 97% !important;
+        overflow: scroll;
+    }
+
+    .k-treeview .k-item {
+        display: block;
+        margin: 1px;
+        padding: 0 0 0 16px;
+        border-bottom: 1px solid #e5e5e5 !important;
+        padding: 18px 10px !important;
+        font-size: 14px;
+    }
+
+    .k-item > .k-group > .k-mid < .k-item {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 18px !important;
+        border-bottom: 0px !important;
+    }
+
+
+
+
+    /*.k-item>.k-group>.k-item {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 18px !important;
+        border-bottom: 0px!important;
+    }*/
+    /*.k-item>.k-group>.k-item .k-mid {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 0px !important;
+        border-bottom: 0px!important;
+    }*/
+    .k-group .k-item .k-last {
+        margin-top: 0px !important;
+        border-top: 1px solid #e5e5e5 !important;
+        border-bottom: 0px solid #e5e5e5 !important;
+        padding: 18px 10px 0px 10px !important;
+    }
+
+    .k-item .k-state-focused {
+        box-shadow: none;
+    }
+
+    .k-treeview .k-in {
+        margin: 0px 0px 0px 10px !important;
+        padding: 0px !important;
+        line-height: 0px !important;
+        text-decoration: none;
+        border-style: solid;
+        border-width: 0px !important;
+    }
+
+    span.k-state-selected {
+        color: #585858 !important;
+        /*border-width: 5px !important;
+    border-style:solid !important;
+    border-color: #d3d5d9 !important;*/
+    }
+
+    .k-treeview {
+        padding-left: 10px !important;
+    }
+
+    .k-item > div > span.k-in > a {
+        border-width: 1px 0 0;
+        border-style: solid;
+        border-color: transparent;
+        color: #585858 !important;
+    }
+  
+    .k-grid tr td {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+  #HistoryViewerDiv{
+    display:none;
+    width:100% !important;
+    min-height:300px;
+    max-height: 400px;
+  }
+
+#uploadAttachmentsDiv {
+    display:none;
+    width:100% !important;
+    min-height:300px;
+    max-height: 400px;
+}
+#showDiscourseComment {
+    float:right; 
+    background:white!important;
+    border:0px;
+    width:auto !important;
+}
+#discourseCommentEditor {
+    float:right;
+    width:100% !important;
+    max-height: 600px;
+    overflow: auto;
+}
+#PostTitleTxt {
+    max-width:none;
+    margin-bottom:10px;
+
+}
+#UserManagementBtns {
+    width:155px;
+    background-color: transparent !important;
+    border: 0px;
+    float:left!important;
+    left:12px;
+    right:0px;
+}
+#userManagementDiv{
+     display:none;min-height:300px;
+     min-width:500px;
+     margin-right:10px;
+     max-height: 400px;
+     background: #f9f9f9 none repeat scroll 0 0 !important;
+     border: 0px solid #1767b9 !important;
+     box-shadow: 0px 0px 5px #888888 !important;
+}
+
+    div#thumbnails-container-Div {
+        display: none;
+    }
+
+
+    .modal-fullscreen {
+        background-color: transparent; /*#ebedf2;*/
+        top: 0% !important;
+    }
+
+        .modal-fullscreen .modal-content {
+            background: white;
+            border: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+    .modal-backdrop.modal-backdrop-fullscreen {
+        background: #ebedf2;
+    }
+
+        .modal-backdrop.modal-backdrop-fullscreen.in {
+            opacity: .97;
+            filter: alpha(opacity=97);
+        }
+
+    /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+    .modal-fullscreen .modal-dialog {
+        margin: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+    }
+
+    @@media (min-width: 768px) {
+        .modal-fullscreen .modal-dialog {
+            width: 750px;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .modal-fullscreen .modal-dialog {
+            width: 970px;
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .modal-fullscreen .modal-dialog {
+            width: 1170px;
+        }
+    }
+
+    #FolderListGrid tbody tr:hover td {
+        background: #3a9cc1;
+        color: white;
+    }
+
+        #FolderListGrid tbody tr:hover td a {
+            color: white;
+        }
+
+  
+   
+
+
+    .k-treeview .k-top,
+    .k-treeview .k-mid,
+    .k-treeview .k-bot {
+        /*background-image: url('http://aspnet-skins.telerikstatic.com/mvc/2012.2.607/Default/treeview-nodes.png') !important;
+        background-repeat: no-repeat !important;*/
+        margin-left: -26px !important;
+        padding-left: 26px !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        /*padding-top:17px;*/
+        /*padding-bottom:17px;*/
+        /*font-size: 14px;*/
+        display: block;
+        height: 54px;
+        line-height: 17px;
+        /*padding-left: 7px;*/
+        text-shadow: none !important;
+        font-size: 14px;
+        /*padding: 18px 10px;*/
+    }
+
+        .k-treeview .k-top > span.k-icon,
+        .k-treeview .k-mid > span.k-icon,
+        .k-treeview .k-bot > span.k-icon,
+        .k-treeview .k-top > span.k-in,
+        .k-treeview .k-mid > span.k-in,
+        .k-treeview .k-bot > span.k-in {
+            margin-top: 20px !important;
+        }
+
+    
+
+    /*.k-item>.k-group>.k-item {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 18px !important;
+        border-bottom: 0px!important;
+    }*/
+    /*.k-item>.k-group>.k-item .k-mid {
+        border-top: 1px solid #e5e5e5 !important;
+        margin-top: 0px !important;
+        border-bottom: 0px!important;
+    }*/
+   
+
