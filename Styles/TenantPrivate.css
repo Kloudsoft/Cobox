@@ -1,0 +1,256 @@
+﻿.line-separator-bottom{
+
+height:1px;
+
+background:white;
+
+border-bottom:1px solid white;
+
+}
+
+
+html, body, table, tr, td, div
+{
+	border-style: none;
+	border-width: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	background-color: White;
+	color: Black;
+}
+html, body
+{
+	font-family: "Calibri", "Sans-Serif";
+	font-size: 12pt;
+	text-align: justify;
+}
+html
+{
+	overflow-y: scroll;
+}
+body
+{
+}
+div
+{
+	background-color: transparent;
+}
+h1, h2, h3, h4, h5, h6
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+a
+{
+	text-decoration: none;
+}
+
+#DivMain
+{
+	min-width: 1000px;
+}
+
+#DivHeader
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100px;
+	left: 0px;
+	color: blue;
+	background-color: black;
+}
+
+#DivHeaderLeft
+{
+	color: blue;
+	float: left;
+	position: absolute;
+	top: 0px;
+	width: 300px;
+	height: 100px;
+	left: 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#DivHeaderMiddle
+{
+	color: white;
+	font-size: 30px;
+	float: left;
+	position: absolute;
+	top: 0px;
+	right: 500px;
+	height: 100px;
+	left: 300px;
+	margin:  0 auto;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#DivHeaderRight
+{
+	color: blue;
+	float: right;
+	top: 0px;
+	right: 0px;
+	width: 500px;
+	height: 100px;
+	text-align: right;
+	padding-right: 10px;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#DivMenuMain
+{
+	clear: both;
+	position: absolute;
+	top: 100px;
+	bottom: 0px;
+	width: 50px;
+	background-color: steelblue;
+	z-index: 100;
+}
+
+#DivNavigation
+{
+	clear: both;
+	position: absolute;
+	top: 100px;
+	height: 40px;
+	left: 50px;
+	right: 0px;
+	background-color: steelblue;
+	padding-left: 10px;
+}
+
+#DivBody
+{
+	clear: both;
+	position: absolute;
+	top: 140px;
+	bottom: 30px;
+	left: 50px;
+	padding: 20px 20px 20px 20px;
+	overflow-y: scroll;
+	right: 0px;
+}
+
+#DivFooter
+{
+	left: 50px;
+	height: 20px;
+	bottom: 0px;
+	position: absolute;
+	text-align: center;
+	right: 0px;
+	padding: 5px 5px 5px 5px;
+}
+
+.DivMenuNavigationLanguage
+{
+	height: 100%;
+	margin: 10px 5px 0px 10px;
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	flex-direction: column;
+	white-space: nowrap;
+}
+
+.DivMenuNavigationAlerts, .DivMenuNavigationMessages
+{
+	position: absolute;
+	top: 108px;
+	width: 40px;
+	height: 20px;
+	text-align: center;
+}
+.DivMenuNavigationAlerts
+{
+	right: 10px;
+}
+.DivMenuNavigationMessages
+{
+	right: 50px;
+}
+
+.DivMenuNavigationAlerts span,
+.DivMenuNavigationMessages span
+{
+	color: white;
+	font-size: 12px;
+}
+
+.DivMenuMainItem
+{
+	color: white;
+	height: 40px;
+	margin: 5px 5px 5px 5px;
+	border: 1px solid darkblue;
+	background-color: darkblue;
+
+	padding-top: 12px;
+	padding-bottom: 0px;
+	font-size: 16px;
+	text-align: center;
+	white-space: nowrap;
+
+	/*
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	flex-direction: column;
+	white-space: nowrap;
+	*/
+}
+
+.DivDashboardTileKpi
+{
+	background-color: #428C94;
+}
+.DivDashboardTileStatus
+{
+	background-color: #EF7B00;
+}
+.DivDashboardTileAlert
+{
+	background-color: #FF0000;
+}
+.DivDashboardTileKpi, .DivDashboardTileStatus, .DivDashboardTileAlert
+{
+	color: white;
+	width: 90px;
+	height: 90px;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+	border: 1px solid white;
+}
+
+.DivDashboardTileLabel
+{
+	font-size: 12pt;
+}
+.DivDashboardTileValue
+{
+	font-size: 24px;
+	margin-top: 6px;
+}
+.DivDashboardTileLabel, .DivDashboardTileValue
+{
+	color: white;
+}
+.DivDashboardTileProgress
+{
+	margin: 8px 5px 2px 5px;
+	height: 2px;
+	width: 0px;
+	background-color: darkblue;
+}

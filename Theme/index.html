@@ -1,0 +1,1170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<title>Dashboard - kloud soft</title>
+<meta name="description" content="overview &amp; stats" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+<link rel="stylesheet" href="assets/css/custeme.css" />
+<link rel="stylesheet" href="assets/css/optiscroll.css" />
+</head>
+
+<body class="no-skin">
+    <div class="main-container ace-save-state row1" id="main-container">
+        <script type="text/javascript">
+            try {
+                ace.settings.loadState('main-container', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <div id="navbar" class="navbar navbar-default  ace-save-state custom-height47">
+            <!-- new add code for navbar -->
+            <script type="text/javascript">
+                try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+            </script>
+            <div class="navbar-container ace-save-state" id="navbar-container">
+                <div id="navbar-logo" class="navbar-header-top">
+                    <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar"> <span class="sr-only">Toggle sidebar</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <div class="navbar-header pull-left">
+                        <a href="index.html" class="navbar-brand"> <img src="assets/images/avatars/kloudsoft_logo.png" class="logo" alt="logo"> </a>
+                        <button type="button" class="navbar-toggle menu-toggler visible-lg visible-md pull-left" id="menu-toggler01"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    </div>
+                </div>
+                <div style="border-top:1px solid transparent;">
+                    <!-- new add code for breadcrumb  -->
+                    <script type="text/javascript">
+                        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+                    </script>
+                    <ul class="breadcrumb">
+                        <li> <a href="#">Home</a> </li>
+                        <li> <a href="#">Tasks</a> </li>
+                    </ul>
+                    <div class="navbar-buttons navbar-header pull-right custom-height47" role="navigation">
+                        <ul class="nav ace-nav custom-height47">
+                            <li class="dropdown-modal custom-height47"> <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#"> <i class="ace-icon fa fa-bell icon-animated-bell"></i> <span class="badge badge-important">2</span> </a> </li>
+                            <li class="dropdown-modal custom-height47"> <a data-toggle="dropdown" class="dropdown-toggle custom-height47" href="#"> <i class="ace-icon fa fa-envelope icon-animated-vertical"></i> <span class="badge badge-success">5</span> </a> </li>
+                            <li class="light-blue dropdown-modal custom-height47">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle custom-height47"> <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" /> <span class="user-info"> <small>Welcome, Jason </small> </span> <i class="ace-icon fa fa-caret-down"></i> </a>
+                                <ul class="user-menu dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                    <li> <a href="#"> <i class="ace-icon fa fa-cog"></i> Settings </a> </li>
+                                    <li> <a href="profile.html"> <i class="ace-icon fa fa-user"></i> Profile </a> </li>
+
+                                    <li> <a href="#"> <i class="ace-icon fa fa-power-off"></i> Logout </a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div class="nav-search" id="nav-search">
+                            <form class="form-search">
+                                <span class="input-icon">
+                                    <input type="text" placeholder="Search for documents, people, and more" class="nav-search-input" id="nav-search-input" autocomplete="off">
+                                    <i class="ace-icon fa fa-search nav-search-icon"></i>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.navbar-container -->
+        </div>
+        <div id="menu-toggler-box" style="float: left; position:relative; z-index:505;">
+            <div id="sidebar" class="menu01 sidebar responsive  ace-save-state">
+                <!-- new add code for sidebar  -->
+                <script type="text/javascript">
+                    try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+                </script>
+                <ul class="nav nav-list menu1">
+                    <li class="active custom-border" id="home"> <a href="javascript:;"> <i class="menu-icon"><img src="assets/images/avatars/icon1.png" /></i> <span class="menu-text"> Home</span> </a> </li>
+                    <li class="custom-border"> <a href="capturing.html"> <i class="menu-icon"><img src="assets/images/avatars/icon3.png" /></i> <span class="menu-text">AF Capturing </span> </a> </li>
+                    <li class="row col custom-border" id="divid1"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon2.png" /></i> <span class="menu-text"> AF Documents</span> </a> </li>
+                    <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon4.png" /></i> <span class="menu-text">AF Forms </span> </a> </li>
+                    <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src="assets/images/avatars/icon5.png" /></i> <span class="menu-text">AF Flow </span> </a> </li>
+                    <li class="custom-border"> <a href=""> <i class="menu-icon"><img src="assets/images/avatars/icon6.png" /></i> <span class="menu-text">AF Reports</span> </a> </li>
+                    <li class="custom-border"> <a href=""> <i class="menu-icon"><img src="assets/images/avatars/icon7.png" /></i> <span class="menu-text">Setting</span> </a> </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <div id="nav-search" class="nav-search pull-left">
+                <form class="form-search">
+                    <span class="input-icon">
+                        <input type="text" autocomplete="off" id="nav-search-input" class="nav-search-input" placeholder="Search ..." style="width: 207px;">
+                        <i class="ace-icon fa fa-search nav-search-icon"></i>
+                    </span>
+                </form>
+            </div>
+            <div class="pull-left"> <a href="#myModal" class="btn btn-primary btn-radius" data-toggle="modal">Upload</a>&nbsp; <a href="#myModal2" class="btn btn-primary btn-radius" data-toggle="modal">New Folder </a> </div>
+            <div id="divid3-menu" class="hide navbar-buttons white-manu navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="dropdown-modal"> <a href="#" style="color:#000 !important;"> 100 GB  |  Created by Dex </a> </li>
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle"> <i class="fa fa fa-sort" aria-hidden="true"></i> Sort by <i class="ace-icon fa fa-caret-down"></i> </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li> <a href="#"> <i class="ace-icon fa fa-cog"></i> 01 </a> </li>
+                            <li> <a href="profile.html"> <i class="ace-icon fa fa-user"></i> 02 </a> </li>
+                            <li class="divider"></li>
+                            <li> <a href="#"> <i class="ace-icon fa fa-power-off"></i> 03 </a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="side-content" class="side-content">
+            <div>
+
+                <!-- Dashbord -->
+
+                <div id="page-wrapper">
+                    <div id="dashboard" class="hide">
+                        <div id="dashboard-content">
+                            <div id="breadcrumbs" class="breadcrumbs">
+                                <div class="pull-left"> <a href="#" class="dash-link">DASHBOARD</a> <a href="#" class="dash-link active">TASKS </a> <a href="#" class="dash-link">REPORTS</a> </div>
+                            </div>
+
+                            <!-- Chart -->
+                            <div class="chart" id="report-container">
+                                <div class="pull-right"> <a href="#" id="report-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="report-cross"><img src="assets/images/avatars/closs.png" alt="closs"></a> </div>
+                                <div id="report-contents">
+                                    <div class="col-md-7" style="border-right:1px solid #ccc;">
+                                        <div class=" col-md-4">
+                                            <div class="panel-body">
+                                                <div id="urgent" class="pie-title-center" data-percent="50">
+                                                    <span class="report-display">
+                                                        5/10<br>
+                                                        <small>URGENT TASK</small>
+                                                    </span>
+                                                </div>
+
+                                                <!--End Chart -->
+
+                                            </div>
+                                        </div>
+                                        <div class=" col-md-4">
+                                            <div class="panel-body">
+                                                <div id="done" class="pie-title-center" data-percent="70">
+                                                    <span class="report-display">
+                                                        7/10<br>
+                                                        <small> TASK DONE</small>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!--End Chart -->
+                                        </div>
+                                        <div class=" col-md-4">
+                                            <div class="panel-body">
+                                                <div id="read-messages" class="pie-title-center" data-percent="91">
+                                                    <span class="report-display">
+                                                        2/3<br>
+                                                        <small>READ MESSAGES </small>
+                                                    </span>
+                                                </div>
+
+                                                <!--End Chart -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--// 1-->
+
+                                    <div class="col-md-5">
+                                        <div class="panel-body">
+                                            <div class="title"><i class="fa r-icon fa-circle" aria-hidden="true"></i> URGENT TASK </div>
+                                            <p>This is the outstanding task that always did by the user </p>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="title"><i class="fa g-icon fa-circle" aria-hidden="true"></i> TASK DONE</div>
+                                            <p>This is number of file saved by the user</p>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="title"><i class="fa b-icon fa-circle" aria-hidden="true"></i> MESSAGES </div>
+                                            <p>This is the total storage used by the user</p>
+                                        </div>
+                                    </div>
+                                    <!-- // 2 -->
+
+                                </div>
+                            </div>
+
+                            <!--// Chart -->
+
+                            <div class="clearfix"></div>
+                            <div class="data-view">
+                                <!-- My Tasks & Workflow in Progress-->
+                                <!-- My Tasks -->
+                                <div class="col-md-4 task" id="task-container">
+                                    <div class="panel panel-default table-col-box">
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <table class="table  table-bordered">
+                                                    <thead class="thin-border-bottom table-title">
+                                                        <tr>
+                                                            <th class="text-left">My Tasks <span class="num-bg">8</span></th>
+                                                            <th class="text-right" id="task-header"> <a href="#" id="task-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="task-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="task-contents">
+                                                        <tr>
+                                                            <td>Task</td>
+                                                            <td>Date <img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Start Workflow</td>
+                                                            <td>August 30, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Create Workflow</td>
+                                                            <td>August 23, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Create Template</td>
+                                                            <td>August 20, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/check.png"> Assign Task</td>
+                                                            <td>August 14, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve Agreement</td>
+                                                            <td>August 12, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve the Document</td>
+                                                            <td>August 10, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Approve Somthing</td>
+                                                            <td>August 8, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img alt="icon" class="icon" src="assets/images/avatars/approved.png"> Modify Template</td>
+                                                            <td>August 1, 2016</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- // My Tasks -->
+                                <!-- Workflow in Progress -->
+
+                                <div class="col-md-8" id="workflow-container">
+                                    <div class="panel panel-default table-col-box">
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <table class="table  table-bordered">
+                                                    <thead class="thin-border-bottom table-title">
+                                                        <tr>
+                                                            <th class="text-left">Workflow in Progress</th>
+                                                            <th colspan="4" class="text-right"> <a href="#" id="workflow-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="workflow-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="workflow-contents">
+                                                        <tr>
+                                                            <td>Doc Name</td>
+                                                            <td>Workflow Type</td>
+                                                            <td>Status</td>
+                                                            <td>Action by</td>
+                                                            <td>Last Update<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 1</td>
+                                                            <td>Type 1</td>
+                                                            <td>Status 1</td>
+                                                            <td>Dexian</td>
+                                                            <td>August 30, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 2</td>
+                                                            <td>Type 2</td>
+                                                            <td>Status 2</td>
+                                                            <td>Wen Wen</td>
+                                                            <td>August 23, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 3</td>
+                                                            <td>Type 3</td>
+                                                            <td>Status 3</td>
+                                                            <td>Randy</td>
+                                                            <td>August 20, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 4</td>
+                                                            <td>Type 4</td>
+                                                            <td>Status 4</td>
+                                                            <td>Rizqi</td>
+                                                            <td>August 14, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 5</td>
+                                                            <td>Type 5</td>
+                                                            <td>Status 5</td>
+                                                            <td>Hanafi</td>
+                                                            <td>August 12, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 6</td>
+                                                            <td>Type 6</td>
+                                                            <td>Status 6</td>
+                                                            <td>Chelsea</td>
+                                                            <td>August 10, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 7</td>
+                                                            <td>Type 7</td>
+                                                            <td>Status 7</td>
+                                                            <td>Xiao</td>
+                                                            <td>August 8, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Workflow 8</td>
+                                                            <td>Type 8</td>
+                                                            <td>Status 8</td>
+                                                            <td>Thomas</td>
+                                                            <td>August 1, 2016</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // Workflow in Progress -->
+                                <!-- // My Tasks & Workflow in Progress-->
+                                <div class="clearfix"></div>
+                                <!-- wright new  and shared document -->
+
+                                <div class="col-md-6" id="message-container">
+                                    <div class="panel panel-default table-col-box">
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <table class="table  table-bordered">
+                                                    <thead class="thin-border-bottom table-title">
+                                                        <tr>
+                                                            <th class="text-left">Messages <span class="active">Write New</span></th>
+                                                            <th colspan="2" class="text-right"> <a href="#" id="message-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="message-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="message-contents">
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <div class="media">
+                                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading">Xiao > to all employees</h4>
+                                                                        <p class="pull-left">Topic</p>
+                                                                        <p class="pull-right">July 1</p>
+                                                                        <div class="clearfix"></div>
+                                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                                        <div class="clearfix"></div>
+                                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearboth"></div>
+                                                                <div class="media">
+                                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading">Thomas > to all employees</h4>
+                                                                        <p class="pull-left">Topic</p>
+                                                                        <p class="pull-right">July 1</p>
+                                                                        <div class="clearfix"></div>
+                                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                                        <div class="clearfix"></div>
+                                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearboth"></div>
+                                                                <div class="media">
+                                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading">April > to all employees</h4>
+                                                                        <p class="pull-left">Topic</p>
+                                                                        <p class="pull-right">July 1</p>
+                                                                        <div class="clearfix"></div>
+                                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                                        <div class="clearfix"></div>
+                                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearboth"></div>
+                                                                <div class="media">
+                                                                    <div class="pull-left"> <span class="fa-stack fa-3x"><i class="fa fa-circle-o fa-stack-2x text-primary" aria-hidden="true"></i></span> </div>
+                                                                    <div class="media-body">
+                                                                        <h4 class="media-heading">Ben > to all employees</h4>
+                                                                        <p class="pull-left">Topic</p>
+                                                                        <p class="pull-right">July 1</p>
+                                                                        <div class="clearfix"></div>
+                                                                        <p>This text contains of example of message text. Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting of alphabetic and numeric characters, ... </p>
+                                                                        <div class="clearfix"></div>
+                                                                        <a href="#" class="more">Read more </a> <a href="#" class="more">Delete </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearboth"></div>
+                                                                <div class="col-md-12">
+                                                                    <textarea name="" class="post-box" cols="50" rows="5"></textarea>
+                                                                    <input name="post" type="button" class="post" value="Post">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-default table-col-box" id="s-doc-container">
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <table class="table  table-bordered">
+                                                    <thead class="thin-border-bottom table-title">
+                                                        <tr>
+                                                            <th class="text-left">Shared Documents</th>
+                                                            <th colspan="2" class="text-right"> <a href="#" id="s-doc-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="s-doc-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="s-doc-contents">
+                                                        <tr>
+                                                            <td>File Name</td>
+                                                            <td>Shared by</td>
+                                                            <td>Date<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  1</td>
+                                                            <td>Dexian</td>
+                                                            <td>August 30, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  2</td>
+                                                            <td>Wen Wen</td>
+                                                            <td>August 23, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  3</td>
+                                                            <td>Randy</td>
+                                                            <td>August 20, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  4</td>
+                                                            <td>Rizqi</td>
+                                                            <td>August 14, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  5</td>
+                                                            <td>Thomas</td>
+                                                            <td>August 12, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  6</td>
+                                                            <td>Ben</td>
+                                                            <td>August 10, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  7</td>
+                                                            <td>Dexian</td>
+                                                            <td>August 8, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  8</td>
+                                                            <td>Wen Wen</td>
+                                                            <td>August 1, 2016</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="panel panel-default table-col-box" id="frequent-container">
+                                        <div class="widget-body">
+                                            <div class="widget-main no-padding">
+                                                <table class="table  table-bordered">
+                                                    <thead class="thin-border-bottom table-title">
+                                                        <tr>
+                                                            <th class="text-left">Frequent Accessed File</th>
+                                                            <th colspan="2" class="text-right"> <a href="#" id="frequent-minus"><img src="assets/images/avatars/min.jpg" alt="min"></a> <a href="#" id="frequent-cross"><img src="assets/images/avatars/closs.png" alt="Closs"></a></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="frequent-contents">
+                                                        <tr>
+                                                            <td>File Name</td>
+                                                            <td>Number of Access</td>
+                                                            <td>Last Accessed<img src="assets/images/avatars/down-arrow.png" class="down-arrow" alt="icon"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  1</td>
+                                                            <td>90</td>
+                                                            <td>August 30, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  2</td>
+                                                            <td>89</td>
+                                                            <td>August 23, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  3</td>
+                                                            <td>88</td>
+                                                            <td>August 20, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  4</td>
+                                                            <td>77</td>
+                                                            <td>August 14, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  5</td>
+                                                            <td>67</td>
+                                                            <td>August 12, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  6</td>
+                                                            <td>65</td>
+                                                            <td>August 10, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  7</td>
+                                                            <td>64</td>
+                                                            <td>August 8, 2016</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><img src="assets/images/avatars/document.png" class="icon" alt="Document"> Document  8</td>
+                                                            <td>60</td>
+                                                            <td>August 1, 2016</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- wright new  and shared document --> <!--// end row -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- End Dashbord -->
+                <div id="divid2" class="row01 sidebar responsive  col hide">
+                    <ul class="nav nav-list">
+                        <li>
+                            <a href="#">
+                                <i class="menu-icon fa fa-folder"></i>
+                                <i class="menu-icon fa fa-folder-o"></i>
+                                <span class="menu-text"> Personal Folder</span>
+                                <b class="arrow fa fa-angle-right"></b>
+                            </a>
+                        </li>
+                        <li class=""> <a href="#"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Shared Folder </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+                        <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Enterprise Folder </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+                        <li class=""> <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Projects </span> <b class="arrow fa fa-angle-right"></b> </a> </li>
+                    </ul>
+                </div>
+                <div class=" col hide sidebar responsive " id="divid3">
+                    <span class="cloas01" class="down-arrow" id="cross">X</span>
+                    <ul class="nav nav-list" style="margin:0 10px;">
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 1 </span> </a> <b class="arrow"></b> </li>
+                        <li class=" "> <a class="dropdown-toggle showcontent" href="#" data-display-divid="7">
+                            <b class="arrow fa fa-angle-right pull-left"></b> <b class="arrow fa fa-angle-down pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 2 </span> </a> <b class="arrow"></b>
+                            <ul class="submenu">
+                                <li class="">
+                                    <a class="dropdown-toggle showcontent" href="#" data-display-divid="8">
+
+                                        <!--<i class="menu-icon fa fa-folder"></i>-->
+                                        Folder a <b class="arrow fa fa-angle-right"></b>
+                                    </a> <b class="arrow"></b>
+                                    <ul class="submenu">
+                                        <li class="showcontent" data-display-divid="5">
+                                            <a href="javascript:void(0);">
+                                                <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                Folder I
+                                            </a> <b class="arrow"></b>
+                                        </li>
+                                        <li class="showcontent">
+                                            <a href="javascript:void(0);">
+                                                <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                Folder II
+                                            </a> <b class="arrow"></b>
+                                        </li>
+                                        <li class="showcontent">
+                                            <a href="javascript:void(0);">
+                                                <!--<i class="menu-icon fa fa-folder"></i>-->
+                                                Folder III
+                                            </a> <b class="arrow"></b>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="showcontent">
+                                    <a href="javascript:void(0);">
+                                        <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                        Folder b <b class="arrow fa fa-angle-right"></b>
+                                    </a> <b class="arrow"></b>
+                                </li>
+                                <li class="showcontent">
+                                    <a href="javascript:void(0);">
+                                        <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                        Folder c <b class="arrow fa fa-angle-right"></b>
+                                    </a> <b class="arrow"></b>
+                                </li>
+                                <li class="showcontent">
+                                    <a href="javascript:void(0);">
+                                        <!--<i class="menu-icon fa fa-caret-right"></i>-->
+                                        Folder d <b class="arrow fa fa-angle-right"></b>
+                                    </a> <b class="arrow"></b>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#" class="dropdown-toggle">
+                                <b class="arrow fa fa-angle-right pull-left"></b> <b class="arrow fa fa-angle-down pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 3 </span>
+
+                                <!--<b class="arrow fa fa-angle-down"></b>-->
+                            </a>
+                            <ul class="submenu">
+                                <li class="showcontent"> <a href="javascript:void(0);"> <i class="menu-icon fa fa-folder"></i> Folder 4 </a> </li>
+                                <li class="showcontent"> <a href="javascript:void(0);"> <i class="menu-icon fa fa-folder"></i> Folder 5 </a> </li>
+                            </ul>
+                        </li>
+                        <li class="showcontent"> <a href="javascript:void(0);" class="dropdown-toggle"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 6 </span> </a> </li>
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+                        <li class="showcontent"> <a href="javascript:void(0);"> <b class="arrow fa fa-angle-right pull-left"></b> <i class="menu-icon fa fa-folder"></i> <i class="menu-icon fa fa-folder-o"></i> <span class="menu-text"> Folder 7 </span> </a> </li>
+                    </ul>
+                </div>
+
+                <!-- folder 2 content bj -->
+                <div id="divid7" class="hide" style="overflow: hidden;">
+                    <div class="widget-box transparent">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom">
+                                        <tr>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Name</strong></p>
+                                            </th>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Status</strong></p>
+                                            </th>
+                                            <th class="hidden-480">
+                                                <p class="font-16"><strong>Action</strong></p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder a</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder b</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder c</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder d</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.widget-body -->
+                    </div>
+                    <!-- /.widget-box -->
+                </div>
+                <div id="divid8" class="hide" style="overflow: hidden;">
+                    <div class="widget-box transparent">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom">
+                                        <tr>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Name</strong></p>
+                                            </th>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Status</strong></p>
+                                            </th>
+                                            <th class="hidden-480">
+                                                <p class="font-16"><strong>Action</strong></p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder I</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder II</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder III</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.widget-body -->
+                    </div>
+                    <!-- /.widget-box -->
+                </div>
+                <!-- forlder content 2 end -->
+                <!--<div>-->
+                <div id="divid5" class="hide" style="overflow: hidden;">
+                    <div class="widget-box transparent">
+                        <div class="widget-body">
+                            <div class="widget-main no-padding">
+                                <table class="table  table-bordered">
+                                    <thead class="thin-border-bottom">
+                                        <tr>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Name</strong></p>
+                                            </th>
+                                            <th width="160px">
+                                                <p class="font-16"><strong>Status</strong></p>
+                                            </th>
+                                            <th class="hidden-480">
+                                                <p class="font-16"><strong>Action</strong></p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><p class="font-16"><i class="fa fa-folder" aria-hidden="true"></i> Folder I</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text " aria-hidden="true"></i> Folder I</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01 btn-white " style="background:#2074ca !important; color:#fff !important;">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text " aria-hidden="true"></i>Folder II </p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text " aria-hidden="true"></i>Folder III </p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text" aria-hidden="true"></i> Folder IV </p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text" aria-hidden="true"></i> Folder V </p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="font-16 btn-click"><i class="fa fa-file-text " aria-hidden="true"></i> Folder VI</p></td>
+                                            <td>
+                                                <button class="btn-light-min"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+                                                <button class="btn-light-min">V2</button>
+                                            </td>
+                                            <td class="hidden-480">
+                                                <a data-toggle="modal" href="#myModal3" class="btn btn-blu01">Check In/Out</a>
+                                                <button type="button" class="btn btn-white version ">Version</button>
+                                                <button type="button" class="btn btn-white version "><i class="fa fa-download" aria-hidden="true"></i></button>
+                                                <a href="#" data-toggle="tooltip">
+                                                    <button type="button" class="btn btn-white "><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.widget-body -->
+                    </div>
+                    <!-- /.widget-box -->
+                </div>
+                <div id="divid6" class="responsive hide" style="overflow: hidden;">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <div id="faq-tab-1" class="tab-pane fade in active">
+                        <div class="space-8"></div>
+                        <div class="panel-group accordion-style1 accordion-style2">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#faq-1-2" data-parent="#faq-list-1" data-toggle="collapse" class="accordion-toggle">
+                                        <i class="ace-icon fa fa-chevron-up1 pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </i> Company Agreement
+                                    </a>
+                                </div>
+                                <div class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>Short-term rental of all sorts of products (excluding real estate and holiday apartments) already represents an estimated €108 billion ($160 billion) annual market in Europe and is expected to grow further as the internet makes it easier to find specific items available for rent.[2] According to a poll by YouGov, 76% of people looking to rent would go to the internet first to find what they need; rising to 88% for those aged 25–34</p>
+                                        <p>It has been widely reported that the financial crisis of 2007–2010 may have contributed to the rapid growth of online rental marketplaces, such as erento, as consumers are more likely to consider renting instead of buying in times of financial hardship.[4] Environmental concerns, fast depreciation of goods, and a more transient workforce also mean that consumers are increasingly searching for rentals online.</p>
+                                        <p>It has been widely reported that the financial crisis of 2007–2010 may have contributed to the rapid growth of online rental marketplaces, such as erento, as consumers are more likely to consider renting instead of buying in times of financial hardship.[4] Environmental concerns, fast depreciation of goods, and a more transient workforce also mean that consumers are increasingly searching for rentals online.[2]</p>
+                                        <div id="faq-list-nested-1" class="panel-group accordion-style1 accordion-style2">
+                                            <div class="panel panel-default">
+                                                <div class="panel-collapse collapse" id="faq-list-1-sub-1">
+                                                    <div class="panel-body">
+                                                        <table>
+                                                            <tr>
+                                                                <td>reated on   :</td>
+                                                                <td>June 20, 2016</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Created by   :</td>
+                                                                <td>Wen Wen</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Last edited   :</td>
+                                                                <td>June 22, 2016</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Shared with   :</td>
+                                                                <td> Dex, Randy, Rizqi</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Indexes   :</td>
+                                                                <td>
+                                                                    <button class="btn btn-xs btn">Company </button>
+                                                                    <button class="btn btn-xs">Index 1</button>
+                                                                    <button class="btn btn-xs">Index 1</button>
+                                                                    <button class="btn btn-xs">Index 1</button>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-heading">
+                                                    <a href="#faq-list-1-sub-1" data-parent="#faq-list-nested-1" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                        <i class="ace-icon fa fa-plus smaller-80 middle" data-icon-hide="ace-icon fa fa-minus" data-icon-show="ace-icon fa fa-plus"></i>&nbsp;
+                                                        Document Status
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default document">
+                        <div id="bjslide-expand" class="bjslide-expand">
+                            <div class="panel-body" style="background:#EBEDF2;">
+                                <button class="btn btn-primary btn-radius bth-2" style="float: right; margin-bottom: 10px;">All Print </button>
+                                <table width="100%" border="0" class="table  table-bordered">
+                                    <tr>
+                                        <td width="25px">
+                                            <div class="roundedTwo">
+                                                <input type="checkbox" value="None" id="roundedTwo1" name="check" />
+                                                <label for="roundedTwo1"></label>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                                        <td width="80px"><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                        <td width="80px"><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25px">
+                                            <div class="roundedTwo">
+                                                <input type="checkbox" value="None" id="roundedTwo2" name="check" />
+                                                <label for="roundedTwo2"></label>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25px">
+                                            <div class="roundedTwo">
+                                                <input type="checkbox" value="None" id="roundedTwo3" name="check" />
+                                                <label for="roundedTwo3"></label>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25px">
+                                            <div class="roundedTwo">
+                                                <input type="checkbox" value="None" id="roundedTwo4" name="check" />
+                                                <label for="roundedTwo4"></label>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-heading related-title">
+                            <a href="#" id="bjslide">
+                                <i class="ace-icon fa fa-chevron-up pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i>
+                                Related Documents
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div>
+                <!-- /.col -->
+                <!--</div>-->
+
+            </div>
+        </div>
+
+        <!-- upload popup -->
+        <!-- Modal HTML -->
+
+        <script type="text/javascript">
+
+        </script>
+        <!-- upload -->
+        <div id="myModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Upload File : </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>File name : <a href="#">file.pdf </a></p>
+                        <p class="text-warning">
+                            <input name="Upload" type="file">
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Upload</button>
+                        <button type="button" class="btn btn-primary " data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- new folder -->
+        <div id="myModal2" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">New Folder: </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>File name : <a href="#">file.pdf </a></p>
+                        <p class="text-warning"><small><i aria-hidden="true" class="fa fa-folder"></i> Folder name</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Check In</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Checkin/Out -->
+        <div id="myModal3" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Check In/Out: </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Check in/out </a></p>
+                        <p class="text-warning"><small> If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Check In/Out</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End upload popup -->
+        <div class="last"></div>
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"> <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i> </a>
+    </div>
+    <!-- /.main-container -->
+    <!-- basic scripts -->
+    <script language="javascript" src="assets/js/tooltip-popup.js"></script>
+    <!--[if !IE]> -->
+    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement)
+            document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+
+        // pop over
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- page specific plugin scripts -->
+    <!--[if lte IE 8]>
+              <script src="assets/js/excanvas.min.js"></script>
+            <![endif]-->
+    <script src="assets/js/jquery-ui.custom.min.js"></script>
+    <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="assets/js/nice-scroll.js"></script>
+    <!-- ace scripts -->
+    <script src="assets/js/ace-elements.min.js"></script>
+    <script src="assets/js/ace.min.js"></script>
+    <!-- inline scripts related to this page -->
+    <script src="assets/js/pager.js"></script>
+    <script src="assets/js/togel-menu.js"></script>
+    <script src="assets/js/n-scroll.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/pie-chart-graph.js"></script>
+    <script src="assets/js/pie-chart.js"></script>
+</body>
+</html>
