@@ -1,0 +1,15 @@
+﻿@model HouseOfSynergy.AffinityDms.Entities.Tenants.Document
+
+<div class="post-display">
+    <img src="../../Theme/images/avatars/doc-template.png" width="70" height="70" class="pull-left" alt="icon">
+    <p>
+        @{
+            var title = ((this.Model.Template != null) ? (this.Model.Template.Title) : (""));
+        }
+        <strong>@title</strong><br>
+        This document @(this.Model.Confidence)% corresponding to @title
+    </p>
+    <div class="clearfix"></div>
+    <span class="pull-right" data-id="@this.Model.TemplateId"><a href="#" data-id="@this.Model.TemplateId">Preview Template</a></span>
+    <div class="clearfix"></div>
+</div>

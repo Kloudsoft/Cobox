@@ -1,0 +1,106 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Template>
+@{
+    ViewBag.Title = "Document Template Listings";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+<h2>Document Template Listings</h2>
+@Scripts.Render("~/bundles/TypeScript")
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+</script>
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DocumentTemplateListingErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentTemplateListingErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentTemplateListingErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentTemplateListingSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentTemplateListingSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentTemplateListingSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+<input type='hidden' value="@this.ViewBag.DocumentId" id="hDocId"/>
+<div style="width:100%;display:inline-block;margin-bottom:7px">
+    <div style="width:70%;display:inline-block">
+        <div id="MessageDiv">
+            @*@{
+            string errormessage = (this.ViewBag.ErrorMessage != null) ? this.ViewBag.ErrorMessage : string.Empty;
+            string successmessage = (this.ViewBag.SuccessMessage != null) ? this.ViewBag.SuccessMessage : string.Empty;
+
+            if (!(string.IsNullOrEmpty(errormessage)))
+            {
+            <p style="color:Red;font-size:1.5em">@errormessage</p>
+            }
+
+            if (!(string.IsNullOrEmpty(successmessage)))
+            {
+            <p style="color:Green;font-size:1.5em">@successmessage</p>
+            }
+
+            }*@
+        </div>
+    </div>
+    <div style="width:30%;display:inline-block;float:right">
+        <input type="button" class="btn btn-default" style="float:right" value="Process Document" onclick="javascript: documents.processDocument()">
+    </div>
+</div>
+
+@(Html.Kendo().Grid(Model)
+.Name("DocumentTemplateListingGrid")
+.Columns(columns =>
+{
+    columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "TemplateNo" });
+    columns.Template(item => "<input type='radio' name='templateSelection' data-id='" + item.Id + "' value='male'>" ).Title("Select");
+    columns.Bound(item => item.Title);
+    columns.Bound(item => item.Description);
+    columns.Bound(item => item.TemplateType).Title("Type");
+    columns.Template(item => ((item.IsFinalized) ? ("Yes") : ("No"))).Title("Finalized");
+    columns.Template(item => ((item.IsActive) ? ("Active") : ("InActive"))).Title("Status");
+    columns.Template(i => (i.VersionMajor + "." + i.VersionMinor)).Title("Version Number");
+    columns.Bound(i => (i.VersionCount)).Title("Total Versions");
+})
+.Pageable()
+.Sortable()
+)
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+       
+        if ($("DocumentDiscourseViewerErrorMessageText") != null) {
+            if ($("#DocumentDiscourseViewerErrorMessageText").text() != null || $("#DocumentDiscourseViewerErrorMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentDiscourseViewerErrorMessage').fadeOut('fast');
+                    $("#DocumentDiscourseViewerErrorMessage").css("display", "none");
+                    $("#DocumentDiscourseViewerErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("DocumentDiscourseViewerSuccessMessageText") != null) {
+            if ($("#DocumentDiscourseViewerSuccessMessageText").text() != null || $("#DocumentDiscourseViewerSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentDiscourseViewerSuccessMessage').fadeOut('fast');
+                    $("#DocumentDiscourseViewerSuccessMessage").css("display", "none");
+                    $("#DocumentDiscourseViewerSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+
+    });
+</script>

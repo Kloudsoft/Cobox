@@ -1,0 +1,226 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.Vendor>
+
+@{
+    ViewBag.Title = "VendorDetails";
+    Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+
+<h2>Vendor Details</h2>
+
+
+
+
+
+<div class="main-container ace-save-state row1" id="main-container">
+
+    <div id="side-content" class="col-md-12">
+        <div style="height:450px;overflow:scroll">
+
+
+@*@(Html.Kendo().Grid(Model)
+      .Name("VendorsListGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "Id" });
+          columns.Bound(item => item.VendorName).Title("Vendor Name");
+          columns.Bound(item => item.Email).Title("Vendor Email");
+          columns.Template(item => ("<a href ='#'  class='btn btn-blu01 btn-white' style='background:#2074ca !important; color:#fff !important;'>Edit</a>"));
+      })
+       .Pageable()
+      .Sortable()
+            )*@
+
+
+            @Html.Kendo().TextBox().Name("searchbox")
+
+            @Html.Kendo().Button().Name("GridSeachButton").Events(ev => ev.Click("searchGrid")).Content("Search Vendor")
+
+            <div style="float:right">
+                <input type="file" id="FileUpload" name="FileUpload" style="width:180px" />
+                <input type="submit" id="btnUpload" value="Upload Files" class="=btn btn-primary btn-radius" />
+            </div>
+
+ @(Html.Kendo().Grid(Model)
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "Id" });
+        columns.Bound(item => item.VendorName).Title("Vendor Name").Width(150);
+        columns.Bound(item => item.Gst).Title("Gst");
+        columns.Bound(item => item.Address).Title("Address");
+        columns.Bound(item => item.Phone).Title("Phone");
+        columns.Bound(item => item.Email).Title("Email");
+        columns.Bound(item => item.ContactPerson).Title("Contact Person");
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(175);
+    })
+    .ToolBar(toolbar => toolbar.Pdf())
+    //.ToolBar(toolbar => toolbar.Excel())
+    .ToolBar(toolbar => toolbar.Create().Text("Add New Vendor"))
+    //.ToolBar(toolBar => toolBar.Template(@<Text><input type="search" id="searchbox"  /><b >Search the grid: </b></Text>))
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .Filterable()
+    //.HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events => events.Error("error_handler"))
+        .Model(model => model.Id(p => p.Id))
+        .Create(update => update.Action("EditingInline_Create", "VendorDetails"))
+        .Read(read => read.Action("EditingInline_Read", "VendorDetails"))
+        .Update(update => update.Action("EditingInline_Update", "VendorDetails"))
+        .Destroy(update => update.Action("EditingInline_Destroy", "VendorDetails"))
+    )
+            )
+
+
+            <script>
+
+                function searchGrid(e) {
+
+                    var val = $('#searchbox').val();
+
+                    $("#grid").data("kendoGrid").dataSource.filter({
+                        //field: "VendorName", operator: "contains", value: $("#searchbox").val() });
+                        logic: "or", filters: [{ field: "VendorName", operator: "contains", value: val }, { field: "ContactPerson", operator: "contains", value: val }, ]
+                    });
+                }
+            </script>
+
+           
+
+
+
+            @*<script type="text/javascript">
+        $(document).ready(function () {
+            //change event
+            $("#searchbox").keyup(function () {
+                var val = $('#searchbox').val();
+                $("#Grid").data("kendoGrid").dataSource.filter({
+                    logic: "or", filters:[ {field: "VendorName",operator: "contains",value: val},{field: "ContactPerson",operator: "contains",value: val},]
+                });
+
+
+            });
+});
+
+            </script>*@
+
+
+
+            <script type="text/javascript">
+
+
+
+                //register custom validation rules
+                (function ($, kendo) {
+                    $.extend(true, kendo.ui.validator, {
+                        rules: { // custom rules
+                            productnamevalidation: function (input, params) {
+                                if (input.is("[name='VendorName']") && input.val() != "") {
+                                    input.attr("data-productnamevalidation-msg", "Vendor Name should contains capital letter only");
+                                    return /^[A-Z]/.test(input.val());
+                                }
+
+                                return true;
+                            }
+                        },
+                        messages: { //custom rules messages
+                            productnamevalidation: function (input) {
+                                // return the message text
+                                return input.attr("data-val-productnamevalidation");
+                            }
+                        }
+                    });
+                })(jQuery, kendo);
+
+
+
+
+
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+            </script>
+
+
+
+
+            <script>
+
+
+    $('#btnUpload').click(function () {
+
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#FileUpload").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            //// Adding one more key to FormData object
+
+            //     var ProjectName = $("#hdnProjectName").val();
+            //     var TemplateNames = $("#TemplateNames").val();
+
+            //fileData.append('ProjectName', ProjectName);
+            //    fileData.append('TemplateNames', TemplateNames);
+
+            $.ajax({
+                url: '/VendorDetails/UploadExcel',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    alert("Files Uplaoded Successfully!!");
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+
+            </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,561 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentIndexViewModel
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    this.ViewBag.Title = "Document Index xxxx";
+    this.ViewBag.IsDocumentIndexViewer = true;
+    this.ViewBag.DocumentInformation = "";//docName + "   |   " + createdBy;// +"   |   Last Edited Aug 1, 2016";
+    this.ViewBag.DocCurrentPageNumber = "NaN";
+    this.ViewBag.DocTotalPageNumber = "NaN";
+    this.ViewBag.ZoomPercentage = "100 %";
+    this.ViewBag.Type = "Document";
+    this.ViewBag.DocumentIndexModel = this.Model;
+    var documentName = "";// (this.Model.Document != null) ? (Path.GetFileNameWithoutExtension(this.Model.Document.Name)) : ("");
+    var userFullName = "";// (this.Model.Document.User != null) ? (Path.GetFileNameWithoutExtension(this.Model.Document.Name)) : ("");
+    if (this.Model.Document != null)
+    {
+        documentName = Path.GetFileNameWithoutExtension(this.Model.Document.Name);
+        if (this.Model.Document.User != null)
+        {
+            userFullName = this.Model.Document.User.NameFull;
+        }
+    }
+    this.ViewBag.DocumentInformation = documentName + "   |   " + userFullName;
+    if (!Model.Document.IsFinalized)
+    {
+        this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + ((Model.Document.Folder != null) ? (Model.Document.Folder.Name) : ("")) + "</a></li><li><a href='../../TenantDocumentIndex/Index/" + Model.Document.Id + "'>Edit Document</a></li>";
+    }
+    else
+    {
+        this.ViewBag.BreadCrumbsPath = "<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li><li><a href='#'>" + ((Model.Document.Folder != null) ? (Model.Document.Folder.Name) : ("")) + "</a></li><li><a href='../../TenantDocumentIndex/DocumentIndexReadOnlyView/" + Model.Document.Id + "'>View Document</a></li>";
+    }
+}
+@Scripts.Render("~/bundles/TypeScript")
+@*@if (this.ViewBag.ErrorMessage != null)
+        {
+            if (!string.IsNullOrEmpty(this.ViewBag.ErrorMessage))
+            {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage">@this.ViewBag.ErrorMessage</div>
+            }
+            else
+            {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage" style="display:none">@this.ViewBag.ErrorMessage</div>
+            }
+        }
+        else
+        {
+    <div class="alert alert-danger" id="DocumentIndexErrorMessage" style="display:none">@this.ViewBag.ErrorMessage</div>
+
+        }
+        @if (this.ViewBag.SuccessMessage != null)
+        {
+            if (!string.IsNullOrEmpty(this.ViewBag.SuccessMessage))
+            {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage">@this.ViewBag.SuccessMessage</div>
+            }
+            else
+            {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage" style="display:none">@this.ViewBag.SuccessMessage</div>
+            }
+        }
+        else
+        {
+    <div class="alert alert-success" id="DocumentIndexSuccessMessage" style="display:none">@this.ViewBag.SuccessMessage</div>
+
+        }*@
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DocumentIndexErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentIndexErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentIndexErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentIndexSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentIndexSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentIndexSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+<style>
+    div#thumbnails-container-Div {
+        display: none;
+    }
+
+    .k-grid tr td {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    pre {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+</script>
+
+<input type="hidden" value="@this.ViewBag.Id" id="hdocId" />
+@if (this.Model != null)
+{
+    if (this.Model.DocumentIndexes != null)
+    {
+        <input type="hidden" value="@Model.DocumentIndexes.Count" id="divcounter">
+
+    }
+    else
+    {
+        <input type="hidden" value="0" id="divcounter">
+    }
+}
+else
+{
+    <input type="hidden" value="0" id="divcounter">
+}
+<input type="hidden" id="FolderTreeSelectedItem" value="0" style="display:none" class="btn btn-primary">
+<input type="hidden" id="ModalBodyId" value="" style="display:none">
+@*<input type="hidden" id="MoveFolderTo" value="-1">*@
+<input type="hidden" id="CurrentFolderId" value="@Model.Document.FolderId" style="display:none">
+<input type="hidden" value="@Model.Document.Id" id="hdocId" />
+<input type="hidden" id="Hidfind" value="0" />
+<input type="hidden" id="ImageMove" value="false">
+
+
+
+
+@{
+    Html.RenderPartial("~/Views/Tenants/Documents/_MoveDocumentToFolder.cshtml", (long)-1);
+}
+
+
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="CancelCheckoutConfirmationModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Cancel Ccccccheckout</h4>
+            </div>
+            <div class="modal-body" id="divCancelCheckoutModalBody" style="max-height:700px;overflow-y: auto">
+                Are you sure you want to cancel checkout. This will rollback any changes made.
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: window.location.href= '@Url.Action("CancelCheckout", "TenantDocumentIndex" , new { id=this.ViewBag.DocumentIndexModel.Document.Id })'">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="max-height:650px;overflow:auto">
+
+<div >
+    <div id="document">
+        <!-- top -->
+        <!-- Left side -->
+        <div class="data-view" style="background-color:white!important">
+            <div class="col-xs-7">
+
+
+                <div class="panel table-col-box" style="border: 1px solid #cccccc">
+                    <div class="widget-body" style="overflow:hidden!important">
+                        <div id="left-doc" class="widget-main" style="overflow:hidden!important">
+                            <!-- top -->
+                            @{
+                                Html.RenderPartial("~/Views/Tenants/DocumentViewer/_DocumentViewer.cshtml", this.Model.Document);
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- //Left side -->
+            <!-- right side -->
+            <div class="col-xs-5">
+
+                <div class="panel">
+                    <div class="widget-body">
+                        <div class="widget-main no-padding-right">
+                            <div id="right-doc" style="overflow:visible!important">
+                                @if ((Model.Document.LatestCheckedOutByUserId == (this.ViewBag.CurrentLoggedinUser.Id ?? 0)) && (this.ViewBag.IsDocumentReadOnly == null))
+                                {
+                                    <div id="DivPropertiesBox" style="margin-left: 30px;top:5%;padding:5px;  overflow: auto;max-height: 500px;width: auto; z-index:1500">
+                                        <div id="btnaddrowdivid" style="display: inline-block;margin: 10px;">
+                                            <input type="button" name="Add Index" id="btnaddrowid" class="btn btn-default" value="Add Index" onclick="javascript: documents.AddDocumentIndexRow(event)">
+                                            <span>&nbsp;</span>
+                                            <input type="button" class="btn btn-primary" value="Save Index" onclick="javascript: documents.onSubmitForm(event);">
+                                        </div>
+                                        <div class="widget-box transparent" style="border: 0px !important">
+                                            <div class="widget-body">
+                                                <div class="widget-main no-padding" style="border: 1px solid #ddd !important;">
+                                                    <table class="table  table-bordered">
+                                                        <thead class="thin-border-bottom">
+                                                            <tr>
+                                                                <th class="font-16" colspan="4" >Manual Indexing</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Name</strong></p>
+                                                                </th>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Value</strong></p>
+                                                                </th>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Data Type</strong></p>
+                                                                </th>
+                                                                <th width="60px">
+                                                                    <p class="font-16" ><strong>Action</strong></p>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="RowsContainer">
+                                                            @{
+                                                                int count = -1;
+                                                                foreach (var docuementindex in Model.DocumentIndexes)
+                                                                {
+                                                                    count = count + 1;
+                                                                    <tr id="Row_@count" data-counter="@count">
+                                                                        <td>
+                                                                            <input type="text" placeholder="Name" value="@docuementindex.Name" id="addnameid_@count" class="form-control">
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" placeholder="Value" value="@docuementindex.Value" id="addvalueid_@count" class="form-control">
+                                                                        </td>
+                                                                        <td>
+                                                                            <select id="adddatatypeid_@count" class="form-control">
+                                                                                <option id="-1" value="-1">Select a datatype</option>
+                                                                                @foreach (SelectListItem selectlistitem in this.ViewBag.DataTypeSelectListItem)
+                                                                                {
+                                                                                    if (Convert.ToInt16(selectlistitem.Value) == (int)docuementindex.DataType)
+                                                                                    {
+                                                                                        <option id="@selectlistitem.Value" value="@selectlistitem.Value" selected="selected">@selectlistitem.Text</option>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <option id="@selectlistitem.Value" value="@selectlistitem.Value">@selectlistitem.Text</option>
+                                                                                    }
+                                                                                }
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input data-counter="@count" type="button" value="X" title="Remove Row" id="btnremoverowid" class="btn btn-danger" onclick="javascript: documents.RemoveRow('Row_@count')">
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /.widget-body -->
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div id="DivPropertiesBox" style="margin-left: 30px;top:5%;padding:5px;  overflow: auto;max-height: 500px;width: auto; z-index:1500">
+                                        <div id="btnaddrowdivid" style="display: inline-block;margin: 10px;">
+                                            <span>&nbsp;</span>
+                                        </div>
+                                        <div class="widget-box transparent" style="border: 0px !important">
+                                            <div class="widget-body">
+                                                <div class="widget-main no-padding" style="border: 1px solid #ddd !important;">
+                                                    <table class="table  table-bordered">
+                                                        <thead class="thin-border-bottom">
+                                                            <tr>
+                                                                <th class="font-16" colspan="4" >Manual Indexing</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Name</strong></p>
+                                                                </th>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Value</strong></p>
+                                                                </th>
+                                                                <th width="160px">
+                                                                    <p class="font-16" ><strong>Data Type</strong></p>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="RowsContainer">
+                                                            @{
+                                                                int count = -1;
+                                                                foreach (var docuementindex in Model.DocumentIndexes)
+                                                                {
+                                                                    count = count + 1;
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="text" placeholder="Name" value="@docuementindex.Name" disabled="disabled" class="form-control">
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" placeholder="Value" value="@docuementindex.Value" disabled="disabled" class="form-control">
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" placeholder="Value" value="@docuementindex.DataType" disabled="disabled" class="form-control">
+
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                            }
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /.widget-body -->
+                                        </div>
+                                        <br />
+                                        <div style="margin-left: 0px; margin-top: 10px;margin-right: auto" id="AutoIndexValueRowsContainer">
+                                            @{
+                                                var editableElementsExist = false;
+                                                List<HouseOfSynergy.AffinityDms.Entities.Tenants.DocumentElement> documentElemments = this.ViewBag.DocumentElements;
+                                            }
+                                            @if (documentElemments != null) 
+                                            {
+
+                                                foreach (var documentElemment in documentElemments)
+                                                {
+                                                    if (documentElemment.TemplateElement.ElementIndexType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementIndexType.Value)
+                                                    {
+                                                        editableElementsExist = true;
+                                                    }
+                                                }
+                                            }
+                                            @if (editableElementsExist)
+                                            {
+                                                <div style="padding-bottom:10px;margin-left:0px !important" class="row">
+                                                    <input type="button" value="Update" class="btn btn-default" onclick="javascript: documents.UpdateOcrIndexedZones(event)">
+                                                </div>
+                                            }
+                                            <div class="widget-box transparent" style="border: 0px !important">
+                                                <div class="widget-body">
+                                                    <div class="widget-main no-padding" style="border: 1px solid #ddd !important;">
+                                                        <table class="table  table-bordered">
+                                                            <thead class="thin-border-bottom">
+                                                                <tr>
+                                                                    <th class="font-16" colspan="4" >Auto Indexing Results</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th width="160px">
+                                                                        <p class="font-16" ><strong>Name</strong></p>
+                                                                    </th>
+                                                                    <th width="160px">
+                                                                        <p class="font-16" ><strong>Value</strong></p>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="RowsContainer">
+                                                                @if (documentElemments != null)
+                                                                {
+                                                                    foreach (var documentElemment in documentElemments)
+                                                                    {
+                                                                        if (documentElemment.TemplateElement.ElementIndexType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementIndexType.Label)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    @*<input type="text" placeholder="Name" value="@docuementindex.Name" disabled="disabled" class="form-control">*@
+                                                                                    <label>@documentElemment.TemplateElement.Name<span style="color:red">*</span></label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" placeholder="Value" value="@documentElemment.OcrText" class="form-control" style="display:inline-block;" disabled="disabled">
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                        else if (documentElemment.TemplateElement.ElementIndexType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementIndexType.Value)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <label>@documentElemment.TemplateElement.Name<span style="color:green">**</span></label>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="text" placeholder="Value" name="IndexDataTypeValue" value="@documentElemment.OcrText" data-id="@documentElemment.Id" class="form-control" style="display:inline-block;">
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- /.widget-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!-- Scrool -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- / right side -->
+        </div>
+    </div>
+
+</div>
+
+<div style="width:100%;display:inline-block !important;">
+    @*padding-left:80px*@
+    @{
+        IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+            parentDocuments = null;
+        if (this.ViewBag.ParentDocuments != null)
+        {
+            parentDocuments = this.ViewBag.ParentDocuments;
+        }
+        if (parentDocuments == null)
+        {
+            parentDocuments = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+        }
+        IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.Document> documentVersions = null;
+        if (this.ViewBag.DocumentVersions != null)
+        {
+            documentVersions = this.ViewBag.DocumentVersions;
+        }
+        if (documentVersions == null)
+        {
+            documentVersions = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+        }
+    }
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        @{
+            Html.RenderPartial("~/Views/Tenants/Documents/_RelatedDocuments.cshtml", parentDocuments.OrderBy(x => x.Name).ToList());
+        }
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        @{
+            Html.RenderPartial("~/Views/Tenants/Documents/_DocumentHistory.cshtml", documentVersions.OrderByDescending(x => x.Id).ToList());
+        }
+    </div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+    function RenderTreeViewModal(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var doc = document.getElementById("folderTreeViewModal");
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#folderTreeViewModal").modal("show");
+
+        }
+    }
+    //function SelectNode(nodeId, FolderTreeViewObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        FolderTreeViewObj.data("kendoTreeView").expand(".k-item");
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        if (treeView != null) {
+    //            var dataItem = treeView.dataSource.get(nodeId);
+    //            if (dataItem != null) {
+    //                var node = treeView.findByUid(dataItem.uid);
+    //                if (node != null) {
+    //                    treeView.expand("li:first");
+    //                    treeView.expand(node);
+    //                    treeView.select(node);
+    //                }
+    //            }
+    //        }
+    //    }
+    //    //else {
+    //    //    alert("Unable to find the folder")
+    //    //}
+    //}
+    //function ExpandSelectedNode(event) {
+    //    var nodeId = event.getAttribute("data-id");
+    //    var FolderTreeViewObj = $("#treeview");
+    //    ExpandNode(nodeId, FolderTreeViewObj)
+    //}
+    //function ExpandNode(nodeId, FolderTreeViewObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        var dataItem = treeView.dataSource.get(nodeId);
+    //        var node = treeView.findByUid(dataItem.uid);
+    //        treeView.expand("li:first");
+    //        treeView.expand(node);
+    //        treeView.select(node);
+    //        var CurrentFolderId = document.getElementById("CurrentFolderId");
+    //        CurrentFolderId.value = nodeId;
+    //        SetSelectedElement(nodeId);
+    //    }
+    //    else {
+    //        alert("Unable to find the folder")
+    //    }
+    //}
+
+
+    $(document).ready(function (e) {
+        var docViewer = new AffinityDms.Entities.DocumentViewer();
+        docViewer.run();
+
+        if ($("DocumentIndexSuccessMessageText") != null) {
+            if ($("#DocumentIndexSuccessMessageText").text() != null || $("#DocumentIndexSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentIndexSuccessMessage').fadeOut('fast');
+                    $("#DocumentIndexSuccessMessage").css("display", "none");
+                    $("#DocumentIndexSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("DocumentIndexErrorMessageText") != null) {
+            if ($("#DocumentIndexSuccessMessageText").text() != null || $("#DocumentIndexSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentIndexErrorMessage').fadeOut('fast');
+                    $("#DocumentIndexErrorMessage").css("display", "none");
+                    $("#DocumentIndexErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+
+
+    });
+    function ViewDiscourseModal(event) {
+
+        var id = event.target.getAttribute("data-id");
+        var url = "../../TenantDiscourse/PartialDiscourse/" + id;
+        $("#DiscourseModalContainer").text("");
+        $("#DiscourseModalContainer").load(url);
+        $("#DiscourseModal").modal({ backdrop: 'static' })
+    }
+    function CloseDiscourseModal(event) {
+        $("#DiscourseModalContainer").text("");
+        $("#DiscourseModal").modal("hide")
+
+
+    }
+
+
+
+</script>

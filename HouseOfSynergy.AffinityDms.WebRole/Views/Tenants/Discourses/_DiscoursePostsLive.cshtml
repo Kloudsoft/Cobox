@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HouseOfSynergy.AffinityDms.Entities.Tenants.DiscoursePost>
+@if (this.Model != null)
+{
+
+    if (this.Model.Count() > 0)
+    {
+        foreach (var discoursePost in Model)
+        {
+            this.ViewBag.EnableHistory = false;
+            if (discoursePost.Versions.Count > 1)
+            {
+                this.ViewBag.EnableHistory = true;
+            }
+            var maxPostVersionId = discoursePost.Versions.Select(x => x.Id).Max();
+            var maxPostVersion = discoursePost.Versions.Where(x => x.Id == maxPostVersionId).FirstOrDefault();
+            if (maxPostVersion != null)
+            {
+                var id = "PostDivContainer" + discoursePost.Id;
+                <div id="@id">
+                    @{ Html.RenderPartial("~/Views/Tenants/Discourses/_DiscoursePostComment.cshtml", maxPostVersion); }
+                </div>
+            }
+        }
+    }
+    
+}
+@if (this.Model != null)
+{
+    if (this.Model.Count() > 0)
+    {
+        <input type="hidden" id="MaxMessageRecievedId" value="@this.Model.Last().Id">
+    }
+}

@@ -1,0 +1,180 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)HouseOfSynergy.PowerTools.Library\bin\Debug\HouseOfSynergy.PowerTools.Library.dll" #>
+<#@ assembly name="$(SolutionDir)HouseOfSynergy.AffinityDms.Library\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll" #>
+<#@ assembly name="$(SolutionDir)HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="HouseOfSynergy.AffinityDms.Entities.Common" #>
+<#@ output extension=".ts" #>
+module AffinityDms.Entities
+{
+	export interface IEntity
+	{
+		Id: number;
+	}
+<#
+		var typeIEntity = typeof(IEntity<>);
+
+        var entities = typeIEntity
+            .Assembly
+            .GetTypes()
+            .Where(entity => (entity.GetInterface(typeIEntity.FullName, false) != null))
+            .ToList();
+
+		var enumerations = typeIEntity
+            .Assembly
+            .GetTypes()
+            .Where(entity => entity.IsEnum)
+            .ToList();
+
+		enumerations.Add(typeof(HouseOfSynergy.AffinityDms.Library.ApplicationModule));
+
+        foreach (var enumeration in enumerations)
+		{
+			var names = Enum.GetNames(enumeration);
+
+            this.WriteLine("");
+            this.WriteLine("	export enum " + enumeration.Name);
+            this.WriteLine("	{");
+
+			foreach (var name in names)
+			{
+				var value = Enum.Parse(enumeration, name);
+
+				this.WriteLine("		" + name + " = " + ((int) value).ToString() + ",");
+			}
+
+            this.WriteLine("	}");
+		}
+
+        foreach (var entity in entities)
+        {
+			if (entity.FullName.Contains("Entities.Desktop")) { continue; }
+
+            var properties = entity
+				.GetProperties(BindingFlags.Instance | BindingFlags.Public)
+				.OrderBy(p => p.Name != "Id");
+
+			this.WriteLine("");
+            this.WriteLine("	export class " + entity.Name);
+            this.WriteLine("		implements IEntity");
+            this.WriteLine("	{");
+
+			foreach (var property in properties)
+			{
+				if (property.PropertyType.IsGenericType)
+				{
+					var genericTypeDefinition = property.PropertyType.GetGenericTypeDefinition();
+
+					if (genericTypeDefinition == typeof(Nullable<>))
+					{
+						var genericArguments = property.PropertyType.GetGenericArguments();
+
+						if (genericArguments.Length == 1)
+						{
+							var genericArgument = genericArguments [0];
+
+							if
+							(
+								(genericArgument == typeof(short))
+								|| (genericArgument == typeof(int))
+								|| (genericArgument == typeof(long))
+							)
+							{
+								this.WriteLine("		public " + property.Name + ": number; // Nullable.");
+							}
+						}
+					}
+					else if (genericTypeDefinition == typeof(ICollection<>))
+					{
+						var genericArguments = property.PropertyType.GetGenericArguments();
+
+						if (genericArguments.Length == 1)
+						{
+							var genericArgument = genericArguments [0];
+
+							if (entities.Contains(genericArgument))
+							{
+								this.WriteLine("		public " + property.Name + ": Array<" + genericArgument.Name + ">;");
+							}
+							else
+							{
+								this.WriteLine("		public " + property.Name + ": Array<" + genericArgument.Name + ">;");
+							}
+						}
+					}
+				}
+				else if
+				(
+					(property.PropertyType == typeof(byte))
+					|| (property.PropertyType == typeof(sbyte))
+					|| (property.PropertyType == typeof(short))
+					|| (property.PropertyType == typeof(ushort))
+					|| (property.PropertyType == typeof(int))
+					|| (property.PropertyType == typeof(uint))
+					|| (property.PropertyType == typeof(long))
+					|| (property.PropertyType == typeof(ulong))
+					|| (property.PropertyType == typeof(float))
+					|| (property.PropertyType == typeof(double))
+					|| (property.PropertyType == typeof(byte?))
+					|| (property.PropertyType == typeof(sbyte?))
+					|| (property.PropertyType == typeof(short?))
+					|| (property.PropertyType == typeof(ushort?))
+					|| (property.PropertyType == typeof(int?))
+					|| (property.PropertyType == typeof(uint?))
+					|| (property.PropertyType == typeof(long?))
+					|| (property.PropertyType == typeof(ulong?))
+					|| (property.PropertyType == typeof(float?))
+					|| (property.PropertyType == typeof(double?))
+				)
+				{
+					this.WriteLine("		public " + property.Name + ": number;");
+				}
+				else if
+				(
+					(property.PropertyType == typeof(string))
+				)
+				{
+					this.WriteLine("		public " + property.Name + ": string;");
+				}
+				else if
+				(
+					(property.PropertyType == typeof(bool))
+				)
+				{
+					this.WriteLine("		public " + property.Name + ": boolean;");
+				}
+				else if
+				(
+					(property.PropertyType == typeof(DateTime))
+				)
+				{
+					this.WriteLine("		public " + property.Name + ": Date;");
+				}
+				else if (entities.Contains(property.PropertyType))
+				{
+					this.WriteLine("		public " + property.Name + ": " + property.PropertyType.Name + ";");
+				}
+				else if (property.PropertyType.IsEnum)
+				{
+					this.WriteLine("		public " + property.Name + ": " + property.PropertyType.Name + ";");
+				}
+				else
+				{
+					this.WriteLine("		// Type not implemented: [" + property.PropertyType.Name + "].");
+					this.WriteLine("		//public " + property.Name + ": any;");
+				}
+			}
+
+			this.WriteLine("");
+			this.WriteLine("		constructor ()");
+			this.WriteLine("		{");
+			this.WriteLine("		}");
+
+            this.WriteLine("	}");
+        }
+    #>
+}

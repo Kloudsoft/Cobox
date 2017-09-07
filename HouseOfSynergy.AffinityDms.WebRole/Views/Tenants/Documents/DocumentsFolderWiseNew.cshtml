@@ -1,0 +1,1460 @@
+﻿@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.DocumentFolderTreeViewModel
+@using HouseOfSynergy.AffinityDms.ResourceProvider
+
+@{
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+    this.ViewBag.Title = ResourceManagement.DesktopClient_ProductName + " - Folder Wise Documents";
+    this.ViewBag.IsDocument = true;
+    this.ViewBag.BreadCrumbsPath = "<li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li>";//"<li><a href='../../Tenants/Dashboard'>Home</a></li><li><a href='../../TenantDocumentsFolderWise/index'>Knowledge</a></li>";
+
+    try
+    {
+@Scripts.Render("~/bundles/TypeScript")
+    }
+    catch (Exception EXX) { }
+
+}
+<script type="text/javascript">
+    var documents = new AffinityDms.Entities.Documents();
+    //$(function () {
+    //    $('[data-toggle="tooltip"]').tooltip({
+    //        title: function () {
+    //            alert($(this));
+    //            return $(this).attr('title');
+    //        },
+    //        placement: "bottom",
+    //        html: "true",
+    //        trigger: "click",
+    //    })
+    //})
+
+    ////$(document).ready(function () {
+    ////    $('[data-toggle="tooltip"]').tooltip({
+    ////        title: function () {
+    ////            return $(this).attr('title');
+    ////        },
+    ////        placement: "bottom",
+    ////        html: "true",
+    ////        trigger: "click",
+    ////    });
+    ////});
+    @*$(document).ready(function () {
+        var documentNameDiv6 = document.getElementById("documentNameDiv6");
+        if (documentNameDiv6 != null)
+        {
+            $("#documentNameDiv6").text(@this.Model.Name)
+        }
+        docViewer.run();
+    });*@
+
+</script>
+
+<input type="hidden" id="SelectedId" value="-1" data-type="Document">
+<input type="hidden" id="ViewId" value="-1" style="display:none">
+<input type="hidden" id="ViewType" value="" style="display:none">
+<input type="hidden" id="ModalBodyId" value="" style="display:none">
+<input type="hidden" id="CurrentFolderId" value="@Model.Parentfolder.Id">
+<input type="hidden" value="-1" id="hdocId" />
+<input type="hidden" id="H_MainTreeViewId" value="PartialTreeViewModal" >
+<input type="hidden" value="" id="DocViewerType" data-id="0" data-type="Document">
+@{
+    long parentFolder = 0;
+    long subFolder = 0;
+    if (this.ViewBag.ParentFolderId != null)
+    {
+        parentFolder = this.ViewBag.ParentFolderId;
+        if (this.ViewBag.SubfolderId != null)
+        {
+            subFolder = this.ViewBag.SubfolderId;
+        }
+    }
+}
+<input type="hidden" id="defaultFolderSelection" data-parentFolder="@parentFolder" data-subFolder="@subFolder">
+
+
+@{
+
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="DocumentFolderWiseErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentFolderWiseErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentFolderWiseErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="DocumentFolderWiseSuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#DocumentFolderWiseSuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="DocumentFolderWiseSuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+
+
+@{
+    Html.RenderPartial("~/Views/Tenants/Documents/_MoveDocumentToFolder.cshtml", Model.Parentfolder.Id);
+}
+
+<div id="documentViewerDemoLoadingDlg" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog loading-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <br />
+                <label id="processText"></label>
+                <br />
+                <br />
+                <div class="progress">
+                    <div id="progressbar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        <span id="progressPercentage"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="cancelDiv" class="modal-footer">
+                <button id="cancel" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+    <div>
+        <div class="row no-gutter">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <div id="thumbnails-container" class="thumbnails-container"></div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-10">
+                <div id="viewer-container" class="viewer-container"></div>
+            </div>
+        </div>
+    </div>*@
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="InviteExternalUserModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite External Users</h4>
+                <div style="display:none;color:red" id="EmailErrorDiv"></div>
+                <div style="display:none;color:green" id="EmailSuccessDiv"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantInviteExternalUserListGrid" style="padding-left: 15px;padding-right: 15px;">
+                    @*<input type="text" id="InviteUserName" class="form-control text-box" placeholder="Enter User Name">*@
+                    <input type="email" id="InviteUserEmail" class="form-control text-box" placeholder="Enter User Email" style="max-width: none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeInviteExternalUserModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" id="InviteUserBtn" onclick="javascript: documents.SendExternalUserInvite(event)">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserSelectionModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Invite Internal Users</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="TenantUsersSelectionListGrid">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeUserSelectionModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveUserSelectionModal(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="DocumentRenameModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="DocumentRenameModalHeader">Rename Document</h4>
+            </div>
+            <div class="modal-header" style="display:none" id="DocumentRenameModalErrorHeader"><div class="alert alert-danger" id="DocumentRenameModalErrorHeaderDiv"></div></div>
+            <div class="modal-body">
+                <div class="row" id="DocumentRenameModalBody" style="margin-left: 0px; margin-right: 0px;">
+                    <input type="text" class="form-control text-box" placeholder="" style="max-width: none;" id="DocumentRenameModalTextBox">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.RenameDocument(event)" id="DocumentRenameModalSubmitBtn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="UserAssignmentModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Assign Document</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="AssignUserRow" style="padding-left: 15px;padding-right: 15px;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeAssignUserModalBtn">Close</button>
+                <button type="button" class="btn btn-primary" id="AssignUserBtn" onclick="javascript: documents.SubmitAssignment(event)">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="RightsModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">User Rights</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="RightsModalBodyDiv">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn" onclick="javascript: CloseRightsModal(event)">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SaveRights(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="documentHistoryModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Document History</h4>
+            </div>
+            <div id="documentHistoryModalBody" class="modal-body" style="max-height:350px">
+
+            </div>
+            <div class="modal-footer">
+                @* <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="FolderRenameModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Rename: <span id="FolderRenameModalHeader"></span></h4>
+            </div>
+            <div class="modal-header" style="display:none" id="FolderRenameModalErrorHeader">
+                <div class="alert alert-danger" id="FolderRenameModalErrorHeaderDiv"></div>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="FolderRenameModalBody" style="margin-left: 0px; margin-right: 0px;">
+                    <input type="text" class="form-control text-box" placeholder="" style="max-width: none;" id="FolderRenameModalTextBox">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.SubmitRenameFolder(event)" id="FolderRenameModalSubmitBtn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="FolderManagementModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="FolderManagementModalHeader"></h4>
+            </div>
+            <div class="modal-header" style="display:none" id="FolderManagementModalErrorHeader">
+                <div class="alert alert-danger" id="FolderManagementModalErrorHeaderDiv"></div>
+            </div>
+            <div class="modal-body" id="FolderManagementModalBody">
+                @*<div id="FolderManagementRenameModalBody" style="margin-left: 0px; margin-right: 0px;">
+                        <label id="FolderManagementRenameModalLabel">Rename Folder:</label>
+                        <input type="text" class="form-control text-box" placeholder="" style="max-width: none;" id="FolderManagementRenameModalTextBox">
+                        <button type="button" class="btn btn-primary" onclick="" id="DocumentRenameModalSubmitBtn">Rename</button>
+                    </div>
+                    <hr />
+                    <div id="FolderManagementRightsModalBody" style="margin-left: 0px; margin-right: 0px;">
+                        <label id="FolderManagementRightsModalLabel">User Rights:</label>
+                        <div id="FolderManagementRightsModalDiv">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="" id="DocumentRenameModalSubmitBtn">Update rights</button>
+                    </div>*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                @*<button type="button" class="btn btn-primary" onclick="javascript: documents.RenameDocument(event)" id="DocumentRenameModalSubmitBtn">OK</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="folderTreeViewModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Folder</h4>
+                </div>
+                <div class="modal-header" style="display:none" id="FolderTreeViewModalErrorHeader"><div class="alert alert-danger" id="FolderTreeViewModalErrorDiv"></div></div>
+                <div id="folderTreeViewModalBody" class="modal-body">
+                    <div id="folderTreeViewModal_row">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderAddBtn" onclick="javascript: CloseFolderTreeViewModal(event)">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript: documents.MoveDocuemtinFolder(event)">Move</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="addFolderModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="alert alert-danger" style="display:none;overflow:auto" id="addFolderModalError"></div>
+                <div class="alert alert-success" style="display:none;overflow:auto" id="addFolderModalSuccess"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Add Folder</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 5px;">
+                    <input type="text" placeholder="Enter Folder Name" class="form-control" id="folderNameTxtbx" autofocus />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderAddBtn" onclick="javascript: CloseAddFolderModal(event)">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.AddFolder(event)">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="DocumentUploadModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Upload Documents To: <span id="DocumentUploadModalFolderName"></span></h4>
+            </div>
+            <div class="modal-header" style="display:none" id="DocumentUploadModalErrorHeader">
+                <div class="alert alert-danger" id="DocumentUploadModalErrorDiv">
+
+                </div>
+            </div>
+            <div class="modal-body" id="divUploadModalBody" style="max-height:700px;overflow: auto">
+                <div id="DocumentUploadBody" style="max-height: 300px;overflow: auto;">
+                    <div class="row" id="DocumentUploadRow">
+                    </div>
+                </div>
+                <div id="divFilesUpload">
+                    <input name="files" id="files" type="file" />
+                </div>
+                <div id="divStatus" style="max-height:300px;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeFolderRightsBtn" onclick="javascript: CloseRightsModal(event)">Close</button>
+                <button type="button" class="btn btn-primary" onclick="javascript: documents.UploadDocumentsToAzure(event)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="divid2" class="row01 sidebar responsive  col show">
+    <ul class="nav nav-list">
+        @if (Model.ChildFolders != null)
+            {
+                var RootFolders = Model.ChildFolders;
+                foreach (var folder in RootFolders)
+                {
+                <li class="" onclick="javascript: parentNodesSelected(event);" data-id="@folder.Id" data-Name="@folder.Name" style="cursor:pointer">
+                    <a data-id="@folder.Id" data-Name="@folder.Name" name="parentNodes" style="cursor:pointer">
+                        <i class="menu-icon fa fa-folder"></i>
+                        <i class="menu-icon fa fa-folder-o"></i>
+                        <span class="menu-text placeholderchange">
+                            @folder.Name
+                        </span>
+                        <b class="arrow fa fa-angle-right"></b>
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="col hide sidebar responsive " id="divid3">
+    <span class="cloas01 down-arrow" style="float:right; margin-right: 10px; color: red;overflow: hidden;" id="cross">X</span>
+    <div id="PartialTreeViewModal" style="overflow:hidden!important">
+    </div>
+</div>
+<!--<div>-->
+<div id="divid5" class="hide" style="overflow: hidden; margin-left: 10px;">
+    @{
+        //var ParentFolderDocuments = Model.ParentFolderDocuments;
+        var docList = new List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>();
+        Html.RenderPartial("~/Views/Tenants/Documents/_DocumentListGridView.cshtml", (object)docList);
+    }
+</div>
+<div id="divid6" class="responsive hide" style="overflow: hidden;min-width: 510px !important; max-width: 800px;width: 780px;">
+    <!-- PAGE CONTENT BEGINS -->
+    <div id="faq-tab-1" class="tab-pane fade in active">
+        <div class="space-8"></div>
+        <div class="panel-group accordion-style1 accordion-style2">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="#faq-1-2" data-parent="#faq-list-1" data-toggle="collapse" class="accordion-toggle">
+                        <i class="ace-icon fa fa-chevron-up1 pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left" id="divid6Close">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </i>
+                        <p id="documentNameDiv6"></p>
+                    </a>
+                </div>
+                <div class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div id="documentImageDiv6" style="width: 800px;">
+                            <div id="thumbnails-container" class="thumbnails-container hide"></div>
+                            <div id="viewer-container" class="viewer-container" style="width:500px; height:640px"></div>
+                        </div>
+                        <div id="faq-list-nested-1" class="panel-group accordion-style1 accordion-style2" style="margin-top: 20px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#faq-list-1-sub-1" data-parent="#faq-list-nested-1" data-toggle="collapse" class="accordion-toggle collapsed">
+                                        <i class="ace-icon fa fa-plus smaller-80 middle" data-icon-hide="ace-icon fa fa-minus" data-icon-show="ace-icon fa fa-plus"></i>&nbsp;
+                                        Document Status
+                                    </a>
+                                </div>
+                                <div class="panel-collapse collapse" id="faq-list-1-sub-1">
+                                    <div class="panel-body" id="DocumentStatusContainer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="panel panel-default document" style="margin-bottom: 15px;margin-right: 15px;">
+            <div id="bjslide-expand" class="bjslide-expand">
+                <div class="panel-body" style="background:#EBEDF2;">
+                    <button class="btn btn-primary btn-radius bth-2" style="float: right; margin-bottom: 10px;">All Print </button>
+                    <div class="col-sm-12 col-md-12 col-lg-12" id="ReatedDocumentsContainer">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading related-title">
+                <a href="#" id="bjslide">
+                    <i class="ace-icon fa fa-chevron-up pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i>
+                    Related Documents
+                </a>
+            </div>
+        </div>*@
+
+
+
+
+
+    <div class="panel panel-default document" style="z-index: 99999; min-height: 24px;">
+        <div id="bjslide-expand" class="bjslide-expand">
+            <div class="panel-body" style="background:#EBEDF2;">
+                <button class="btn btn-primary btn-radius bth-2" style="float: right; margin-bottom: 10px;">All Print </button>
+                <div class="col-sm-12 col-md-12 col-lg-12" id="ReatedDocumentsContainer"></div>
+                @*<table width="100%" border="0" class="table  table-bordered">
+                    <tr>
+                        <td width="25px">
+                            <div class="roundedTwo">
+                                <input type="checkbox" value="None" id="roundedTwo1" name="check" />
+                                <label for="roundedTwo1"></label>
+                            </div>
+                        </td>
+                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                        <td width="80px"><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td width="80px"><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td width="25px">
+                            <div class="roundedTwo">
+                                <input type="checkbox" value="None" id="roundedTwo2" name="check" />
+                                <label for="roundedTwo2"></label>
+                            </div>
+                        </td>
+                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td width="25px">
+                            <div class="roundedTwo">
+                                <input type="checkbox" value="None" id="roundedTwo3" name="check" />
+                                <label for="roundedTwo3"></label>
+                            </div>
+                        </td>
+                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td width="25px">
+                            <div class="roundedTwo">
+                                <input type="checkbox" value="None" id="roundedTwo4" name="check" />
+                                <label for="roundedTwo4"></label>
+                            </div>
+                        </td>
+                        <td><i class="fa fa-file-text icon-file" aria-hidden="true"></i> <span class="tag-line">Work Permit</span></td>
+                        <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td><a href="#"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                    </tr>
+                </table>*@
+            </div>
+        </div>
+        <div class="panel-heading related-title"> <a id="bjslide"> <i class="ace-icon fa fa-chevron-up pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i> Related Documents </a> </div>
+    </div>
+
+
+
+
+
+
+
+
+    @*<div class="panel panel-default document">
+        <div id="bjslide-expand" class="bjslide-expand">
+            <div class="panel-body" style="background:#EBEDF2;">
+                <button class="btn btn-primary btn-radius bth-2" style="float: right; margin-bottom: 10px;">All Print </button>
+                <div class="col-sm-12 col-md-12 col-lg-12" id="ReatedDocumentsContainer"></div>
+            </div>
+        </div>
+        <div class="panel-heading related-title">
+            <a href="#" id="bjslide">
+                <i class="ace-icon fa fa-chevron-up pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i>
+                Related Documents
+            </a>
+        </div>
+    </div>*@
+    <!-- PAGE CONTENT ENDS -->
+</div><!-- /.col -->
+<script id="treeviewFolderPartiaTemplateKendo" type="text/kendo-ui-template">
+    @*treeviewMoveFolderTemplateKendo*@
+
+    <a href="javascript:void(0);" class="showcontent">
+        @*<i class="menu-icon fa fa-folder"></i>*@
+        #if(item.UserCreatedById == GetCurrentLoggedInUser()){#
+        <button class='PartialTreeviewFolderEdit' data-toggle='tooltip' data-original-title='' data-id='#: item.Id #' id="PartialTreeviewFolderEdit_#: item.Id #" data-foldernamecontainerid="PartialTreeviewFolderName_#: item.Id #" style='cursor:pointer;background: transparent; border: 0px!important;' title=''>
+            <i class='fa fa-pencil-square' id="PartialTreeviewFolderEditIcon_#: item.Id #" data-id="#: item.Id #"></i>
+        </button>
+        #}else{#
+        <button style='cursor:pointer;background: transparent; border: 0px!important;' title=''>
+
+            <i class="menu-icon fa fa-folder"></i>
+        </button>
+        #}#
+        <span class="menu-text" data-tempid='#: item.Id #' id="PartialTreeviewFolderName_#: item.Id #" data-id='#: item.Id #' data-name='#: item.Name #'>#: item.Name #</span>
+    </a>
+    <input type="hidden" value='#: item.Id #' id='H_PartialTreeviewFolder_#: item.Id #' data-id="'#: item.Id #'" data-Name="#: item.Name #">
+
+</script>
+@*  <button class='>
+        <span class="menu-icon fa fa-edit" style="margin-left:20px"></span>
+    </button>
+*@
+<script type="text/javascript">
+    function ShowRenameFolderModal(event) {
+        var id = event.target.getAttribute("data-id");
+        var foldereditid = "PartialTreeviewFolderEdit_" + id;
+        var PartialTreeviewFolderEditBtn = document.getElementById(foldereditid);
+        var name = document.getElementById(PartialTreeviewFolderEditBtn.getAttribute("data-foldernamecontainerid")).getAttribute("data-name");
+        $("#FolderRenameModalHeader").text(name);
+        $("#FolderRenameModalSubmitBtn").attr("data-id", id);
+        $("#FolderRenameModalSubmitBtn").attr("data-name", name);
+        $("#FolderRenameModalErrorHeader").css("display", "none");
+        $("#FolderRenameModalErrorHeaderDiv").text("");
+        $("#FolderRenameModalTextBox").val("")
+        $("#FolderRenameModal").modal("show");
+    }
+    //function setFolderToolTip(id) {
+    //    var foldereditid = "PartialTreeviewFolderEdit_" + id;
+    //    var folderediticon = "PartialTreeviewFolderEditIcon_" + id;
+    //    var PartialTreeviewFolderEditBtn = document.getElementById(foldereditid);
+    //    var PartialTreeviewFolderName = document.getElementById(PartialTreeviewFolderEditBtn.getAttribute("data-foldernamecontainerid"));
+    //    var folderid = PartialTreeviewFolderName.getAttribute("data-id");
+    //    var foldername = PartialTreeviewFolderName.getAttribute("data-name");
+    //    var str = ("<ul>"
+    //            + "<li style='cursor:pointer'>"
+    //            + "<a style='cursor:pointer' onclick='javascript: ShowRenameFolderModal(event)' data-id='" + folderid + "' data-name='" + foldername + "'>"
+    //            + "<i class='ace-icon fa fa-pencil-square-o' data-id='" + folderid + "'  data-name='" + foldername + "'></i>Rename</a>"
+    //            + "</li>"
+    //            + "<li style='cursor:pointer'>"
+    //            + "<a style='cursor:pointer' data-toggle='modal' data-target='#RightsModal' data-id='" + folderid + "' data-type='Folder'>"
+    //            + "<i class='ace-icon fa fa-users' data-type='Folder' data-id='" + folderid + "'></i>User Rights</a>"
+    //            + "</li>"
+    //            + "</ul>");
+    //    //+ "<li style='cursor:pointer'>"
+    //    //+ "<a style='cursor:pointer' href='\\#' data-toggle='modal' data-target='\\#RightsModal' data-id='" + folderid + "' data-type='Folder'>"
+    //    //+ "<i class='ace-icon fa fa-users' data-type='document' data-id='" + folderid + "'></i>User Rights</a>"
+    //    //+ "</li>"
+    //    $("#" + foldereditid).attr("title", str);
+    //    $("#" + foldereditid).tooltip({
+    //        placement: "auto bottom",
+    //        html: "true",
+    //        trigger: "focus",
+    //        title: function () {
+    //            return $(this).attr('title');
+    //        },
+    //    });
+    //    $("#" + folderediticon).on("click", function (e) {
+    //        return false;
+    //        //var targetid = "PartialTreeviewFolderEdit_" + e.target.getAttribute("data-id");
+    //        //$("#" + targetid).tooltip('show');
+    //        //return false;
+    //    })
+    //}
+    //function DisplayFolderManagementModal(e) {
+    //    //data-foldernamecontainerid="PartialTreeviewFolderName_#: item.Id #"
+    //    var target = e.target;
+    //    var containerId = target.getAttribute("data-foldernamecontainerid");
+    //    var PartialTreeviewFolder = document.getElementById(containerId);
+    //    $("#FolderManagementRightsModalDiv").text("");
+    //    $("#FolderManagementModalErrorHeaderDiv").text("");
+    //    $("#FolderManagementRenameModalTextBox").val("");
+    //    $("#FolderManagementModalErrorHeader").css("display", "none");
+    //    $("#FolderManagementModalHeader").text(PartialTreeviewFolder.getAttribute("data-name"));
+    //    $("#FolderManagementModal").modal("show");
+    //}
+    function ShowDocumentRenameModal(e) {
+        var target = e.target;
+        var id = target.getAttribute("data-id");
+        var name = target.getAttribute("data-name");
+        var modalId = "#DocumentRenameModal";
+        if ($("#DocumentRenameModalSubmitBtn") != null) {
+            $("#DocumentRenameModalSubmitBtn").attr("data-id", id);
+            $("#DocumentRenameModalSubmitBtn").attr("data-name", name);
+            $("#DocumentRenameModalTextBox").attr("placeholder", name).val(name);
+
+            $("#DocumentRenameModalErrorHeader").hide();
+            $("#DocumentRenameModalErrorHeaderDiv").text("");
+            $("#DocumentRenameModal").modal("show");
+        }
+    }
+    $("#DocumentRenameModal").on("shown.bs.modal", function (e) {
+        $("#DocumentRenameModalTextBox").focus().select();
+    });
+    //addFolderModalError
+    function DisplayVersionsModal(docId) {
+        if ($("#documentHistoryModal") != null) {
+            $("#documentHistoryModal").modal({ backdrop: 'static' });
+            $("#documentHistoryModalBody").text("");
+            var url = "/TenantDocumentsFolderWise/GetDocumentVersions?id=" + docId;
+            $("#documentHistoryModalBody").load(url);
+
+
+        }
+    }
+    function instantDocumentViewer(event) {
+        var div6 = document.getElementById("divid6");
+        if (div6 != null) {
+            AffinityDms.Entities.Documents.prototype.ResetInstantDocumentViewer();
+            var docViewer = new AffinityDms.Entities.DocumentViewer();
+            $("#div6").removeClass("show");
+            $("#div6").addClass("hide");
+
+            var id = event.target.getAttribute("data-id");
+            var type = event.target.getAttribute("data-type");
+            var name = event.target.getAttribute("data-name");
+            var ReatedDocumentsContainer = document.getElementById("ReatedDocumentsContainer");
+            if (ReatedDocumentsContainer != null) {
+                $("#ReatedDocumentsContainer").load("/TenantDocumentsFolderWise/GetRelatedDocuments?id=" + id);
+            }
+            var DocumentStatusContainer = document.getElementById("DocumentStatusContainer");
+            if (DocumentStatusContainer != null) {
+                $("#DocumentStatusContainer").load("/Document/GetDocumentStatus?id=" + id)
+            }
+
+            var filename = "";
+            if (name != null) {
+                filename = name.replace("." + name.split('.').pop(), "");
+            }
+            $("#documentNameDiv6").text(filename);
+            var DocViewerType = document.getElementById("DocViewerType");
+            DocViewerType.setAttribute("data-id", id);
+            // var url = "/TenantDocumentViewer/GetPartialDocumentView?id=" + id + "&type=" + type;
+            /*$('#divid2').removeClass('show');
+              $('#divid2').addClass('hide');*/
+            //$('#divid3').addClass('class405');
+            $('#divid5').addClass('col-xs-6');
+            $('#divid5').css("width", 420);
+            $('#divid6').css("left", 885);
+            $('#divid4').addClass('class1');
+            $('#divid4').removeClass('class2');
+            $('#divid6').addClass('show col-xs-6');
+            $('#side-content').animate({ scrollLeft: $('#side-content').offset().left }, 1500);
+            // $('#side-content').scrollLeft(2500);
+            /*$('#divid5').removeClass('col-sm-12');
+              $('#divid6').removeClass('col-xs-12');*/
+            //  $("#documentImageDiv6").load(url);
+            //$('#divid2').removeClass('show');
+            //$('#divid2').addClass('hide');
+            //$('#divid4').removeClass('show');
+            //$('#divid4').addClass('hide');
+            //$('#divid3').removeClass('show');
+            //$('#divid3').addClass('hide');
+            //$('#divid5').removeClass('show');
+            //$('#divid5').addClass('hide');
+            //$('#divid6').removeClass('show');
+            //$('#divid6').addClass('hide');
+            docViewer.run();
+        }
+    }
+    function UpdateTreeViewSelection(value) {
+        var MoveFolderTo = document.getElementById("MoveFolderTo");
+        var CurrentFolderId = document.getElementById("CurrentFolderId");
+        MoveFolderTo.value = value;
+        CurrentFolderId.value = value;
+    }
+    function parentNodesSelected(event) {
+        AffinityDms.Entities.Documents.prototype.ResetInstantDocumentViewer();
+        var id = event.target.closest("a").getAttribute("data-id");
+        var Name = event.target.closest("a").getAttribute("data-Name");
+
+        var isSharedfolder = false;
+        var isPrivatefolder = false;
+        if (Name == "Shared")
+        {
+         //   $("#CurrentFolderId").attr("data-type","Private")
+            isSharedfolder = true;
+        }
+        if (Name == "Private") {
+            isPrivatefolder = true;
+        }
+        $("#BreadCrumbsMenu").text("");
+        $("#BreadCrumbsMenu").load("../../TenantDocumentsFolderWise/GetFolderBreadcrumb?currentFolderId=" + id + "&firstNodeName=Knowledge&firstNodeUrl=../../TenantDocumentsFolderWise/Index&isSharedFolder=" + isSharedfolder + "&isPrivateFolder=" + isPrivatefolder);
+
+
+        //var li = document.createElement("li");
+        //var a = document.createElement("a");
+        //a.text = "Knowledge";
+        //a.setAttribute("href", "../../TenantDocumentsFolderWise/index");
+        //li.appendChild(a);
+        //$("#BreadCrumbsMenu").append(li);
+
+        //li = document.createElement("li");
+        //a = document.createElement("a");
+        //a.text = Name;
+        //a.setAttribute("href", "../../TenantDocumentsFolderWise/index?parentFolderId=" + id);
+        //li.appendChild(a);
+        //$("#BreadCrumbsMenu").append(li);
+
+        UpdateTreeViewSelection(id);
+        if ($("#DocumentUploadModalFolderName") != null) { $("#DocumentUploadModalFolderName").text(Name); }
+        SetSelectedElement(id);
+        $("#docUploadBtn").removeAttr("disabled");
+        $("#docUploadBtn").attr("enabled", "");
+        $("#docNewFolderBtn").removeAttr("disabled");
+        $("#docNewFolderBtn").attr("enabled", "");
+
+        $("#divid5").removeClass("hide");
+        $("#divid5").addClass("show");
+    }
+
+
+    function InviteExternalUser(event) {
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedId = document.getElementById("SelectedId");
+            SelectedId.value = anchor.getAttribute("data-id");
+            $("#InviteExternalUserModal").modal("show");
+        }
+    }
+
+    $("#closeInviteExternalUserModalBtn").on("click", function (e) {
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.value = "";
+    });
+    $("#addFolderModal").on("show.bs.modal", function (e) {
+        $("#addFolderModalError").hide();
+        $("#addFolderModalError").text("");
+        $("#addFolderModalSuccess").hide();
+        $("#addFolderModalSuccess").text("");
+
+    })
+    $("#addFolderModal").on("shown.bs.modal", function (e) {
+        $("#folderNameTxtbx").val("")
+        $("#folderNameTxtbx").focus().select();
+    });
+    $("#InviteExternalUserModal").on("show.bs.modal", function (e) {
+        var EmailErrorDiv = document.getElementById("EmailErrorDiv");
+        EmailErrorDiv.textContent = "";
+        var EmailSuccessDiv = document.getElementById("EmailSuccessDiv");
+        EmailSuccessDiv.textContent = "";
+        var InviteUserEmail = document.getElementById("InviteUserEmail");
+        InviteUserEmail.textContent = "";
+    });
+
+    function UserSelection(event) {
+        //href='#' data-toggle='modal' data-target='#UserSelectionModal'
+        var anchor;
+        if (event.currentTarget != null) {
+            if (event.currentTarget instanceof HTMLAnchorElement) {
+                anchor = event.currentTarget;
+            }
+        }
+        if (anchor != null) {
+            if (anchor.getAttribute("data-id") != null)
+                var SelectedId = document.getElementById("SelectedId");
+            SelectedId.value = anchor.getAttribute("data-id");
+            $("#UserSelectionModal").modal("show");
+        }
+    }
+    $("#UserSelectionModal").on("show.bs.modal", function (e) {
+        var SelectedId = document.getElementById("SelectedId");
+        if (SelectedId != null) {
+            var TenantUsersSelectionListGrid = document.getElementById("TenantUsersSelectionListGrid");
+            TenantUsersSelectionListGrid.textContent = "";
+            $(this).find(".modal-body").load("/TenantDocuments/GetAllUsersForDocument?documentId=" + SelectedId.value);
+        }
+    });
+
+    $(".placeholderchange").click(function () {
+
+        $(".foldersearch").attr("placeholder", "Search in " + (this).innerText);
+
+
+    });
+    //Faraz Folder Model
+    //function OnSelectedFolderTreeViewModal(event) {
+    //    var MoveFolderTo = document.getElementById("MoveFolderTo");
+    //    var dataItem = this.dataItem(event.node);
+    //    var nodeId = dataItem.id;
+    //    if (nodeId == null || nodeId == "") {
+    //        nodeId = dataItem.Id
+    //    }
+    //    MoveFolderTo.value = nodeId;
+    //    // MoveFolderTo.setAttribute("data-Name", dataItem.Name);
+    //    if ($("#DocumentUploadModalFolderName") != null) { $("#DocumentUploadModalFolderName").text(dataItem.Name); }
+    //}
+    function getMoveToFolderId() {
+        var MoveFolderTo = document.getElementById("MoveFolderTo");
+        if (MoveFolderTo != null) {
+            return MoveFolderTo.value;
+        }
+    }
+
+    function onCollapsePartialFolderTreeView(event) {
+        var dataItem = this.dataItem(event.node);
+        var nodeId = dataItem.id;
+        if (nodeId == null || nodeId == "") {
+            nodeId = dataItem.Id
+        }
+        UpdateTreeViewSelection(nodeId);
+    }
+    function onExpandPartialFolderTreeView(event) {
+        var dataItem = this.dataItem(event.node);
+        var nodeId = dataItem.id;
+        if (nodeId == null || nodeId == "") {
+            nodeId = dataItem.Id
+        }
+        UpdateTreeViewSelection(nodeId);
+
+    }
+    function onSelectedPartialFolderTreeView(event) {
+        //var dataItem = this.dataItem(event.node);
+        AffinityDms.Entities.Documents.prototype.ResetInstantDocumentViewer();
+        var id = "#" + event.sender.element[0].id;
+        var tree = $(id).data('kendoTreeView');
+        var dataItem = tree.dataItem(event.node);
+
+        var isSharedfolder = false;
+        var isPrivatefolder = false;
+        //if (dataItem.Name == "Shared") {
+        //    isSharedfolder = true;
+        //}
+        //if (dataItem.Name == "Private") {
+        //    isPrivatefolder = true;
+        //}
+        $("#BreadCrumbsMenu").text("");
+        $("#BreadCrumbsMenu").load("../../TenantDocumentsFolderWise/GetFolderBreadcrumb?currentFolderId=" + dataItem.Id + "&firstNodeName=Knowledge&firstNodeUrl=../../TenantDocumentsFolderWise/Index&isSharedFolder=" + isSharedfolder + "&isPrivateFolder=" + isPrivatefolder);
+
+        if ($("#DocumentUploadModalFolderName") != null) { $("#DocumentUploadModalFolderName").text(dataItem.Name); }
+        var nodeId = dataItem.id;
+        if (nodeId == null || nodeId == "") {
+            nodeId = dataItem.Id
+        }
+        UpdateTreeViewSelection(nodeId);
+        SetSelectedElement(nodeId);
+    }
+    function onDataBoundPartialFolderTreeView(event) {
+        //below Statement Expand all data in tree view
+        if (event != null) {
+            if (event.sender != null) {
+                if (event.sender.element.length > 0) {
+                    if (event.sender.element[0].id != "") {
+                        var id = "#" + event.sender.element[0].id;
+                        $(id).data("kendoTreeView").expand(".k-item");
+                        var TreeViewData = $(id).data("kendoTreeView");
+                        var dataItem = this.dataItem(event.node)
+                        if (dataItem != null) {
+                            if ($("#defaultFolderSelection") != null) {
+                                var subFolder = $("#defaultFolderSelection").attr("data-subFolder");
+                                if (subFolder > 0) {
+                                    if (dataItem.Id == subFolder) {
+                                        var node = TreeViewData.findByUid(dataItem.uid);
+                                        if (node != null) {
+                                            TreeViewData.select(node);
+                                            TreeViewData.trigger("select", { node: node });
+                                            var selectedTreeNode = TreeViewData.select()[0];
+                                            $('#divid3').scrollTop(selectedTreeNode.offsetTop);
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+
+
+
+
+
+                    }
+                }
+            }
+            //if (event.node == null)
+            //{
+            //    if ($("#defaultFolderSelection") != null) {
+            //        var subFolder = $("#defaultFolderSelection").attr("data-subFolder");
+            //        if (subFolder > 0) {
+
+            //            //var parentNodes = document.getElementsByName("parentNodes");
+            //            //for (var i = 0; i < parentNodes.length; i++) {
+            //            //    if (subFolder == parentNodes[i].getAttribute("data-id")) {
+            //            //        $("#defaultFolderSelection").attr("data-subFolder", "0");
+            //            //        e
+            //            //        parentNodes[i].click();
+            //            //    }
+            //            //}
+            //        }
+            //    }
+
+            //}
+        }
+    }
+
+    $("div#divid2 li").click(function (e) {
+        //alert(e.currentTarget.getAttribute("data-id"));
+        if (!e.currentTarget.classList.contains("active")) {
+            var ModalId = "PartialTreeViewModal";
+            kendo.destroy($("#" + ModalId));
+            document.getElementById(ModalId).textContent = "";
+            //LoadFolderTreeView("TreeViewFolderDiv", "")
+            //var url = "/TenantDocumentsFolderWise/GetFolderTreeView?id=" + e.currentTarget.getAttribute("data-id");
+            //$("#FolderTreeViewModal").load(url);
+            var MoveFolderTo = document.getElementById("MoveFolderTo");
+            //var dataItem = this.dataItem(event.node);
+            MoveFolderTo.value = e.currentTarget.getAttribute("data-id");
+            loadPartialTreeViewModal(ModalId)
+
+        }
+
+    });
+    function loadPartialTreeViewModal(treeViewDivId) {
+
+        var id = "#" + treeViewDivId;
+        var folderId = getMoveToFolderId();
+        $.ajax({
+            type: "POST",
+            url: "/TenantDocumentsFolderWise/GetHieraricalTreeViewData",
+            data: JSON.stringify({ folderId: folderId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function (response) {
+                var folderId = getMoveToFolderId();
+
+                $(id).kendoTreeView(
+                  {
+
+                      "select": onSelectedPartialFolderTreeView,
+                      "dataBound": onDataBoundPartialFolderTreeView,
+                      "collapse": onCollapsePartialFolderTreeView,
+                      "expand": onExpandPartialFolderTreeView,
+                      "dataSource": processTable(response, "Id", "ParentId", folderId),
+                      "schema": {
+                          "model": { "id": "Id", "hasChildren": "HasChildren" }
+                      },
+                      "loadOnDemand": false,
+                      "template": jQuery('#treeviewFolderPartiaTemplateKendo').html(),
+                      "dataTextField": ["Name"]
+                  });
+                $("#CurrentFolderId").val(folderId);
+                if ($("#MoveFolderTo") != null) {
+                    $("#MoveFolderTo").val(folderId);
+                }
+
+            }
+        });
+        if ($("#MoveFolderTo") != null) {
+            $("#MoveFolderTo").val(folderId);
+        }
+        setTimeout(function () {
+            var PartialTreeviewFolderEdits = document.getElementsByClassName("PartialTreeviewFolderEdit");
+            for (var i = 0; i < PartialTreeviewFolderEdits.length; i++) {
+                var id = PartialTreeviewFolderEdits[i].getAttribute("data-id");
+                AffinityDms.Entities.Documents.prototype.setFolderToolTip(id)
+            }
+        }, 2000);
+
+
+
+
+
+    }
+    //Faraz Folder Model
+    //function processTable(data, idField, foreignKey, rootLevel) {
+    //    var hash = {};
+    //    for (var i = 0; i < data.length; i++) {
+    //        var item = data[i];
+    //        var id = item[idField];
+    //        var parentId = item[foreignKey];
+    //        hash[id] = hash[id] || [];
+    //        hash[parentId] = hash[parentId] || [];
+    //        item.items = hash[id];
+    //        hash[parentId].push(item);
+    //    }
+    //    return hash[rootLevel];
+    //}
+
+    //FARAZ Folder Model
+    //function LoadFolderTreeView(folderTreeViewModalBodyStr, folderTreeViewModalRowStr) {
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/TenantDocumentsFolderWise/GetHieraricalTreeViewData",
+    //        data: JSON.stringify({ folderId: null }),
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: 'json',
+    //        success: function (response) {
+    //            var folderId = 1;
+    //            var folderTreeViewBody = document.getElementById(folderTreeViewModalBodyStr);
+    //            folderTreeViewBody.textContent = "";
+    //            var Row = document.createElement("div");
+    //            var rowid = "";
+    //            if (folderTreeViewModalRowStr != "") {
+    //                Row.id = folderTreeViewModalRowStr;
+    //                folderTreeViewBody.appendChild(Row);
+    //                rowid = "#" + folderTreeViewModalRowStr;
+    //            }
+    //            else {
+    //                rowid = "#" + folderTreeViewModalBodyStr;
+    //            }
+    //            $(rowid).kendoTreeView(
+    //                    {
+    //                        "select": OnSelectedFolderTreeViewModal,
+    //                        "dataBound": onDataBoundFolderTreeViewModal,
+    //                        "expanded": true,
+    //                        "dataSource": processTable(response, "Id", "ParentId", folderId),
+    //                        "schema": {
+    //                            "model": { "id": "Id", "hasChildren": "HasChildren" }
+    //                        },
+    //                        "loadOnDemand": false,
+    //                        "template": jQuery('#treeviewFolderPartiaTemplateKendo').html(),
+    //                        "dataTextField": ["Name"]
+    //                    });
+    //        }
+    //    });
+    //    //dataBound: function (e) {
+    //    //    var treeView = this;
+    //    //    treeView.expand(".k-item");
+    //    //    if (e.node == null) {
+    //    //        console.log("e is null");
+    //    //        //node = treeview.findByUid(ds.get(path[0]).uid);
+    //    //        //treeview.select(node);
+    //    //        //treeview.trigger("select", { node: node });
+    //    //    }
+    //    //    else {
+    //    //        if (treeView.dataItem(e.node).Id == $("#MoveFolderTo").val()) { console.log("found"); } else { console.log("not found"); }
+    //    //    }
+    //    //},
+    //    //    "dataSource": {
+    //    //        "transport": {
+    //    //            "read": { "url": "/TenantDocumentsFolderWise/Folder_Read" }
+    //    //        },
+    //    //        "schema": {
+    //    //            "model": { "id": "Id", "hasChildren": "HasChildren" }
+    //    //        }
+    //    //    },
+    //    //    "loadOnDemand": false,
+    //    //    "template": jQuery('#treeview-template-FolderTreeViewModal').html(),
+    //    //    "dataTextField": ["Name"]
+    //    //});
+    //}
+
+    $("#UserAssignmentModal").on("shown.bs.modal", function () {
+        var ModalBodyId = document.getElementById("ModalBodyId");
+        ModalBodyId.value = "AssignUserRow";
+        AffinityDms.Entities.Documents.prototype.GetIndexUserForAssignment("AssignUserRow");
+    });
+    //FARAZ Folder Model
+    //$("#folderTreeViewModal").on("shown.bs.modal", function () {
+    //    var ModalBodyId = document.getElementById("ModalBodyId");
+    //    ModalBodyId.value = "folderTreeViewModalBody";
+    //    LoadFolderTreeView("folderTreeViewModalBody", "folderTreeViewModal_row");
+
+    //});
+    function CloseFolderTreeViewModal(event) {
+        $('#folderTreeViewModal').modal('hide');
+    }
+    //Faraz Folder Model
+    //function onDataBoundFolderTreeViewModal(e) {
+    //    if (e != null) {
+    //        if (e.node != null) {
+    //            var ModalBodyIdx = document.getElementById("ModalBodyId");
+    //            var ModalBody = document.getElementById(ModalBodyId.value);
+    //            var rowid = "#" + ModalBody.childNodes[0].id;
+    //            var FolderTreeViewObj = $(rowid);
+    //            if (FolderTreeViewObj != null) {
+    //                //$("#FolderTreeViewModal").data("kendoTreeView").expand(".k-item");
+    //                var CurrentFolderId = document.getElementById("CurrentFolderId");
+    //                var nodeId = CurrentFolderId.value;
+    //                SelectNode(nodeId, FolderTreeViewObj, e, this)
+    //            }
+    //            //var div = this.element.find('div ul li:first').addClass('k-state-selected');
+    //        }
+    //    }
+    //}
+    function AssignForIndexing(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#UserAssignmentModal").modal("show");
+
+        }
+    }
+    function RenderTreeViewModal(event) {
+        var anchorTagDataId = event.currentTarget.getAttribute("data-id");
+        if (anchorTagDataId != null) {
+            var doc = document.getElementById("folderTreeViewModal");
+            var hdocId = document.getElementById("hdocId");
+            hdocId.value = anchorTagDataId;
+            $("#folderTreeViewModal").modal("show");
+        }
+    }
+
+    function CloseAddFolderModal(event) {
+        $('#addFolderModalError').css("display", "none");
+        $('#addFolderModalSuccess').css("display", "none");
+        $('#folderNameTxtbx').val("");
+        $('#addFolderModal').modal('hide');
+    }
+    function CloseRightsModal(event) {
+        $('#RightsModal').modal('hide');
+    }
+    $("#RightsModal").on("show.bs.modal", function (e) {
+        var ViewType = document.getElementById("ViewType");
+        var ViewId = document.getElementById("ViewId");
+        if (ViewType != null && ViewId != null) {
+            var valuetype = AffinityDms.Entities.Documents.prototype.CheckViewType(e.relatedTarget.getAttribute("data-type"));
+            ViewType.value = valuetype;
+            ViewId.value = e.relatedTarget.getAttribute("data-id");
+            if ((ViewType.value != null && ViewType.value != "") && (ViewId.value != null && ViewId.value != "")) {
+                $(this).find(".modal-body").load(("/TenantUsers/GetUserRightsList?id=" + ViewId.value + "&Type=" + ViewType.value));
+            }
+            else {
+                alert("An error occurred while proccessing the request");
+            }
+        }
+    });
+    function onDataBound(e) {
+        //below Statement Expand all data in tree view
+        var treeView = document.getElementById("treeview");
+        if (treeView != null) {
+            $("#treeview").data("kendoTreeView").expand(".k-item");
+        }
+    }
+    $("#InviteUserEmail").keypress(function (event) {
+        if (event.which || event.keyCode) { if ((event.which == 13) || (event.keyCode == 13)) { $("#InviteUserBtn").click(); return false; } else { return true; } }
+    });
+
+    function OnSelected(event) {
+        var CurrentFolderId = document.getElementById("CurrentFolderId");
+        var treeView = $("#treeview").data('kendoTreeView');
+
+        //var dataItem = treeView.dataSource.get(CurrentFolderId.value);
+        //var node = treeView.findByUid(dataItem.uid);
+        //if (node != null)
+        //{
+        //    var li = node[0];
+        //    li.setAttribute("aria-selected", "false");
+        //    li.removeAttribute("id");
+        //    //k-in k-state-selected
+        //    for (var i = 0; i < li.childNodes.length; i++)
+        //    {
+        //        var chkdiv = li.childNodes[i]
+        //        if (chkdiv instanceof HTMLDivElement)
+        //        {
+        //            for (var j = 0; j < chkdiv.childNodes.length; j++) {
+        //                var chkspan = chkdiv.childNodes[j];
+        //                if (chkspan instanceof HTMLSpanElement) {
+        //                    chkspan.class = "k-in";
+        //                      k;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        dataItem = this.dataItem(event.node);
+        //node = treeView.findByUid(dataItem.uid);
+        //if (node != null) {
+        //    var li = node[0];
+        //    li.setAttribute("aria-selected", "true");
+        //    li.setAttribute("id", "treeview_tv_active");
+        //    for (var i = 0; i < li.childNodes.length; i++) {
+        //        var chkdiv = li.childNodes[i]
+        //        if (chkdiv instanceof HTMLDivElement) {
+        //            for (var j = 0; j < chkdiv.childNodes.length; j++) {
+        //                var chkspan = chkdiv.childNodes[j];
+        //                if (chkspan instanceof HTMLSpanElement) {
+        //                    chkspan.class = "k-in k-state-selected";
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        CurrentFolderId.value = dataItem.id;
+        var MoveFolderTo = document.getElementById("MoveFolderTo");
+        MoveFolderTo.value = dataItem.id;
+        if ($("#DocumentUploadModalFolderName") != null) { $("#DocumentUploadModalFolderName").text(dataItem.Name); }
+        SetSelectedElement(dataItem.id);
+    }
+
+
+    function ExpandSelectedNode(event) {
+        var nodeId = event.getAttribute("data-id");
+        var FolderTreeViewObj = $("#treeview");
+        ExpandNode(nodeId, FolderTreeViewObj)
+    }
+    function ExpandNode(nodeId, FolderTreeViewObj) {
+        if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+            var treeView = FolderTreeViewObj.data('kendoTreeView');
+            var dataItem = treeView.dataSource.get(nodeId);
+            var node = treeView.findByUid(dataItem.uid);
+            treeView.expand("li:first");
+            treeView.expand(node);
+            treeView.select(node);
+            var CurrentFolderId = document.getElementById("CurrentFolderId");
+            CurrentFolderId.value = nodeId;
+            SetSelectedElement(nodeId);
+        }
+        else {
+            alert("Unable to find the folder")
+        }
+    }
+    //Faraz Folder Model
+    //function SelectNode(nodeId, FolderTreeViewObj, event, thisObj) {
+    //    if ((nodeId > 0) && (FolderTreeViewObj != null)) {
+    //        var treeView = FolderTreeViewObj.data('kendoTreeView');
+    //        //FolderTreeViewObj.data("kendoTreeView").expand(".k-item");
+    //        treeView.expand(".k-item");
+    //        if (treeView != null) {
+    //            var dataItem = thisObj.dataItem(event.node)
+    //            if (dataItem != null) {
+    //                if (dataItem.Id == nodeId) {
+    //                    var node = treeView.findByUid(dataItem.uid);
+    //                    if (node != null) {
+    //                        treeView.select(node);
+    //                        treeView.trigger("select", { node: node });
+    //                        var selectedTreeNode = treeView.select()[0];
+    //                        selectedTreeNode.scrollIntoView({ block: "end", behavior: "smooth" });
+    //                    }
+    //                }
+    //            }
+    //            if (event.node == null) {
+    //                var a = "";
+    //            }
+    //            //else {
+    //            //    var a = "";
+    //            //}
+    //            ////if (dataItem != null) {
+    //            ////    var node = treeView.findByUid(dataItem.uid);
+    //            ////    if (node != null) {
+    //            ////        treeView.expand("li:first");
+    //            ////        treeView.expand(node);
+    //            ////        treeView.select(node);
+    //            ////    }
+    //            ////}
+    //        }
+    //    }
+    //}
+
+    //==============================================Upload Document Folder TreeView===================================//
+    $("#DocumentUploadModal").on("shown.bs.modal", function () {
+
+        //========= Start clear status div when load popup=========//
+        var divStatus = document.getElementById("divStatus");
+        divStatus.textContent = "";
+        //========= End clear status div when load popup=========//
+
+        resetFileControl();
+
+        //========= Start Rebind Treeview========================================//
+        var ModalBodyId = document.getElementById("ModalBodyId");
+        ModalBodyId.value = "DocumentUploadBody";
+        LoadFolderTreeView("DocumentUploadBody", "DocumentUploadRow");
+        //========= End Rebind Treeview==========================================//
+    });
+    $(document).on("ready", function () {
+        if ($("#defaultFolderSelection") != null) {
+            var parent = $("#defaultFolderSelection").attr("data-parentFolder");
+            if (parent > 0) {
+                var parentNodes = document.getElementsByName("parentNodes");
+                for (var i = 0; i < parentNodes.length; i++) {
+                    if (parent == parentNodes[i].getAttribute("data-id")) {
+                        $("#defaultFolderSelection").attr("data-parentFolder", "0");
+                        parentNodes[i].click();
+                    }
+                }
+            }
+        }
+
+
+
+        $("#files").kendoUpload({
+            async: {
+                saveUrl: "../../TenantDocumentsFolderWise/UploadDocumentsToFolder",
+                removeUrl: "../../TenantDocumentsFolderWise/RemoveDocumentsToFolder",
+                autoUpload: true
+            },
+            success: onSuccess
+        });
+        if ($("#DocumentFolderWiseErrorMessage") != null) {
+            if ($("#DocumentFolderWiseErrorMessageText").text() != null || $("#DocumentFolderWiseErrorMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentFolderWiseErrorMessage').fadeOut('fast');
+                    $("#DocumentFolderWiseErrorMessage").css("display", "none");
+                    $("#DocumentFolderWiseErrorMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+        if ($("#DocumentFolderWiseSuccessMessage") != null) {
+            if ($("#DocumentFolderWiseSuccessMessageText").text() != null || $("#DocumentFolderWiseSuccessMessageText").text() != "") {
+                setTimeout(function () {
+                    $('#DocumentFolderWiseSuccessMessage').fadeOut('fast');
+                    $("#DocumentFolderWiseSuccessMessage").css("display", "none");
+                    $("#DocumentFolderWiseSuccessMessageText").text("");
+                }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+            }
+        }
+    });
+
+    function onSuccess(e) {
+        // Array with information about the uploaded files
+        //var files = e.files;
+
+        //if (e.operation == "upload") {
+        //    alert("Successfully uploaded " + files.length + " files");
+        //}
+    }
+    $("#DocumentUploadModal").on("hidden.bs.modal", function () {
+        if ($("#DocumentUploadModalErrorHeader") != null) {
+            $("#DocumentUploadModalErrorHeader").hide();
+            $("#DocumentUploadModalErrorDiv").text("");
+        }
+        $.ajax({
+            type: "POST",
+            url: "../../TenantDocumentsFolderWise/CleanUploadedDocuemnts",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function (response) {
+                try {
+                    if (typeof (response) === "boolean") {
+                        $('#DocumentUploadModal').modal('hide');
+                    }
+                    else if (typeof (response) === "string") {
+                        if ($("#DocumentUploadModalErrorHeader") != null) {
+                            $("#DocumentUploadModalErrorHeader").show();
+                            $("#DocumentUploadModalErrorDiv").show();
+                            $("#DocumentUploadModalErrorDiv").text(response);
+                            setTimeout(function () {
+                                $("#DocumentUploadModalErrorHeader").hide();
+                                $("#DocumentUploadModalErrorDiv").hide();
+                                $("#DocumentUploadModalErrorDiv").text("");
+                            }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+                        }
+                    }
+                }
+                catch (e) {
+                    if ($("#DocumentUploadModalErrorHeader") != null) {
+                        $("#DocumentUploadModalErrorHeader").show();
+                        $("#DocumentUploadModalErrorDiv").show();
+                        $("#DocumentUploadModalErrorDiv").text(response);
+                        setTimeout(function () {
+                            $("#DocumentUploadModalErrorHeader").hide();
+                            $("#DocumentUploadModalErrorDiv").hide();
+                            $("#DocumentUploadModalErrorDiv").text("");
+                        }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+                    }
+                }
+            },
+            error: function (responseText) {
+                if ($("#DocumentUploadModalErrorHeader") != null) {
+                    $("#DocumentUploadModalErrorHeader").show();
+                    $("#DocumentUploadModalErrorDiv").show();
+                    $("#DocumentUploadModalErrorDiv").text("Oops an Error Occured");
+                    setTimeout(function () {
+                        $("#DocumentUploadModalErrorHeader").hide();
+                        $("#DocumentUploadModalErrorDiv").hide();
+                        $("#DocumentUploadModalErrorDiv").text("");
+                    }, AffinityDms.Settings.Constants.PopUpNotificationTimer);
+                }
+            }
+        });
+
+    });
+    function CloseUploadDocumentModal(event) {
+
+        //========= Start clear status div when load popup=========//
+        var divStatus = document.getElementById("divStatus");
+        divStatus.textContent = "";
+        //========= End clear status div when load popup=========//
+
+        resetFileControl();
+
+    }
+
+    //===============================================End Upload Document Folder TreeView==============================//
+</script>

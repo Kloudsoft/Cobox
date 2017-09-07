@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Ocr Classification Manually";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+@{
+    var errormessage = (ViewBag.ErrorMessage != null) ? (ViewBag.ErrorMessage) : (string.Empty);
+    var successmessage = (ViewBag.SuccessMessage != null) ? (ViewBag.SuccessMessage) : (string.Empty);
+    string displayError = "none", displaySuccess = "none";
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        displayError = "";
+    }
+    if (!(string.IsNullOrEmpty(successmessage)))
+    {
+        displaySuccess = "";
+    }
+    <div id="OcrClassificationManuallyErrorMessage" style="display:@displayError">
+        <div class="alert alert-danger" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#OcrClassificationManuallyErrorMessage" id="hideErrorMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="OcrClassificationManuallyErrorMessageText">@errormessage</div>
+        </div>
+    </div>
+    <div id="OcrClassificationManuallySuccessMessage" style="display:@displaySuccess">
+        <div class="alert alert-success" style="overflow:auto">
+            <div style="float:right;" class="col-sm-12 col-md-12 col-lg-12"><b style="float:right;cursor:pointer" data-hideMessageDiv="#OcrClassificationManuallySuccessMessage" id="hideSuccessMessageDiv">X</b></div>
+            <div style="word-wrap: break-word;margin-right:30px" id="OcrClassificationManuallySuccessMessageText">@successmessage</div>
+        </div>
+    </div>
+
+}
+
+@*@{
+    string errormessage = (this.ViewBag.ErrorMessage != null) ? this.ViewBag.ErrorMessage : string.Empty;
+    if (!(string.IsNullOrEmpty(errormessage)))
+    {
+        <p style="color:Red;font-size:1.5em">@errormessage</p>
+    }
+}*@
+
+@using (Html.BeginForm("Index", "TenantOcrClassification", FormMethod.Post))
+{ 
+    <div class="k-content">
+        @(Html.Kendo().Upload()
+            .Name("files")
+            .Multiple(true)
+           .ShowFileList(true)
+        )
+      
+    </div>
+    <div class="k-content" style="margin-left:10px;margin-top:10px">
+        <input type="submit" value="Perform Ocr" class="btn btn-primary" />
+    </div>
+}
+    <script>
+   
+    function getFileInfo(e) {
+        return $.map(e.files, function(file) {
+            var info = file.name;
+
+            // File size is not available in all browsers
+            if (file.size > 0) {
+                info  += " (" + Math.ceil(file.size / 1024) + " KB)";
+            }
+            return info;
+        }).join(", ");
+    }
+</script>
