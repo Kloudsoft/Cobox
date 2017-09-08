@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.Forms.DocumentReaders</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentImageManager">
+      <summary>Contains the image functionality associated with a DocumentReader.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetPageImage(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">
+      <summary>Gets a raster image rendering of a specific page in the document.</summary>
+      <param name="page">The requested page. Must be an existing page in the DocumentReader.Pages list and cannot be a a **null** reference.</param>
+      <returns>A Leadtools.RasterImage that represents the rendering of the requested page.</returns>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentImageManager.GetThumbnail(Leadtools.Forms.DocumentReaders.DocumentReaderPage,System.Int32,System.Int32)">
+      <summary>Gets a thumbnail of a page in the document.</summary>
+      <param name="page">The requested page. Must be an existing page in the DocumentReader.Pages list and cannot be a a **null** reference.</param>
+      <param name="thumbnailWidth">The desired maximum width of the thumbnail image in pixels. Must be greater than or equal to 32.</param>
+      <param name="thumbnailHeight">The desired maximum height of the thumbnail image in pixels. Must be greater than or equal to 32.</param>
+      <returns>A new Leadtools.RasterImage that is the thumbnail image.</returns>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentImageManager.DocumentReaderInstance">
+      <summary>Gets the owner DocumentReader.</summary>
+      <value>The DocumentReader that owns this DocumentImageManager.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentObjectManager">
+      <summary>Contains the object parsing functionality such as text associated with a DocumentReader.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.BeginParse(System.Object)">
+      <summary>Begins parsing this document.</summary>
+      <param name="args">Either a Leadtools.Forms.Ocr.IOcrEngine object or **null**.</param>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.EndParse">
+      <summary>Ends parsing this document.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentObjectManager.ParsePageText(Leadtools.Forms.DocumentReaders.DocumentReaderPage)">
+      <summary>Parses the text of the given page in the document.</summary>
+      <param name="page">The requested page. Must be an existing page in the DocumentReader.Pages list and cannot be a a **null** reference.</param>
+      <returns>An DocumentPageText object contains the text items of the page.</returns>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentObjectManager.DocumentReaderInstance">
+      <summary>Gets the owner DocumentReader.</summary>
+      <value>The DocumentReader that owns this DocumentObjectManager.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentPageText">
+      <summary>Contains the text characters and words found in a document page.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentPageText.#ctor">
+      <summary>Initializes a new instance of the DocumentPageText class.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentPageText.BuildText">
+      <summary>Constructs the text of this document page.</summary>
+      <returns>A System.String that represents the overall text of this document page.</returns>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Characters">
+      <summary>Gets a list of the text characters found in this document page.</summary>
+      <value>A IList of DocumentCharacter objects for each text character found in the page. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Fonts">
+      <summary>Gets a list of the fonts found in this document page.</summary>
+      <value>A IList of DocumentFont objects for each font found in the page. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentPageText.Words">
+      <summary>Gets a list of the text words found in this document page</summary>
+      <value>A IList of DocumentWord objects for each text word found in the page. Default value is **null**.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReader">
+      <summary>Provides the main class for reading documents.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Create(System.String,Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions)">
+      <summary>Creates a document reader from a file name.</summary>
+      <param name="fileName">The name of the document file. Must not be **null**.</param>
+      <param name="options">Optional document loading options. If this parameter is **null**, then default options are used.</param>
+      <returns>An instance of DocumentReader ready to use.</returns>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.GetProperties">
+      <summary>Gets the properties (or metadata) of the current document.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Dispose">
+      <summary>Releases all resources used by this DocumentReader.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Dispose(System.Boolean)">
+      <summary>Releases all resources used by this DocumentReader.</summary>
+      <param name="disposing"></param>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReader.Finalize">
+      <summary>This member overrides System.Object.Finalize.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.FileName">
+      <summary>Gets the name of the file associated with this DocumentReader.</summary>
+      <value>A System.String that contains the name of the file associated with this DocumentReader. The default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ImageManager">
+      <summary>Gets the object to use for obtaining a raster image render or a thumbnail of any page in the document.</summary>
+      <value>A DocumentImageManager object that can be used to obtain a raster image render or a thumbnail of any page in the document. The default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.MimeType">
+      <summary>Gets the MIME type of the current document.</summary>
+      <value>A System.String that specifies the MIME type of the current document. Default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ObjectManager">
+      <summary>Gets the object to use for parsing the document pages objects such as text items.</summary>
+      <value>A DocumentObjectManager object that can be used to parse the document pages objects such as the text items. The default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.Pages">
+      <summary>Gets the collection of pages in this document reader.</summary>
+      <value>A collection of type DocumentReaderPage that contain an item for each page in the file associated with this DocumentReader object. Default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.RasterCodecsInstance">
+      <summary>Gets the Leadtools.Codecs.RasterCodecs instance used by this document reader.</summary>
+      <value>An instance of Leadtools.Codecs.RasterCodecs that specifies the object used by this document reader to render and create thumbnails for the pages.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReader.ReaderType">
+      <summary>Gets the document reader type.</summary>
+      <value>An DocumentReaderType enumeration member that specifies the type of this document reader.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions">
+      <summary>Provides options to use when reading a document.</summary>
+    </member>
+    <member name="M:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.#ctor">
+      <summary>Initializes a new instance of the DocumentReaderLoadOptions with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.GetPasswordCallback">
+      <summary>Gets or sets the password callback to use when openning encrypted documents.</summary>
+      <value>A DocumentReaderGetPasswordCallback object that specifies the password callback to use when opening encrypted documents. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Password">
+      <summary>Gets or sets the password used to open encrypted documents.</summary>
+      <value>A System.String that specifies the password to use when opening encrypted documents. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.RasterCodecsInstance">
+      <summary>Gets or sets the Leadtools.Codecs.RasterCodecs object to use when rendering or creating thumbnails of the document pages.</summary>
+      <value>A Leadtools.Codecs.RasterCodecs instance that indicates the object to use when rendering or creating thumbnails of the document pages. The default value is **null**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderLoadOptions.Resolution">
+      <summary>Gets or sets the resolution to use when loading document types that do not have a native resolution.</summary>
+      <value>A System.Int32 that specifies the resolution to use when loading document types that do not have a native resolution such as PDF or XPS. Must be a value greater than or equal to 0. The default value is 200.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderPage">
+      <summary>Contains information about a page in the document.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.BitsPerPixel">
+      <summary>Gets the number of bits per pixel of this page.</summary>
+      <value>A System.Int32 that represents the number of bits per pixel of this page.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DocumentReaderInstance">
+      <summary>Gets the owner DocumentReader</summary>
+      <value>The DocumentReader that owns this DocumentReaderPage.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiX">
+      <summary>Gets the horizontal resolution of this page in dots per inch.</summary>
+      <value>A System.Double that specifies the horizontal resolution of this page in dots per inch.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.DpiY">
+      <summary>Gets the vertical resolution of this page in dots per inch.</summary>
+      <value>A System.Double that specifies the vertical resolution of this page in dots per inch.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PageNumber">
+      <summary>Gets the number of this page.</summary>
+      <value>A System.Int32 that specifies the number of this page.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelHeight">
+      <summary>Gets the physical height this page in pixels.</summary>
+      <value>A System.Int32 that specifies the physical height of this page in pixels.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.PixelWidth">
+      <summary>Gets the physical width this page in pixels.</summary>
+      <value>A System.Int32 that specifies the physical width of this page in pixels.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPage.Size">
+      <summary>Gets the size of this page in logical units.</summary>
+      <value>A Leadtools.Forms.LogicalSize that contains the size of this page in logical units (inches).</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection">
+      <summary>Represents a read-only collection of DocumentReaderPage objects.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentReaderPageCollection.DocumentReaderInstance">
+      <summary>Gets the owner DocumentReader.</summary>
+      <value>The DocumentReader that owns this DocumentReaderPageCollection.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderGetPasswordCallback(System.String)">
+      <summary>Prompts the user for a password if the document is encrypted.</summary>
+      <param name="fileName">The same file name passed to DocumentReader.Create.</param>
+      <returns>The password to use if this document is encrypted.</returns>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentFontStyle">
+      <summary>Indicates the styles of the fonts in a document.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentReaderType">
+      <summary>Indicates the document reader type.</summary>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentCharacter">
+      <summary>Contains the properties of a text character found in the document.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Bounds">
+      <summary>Gets or sets the bounding rectangle of the character.</summary>
+      <value>A Leadtools.Forms.LogicalRectangle structure that contain the bounding rectangle of the character in logical units. Default value is an empty Leadtools.Forms.LogicalRectangle with all values initialized to 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.Code">
+      <summary>Gets or sets the character code value of this DocumentCharacter item.</summary>
+      <value>A System.Char that contain the UNICODE character code of this DocumentCharacter item. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontIndex">
+      <summary>Gets or sets the index of the font used by this character.</summary>
+      <value>The 0-based index of the font used by this character. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.FontSize">
+      <summary>Gets or sets the font size of the character in points.</summary>
+      <value>The font size of the character in points. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfLine">
+      <summary>Gets or sets a value that indicates if this the last character in a line.</summary>
+      <value>**true** if this is the last character in a line; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfPage">
+      <summary>Gets or sets a value that indicates if this the last character in a page.</summary>
+      <value>**true** if this is the last character in a page; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfParagraph">
+      <summary>Gets or sets a value that indicates if this the last character in a paragraph.</summary>
+      <value>**true** if this is the last character in a paragraph; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.IsEndOfWord">
+      <summary>Gets or sets a value that indicates if this the last character in a word.</summary>
+      <value>**true** if this is the last character in a word; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentCharacter.RotationAngle">
+      <summary>Gets or sets the rotation angle of this character.</summary>
+      <value>The rotation angle of this character in degrees. Default value is 0.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentFont">
+      <summary>Contains the information for a document font.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentFont.FaceName">
+      <summary>Gets or sets the face name of this font.</summary>
+      <value>A System.String that contain the face name of this font. Default value is **null** (**Nothing** in VB).</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentFont.FontStyle">
+      <summary>Gets or sets the style of this font.</summary>
+      <value>One or more DocumentFontStyle enumeration member values that specify the style of this font. The default value is DocumentFontStyle.Normal.</value>
+    </member>
+    <member name="T:Leadtools.Forms.DocumentReaders.DocumentWord">
+      <summary>Contains the properties of a text word found in the document.</summary>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.Bounds">
+      <summary>Gets or sets the bounding rectangle of the word.</summary>
+      <value>A Leadtools.Forms.LogicalRectangle structure that contains the bounding rectangle of the word in logical units. The default value is an empty Leadtools.Forms.LogicalRectangle with all values initialized to 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FirstCharacterIndex">
+      <summary>Gets or sets the index of the first character that forms this word value in the DocumentPageText.Characters list.</summary>
+      <value>A System.Int32 that specifies the index of first character that forms this word value in the DocumentPageText.Characters list. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontIndex">
+      <summary>Gets or sets the index of the font used by this word.</summary>
+      <value>The 0-based index of font used by this word. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.FontSize">
+      <summary>Gets or sets the font size of the word in points.</summary>
+      <value>The font size of the word in points. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfLine">
+      <summary>Gets or sets a value that indicates if this the last word in a line.</summary>
+      <value>**true** if this is the last word in a line; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfPage">
+      <summary>Gets or sets a value that indicates if this the last word in a page.</summary>
+      <value>**true** if this is the last word in a page; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.IsEndOfParagraph">
+      <summary>Gets or sets a value that indicates if this the last word in a paragraph.</summary>
+      <value>**true** if this is the last word in a paragraph; otherwise, it is **false**. The default value is **false**.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.LastCharacterIndex">
+      <summary>Gets or sets the index of the last character that forms this word value in the DocumentPageText.Characters list.</summary>
+      <value>A System.Int32 that specifies the index of last character that forms this word value in the DocumentPageText.Characters list. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.RotationAngle">
+      <summary>Gets or sets the rotation angle of this word.</summary>
+      <value>The rotation angle of this word in degrees. The default value is 0.</value>
+    </member>
+    <member name="P:Leadtools.Forms.DocumentReaders.DocumentWord.Value">
+      <summary>Gets or sets the word value.</summary>
+      <value>A System.String that contains the word value. The default value is **null** (**Nothing** in VB).</value>
+    </member>
+  </members>
+</doc>

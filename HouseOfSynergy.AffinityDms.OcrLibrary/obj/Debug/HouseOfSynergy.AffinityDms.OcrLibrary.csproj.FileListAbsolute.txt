@@ -1,0 +1,377 @@
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ApplicationInsights.config
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll.config
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.DataLayer.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Annotations.Core.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Annotations.Documents.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.DatamatrixRead.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.DatamatrixWrite.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.Lead2DRead.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.Lead2DWrite.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.OneD.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.PdfRead.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.PdfWrite.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.QrRead.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.QrWrite.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Caching.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Bmp.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Cmp.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Fax.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Img.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Png.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Tif.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ColorConversion.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Converters.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Pdf.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Raster.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Drawing.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Auto.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Commands.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.Raster.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentWriters.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.Advantage.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Processing.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Barcode.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Ocr.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Color.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Core.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Effects.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.SpecialEffects.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Utilities.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Jpeg2000.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Pdf.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.SpecialEffects.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Svg.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Vector.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Web.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.DependencyCollector.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Web.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.WindowsServer.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.ApplicationInsights.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.Schema.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.Core.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.DbPersistence.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Spatial.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Helpers.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Http.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Mvc.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Razor.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Vintasoft.Barcode.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\WindowsAzureTelemetryEvents.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\WindowsAzureEventSource.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.DataLayer.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Library.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Caching.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ColorConversion.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Converters.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Drawing.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Commands.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentWriters.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Processing.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Barcode.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Ocr.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Color.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Core.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Effects.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.SpecialEffects.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Jpeg2000.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Pdf.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.SpecialEffects.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Svg.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Web.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.DependencyCollector.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Web.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.WindowsServer.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.ApplicationInsights.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.Schema.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.Core.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Spatial.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Helpers.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Http.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Mvc.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Razor.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Vintasoft.Barcode.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de-DE\HouseOfSynergy.AffinityDms.Library.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ApplicationInsights.config
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll.config
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.DataLayer.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Annotations.Core.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Annotations.Documents.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.DatamatrixRead.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.DatamatrixWrite.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.Lead2DRead.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.Lead2DWrite.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.OneD.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.PdfRead.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.PdfWrite.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.QrRead.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.QrWrite.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Caching.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Bmp.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Cmp.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Fax.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Img.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Png.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.Tif.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ColorConversion.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Converters.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Pdf.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Raster.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Drawing.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Auto.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Commands.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.Raster.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentWriters.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.Advantage.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Processing.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Barcode.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Ocr.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Color.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Core.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Effects.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.SpecialEffects.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Utilities.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Jpeg2000.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Kernel.Annotations.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Pdf.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Agent.Intercept.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.DependencyCollector.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.PerfCounterCollector.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.ServerTelemetryChannel.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Web.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.WindowsServer.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.ApplicationInsights.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Edm.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.OData.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.Schema.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.Core.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.DbPersistence.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Net.Http.Formatting.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Spatial.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Helpers.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Http.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Mvc.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Razor.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Razor.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Svg.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\WindowsAzureTelemetryEvents.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Vector.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\WindowsAzureEventSource.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.DataLayer.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Barcode.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Caching.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Codecs.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ColorConversion.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Documents.Converters.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Drawing.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Commands.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentReaders.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.DocumentWriters.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Ocr.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Processing.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Barcode.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Forms.Recognition.Ocr.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Color.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Core.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.Effects.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.ImageProcessing.SpecialEffects.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Jpeg2000.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Pdf.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Edm.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.OData.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.Data.Services.Client.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.DependencyCollector.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.ServerTelemetryChannel.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.Web.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.AI.WindowsServer.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.ApplicationInsights.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Newtonsoft.Json.Schema.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\OptimaJet.Workflow.Core.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Net.Http.Formatting.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Spatial.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Helpers.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Http.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Mvc.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.Razor.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\System.Web.WebPages.Razor.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\Leadtools.Svg.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de-DE\HouseOfSynergy.AffinityDms.Library.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\de\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\es\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\fr\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\it\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ja\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ko\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb

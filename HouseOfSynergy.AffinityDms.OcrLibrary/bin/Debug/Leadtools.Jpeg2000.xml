@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.Jpeg2000</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.Jpeg2000.AssociationBox">
+      <summary>The Association box allows data in the file to be associated with other data in the file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.AssociationBox.#ctor">
+      <summary>Initializes a new AssociationBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.AssociationBox.Data">
+      <summary>Gets or sets association data.</summary>
+      <value>Association box data.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.BinaryFilterBox">
+      <summary>The Binary filter box allows a portion of the file to be further compressed or encoded (i.e. encrypted).</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.BinaryFilterBox.#ctor">
+      <summary>Initializes a new BinaryFilterBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BinaryFilterBox.Data">
+      <summary>Gets or sets transformed data.</summary>
+      <value>Transformed data.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BinaryFilterBox.FilterType">
+      <summary>Gets or sets filter type.</summary>
+      <value>Filter type.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.CompositeJpxImages">
+      <summary>CompositeJpxImages specifies the layer color, opacity, pre-multiplied opacity, and compression information.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.CompositeJpxImages.#ctor">
+      <summary>Initializes a new CompositeJpxImages class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.ColorFormat">
+      <summary>Gets or sets the compression type for the color code stream.</summary>
+      <value>This field specifies the compression type of the color channels code stream.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.ColorImage">
+      <summary>Gets or sets a color channels image.</summary>
+      <value>Color channels. This image specifies a layer color channels code stream.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.OpacityFormat">
+      <summary>Gets or sets the compression type for an opacity code stream.</summary>
+      <value>This field specifies the compression type of the opacity channels code stream.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.OpacityImage">
+      <summary>Gets or sets the opacity channels image.</summary>
+      <value>Opacity channels.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.PreOpacityFormat">
+      <summary>Gets or sets the compression type for a pre-multiplied opacity code stream.</summary>
+      <value>This field specifies the compression type of the pre-multiplied opacity channels code stream.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositeJpxImages.PreOpacityImage">
+      <summary>Gets or sets a pre-multiplied opacity channels image.</summary>
+      <value>Pre-multiplied opacity channels.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.CompositionBox">
+      <summary>The Composition box specifies how individual composition layers are combined to create the rendered result.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.CompositionBox.#ctor">
+      <summary>Initializes a new CompositionBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBox.CompositionOptions">
+      <summary>Gets or sets the composition options for the renderer.</summary>
+      <value>Structure containing the composition options.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBox.Instructions">
+      <summary>Gets or sets the instructions for a composition.</summary>
+      <value>A list of instruction sets.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.DigitalSignatureBox">
+      <summary>A checksum or digital signature that can be used to verify the data contained within the file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.DigitalSignatureBox.#ctor">
+      <summary>Initializes a new DigitalSignatureBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.DigitalSignatureBox.Data">
+      <summary>Gets or sets the signature data.</summary>
+      <value>Signature data.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.DigitalSignatureBox.Length">
+      <summary>Gets or sets the Length of the source data.</summary>
+      <value>Source data Length.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.DigitalSignatureBox.Offset">
+      <summary>Gets or sets the source data offset.</summary>
+      <value>Source data offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.DigitalSignatureBox.PointerType">
+      <summary>Gets or sets the source pointer type.</summary>
+      <value>Source pointer type.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.DigitalSignatureBox.SignatureType">
+      <summary>Gets or sets the signature type.</summary>
+      <value>Signature type.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.FreeBox">
+      <summary>The Free box specifies a section of the file that is being currently used and can be overwritten when editing the file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.FreeBox.#ctor">
+      <summary>Initializes a new FreeBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.FreeBox.Data">
+      <summary>Gets or sets the box data.</summary>
+      <value>Free box data.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.GmlData">
+      <summary>GmlData contains the Geography Markup Language (GML) information for a single code stream or multiple code streams.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.GmlData.#ctor">
+      <summary>Initializes a new GmlData class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.GmlData.Data">
+      <summary>Gets or sets the GML data.</summary>
+      <value>GML data.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.GtsoBox">
+      <summary>The Graphics Technology Standard Output (GTSO) box specifies the desired reproduction of the rendered result for commercial printing and proofing systems.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.GtsoBox.#ctor">
+      <summary>Initializes a new GtsoBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.GtsoBox.Data">
+      <summary>Gets or sets GTSO data.</summary>
+      <value>A valid output ICC profile as defined by the ICC profile format specification ICC-1.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.InstructionSet">
+      <summary>An Instruction Set box containing a set of rendering instructions, each represented through a series of composition parameters.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.InstructionSet.#ctor">
+      <summary>Initializes a new InstructionSet class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSet.Instructions">
+      <summary>Gets or sets instructions parameters.</summary>
+      <value>List of Instruction parameters, specifying a series of instruction parameters for a single instruction.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSet.Repetition">
+      <summary>Gets or sets the repetition value.</summary>
+      <value>This field specifies the number of times to repeat this particular set of instructions.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSet.Tick">
+      <summary>Gets or sets timer tick.</summary>
+      <value>Duration of timer tick.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSet.Type">
+      <summary>Gets or sets the instruction type.</summary>
+      <value>Instruction type. This field specifies the type of instruction, and thus which instruction parameters shall be found within this Composition Instruction box.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.IprBox">
+      <summary>The Intellectual Property Rights (IPR) box contains the intellectual properties rights information about a JPEG 2000 file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.IprBox.#ctor">
+      <summary>Initializes a new IprBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.IprBox.Data">
+      <summary>Gets or sets intellectual data.</summary>
+      <value>Intellectual property data.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000Box">
+      <summary>The Jpeg2000Box is the base class for Jpeg2000SingleBox and Jpeg2000MultiBox classes.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Box.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000Engine">
+      <summary>This class contains functions that allow you to write JPEG 2000 Part 2 (JPX) images and manipulate JPX boxes, frames, GML Data, and other advanced JPX features.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.#ctor">
+      <summary>Initializes a new instance of the Jpeg2000Engine class.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendBox(System.IO.Stream,Leadtools.Jpeg2000.Jpeg2000SingleBox)">
+      <summary>Appends a single box to a JPEG 2000 data stream. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data.</param>
+      <param name="box">Jpeg2000SingleBox object containing the box data being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendBox(System.String,Leadtools.Jpeg2000.Jpeg2000SingleBox)">
+      <summary>Appends a single box to a JPEG 2000 file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file.</param>
+      <param name="box">Jpeg2000SingleBox object containing the box data being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendBoxes&amp;lt;T&amp;gt;(System.IO.Stream,List&lt;T&gt;)">
+      <summary>Appends multiple boxes to a JPEG 2000 data stream. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data.</param>
+      <param name="boxes">A list of Jpeg2000MultiBox objects containing the box data being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendBoxes&amp;lt;T&amp;gt;(System.String,List&lt;T&gt;)">
+      <summary>Appends multiple boxes to a JPEG 2000 file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file.</param>
+      <param name="boxes">A list of Jpeg2000MultiBox objects containing the box data being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendFrames(Leadtools.Codecs.RasterCodecs,System.IO.Stream,List&lt;CompositeJpxImages&gt;,System.Int32,System.Int32)">
+      <summary>Appends new frames to a currently existing JPEG 2000 stream. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="stream">A System.IO.Stream to which the new frame data will be saved.</param>
+      <param name="compositeImages">List of CompositeJpxImages containing the layer image data being appended.</param>
+      <param name="bitsPerPixel">Resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. A value of zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendFrames(Leadtools.Codecs.RasterCodecs,System.String,List&lt;CompositeJpxImages&gt;,System.Int32,System.Int32)">
+      <summary>Appends new frames to a currently existing JPEG 2000 file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the file to which the new frames are being appended.</param>
+      <param name="compositeImages">List of CompositeJpxImages containing the layer image data that will be appended.</param>
+      <param name="bitsPerPixel">Resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. A value of zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendGmlData(System.IO.Stream,Leadtools.Jpeg2000.GmlData)">
+      <summary>Appends Geography Markup Language (GML) data to the specified JPEG 2000 data stream. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data to which the GML data is being appended.</param>
+      <param name="gmlData">GmlData object containing the GML information being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.AppendGmlData(System.String,Leadtools.Jpeg2000.GmlData)">
+      <summary>Appends Geography Markup Language (GML) data to the specified JPEG 2000 file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file.</param>
+      <param name="gmlData">GmlData object containing the GML information being appended.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ExtractFrames(System.String,System.String,List&lt;int&gt;)">
+      <summary>Extracts the specified frames from the input file, and saves them to a new JPEG 2000 file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="inputFileName">System.String containing the name of the JPEG 2000 file from which the frames are being extracted.</param>
+      <param name="outputFileName">System.String containing the name of the JPEG 2000 file to be used to save the extracted frames. This file will contain only the extracted frames.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be extracted from the input file. All indices should be 0-based.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ExtractFramesMemory(System.IO.Stream,List&lt;int&gt;)">
+      <summary>Extracts the specified frames from the input stream, and saves them to a new JPEG 2000 file in a byte array. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data from which the frames are being extracted.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be extracted from the input file. All indices should be 0-based.</param>
+      <returns>A byte array that contains a JPEG 2000 file with extracted frames only.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ExtractFramesMemory(System.String,List&lt;int&gt;)">
+      <summary>Extracts the specified frames from the input file, and saves them to a new JPEG 2000 file in a byte array. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file from which the frames are being extracted.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be extracted from the input file. All indices should be 0-based.</param>
+      <returns>A byte array that contains a JPEG 2000 file with only the extracted frames.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ExtractFramesNativeMemory(System.IO.Stream,List&lt;int&gt;)">
+      <summary>Extracts the specified frames from the input stream, and saves them to a new JPEG 2000 file in a Leadtools.RasterNativeBuffer object. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data from which frames are being extracted.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be extracted from the input stream. All indices should be 0-based.</param>
+      <returns>A Leadtools.RasterNativeBuffer object that contains a JPEG 2000 file with only the extracted frames.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ExtractFramesNativeMemory(System.String,List&lt;int&gt;)">
+      <summary>Extracts the specified frames from the input file, and saves them to a new JPEG 2000 file in a Leadtools.RasterNativeBuffer object. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file from which the frames are being extracted.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be extracted from the input file. All indices should be 0-based.</param>
+      <returns>A Leadtools.RasterNativeBuffer object that contains a JPEG 2000 file with only the extracted frames.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.FragmentJpxFile(System.String,System.String,List&lt;UuidUrl&gt;,List&lt;Fragment&gt;)">
+      <summary>Fragments the specified code streams within a JPEG 2000 part 2 (JPX) file. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="inputFileName">System.String containing the name of the JPX file from which frames are to be extracted.</param>
+      <param name="outputFileName">System.String containing the name of the fragmented JPX file.</param>
+      <param name="urls">List of UuidUrl specifying the URLs where the fragments are contained.</param>
+      <param name="fragments">List of Fragment specifying the following for each fragment:</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.FreeFramesNativeMemory(Leadtools.RasterNativeBuffer)">
+      <summary>Releases the resources used by the Leadtools.RasterNativeBuffer.</summary>
+      <param name="buffer">The Leadtools.RasterNativeBuffer object to be freed.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.GetBox(Leadtools.Jpeg2000.Jpeg2000FileFormat,Leadtools.Jpeg2000.Jpeg2000BoxType)">
+      <summary>Gets a box of the specified type for the engine.</summary>
+      <param name="format">Jpeg2000FileFormat specifies the JPEG 2000 engine.</param>
+      <param name="boxType">Type of box being obtained.</param>
+      <returns>Jpeg2000SingleBox object containing the box data for the specified boxType.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.GetBoxes`1(Leadtools.Jpeg2000.Jpeg2000FileFormat)">
+      <summary>Gets all engine boxes of the specified type.</summary>
+      <param name="format">Jpeg2000FileFormat specifies the JPEG 2000 engine.</param>
+      <returns>A list of Jpeg2000MultiBox objects containing the box data for the specified engine.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.GetFileInformation(System.IO.Stream)">
+      <summary>Gets JPEG 2000 file information from a stream.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 stream data.</param>
+      <returns>A Jpeg2000FileInformation object that contains the information about the specified JPEG 2000 stream.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.GetFileInformation(System.String)">
+      <summary>Gets the JPEG 2000 file information from a disk file.</summary>
+      <param name="fileName">System.String containing the input JPEG 2000 file name being queried.</param>
+      <returns>A Jpeg2000FileInformation object that contains the information about the specified JPEG 2000 file.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Load(Leadtools.Codecs.RasterCodecs,System.IO.Stream,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified JPEG 2000 image stream using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="steam">A System.IO.Stream containing the image data to be loaded.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. Possible values are:</param>
+      <returns>The Leadtools.RasterImage object that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Load(Leadtools.Codecs.RasterCodecs,System.String,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified JPEG 2000 image file using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the JPEG 2000 image file being loaded.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. Possible values are:</param>
+      <returns>The Leadtools.RasterImage object that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.LoadComposite(Leadtools.Codecs.RasterCodecs,System.IO.Stream,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified JPEG 2000 image stream(i.e. CompositeJpxImages.ColorImage, CompositeJpxImages.OpacityImage, and CompositeJpxImages.PreOpacityImage) using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="stream">A System.IO.Stream containing the image data being loaded.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. Valid values are as follows:</param>
+      <returns>The CompositeJpxImages list that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.LoadComposite(Leadtools.Codecs.RasterCodecs,System.String,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified JPEG 2000 image files (that is CompositeJpxImages.ColorImage, CompositeJpxImages.OpacityImage, and CompositeJpxImages.PreOpacityImage) using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the JPEG 2000 image file being loaded.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. The following are valid values:</param>
+      <returns>The CompositeJpxImages list that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadBox(System.IO.Stream,Leadtools.Jpeg2000.Jpeg2000BoxType,System.Int32)">
+      <summary>Reads a box of type boxType at index boxIndex from the specified JPEG 2000 data stream.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data.</param>
+      <param name="boxType">Box type to be read.</param>
+      <param name="boxIndex">0-based box index specifying the box to be read.</param>
+      <returns>Jpeg2000Box object containing the box data.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadBox(System.String,Leadtools.Jpeg2000.Jpeg2000BoxType,System.Int32)">
+      <summary>Reads a boxType of box at the boxIndex index from the specified JPEG 2000 file.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file.</param>
+      <param name="boxType">Box type to be read.</param>
+      <param name="boxIndex">0-based box index specifying the box to be read.</param>
+      <returns>Jpeg2000Box object containing the box data.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadFrames(Leadtools.Codecs.RasterCodecs,System.IO.Stream,List&lt;int&gt;,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified frame images (i.e. CompositeJpxImages.ColorImage, CompositeJpxImages.OpacityImage, and CompositeJpxImages.PreOpacityImage) from the specified JPEG 2000 stream using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="stream">A System.IO.Stream containing the image data being loaded.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be loaded from the stream.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. Valid values are as follows:</param>
+      <returns>The CompositeJpxImages list that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadFrames(Leadtools.Codecs.RasterCodecs,System.String,List&lt;int&gt;,System.Int32,Leadtools.Codecs.CodecsLoadByteOrder)">
+      <summary>Loads the specified frame images (i.e. CompositeJpxImages.ColorImage, CompositeJpxImages.OpacityImage, and CompositeJpxImages.PreOpacityImage) from the specified JPEG 2000 file using the specified options.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the JPEG 2000 image file which has the frames being loaded.</param>
+      <param name="frames">Frame indices. A list of integers specifying the indices of the frames to be loaded from the file.</param>
+      <param name="bitsPerPixel">Resulting image pixel depth. If this value is zero \[0\], the image will have the original file's pixel depth (the image will not be converted).</param>
+      <param name="order">Color order for 16-bit, 24-bit, 32-bit, 48-bit, and 64-bit images. If the resulting image is less than 16 bits per pixel, this will have no effect since palletized images do not use color order. Valid values are as follows:</param>
+      <returns>The CompositeJpxImages list that this method loads.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadGmlData(System.IO.Stream)">
+      <summary>Reads Geography Markup Language (GML) data stored in a JPEG 2000 data stream.</summary>
+      <param name="stream">A System.IO.Stream containing the JPEG 2000 file data to from which GML information is being read.</param>
+      <returns>GmlData object containing the GML information stored in the stream.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ReadGmlData(System.String)">
+      <summary>Reads Geography Markup Language (GML) data stored in a JPEG 2000 file.</summary>
+      <param name="fileName">System.String containing the name of the JPEG 2000 file.</param>
+      <returns>GmlData object containing the GML stored in the file.</returns>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.ResetEngineBoxes">
+      <summary>Resets all of the boxes for the JPEG 2000 engine.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Save(Leadtools.Codecs.RasterCodecs,System.IO.Stream,Leadtools.RasterImage,Leadtools.Jpeg2000.Jpeg2000FileFormat,System.Int32,System.Int32)">
+      <summary>Saves a Leadtools.RasterImage to a stream in any of the supported JPEG 2000 file formats. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="stream">A System.IO.Stream where the image data will be saved.</param>
+      <param name="image">The Leadtools.RasterImage object that holds the image data.</param>
+      <param name="format">Output JPEG 2000 file format. For valid values, refer to Jpeg2000FileFormat.</param>
+      <param name="bitsPerPixel">Resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. A value of zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Save(Leadtools.Codecs.RasterCodecs,System.String,Leadtools.RasterImage,Leadtools.Jpeg2000.Jpeg2000FileFormat,System.Int32,System.Int32)">
+      <summary>Saves a Leadtools.RasterImage to a file in any of the supported JPEG 2000 file formats. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the file currently being saved.</param>
+      <param name="image">The Leadtools.RasterImage object that holds the image data.</param>
+      <param name="format">Output JPEG 2000 file format. For valid values, refer to Jpeg2000FileFormat.</param>
+      <param name="bitsPerPixel">The resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. A value of zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.SaveComposite(Leadtools.Codecs.RasterCodecs,System.IO.Stream,List&lt;CompositeJpxImages&gt;,Leadtools.Jpeg2000.Jpeg2000FileFormat,System.Int32,System.Int32)">
+      <summary>Saves a CompositeJpxImages list to a stream in any of the supported JPEG 2000 file formats. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="stream">A System.IO.Stream to which the image data will be saved.</param>
+      <param name="compositeImages">List of CompositeJpxImages layer image data that will be saved</param>
+      <param name="format">Output JPEG 2000 file format. For valid values, refer to Jpeg2000FileFormat.</param>
+      <param name="bitsPerPixel">Resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. A value of zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.SaveComposite(Leadtools.Codecs.RasterCodecs,System.String,List&lt;CompositeJpxImages&gt;,Leadtools.Jpeg2000.Jpeg2000FileFormat,System.Int32,System.Int32)">
+      <summary>Saves a CompositeJpxImages list to a file in any of the supported JPEG 2000 file formats. This method is available in the Document/Medical Toolkits.</summary>
+      <param name="codecs">The Leadtools.Codecs.RasterCodecs object.</param>
+      <param name="fileName">System.String containing the name of the file currently being saved.</param>
+      <param name="compositeImages">List of CompositeJpxImages containing the image layer data that will be saved.</param>
+      <param name="format">Output JPEG 2000 file format. For valid values, refer to Jpeg2000FileFormat.</param>
+      <param name="bitsPerPixel">Resulting file's pixel depth. Possible values are: 8, 12, 16, 24, 32, 48, 64, and 0. Zero \[0\] means that each image will be saved with its bits per pixel value, if that value is equal to one of the possible values (8, 12, 16, 24, 32, 48, or 64).</param>
+      <param name="qualityFactor">Quality factor. This value determines the degree of loss in the compression process. Possible values are from 0 to 255. A value of zero (0) represents lossless compression. Values between 1 and 255 are interpreted as a compression ratio.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.SetBox(Leadtools.Jpeg2000.Jpeg2000FileFormat,Leadtools.Jpeg2000.Jpeg2000SingleBox)">
+      <summary>Sets a single box for the JPEG 2000 engine.</summary>
+      <param name="format">Jpeg2000FileFormat specifying the JPEG 2000 engine.</param>
+      <param name="box">Jpeg2000SingleBox object containing the box data being set.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.SetBoxes`1(Leadtools.Jpeg2000.Jpeg2000FileFormat,List&lt;T&gt;)">
+      <summary>Sets a list of boxes for the JPEG 2000 engine.</summary>
+      <param name="format">Jpeg2000FileFormat specifying the JPEG 2000 engine.</param>
+      <param name="boxes">A list of Jpeg2000MultiBox objects containing the box data being set.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Dispose">
+      <summary>Overloaded. Releases all resources used by this Jpeg2000Engine.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Dispose(System.Boolean)">
+      <summary>Overloaded. Releases all resources used by this Jpeg2000Engine.</summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000Engine.Finalize">
+      <summary>This member overrides Finalize.</summary>
+    </member>
+    <member name="E:Leadtools.Jpeg2000.Jpeg2000Engine.LoadImage">
+      <summary>Occurs during the JPEG 2000 file loading process to provide functionality for manually handling the output image data or monitoring the progress status.</summary>
+    </member>
+    <member name="E:Leadtools.Jpeg2000.Jpeg2000Engine.SaveImage">
+      <summary>Occurs during the JPEG 2000 file saving process to provide functionality for manually handling the output image data or monitoring the progress status.</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000MultiBox">
+      <summary>The Jpeg2000MultiBox is the base class for all LEADTOOLS JPEG 2000 boxes that are allowed to have more than one box in a JPEG 2000 file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000MultiBox.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000SingleBox">
+      <summary>The Jpeg2000SingleBox is the base class for all LEADTOOLS JPEG 2000 boxes that are not allowed to have more than one box in a JPEG 2000 file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Jpeg2000SingleBox.#ctor">
+      <summary>Initializes a new instance of this class.</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.MediaDataBox">
+      <summary>This box contains a fragment of JPEG 2000 code stream or other media data, such as MPEG-4 audio data.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.MediaDataBox.#ctor">
+      <summary>Initializes a new MediaDataBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.MediaDataBox.Data">
+      <summary>Gets or sets media data.</summary>
+      <value>Media data.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Mpeg7Box">
+      <summary>This box contains metadata in MPEG-7 Binary format (BiM) as defined by ISO/IEC 15938.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.Mpeg7Box.#ctor">
+      <summary>Initializes a new Mpeg7Box class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Mpeg7Box.Data">
+      <summary>Gets or sets MPEG-7 data.</summary>
+      <value>MPEG-7 BiM Stream.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.ResolutionBox">
+      <summary>The Resolution box specifies the capture and default display resolutions of the image.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.ResolutionBox.#ctor">
+      <summary>Initializes a new ResolutionBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.ResolutionBox.CaptureXResolution">
+      <summary>Gets or sets the capture resolution in the X direction.</summary>
+      <value>The horizontal grid resolution at which the image was captured.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.ResolutionBox.CaptureYResolution">
+      <summary>Gets or sets the capture resolution in the Y direction.</summary>
+      <value>The vertical grid resolution at which the image was captured.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.ResolutionBox.DefaultDisplayXResolution">
+      <summary>Gets or sets the default display resolution in the X direction.</summary>
+      <value>The horizontal grid resolution at which this image should be displayed.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.ResolutionBox.DefaultDisplayYResolution">
+      <summary>Gets or sets the default display resolution in the Y direction.</summary>
+      <value>The vertical grid resolution at which this image should be displayed.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.UuidBox">
+      <summary>The UUID box contains vendor-specific information.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.UuidBox.#ctor">
+      <summary>Initializes a new UuidBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidBox.Data">
+      <summary>Gets or sets vendor data.</summary>
+      <value>Vendor-specific information data.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidBox.Id">
+      <summary>Gets or sets the ID value.</summary>
+      <value>A 16 byte UUID as specified by ISO/IEC 11578:1996.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.UuidInformationBox">
+      <summary>A UUID Information box contains vendor information in a standard form that can be used by non-extended applications to get more information about the extension of the file.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.UuidInformationBox.#ctor">
+      <summary>Initializes a new UuidInformationBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidInformationBox.List">
+      <summary>Gets or sets the UUID list box.</summary>
+      <value>UUID List box.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidInformationBox.Url">
+      <summary>Gets or sets a data entry URL box.</summary>
+      <value>UUID List box.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.UuidList">
+      <summary>The UUID List box contains a list of UUIDs.</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.UuidList.#ctor">
+      <summary>Initializes a new UuidList class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidList.Ids">
+      <summary>Gets or sets ID values.</summary>
+      <value>A list of UuidIds as specified in ISO/IEC 11578:1996.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.XmlBox">
+      <summary>An XML box contains vendor-specific information (in XML format).</summary>
+    </member>
+    <member name="M:Leadtools.Jpeg2000.XmlBox.#ctor">
+      <summary>Initializes a new XmlBox class object with default parameters.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.XmlBox.Data">
+      <summary>Gets or sets XML data.</summary>
+      <value>XML data that contains a well-formed XML document as defined in REC-xml-19980210.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.CompositeJpxImageFormat">
+      <summary>This enumeration is used with CompositeJpxImages to specify the compression type to be used to compress the image data.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.CompositeJpxImageFormat.J2k">
+      <summary>RasterImageFormat.J2k compression.</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000BoxType">
+      <summary>This enumeration specifies the JPEG 2000 box type.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.ResolutionBox">
+      <summary>Resolution box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.IprBox">
+      <summary>Intellectual property rights box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.XmlBox">
+      <summary>XML box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.UuidBox">
+      <summary>UUID box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.UuidInformationBox">
+      <summary>UUID information box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.Mpeg7Box">
+      <summary>MPEG-7 box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.FreeBox">
+      <summary>Free box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.BinaryFilterBox">
+      <summary>Binary filter box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.GtsoBox">
+      <summary>Desired reproduction box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.CompositionBox">
+      <summary>Composition box</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.DigitalSignatureBox">
+      <summary>Digital signature box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.AssociationBox">
+      <summary>Association box.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000BoxType.MediaDataBox">
+      <summary>Media data box</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000FileFormat">
+      <summary>This enumeration specifies the supported JPEG 2000 file formats.</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000FileFormat.LeadJp2">
+      <summary>JPEG 2000 - part 1 (JP2) file format</summary>
+    </member>
+    <member name="F:Leadtools.Jpeg2000.Jpeg2000FileFormat.LeadJpx">
+      <summary>JPEG 2000 - part 2 (JPX) file format</summary>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.BoxInformationElement">
+      <summary>Provides information for the specified JPEG 2000 box type.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BoxInformationElement.BoxOffset">
+      <summary>Gets or sets box offset value.</summary>
+      <value>Box start offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BoxInformationElement.BoxSize">
+      <summary>Gets or sets the box size.</summary>
+      <value>Box size in bytes.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BoxInformationElement.DataOffset">
+      <summary>Gets or sets the data start offset for the box.</summary>
+      <value>Box data start offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.BoxInformationElement.DataSize">
+      <summary>Gets or sets the data size of the box.</summary>
+      <value>Box data size in bytes.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.CompositionBoxOptions">
+      <summary>The Composition Options box specifies parameters that apply to the composition or animation as a whole. CompositionBox.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBoxOptions.Empty">
+      <summary>Represents an CompositionBoxOptions that is a null reference (Nothing in VB).</summary>
+      <value>An empty CompositionBoxOptions object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBoxOptions.Height">
+      <summary>Gets or sets the render height.</summary>
+      <value>Rendered result height.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBoxOptions.Loop">
+      <summary>Gets or sets the Looping count.</summary>
+      <value>Looping count.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.CompositionBoxOptions.Width">
+      <summary>Gets or sets the render width.</summary>
+      <value>Rendered result width.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Fragment">
+      <summary>Fragment that provides information for the code streams that are going to be taken out of the JPEG 2000 file and saved to the specified URL.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Fragment.CodeStreamIndex">
+      <summary>Gets or sets code stream index.</summary>
+      <value>The index of the code stream to be taken out of the JPEG 2000 file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Fragment.Empty">
+      <summary>Represents a Fragment that is a null reference (Nothing in VB).</summary>
+      <value>An empty Fragment object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Fragment.Offset">
+      <summary>Gets or sets the offset in bytes for the start of the code stream.</summary>
+      <value>Code stream start offset in bytes relative to the URL file start.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Fragment.UrlIndex">
+      <summary>Gets or sets URL index.</summary>
+      <value>The URL index where the code stream is saved.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.GmlElement">
+      <summary>The GmlElement structure provides information about a single GML data element that has a label and associated XML data and is attached to a single code stream.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.GmlElement.Data">
+      <summary>Gets or sets XML data.</summary>
+      <value>Well-formed XML data as defined in REC-xml-19980210.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.GmlElement.Empty">
+      <summary>Represents an GmlElement that is a null reference (Nothing in VB).</summary>
+      <value>An empty GmlElement object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.GmlElement.Label">
+      <summary>Gets or sets a string used as a label.</summary>
+      <value>Label string.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.InstructionSetParameter">
+      <summary>InstructionSetParameter specifies the parameters for a single instruction.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.CropHeight">
+      <summary>Gets or sets the cropped height (HC) value.</summary>
+      <value>Cropped height.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.CropWidth">
+      <summary>Gets or sets the cropped width (WC) value.</summary>
+      <value>Cropped width.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.Empty">
+      <summary>Represents an InstructionSetParameter that is a null reference (Nothing in VB).</summary>
+      <value>An empty InstructionSetParameter object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.Height">
+      <summary>Gets or sets the HEIGHT value.</summary>
+      <value>Height of the current compositing layer.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.Life">
+      <summary>Gets or sets the LIFE value.</summary>
+      <value>Duration of this instruction.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.NextUse">
+      <summary>Gets or sets the next use (N) value.</summary>
+      <value>Number of instructions before reuse.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.Persist">
+      <summary>Gets or sets the PERSIST value.</summary>
+      <value>Possible values are 0 or 1. A value of 1 indicates true: the current compositing layer will persist.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.Width">
+      <summary>Gets or sets the WIDTH value.</summary>
+      <value>Width of the current compositing layer.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.XCropOffset">
+      <summary>Gets or sets the horizontal crop offset (XC) value.</summary>
+      <value>Horizontal crop offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.XOffset">
+      <summary>Gets or sets horizontal offset (XO) value.</summary>
+      <value>Horizontal offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.YCropOffset">
+      <summary>Gets or sets the vertical crop offset (YC) value.</summary>
+      <value>Vertical crop offset.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.InstructionSetParameter.YOffset">
+      <summary>Gets or sets vertical offset (YO) value.</summary>
+      <value>Vertical offset.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000FileInformation">
+      <summary>Provides information about JPEG 2000 file contents.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Association">
+      <summary>An array of BoxInformationElement which contains information about the available Association boxes in the file.</summary>
+      <value>Information about the available Association boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.BinaryFilter">
+      <summary>An array of BoxInformationElement which contains information about the available Binary Filter boxes in the file.</summary>
+      <value>Information about the available Binary Filter boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.CodeStream">
+      <summary>An array of BoxInformationElement which contains information about the available Code Stream boxes in the file.</summary>
+      <value>Information about the available Code Stream boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Composition">
+      <summary>An array of BoxInformationElement which contains information about the available Composition boxes in the file.</summary>
+      <value>Information about the available Composition boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.DataReference">
+      <summary>An array of BoxInformationElement which contains information about the available Data Reference boxes in the file.</summary>
+      <value>Information about the available Data Reference boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.DesiredReproduction">
+      <summary>An array of BoxInformationElement which contains information about the available Desired Reproduction boxes in the file.</summary>
+      <value>Information about the available Desired Reproduction boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.DigitalSignature">
+      <summary>An array of BoxInformationElement which contains information about the available Digital Signiture boxes in the file.</summary>
+      <value>Information about the available Digital Signiture boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Format">
+      <summary>Specifies the format of the file.</summary>
+      <value>The format of the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.FragmentTable">
+      <summary>An array of BoxInformationElement which contains information about the available Fragment Table boxes in the file.</summary>
+      <value>Information about the available Fragment Table boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Frame">
+      <summary>An array of BoxInformationElement which contains information about the available Image Frames in the file.</summary>
+      <value>Information about the available Image Frames in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Free">
+      <summary>An array of BoxInformationElement which contains information about the available FREE boxes in the file.</summary>
+      <value>Information about the available FREE boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Header">
+      <summary>An array of BoxInformationElement which contains information about the available header boxes in the file.</summary>
+      <value>Information about the available header boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.IntellectualPropertyRights">
+      <summary>An array of BoxInformationElement which contains information about the available Intellectual Property Rights boxes in the file.</summary>
+      <value>Information about the available Intellectual Property Rights boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.MediaData">
+      <summary>An array of BoxInformationElement which contains information about the available Media Data boxes in the file.</summary>
+      <value>Information about the available Media Data boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Mpeg7">
+      <summary>An array of BoxInformationElement which contains information about the available MPEG-7 boxes in the file.</summary>
+      <value>Information about the available MPEG-7 boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Uuid">
+      <summary>An array of BoxInformationElement which contains information about the available UUID boxes in the file.</summary>
+      <value>Information about the available UUID boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.UuidInformation">
+      <summary>An array of BoxInformationElement which contains information about the available UUID Information boxes in the file.</summary>
+      <value>Information about the available UUID Information boxes in the file.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FileInformation.Xml">
+      <summary>An array of BoxInformationElement which contains information about the available XML boxes in the file.</summary>
+      <value>Information about the available XML boxes in the file.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.Jpeg2000FrameInformation">
+      <summary>Provides information for a single JPEG 2000 frame.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FrameInformation.BitsPerPixel">
+      <summary>Gets or sets the pixel depth.</summary>
+      <value>Frame image bits per pixel.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FrameInformation.CodeStream">
+      <summary>Gets or sets the indices for the code streams.</summary>
+      <value>Array of integers specifying the indices of the needed code streams to generate this frame.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FrameInformation.Height">
+      <summary>Gets or sets the height of the frame.</summary>
+      <value>Frame image height.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.Jpeg2000FrameInformation.Width">
+      <summary>Gets or sets the width of the frame.</summary>
+      <value>Frame image width.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.UuidId">
+      <summary>The ID value that specifies the format of the vendor-specific information and how to interpret that information.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidId.Empty">
+      <summary>Represents an UuidId that is a null reference (Nothing in VB).</summary>
+      <value>An empty UuidId object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidId.Id">
+      <summary>Gets or sets the Id value.</summary>
+      <value>An array containing a 16 byte UUID as specified by ISO/IEC 11578:1996.</value>
+    </member>
+    <member name="T:Leadtools.Jpeg2000.UuidUrl">
+      <summary>A Uniform Resource Locator (URL)containing more information about the associated vendor-specific extensions.</summary>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidUrl.Empty">
+      <summary>Represents an UuidUrl that is a null reference (Nothing in VB).</summary>
+      <value>An empty UuidUrl object which has all its values set to zero.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidUrl.Flag">
+      <summary>Gets or sets the FLAG value.</summary>
+      <value>Flags.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidUrl.Location">
+      <summary>Gets or sets the URL's location.</summary>
+      <value>URL where additional information can be found.</value>
+    </member>
+    <member name="P:Leadtools.Jpeg2000.UuidUrl.Version">
+      <summary>Gets or sets the version number.</summary>
+      <value>Version number.</value>
+    </member>
+  </members>
+</doc>
