@@ -366,7 +366,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.TenantControllers
                 sourceTemplateElement = context.Documents.Where(x => x.Id == documentID).FirstOrDefault();
 
                 if (mode == 3) // Change to Draft
-                { sourceTemplateElement = checkNmovefolder(sourceTemplateElement, DocumentWorkflowState.Draft); Action = "Draft"; }
+                { sourceTemplateElement = checkNmovefolder(sourceTemplateElement, DocumentWorkflowState.Draft); Action = "Draft";
+                }
                 if (mode == 4) // Change to Submitted
                 { sourceTemplateElement = checkNmovefolder(sourceTemplateElement, DocumentWorkflowState.Submitted); Action = "Submitted"; }
                 if (mode == 5) // Change to Approved
@@ -390,8 +391,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.TenantControllers
 
                 try
                 {
-                    if (comments != "")
-                    {
+                   // if (comments != "")
+                  //  {
                         Log aln = new Log();
                         aln.documentid = documentID; //document.Id;
                         aln.action = Action;
@@ -399,7 +400,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.TenantControllers
                         aln.userid = tenantUserSession.User.Id;
                         aln.comments = comments;
                         LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                    }
+                   // }
                 }
                 catch (Exception exx) { }
 

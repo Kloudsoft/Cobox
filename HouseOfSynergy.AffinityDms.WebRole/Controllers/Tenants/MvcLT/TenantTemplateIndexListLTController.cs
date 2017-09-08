@@ -64,6 +64,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
     }
 
+    
+
 
     public class TenantTemplateIndexListLTController : Controller
     {
@@ -76,7 +78,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         string AccountNumber = "NoAccountNumber";
         string BillNumber = "NoBillNumber";
         string CreateFolderName = "NoName";
-        
+
+        List<LstIndexes> ObjList = new List<LstIndexes>();
+        List<LstIndexes> OutObjList = new List<LstIndexes>();
+
         // GET: TanentTemplateIndexListLT
         public ActionResult Index()
         {
@@ -253,11 +258,71 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         {
 
                                         }
-                                       await ProcessOcr(zaItem.FullName);
+                                        await ProcessOcr(zaItem.FullName);
 
                                     }
                                 }
+
+
+                               
                             }
+
+                            try {
+
+
+                                //Grouping Indexes and Listing
+
+                                //If vendor Name Exist then Add at the top of INDEX UL-LI list
+                                int I = 1;
+
+                                List<ClassifiedFileIndexs> Indexlist = new List<ClassifiedFileIndexs>();
+
+
+                                List<string> NewObjList = new List<string>();
+
+                                if (ObjList.Count > 0)
+                                {
+                                    foreach (LstIndexes iList in ObjList)
+                                    {
+                                        NewObjList.Add(iList.Newindexvalue);
+                                    }
+
+                                    bool dbresult = ElementManagement.GetClassifiedIndexesbyIndexValue(tenantUserSession, NewObjList, out Indexlist, out exception);
+                                    if (exception != null)
+                                    {
+                                        throw exception;
+                                    }
+                                    //sorting
+
+                                    string previousItem = "";
+                                    foreach (var item in Indexlist)
+                                    {
+                                        if (item.indexvalue != previousItem)
+                                        {
+                                            OutObjList.Add(new LstIndexes
+                                            {
+                                                NewindexId = item.Id,
+                                                Newindexname = item.indexname,
+                                                Newindexvalue = item.indexvalue,
+                                                NewInfexLeft = 0,
+                                                NewInfexTop = 0,
+                                                NewInfexWidth = 0,
+                                                NewInfexHeight = 0
+                                            });
+                                        }
+                                        previousItem = item.indexvalue;
+
+                                    }
+                                }
+                                ViewBag.LstIndexes = OutObjList;
+                                ViewBag.CreateFolderName = CreateFolderName;
+
+
+
+                                var CheckObj = ObjList;
+
+
+                            } catch (Exception ee) { }
 
                         }
                         catch (Exception ex) { }
@@ -449,17 +514,21 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
         public async Task<ActionResult> ProcessOcr(string file)
         {
+             DeliveryOrderNumber = "NoDoNumber";
+             InvoiceNumber = "NoInvoiceNumber";
+             AccountNumber = "NoAccountNumber";
+             BillNumber = "NoBillNumber";
+              PublicIndexName="";
+            PublicIndexValue = ""; 
 
-            ViewBag.OcrProcessed = "YES";
+        ViewBag.OcrProcessed = "YES";
             string OCRText = "";
             List<Vendor> vendor = new List<Vendor>();
             try
             {
 
 
-                List<LstIndexes> ObjList = new List<LstIndexes>();
-                List<LstIndexes> OutObjList = new List<LstIndexes>();
-
+            
                 int ClassificationIDorTemplateIDorTagID = 0;
                 string Indexx = "";
                 StringBuilder stringBuilder = new StringBuilder();
@@ -584,7 +653,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                             {
                                                 foreach (LstIndexes iList in ObjList)   // check if same INDEX name added into list already
                                                 {
-                                                    if (PublicIndexName.ToUpper().Contains(iList.Newindexname.ToUpper())) { IsIndexSddedAlready = true; }
+                                                    // if (PublicIndexName.ToUpper().Contains(iList.Newindexname.ToUpper())) { IsIndexSddedAlready = true; }
+                                                    if (PublicIndexValue.ToUpper().Contains(iList.Newindexvalue.ToUpper())) { IsIndexSddedAlready = true; }
                                                 }
 
                                                 if (IsIndexSddedAlready == false)
@@ -635,7 +705,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                             {
                                                 foreach (LstIndexes iList in ObjList)   // check if same INDEX name added into list already
                                                 {
-                                                    if (PublicIndexName.ToUpper().Contains(iList.Newindexname.ToUpper())) { IsIndexSddedAlready = true; }
+                                                    // if (PublicIndexName.ToUpper().Contains(iList.Newindexname.ToUpper())) { IsIndexSddedAlready = true; }
+                                                    if (PublicIndexValue.ToUpper().Contains(iList.Newindexvalue.ToUpper())) { IsIndexSddedAlready = true; }
                                                 }
 
                                                 if (IsIndexSddedAlready == false)
@@ -702,7 +773,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         {
 
 
-                                            if (IsvendorExist == false)
+                                             if (IsvendorExist == false)
                                             {
                                                 foreach (var item in vendor)
                                                 {
@@ -799,54 +870,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                 }
 
-                //If vendor Name Exist then Add at the top of INDEX UL-LI list
-                int I = 1;
-
-                List<ClassifiedFileIndexs> Indexlist = new List<ClassifiedFileIndexs>();
-                
-
-                List<string> NewObjList = new List<string>();
-
-                if (ObjList.Count > 0)
-                {
-                    foreach (LstIndexes iList in ObjList)
-                    {
-                        NewObjList.Add(iList.Newindexvalue);
-                    }
-
-                    bool dbresult = ElementManagement.GetClassifiedIndexesbyIndexValue(tenantUserSession, NewObjList, out Indexlist, out exception);
-                    if (exception != null)
-                    {
-                        throw exception;
-                    }
-                    //sorting
-
-                    string previousItem = "";
-                    foreach (var item in Indexlist)
-                    {
-                        if (item.indexvalue != previousItem)
-                        {
-                            OutObjList.Add(new LstIndexes
-                            {
-                                NewindexId = item.Id,
-                                Newindexname = item.indexname,
-                                Newindexvalue = item.indexvalue,
-                                NewInfexLeft = 0,
-                                NewInfexTop = 0,
-                                NewInfexWidth = 0,
-                                NewInfexHeight = 0
-                            });
-                        }
-                        previousItem = item.indexvalue; 
-
-                    }
-                }
-                ViewBag.LstIndexes = OutObjList;
-                ViewBag.CreateFolderName = CreateFolderName;
-
-            
-
-                var CheckObj = ObjList;
+               
 
             }
             catch (Exception ex) { }
