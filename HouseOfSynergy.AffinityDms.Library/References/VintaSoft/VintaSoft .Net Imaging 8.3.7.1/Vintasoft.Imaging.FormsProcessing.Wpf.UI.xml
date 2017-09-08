@@ -1,0 +1,1035 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.FormsProcessing.Wpf.UI</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldTemplateView">
+            <summary>
+            Determines how to display an OMR field template that
+            has elliptical area and how user can interact with it.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView">
+            <summary>
+            Provides the abstract base class that determines how to display a form field template
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" /> class.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Dispose">
+            <summary>
+            Releases all resources used by this <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" /> object.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the view.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field template on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of field template.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.OnStateChanged(System.EventArgs)">
+            <summary>
+            Raises the StateChanged event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.OnFieldTemplatePropertyChanged(Vintasoft.Imaging.ObjectPropertyChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.StateChanged" /> event.
+            Invoked when the property of form field template is changed.
+            </summary>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.ObjectPropertyChangedEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the form field template view and
+            optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><b>true</b> to release both managed and
+            unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.FieldTemplate">
+            <summary>
+            Gets the form field template.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.BoundingBox">
+            <summary>
+            Gets or sets the bounding rectangle, in the device-independent pixels (1/96th inch),
+            of the form field template on the template image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.IsDisposed">
+            <summary>
+            Gets a value indicating whether this form field template view is disposed.
+            </summary>
+            <value>
+            <b>true</b> if the form field template view is disposed;
+            otherwise, <b>false</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Brush">
+            <summary>
+            Gets or sets the background brush of the rectangle.
+            </summary>
+            <value>
+            Default value is SolidColorBrush(Color.FromArgb(100, 144, 238, 144)).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Pen">
+            <summary>
+            Gets or sets the border pen of the rectangle.
+            </summary>
+            <value>
+            Default value is Pen(new SolidColorBrush(Color.FromArgb(150, 255, 0, 0)), 1.0).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Builder">
+            <summary>
+            Gets or sets a transformer used for building of the form field template view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.Transformer">
+            <summary>
+            Gets or sets a transformer used for transforming (moving/resizing/...)
+            of the form field template view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.InteractionController">
+            <summary>
+            Gets or sets an interaction controller of form field template view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether the form field template is visible.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView.StateChanged">
+            <summary>
+            Occurs when the object state is changed.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldTemplateView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrEllipticalFieldTemplate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldTemplateView" /> class.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldTemplateView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldTemplateView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field template on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of field template.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldView">
+            <summary>
+            Determines how to display a recognized OMR field that
+            has elliptical area and how user can interact with it.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView">
+            <summary>
+            Determines how to display a recognized OMR field
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView">
+            <summary>
+            Provides the abstract base class that determines how to display a recognized form field
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the view.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.OnStateChanged(System.EventArgs)">
+            <summary>
+            Raises the StateChanged event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Field">
+            <summary>
+            Gets the recognized field.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.FieldTemplate">
+            <summary>
+            Gets the template of the form field.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Brush">
+            <summary>
+            Gets or sets the background brush of form field.
+            </summary>
+            <value>
+            Default value is SolidBrush(Color.FromArgb(100, Color.LightGreen)).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Pen">
+            <summary>
+            Gets or sets the border pen of form field.
+            </summary>
+            <value>
+            Default value is Pen(Color.FromArgb(180, Color.Red), 1f).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Builder">
+            <summary>
+            Gets or sets a transformer used for building
+            of the form field.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Transformer">
+            <summary>
+            Gets or sets a transformer used for transforming (moving/resizing/...)
+            of the form field.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.InteractionController">
+            <summary>
+            Gets or sets an interaction controller of form field view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether the form field is visible.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.StateChanged">
+            <summary>
+            Occurs when the object state is changed.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView.UnfilledBrush">
+            <summary>
+            Gets or sets the background brush of OMR field view
+            when the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Field" /> has a state
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrFieldState" />.Unfilled.
+            </summary>
+            <value>
+            Default value is <b>null</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView.FilledBrush">
+            <summary>
+            Gets or sets the background brush of OMR field view
+            when the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Field" /> has a state
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrFieldState" />.Filled.
+            </summary>
+            <value>
+            Default value is SolidBrush(Color.FromArgb(100, Color.Red)).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrFieldView.UndefinedBrush">
+            <summary>
+            Gets or sets the background brush of OMR field view
+            when the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView.Field" /> has a state
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrFieldState" />.Undefined.
+            </summary>
+            <value>
+            Default value is <b>null</b>.
+            </value>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrEllipticalField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrEllipticalFieldView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldTemplateView">
+            <summary>
+            Determines how to display an OMR field template that
+            has rectangular area and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldTemplateView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrRectangularFieldTemplate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldTemplateView" /> class.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldTemplateView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldView">
+            <summary>
+            Determines how to display a recognized OMR field that
+            has rectangular area and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.OmrRectangularField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Omr.Wpf.UI.WpfOmrRectangularFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool">
+            <summary>
+            Visual tool that allows to display, edit and interact with form field templates on an image.
+            </summary>
+            <example>
+            Here is an example that demonstrates how to create
+            a form template and add some form field templates to it visually.
+            <code lang="VB.NET">
+            Class WpfFormFieldTemplateEditorToolWindow
+                Inherits Window
+                Private imageViewer1 As WpfImageViewer
+                Private buildFieldTemplateButton As Button
+            
+                ' ...
+            
+                ''' &lt;summary&gt;
+                ''' Form template manager.
+                ''' &lt;/summary&gt;
+                Private _templateManager As FormTemplateManager
+            
+                ''' &lt;summary&gt;
+                ''' The template editor tool.
+                ''' &lt;/summary&gt;
+                Private _templateEditorTool As WpfFormFieldTemplateEditorTool
+            
+                ' ...
+            
+                Public Sub New()
+                    ' ...
+            
+                    _templateEditorTool = New WpfFormFieldTemplateEditorTool()
+                    imageViewer1.VisualTool = _templateEditorTool
+            
+                    AddHandler imageViewer1.FocusedIndexChanged, New PropertyChangedEventHandler(Of Integer)(AddressOf imageViewer1_FocusedIndexChanged)
+            
+            
+                        ' ...
+                    AddHandler buildFieldTemplateButton.Click, New RoutedEventHandler(AddressOf buildFieldTemplateButton_Click)
+                End Sub
+            
+                ''' &lt;summary&gt;
+                ''' Handles the FocusedIndexChanged event of the imageViewer1
+                ''' to change the collection of form field templates of the visual tool.
+                ''' &lt;/summary&gt;
+                ''' &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;
+                ''' &lt;param name="e"&gt;The &lt;see cref="PropertyChangedEventArgs{System.Int32}"/&gt; instance containing the event data.&lt;/param&gt;
+                Private Sub imageViewer1_FocusedIndexChanged(sender As Object, e As PropertyChangedEventArgs(Of Integer))
+                    If imageViewer1.Image Is Nothing Then
+                        _templateEditorTool.FieldTemplateCollection = Nothing
+                    Else
+                        ' get the form page template
+                        Dim pageTemplate As FormPageTemplate = _templateManager.GetPageTemplate(imageViewer1.Image)
+                        ' set items of page template as current items of the visual tool
+                        _templateEditorTool.FieldTemplateCollection = pageTemplate.Items
+                    End If
+                End Sub
+            
+                ' ...
+            
+                ''' &lt;summary&gt;
+                ''' Handles the Click event of the buildFieldTemplateButton
+                ''' to create a form field template and start building of it.
+                ''' &lt;/summary&gt;
+                ''' &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;
+                ''' &lt;param name="e"&gt;The &lt;see cref="RoutedEventArgs"/&gt; instance containing the event data.&lt;/param&gt;
+                Private Sub buildFieldTemplateButton_Click(sender As Object, e As RoutedEventArgs)
+                    ' create an OMR rectangular field template
+                    Dim fieldTemplate As FormFieldTemplate = New OmrRectangularFieldTemplate()
+                    ' create a view for the field template
+                    Dim fieldTemplateView As WpfFormFieldTemplateView = WpfFormFieldTemplateViewFactory.CreateView(fieldTemplate)
+            
+                    ' add field template to the collection of visual tool and
+                    ' start building of field template
+                    _templateEditorTool.AddAndBuild(fieldTemplateView)
+                End Sub
+            
+                ' ...
+            
+            End Class
+            </code>
+            <code lang="C#">
+            class WpfFormFieldTemplateEditorToolWindow : Window
+            {
+                WpfImageViewer imageViewer1;
+                Button buildFieldTemplateButton;
+            
+                // ...
+            
+                /// &lt;summary&gt;
+                /// Form template manager.
+                /// &lt;/summary&gt;
+                FormTemplateManager _templateManager;
+            
+                /// &lt;summary&gt;
+                /// The template editor tool.
+                /// &lt;/summary&gt;
+                WpfFormFieldTemplateEditorTool _templateEditorTool;
+            
+                // ...
+            
+                public WpfFormFieldTemplateEditorToolWindow()
+                {
+                    // ...
+            
+                    _templateEditorTool = new WpfFormFieldTemplateEditorTool();
+                    imageViewer1.VisualTool = _templateEditorTool;
+            
+                    imageViewer1.FocusedIndexChanged += new PropertyChangedEventHandler&lt;int&gt;(imageViewer1_FocusedIndexChanged);
+            
+                    buildFieldTemplateButton.Click += new RoutedEventHandler(buildFieldTemplateButton_Click);
+            
+                    // ...
+                }
+            
+                /// &lt;summary&gt;
+                /// Handles the FocusedIndexChanged event of the imageViewer1
+                /// to change the collection of form field templates of the visual tool.
+                /// &lt;/summary&gt;
+                /// &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;
+                /// &lt;param name="e"&gt;The &lt;see cref="PropertyChangedEventArgs{System.Int32}"/&gt; instance containing the event data.&lt;/param&gt;
+                private void imageViewer1_FocusedIndexChanged(object sender, PropertyChangedEventArgs&lt;int&gt; e)
+                {
+                    if (imageViewer1.Image == null)
+                    {
+                        _templateEditorTool.FieldTemplateCollection = null;
+                    }
+                    else
+                    {
+                        // get the form page template
+                        FormPageTemplate pageTemplate = _templateManager.GetPageTemplate(imageViewer1.Image);
+                        // set items of page template as current items of the visual tool
+                        _templateEditorTool.FieldTemplateCollection = pageTemplate.Items;
+                    }
+                }
+            
+                // ...
+            
+                /// &lt;summary&gt;
+                /// Handles the Click event of the buildFieldTemplateButton
+                /// to create a form field template and start building of it.
+                /// &lt;/summary&gt;
+                /// &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;
+                /// &lt;param name="e"&gt;The &lt;see cref="RoutedEventArgs"/&gt; instance containing the event data.&lt;/param&gt;
+                private void buildFieldTemplateButton_Click(object sender, RoutedEventArgs e)
+                {
+                    // create an OMR rectangular field template
+                    FormFieldTemplate fieldTemplate = new OmrRectangularFieldTemplate();
+                    // create a view for the field template
+                    WpfFormFieldTemplateView fieldTemplateView = WpfFormFieldTemplateViewFactory.CreateView(fieldTemplate);
+            
+                    // add field template to the collection of visual tool and
+                    // start building of field template
+                    _templateEditorTool.AddAndBuild(fieldTemplateView);
+                }
+            
+                // ...
+            
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.AddAndBuild(Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView)">
+            <summary>
+            Adds form field template view to the collection and starts building of view.
+            </summary>
+            <param name="fieldTemplateView">Form field template view to build.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FindFieldTemplateView(System.Double,System.Double)">
+            <summary>
+            Finds a form field template view at specified point, in the image viewer space.
+            </summary>
+            <param name="x">The X coordinate of point, in the image viewer space.</param>
+            <param name="y">The Y coordinate of point, in the image viewer space.</param>
+            <returns>A form field template view at specified point.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.OnInteraction(Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.IWpfInteractiveObject,Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.WpfInteractionEventArgs)">
+            <summary>
+            Raises the interaction event for specified interactive object.
+            </summary>
+            <param name="item">The interactive object.</param>
+            <param name="args">The interaction event args.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FinishInteraction(Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.IWpfInteractiveObject)">
+            <summary>
+            Finishes an active interaction.
+            </summary>
+            <param name="item">Active item.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.OnFocusedItemChanged(Vintasoft.Imaging.PropertyChangedEventArgs{Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.IWpfInteractiveObject})">
+            <summary>
+            Occurs when focused item is changed.
+            </summary>
+            <param name="e">An event args that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.OnFocusedFieldTemplateViewChanged">
+            <summary>
+            Raises the FocusedFieldTemplateViewChanged event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.OnFieldTemplateViewCollectionChanged(Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollectionChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FieldTemplateViewCollectionChanged" /> event.
+            </summary>
+            <param name="e">A <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollectionChangedEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FieldTemplateViewCollection">
+            <summary>
+            Gets or sets a form field template view collection that will be viewed and edited
+            using the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FieldTemplateCollection">
+            <summary>
+            Gets or sets a form field template collection that will be viewed and edited
+            using the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FocusedFieldTemplateView">
+            <summary>
+            Gets or sets the focused form field template view.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FieldTemplateViewCollectionChanged">
+            <summary>
+            Occurs when the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FieldTemplateViewCollection" /> property is changed.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldTemplateEditorTool.FocusedFieldTemplateViewChanged">
+            <summary>
+            Occurs when focused form field template view is changed.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool">
+            <summary>
+            Visual tool that allows to display and interact with recognized form fields on an image.
+            </summary>
+            <example>
+            Here is an example that demonstrates how to recognize a form
+            and display the results in WPF image viewer.
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Recognizes the current image of specified viewer
+            ''' and shows recognition results in viewer.
+            ''' &lt;/summary&gt;
+            ''' &lt;param name="viewer"&gt;The viewer.&lt;/param&gt;
+            ''' &lt;param name="formRecognitionManager"&gt;The form recognition manager.&lt;/param&gt;
+            Public Shared Function RecognizeAndShowInViewer(viewer As WpfImageViewer, formRecognitionManager As FormRecognitionManager) As Boolean
+                ' recognize the image
+                Dim recognitionResult As FormRecognitionResult = formRecognitionManager.Recognize(viewer.Image)
+            
+                ' get the result of image comparison
+                Dim imageCompareResult As ImageImprintCompareResult = recognitionResult.TemplateMatchingResult.ImageCompareResult
+                ' if image is recognized
+                If imageCompareResult.IsReliable Then
+                    ' create a visual tool
+                    Dim formFieldViewerTool As New WpfFormFieldViewerTool()
+                    ' create a view for the recognized page
+                    Dim pageView As WpfFormFieldView = WpfFormFieldViewFactory.CreateView(recognitionResult.RecognizedPage)
+                    ' add the view to the collection of the visual tool
+                    formFieldViewerTool.FieldViewCollection.Add(pageView)
+                    ' set transform matrix and resolution of template image
+                    formFieldViewerTool.SetTransform(imageCompareResult.TransformMatrix, imageCompareResult.SourceImprint.ImageSize.Resolution)
+                    ' set the visual tool as current tool of the viewer
+                    viewer.VisualTool = formFieldViewerTool
+                    Return True
+                Else
+                    Return False
+                End If
+            End Function
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Recognizes the current image of specified viewer
+            /// and shows recognition results in viewer.
+            /// &lt;/summary&gt;
+            /// &lt;param name="viewer"&gt;The viewer.&lt;/param&gt;
+            /// &lt;param name="formRecognitionManager"&gt;The form recognition manager.&lt;/param&gt;
+            public static bool RecognizeAndShowInViewer(
+                WpfImageViewer viewer,
+                FormRecognitionManager formRecognitionManager)
+            {
+                // recognize the image
+                FormRecognitionResult recognitionResult = formRecognitionManager.Recognize(viewer.Image);
+            
+                // get the result of image comparison
+                ImageImprintCompareResult imageCompareResult =
+                    recognitionResult.TemplateMatchingResult.ImageCompareResult;
+                // if image is recognized
+                if (imageCompareResult.IsReliable)
+                {
+                    // create a visual tool
+                    WpfFormFieldViewerTool formFieldViewerTool = new WpfFormFieldViewerTool();
+                    // create a view for the recognized page
+                    WpfFormFieldView pageView = WpfFormFieldViewFactory.CreateView(recognitionResult.RecognizedPage);
+                    // add the view to the collection of the visual tool
+                    formFieldViewerTool.FieldViewCollection.Add(pageView);
+                    // set transform matrix and resolution of template image
+                    formFieldViewerTool.SetTransform(
+                        imageCompareResult.TransformMatrix,
+                        imageCompareResult.SourceImprint.ImageSize.Resolution);
+                    // set the visual tool as current tool of the viewer
+                    viewer.VisualTool = formFieldViewerTool;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.SetTransform(Vintasoft.Imaging.Utils.AffineMatrix,Vintasoft.Imaging.Resolution)">
+            <summary>
+            Sets a transformation specified by a <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />
+            that should be applied to showed form fields.
+            </summary>
+            <param name="transform">A transformation to apply.</param>
+            <param name="templateResolution">The resolution of the template image.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FindFieldView(System.Double,System.Double)">
+            <summary>
+            Finds a form field view at specified point, in the image viewer space.
+            </summary>
+            <param name="x">The X coordinate of point, in the image viewer space.</param>
+            <param name="y">The Y coordinate of point, in the image viewer space.</param>
+            <returns>A form field view at specified point.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.OnActivated(System.EventArgs)">
+            <summary> 
+            Raises the <see cref="E:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfVisualTool.Activated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.OnDeactivated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfVisualTool.Deactivated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FieldViewCollection">
+            <summary>
+            Gets a form field view collection that will be viewed
+            using the visual tool.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FieldViewMouseEnter">
+            <summary>
+            Occurs when the mouse pointer enters a form field view.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FieldViewMouseLeave">
+            <summary>
+            Occurs when the mouse pointer leaves a form field view.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FieldViewMouseEnter" />
+            and <see cref="E:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewerTool.FieldViewMouseLeave" /> events.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewEventArgs.FormFieldView">
+            <summary>
+            Gets the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.VisualTools.WpfFormFieldViewEventArgs.FormFieldView" /> that is entered or leaved.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView">
+            <summary>
+            Determines how to display a group of recognized form fields
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView" /> class.
+            </summary>
+            <param name="fieldGroup">Group of recognized fields.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through
+            the current <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView" /> object.
+            </summary>
+            <returns>An enumerator object that can be used
+            to iterate through the current <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldGroupView.ViewItems">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection" /> associated with the form field.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView">
+            <summary>
+            Determines how to display a regular table of form field templates
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView">
+            <summary>
+            Determines how to display a group of form field templates
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplateGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView" /> class.
+            </summary>
+            <param name="fieldTemplateGroup">The field template group.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.FindView(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate)">
+            <summary>
+            Finds a <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" /> for specified <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" />.
+            </summary>
+            <param name="fieldTemplate">The <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" /> to search.</param>
+            <returns><see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" /> for specified <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView" /> instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.DrawInContentSpace(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Windows.Media.DrawingContext" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Windows.Media.DrawingContext" /> to draw on.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.ViewItems">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection" /> associated
+            with the form field template group.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.BoundingBox">
+            <summary>
+            Gets or sets the bounding rectangle, in the device-independent pixels (1/96th inch),
+            of the form field template on the template image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.InteractionController">
+            <summary>
+            Gets or sets an interaction controller of form field template group view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.UseCompositeTransformer">
+            <summary>
+            Gets a value indicating whether the composite transformer must be used for
+            transforming of the form field template group view.
+            </summary>
+            <value>
+            <b>true</b> - rectangular transformer is used for transforming of
+            the form field template group views,
+            view transformer is used for transforming of single form field template view;<br />
+            <b>false</b> - rectangular transformer is be used for transforming
+            of form field template group view.<br />
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateGroupView.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether the form field template is visible.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplateGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView" /> class.
+            </summary>
+            <param name="templateTable">The template table.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView" /> instance.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView.InteractionController">
+            <summary>
+            Gets or sets an interaction controller of form field template table view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateTableView.UseCompositeTransformer">
+            <summary>
+            Gets a value indicating whether the composite transformer must be used for
+            transforming of the form field template group view.
+            </summary>
+            <value>
+            <b>true</b> - rectangular transformer is used for transforming of
+            the form field template group views,
+            view transformer is used for transforming of single form field template view;<br />
+            <b>false</b> - rectangular transformer is be used for transforming
+            of form field template group view.<br />
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection">
+            <summary>
+            Represents the collection of form field template views.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplateCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection" /> class.
+            </summary>
+            <param name="fieldTemplateCollection">The collection of form field templates.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection.FindView(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate)">
+            <summary>
+            Finds a view for specified form field template.
+            </summary>
+            <param name="fieldTemplate">The form field template.</param>
+            <returns>
+            Form field template view for specified form field template if field exists;
+            <b>null</b>, otherwise.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection.InsertItem(System.Int32,Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView)">
+            <summary>
+            Inserts an element into the collection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which item should be inserted.</param>
+            <param name="item">The object to insert.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection.FieldTemplateCollection">
+            <summary>
+            Gets the form field template collection that is associated
+            with this form field template view collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollectionChangedEventArgs">
+            <summary>
+            Provides data for an event when form field template view collection is changed.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollectionChangedEventArgs.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection,Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollection)">
+            <summary>
+            Initializes a new instance of
+            the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewCollectionChangedEventArgs" /> class.
+            </summary>
+            <param name="oldValue">Old value.</param>
+            <param name="newValue">New value.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewFactory">
+            <summary>
+            Provides the ability to create the view (<see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateView" />) for
+            form field template (<see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" />).
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewFactory.RegisterViewForFieldTemplate(System.Type,System.Type)">
+            <summary>
+            Registers view for form field template.
+            </summary>
+            <param name="fieldTemplateType">Type of form field template.</param>
+            <param name="fieldTemplateViewType">Type of form field template view.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fieldTemplateType</i> <i>OR</i>
+            <i>fieldTemplateViewType</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if
+            <i>fieldTemplateType</i> is not derived from FormFieldTemplate <i>OR</i>
+            <i>fieldTemplateViewType</i> is not derived from WpfFormFieldTemplateView <i>OR</i>
+            <i>fieldTemplateViewType</i> is abstract type <i>OR</i>
+            <i>fieldTemplateViewType</i> does not contain a public constructor
+            with a single parameter derived from <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" />.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewFactory.GetViewForFieldTemplate(System.Type)">
+            <summary>
+            Returns the view for the form field template.
+            </summary>
+            <param name="fieldTemplateType">Type of form field template.</param>
+            <returns>
+            Type of form field template view if view for the form field template is registered;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldTemplateViewFactory.CreateView(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate)">
+            <summary>
+            Creates a view for form field template.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+            <returns>View for form field template.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection">
+            <summary>
+            Represents the collection of recognized form field views.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection" /> class.
+            </summary>
+            <param name="fieldCollection">The collection of recognized form fields.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection.CreateParentTable">
+            <summary>
+            Returns a dictionary that maps every item in the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection" />
+            to the item that contains it.
+            </summary>
+            <returns>
+            A dictionary that maps every item in the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewCollection" />
+            to the item that contains it.
+            </returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewFactory">
+            <summary>
+            Provides the ability to create the view (<see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldView" />) for
+            form field (<see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField" />).
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewFactory.RegisterViewForField(System.Type,System.Type)">
+            <summary>
+            Registers view for form field.
+            </summary>
+            <param name="fieldType">Type of form field.</param>
+            <param name="fieldViewType">Type of form field view.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fieldType</i> <i>OR</i>
+            <i>fieldViewType</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if
+            <i>fieldType</i> is not derived from FormField <i>OR</i>
+            <i>fieldViewType</i> is not derived from FormFieldView <i>OR</i>
+            <i>fieldViewType</i> is abstract type <i>OR</i>
+            <i>fieldViewType</i> does not contain a public constructor
+            with a single parameter derived from <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField" />.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewFactory.GetViewForField(System.Type)">
+            <summary>
+            Returns the view for the form field.
+            </summary>
+            <param name="fieldType">Type of form field.</param>
+            <returns>
+            Type of form field view if view for the form field is registered;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfFormFieldViewFactory.CreateView(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField)">
+            <summary>
+            Creates a view for form field.
+            </summary>
+            <param name="field">Form field.</param>
+            <returns>View for form field.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView">
+            <summary>
+            Determines how to display an undefined field template
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView" /> class.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldTemplateView" /> instance.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldView">
+            <summary>
+            Determines how to display an undefined field
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Wpf.UI.WpfUndefinedFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+    </members>
+</doc>

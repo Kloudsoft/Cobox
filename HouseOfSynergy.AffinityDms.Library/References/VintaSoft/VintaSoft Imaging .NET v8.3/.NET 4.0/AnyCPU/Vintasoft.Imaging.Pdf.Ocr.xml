@@ -1,0 +1,403 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Pdf.Ocr</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder">
+            <summary>
+            Represents a builder of PDF document.
+            </summary>
+            <example> This example demonstrates how to convert TIFF file to searchable PDF document:
+            <code lang="VB.NET">
+            ' Required assemblies to run this code:
+            ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll, 
+            ' Vintasoft.Imaging.Pdf.dll, Vintasoft.Imaging.Pdf.Ocr.dll
+            Public Shared Sub ConvertTiffToSearchablePdf(language As OcrLanguage, tiffFilename As String, pdfFilename As String)
+                ' load TIFF file
+                Dim images As New ImageCollection()
+                images.Add(tiffFilename)
+            
+                ' create PDF document
+                Using document As New PdfDocument(pdfFilename, PdfFormat.Pdf_14)
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(language))
+            
+                        ' create PDF document builder
+                        Dim documentBuilder As New PdfDocumentBuilder(document)
+                        documentBuilder.ImageCompression = PdfCompression.Auto
+                        documentBuilder.PageCreationMode = PdfPageCreationMode.ImageOverText
+            
+                        ' foreach TIFF image
+                        For Each image As VintasoftImage In images
+                            Console.WriteLine("Recognize image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            Console.WriteLine("Add page to PDF document...")
+                            documentBuilder.AddPage(image, page)
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+            
+                        Console.WriteLine("Save changes in PDF document...")
+                        document.SaveChanges()
+                    End Using
+                End Using
+            
+                ' free resources
+                images.ClearAndDisposeItems()
+                images.Dispose()
+            End Sub
+            </code>
+            <code lang="C#">
+            // Required assemblies to run this code:
+            // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll, 
+            // Vintasoft.Imaging.Pdf.dll, Vintasoft.Imaging.Pdf.Ocr.dll
+            public static void ConvertTiffToSearchablePdf(OcrLanguage language,
+                string tiffFilename, string pdfFilename)
+            {
+                // load TIFF file
+                ImageCollection images = new ImageCollection();
+                images.Add(tiffFilename);
+            
+                // create PDF document
+                using (PdfDocument document = new PdfDocument(pdfFilename, PdfFormat.Pdf_14))
+                {
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(language));
+            
+                        // create PDF document builder
+                        PdfDocumentBuilder documentBuilder = new PdfDocumentBuilder(document);
+                        documentBuilder.ImageCompression = PdfCompression.Auto;
+                        documentBuilder.PageCreationMode = PdfPageCreationMode.ImageOverText;
+            
+                        // foreach TIFF image
+                        foreach (VintasoftImage image in images)
+                        {
+                            Console.WriteLine("Recognize image...");
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            Console.WriteLine("Add page to PDF document...");
+                            documentBuilder.AddPage(image, page);
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+            
+                        Console.WriteLine("Save changes in PDF document...");
+                        document.SaveChanges();
+                    }
+                }
+            
+                // free resources
+                images.ClearAndDisposeItems();
+                images.Dispose();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.#ctor(Vintasoft.Imaging.Pdf.PdfDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder" /> class.
+            </summary>
+            <param name="document">A PDF document.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.AddPage(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Adds new page with specified image into the PDF document.
+            </summary>
+            <param name="image">Image.</param>
+            <param name="page">OCR page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.SetAsBackground(System.Int32,Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Sets the OCR page as background layer of PDF page with specified index.
+            </summary>
+            <param name="index">The index of PDF page.</param>
+            <param name="page">The OCR page to set as background.</param>
+            <example>This example demonstrates how to convert image collection 
+            to a searchable PDF document with MRC compression:
+            <code lang="VB.NET">
+            ' Required assemblies to run this code:
+            ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll, 
+            ' Vintasoft.Imaging.Pdf.dll, Vintasoft.Imaging.Pdf.Ocr.dll, Vintasoft.Imaging.Pdf.Mrc.dll,
+            ' Vintasoft.Imaging.Jbig2.dll, Vintasoft.Imaging.Jpeg2000.dll
+            Public Shared Sub ConvertToSearchablePdfWithMrcCompression(language As OcrLanguage, images As ImageCollection, mrcResolution As Resolution, ocrResolution As Resolution, pdfFilename As String)
+                ' create PDF MRC encoder
+                Dim encoder As New PdfMrcEncoder()
+            
+                ' set MRC compression settings 
+                SetSetting_DocumentWithImagesHiQuality(encoder.MrcCompressionSettings)
+            
+                ' set MRC resolution (if source is PDF document)
+                images.SetRenderingSettings(New RenderingSettings(mrcResolution))
+            
+                ' handle ImageSaving event to set JBIG2 compression for black-white images
+                AddHandler encoder.ImageSaving, New EventHandler(Of ImageSavingEventArgs)(AddressOf images_ImageSaving)
+            
+                ' save images to PDF use MRC compression
+                Console.WriteLine("Encoding using PDF MRC compression...")
+                images.SaveSync(pdfFilename, encoder)
+            
+                ' open PDF document with MRC compression
+                Using document As New PdfDocument(pdfFilename, False)
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(language))
+            
+                        ' create PDF document builder
+                        Dim documentBuilder As New PdfDocumentBuilder(document)
+            
+                        ' set OCR resolution (if source is PDF document)
+                        images.SetRenderingSettings(New RenderingSettings(ocrResolution))
+            
+                        ' foreach image
+                        For i As Integer = 0 To images.Count - 1
+                            Console.WriteLine("Recognize image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(images(i))
+            
+                            Console.WriteLine("Set PDF page background...")
+                            documentBuilder.SetAsBackground(i, page)
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+            
+                        Console.WriteLine("Pack PDF document...")
+                        document.Pack()
+                        Console.WriteLine("OK.")
+                    End Using
+                End Using
+            End Sub
+            
+            ''' &lt;summary&gt;
+            ''' Handles the ImageSaving event of the image collection.
+            ''' &lt;/summary&gt;
+            Private Shared Sub images_ImageSaving(sender As Object, e As ImageSavingEventArgs)
+                Dim encoder As PdfMrcEncoder = TryCast(sender, PdfMrcEncoder)
+                ' set JBIG2 compression for black-white images
+                Dim isBlackWhiteImage As Boolean = e.Image.PixelFormat = PixelFormat.BlackWhite
+                If Not isBlackWhiteImage Then
+                    Dim page As PdfPage = PdfDocumentController.GetPageAssociatedWithImage(e.Image)
+                    If page IsNot Nothing AndAlso page.BackgroundImage IsNot Nothing Then
+                        isBlackWhiteImage = page.BackgroundImage.PixelFormat = PixelFormat.BlackWhite
+                    End If
+                    If isBlackWhiteImage Then
+                        e.Image.RenderingSettings.Resolution = page.DefaultResolution
+                    End If
+                End If
+                If isBlackWhiteImage Then
+                    encoder.MrcCompressionSettings.EnableMrcCompression = False
+                    encoder.Settings.Compression = PdfImageCompression.Jbig2
+                    Console.WriteLine(String.Format("Encoding image {0} using JBIG2 compression...", e.Image.SourceInfo.PageIndex))
+                Else
+                    encoder.MrcCompressionSettings.EnableMrcCompression = True
+                    Console.WriteLine(String.Format("Encoding image {0} using MRC compression...", e.Image.SourceInfo.PageIndex))
+                End If
+            End Sub
+            
+            ''' &lt;summary&gt;
+            ''' Sets MRC compression settings to compress the document 
+            ''' images, which contain text and pictures, using MRC compression
+            ''' algorithm and get the resulting images with high quality.
+            ''' &lt;/summary&gt;
+            Public Shared Sub SetSetting_DocumentWithImagesHiQuality(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 60
+            
+                settings.ImageSegmentation = New ImageSegmentationCommand()
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = True
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            
+            </code>
+            <code lang="C#">
+            // Required assemblies to run this code:
+            // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll, 
+            // Vintasoft.Imaging.Pdf.dll, Vintasoft.Imaging.Pdf.Ocr.dll, Vintasoft.Imaging.Pdf.Mrc.dll,
+            // Vintasoft.Imaging.Jbig2.dll, Vintasoft.Imaging.Jpeg2000.dll
+            public static void ConvertToSearchablePdfWithMrcCompression(
+                OcrLanguage language, ImageCollection images, 
+                Resolution mrcResolution, Resolution ocrResolution,
+                string pdfFilename)
+            {
+                // create PDF MRC encoder
+                PdfMrcEncoder encoder = new PdfMrcEncoder();
+            
+                // set MRC compression settings 
+                SetSetting_DocumentWithImagesHiQuality(encoder.MrcCompressionSettings);
+            
+                // set MRC resolution (if source is PDF document)
+                images.SetRenderingSettings(new RenderingSettings(mrcResolution));
+            
+                // handle ImageSaving event to set JBIG2 compression for black-white images
+                encoder.ImageSaving += new EventHandler&lt;ImageSavingEventArgs&gt;(images_ImageSaving);
+            
+                // save images to PDF use MRC compression
+                Console.WriteLine("Encoding using PDF MRC compression...");
+                images.SaveSync(pdfFilename, encoder);
+            
+                // open PDF document with MRC compression
+                using (PdfDocument document = new PdfDocument(pdfFilename, false))
+                {
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(language));
+            
+                        // create PDF document builder
+                        PdfDocumentBuilder documentBuilder = new PdfDocumentBuilder(document);
+            
+                        // set OCR resolution (if source is PDF document)
+                        images.SetRenderingSettings(new RenderingSettings(ocrResolution));
+            
+                        // foreach image
+                        for (int i = 0; i &lt; images.Count; i++)
+                        {
+                            Console.WriteLine("Recognize image...");
+                            OcrPage page = tesseractOcr.Recognize(images[i]);
+            
+                            Console.WriteLine("Set PDF page background...");
+                            documentBuilder.SetAsBackground(i, page);
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+            
+                        Console.WriteLine("Pack PDF document...");
+                        document.Pack();
+                        Console.WriteLine("OK.");
+                    }
+                }
+            }
+            
+            /// &lt;summary&gt;
+            /// Handles the ImageSaving event of the image collection.
+            /// &lt;/summary&gt;
+            private static void images_ImageSaving(object sender, ImageSavingEventArgs e)
+            {
+                PdfMrcEncoder encoder = sender as PdfMrcEncoder;
+                // set JBIG2 compression for black-white images
+                bool isBlackWhiteImage = e.Image.PixelFormat == PixelFormat.BlackWhite;
+                if (!isBlackWhiteImage)
+                {
+                    PdfPage page = PdfDocumentController.GetPageAssociatedWithImage(e.Image);
+                    if (page != null &amp;&amp; page.BackgroundImage != null)
+                        isBlackWhiteImage = page.BackgroundImage.PixelFormat == PixelFormat.BlackWhite;
+                    if (isBlackWhiteImage)
+                        e.Image.RenderingSettings.Resolution = page.DefaultResolution;
+                }
+                if (isBlackWhiteImage)
+                {
+                    encoder.MrcCompressionSettings.EnableMrcCompression = false;
+                    encoder.Settings.Compression = PdfImageCompression.Jbig2;
+                    Console.WriteLine(string.Format("Encoding image {0} using JBIG2 compression...", e.Image.SourceInfo.PageIndex));
+                }
+                else
+                {
+                    encoder.MrcCompressionSettings.EnableMrcCompression = true;
+                    Console.WriteLine(string.Format("Encoding image {0} using MRC compression...", e.Image.SourceInfo.PageIndex));
+                }        
+            }
+            
+            /// &lt;summary&gt;
+            /// Sets MRC compression settings to compress the document 
+            /// images, which contain text and pictures, using MRC compression
+            /// algorithm and get the resulting images with high quality.
+            /// &lt;/summary&gt;
+            public static void SetSetting_DocumentWithImagesHiQuality(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 60;
+            
+                settings.ImageSegmentation = new ImageSegmentationCommand();
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = true;
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.InsertPage(System.Int32,Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Inserts new page with specified image into the PDF document.
+            </summary>
+            <param name="index">The zero-based index at which page should be inserted.</param>
+            <param name="image">Image.</param>
+            <param name="page">OCR page.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.Document">
+            <summary>
+            Gets a PDF document.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.PageCreationMode">
+            <summary>
+            Gets or sets the page creation mode.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.TextBrush">
+            <summary>
+            Gets or sets a text font brush.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.Font">
+            <summary>
+            Gets or sets a font of text.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.ImageCompression">
+            <summary>
+            Gets or sets a compression of image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Ocr.PdfDocumentBuilder.ImageCompressionSettings">
+            <summary>
+            Gets or sets a compression settings of image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Ocr.PdfPageCreationMode">
+            <summary>
+            Specifies available creation modes of PDF page.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Ocr.PdfPageCreationMode.Text">
+            <summary>
+            Text-only mode.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Ocr.PdfPageCreationMode.ImageOverText">
+            <summary>
+            Image over invisible text.
+            </summary>
+        </member>
+    </members>
+</doc>

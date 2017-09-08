@@ -1,0 +1,134 @@
+.RadDock {
+  /*position: absolute;*/
+  word-wrap: break-word;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  line-height: 1.42857143;
+  /* Collapsed dock */
+  /* Right to Left mode */ }
+  .RadDock,
+  .RadDock .rdTitleWrapper * {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box; }
+  .RadDock.rdRoundedCorner {
+    border-radius: 0.35714286em; }
+  .RadDock.rdShadow {
+    box-shadow: 2px 3px 4px #828282; }
+  .RadDock.RadDock_Pinned {
+    /*position: fixed;*/ }
+  .RadDock.rdDragHelper {
+    opacity: .5 !important; }
+  .RadDock .rdTitleWrapper {
+    position: relative;
+    padding: 0.28571429em 0.71428571em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    min-height: 1.21428571em; }
+  .RadDock.rdGripTop .rdTitleWrapper {
+    height: 0.71428571em;
+    padding: 0em 0.71428571em;
+    min-height: 0.71428571em; }
+  .RadDock.rdNone .rdTitleWrapper {
+    display: none; }
+  .RadDock.rdRoundedCorner .rdTitleWrapper {
+    border-radius: 0.35714286em 0.35714286em 0em 0em; }
+  .RadDock .rdTitleWrapper .rdTitle {
+    max-width: 60%;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-weight: normal;
+    border-bottom: 0 none;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden; }
+  .RadDock .rdCommands {
+    width: auto;
+    list-style: none;
+    margin: -0.71428571em 0em 0em;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    right: 0.35714286em; }
+  .RadDock .rdListItem {
+    float: left;
+    margin: 0em 0em 0em 0.35714286em; }
+  .RadDock .rdCommandButton {
+    position: relative;
+    display: inline-block;
+    width: 1.42857143em;
+    height: 1.42857143em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0.14285714em;
+    text-decoration: none;
+    text-indent: -99999px;
+    vertical-align: top;
+    color: transparent;
+    font-size: 16px; }
+  .RadDock span.rdCommandButton:hover {
+    cursor: pointer; }
+  .RadDock .rdCommandButton:before {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    height: 1em;
+    line-height: 1;
+    font-family: "TelerikWebUI";
+    text-indent: 0;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "\E0A5"; }
+  .RadDock span.rdClose:before {
+    content: "\E038"; }
+  .RadDock span.rdExpand:before {
+    content: "\E002"; }
+  .RadDock span.rdCollapse:before {
+    content: "\E001"; }
+  .RadDock span.rdPin:before {
+    content: "\E0B8"; }
+  .RadDock span.rdUnpin:before {
+    content: "\E0B7"; }
+  .RadDock.rdRoundedCorner .rdContentWrapper {
+    border-radius: 0em 0em 0.35714286em 0.35714286em; }
+  .RadDock.rdNone .rdContentWrapper {
+    border-radius: 0.35714286em; }
+  .RadDock .rdContent {
+    margin: 0.35714286em 0.71428571em;
+    overflow-x: auto; }
+  .RadDock.rdCollapsed {
+    height: auto !important;
+    overflow: hidden; }
+  .RadDock.rdCollapsed .rdTitleWrapper {
+    border-bottom: 0; }
+  .RadDock.rdCollapsed.rdRoundedCorner,
+  .RadDock.rdCollapsed.rdRoundedCorner .rdTitleWrapper {
+    border-radius: 0.35714286em 0.35714286em 0em 0em; }
+  .RadDock.rdRtl .rdCommands {
+    left: 0;
+    right: auto; }
+  .RadDock.rdRtl span.rdClose:before,
+  .RadDock.rdRtl span.rdExpand:before,
+  .RadDock.rdRtl span.rdCollapse:before,
+  .RadDock.rdRtl span.rdPin:before,
+  .RadDock.rdRtl span.rdUnpin:before,
+  .RadDock.rdRtl span.rdCustom:before {
+    margin: 0em -0.07142857em 0em 0em; }
+  .RadDock.rdRtl span.rdCustom:before {
+    margin: 0.10714286em 0.10714286em 0em 0em; }
+  .RadDock.rdRtl .rdCommandButton:before {
+    margin: 0.10714286em 0.10714286em 0em 0em; }
+
+.RadDockZone {
+  min-width: 100px;
+  min-height: 50px;
+  padding: 0.35714286em;
+  border-width: 1px;
+  border-style: solid; }

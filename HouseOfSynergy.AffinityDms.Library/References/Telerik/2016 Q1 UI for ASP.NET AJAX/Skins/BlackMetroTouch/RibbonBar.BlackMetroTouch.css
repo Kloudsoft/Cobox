@@ -1,0 +1,368 @@
+.RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbCBInput, .RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbNTBInput {
+  height: 20px;
+  line-height: 20px; }
+
+.RadRibbonBar_BlackMetroTouch {
+  font-size: 16px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 30px;
+  color: #ffffff; }
+  .RadRibbonBar_BlackMetroTouch .rrbContentWrapIn {
+    border-color: #333333;
+    background-color: #222222; }
+  .RadRibbonBar_BlackMetroTouch .rrbTabs {
+    padding: 0;
+    line-height: 40px;
+    border-bottom: 3px solid #0082CC; }
+  .RadRibbonBar_BlackMetroTouch .rrbApplicationTab .rrbTabLabel {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadRibbonBar_BlackMetroTouch .rrbHeaderBar {
+    border-color: #4e4e4e;
+    background-color: #222222; }
+  .RadRibbonBar_BlackMetroTouch .rrbHeaderBarTab .rrbHeaderBar {
+    height: 44px; }
+  .RadRibbonBar_BlackMetroTouch .rrbContextualTab {
+    padding-top: 41px; }
+  .RadRibbonBar_BlackMetroTouch .rrbContextualTab .rrbContextualTabLabel {
+    color: #ffffff;
+    background-image: none; }
+  .RadRibbonBar_BlackMetroTouch .rrbContextualTab .rrbTabs {
+    padding-top: 0; }
+  .RadRibbonBar_BlackMetroTouch .rrbQuickAccessToolbar + .rrbTabs .rrbContextualTab {
+    margin-top: -41px; }
+  .RadRibbonBar_BlackMetroTouch .rrbTab .rrbTabLabel {
+    margin: 0 0 0 -1px;
+    border: 1px solid #4e4e4e;
+    color: #ffffff;
+    background-color: #222222;
+    line-height: 38px; }
+  .RadRibbonBar_BlackMetroTouch .rrbHoveredTab .rrbTabLabel {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadRibbonBar_BlackMetroTouch .rrbSelectedTab .rrbTabLabel {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton {
+    height: 36px; }
+    .RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton .rrbIcon {
+      background-image: url('Common/radActionsSprite.png');
+      background-position: -17px -467px; }
+  .RadRibbonBar_BlackMetroTouch .rrbMenu .rrbMenuLabel {
+    color: #ffffff;
+    background-color: #222222; }
+  .RadRibbonBar_BlackMetroTouch .rrbToolTip {
+    border-color: #cccccc;
+    color: #000000;
+    background-color: #e5e5e5;
+    background-image: none; }
+  .RadRibbonBar_BlackMetroTouch .rrbToggleHandle {
+    background-position: -17px -1567px; }
+  .RadRibbonBar_BlackMetroTouch.rrbMinimized .rrbToggleHandle,
+  .RadRibbonBar_BlackMetroTouch.rrbExtendedChromeMinimized .rrbToggleHandle {
+    background-position: -17px -1667px; }
+  .RadRibbonBar_BlackMetroTouch .rrbButtonArea {
+    padding: 5px;
+    background-color: #202020; }
+  .RadRibbonBar_BlackMetroTouch .rrbResizeHandle {
+    background-position: -120px -2220px; }
+  .RadRibbonBar_BlackMetroTouch .rrbButtonGroup ~ .rrbButtonGroup {
+    margin-left: 5px; }
+  .RadRibbonBar_BlackMetroTouch .rrbGroupTitle {
+    margin-top: 0;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px; }
+  .RadRibbonBar_BlackMetroTouch .rrbGroupLauncher {
+    background-position: -21px -4821px; }
+  .RadRibbonBar_BlackMetroTouch .rrbButtonGroupIn {
+    height: 108px;
+    border-color: #4e4e4e; }
+  .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup {
+    height: 130px; }
+    .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup .rrbButtonGroupIn {
+      padding-left: 10px;
+      padding-right: 10px;
+      height: 126px; }
+    .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup .rrbGroupTitle {
+      margin-top: 10px;
+      height: auto; }
+    .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup .rrbGroupToggleIcon {
+      margin-top: 10px;
+      background-position: -17px -67px; }
+    .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup .rrbGroupIcon {
+      margin-top: 10px;
+      border-color: #4e4e4e; }
+  .RadRibbonBar_BlackMetroTouch .rrbCollapsedGroup ~ .rrbCollapsedGroup {
+    margin-left: 5px; }
+  .RadRibbonBar_BlackMetroTouch .rrbControlGroup {
+    height: 108px; }
+  .RadRibbonBar_BlackMetroTouch .rrbAbox .rrbControlGroup {
+    height: 36px; }
+  .RadRibbonBar_BlackMetroTouch .rrbVbox .rrbControlGroup {
+    height: 36px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton, .RadRibbonBar_BlackMetroTouch .rrbButtonOut, .RadRibbonBar_BlackMetroTouch .rrbSplitButton:hover .rrbButtonArrow, .RadRibbonBar_BlackMetroTouch .rrbButtonStripPart, .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton, .RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbDDInner, .RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbCPInner, .RadRibbonBar_BlackMetroTouch .rrbGalleryAction {
+  border-color: #4e4e4e;
+  color: #ffffff;
+  background-color: #222222; }
+
+.RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton, .RadRibbonBar_BlackMetroTouch .rrbButtonOut {
+  border-color: transparent;
+  background-color: transparent; }
+
+.RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton:hover, .RadRibbonBar_BlackMetroTouch .rrbButtonOut:hover,
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut.rrbButtonHovered, .RadRibbonBar_BlackMetroTouch .rrbSplitButton .rrbButtonArrow:hover, .RadRibbonBar_BlackMetroTouch .rrbButtonStripPart:hover, .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbActionButton:hover,
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton:hover,
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButton:hover,
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton:hover, .RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbDDInner:hover, .RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbCPInner:hover, .RadRibbonBar_BlackMetroTouch .rrbGalleryAction:hover, .RadRibbonBar_BlackMetroTouch .rrbGalleryItemHovered, .rrbSlide_BlackMetroTouch .rrbGalleryItemHovered {
+  border-color: #25a0da;
+  color: #ffffff;
+  background-color: #25a0da; }
+
+.RadRibbonBar_BlackMetroTouch .rrbQatDropDown .rrbQatButton:active, .RadRibbonBar_BlackMetroTouch .rrbButtonOut.rrbButtonClicked,
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut.rrbButtonPressed, .RadRibbonBar_BlackMetroTouch .rrbButtonOut.rrbToggled, .RadRibbonBar_BlackMetroTouch .rrbExpanded .rrbSplitButton .rrbButtonArrow,
+.RadRibbonBar_BlackMetroTouch .rrbButtonClicked .rrbSplitButton .rrbButtonArrow, .RadRibbonBar_BlackMetroTouch .rrbButtonStripPart:active,
+.RadRibbonBar_BlackMetroTouch .rrbButtonStripPart.rrbButtonClicked,
+.RadRibbonBar_BlackMetroTouch .rrbButtonStripPart.rrbButtonPressed, .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbActionButton:active,
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton:active,
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButton:active,
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton:active, .RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbDDInner:active, .RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbCPInner:active, .RadRibbonBar_BlackMetroTouch .rrbGalleryAction:active, .RadRibbonBar_BlackMetroTouch .rrbGalleryItemSelected, .rrbSlide_BlackMetroTouch .rrbGalleryItemSelected {
+  border-color: #0082cc;
+  color: #ffffff;
+  background-color: #0082cc; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMenu, .RadRibbonBar_BlackMetroTouch .rrbMenuGroupMid, .rrbDropDownSlide_BlackMetroTouch .rrbPopup, .rrbSlide_BlackMetroTouch .rrbPopup, .rrbPopup_BlackMetroTouch, .rrbPopup_BlackMetroTouch .rrbPopup {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMenu .rrbMenuItem, .RadRibbonBar_BlackMetroTouch .rrbMenuGroupOut .rrbButtonOut, .rrbPopup_BlackMetroTouch .rrbMenuItem .rrbMIInner,
+.rrbPopup_BlackMetroTouch .rrbMenuItem .rrbMIToggle {
+  color: #ffffff; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMenu .rrbMenuItem:hover,
+.RadRibbonBar_BlackMetroTouch .rrbMenu .rrbMenuItemHovered, .RadRibbonBar_BlackMetroTouch .rrbMenuGroupOut .rrbButtonOut:hover, .rrbPopup_BlackMetroTouch .rrbMIHovered > .rrbMIInner, .rrbPopup_BlackMetroTouch .rrbMIHovered > .rrbMIInner .rrbMIToggle, .rrbPopup_BlackMetroTouch .rrbMIExpanded > .rrbMIInner {
+  color: #ffffff;
+  background-color: #25a0da; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMenuGroupOut .rrbButtonOut.rrbExpanded,
+.RadRibbonBar_BlackMetroTouch .rrbMenuGroupOut .rrbButtonOut.rrbButtonClicked, .rrbPopup_BlackMetroTouch .rrbMIExpanded > .rrbMIInner .rrbMIToggle {
+  color: #ffffff;
+  background-color: #0082cc; }
+
+.RadRibbonBar_BlackMetroTouch .rrbIcon,
+.RadRibbonBar_BlackMetroTouch .rrbToggleHandle,
+.RadRibbonBar_BlackMetroTouch .rrbResizeHandle,
+.RadRibbonBar_BlackMetroTouch .rrbGroupLauncher,
+.RadRibbonBar_BlackMetroTouch .rrbGroupToggleIcon {
+  background-image: url('Common/radActionsSprite.png'); }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut .rrbButtonIn {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut .rrbButtonText {
+  padding-left: 10px;
+  min-height: 30px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut .rrbImagePlaceholder {
+  vertical-align: middle; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonOut .rrbIcon {
+  background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbSplitButton .rrbButtonArrow .rrbTextContent {
+  display: block;
+  margin-top: -2px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButton .rrbImagePlaceholder {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButton .rrbButtonArrow,
+.RadRibbonBar_BlackMetroTouch .rrbMediumButton .rrbButtonArrow {
+  width: 20px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMediumButton .rrbSplitButton .rrbButtonIn,
+.RadRibbonBar_BlackMetroTouch .rrbMediumButton .rrbMenuButton .rrbButtonIn {
+  padding-right: 20px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbMediumButton .rrbSplitButton .rrbButtonText,
+.RadRibbonBar_BlackMetroTouch .rrbMediumButton .rrbMenuButton .rrbButtonText {
+  margin-right: -20px;
+  padding-right: 20px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbLargeButton .rrbButtonIn {
+  height: 102px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbLargeButton .rrbButtonText {
+  margin: 10px -10px -3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbLargeButton .rrbImagePlaceholder {
+  margin-top: 10px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbLargeButton .rrbButtonArrow {
+  padding-top: 4px;
+  height: 50px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonStrip {
+  height: 36px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButtonStripPart .rrbImagePlaceholder {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbTemplateItem {
+  max-height: 36px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbButton .rrbMenuButton .rrbButtonIn,
+.RadRibbonBar_BlackMetroTouch .rrbButton .rrbSplitButton .rrbButtonIn,
+.RadRibbonBar_BlackMetroTouch .rrbSmallButton .rrbMenuButton .rrbButtonIn,
+.RadRibbonBar_BlackMetroTouch .rrbSmallButton .rrbSplitButton .rrbButtonIn {
+  padding-right: 20px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton {
+  height: 36px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbComboBox {
+  height: 36px; }
+  .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbCBInner {
+    border-color: #4e4e4e;
+    background-color: #000000;
+    height: 30px; }
+  .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbCBInput {
+    color: inherit;
+    *color: #ffffff; }
+  .RadRibbonBar_BlackMetroTouch .rrbComboBox .rrbIcon {
+    background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbDDInner {
+  height: 30px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbActionButton:hover {
+  background: none; }
+
+.RadRibbonBar_BlackMetroTouch .rrbDropDown .rrbIcon {
+  background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbNTBInner {
+  height: 30px;
+  border-color: #4e4e4e;
+  background-color: #000000; }
+
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbNTBInput {
+  color: inherit;
+  *color: #ffffff; }
+
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButton {
+  height: 15px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButtonUp .rrbIcon {
+  background-position: -17px -17px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbNumericTextBox .rrbActionButtonDown .rrbIcon {
+  background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbCPInner {
+  height: 30px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton,
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbActionButton:hover {
+  background: none; }
+
+.RadRibbonBar_BlackMetroTouch .rrbColorPicker .rrbIcon {
+  background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGallery {
+  border-color: #4e4e4e;
+  background-color: #000000;
+  height: 103px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryScrollWrap {
+  height: 103px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryActions {
+  width: 18px;
+  height: 103px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryAction {
+  width: 16px;
+  height: 35px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryActionUp .rrbIcon {
+  background-position: -17px -17px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryActionDown {
+  top: 35px; }
+  .RadRibbonBar_BlackMetroTouch .rrbGalleryActionDown .rrbIcon {
+    background-position: -17px -67px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryActionExpand {
+  top: 70px; }
+  .RadRibbonBar_BlackMetroTouch .rrbGalleryActionExpand .rrbIcon {
+    background-position: -17px -467px; }
+
+.RadRibbonBar_BlackMetroTouch .rrbCategoryTitle {
+  color: #ffffff;
+  background-color: #222222; }
+
+.RadRibbonBar_BlackMetroTouch .rrbGalleryItemInner {
+  color: #ffffff;
+  background-color: #000000; }
+
+.rrbDropDownSlide_BlackMetroTouch .rrbPopup {
+  font: 11px "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.rrbDropDownSlide_BlackMetroTouch .rrbListItem:hover {
+  color: #000000;
+  background-color: #e8e8e8; }
+
+.rrbSlide_BlackMetroTouch .rrbPopup {
+  font: 11px "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.rrbSlide_BlackMetroTouch .rrbGallery {
+  background-color: #000000; }
+
+.rrbSlide_BlackMetroTouch .rrbCategoryTitle {
+  color: #ffffff;
+  background-color: #222222; }
+
+.rrbSlide_BlackMetroTouch .rrbGalleryItemInner {
+  color: #ffffff;
+  background-color: #000000; }
+
+.rrbPopup_BlackMetroTouch {
+  font: 11px "Segoe UI", Arial, Helvetica, sans-serif; }
+  .rrbPopup_BlackMetroTouch .rrbHeaderBar {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .rrbPopup_BlackMetroTouch .rrbMenuItem .rrbMIToggle .rrbIcon {
+    background-position: -17px -167px;
+    background-image: url('Common/radActionsSprite.png'); }
+  .rrbPopup_BlackMetroTouch .rrbDisabled > .rrbMIInner {
+    color: #555555;
+    background-color: transparent; }
+  .rrbPopup_BlackMetroTouch .rrbHeader {
+    border-color: #080808;
+    background: #161616; }
+  .rrbPopup_BlackMetroTouch .rrbAuxiliaryPane {
+    border-color: #080808;
+    background: #272727; }
+  .rrbPopup_BlackMetroTouch .rrbFooterPane {
+    border-color: #080808;
+    background: #272727; }

@@ -1,0 +1,1472 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.RawCodec</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage">
+            <summary>
+            Represents a page of DNG file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase">
+            <summary>
+            Provides the <b>abstract</b> base class for page of RAW image file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>RawPage</b> object if image was loaded successfully;
+            <b>null</b> if image loading was canceled.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressController">Progress controller.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>ImagePage</b> object if image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetThumbnailImage">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetThumbnailImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetPreviewImage">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Save(Vintasoft.Imaging.Codecs.ImageFiles.ImageFileSource,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves the page to the the image source (<b>method is not implemented</b>).
+            </summary>
+            <param name="source">Image source.</param>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Width">
+            <summary>
+            Gets the width, in pixels, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Height">
+            <summary>
+            Gets the height, in pixels, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image returned by
+            <see cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" /> method.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.ImagePage.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.ImagePage.SourceBitsPerPixel" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Resolution">
+            <summary>
+            Gets the resolution, in pixels per inch, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Palette">
+            <summary>
+            Gets the palette of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.InterpolationMethod">
+            <summary>
+            Gets or sets the interpolation method applied to the RAW image data.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod" />.Bilinear.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod">
+            <summary>
+            Gets or sets the white balance method applied to the RAW image data.
+            </summary>
+            <value>
+            Default value is <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" />.Camera.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.UserWhitePointForRedChannel">
+            <summary>
+            Gets or sets user specified white point for red channel.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.UserWhitePointForGreenChannel">
+            <summary>
+            Gets or sets user specified white point for green channel of RAW image data.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.UserWhitePointForBlueChannel">
+            <summary>
+            Gets or sets user specified white point for blue channel.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.ColorSpace">
+            <summary>
+            Gets color space of RAW page image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressController">Progress controller.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>ImagePage</b> object if image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.GetThumbnailImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.GetPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.Parse">
+            <summary>
+            Reads structure of image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.SourceBitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image data stored in DNG image.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.DngPage.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat">
+            <summary>
+            Specifies available formats of CIFF tag.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.Byte">
+            <summary>
+            Byte.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.ASCII">
+            <summary>
+            String.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.Int16">
+            <summary>
+            Signed 16-bit integer.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.Int32">
+            <summary>
+            Signed 32-bit integer.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.MixFormat">
+            <summary>
+            Mixed content.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.SubDirectoryBlock">
+            <summary>
+            Sub directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffTagDataFormat.Unknown">
+            <summary>
+            Unknown.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId">
+            <summary>
+            Specifies available IDs of CIFF Camera Object tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId.CanonRawMakeModel">
+            <summary>
+            The camera make and model.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId.OwnerName">
+            <summary>
+            Owner's name.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraObjectTagId.CameraSpecification">
+            <summary>
+            The camera specification subdirectory.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId">
+            <summary>
+            Specifies available IDs of CIFF Camera Specification tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.CanonFirmwareVersion">
+            <summary>
+            Firmware version.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.ROMOperationMode">
+            <summary>
+            ROM operation mode.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.BaseISO">
+            <summary>
+            The camera body's base ISO sensitivity.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffCameraSpecificationTagId.SerialNumber">
+            <summary>
+            The camera body number for EOS models.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImageDescriptionTagId">
+            <summary>
+            Specifies available IDs of CIFF Image Description tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImageDescriptionTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImageDescriptionTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImageDescriptionTagId.CanonImageType">
+            <summary>
+            The image type.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImageDescriptionTagId.CanonFileDescription">
+            <summary>
+            Description of the file format.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId">
+            <summary>
+            Specifies available IDs of CIFF EXIF tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonModelID">
+            <summary>
+            The unique model ID.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.DecoderTable">
+            <summary>
+            RAW decoder table.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.SerialNumberFormat">
+            <summary>
+            Serial number format.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonFlashInfo">
+            <summary>
+            Canon flash info.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.FocalLength">
+            <summary>
+            Focal length.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonShotInfo">
+            <summary>
+            The shot information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonCameraSettings">
+            <summary>
+            The camera settings.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.WhiteSample">
+            <summary>
+            White sample.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.SensorInfo">
+            <summary>
+            Sensor size and resolution information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonCustomFunctions">
+            <summary>
+            Canon custom functions.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonAFInfo">
+            <summary>
+            Data block giving AF-specific information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonFileInfo">
+            <summary>
+            Data block giving file-specific information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.ColorBalance">
+            <summary>
+            The color balance.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.ColorTemperature">
+            <summary>
+            The color temperature.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.ColorSpace">
+            <summary>
+            The color space.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.RawJpgInfo">
+            <summary>
+            Data block giving embedded JPG information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonColorInfo1">
+            <summary>
+            The color information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffExifTagId.CanonColorInfo2">
+            <summary>
+            The color information.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId">
+            <summary>
+            Specifies available IDs of CIFF Image Properties tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ImageDescription">
+            <summary>
+            The image description.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.CameraObject">
+            <summary>
+            The camera object.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ShootingRecord">
+            <summary>
+            The shooting record.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.MeasuredInfo">
+            <summary>
+            The measured information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.FileNumber">
+            <summary>
+            The number of this file.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.TimeStamp">
+            <summary>
+            Time stamp.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ImageInfo">
+            <summary>
+            The image information.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ImageFormat">
+            <summary>
+            The image format.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.RecordID">
+            <summary>
+            The number of pictures taken since the camera was manufactured.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.TargetImageType">
+            <summary>
+            The image type.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.OriginalFileName">
+            <summary>
+            Original file name.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ThumbnailFileName">
+            <summary>
+            Thumbnail file name.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.UserComment">
+            <summary>
+            User comment.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffImagePropsTagId.ExifInformation">
+            <summary>
+            The subdirectory containing most of the JPEG/TIFF EXIF information.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffMeasuredInfoTagId">
+            <summary>
+            Specifies available IDs of CIFF Measured Info tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffMeasuredInfoTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffMeasuredInfoTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffMeasuredInfoTagId.MeasuredEV">
+            <summary>
+            Measured EV.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId">
+            <summary>
+            Specifies available IDs of CIFF Root tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.ComponentVersion">
+            <summary>
+            Component version.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.RawData">
+            <summary>
+            The raw data.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.JpgFromRaw">
+            <summary>
+            The embedded JPEG image.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.ThumbnailImage">
+            <summary>
+            Thumbnail image.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffRootTagId.ImageProps">
+            <summary>
+            The main subdirectory containing all meta information.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId">
+            <summary>
+            Specifies available IDs of CIFF Shooting Record tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.NullRecord">
+            <summary>
+            The null directory entry.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.FreeBytes">
+            <summary>
+            Unused bytes in the value.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.ShutterReleaseMethod">
+            <summary>
+            Shutter release method.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.ShutterReleaseTiming">
+            <summary>
+            Shutter release timing.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.ReleaseSetting">
+            <summary>
+            Release settings.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.SelfTimerTime">
+            <summary>
+            The self-timer time.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.TargetDistanceSetting">
+            <summary>
+            The target distance in mm
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.FlashInfo">
+            <summary>
+            The flash guide number and the flash threshold.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffShootingRecordTagId.ExposureInfo">
+            <summary>
+            Exposure compensation, Tv, Av.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId">
+            <summary>
+            Specifies available IDs of CIFF Sub Directory tags.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.ImageDescription">
+            <summary>
+            Image description directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.CameraObject">
+            <summary>
+            Camera object directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.ShootingRecord">
+            <summary>
+            Shooting record directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.MeasuredInfo">
+            <summary>
+            Measured info directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.CameraSpecification">
+            <summary>
+            Camera specification directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.ImageProps">
+            <summary>
+            Image properties directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.ExifInformation">
+            <summary>
+            Exif directory.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Ciff.CiffSubDirectoryTagId.Root">
+            <summary>
+            Root directory.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.SupportedCameras">
+            <summary>
+            Contains informtaion about cameras supported by SDK.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.SupportedCameras.IsCameraSupported(System.String,System.String)">
+            <summary>
+            Determines that SDK supports camera.
+            </summary>
+            <param name="manufacturer">Camera manufacturer.</param>
+            <param name="model">Camera model.</param>
+            <returns>
+            <b>true</b> - RAW image files of camera were tested with SDK;
+            <b>false</b> - RAW image files of camera were NOT tested with SDK.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.SupportedCameras.IsCameraSupported(System.String)">
+            <summary>
+            Determines that SDK supports camera.
+            </summary>
+            <param name="camera">
+            Camera manufacturer and model divided by comma and space,
+            for example, "CANON, EOS 5D Mark II".
+            </param>
+            <returns>
+            <b>true</b> - RAW image files of camera were tested with SDK;
+            <b>false</b> - RAW image files of camera were NOT tested with SDK.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.SupportedCameras.GetSupported">
+            <summary>
+            Gets an array of all supported cameras.
+            </summary>
+            <returns>An array of all supported cameras. Each string represents a camera manufacturer and
+            model divided by comma and space, for example, "CANON, EOS 5D Mark II".</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod">
+            <summary>
+            Specifies available interpolation methods of Bayer grid.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod.None">
+            <summary>
+            RAW image data is not interpolated.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod.Bilinear">
+            <summary>
+            Bilinear interpolation is applied to the RAW image data.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod.Vng">
+            <summary>
+            Variable number of gradients (VNG) interpolation is applied to the RAW image data.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod.Ahd">
+            <summary>
+            Adaptive homogeneity-directed (AHD) interpolation is applied to the RAW image data.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod">
+            <summary>
+            Specifies available white balance methods.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod.None">
+            <summary>
+            RAW image data is not corrected.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod.Auto">
+            <summary>
+            Automatic white balance correction of RAW image data.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod.Camera">
+            <summary>
+            Camera specified white balance correction of RAW image data.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod.User">
+            <summary>
+            User specified white balance correction of RAW image data.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page">
+            <summary>
+            Represents a page of CR2 file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressController">Progress controller.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>ImagePage</b> object if image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.GetThumbnailImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.GetPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.GetRawPreviewImage">
+            <summary>
+            Gets a RAW preview image associated with this Cr2 page.
+            </summary>
+            <returns>
+            The RAW preview image associated with this <b>ImagePage</b> object
+            if RAW preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.GetRawPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a RAW preview image associated with this Cr2 page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            The RAW preview image associated with this <b>ImagePage</b> object
+            if RAW preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.Parse">
+            <summary>
+            Reads structure of image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.SourceBitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image data stored in CR2 image.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.Cr2Page.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage">
+            <summary>
+            Represents a page of CRW file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressController">Progress controller.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>ImagePage</b> object if image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.GetThumbnailImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.GetPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.Parse">
+            <summary>
+            Reads structure of image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.SourceBitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image data stored in CRW image.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.CrwPage.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage">
+            <summary>
+            Represents a page of NEF file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Gets an image associated with this image page.
+            </summary>
+            <param name="progressController">Progress controller.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>ImagePage</b> object if image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.GetThumbnailImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a thumbnail image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>
+            The thumbnail image associated with this <b>ImagePage</b> object
+            if thumbnail image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.GetPreviewImage(System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets a preview image associated with this image page.
+            </summary>
+            <param name="progressDelegate">Progress delegate.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>
+            The preview image associated with this <b>ImagePage</b> object
+            if preview image was loaded successfully;
+            otherwise, <b>null</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.Parse">
+            <summary>
+            Reads structure of image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.SourceBitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image data stored in NEF image.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.NefPage.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase.BitsPerPixel" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFileException">
+            <summary>
+            Represents errors that occurs during manipulation with RAW image file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile">
+            <summary>
+            Provides low-level functions for manipulating RAW image file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile" /> class.
+            </summary>
+            <param name="stream">Stream which contains the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="mode">A FileMode constant that determines how to open
+            or create the image file.</param>
+            <param name="access">A FileAccess constant that determines how the image
+            file can be accessed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.SaveChanges(Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this RAW image file to the current source of the image file
+            (<b>method is not implemented</b>).
+            </summary>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.SaveChanges(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this RAW image file to specified stream (<b>method is not implemented</b>).
+            </summary>
+            <param name="filename">Stream to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.SaveChanges(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this RAW image file to specified stream (<b>method is not implemented</b>).
+            </summary>
+            <param name="stream">Stream which contains the image file.</param>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Save(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this RAW image file to specified file (<b>method is not implemented</b>).
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Save(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this RAW image file to specified stream (<b>method is not implemented</b>).
+            </summary>
+            <param name="stream">Stream to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Pack(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs this RAW image file and saves to specified file (<b>method is not implemented</b>).
+            </summary>
+            <param name="filename">The filename to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Pack(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs this RAW image file and saves to specified stream (<b>method is not implemented</b>).
+            </summary>
+            <param name="stream">Stream to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Parse">
+            <summary>
+            Parses structure of RAW image file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImageFile.Source">
+            <summary>
+            Source of the image file.
+            </summary>
+            <remarks>
+            This object provides access to the binary data of the image file.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawColorSpaceType">
+            <summary>
+            Specifies available color spaces of RAW image files.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawColorSpaceType.RGB">
+            <summary>
+            RGB color space.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawColorSpaceType.CMYK">
+            <summary>
+            CMYK color space.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.RawDecoder">
+            <summary>
+            Defines a decoder for RAW images.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecoder" /> class.
+            </summary>
+            <remarks>
+            This constructor is used in <see cref="T:Vintasoft.Imaging.Codecs.Decoders.AvailableDecoders" /> and
+            should not be used in real applications.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecoder" /> class.
+            </summary>
+            <param name="stream">Stream with the image.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.GetDefaultDecodingSettings(System.Int32)">
+            <summary>
+            Returns the default decoding settings of the specified page.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>Default decoding settings.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.IsValidFormat(System.IO.Stream)">
+            <summary>
+            Determines that stream contains image file in format of this decoder.
+            </summary>
+            <param name="stream">Stream with binary data of the image file.</param>
+            <returns>
+            <b>true</b> if stream contains image file in format of this decoder;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.GetImageInfo(System.Int32,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings)">
+            <summary>
+            Returns information about RAW image without loading the image data into memory.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <returns>Information about the image associated with the
+            page of the source image.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.GetImage(System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of RAW image file.
+            </summary>
+            <param name="pageIndex">The zero based page index (is not used).</param>
+            <param name="renderingSettings">Rendering settings used for rendering the image (is not used).</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>Image of RAW image file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.GetThumbnail(System.Int32,System.Drawing.Size,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns a thumbnail image of RAW image file.
+            </summary>
+            <param name="pageIndex">The zero based page index (not used).</param>
+            <param name="size">Size of the thumbnail.</param>
+            <param name="decodingSettings">Decoding settings used for decode the thumbnail of page.</param>
+            <param name="renderingSettings">Rendering settings used for rendering the thumbnail of page.</param>
+            <param name="thumbnailLoadingProgress">Delegate of the thumbnail loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>Thumbnail image of RAW image file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.GetPageMetadata(System.Int32)">
+            <summary>
+            Returns a metadata of RAW image file.
+            </summary>
+            <param name="pageIndex">The zero based page index (not used).</param>
+            <returns>Metadata of RAW image file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.Close">
+            <summary>
+            Closes the source of the decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecoder.Name">
+            <summary>
+            Gets the name of the decoder.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings">
+            <summary>
+            Contains decoding settings of RAW image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+            <param name="interpolationMethod">The interpolation method that should be applied
+            to the RAW image data when image is decoding.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+            <param name="whiteBalanceMethod">The white balance method that should be applied
+            to the RAW image data when image is decoding.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod,Vintasoft.Imaging.Codecs.ImageFiles.Raw.WhiteBalanceMethod)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+            <param name="interpolationMethod">The interpolation method that should be applied
+            to the RAW image data when image is decoding.</param>
+            <param name="whiteBalanceMethod">The white balance method that should be applied
+            to the RAW image data when image is decoding.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+            <param name="userWhitePointForRedChannel">White point that should be used
+            for red channel of RAW image data when image is decoding.</param>
+            <param name="userWhitePointForGreenChannel">White point that should be used
+            for green channel of RAW image data when image is decoding.</param>
+            <param name="userWhitePointForBlueChannel">White point that should be used
+            for blue channel of RAW image data when image is decoding.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings" /> class.
+            </summary>
+            <param name="interpolationMethod">The interpolation method that should be applied
+            to the RAW image data when image is decoding.</param>
+            <param name="userWhitePointForRedChannel">White point that should be used
+            for red channel of RAW image data when image is decoding.</param>
+            <param name="userWhitePointForGreenChannel">White point that should be used
+            for green channel of RAW image data when image is decoding.</param>
+            <param name="userWhitePointForBlueChannel">White point that should be used
+            for blue channel of RAW image data when image is decoding.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.InterpolationMethod">
+            <summary>
+            Gets or sets the interpolation method that should be applied to the RAW image data
+            when image is decoding.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Raw.BayerGridInterpolationMethod" />.Bilinear.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod">
+            <summary>
+            Gets or sets the white balance method that should be applied to the RAW image data when image is decoding.
+            </summary>
+            <value>
+            Default value is <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" />.Camera.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.UserWhitePointForRedChannel">
+            <summary>
+            Gets or sets user specified white point that should be used for red channel when image is decoding.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.UserWhitePointForGreenChannel">
+            <summary>
+            Gets or sets user specified white point that should be used for green channel of RAW image data when image is decoding.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.UserWhitePointForBlueChannel">
+            <summary>
+            Gets or sets user specified white point that should be used for blue channel when image is decoding.
+            </summary>
+            <value>
+            Possible value from 0 to 1. Default value is 1.
+            </value>
+            <remarks>
+            This value has effect only if <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" /> is set to
+            <see cref="P:Vintasoft.Imaging.Codecs.Decoders.RawDecodingSettings.WhiteBalanceMethod" />.User.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffIfdMetadata">
+            <summary>
+            Metadata node that stores information about CIFF Image File Directory (IFD) of CIFF page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffIfdMetadata.ImageWidth">
+            <summary>
+            Gets the image width, in pixels.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffIfdMetadata.ImageHeight">
+            <summary>
+            Gets the image height, in pixels.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffIfdMetadata.BitsPerPixel">
+            <summary>
+            Gets the image bit depth.
+            </summary> 
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffIfdMetadata.Resolution">
+            <summary>
+            Gets or sets the image resolution, in pixels per inch.
+            </summary>  
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata">
+            <summary>
+            Metadata node that stores information about CIFF tag.
+            </summary>   
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.CanRemove">
+            <summary>
+            Gets a value that indicating whether the metadata node can be removed 
+            from children collection of parent node.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.Id">
+            <summary>
+            Gets the ID of CIFF tag.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.Type">
+            <summary>
+            Gets the type of CIFF tag.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.HasValue">
+            <summary>
+            Gets a value that indicating whether the CIFF tag
+            contains data.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.Data">
+            <summary>
+            Gets a node value.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawCiffTagMetadata.DataAsString">
+            <summary>
+            Gets a node value as string.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata">
+            <summary>
+            Root tree node that stores metadata of RAW page.
+            </summary>
+            <remarks>
+            This node cannot have child nodes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Raw.RawImagePageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata" /> class.
+            </summary>
+            <param name="page">RAW page.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.ImageWidth">
+            <summary>
+            Gets the image width, in pixels.
+            </summary>    
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.ImageHeight">
+            <summary>
+            Gets the image height, in pixels.
+            </summary>     
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.BitsPerPixel">
+            <summary>
+            Gets the bit depth of image returned by decoder.
+            </summary>      
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.SourceBitsPerPixel">
+            <summary>
+            Gets the source image bit depth.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.Resolution">
+            <summary>
+            Gets the image resolution, in pixels per inch.
+            </summary>     
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.Maker">
+            <summary>
+            Gets the camera maker.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.Model">
+            <summary>
+            Gets the camera model.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.DigitalCameraRawMetadata.ColorSpace">
+            <summary>
+            Get the color space of image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.DigitalCameraRawTiffIfdMetadata">
+            <summary>
+            Metadata node that stores information about TIFF Image File Directory (IFD) of TIFF page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Metadata.DigitalCameraRawTiffIfdMetadata.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Tiff.TiffImageFileDirectory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Metadata.DigitalCameraRawTiffIfdMetadata" /> class.
+            </summary>
+            <param name="ifd">TIFF Image File Directory.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Metadata.DigitalCameraRawTiffIfdMetadata.CreateMetadataNode(Vintasoft.Imaging.Codecs.ImageFiles.Tiff.TiffTagCollection,Vintasoft.Imaging.Codecs.ImageFiles.Tiff.TiffTag)">
+            <summary>
+            Creates a metadata node for specified tag.
+            </summary>
+            <param name="tags">The TIFF tag collection.</param>
+            <param name="tag">The TIFF tag.</param>
+            <returns>New metadata node.</returns>
+        </member>
+    </members>
+</doc>

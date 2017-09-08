@@ -1,0 +1,1510 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Pdf.Wpf.UI</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl">
+            <summary>
+            Represents a control for displaying the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.PdfFont" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.GetTextSymbol(System.Windows.Point)">
+            <summary>
+            Returns the <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSymbol" />, which is located at specified point
+            of this control.
+            </summary>
+            <param name="point">Location, in <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl" /> space,
+            of text symbol.</param>
+            <returns>
+            <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSymbol" /> if point hits text symbol;
+            otherwise, <b>null</b>.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.GetTextSymbolIndex(System.Windows.Point)">
+            <summary>
+            Returns an index of <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSymbol" />, which is located at specified point
+            of this control.
+            </summary>
+            <param name="point">Location, in <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl" /> space,
+            of text symbol.</param>
+            <returns>
+            Index, in <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.TextSymbols" /> array, if point hits text symbol;
+            otherwise, <b>-1</b>.</returns>
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.TextSymbols" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the control.</param>        
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.OnScrollChanged(System.Windows.Controls.ScrollChangedEventArgs)">
+            <summary>
+            Invoked when a change in scrolling state is detected, such as a change
+            in scroll position, extent, or viewport size.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Controls.ScrollChangedEventArgs" /> 
+            that contain information about the change in the scrolling state.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.OnRenderSizeChanged(System.Windows.SizeChangedInfo)">
+            <summary>
+            Raises the <see cref="E:System.Windows.FrameworkElement.SizeChanged" /> event, 
+            using the specified information as part of the eventual event data.
+            </summary>
+            <param name="sizeInfo">Details of the old and new size involved in the change.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.PdfFont">
+            <summary> 
+            Gets or sets the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.PdfFont" /> that is displayed in this control.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.CellSize">
+            <summary>
+            Gets or sets a cell size for font symbol.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.FontBrush">
+            <summary>
+            Gets or sets the font brush.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfFontViewerControl.TextSymbols">
+            <summary>
+            Gets an array that contains symbols that are shown in this font viewer control.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPointBasedFigureView">
+            <summary>
+            Determines how user can interact with <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.PointBasedGraphicsFigure" />.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView">
+            <summary>
+            Provides the base class that determines how to display a <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure" />
+            and how user can interact with <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.#ctor(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> class.
+            </summary>
+            <param name="figure">Graphics figure.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.IsPointOnObject(System.Windows.Point)">
+            <summary>
+            Determines that point belongs the graphics figure.
+            </summary>
+            <param name="p">The point in object space.</param>
+            <returns>
+            <b>true</b> if point belongs the annotation;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.GetBoundingBox">
+            <summary>
+            Returns a bounding box, in the object space, of graphics figure.
+            </summary>
+            <returns>A bounding box, in the object space, of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.GetDrawingBox">
+            <summary>
+            Returns a drawing box, in the object space, of graphics figure.
+            </summary>
+            <returns>A drawing box, in the object space, of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.OnStateChanged">
+            <summary>
+            Invoked when the state of graphics figure is changed.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the control.</param>       
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.Figure">
+            <summary>
+            Gets the graphics figure.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.InteractionController">
+            <summary> 
+            Gets or sets an interaction controller of graphics figure view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.Builder">
+            <summary>
+            Gets or sets a transformer used for building of the graphics figure.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView.Transformer">
+            <summary>
+            Gets or sets a transformer used for transforming (moving/resizing/rotating/...)
+            of the graphics figure.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPointBasedFigureView.#ctor(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.PointBasedGraphicsFigure)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPointBasedFigureView" /> class.
+            </summary>
+            <param name="figure">Point-based graphics figure.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRectangleBasedFigureView">
+            <summary>
+            Determines how user can interact with <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.RectangleFigure" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRectangleBasedFigureView.#ctor(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.RectangleFigure)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRectangleBasedFigureView" /> class.
+            </summary>
+            <param name="figure">Rectangular graphics figure.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView">
+            <summary>
+            Determines how user can interact with <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigureGroup" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView.#ctor(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigureGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView" /> class.
+            </summary>
+            <param name="figure">The graphics figure.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView" />.
+            </summary>
+            <returns>An enumerator for the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGroupFigureView" />.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool">
+            <summary>
+            Visual tool that allows to edit content of PDF page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool" /> class.       
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildFigure(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure)">
+            <summary>
+            Starts the building process of a figure.
+            </summary>
+            <param name="figure">Graphics figure.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildFigure(Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView)">
+            <summary>
+            Starts the building process of a figure.
+            </summary>
+            <param name="figureView">Graphics figure.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.AddFigure(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure)">
+            <summary>
+            Adds a <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure" /> to the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureViewCollection" />.
+            </summary>
+            <param name="figure"><see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure" /> to add.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.AddFigure(Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView)">
+            <summary>
+            Adds a <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> to the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureViewCollection" />.
+            </summary>
+            <param name="figureView"><see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> to add.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildRectangle(Vintasoft.Imaging.Pdf.Drawing.PdfPen,Vintasoft.Imaging.Pdf.Drawing.PdfBrush)">
+            <summary>
+            Starts the building process of a <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.RectangleFigure" />.
+            </summary>
+            <param name="pen">Pen for drawing the rectangle.</param>
+            <param name="brush">Brush for filling the rectangle.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildTextBox(Vintasoft.Imaging.Pdf.Drawing.PdfPen,Vintasoft.Imaging.Pdf.Drawing.PdfBrush,Vintasoft.Imaging.Pdf.Drawing.PdfBrush,System.String,Vintasoft.Imaging.Pdf.Tree.Fonts.PdfFont,System.Single)">
+            <summary>
+            Starts the building process of a <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.TextBoxFigure" />.
+            </summary>
+            <param name="pen">Pen for drawing the rectangle.</param>
+            <param name="brush">Brush for filling the rectangle.</param>
+            <param name="font">Text font.</param>
+            <param name="fontSize">Text font size.</param>
+            <param name="text">Text.</param>
+            <param name="textBrush">Text brush.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildEllipse(Vintasoft.Imaging.Pdf.Drawing.PdfPen,Vintasoft.Imaging.Pdf.Drawing.PdfBrush)">
+            <summary>
+            Starts the building process of an <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.EllipseFigure" />.
+            </summary>
+            <param name="pen">Pen for drawing the ellipse.</param>
+            <param name="brush">Brush for filling the ellipse.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildImage(Vintasoft.Imaging.Pdf.Tree.PdfImageResource)">
+            <summary>
+            Starts the building process of an <see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.ImageFigure" />.
+            </summary>
+            <param name="imageResource">Image to draw.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildFreehandLines(Vintasoft.Imaging.Pdf.Drawing.PdfPen)">
+            <summary>
+            Starts the building process of freehand lines.
+            </summary>
+            <param name="pen">Pen for drawing the freehand lines.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildLines(Vintasoft.Imaging.Pdf.Drawing.PdfPen)">
+            <summary>
+            Starts the building process of lines.
+            </summary>
+            <param name="pen">Pen for drawing the lines.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildPolygon(Vintasoft.Imaging.Pdf.Drawing.PdfPen,Vintasoft.Imaging.Pdf.Drawing.PdfBrush)">
+            <summary>
+            Starts the building process of a polygon.
+            </summary>
+            <param name="pen">Pen for drawing the polygon.</param>
+            <param name="brush">Brush for filling the polygon.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildCurves(Vintasoft.Imaging.Pdf.Drawing.PdfPen)">
+            <summary>
+            Starts the building process of curves.
+            </summary>
+            <param name="pen">Pen for drawing the curves.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildClosedCurves(Vintasoft.Imaging.Pdf.Drawing.PdfPen,Vintasoft.Imaging.Pdf.Drawing.PdfBrush)">
+            <summary>
+            Starts the building process of closed curves.
+            </summary>
+            <param name="pen">Pen for drawing the closed curves.</param>
+            <param name="brush">Brush for filling the closed curves.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.StartBuildTextLine(System.String,Vintasoft.Imaging.Pdf.Tree.Fonts.PdfFont,System.Single,Vintasoft.Imaging.Pdf.Drawing.PdfBrush)">
+            <summary>
+            Starts the building process of a text line.
+            </summary>
+            <param name="text">Text to draw.</param>
+            <param name="textFont">Text font.</param>
+            <param name="textSize">Text size.</param>
+            <param name="textBrush">Text brush.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" /> of graphics figure.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.AbortBuildFigure">
+            <summary>
+            Aborts the building process of figure and
+            removes the figure from <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureViewCollection" /> collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.RenderFiguresOnPage">
+            <summary>
+            Renders the figure collection on current PDF page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnFocusedItemChanged(Vintasoft.Imaging.PropertyChangedEventArgs{Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.IWpfInteractiveObject})">
+            <summary>
+            Occurs when selected item is changed.
+            </summary>
+            <param name="e">An event args that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FinishInteraction(Vintasoft.Imaging.Wpf.UI.VisualTools.UserInteraction.IWpfInteractiveObject)">
+            <summary>
+            Finishes an active interaction.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnBeginBuilding">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingStarted" /> event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnCancelBuilding">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingCanceled" /> event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnFinishBuilding">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingFinished" /> event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnActivated(System.EventArgs)">
+            <summary> 
+            Raises the <see cref="E:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfVisualTool.Activated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.OnDeactivated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfVisualTool.Deactivated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.RenderFiguresWhenImageIndexChanging">
+            <summary>
+            Gets a value indicating whether the <see cref="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.RenderFiguresOnPage" />
+            must be executed when current page is changed in image viewer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureViewCollection">
+            <summary>
+            Gets or sets the figure view collection that showing in this visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.CurrentPage">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.Pdf.Tree.PdfPage" /> associated with <see cref="P:Vintasoft.Imaging.Wpf.UI.WpfImageViewer.Image" />.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.SelectedFigure">
+            <summary>
+            Gets a current graphics figure.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.SelectedFigureView">
+            <summary>
+            Gets or sets a current graphics figure view.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.SelectedFigurePoints">
+            <summary>
+            Gets points of selected graphics figure.
+            </summary>
+            <remarks>
+            This property allows to access points of current graphics figure.
+            Coordinates of points are specified in coordinate space of the figure.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingStarted">
+            <summary>
+            Occurs when the figure building is started.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingCanceled">
+            <summary>
+            Occurs when the figure building is canceled.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfEditorTool.FigureBuildingFinished">
+            <summary>
+            Occurs when the figure building is finished.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureViewFactory">
+            <summary>
+            Provides the ability to create the view (<see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureView" />) for
+            graphics figure (<see cref="T:Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure" />).
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfGraphicsFigureViewFactory.CreateView(Vintasoft.Imaging.Pdf.Drawing.GraphicsFigures.GraphicsFigure)">
+            <summary>
+            Creates a view for annotation data.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <returns>View for annotation data.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorEventArgs">
+            <summary>
+            Provides data for 
+            <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseEnter" />,
+            <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseLeave" />,
+            <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseDown" /> and 
+            <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseUp" />
+            events.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorEventArgs.MouseLocation">
+            <summary>
+            Gets a mouse location.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorEventArgs.ContentImage">
+            <summary>
+            Gets the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorEventArgs.ContentImage" />.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool">
+            <summary>
+            Visual tool that allows to select and extract images on PDF page.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool">
+            <summary>
+            Provides the abstract base class for visual tools which work with PDF document. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool" /> class.       
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromPageSpaceToViewerSpace(Vintasoft.Imaging.Wpf.UI.WpfImageViewer,System.Windows.Point[])">
+            <summary>
+            Converts points from the PDF page's coordinate space to the image viewer's coordinate space.
+            </summary>
+            <param name="viewer">WPF image viewer.</param>
+            <param name="points">
+            Provides points, in the PDF page's coordinate space, to convert;
+            returns the converted points, in the image viewer's coordinate space.
+            </param>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromPageSpaceToViewerSpace(System.Windows.Point[])">
+            <summary>
+            Converts points from the PDF page's coordinate space to the image viewer's coordinate space.
+            </summary>
+            <param name="points">
+            Provides points, in the PDF page's coordinate space, to convert;
+            returns the converted points, in the image viewer's coordinate space.
+            </param>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromPageSpaceToViewerSpace(System.Windows.Point[],System.Windows.Point[])">
+            <summary>
+            Converts points from the PDF page's coordinate space to the image viewer's coordinate space.
+            </summary>
+            <param name="pageSpacePoints">Points, in the PDF page's coordinate space, to convert.</param>
+            <param name="viewerSpacePoints">Points, in the image viewer's coordinate space.</param>
+            <exception cref="T:System.ArgumentException">Thrown if <b>viewerSpacePoints</b>.Length != <b>pageSpacePoints</b>.Length.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointFromPageSpaceToViewerSpace(System.Windows.Point)">
+            <summary>
+            Converts point from the PDF page's coordinate space to the image viewer's coordinate space.
+            </summary>
+            <param name="point">Point, in the PDF page's coordinate space, to convert.</param>
+            <returns>The <see cref="T:System.Windows.Point" />, in the image viewer's coordinate space.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromViewerSpaceToPageSpace(Vintasoft.Imaging.Wpf.UI.WpfImageViewer,System.Windows.Point[])">
+            <summary>
+            Converts points from the image viewer's coordinate space to the PDF page's coordinate space.
+            </summary>
+            <param name="viewer">WPF image viewer.</param>
+            <param name="points">
+            Provides points, in the image viewer's coordinate space, to convert;
+            returns the converted points, in the PDF page's coordinate space.
+            </param>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromViewerSpaceToPageSpace(System.Windows.Point[])">
+            <summary>
+            Converts points from the image viewer's coordinate space to the PDF page's coordinate space.
+            </summary>
+            <param name="points">
+            Provides points, in the image viewer's coordinate space, to convert;
+            returns the converted points, in the PDF page's coordinate space.
+            </param>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointsFromViewerSpaceToPageSpace(System.Windows.Point[],System.Windows.Point[])">
+            <summary>
+            Converts points from the image viewer's coordinate space to the PDF page's coordinate space.
+            </summary>
+            <param name="viewerSpacePoints">Points, in the image viewer's coordinate space.</param>
+            <param name="pageSpacePoints">Points, in the PDF page's coordinate space.</param>
+            <exception cref="T:System.ArgumentException">Thrown if viewerSpacePoints.Length != pageSpacePoints.Length.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.PointFromViewerSpaceToPageSpace(System.Windows.Point)">
+            <summary>
+            Converts point from the image viewer's coordinate space to the PDF page's coordinate space.
+            </summary>
+            <param name="point">Point, in the image viewer's coordinate space, to convert.</param>
+            <returns>The <see cref="T:System.Windows.Point" />, in the PDF page's coordinate space.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if focused image is not a PDF page.</exception>       
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.GetPageFromImage(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Returns a <see cref="T:Vintasoft.Imaging.Pdf.Tree.PdfPage" /> associated with the <see cref="T:Vintasoft.Imaging.VintasoftImage">image</see>.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfVisualTool.CurrentPage">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.Pdf.Tree.PdfPage" /> associated with <see cref="P:Vintasoft.Imaging.Wpf.UI.WpfImageViewer.Image" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool" /> class.       
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.OnDeactivated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:WpfVisualTool.Deactivated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.Reset">
+            <summary>
+            Resets this tool.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Raises the MouseMove event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseEventArgs" /> that contains the event data.</param>        
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Raises the MouseDown event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Raises the MouseUp event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.RenderContent(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the contents of an <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the control.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ToolName">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectedImage">
+            <summary>
+            Gets or sets the selected image. 
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectionPen" />
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectionBrush" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectionPen">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Media.Pen" /> which draws the selection around
+            the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectedImage" />.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectionBrush">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Media.Brush" /> which draws the selection around
+            the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.SelectedImage" />.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseEnter">
+            <summary>
+            Occurs when the mouse pointer enters the image on PDF page.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseLeave">
+            <summary>
+            Occurs when the mouse pointer leaves the the image on PDF page.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseDown">
+            <summary>
+            Occurs when the mouse pointer is over the image on PDF page and
+            the mouse button is pressed.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfImageExtractorTool.ImageMouseUp">
+            <summary>
+            Occurs when the mouse pointer is over the image on PDF page and
+            the mouse button is released.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool">
+            <summary>
+            Visual tool that allows to remove and black out content of PDF page.
+            </summary>
+            <remarks>
+            To remove and black out content programmatically use the following fuctions:
+            <ul>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfPage.RemoveContentAndBlackOutResources" /> - removes and blacks out page content</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfPage.RemoveText(Vintasoft.Imaging.Pdf.Content.TextExtraction.TextRegion[])" /> - removes text</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfPage.RemoveAnnotations(System.Drawing.RectangleF[])" /> - removes annotations</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfPage.ClearImages(System.Drawing.RectangleF[])" /> - blacks out image resources</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfPage.RemoveVectorGraphics(System.Drawing.RectangleF[])" /> - removes vector graphics</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfImageResource.ClearRect(System.Drawing.Rectangle)" /> - blacks out rectangle on image resource</li>
+            <li><see cref="M:Vintasoft.Imaging.Pdf.Tree.PdfImageResource.ClearPath(System.Drawing.Drawing2D.GraphicsPath)" /> - blacks out path on image resource</li>
+            </ul>
+            <br />
+            <b>Important!</b> - PDF document must be packed (<see cref="M:Vintasoft.Imaging.Pdf.PdfDocument.Pack" />)
+            after content removal otherwise the removed content can be restored.
+            </remarks>
+            <example>Plase see example <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.RedactionMarkAppearance">here</see>.</example>
+            <seealso cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark" />
+            <seealso cref="T:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfPageRedactionMark" />
+            <seealso cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.Add(Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark)">
+            <summary>
+            Adds the item to the selection of current image.
+            </summary>
+            <param name="item">Item to add.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.Add(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark)">
+            <summary>
+            Adds the item to selection of specified image.
+            </summary>
+            <param name="image">The image.</param>
+            <param name="item">Item to add.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.ApplyRedactionMarks(Vintasoft.Imaging.VintasoftImage,System.Collections.Generic.IList{Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark})">
+            <summary>
+            Applies specified redaction marks to specified image of PDF page.
+            </summary>
+            <param name="image">The image of PDF page.</param>
+            <param name="marks">The redaction marks.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.ApplyRedactionMarks">
+            <summary>
+            Applies the redaction marks to PDF document.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.OnRedactionMarkApplied(Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs)">
+            <summary>
+            Raises the <see cref="E:RedactionMarkApplied" /> event.
+            </summary>
+            <param name="e">The <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs" /> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.DrawRedactionMarkAppearance(Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark)">
+            <summary>
+            Draws the redaction mark appearance on PDF page.
+            </summary>
+            <param name="redactionMark">The redaction mark.</param>
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.RedactionMarkAppearance" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.RedactionMarkAppearance">
+            <summary>
+            Gets or sets the redaction mark appearance that will be drawn on PDF page
+            after redaction mark is applied.
+            </summary>
+            <value>
+            Default value is <b>null</b>.
+            </value>
+            <example>
+            Here is an example that shows how to define redaction 
+            mark appearance and apply redaction marks programmatically:
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Creates the redaction mark with custom appearance and applies the redaction mark
+            ''' to PDF page.
+            ''' &lt;/summary&gt;
+            Public Shared Sub TestRedactionMarkAppearance(viewer As WpfImageViewer)
+                ' if WPF image viewer does not have image
+                If viewer.Image Is Nothing Then
+                    Throw New InvalidOperationException()
+                End If
+            
+                ' if WPF image viewer contains not PDF page
+                Dim page As PdfPage = PdfDocumentController.GetPageAssociatedWithImage(viewer.Image)
+                If page Is Nothing Then
+                    Throw New InvalidOperationException()
+                End If
+            
+                ' create and set WpfPdfRemoveContentTool as current tool of image viewer
+                Dim removeContentTool As New WpfPdfRemoveContentTool()
+                viewer.VisualTool = removeContentTool
+            
+                ' create the redaction mark
+                Dim mark As New WpfRedactionMark(viewer.Image)
+                ' specify that redaction mark must remove all PDF content
+                mark.MarkType = WpfRedactionMarkType.RemoveAll
+                ' calculate and specify the redaction mark rectangle
+                Dim rect As Rect = WpfObjectConverter.CreateWindowsRect(page.MediaBox)
+                rect.Inflate(-rect.Width / 4, -rect.Height / 4)
+                mark.SelectedRect = rect
+            
+                ' add the redaction mark to a list of redaction marks of visual tool
+                removeContentTool.Add(mark)
+            
+                ' create redaction mark appearance
+                Dim textBox As New TextBoxFigure(New PdfBrush(Color.Red), "TOP SECRET", page.Document.FontManager.GetStandardFont(StandardFontType.Helvetica), 0)
+                textBox.TextAlignment = PdfContentAlignment.Center
+                textBox.Brush = New PdfBrush(Color.Black)
+                textBox.AutoFontSize = True
+                removeContentTool.RedactionMarkAppearance = textBox
+            
+                ' apply redaction marks
+                removeContentTool.ApplyRedactionMarks()
+            End Sub
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Creates the redaction mark with custom appearance and applies the redaction mark
+            /// to PDF page.
+            /// &lt;/summary&gt;
+            public static void TestRedactionMarkAppearance(WpfImageViewer viewer)
+            {
+                // if WPF image viewer does not have image
+                if (viewer.Image == null)
+                    throw new InvalidOperationException();
+            
+                // if WPF image viewer contains not PDF page
+                PdfPage page = PdfDocumentController.GetPageAssociatedWithImage(viewer.Image);
+                if (page == null)
+                    throw new InvalidOperationException();
+            
+                // create and set WpfPdfRemoveContentTool as current tool of image viewer
+                WpfPdfRemoveContentTool removeContentTool = new WpfPdfRemoveContentTool();
+                viewer.VisualTool = removeContentTool;
+            
+                // create the redaction mark
+                WpfRedactionMark mark = new WpfRedactionMark(viewer.Image);
+                // specify that redaction mark must remove all PDF content
+                mark.MarkType = WpfRedactionMarkType.RemoveAll;
+                // calculate and specify the redaction mark rectangle
+                Rect rect = WpfObjectConverter.CreateWindowsRect(page.MediaBox);
+                rect.Inflate(-rect.Width / 4, -rect.Height / 4);
+                mark.SelectedRect =  rect;
+            
+                // add the redaction mark to a list of redaction marks of visual tool
+                removeContentTool.Add(mark);
+            
+                // create redaction mark appearance
+                TextBoxFigure textBox = new TextBoxFigure(
+                    new PdfBrush(Color.Red),
+                    "TOP SECRET",
+                    page.Document.FontManager.GetStandardFont(StandardFontType.Helvetica),
+                    0);
+                textBox.TextAlignment = PdfContentAlignment.Center;
+                textBox.Brush = new PdfBrush(Color.Black);
+                textBox.AutoFontSize = true;
+                removeContentTool.RedactionMarkAppearance = textBox;
+            
+                // apply redaction marks
+                removeContentTool.ApplyRedactionMarks();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.ToolName">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.RedactionMarkApplied">
+            <summary>
+            Occurs when redaction mark is applied.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfPageRedactionMark">
+            <summary>
+            Represents redaction mark that removes all 
+            content (images, text, vector graphics) from PDF page. 
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark">
+            <summary>
+            Represents the redaction mark.
+            </summary>
+            <remarks>
+            Redaction marks are used for removing PDF content using <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool" />.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark.MarkType" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark.#ctor(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark" /> class.
+            </summary>
+            <param name="image">The image associated with PDF page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark.GetPointTransform(Vintasoft.Imaging.Wpf.UI.WpfImageViewer)">
+            <summary>
+            Returns a point transformation of interactive object for specified <see cref="T:Vintasoft.Imaging.Wpf.UI.WpfImageViewer" />.
+            </summary>
+            <param name="viewer">An image viewer.</param>
+            <returns>
+            An instance of an <see cref="T:Vintasoft.Imaging.Utils.PointFTransform" /> class
+            for specified image viewer.
+            </returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark.MarkType">
+            <summary>
+            Gets or sets the type of the redaction mark.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark.Page">
+            <summary>
+            Gets the page associated with this redaction mark.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfPageRedactionMark.#ctor(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfPageRedactionMark" /> class.
+            </summary>
+            <param name="image">The image associated with PDF page.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.UI.VisualTools.WpfPageRedactionMark.MarkType">
+            <summary>
+            Gets or sets the type of the redaction mark.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfRemoveContentTool.RedactionMarkApplied" /> event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs.#ctor(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMark)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs" /> class.
+            </summary>
+            <param name="image">The image.</param>
+            <param name="redactionMark">The redaction mark.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs.Image">
+            <summary>
+            Gets the image associated with redaction mark.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkEventArgs.RedactionMark">
+            <summary>
+            Gets the redaction mark.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType">
+            <summary>
+            Specifies types of redaction marks.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType.RemoveRasterGraphics">
+            <summary>
+            Black out raster graphics (image resources).
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType.RemoveVectorGraphics">
+            <summary>
+            Remove vector graphics (lines, Bezier curves, ...).
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType.RemoveText">
+            <summary>
+            Remove text.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType.RemoveAnnotations">
+            <summary>
+            Remove annotations.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfRedactionMarkType.RemoveAll">
+            <summary>
+            Remove and black out all content (annotations, images, text, vector graphics).
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark">
+            <summary>
+            Represents redaction mark that is used for removing text from content.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark.#ctor(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Pdf.Content.TextExtraction.TextRegion)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark" /> class.
+            </summary>
+            <param name="image">The image associated with redaction mark.</param>
+            <param name="textRegion">The text region of redaction mark.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark.Invalidate(Vintasoft.Imaging.Wpf.UI.WpfImageViewer)">
+            <summary>
+            Invalidates an image viewer.
+            </summary>
+            <param name="viewer">An image viewer to invalidate.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the view.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark.TextRegion">
+            <summary>
+            Gets the text region to remove.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfTextRedactionMark.MarkType">
+            <summary>
+            Gets or sets the type of the redaction mark.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool">
+            <summary>
+            Visual tool that allows to navigate and select text on PDF page.
+            </summary>
+            <example>
+            Here is an example that demonstrates how to find text in PDF document and
+            highlight searched text in WPF image viewer:
+            <code lang="VB.NET">   
+            Public Class TextSearchWindow   
+                Inherits Window   
+                '...   
+                Private _imageViewer As WpfImageViewer = Nothing   
+                Private _viewerTool As WpfPdfViewerTool = Nothing   
+               
+                Public Sub New()   
+                    '...   
+                    ' creates the PdfViewerTool instance   
+                    _viewerTool = New WpfPdfViewerTool(New SolidColorBrush(System.Windows.Media.Color.FromArgb(56, 0, 0, 255)))   
+                    ' subscribe to viewer tool events   
+                    AddHandler _viewerTool.TextSearched, New EventHandler(Of PdfTextSearchedEventArgs)(AddressOf viewerTool_TextSearched)   
+                    ' sets the PDF viewer tool as current tool   
+                    _imageViewer.VisualTool = _viewerTool   
+                End Sub   
+               
+                ''' &lt;summary&gt;   
+                ''' Searches the text starting from the current page.   
+                ''' &lt;/summary&gt;   
+                ''' &lt;param name="text"&gt;The text.&lt;/param&gt;   
+                ''' &lt;param name="newSearch"&gt;if set to &lt;c&gt;true&lt;/c&gt; [new search].&lt;/param&gt;   
+                Public Sub SearchText(text As String, newSearch As Boolean)   
+                    ' non case sensitive text must be searched   
+                    Dim searchEngine As TextSearchEngine = TextSearchEngine.Create(text, True)   
+                    ' find text on all pages   
+                    _viewerTool.FindText(text, WpfPdfViewerTool.TextSearchMode.AllPages, False, newSearch)   
+                End Sub   
+               
+                ''' &lt;summary&gt;   
+                ''' Handles the TextSearched event of the viewerTool control.   
+                ''' &lt;/summary&gt;   
+                ''' &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;   
+                ''' &lt;param name="e"&gt;The &lt;see cref="PdfTextSearchedEventArgs"/&gt; instance containing   
+                ''' the event data.&lt;/param&gt;   
+                Private Sub viewerTool_TextSearched(sender As Object, e As PdfTextSearchedEventArgs)   
+                    ' if text was NOT found   
+                    If e.FoundTextRegion Is Nothing Then   
+                        System.Windows.MessageBox.Show(String.Format("The following specified text was not found: {0}", e.SearchEngine))   
+                    Else   
+                        ' if text was found   
+                        ' go to the PDF page that contains text   
+                        _imageViewer.FocusedIndex = e.PageIndex   
+                        ' select text region on PDF page   
+                        _viewerTool.SelectedRegion = e.FoundTextRegion   
+                    End If   
+                End Sub   
+            End Class
+            </code>
+            <code lang="C#">
+            public class TextSearchWindow : Window
+            {
+                //...
+                WpfImageViewer _imageViewer = null;
+                WpfPdfViewerTool _viewerTool = null;
+            
+                public TextSearchWindow()
+                {
+                    //...
+                    // creates the PdfViewerTool instance
+                    _viewerTool = new WpfPdfViewerTool(new SolidColorBrush(System.Windows.Media.Color.FromArgb(56, 0, 0, 255)));
+                    // subscribe to viewer tool events
+                    _viewerTool.TextSearched += new EventHandler&lt;PdfTextSearchedEventArgs&gt;(viewerTool_TextSearched);
+                    // sets the PDF viewer tool as current tool
+                    _imageViewer.VisualTool = _viewerTool;
+                }
+            
+                /// &lt;summary&gt;
+                /// Searches the text starting from the current page.
+                /// &lt;/summary&gt;
+                /// &lt;param name="text"&gt;The text.&lt;/param&gt;
+                /// &lt;param name="newSearch"&gt;if set to &lt;c&gt;true&lt;/c&gt; [new search].&lt;/param&gt;
+                public void SearchText(string text, bool newSearch)
+                {
+                    // non case sensitive text must be searched
+                    TextSearchEngine searchEngine = TextSearchEngine.Create(text, true);
+                    // find text on all pages
+                    _viewerTool.FindText(text, WpfPdfViewerTool.TextSearchMode.AllPages, false, newSearch);
+                }
+            
+                /// &lt;summary&gt;
+                /// Handles the TextSearched event of the viewerTool control.
+                /// &lt;/summary&gt;
+                /// &lt;param name="sender"&gt;The source of the event.&lt;/param&gt;
+                /// &lt;param name="e"&gt;The &lt;see cref="PdfTextSearchedEventArgs"/&gt; instance containing
+                /// the event data.&lt;/param&gt;
+                void viewerTool_TextSearched(object sender, PdfTextSearchedEventArgs e)
+                {
+                    // if text was NOT found
+                    if (e.FoundTextRegion == null)
+                    {
+                        System.Windows.MessageBox.Show(string.Format("The following specified text was not found: {0}", e.SearchEngine));
+                    }
+                    // if text was found
+                    else
+                    {
+                        // go to the PDF page that contains text
+                        _imageViewer.FocusedIndex = e.PageIndex;
+                        // select text region on PDF page
+                        _viewerTool.SelectedRegion = e.FoundTextRegion;
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.#ctor(System.Windows.Media.Brush)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.UI.PdfViewerTool" /> class.       
+            </summary>
+            <param name="textSelectionBrush">A <see cref="T:System.Windows.Media.Brush" /> for text selection.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Pdf.UI.PdfViewerTool" /> class.       
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectAll">
+            <summary>
+            Selects all text on current PDF page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectInPageSpace(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Selects text on current PDF page using specified rectangle.
+            Rectangle specified in the coordinate space of PDF page.
+            </summary>
+            <param name="startPoint">Start point for text selection, in the coordinate space
+            of PDF page.</param>
+            <param name="endPoint">End point for text selection, in the coordinate space
+            of PDF page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectInControlSpace(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Selects text on current PDF page using specified rectangle.
+            Rectangle specified in in the coordinate space of the control.
+            </summary>
+            <param name="startPoint">Start point for text selection, in the coordinate space
+            of this control.</param>
+            <param name="endPoint">End point for text selection, in the coordinate space
+            of this control.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.FindText(System.String,Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode,System.Boolean,System.Boolean)">
+            <summary>
+            Searches the text string starting from current PDF page.
+            </summary>
+            <param name="text">Text to search.</param>
+            <param name="searchMode">Text search mode.</param>
+            <param name="searchUp">Indicates that text must be searched
+            from current position in document to the beginning of document/page.</param>
+            <param name="searchNext">Indicates that text search must be continued.</param>
+            <example>
+            <code lang="VB.NET">   
+            Public Partial Class TextSearchForm   
+                Inherits Form   
+                '...   
+                Private _imageViewer As ImageViewer = Nothing   
+                Private _viewerTool As PdfViewerTool = Nothing   
+               
+                '...   
+                Public Sub New()   
+                    '...   
+                    ' creates the PdfViewerTool instance   
+                    _viewerTool = New PdfViewerTool(New SolidBrush(Color.FromArgb(56, Color.Blue)))   
+                    ' subscribe to viewer tool events   
+                    AddHandler _viewerTool.TextSearched, New EventHandler(Of PdfTextSearchedEventArgs)(AddressOf _viewerTool_TextSearched)   
+                    ' sets the PDF viewer tool as current tool   
+                    _imageViewer.VisualTool = _viewerTool   
+                End Sub   
+               
+                ' Search the text starts with a current page.   
+                Public Sub SearchText(text As String, newSearch As Boolean)   
+                    ' non case sensitive text must be searched   
+                    Dim searchEngine As TextSearchEngine = TextSearchEngine.Create(text, True)   
+                    ' find text at all pages   
+                    _viewerTool.FindText(searchEngine, PdfViewerTool.TextSearchMode.AllPages, False, newSearch)   
+                End Sub   
+               
+                ' PdfViewerTool.FindTextFinished event handler.   
+                Private Sub _viewerTool_TextSearched(sender As Object, e As PdfTextSearchedEventArgs)   
+                    If e.FoundTextRegion Is Nothing Then   
+                        ' text was not found   
+                        MessageBox.Show(String.Format("The specified text was not found: {0}", e.SearchEngine))   
+                    Else   
+                        ' text was found   
+                        ' set foused page   
+                        _imageViewer.FocusedIndex = e.PageIndex   
+                        ' select text region   
+                        _viewerTool.SelectedRegion = e.FoundTextRegion   
+                    End If   
+                End Sub   
+            End Class
+            </code>
+            <code lang="C#">
+            public partial class TextSearchForm : Form
+            {
+                //...
+                ImageViewer _imageViewer = null;
+                PdfViewerTool _viewerTool = null;
+            
+                //...
+                public TextSearchForm()
+                {
+                    //...
+                    // creates the PdfViewerTool instance
+                    _viewerTool = new PdfViewerTool(new SolidBrush(Color.FromArgb(56, Color.Blue)));
+                    // subscribe to viewer tool events
+                    _viewerTool.TextSearched += new EventHandler&lt;PdfTextSearchedEventArgs&gt;(_viewerTool_TextSearched);
+                    // sets the PDF viewer tool as current tool
+                    _imageViewer.VisualTool = _viewerTool;
+                }
+            
+                // Search the text starts with a current page.
+                public void SearchText(string text, bool newSearch)
+                {
+                    // non case sensitive text must be searched
+                    TextSearchEngine searchEngine = TextSearchEngine.Create(text, true);
+                    // find text at all pages
+                    _viewerTool.FindText(searchEngine, PdfViewerTool.TextSearchMode.AllPages, false, newSearch);
+                }
+            
+                // PdfViewerTool.FindTextFinished event handler.
+                void _viewerTool_TextSearched(object sender, PdfTextSearchedEventArgs e)
+                {
+                    if (e.FoundTextRegion == null)
+                    {
+                        // text was not found
+                        MessageBox.Show(string.Format("The specified text was not found: {0}", e.SearchEngine));
+                    }
+                    else
+                    {
+                        // text was found
+                        // set foused page
+                        _imageViewer.FocusedIndex = e.PageIndex;
+                        // select text region
+                        _viewerTool.SelectedRegion = e.FoundTextRegion;
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.FindText(System.String,System.Boolean,Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode,System.Boolean,System.Boolean)">
+            <summary>
+            Searches the text string starting from current PDF page.
+            </summary>
+            <param name="text">Text to search.</param>
+            <param name="ignoreCase">Indicates that the case sensitivity should be ignored.</param>
+            <param name="searchMode">Text search mode.</param>
+            <param name="searchUp">Indicates that text must be searched
+            from current position in document to the beginning of document/page.</param>
+            <param name="searchNext">Indicates that text search must be continued.</param>
+            <example>
+            <code lang="VB.NET">   
+            Public Partial Class TextSearchForm   
+                Inherits Form   
+                '...   
+                Private _imageViewer As ImageViewer = Nothing   
+                Private _viewerTool As PdfViewerTool = Nothing   
+               
+                '...   
+                Public Sub New()   
+                    '...   
+                    ' creates the PdfViewerTool instance   
+                    _viewerTool = New PdfViewerTool(New SolidBrush(Color.FromArgb(56, Color.Blue)))   
+                    ' subscribe to viewer tool events   
+                    AddHandler _viewerTool.TextSearched, New EventHandler(Of PdfTextSearchedEventArgs)(AddressOf _viewerTool_TextSearched)   
+                    ' sets the PDF viewer tool as current tool   
+                    _imageViewer.VisualTool = _viewerTool   
+                End Sub   
+               
+                ' Search the text starts with a current page.   
+                Public Sub SearchText(text As String, newSearch As Boolean)   
+                    ' non case sensitive text must be searched   
+                    Dim searchEngine As TextSearchEngine = TextSearchEngine.Create(text, True)   
+                    ' find text at all pages   
+                    _viewerTool.FindText(searchEngine, PdfViewerTool.TextSearchMode.AllPages, False, newSearch)   
+                End Sub   
+               
+                ' PdfViewerTool.FindTextFinished event handler.   
+                Private Sub _viewerTool_TextSearched(sender As Object, e As PdfTextSearchedEventArgs)   
+                    If e.FoundTextRegion Is Nothing Then   
+                        ' text was not found   
+                        MessageBox.Show(String.Format("The specified text was not found: {0}", e.SearchEngine))   
+                    Else   
+                        ' text was found   
+                        ' set foused page   
+                        _imageViewer.FocusedIndex = e.PageIndex   
+                        ' select text region   
+                        _viewerTool.SelectedRegion = e.FoundTextRegion   
+                    End If   
+                End Sub   
+            End Class
+            </code>
+            <code lang="C#">
+            public partial class TextSearchForm : Form
+            {
+                //...
+                ImageViewer _imageViewer = null;
+                PdfViewerTool _viewerTool = null;
+            
+                //...
+                public TextSearchForm()
+                {
+                    //...
+                    // creates the PdfViewerTool instance
+                    _viewerTool = new PdfViewerTool(new SolidBrush(Color.FromArgb(56, Color.Blue)));
+                    // subscribe to viewer tool events
+                    _viewerTool.TextSearched += new EventHandler&lt;PdfTextSearchedEventArgs&gt;(_viewerTool_TextSearched);
+                    // sets the PDF viewer tool as current tool
+                    _imageViewer.VisualTool = _viewerTool;
+                }
+            
+                // Search the text starts with a current page.
+                public void SearchText(string text, bool newSearch)
+                {
+                    // non case sensitive text must be searched
+                    TextSearchEngine searchEngine = TextSearchEngine.Create(text, true);
+                    // find text at all pages
+                    _viewerTool.FindText(searchEngine, PdfViewerTool.TextSearchMode.AllPages, false, newSearch);
+                }
+            
+                // PdfViewerTool.FindTextFinished event handler.
+                void _viewerTool_TextSearched(object sender, PdfTextSearchedEventArgs e)
+                {
+                    if (e.FoundTextRegion == null)
+                    {
+                        // text was not found
+                        MessageBox.Show(string.Format("The specified text was not found: {0}", e.SearchEngine));
+                    }
+                    else
+                    {
+                        // text was found
+                        // set foused page
+                        _imageViewer.FocusedIndex = e.PageIndex;
+                        // select text region
+                        _viewerTool.SelectedRegion = e.FoundTextRegion;
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.FindText(System.Text.RegularExpressions.Regex,Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode,System.Boolean,System.Boolean)">
+            <summary>
+            Searches the text, defined by regular expression, starting from the current PDF page.
+            </summary>
+            <param name="regex">Regular expression for text searching.</param>
+            <param name="searchMode">Text search mode.</param>
+            <param name="searchUp">Indicates that text must be searched
+            from current position in document to the beginning of document/page.</param>
+            <param name="searchNext">Indicates that text search must be continued.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.FindText(Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSearchEngine,Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode,System.Boolean,System.Boolean)">
+            <summary>
+            Searches the text, defined by <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSearchEngine" />,
+            starting from the current page.
+            </summary>
+            <param name="searchEngine">Search engine.</param>
+            <param name="searchMode">Text search mode.</param>
+            <param name="searchUp">Indicates that text must be searched
+            from current position in document to the beginning of document/page.</param>
+            <param name="searchNext">Indicates that text search must be continued.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.ClearSelection">
+            <summary>
+            Clears the current selection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnActivated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.UI.VisualTools.VisualTool.Activated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnDeactivated(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.UI.VisualTools.VisualTool.Deactivated" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.RenderContent(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the contents of an <see cref="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool" />.
+            </summary>
+            <param name="drawingContext">An instance of <see cref="T:System.Windows.Media.DrawingContext" />
+            used to render the control.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Raises the MouseDown event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Raises the MouseMove event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Raises the MouseUp event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Input.MouseButtonEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.OnViewerStateChanged">
+            <summary>
+            Invoked when state of image viewer is changed.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.ToolName">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectionBrush">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Media.Brush" /> for text selection.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectionMode">
+            <summary>
+            Gets the current <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextSelectionMode">text selection mode</see>.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectedRegion">
+            <summary>
+            Gets or sets the selected <see cref="T:Vintasoft.Imaging.Pdf.Content.TextExtraction.TextRegion">text region</see>.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectionCursor">
+            <summary>
+            Gets or sets a <see cref="T:System.Windows.Input.Cursor" /> for text selection.
+            </summary>
+            <value>Default value: <see cref="P:System.Windows.Input.Cursors.IBeam" />.</value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.NavigationCursor">
+            <summary>
+            Gets or sets a <see cref="T:System.Windows.Input.Cursor" /> for document navigation.
+            </summary>
+            <value>Default value: <see cref="P:System.Windows.Input.Cursors.Hand" />.</value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.EnableSelection">
+            <summary>
+            Determines that text selection is enabled.
+            </summary>
+            <value>
+            <b>true</b> - text selection is enabled;
+            <b>false</b> - text selection is disabled.<br />
+            Default value: <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.EnableNavigation">
+            <summary>
+            Determines that text navigation is enabled.
+            </summary>
+            <value>
+            <b>true</b> - text navigation is enabled;
+            <b>false</b> - text navigation is disabled.<br />
+            Default value: <b>true</b>.
+            </value>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectionChanged">
+            <summary>
+            Occurs when the <see cref="P:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.SelectedRegion" /> is changed.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.LinkClick">
+            <summary>
+            Occurs when the link is clicked. 
+            </summary>		
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.LinkMouseEnter">
+            <summary>
+            Occurs when the mouse pointer enters the link.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.LinkMouseLeave">
+            <summary>
+            Occurs when the mouse pointer leaves the link.
+            </summary>	
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearching">
+            <summary>
+            Occurs when the text search process is started.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchingProgress">
+            <summary>
+            Occurs before the text search process is processed a page.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="E:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearched">
+            <summary>
+            Occurs when the text search process is finished.
+            </summary>
+            <remarks>
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode">
+            <summary>
+            Specifies available modes of text search.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode.CurrentPage">
+            <summary>
+            Search text on the current page only.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Pdf.Wpf.UI.WpfPdfViewerTool.TextSearchMode.AllPages">
+            <summary>
+            Search text on all pages of PDF document starting from the current page.
+            </summary>
+        </member>
+    </members>
+</doc>

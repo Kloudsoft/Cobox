@@ -1,0 +1,230 @@
+.RadTreeList_BlackMetroTouch,
+.rtlCEdit div.RadTreeList_BlackMetroTouch {
+  border-color: #333333;
+  background: #000000;
+  color: #ffffff; }
+
+.RadTreeList_BlackMetroTouch .rtlAdd,
+.RadTreeList_BlackMetroTouch .rtlEdit,
+.RadTreeList_BlackMetroTouch .rtlUpdate,
+.RadTreeList_BlackMetroTouch .rtlCancel,
+.RadTreeList_BlackMetroTouch .rtlDel {
+  background-image: url('Common/radActionsSprite.png');
+  width: 23px;
+  height: 23px; }
+.RadTreeList_BlackMetroTouch .rtlCancel {
+  background-position: -12px -2812px; }
+  .RadTreeList_BlackMetroTouch .rtlCancel:hover, .RadTreeList_BlackMetroTouch .rtlCancel:active {
+    background-position: -12px -2812px; }
+.RadTreeList_BlackMetroTouch .rtlUpdate {
+  background-position: -12px -2612px; }
+  .RadTreeList_BlackMetroTouch .rtlUpdate:hover, .RadTreeList_BlackMetroTouch .rtlUpdate:active {
+    background-position: -62px -2612px; }
+.RadTreeList_BlackMetroTouch .rtlAdd,
+.RadTreeList_BlackMetroTouch .rtlHeader .rtlAdd {
+  background-position: -12px -3012px; }
+  .RadTreeList_BlackMetroTouch .rtlAdd:hover, .RadTreeList_BlackMetroTouch .rtlAdd:active,
+  .RadTreeList_BlackMetroTouch .rtlHeader .rtlAdd:hover,
+  .RadTreeList_BlackMetroTouch .rtlHeader .rtlAdd:active {
+    background-position: -62px -3012px; }
+.RadTreeList_BlackMetroTouch .rtlRefresh {
+  background-position: -12px -1312px; }
+  .RadTreeList_BlackMetroTouch .rtlRefresh:hover, .RadTreeList_BlackMetroTouch .rtlRefresh:active {
+    background-position: -62px -1312px; }
+.RadTreeList_BlackMetroTouch .rtlEdit {
+  background-position: -12px -3112px; }
+  .RadTreeList_BlackMetroTouch .rtlEdit:hover, .RadTreeList_BlackMetroTouch .rtlEdit:active {
+    background-position: -62px -3112px; }
+.RadTreeList_BlackMetroTouch .rtlDel {
+  background-position: -12px -3312px; }
+  .RadTreeList_BlackMetroTouch .rtlDel:hover, .RadTreeList_BlackMetroTouch .rtlDel:active {
+    background-position: -62px -3312px; }
+.RadTreeList_BlackMetroTouch .rtlTable {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 34px; }
+
+.TreeListToolTip_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 34px; }
+
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlR > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlA > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlREdit > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlRFooter > td,
+.RadTreeList_BlackMetroTouch table .rtlHeader th {
+  padding: 7px 10px; }
+.RadTreeList_BlackMetroTouch .RadTreeList .rtlPagerCell {
+  padding: 7px 0; }
+.RadTreeList_BlackMetroTouch .rtlHeader {
+  background: #000000;
+  color: #ffffff;
+  border-width: 0;
+  border-color: #333333; }
+  .RadTreeList_BlackMetroTouch .rtlHeader a {
+    color: #ffffff; }
+.RadTreeList_BlackMetroTouch .rtlScroller {
+  border-color: #000000; }
+.RadTreeList_BlackMetroTouch .rtlRFooter {
+  background-color: #000000; }
+
+.rtlCEdit .RadTreeList_BlackMetroTouch {
+  border-right: 1px solid;
+  border-top: 1px solid; }
+
+.RadTreeList_BlackMetroTouch .rtlR td,
+.RadTreeList_BlackMetroTouch .rtlA td,
+.RadTreeList_BlackMetroTouch .rtlREdit td,
+.RadTreeList_BlackMetroTouch .rtlRFooter td,
+.RadTreeList_BlackMetroTouch .rtlEditForm,
+.RadTreeList_BlackMetroTouch .rtlVBorders .rtlHeader th {
+  border-color: #333333; }
+.RadTreeList_BlackMetroTouch .rtlA {
+  background: #191919; }
+.RadTreeList_BlackMetroTouch .rtlVBorders .rtlR td,
+.RadTreeList_BlackMetroTouch .rtlVBorders .rtlA td,
+.RadTreeList_BlackMetroTouch .rtlVBorders .rtlREdit td,
+.RadTreeList_BlackMetroTouch .rtlVBorders .rtlRFooter td {
+  border-left-width: 0; }
+.RadTreeList_BlackMetroTouch .rtlR a,
+.RadTreeList_BlackMetroTouch .rtlA a,
+.RadTreeList_BlackMetroTouch .rtlREdit a,
+.RadTreeList_BlackMetroTouch .rtlEditForm a {
+  color: #ffffff; }
+.RadTreeList_BlackMetroTouch .rtlRSel {
+  color: #ffffff;
+  background: #25a0da; }
+.RadTreeList_BlackMetroTouch .rtlRActive {
+  background: #25a0da;
+  color: #ffffff; }
+.RadTreeList_BlackMetroTouch .rtlVBorders td.rtlL,
+.RadTreeList_BlackMetroTouch .rtlLines td.rtlL {
+  background-color: #000000; }
+.RadTreeList_BlackMetroTouch .rtlDrag,
+.RadTreeList_BlackMetroTouch .rtlExpand,
+.RadTreeList_BlackMetroTouch .rtlCollapse,
+.RadTreeList_BlackMetroTouch .rtlSortAsc,
+.RadTreeList_BlackMetroTouch .rtlSortDesc {
+  background-image: url('Common/radActionsSprite.png'); }
+.RadTreeList_BlackMetroTouch .rtlExpand,
+.RadTreeList_BlackMetroTouch .rtlCollapse {
+  width: 17px;
+  height: 19px;
+  margin: 3px 0 0 12px;
+  background-color: #000000; }
+.RadTreeList_BlackMetroTouch .rtlExpand {
+  background-position: -16.5px -166.5px; }
+.RadTreeList_BlackMetroTouch .rtlCollapse {
+  background-position: -66.5px -65.5px; }
+.RadTreeList_BlackMetroTouch .rtlSortAsc {
+  background-position: -17.5px -18px;
+  height: 14px;
+  width: 15px; }
+.RadTreeList_BlackMetroTouch .rtlSortDesc {
+  background-position: -17.5px -68px;
+  height: 14px;
+  width: 15px; }
+.RadTreeList_BlackMetroTouch .rtlLines td.rtlL0 {
+  background-image: url('TreeList/rtlSingle.gif'); }
+.RadTreeList_BlackMetroTouch .rtlLines td.rtlL1 {
+  background-image: url('TreeList/rtlTop.gif'); }
+.RadTreeList_BlackMetroTouch .rtlLines td.rtlL2 {
+  background-image: url('TreeList/rtlMiddle.gif'); }
+.RadTreeList_BlackMetroTouch .rtlLines td.rtlL3 {
+  background-image: url('TreeList/rtlBottom.gif'); }
+html .RadTreeList_BlackMetroTouch table.rtlLines td.rtlL {
+  padding: 3px; }
+
+.TreeListReorderTop_BlackMetroTouch,
+.TreeListReorderBottom_BlackMetroTouch {
+  background-image: url('Common/radActionsSprite.png');
+  background-repeat: no-repeat;
+  background-position: -70px -70px; }
+
+.TreeListReorderBottom_BlackMetroTouch {
+  background-position: -70px -20px; }
+
+.RadTreeList_BlackMetroTouch .rtlDragHandle {
+  background-image: url('Grid/rgDrag.gif'); }
+
+.TreeListToolTip_BlackMetroTouch {
+  border-color: #828282;
+  background: #000000;
+  color: #ffffff; }
+
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL1 {
+  background-image: url('TreeList/rtlTopRTL.gif'); }
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL2 {
+  background-image: url('TreeList/rtlMiddleRTL.gif'); }
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL3 {
+  background-image: url('TreeList/rtlBottomRTL.gif'); }
+
+.RadTreeList_BlackMetroTouch .rtlPager {
+  background: #000000;
+  color: #ffffff; }
+.RadTreeList_BlackMetroTouch .rtlPagerCell {
+  border-color: #333333; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlInfoPart strong {
+  color: #ffffff; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageFirst,
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPagePrev,
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageNext,
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageLast {
+  background-image: url('Common/radActionsSprite.png');
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #4e4e4e;
+  background-color: #222222; }
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageFirst:hover,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPagePrev:hover,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageNext:hover,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageLast:hover {
+    background-color: #25a0da;
+    border-color: #25a0da; }
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageFirst:active,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPagePrev:active,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageNext:active,
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlPageLast:active {
+    border-color: #0082cc;
+    background-color: #0082cc; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageFirst {
+  background-position: -11px -711px; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPagePrev {
+  background-position: -11px -111px; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageNext {
+  background-position: -11px -161px; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPageLast {
+  background-position: -11px -761px; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlPagerButton {
+  border-color: #4e4e4e;
+  background: #222222;
+  color: #ffffff;
+  height: 36px;
+  /*font: $font-weight 16px/34px $font-family;*/
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 34px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlNumPart a {
+  border: 1px solid #000000;
+  line-height: 28px;
+  min-width: 28px;
+  padding: 0;
+  color: #ffffff;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  text-align: center; }
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlNumPart a:hover {
+    background-color: #25a0da;
+    border-color: #25a0da; }
+  .RadTreeList_BlackMetroTouch .rtlPager .rtlNumPart a.rtlCurrentPage, .RadTreeList_BlackMetroTouch .rtlPager .rtlNumPart a.rtlCurrentPage:hover {
+    border-color: #0082cc;
+    background-color: #0082cc; }
+.RadTreeList_BlackMetroTouch .rtlPager .rtlNumPart span {
+  float: none;
+  padding: 0; }

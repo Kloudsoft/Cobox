@@ -1,0 +1,38 @@
+.RadImageGallery_Black {
+  line-height: 14/20; }
+  .RadImageGallery_Black .rigDescriptionBox {
+    background-color: rgba(32, 32, 32, 0.6);
+    color: #d7d7d7; }
+  .RadImageGallery_Black .rigToolbar,
+  .RadImageGallery_Black .rigCloseButton,
+  .RadImageGallery_Black .rigDrawerButton {
+    background-color: rgba(32, 32, 32, 0.6);
+    color: #d7d7d7; }
+  .RadImageGallery_Black .rigProgressBar div {
+    background-color: #9eda29; }
+  .RadImageGallery_Black .rigPager {
+    background-color: #161616;
+    color: #d7d7d7; }
+    .RadImageGallery_Black .rigPager a {
+      color: #d7d7d7; }
+    .RadImageGallery_Black .rigPager a.rigCurrentPage {
+      color: #000;
+      border-color: #898989;
+      background: #fff; }
+  .RadImageGallery_Black .rigDotList > a {
+    border-color: #080808; }
+  .RadImageGallery_Black .rigDotList a span {
+    background-color: #313131; }
+  .RadImageGallery_Black .rigDotList a.rigCurrentItem span {
+    background-color: #9eda29;
+    border-color: #313131; }
+  .RadImageGallery_Black .rigTooltip {
+    background-color: #cccccc;
+    border-color: #080808; }
+    .RadImageGallery_Black .rigTooltip:after {
+      border-top-color: #cccccc; }
+  .RadImageGallery_Black .rigToolbar .rigActionButton {
+    color: #ffffff; }
+    .RadImageGallery_Black .rigToolbar .rigActionButton:hover {
+      color: #9eda29; }
+

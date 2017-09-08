@@ -1,0 +1,641 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Annotation.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter">
+            <summary>
+            Serializes annotations to and from VintaSoft JSON format. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.Serialize(System.Object)">
+            <summary>
+            Serializes an <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> or
+            <see cref="T:Vintasoft.Imaging.Annotation.AnnotationData" /> object to a JSON object.
+            </summary>
+            <param name="graph">The <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> or 
+            <see cref="T:Vintasoft.Imaging.Annotation.AnnotationData" /> object to serialize.
+            All annotations of <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> object are automatically serialized.</param>
+            <returns>JSON object that represents serialized annotation collection or annotation.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.Deserialize(System.String)">
+            <summary>
+            Deserializes an <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> or
+            <see cref="T:Vintasoft.Imaging.Annotation.AnnotationData" /> object from a JSON object.
+            </summary>
+            <param name="jsonObject">JSON object that represents serialized annotation collection
+            or annotation.</param>
+            <returns>Deserialized annotation collection or annotation.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeAnnotationData(Vintasoft.Imaging.Annotation.AnnotationData)">
+            <summary>
+            Serializes an annotation data to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data to serialize.</param>
+            <returns>The annotation data as JSON string.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeRectangleAnnotationData(Vintasoft.Imaging.Annotation.RectangleAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of rectangle annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeReferencedImageAnnotationData(Vintasoft.Imaging.Annotation.ReferencedImageAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of referenced image annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeEmbeddedImageAnnotationData(Vintasoft.Imaging.Annotation.EmbeddedImageAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of embedded image annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeLinkAnnotationData(Vintasoft.Imaging.Annotation.LinkAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of link annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeTextAnnotationData(Vintasoft.Imaging.Annotation.TextAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of text annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeStampAnnotationData(Vintasoft.Imaging.Annotation.StampAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of stamp annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeArrowAnnotationData(Vintasoft.Imaging.Annotation.ArrowAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of arrow annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeLineAnnotationDataBase(Vintasoft.Imaging.Annotation.LineAnnotationDataBase,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of line annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeLinesAnnotationData(Vintasoft.Imaging.Annotation.LinesAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of lines annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeRulerAnnotationData(Vintasoft.Imaging.Annotation.RulerAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of ruler annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeRulersAnnotationData(Vintasoft.Imaging.Annotation.RulersAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of rulers annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.SerializeStickyNoteAnnotationData(Vintasoft.Imaging.Annotation.StickyNoteAnnotationData,System.Text.StringBuilder)">
+            <summary>
+            Serializes data of sticky note annotation to a JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="sb">String builder where data must be serialized.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeAnnotationData(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes an annotation data from JSON string.
+            </summary>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+            <returns>The annotation data.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeAnnotationProperties(Vintasoft.Imaging.Annotation.AnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes the annotation data properties.
+            </summary>
+            <param name="annotationData">The annotation data.</param>
+            <param name="annotationInfo">The annotation information.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeRectangleAnnotationProperties(Vintasoft.Imaging.Annotation.RectangleAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a rectangle annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeStampAnnotationProperties(Vintasoft.Imaging.Annotation.StampAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a stamp annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeTextAnnotationProperties(Vintasoft.Imaging.Annotation.TextAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a text annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeLinkAnnotationProperties(Vintasoft.Imaging.Annotation.LinkAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a link annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeImageAnnotation(Vintasoft.Imaging.Annotation.ImageAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes an image annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeReferencedImageAnnotation(Vintasoft.Imaging.Annotation.ReferencedImageAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a referenced image annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeEmbeddedImageAnnotation(Vintasoft.Imaging.Annotation.EmbeddedImageAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes an embedded image annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeLineAnnotationBase(Vintasoft.Imaging.Annotation.LineAnnotationDataBase,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a line base annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeRulerAnnotationData(Vintasoft.Imaging.Annotation.RulerAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a ruler annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeRulersAnnotationData(Vintasoft.Imaging.Annotation.RulersAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes the rulers annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeLinesAnnotation(Vintasoft.Imaging.Annotation.LinesAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes the lines annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeLeaderLineAnnotation(Vintasoft.Imaging.Annotation.LeaderLineAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a leader line annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeFreeTextAnnotation(Vintasoft.Imaging.Annotation.FreeTextAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a free text annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeStickyNoteAnnotation(Vintasoft.Imaging.Annotation.StickyNoteAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes a sticky note annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.AnnotationJsonFormatter.DeserializeArrowAnnotationProperties(Vintasoft.Imaging.Annotation.ArrowAnnotationData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Deserializes an arrow annotation data from JSON string.
+            </summary>
+            <param name="annotationData">Annotation data.</param>
+            <param name="annotationInfo">Dictionary that contains information about names and values
+            of annotation properties.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController">
+            <summary>
+            Stores one-to-one links between one <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo" />
+            and one <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.#ctor(Vintasoft.Imaging.Web.Mvc.WebImageCollection,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController" /> class.
+            </summary>
+            <param name="images">Image collection.</param>
+            <param name="cacheDirectory">Cache directory.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.GetAnnotationDataCollection(System.Int32)">
+            <summary>
+            Returns the <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> object at the specified index.
+            </summary>
+            <param name="pageIndex">The zero-based index of the <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> to find.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> object at the specified index.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.Images">
+            <summary>
+            Gets the image collection associated with the controller.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> object at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> to find.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Annotation.AnnotationDataCollection" /> object at the specified index.</returns>
+            <seealso cref="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.GetAnnotationDataCollection(System.Int32)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationDataController.Formatter">
+            <summary>
+            Gets or sets the formatter that should be used for serialization/deserialization of annotations.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            value is <b>null</b>.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer">
+            <summary>
+            Represents a web control for displaying the thumbnails of image collection with annotations.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer.RegisterJavaScripts">
+            <summary>
+            Registers JavaScripts code (client-side code of this viewer) on page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer.CreateStartupScript(System.Text.StringBuilder)">
+            <summary>
+            Creates the startup script.
+            </summary>
+            <param name="scriptDefiniton">Startup script definition.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer.ShowAnnotations">
+            <summary>
+            Gets or sets a value indicating whether the thumbnail viewer shows annotations on thumbnails.
+            </summary>
+            <value>
+            <b>true</b> - annotations are shown on the thumbnails in the viewer;
+            <b>false</b> - annotations are not shown on the thumbnails in the viewer.
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotatedThumbnailViewer.AnnotationDataController">
+            <summary>
+            Gets the annotation data controller associated with the viewer.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer">
+            <summary>
+            Web control for displaying an image collection with annotations.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.DeserializeProperties">
+            <summary>
+            Deserializes properties from hidden fields.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.RegisterJavaScripts">
+            <summary>
+            Registers JavaScripts code (client-side code of this viewer) on page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.SerializeProperties(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Serializes properties into hidden fields.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control to the specified writer.
+            </summary>
+            <param name="output">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.CreateStartupScript(System.Text.StringBuilder)">
+            <summary>
+            Creates the startup script.
+            </summary>
+            <param name="scriptDefiniton">Startup script definition.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.OnImageCollectionChanged(System.Object,Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs)">
+            <summary>
+            Invoked when the image collection associated with this viewer is changed.
+            </summary>
+            <param name="sender">Image collection.</param>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.AnnotationDataController">
+            <summary>
+            Gets the annotation data controller associated with the viewer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.AnnotationViewCollection">
+            <summary>
+            Gets the current annotation view collection.
+            </summary>
+            <remarks>
+            Current annotation view collection is changed when image in the viewer is changed.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndex" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.AnnotationVisualTool">
+            <summary>
+            Gets the WebAnnotationVisualTool used for interaction with annotations.   
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationViewer.AnnotationInteractionMode">
+            <summary>
+            Gets or sets the interaction mode of annotations.
+            </summary>
+            <value>
+            Default value is AnnotationInteractionMode.Author.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationVisualTool">
+            <summary>
+            Visual tool that performs interaction between user and annotations.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationVisualTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationVisualTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.UI.WebAnnotationVisualTool.AnnotationInteractionMode">
+            <summary>
+            Gets or sets the interaction mode of annotations.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for saving image with annotations in
+            file on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams.annotationCollections">
+            <summary>
+            Gets or sets an array that contains annotation collection of images.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams.sessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for serializing annotation collection
+            in file on server.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for managing annotation collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams.sessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams.annotationCollection">
+            <summary>
+            Gets or sets a JSON string that contains serialized annotation collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.RotateImageWithAnnotationRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for rotating image with annotations
+            server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.RotateImageWithAnnotationRequestParams.#ctor">
+            <summary>
+             Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.RotateImageWithAnnotationRequestParams" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.RotateImageWithAnnotationRequestParams.annotationCollection">
+            <summary>
+            Gets or sets a JSON string that contains serialized annotation collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about annotation collection stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionResponseParams.annotationCollection">
+            <summary>
+            Gets or sets a JSON string that contains annotation collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController">
+            <summary>
+            API controller that handles HTTP requests from clients and
+            allows to manipulate annotations on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.DeserializeAnnotationCollection(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams)">
+            <summary>
+            Deserializes annotation collection, of specified image, from server.
+            </summary>
+            <param name="requestParams">Information about source image.</param>
+            <returns>Response that contains annotation collection in JSON format.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.SerializeAnnotationCollection(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams)">
+            <summary>
+            Serializes annotation collection, of specified image, on server.
+            </summary>
+            <param name="requestParams">Information about source image and
+            serializing annotation collection.</param>
+            <returns>Response from the server.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.RemoveAnnotationCollection(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.BaseAnnotationCollectionRequestParams)">
+            <summary>
+            Removes the annotation annotation, of specified image, from server.
+            </summary>
+            <param name="requestParams">Information about source image.</param>
+            <returns>Response from the server.</returns>
+            <remarks>
+            Method removes file, on server, that contain annotation collection saved in JSON format.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.BurnAnnotationCollection(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSerializeRequestParams)">
+            <summary>
+            Burns the specified annotation collection on the specified image.
+            </summary>
+            <param name="requestParams">Information about source image and
+            annotation collection.</param>
+            <returns>Response from the server.</returns>
+            <remarks>
+            Method loads specified image from file, burns annotations on image and
+            saves modified image back to the source file.
+            </remarks>
+            <returns>Response from the server.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.SaveAnnotationCollections(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.AnnotationCollectionSaveAtFileRequestParams)">
+            <summary>
+            Saves the specified annotation collections in the specified image file.
+            </summary>
+            <param name="requestParams">Information about source image file and
+            annotation collections .</param>
+            <returns>Response from the server.</returns>
+            <remarks>
+            Method loads all images from file, adds annotations to each image and
+            saves modified images back to the source file.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.RotateImageWithAnnotations(Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.RotateImageWithAnnotationRequestParams)">
+            <summary>
+            Rotates image with annotations.
+            </summary>
+            <param name="requestParams">Parameters, which contain information about image, annotations
+            and rotation angle.</param>
+            <returns>Response from the server.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.GetAnnotationCollectionFromCache(System.String,System.Int32,System.String)">
+            <summary>
+            Returns cached annotation collection, of specified image, as a JSON string.
+            </summary>
+            <param name="fileUrl">URL of image file.</param>
+            <param name="pageIndex">Zero-based index of image in image file.</param>
+            <param name="sessionID">Identifier of HTTP session.</param>
+            <returns>Annotation collection, as JSON string, of specified image.</returns>
+            <remarks>
+            Cached annotation collection stored as JSON string
+            in directory "~/VintasoftCache/Annotations/{$sessionId}/"
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.SaveAnnotationCollectionToCache(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Saves annotation collection, of specified image, in cache.
+            </summary>
+            <param name="fileUrl">URL of image file.</param>
+            <param name="pageIndex">Zero-based index of image in image file.</param>
+            <param name="sessionID">Identifier of HTTP session.</param>
+            <param name="collection">Annotation collection as a JSON string.</param>
+            <remarks>
+            Cached annotation collection stored as JSON string
+            in directory "~/VintasoftCache/Annotations/{$sessionId}/"
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.GetEncoder(System.String)">
+            <summary>
+            Gets the encoder for the specified filename.
+            </summary>
+            <param name="filepath">Path to a file.</param>
+            <returns>Encoder that should be used for saving the image to the specified file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.GetFilePath(System.String)">
+            <summary>
+            Returns path to a file on server.
+            </summary>
+            <param name="fileUrl">URL of file on server.</param>
+            <returns>Path to a file on server.</returns>
+            <remarks>
+            Method converts file URL to file path.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Annotation.Web.Mvc.Controllers.VintasoftAnnotationCollectionApiController.Formatter">
+            <summary>
+            Gets or sets the formatter that should be used for serializing/deserializing annotations.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            value is <b>null</b>.</exception>
+        </member>
+    </members>
+</doc>

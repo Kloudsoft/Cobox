@@ -1,0 +1,53 @@
+.RadListBox_Black {
+  color: #d7d7d7; }
+  .RadListBox_Black .rlbButton {
+    border-color: #080808;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+    .RadListBox_Black .rlbButton:hover:not(.rlbDisabled) {
+      border-color: #080808;
+      color: #9eda29;
+      background-color: #020202;
+      background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+    .RadListBox_Black .rlbButton:active:not(.rlbDisabled) {
+      border-color: #080808;
+      color: #ffffff;
+      background-color: #202020;
+      background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+  .RadListBox_Black .rlbGroup,
+  .RadListBox_Black .rlbTemplateContent {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #464646; }
+  .RadListBox_Black .rlbHeader,
+  .RadListBox_Black .rlbFooter {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #161616; }
+  .RadListBox_Black .rlbHeader {
+    background-image: linear-gradient(#323232, #161616); }
+  .RadListBox_Black .rlbCheckAllItems {
+    color: #d7d7d7;
+    background-color: #161616; }
+  .RadListBox_Black .rlbCheckAllItemsHovered {
+    color: #ffffff;
+    background-color: #2d2d2d; }
+  .RadListBox_Black .rlbHighlight {
+    color: #9eda29;
+    background-color: #3e3e3e; }
+  .RadListBox_Black .rlbItem.rlbHovered {
+    color: #9eda29;
+    background-color: #3e3e3e; }
+  .RadListBox_Black .rlbItem.rlbSelected {
+    color: #9eda29;
+    background-color: #2e2e2e; }
+  .RadListBox_Black .rlbDropClue {
+    color: #9eda29; }
+  .RadListBox_Black .rlbGroup .rlbDropClueAbove {
+    border-top-style: dotted;
+    border-top-color: #bbbbbb; }
+  .RadListBox_Black .rlbGroup .rlbDropClueBelow {
+    border-bottom-style: dotted;
+    border-bottom-color: #bbbbbb; }

@@ -1,0 +1,20 @@
+.RadDataForm_BlackMetroTouch {
+  color: #ffffff;
+  overflow: hidden; }
+  .RadDataForm_BlackMetroTouch .rdfLegend,
+  .RadDataForm_BlackMetroTouch .rdfBorders {
+    border-color: #333333; }
+  .RadDataForm_BlackMetroTouch .rdfHr {
+    color: #4e4e4e; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint {
+    color: white; }
+  .RadDataForm_BlackMetroTouch .rdfLegend {
+    line-height: .8;
+    font-size: 1.17em; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint {
+    font-size: 0.83em;
+    padding: 0 0 0 .42em; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint.rdfBlock {
+    padding: .42em 0 0 0; }
+  .RadDataForm_BlackMetroTouch .rdfLabel.rdfBlock {
+    padding: 0 0 .17em 0; }

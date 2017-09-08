@@ -1,0 +1,45 @@
+.RadDataForm_BlackMetroTouch {
+  font: normal 16px / 1.33 "Segoe UI", Arial, Helvetica, sans-serif;
+  color: white;
+  overflow: hidden; }
+  .RadDataForm_BlackMetroTouch .rdfLegend,
+  .RadDataForm_BlackMetroTouch .rdfBorders {
+    border-color: #4e4e4e; }
+  .RadDataForm_BlackMetroTouch .rdfHr {
+    color: #4e4e4e; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint {
+    color: white; }
+  .RadDataForm_BlackMetroTouch .rdfLegend {
+    line-height: .8;
+    font-size: 1.17em; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint {
+    font-size: 0.83em;
+    padding: 0 0 0 .42em; }
+  .RadDataForm_BlackMetroTouch .rdfFieldHint.rdfBlock {
+    padding: .42em 0 0 0; }
+  .RadDataForm_BlackMetroTouch .rdfLabel.rdfBlock {
+    padding: 0 0 .17em 0; }
+  .RadDataForm_BlackMetroTouch .rdfPager {
+    margin-top: 1.25em; }
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfFirst,
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfPrev,
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfNext,
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfLast {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #4e4e4e;
+      border-radius: 16px;
+      background: #222222 no-repeat url('DataForm/sprite.png'); }
+      .RadDataForm_BlackMetroTouch .rdfPager .rdfFirst:hover,
+      .RadDataForm_BlackMetroTouch .rdfPager .rdfPrev:hover,
+      .RadDataForm_BlackMetroTouch .rdfPager .rdfNext:hover,
+      .RadDataForm_BlackMetroTouch .rdfPager .rdfLast:hover {
+        background-color: #25a0da; }
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfFirst {
+      background-position: 2px 2px; }
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfPrev {
+      background-position: 1px -48px; }
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfNext {
+      background-position: 2px -98px; }
+    .RadDataForm_BlackMetroTouch .rdfPager .rdfLast {
+      background-position: 2px -148px; }

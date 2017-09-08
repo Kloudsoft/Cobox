@@ -1,0 +1,19 @@
+.RadTagCloud_BlackMetroTouch {
+  border: 1px dotted #4e4e4e;
+  /* Loading image */ }
+  .RadTagCloud_BlackMetroTouch.rtcClassic {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 16px; }
+  .RadTagCloud_BlackMetroTouch .rtcTagList .rtcTagItem {
+    color: #25a0da; }
+  .RadTagCloud_BlackMetroTouch .rtcTagList .rtcTagItem a {
+    color: #ffffff; }
+  .RadTagCloud_BlackMetroTouch .rtcTagList .rtcTagItem a:hover {
+    background: #000000;
+    color: #25a0da; }
+  .RadTagCloud_BlackMetroTouch .rtcTagList .rtcTagItem a:active {
+    background: #000000;
+    color: #25a0da; }
+  .RadTagCloud_BlackMetroTouch.rtcLoading {
+    background-image: url('Common/loading_small.gif'); }
+

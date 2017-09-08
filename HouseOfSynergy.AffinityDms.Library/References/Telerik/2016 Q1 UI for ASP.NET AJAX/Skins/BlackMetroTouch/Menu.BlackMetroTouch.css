@@ -1,0 +1,288 @@
+.RadMenu_BlackMetroTouch {
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  line-height: 34px; }
+  .RadMenu_BlackMetroTouch .rmRootGroup {
+    padding: 1px !important;
+    color: #ffffff;
+    background: #25a0da; }
+  .RadMenu_BlackMetroTouch .rmItem.rmTemplate > .rmText {
+    padding: 1px 10px; }
+  .RadMenu_BlackMetroTouch .rmIcon {
+    margin-top: -7px; }
+  .RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmExpandRight,
+  .RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmExpandLeft {
+    background-image: url('Menu/rmArrows.png');
+    background-repeat: no-repeat; }
+  .RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmExpandRight {
+    margin-right: -10px;
+    padding-right: 24px;
+    background-position: right -559px; }
+  .RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmExpandLeft {
+    margin-left: -10px;
+    padding-left: 24px;
+    background-position: left -609px; }
+  .RadMenu_BlackMetroTouch .rmToggleHandles .rmRootLink .rmExpandTop,
+  .RadMenu_BlackMetroTouch .rmToggleHandles .rmRootLink .rmExpandDown,
+  .RadMenu_BlackMetroTouch .rmToggleHandles .rmRootLink .rmExpandRight,
+  .RadMenu_BlackMetroTouch .rmToggleHandles .rmRootLink .rmExpandLeft {
+    background-image: none; }
+  .RadMenu_BlackMetroTouch .rmGroup {
+    margin: 0;
+    padding: 0;
+    padding: 0 !important;
+    border: 1px solid #333333;
+    background: #000000; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandTop,
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandDown,
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandRight,
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandLeft {
+      *background-image: url('Menu/rmArrows.png');
+      background-repeat: no-repeat; }
+      .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandTop:before,
+      .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandDown:before,
+      .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandRight:before,
+      .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandLeft:before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 13px;
+        background-image: url('Common/radActionsSprite.png'); }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandTop:before {
+      right: 10px;
+      background-position: -20px -20px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandDown:before {
+      right: 10px;
+      background-position: -20px -70px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandRight:before {
+      right: 10px;
+      background-position: -20px -170px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandLeft:before {
+      left: 10px;
+      background-position: -20px -120px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandTop {
+      background-position: right -407px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandDown {
+      background-position: right -457px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandRight {
+      background-position: right -557px; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmText.rmExpandLeft {
+      background-position: right -507px; }
+  .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem {
+    margin-bottom: 0; }
+    .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem .rmText {
+      line-height: 34px; }
+    .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem .rmExpandUp,
+    .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem .rmExpandDown,
+    .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem .rmExpandLeft,
+    .RadMenu_BlackMetroTouch .rmSlide .rmHorizontal .rmItem .rmExpandRight {
+      padding-right: 34px; }
+  .RadMenu_BlackMetroTouch .rmPopup {
+    background: #000000;
+    border: 1px solid #333333; }
+  .RadMenu_BlackMetroTouch.RadMenu .rmRoundedCorners ul.rmGroup,
+  .RadMenu_BlackMetroTouch .rmRoundedCorners ul.rmGroup,
+  .RadMenu_BlackMetroTouch .rmRoundedCorners .rmPopup {
+    border: 1px solid #333333; }
+  .RadMenu_BlackMetroTouch .rmRoundedCorners .rmSlide,
+  .RadMenu_BlackMetroTouch .rmShadows .rmSlide,
+  .RadMenu_BlackMetroTouch div.rmRoundedCorners,
+  .RadMenu_BlackMetroTouch div.rmShadows {
+    padding: 0; }
+    .RadMenu_BlackMetroTouch .rmRoundedCorners .rmSlide .rmScrollWrapContainer,
+    .RadMenu_BlackMetroTouch .rmShadows .rmSlide .rmScrollWrapContainer,
+    .RadMenu_BlackMetroTouch div.rmRoundedCorners .rmScrollWrapContainer,
+    .RadMenu_BlackMetroTouch div.rmShadows .rmScrollWrapContainer {
+      border: 1px solid #333333; }
+  .RadMenu_BlackMetroTouch .rmRoundedCorners .rmScrollWrapContainer,
+  .RadMenu_BlackMetroTouch .rmRoundedCorners ul.rmGroup,
+  .RadMenu_BlackMetroTouch .rmRoundedCorners .rmGroup ul.rmGroup,
+  .RadMenu_BlackMetroTouch.rmRoundedCorners .rmScrollWrapContainer,
+  .RadMenu_BlackMetroTouch.rmRoundedCorners ul.rmGroup,
+  .RadMenu_BlackMetroTouch.rmRoundedCorners .rmGroup ul.rmGroup {
+    padding: 0; }
+  .RadMenu_BlackMetroTouch .rmRootGroup .rmItem {
+    margin: 0 0 0 1px; }
+  .RadMenu_BlackMetroTouch .rmRootGroup .rmFirst {
+    margin-left: 0; }
+  .RadMenu_BlackMetroTouch .rmGroup .rmItem {
+    margin: 0; }
+  .RadMenu_BlackMetroTouch .rmGroup .rmTemplate .rmText {
+    padding: 0 54px 0 28px; }
+  .RadMenu_BlackMetroTouch .rmRootLink {
+    padding: 0 15px;
+    border: 1px solid #25a0da;
+    color: #ffffff;
+    text-decoration: none; }
+    .RadMenu_BlackMetroTouch .rmRootLink .rmText {
+      padding: 0; }
+    .RadMenu_BlackMetroTouch .rmRootLink:hover,
+    .RadMenu_BlackMetroTouch .rmRootLink.rmFocused {
+      border-color: #ffffff; }
+    .RadMenu_BlackMetroTouch .rmRootLink.rmSelected,
+    .RadMenu_BlackMetroTouch .rmRootLink.rmExpanded {
+      border-color: #ffffff;
+      background-color: #0082cc; }
+      :root .RadMenu_BlackMetroTouch .rmRootLink.rmSelected,
+      :root .RadMenu_BlackMetroTouch .rmRootLink.rmExpanded {
+        border-color: rgba(255, 255, 255, 0.5); }
+    .RadMenu_BlackMetroTouch .rmRootLink.rmDisabled,
+    .RadMenu_BlackMetroTouch .rmRootLink.rmDisabled:hover {
+      border-color: transparent;
+      color: #8aceec; }
+  .RadMenu_BlackMetroTouch .rmRootLink .rmLeftImage {
+    margin: 9px 6px 0 -7px; }
+  .RadMenu_BlackMetroTouch .rmGroup .rmLeftImage {
+    margin-top: 9px; }
+  .RadMenu_BlackMetroTouch .rmToggle {
+    width: 26px; }
+  .RadMenu_BlackMetroTouch .rmGroup .rmLink {
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink:hover,
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink.rmFocused,
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink.rmExpanded {
+      background-color: #25a0da; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink.rmSelected {
+      background-color: #0082cc; }
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink.rmDisabled,
+    .RadMenu_BlackMetroTouch .rmGroup .rmLink.rmDisabled:hover {
+      color: #555555;
+      background-color: transparent; }
+  .RadMenu_BlackMetroTouch .rmSeparator .rmText {
+    border-color: #fff #25a0da #25a0da #fff; }
+  .RadMenu_BlackMetroTouch .rmGroup .rmSeparator .rmText {
+    border-color: #333 #000 #000 #333; }
+  .RadMenu_BlackMetroTouch .rmHorizontal .rmSeparator .rmText {
+    height: 32px; }
+  .RadMenu_BlackMetroTouch .rmVertical .rmSeparator .rmText {
+    height: 0; }
+  .RadMenu_BlackMetroTouch .rmItem .rmVertical .rmSeparator .rmText,
+  .RadMenu_BlackMetroTouch .rmScrollWrap .rmVertical .rmSeparator .rmText {
+    margin: 1px 8px; }
+  .RadMenu_BlackMetroTouch .rmLeftArrow,
+  .RadMenu_BlackMetroTouch .rmRightArrow,
+  .RadMenu_BlackMetroTouch .rmTopArrow,
+  .RadMenu_BlackMetroTouch .rmBottomArrow {
+    background-color: #222222;
+    background-image: url('Menu/rmArrows.png');
+    background-repeat: no-repeat; }
+  .RadMenu_BlackMetroTouch .rmLeftArrow,
+  .RadMenu_BlackMetroTouch .rmRightArrow {
+    width: 16px;
+    height: 100%; }
+  .RadMenu_BlackMetroTouch .rmLeftArrow {
+    border-right: 1px solid #4e4e4e;
+    background-position: center -507px; }
+    .RadMenu_BlackMetroTouch .rmLeftArrow:hover {
+      background-position-y: -307px; }
+  .RadMenu_BlackMetroTouch .rmRightArrow {
+    border-left: 1px solid #4e4e4e;
+    background-position: center -557px; }
+    .RadMenu_BlackMetroTouch .rmRightArrow:hover {
+      background-position-y: -357px; }
+  .RadMenu_BlackMetroTouch .rmTopArrow,
+  .RadMenu_BlackMetroTouch .rmBottomArrow {
+    width: 100%;
+    height: 16px !important; }
+  .RadMenu_BlackMetroTouch .rmTopArrow {
+    border-bottom: 1px solid #4e4e4e;
+    background-position: center -419px; }
+    .RadMenu_BlackMetroTouch .rmTopArrow:hover {
+      background-position-y: -219px; }
+  .RadMenu_BlackMetroTouch .rmBottomArrow {
+    border-top: 1px solid #4e4e4e;
+    background-position: center -467px; }
+    .RadMenu_BlackMetroTouch .rmBottomArrow:hover {
+      background-position-y: -267px; }
+  .RadMenu_BlackMetroTouch .rmTopFix,
+  .RadMenu_BlackMetroTouch .rmTopLeft,
+  .RadMenu_BlackMetroTouch .rmTopRight,
+  .RadMenu_BlackMetroTouch .rmBottomFix,
+  .RadMenu_BlackMetroTouch .rmBottomLeft,
+  .RadMenu_BlackMetroTouch .rmBottomRight {
+    display: none; }
+  .RadMenu_BlackMetroTouch .rmMultiColumn,
+  .RadMenu_BlackMetroTouch .rmRoundedCorners .rmMultiColumn {
+    border: 1px solid #333333;
+    background: #000000; }
+  .RadMenu_BlackMetroTouch .rmMultiColumn .rmGroupColumn .rmGroup {
+    border: 0; }
+
+.RadMenu_BlackMetroTouch .rmRootGroup .rmRootLink .rmToggle {
+  height: 34px; }
+
+.RadMenu_BlackMetroTouch .rmHorizontal .rmRootLink .rmToggle {
+  margin-left: 0;
+  right: 0px;
+  margin-right: -15px; }
+
+.RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmToggle {
+  width: 30px; }
+
+.RadMenu_BlackMetroTouch .rmRootGroup .rmRootLink .rmIcon {
+  display: block;
+  background-image: url('Common/radActionsSprite.png'); }
+
+.RadMenu_BlackMetroTouch .rmHorizontal .rmRootLink .rmIcon {
+  background-position: -17px -67px; }
+
+.RadMenu_BlackMetroTouch .rmVertical .rmRootLink .rmIcon {
+  background-position: -17px -167px; }
+
+/* RTL mode */
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandTop:before,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandDown:before,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandRight:before,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandLeft:before {
+  left: 10px;
+  right: auto; }
+
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandTop,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandDown,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandRight,
+.RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmGroup .rmText.rmExpandLeft {
+  background-position-x: left; }
+
+@media screen\9 {
+  .RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmSlide .rmHorizontal .rmExpandDown,
+  .RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmSlide .rmHorizontal .rmExpandDown,
+  .RadMenu_BlackMetroTouch_rtl .rmRootGroup .rmSlide .rmHorizontal .rmExpandRight
+.rmExpandLeft {
+    padding-left: 35px; } }
+
+.RadMenu_BlackMetroTouch_rtl .rmIcon {
+  margin: -7px 0 0 -8px; }
+
+.RadMenu_BlackMetroTouch_rtl .rmVertical .rmRootLink .rmIcon {
+  background-position: -17px -117px; }
+
+.RadMenu_BlackMetroTouch_rtl .rmRootLink .rmLeftImage {
+  margin: 9px -7px 0 6px; }
+
+.RadMenu_BlackMetroTouch_rtl .rmHorizontal .rmRootLink .rmToggle {
+  margin: 0 5px 0 -15px; }
+  @media screen\9 {
+    .RadMenu_BlackMetroTouch_rtl .rmHorizontal .rmRootLink .rmToggle {
+      margin-left: 0; } }
+
+.RadMenu_BlackMetroTouch_rtl .rmRoundedCorners .rmSlide,
+.RadMenu_BlackMetroTouch_rtl .rmShadows .rmSlide,
+.RadMenu_BlackMetroTouch_rtl div.rmRoundedCorners,
+.RadMenu_BlackMetroTouch_rtl div.rmShadows {
+  padding: 0; }
+
+.RadMenu_BlackMetroTouch_rtl .rmSlide .rmHorizontal .rmItem .rmExpandUp,
+.RadMenu_BlackMetroTouch_rtl .rmSlide .rmHorizontal .rmItem .rmExpandDown,
+.RadMenu_BlackMetroTouch_rtl .rmSlide .rmHorizontal .rmItem .rmExpandLeft,
+.RadMenu_BlackMetroTouch_rtl .rmSlide .rmHorizontal .rmItem .rmExpandRight {
+  padding-right: 10px; }
+
+@media screen\9 {
+  .RadMenu_BlackMetroTouch_rtl .rmHorizontal.rmToggleHandles .rmRootLink .rmExpandDown {
+    padding-left: 20px; } }

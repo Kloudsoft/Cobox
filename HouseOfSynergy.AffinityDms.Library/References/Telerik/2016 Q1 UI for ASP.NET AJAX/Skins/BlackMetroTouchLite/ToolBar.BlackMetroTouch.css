@@ -1,0 +1,66 @@
+.RadToolBar_BlackMetroTouch {
+  border-color: #4e4e4e;
+  color: #ffffff;
+  background-color: #222222;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadToolBar_BlackMetroTouch .rtbSeparator {
+    border-color: rgba(78, 78, 78, 0.9) rgba(255, 255, 255, 0.05) rgba(255, 255, 255, 0.05) rgba(78, 78, 78, 0.9); }
+  .RadToolBar_BlackMetroTouch .rtbMore {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadToolBar_BlackMetroTouch .rtbHovered .rtbButton,
+  .RadToolBar_BlackMetroTouch .rtbHovered.rtbMore {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadToolBar_BlackMetroTouch .rtbFocused .rtbButton,
+  .RadToolBar_BlackMetroTouch .rtbFocused.rtbMore {
+    border-color: #0082cc;
+    box-shadow: inset 0 0 5px #0082cc; }
+  .RadToolBar_BlackMetroTouch .rtbPressed .rtbButton,
+  .RadToolBar_BlackMetroTouch .rtbChecked .rtbButton,
+  .RadToolBar_BlackMetroTouch .rtbExpanded .rtbButton,
+  .RadToolBar_BlackMetroTouch .rtbExpanded.rtbMore {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+
+.rtbPopup_BlackMetroTouch {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .rtbPopup_BlackMetroTouch .rtbSeparator {
+    border-color: black #1a1a1a #1a1a1a black; }
+  .rtbPopup_BlackMetroTouch .rtbHovered > .rtbLink,
+  .rtbPopup_BlackMetroTouch .rtbHovered > .rtbInner {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+    .rtbPopup_BlackMetroTouch .rtbHovered > .rtbLink .rtbArrow,
+    .rtbPopup_BlackMetroTouch .rtbHovered > .rtbInner .rtbArrow {
+      border-left-color: rgba(255, 255, 255, 0.3); }
+  .rtbPopup_BlackMetroTouch .rtbFocused > .rtbLink,
+  .rtbPopup_BlackMetroTouch .rtbFocused > .rtbInner {
+    border-color: #0082cc;
+    box-shadow: inset 0 0 5px #0082cc; }
+    .rtbPopup_BlackMetroTouch .rtbFocused > .rtbLink .rtbArrow,
+    .rtbPopup_BlackMetroTouch .rtbFocused > .rtbInner .rtbArrow {
+      border-left-color: #0082cc; }
+  .rtbPopup_BlackMetroTouch .rtbSelected > .rtbLink,
+  .rtbPopup_BlackMetroTouch .rtbSelected > .rtbInner,
+  .rtbPopup_BlackMetroTouch .rtbChecked > .rtbInner,
+  .rtbPopup_BlackMetroTouch .rtbExpanded > .rtbInner {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+    .rtbPopup_BlackMetroTouch .rtbSelected > .rtbLink .rtbArrow,
+    .rtbPopup_BlackMetroTouch .rtbSelected > .rtbInner .rtbArrow,
+    .rtbPopup_BlackMetroTouch .rtbChecked > .rtbInner .rtbArrow,
+    .rtbPopup_BlackMetroTouch .rtbExpanded > .rtbInner .rtbArrow {
+      border-left-color: rgba(255, 255, 255, 0.3); }
+  .rtbPopup_BlackMetroTouch .rtbMenu:before {
+    display: none; }
+  .rtbPopup_BlackMetroTouch.rtbShadows {
+    box-shadow: 3px 3px 3px #333333; }

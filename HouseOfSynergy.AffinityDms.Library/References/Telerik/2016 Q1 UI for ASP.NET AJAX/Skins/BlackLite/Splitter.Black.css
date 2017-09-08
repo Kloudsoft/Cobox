@@ -1,0 +1,109 @@
+.RadSplitter_Black .rspLoading {
+  background-image: url('../Black/Common/loading.gif'); }
+
+.RadSplitter_Black,
+.RadSplitter_Black .rspPaneTabContainer,
+.RadSplitter_Black .rspPane,
+.RadSplitter_Black .rspResizeBar,
+.RadSplitter_Black .rspSlideContainerResize,
+.RadSplitter_Black .rspPaneHorizontal,
+.RadSplitter_Black .rspResizeBarHorizontal,
+.RadSplitter_Black .rspSlideContainerResizeHorizontal {
+  border-color: #080808; }
+
+.RadSplitter_Black .rspSlideHeader,
+.RadSplitter_Black .rspSlideTitleContainer {
+  background-image: linear-gradient(#323232, #161616); }
+
+.RadSplitter_Black .rspSlideTitle,
+.RadSplitter_Black .rspPaneTabText {
+  color: #d7d7d7; }
+
+.RadSplitter_Black .rspSlideTitleContainer,
+.RadSplitter_Black .rspSlideHeaderIconWrapper {
+  border-bottom: 1px solid #080808; }
+
+.RadSplitter_Black .rspSlideHeaderDockIcon,
+.RadSplitter_Black .rspSlideHeaderUndockIcon,
+.RadSplitter_Black .rspSlideHeaderCollapseIcon {
+  color: #ffffff; }
+
+.RadSplitter_Black .rspSlideHeaderDockIcon:hover,
+.RadSplitter_Black .rspSlideHeaderUndockIcon:hover,
+.RadSplitter_Black .rspSlideHeaderCollapseIcon:hover {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadSplitter_Black .rspSlideContent,
+.RadSplitter_Black .rspTabsContainer {
+  background-color: #464646;
+  color: #d7d7d7; }
+
+.RadSplitter_Black .rspResizeBar,
+.RadSplitter_Black .rspSlideContainerResize {
+  background-color: #464646;
+  background-image: linear-gradient(to left, #323232, #161616);
+  border-right-color: #080808; }
+
+.RadSplitter_Black .rspResizeBarOver,
+.RadSplitter_Black .rspSlideContainerResizeOver {
+  background-image: linear-gradient(to left, #5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadSplitter_Black .rspResizeBarHorizontal,
+.RadSplitter_Black .rspSlideContainerResizeHorizontal {
+  background-image: linear-gradient(#323232, #161616);
+  border-bottom-color: #080808; }
+
+.RadSplitter_Black .rspResizeBarOverHorizontal,
+.RadSplitter_Black .rspSlideContainerResizeOverHorizontal {
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadSplitter_Black .rspPaneTabContainer {
+  background-image: linear-gradient(to left, #7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+
+.RadSplitter_Black .rspBottom .rspPaneTabContainer,
+.RadSplitter_Black .rspTop .rspPaneTabContainer {
+  background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+
+.RadSplitter_Black .rspPaneTabContainer:hover {
+  background-image: linear-gradient(to left, #5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadSplitter_Black .rspBottom .rspPaneTabContainer:hover,
+.RadSplitter_Black .rspTop .rspPaneTabContainer:hover {
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadSplitter_Black .rspPaneTabContainerExpanded {
+  background-image: linear-gradient(to left, #6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+
+.RadSplitter_Black .rspBottom .rspPaneTabContainerExpanded,
+.RadSplitter_Black .rspTop .rspPaneTabContainerExpanded {
+  background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+
+.RadSplitter_Black .rspCollapseBarExpand,
+.RadSplitter_Black .rspCollapseBarCollapse {
+  background-image: linear-gradient(to right, #7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b);
+  border-color: #080808;
+  color: #9eda29; }
+
+.RadSplitter_Black .rspCollapseBarHorizontalExpand,
+.RadSplitter_Black .rspCollapseBarHorizontalCollapse {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+
+.RadSplitter_Black .rspCollapseBarExpandOver,
+.RadSplitter_Black .rspCollapseBarCollapseOver {
+  background-image: linear-gradient(to right, #5c5c5c, #2a2a2c 50%, #060606 50%, #020202);
+  border-color: #080808;
+  color: #ffffff; }
+
+.RadSplitter_Black .rspCollapseBarHorizontalExpandOver,
+.RadSplitter_Black .rspCollapseBarHorizontalCollapseOver {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+

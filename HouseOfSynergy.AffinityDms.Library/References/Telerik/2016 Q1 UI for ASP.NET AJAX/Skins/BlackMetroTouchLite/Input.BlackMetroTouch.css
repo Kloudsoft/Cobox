@@ -1,0 +1,84 @@
+.RadInput_BlackMetroTouch,
+.RadInputMgr_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.RadInput_BlackMetroTouch .riTextBox,
+.RadInputMgr_BlackMetroTouch {
+  background: #000000;
+  color: #ffffff;
+  border-color: #4e4e4e; }
+
+.RadInput_BlackMetroTouch .riEmpty,
+.RadInput_Empty_BlackMetroTouch {
+  color: #555555; }
+
+.RadInput_BlackMetroTouch .riHover,
+.RadInput_Hover_BlackMetroTouch {
+  border-color: #25a0da;
+  color: #ffffff; }
+
+.RadInput_BlackMetroTouch .riFocused,
+.RadInput_Focused_BlackMetroTouch {
+  border-color: #25a0da; }
+
+.RadInput_BlackMetroTouch .riRead,
+.RadInput_Read_BlackMetroTouch {
+  border-color: #25a0da; }
+
+.RadInput_BlackMetroTouch .riDisabled,
+.RadInput_Disabled_BlackMetroTouch {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  cursor: default; }
+
+.RadInput_BlackMetroTouch .riError,
+.RadInput_Error_BlackMetroTouch {
+  border-color: #de3914;
+  color: #de3914; }
+
+.RadForm.rfdTextbox .RadInput_BlackMetroTouch .riError[type="text"],
+.RadForm.rfdTextbox .RadInput_Error_BlackMetroTouch[type="text"] {
+  border-color: #de3914;
+  background: #000000;
+  color: #de3914; }
+
+.RadInput_BlackMetroTouch .riNegative,
+.RadInput_Negative_BlackMetroTouch {
+  color: white; }
+
+.RadInput_BlackMetroTouch a {
+  border-color: #4e4e4e;
+  color: #ffffff;
+  background-color: #222222; }
+  .RadInput_BlackMetroTouch a:hover {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+
+.RadInput_BlackMetroTouch .riLabel {
+  color: #ffffff; }
+
+.RadInput_BlackMetroTouch .riResizeIcon {
+  background: transparent 0 0 no-repeat url('../BlackMetroTouch/Input/ResizeEdge.gif');
+  width: 12px;
+  height: 12px;
+  margin-left: -12px; }
+
+.riContButton.RadInput_BlackMetroTouch .riResizeIcon {
+  margin-left: -32px; }
+
+.RadInputRTL_BlackMetroTouch .riError,
+.RadInputRTL_Error_BlackMetroTouch {
+  background-position: 3px -298px; }
+
+.RadInputRTL_BlackMetroTouch .riResizeIcon {
+  background-position: 0 -19px;
+  margin-right: -12px; }
+
+.RadInputRTL_BlackMetroTouch.riContButton .riResizeIcon {
+  margin-right: -32px; }
+
+.RadForm.rfdTextbox .RadInputRTL_BlackMetroTouch .riError[type="text"],
+.RadForm.rfdTextbox .RadInputRTL_Error_BlackMetroTouch[type="text"] {
+  background-position: 3px -298px; }
+

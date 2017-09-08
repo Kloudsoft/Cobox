@@ -1,0 +1,109 @@
+.RadWindow_BlackMetroTouch {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #333333;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  /* Base overrides */
+  /* External content iframe styles */
+  /* Dialog styles */ }
+  .RadWindow_BlackMetroTouch.rwRoundedCorner,
+  .RadWindow_BlackMetroTouch.rwRoundedCorner .rwTitleBar,
+  .RadWindow_BlackMetroTouch.rwRoundedCorner.rwCollapsed .rwTitleBar,
+  .RadWindow_BlackMetroTouch.rwRoundedCorner.rwMinimizedWindow .rwTitleBar,
+  .RadWindow_BlackMetroTouch.rwRoundedCorner .rwPromptInput,
+  .RadWindow_BlackMetroTouch.rwRoundedCorner .rwDialogButtons input {
+    border-radius: 0; }
+  .RadWindow_BlackMetroTouch .rwTitleBar {
+    border-bottom: 1px solid #333333; }
+  .RadWindow_BlackMetroTouch.rwCollapsed .rwTitleBar {
+    border-bottom-color: #333333; }
+  .RadWindow_BlackMetroTouch .rwTitleWrapper .rwTitle {
+    color: #ffffff;
+    font-size: 1.222em;
+    font-weight: normal;
+    padding: 0em 0em 0em 1.4375em; }
+  .RadWindow_BlackMetroTouch .rwIcon,
+  .RadWindow_BlackMetroTouch .rwResize,
+  .RadWindow_BlackMetroTouch .rwCommandButton {
+    color: #ffffff; }
+  .RadWindow_BlackMetroTouch .rwCommandButton:hover:before {
+    color: #0082cc; }
+  .RadWindow_BlackMetroTouch .rwContent {
+    background-color: #000000;
+    border: 0; }
+  .RadWindow_BlackMetroTouch .rwStatusBar {
+    background-color: #000000;
+    border-color: #333333 transparent transparent;
+    margin: 0em -0.375em; }
+  .RadWindow_BlackMetroTouch .rwStatusBar input {
+    font-size: 16px;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #ffffff; }
+  .RadWindow_BlackMetroTouch .rwStatusBar .rwResize {
+    right: -0.125em;
+    bottom: -0.5em;
+    bottom: -0.625em \9; }
+  .RadWindow_BlackMetroTouch _:-ms-fullscreen, :root .RadWindow_BlackMetroTouch .rwStatusBar .rwResize {
+    bottom: -0.625em; }
+  @media \0screen {
+    .RadWindow_BlackMetroTouch .rwStatusBar .rwResize {
+      bottom: -0.5625em; } }
+  .RadWindow_BlackMetroTouch.rwLoading .rwExternalContent {
+    background-image: url('../BlackMetroTouch/Common/loading.gif'); }
+  .RadWindow_BlackMetroTouch .rwContent.rwExternalContent {
+    border-top: 1px solid transparent; }
+  .RadWindow_BlackMetroTouch .rwLoading.rwStatusBar {
+    background-image: url('../BlackMetroTouch/Common/loading_small.gif'); }
+  .RadWindow_BlackMetroTouch div.rwDialog {
+    margin: 0.3125em 0em 0em; }
+  .RadWindow_BlackMetroTouch .rwDialogButtons input {
+    padding: 0.1875em 0.625em;
+    background-color: #222222;
+    border-color: #4e4e4e;
+    color: #ffffff; }
+  .RadWindow_BlackMetroTouch .rwDialogButtons input:hover {
+    background-color: #25a0da;
+    border-color: #25a0da;
+    color: #ffffff; }
+  .RadWindow_BlackMetroTouch .rwDialogButtons input:active {
+    background-color: #0082cc;
+    border-color: #0082cc;
+    color: #ffffff; }
+  .RadWindow_BlackMetroTouch .rwPromptInput {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #4e4e4e;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadWindow_BlackMetroTouch .rwPromptInput:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #25a0da; }
+  .RadWindow_BlackMetroTouch .rwPromptInput:active,
+  .RadWindow_BlackMetroTouch .rwPromptInput:focus {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #2a2a2a; }
+  .RadWindow_BlackMetroTouch .rwPromptInput:disabled {
+    background-color: #000000;
+    color: #555555;
+    border-color: #2c2c2c; }
+  .RadWindow_BlackMetroTouch.rwRtl .rwTitleWrapper .rwTitle {
+    padding: 0em 1.4375em 0em 0em; }
+  .RadWindow_BlackMetroTouch.rwRtl .rwStatusBar .rwResize {
+    left: -0.125em;
+    bottom: -0.5em; }
+  .RadWindow_BlackMetroTouch _:-ms-fullscreen, :root .RadWindow_BlackMetroTouch.rwRtl .rwStatusBar .rwResize {
+    bottom: -0.625em; }
+  .RadWindow_BlackMetroTouch div.rwAlertDialog {
+    background-image: url('../Common/ModalDialogAlertDark.gif'); }
+  .RadWindow_BlackMetroTouch div.rwConfirmDialog {
+    background-image: url('../Common/ModalDialogConfirmDark.gif'); }
+  .RadWindow_BlackMetroTouch.rwRtl.rwMinimizedWindow .rwCommands {
+    right: auto;
+    left: 0; }
+  .RadWindow_BlackMetroTouch .rwIcon {
+    margin: -0.5625em 0em 0em 0em; }
+  .RadWindow_BlackMetroTouch.rwMinimizedWindow .rwCommands {
+    right: -1.25em; }

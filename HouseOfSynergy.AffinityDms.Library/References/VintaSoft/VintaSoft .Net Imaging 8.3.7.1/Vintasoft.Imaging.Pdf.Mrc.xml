@@ -1,0 +1,600 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Pdf.Mrc</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings">
+            <summary>
+            Class that contains settings for encoding of PDF document with MRC compression.
+            </summary>
+            <remarks>
+            A compression technology called PDF MRC (Mixed Raster Content) is used for minimizing
+            the size of PDF and PDF/A files. PDF MRC compression algorithm analyzes the document image,
+            locates picture objects and text regions on the document image, divides the document image
+            onto layers and compress each layer with the best compression.<br />
+            <br />
+            Document image can be divided to the following layers:
+            <ul>
+            <li>Background layer - layer that contains objects which were not classified as picture or text.</li>
+            <li>Images layer - layer that contains picture objects (continuous-tone components)</li>
+            <li>Mask layer - layer that contains text</li>
+            <li>Front layer - layer that is used for coloring the text</li>
+            </ul>
+            </remarks>
+            <example>
+            This example shows how to compress the document images, which contain text and pictures, 
+            using MRC compression algorithm and get the resulting images with high quality.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentWithImagesHiQuality(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 60
+            
+                settings.ImageSegmentation = New ImageSegmentationCommand()
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = True
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentWithImagesHiQuality(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 60;
+            
+                settings.ImageSegmentation = new ImageSegmentationCommand();
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = true;
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            </code>
+            </example>
+            <example>
+            This example shows how to compress the document images, which contain text and pictures, 
+            using MRC compression algorithm and get the resulting images with normal quality.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentWithImagesNormal(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 35
+            
+                settings.ImageSegmentation = New ImageSegmentationCommand()
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = True
+                settings.FrontLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.FrontLayerCompressionSettings.JpegQuality = 25
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 400 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentWithImagesNormal(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 35;
+            
+                settings.ImageSegmentation = new ImageSegmentationCommand();
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = true;
+                settings.FrontLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.FrontLayerCompressionSettings.JpegQuality = 25;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 400 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            </code>
+            </example>
+            <example>
+            This example shows how to compress the document images, which contain text and pictures, 
+            using MRC compression algorithm and get the resulting images with high compression ratio.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentWithImagesHiCompression(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 20
+            
+                settings.ImageSegmentation = New ImageSegmentationCommand()
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = False
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = False
+                settings.FrontLayerCompression = PdfCompression.Zip
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentWithImagesHiCompression(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 20;
+            
+                settings.ImageSegmentation = new ImageSegmentationCommand();
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = false;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = false;
+                settings.FrontLayerCompression = PdfCompression.Zip;
+            }
+            </code>
+            </example>
+            <example>
+            This example shows how to compress the document images, which contain text only, 
+            using MRC compression algorithm and get the resulting images with high quality.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentNoImagesHiQuality(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 30
+            
+                settings.ImageSegmentation = Nothing
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = True
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentNoImagesHiQuality(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 30;
+            
+                settings.ImageSegmentation = null;
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = true;
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 300 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            </code>
+            </example>
+            <example>
+            This example shows how to compress the document images, which contain text only, 
+            using MRC compression algorithm and get the resulting images with normal quality.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentNoImagesNormal(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 25
+            
+                settings.ImageSegmentation = Nothing
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = False
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 350 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentNoImagesNormal(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 25;
+            
+                settings.ImageSegmentation = null;
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = false;
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 350 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            </code>
+            </example>
+            <example>
+            This example shows how to compress the document images, which contain text only, 
+            using MRC compression algorithm and get the resulting images with high compression ratio.
+            <code lang="VB.NET">
+            Public Shared Sub SetSetting_DocumentNoImagesHiCompression(settings As PdfMrcCompressionSettings)
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 20
+            
+                settings.ImageSegmentation = Nothing
+                settings.CreateImagesLayer = False
+            
+                settings.HiQualityMask = False
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = False
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 450 * 3
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void SetSetting_DocumentNoImagesHiCompression(PdfMrcCompressionSettings settings)
+            {
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 20;
+            
+                settings.ImageSegmentation = null;
+                settings.CreateImagesLayer = false;
+            
+                settings.HiQualityMask = false;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = false;
+                settings.FrontLayerCompression = PdfCompression.Jpeg2000;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionRatio = 450 * 3;
+                settings.FrontLayerCompressionSettings.Jpeg2000Settings.CompressionType = Jpeg2000CompressionType.Lossy;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.EnableMrcCompression">
+            <summary>
+            Gets or sets a value indicating whether the MRC compression is enabled.
+            </summary>
+            <value>
+            <b>true</b> - the MRC compression is enabled;
+            <b>true</b> - the MRC compression is disabled.<br />
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.CreateBackgroundLayer">
+            <summary>
+            Gets or sets a value indicating whether the background layer must be created.
+            </summary>
+            <value>
+            <b>true</b> - the background layer must be created;
+            <b>false</b> - the background layer must not be created.
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.BackgroundLayerCompression">
+            <summary>
+            Gets or sets a compression of background layer.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Pdf.PdfCompression" />.Jpeg.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.BackgroundLayerCompressionSettings">
+            <summary>
+            Gets or sets a compression settings of background layer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.CreateImagesLayer">
+            <summary>
+            Gets or sets a value indicating whether the images layer must be created.
+            </summary>
+            <value>
+            <b>true</b> - the images layer must be created,
+            each image found on the source image will be stored separately as image-resource;
+            <b>false</b> - the images layer must not be created,
+            each image found on the source image will be placed in the background layer.<br />
+            Default value is <b>false</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImageSegmentation">
+            <summary>
+            Gets or sets an image segmentation command for detecting image regions on a source image.
+            </summary>
+            <value>
+            <b>null</b> - segmentation of source image will not be performed,
+            information about image regions on a source image will be get from
+            <see cref="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImageRegions" /> property;
+            not <b>null</b> - specified image segmentation command will be executed
+            for getting information about image regions on a source image
+            if <see cref="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImageRegions" /> is <b>null</b>.<br />
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImageRegions">
+            <summary>
+            Gets or sets the image (picture and graphics) regions on a source image.
+            </summary>
+            <value>
+            <b>null</b> - image regions on a source image are not specified and
+            must be detected with <see cref="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImageSegmentation" /> command;
+            not <b>null</b> - image regions on a source image.<br />
+            Default value is <b>null</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImagesLayerCompression">
+            <summary>
+            Gets or sets a compression of images layer.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Pdf.PdfCompression" />.Jpeg.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.ImagesLayerCompressionSettings">
+            <summary>
+            Gets or sets a compression settings of images layer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskBinarization">
+            <summary>
+            Gets or sets a binarization command for detecting text regions on a source image.
+            </summary>
+            <value>
+            <b>null</b> - mask layer will not be created;
+            not <b>null</b> - specified binarization command will be executed
+            for detecting text regions on a source image.<br />
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskRegions">
+            <summary>
+            Gets or sets the text and line-art regions on a source image.
+            </summary>
+            <value>
+            <b>null</b> - the whole image will be binarized,
+            using <see cref="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskBinarization" /> command, for getting the mask layer;
+            not <b>null</b> - specified image regions will be binarized,
+            using <see cref="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskBinarization" />, for getting the mask layer.<br />
+            Default value is <b>null</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.HiQualityMask">
+            <summary>
+            Gets or sets a value indicating whether the command should
+            create the mask layer with high quality.
+            </summary>
+            <value>
+            <b>true</b> - command should create the mask layer with high quality;
+            <b>false</b> - command should create the mask layer with normal quality.<br />
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskCompression">
+            <summary>
+            Gets or sets a compression of mask layer.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Pdf.PdfCompression" />.CcittFax.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.MaskCompressionSettings">
+            <summary>
+            Gets or sets a compression settings of mask layer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.CreateFrontLayer">
+            <summary>
+            Gets or sets a value indicating whether the front layer must be created.
+            </summary>
+            <value>
+            <b>true</b> - the front layer must be created;
+            <b>false</b> - the front layer must not be created.
+            Default value is <b>true</b>.
+            </value>
+            <remarks>
+            Black color is used as text filling color if the front layer is not created.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.HiQualityFrontLayer">
+            <summary>
+            Gets or sets a value indicating whether the command should
+            create the front layer with high quality.
+            </summary>
+            <value>
+            <b>true</b> - command should create the front layer with high quality;
+            <b>false</b> - command should create the front layer with normal quality.<br />
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.FrontLayerCompression">
+            <summary>
+            Gets or sets a compression of front layer.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Pdf.PdfCompression" />.CcittFax.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings.FrontLayerCompressionSettings">
+            <summary>
+            Gets or sets a compression settings of front layer.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder">
+            <summary>
+            Defines an encoder that uses the Mixed Raster Content (MRC) lossy compression
+            for encoding PDF documents.
+            </summary>
+            <remarks>
+            
+            <seealso cref="T:Vintasoft.Imaging.Codecs.Encoders.PdfMrcCompressionSettings" />
+            </remarks>
+            <example>
+            This example shows how to encode images to PDF format using MRC compression:
+            <code lang="VB.NET">
+            Public Shared Sub EncodeImagesUseMrc(images As ImageCollection, pdfFilename As String)
+                ' create PDF MRC encoder
+                Dim encoder As New PdfMrcEncoder()
+            
+                ' set MRC compression settings
+                SetCompressionSettings(encoder.MrcCompressionSettings)
+            
+                ' save images to PDF use MRC compression
+                images.SaveSync(pdfFilename, encoder)
+            End Sub
+            
+            Private Shared Sub SetCompressionSettings(settings As PdfMrcCompressionSettings)
+                ' background layer
+                settings.CreateBackgroundLayer = True
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 35
+            
+                ' images layer, images placed to background layer
+                settings.ImageSegmentation = New ImageSegmentationCommand()
+                settings.CreateImagesLayer = False
+            
+                ' mask layer
+                settings.HiQualityMask = True
+                settings.MaskCompression = PdfCompression.Jbig2
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = True
+            
+                ' front layer
+                settings.CreateFrontLayer = True
+                settings.HiQualityFrontLayer = True
+                settings.FrontLayerCompression = PdfCompression.Jpeg Or PdfCompression.Zip
+                settings.FrontLayerCompressionSettings.JpegQuality = 25
+            End Sub
+            </code>
+            <code lang="C#">
+            public static void EncodeImagesUseMrc(ImageCollection images, string pdfFilename)
+            {
+                // create PDF MRC encoder
+                PdfMrcEncoder encoder = new PdfMrcEncoder();
+                
+                // set MRC compression settings
+                SetCompressionSettings(encoder.MrcCompressionSettings);
+                
+                // save images to PDF use MRC compression
+                images.SaveSync(pdfFilename, encoder);
+            }
+            
+            private static void SetCompressionSettings(PdfMrcCompressionSettings settings)
+            {
+                // background layer
+                settings.CreateBackgroundLayer = true;
+                settings.BackgroundLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.BackgroundLayerCompressionSettings.JpegQuality = 35;
+            
+                // images layer, images placed to background layer
+                settings.ImageSegmentation = new ImageSegmentationCommand();
+                settings.CreateImagesLayer = false;
+            
+                // mask layer
+                settings.HiQualityMask = true;
+                settings.MaskCompression = PdfCompression.Jbig2;
+                settings.MaskCompressionSettings.Jbig2Settings.Lossy = true;
+            
+                // front layer
+                settings.CreateFrontLayer = true;
+                settings.HiQualityFrontLayer = true;
+                settings.FrontLayerCompression = PdfCompression.Jpeg | PdfCompression.Zip;
+                settings.FrontLayerCompressionSettings.JpegQuality = 25;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder.EncodeAndDrawImage(Vintasoft.Imaging.Pdf.PdfDocument,Vintasoft.Imaging.Pdf.Drawing.PdfGraphics,Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Encodes an image using the current encoder settings and draws 
+            image on specified <see cref="T:Vintasoft.Imaging.Pdf.Drawing.PdfGraphics" />.
+            </summary>
+            <param name="document">PDF document which will contain an image.</param>
+            <param name="pageGraphics">PDF graphics.</param>
+            <param name="image">Image to encode.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            PDF graphics will draw image in rectangle (x:0; y:0; width:1; height:1).
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder.NeedEncodePage(Vintasoft.Imaging.Pdf.Tree.PdfPage,Vintasoft.Imaging.Pdf.PdfCompression,Vintasoft.Imaging.Pdf.PdfCompressionSettings)">
+            <summary>
+            Determines which action (encode or copy) must be made
+            for adding the page to a PDF document.
+            </summary>
+            <param name="page">PDF page which should be added to PDF document.</param>
+            <param name="compression">Compression which should be used for encoding the page.</param>
+            <param name="compressionSettings">Compression settings
+            which should be used for encoding the page.</param>
+            <returns>
+            <b>true</b> - PDF page must be encoded with specified encoding settings and
+            added to a PDF document;
+            <b>false</b> - PDF page must be copied as is (not encoded) to a PDF document.
+            </returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder.EncodeRasterImagesOnly">
+            <summary>
+            Gets or sets a value indicating whether MRC compression applies only to raster images.
+            </summary>
+            <value>
+            <b>true</b> - MRC compression must be applied to raster images only;
+            <b>false</b> - MRC compression must be applied to any image (raster or vector).<br />
+            Default value is <b>true</b>.
+            </value>
+            <remarks>
+            Image is raster image when: (Image is not PDF page) OR (PDF page is Image-Only page).
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Pdf.Tree.PdfPage.IsImageOnly" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.PdfMrcEncoder.MrcCompressionSettings">
+            <summary>
+            Gets or sets a MRC compression settings.
+            </summary>
+        </member>
+        </members>
+</doc>

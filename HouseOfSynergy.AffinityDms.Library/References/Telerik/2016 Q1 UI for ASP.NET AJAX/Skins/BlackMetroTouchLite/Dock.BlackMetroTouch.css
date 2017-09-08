@@ -1,0 +1,24 @@
+.RadDock_BlackMetroTouch {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #333333;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  /* Remove rounded corners */ }
+  .RadDock_BlackMetroTouch.rdRoundedCorner, .RadDock_BlackMetroTouch.rdRoundedCorner div.rdTitleWrapper, .RadDock_BlackMetroTouch.rdRoundedCorner div.rdContentWrapper, .RadDock_BlackMetroTouch.RadDock.rdCollapsed {
+    border-radius: 0; }
+  .RadDock_BlackMetroTouch div.rdTitleWrapper {
+    border-bottom-color: #333333;
+    min-height: 2em; }
+  .RadDock_BlackMetroTouch .rdTitleWrapper .rdTitle {
+    color: #ffffff;
+    font-size: 1.375em; }
+  .RadDock_BlackMetroTouch .rdContentWrapper {
+    background-color: #000000;
+    color: #ffffff; }
+  .RadDock_BlackMetroTouch.RadDock.rdCollapsed .rdTitleWrapper {
+    border-bottom-color: #333333; }
+  .RadDock_BlackMetroTouch .rdCommandButton:before {
+    color: #ffffff; }
+  .RadDock_BlackMetroTouch .rdCommandButton:hover:before {
+    color: #0082cc; }
+

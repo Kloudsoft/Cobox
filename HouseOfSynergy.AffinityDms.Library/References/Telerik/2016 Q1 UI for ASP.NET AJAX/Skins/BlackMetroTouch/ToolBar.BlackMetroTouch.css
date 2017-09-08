@@ -1,0 +1,93 @@
+.RadToolBar_BlackMetroTouch {
+  color: #ffffff;
+  background-color: #222222;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 100; }
+  .RadToolBar_BlackMetroTouch .rtbOuter {
+    padding: 0;
+    border-color: #4e4e4e;
+    background-color: #222222; }
+  .RadToolBar_BlackMetroTouch .rtbWrap {
+    padding: 2px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    *color: #ffffff; }
+  .RadToolBar_BlackMetroTouch .rtbOut, .RadToolBar_BlackMetroTouch .rtbMid, .RadToolBar_BlackMetroTouch .rtbIn {
+    padding: 0; }
+  .RadToolBar_BlackMetroTouch .rtbText, .RadToolBar_BlackMetroTouch .templateText {
+    padding: 0 5px; }
+  .RadToolBar_BlackMetroTouch .rtbChoiceArrow {
+    width: 18px;
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -16px -65px; }
+  .RadToolBar_BlackMetroTouch .rtbItemHovered .rtbWrap {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadToolBar_BlackMetroTouch .rtbChecked .rtbWrap, .RadToolBar_BlackMetroTouch .rtbItemClicked .rtbWrap {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadToolBar_BlackMetroTouch .rtbSplBtnExpanded .rtbWrap, .RadToolBar_BlackMetroTouch .rtbDropDownExpanded .rtbWrap {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadToolBar_BlackMetroTouch .rtbItemFocused .rtbWrap {
+    border-color: #0082cc;
+    box-shadow: 0 0 3px 1px #0082cc inset; }
+  .RadToolBar_BlackMetroTouch .rtbSeparator {
+    border-width: 0;
+    background-color: #4e4e4e; }
+
+.RadToolBar_BlackMetroTouch_Horizontal .rtbItem {
+  margin-left: 0; }
+.RadToolBar_BlackMetroTouch_Horizontal .rtbSeparator + .rtbItem {
+  margin-left: 3px; }
+.RadToolBar_BlackMetroTouch_Horizontal .rtbSeparator {
+  margin-left: 3px; }
+
+.RadToolBar_BlackMetroTouch_Vertical .rtbItem {
+  margin-top: 0; }
+.RadToolBar_BlackMetroTouch_Vertical .rtbSeparator + .rtbItem {
+  margin-top: 3px; }
+.RadToolBar_BlackMetroTouch_Vertical .rtbSeparator {
+  margin-top: 3px; }
+
+.RadToolBarDropDown_BlackMetroTouch {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 16px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-weight: 100; }
+  .RadToolBarDropDown_BlackMetroTouch.rtbNoBackground {
+    border-width: 1px;
+    background-color: #000000; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbWrap, .RadToolBarDropDown_BlackMetroTouch .rtbTemplate {
+    line-height: 34px; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbWrap {
+    *color: #ffffff; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbItemHovered .rtbWrap {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbItemClicked .rtbWrap {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbIcon {
+    top: 3px;
+    left: 3px; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbIcon {
+    top: 10px; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbShadows, .RadToolBarDropDown_BlackMetroTouch .rtbRoundedCorners {
+    padding: 0; }
+  .RadToolBarDropDown_BlackMetroTouch .rtbTopLeft, .RadToolBarDropDown_BlackMetroTouch .rtbTopRight, .RadToolBarDropDown_BlackMetroTouch .rtbBottomLeft, .RadToolBarDropDown_BlackMetroTouch .rtbBottomRight, .RadToolBarDropDown_BlackMetroTouch .rtbTopFix, .RadToolBarDropDown_BlackMetroTouch .rtbBottomFix, .RadToolBarDropDown_BlackMetroTouch .rtbTopShadowLeft, .RadToolBarDropDown_BlackMetroTouch .rtbTopShadowRight, .RadToolBarDropDown_BlackMetroTouch .rtbBottomShadowLeft, .RadToolBarDropDown_BlackMetroTouch .rtbBottomShadowRight {
+    display: none; }
+
+.RadToolBar_BlackMetroTouch_rtl .rtbSplBtn .rtbChoiceArrow {
+  border-right: 1px solid #4e4e4e;
+  border-left: 0; }

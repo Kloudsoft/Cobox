@@ -1,0 +1,93 @@
+.RadDock_BlackMetroTouch {
+  /* Right to left support */ }
+  .RadDock_BlackMetroTouch div.rdContent {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 22px; }
+  .RadDock_BlackMetroTouch tr.rdTop .rdLeft,
+  .RadDock_BlackMetroTouch tr.rdTop .rdCenter,
+  .RadDock_BlackMetroTouch tr.rdTop .rdRight {
+    height: 50px;
+    background-color: black !important;
+    border-top: 1px solid #4e4e4e;
+    border-bottom: 1px solid #4e4e4e; }
+  .RadDock_BlackMetroTouch .rdTop .rdLeft,
+  .RadDock_BlackMetroTouch .rdMiddle .rdLeft,
+  .RadDock_BlackMetroTouch .rdBottom .rdLeft {
+    border-left: 1px solid #4e4e4e; }
+  .RadDock_BlackMetroTouch .rdTop .rdRight,
+  .RadDock_BlackMetroTouch .rdMiddle .rdRight,
+  .RadDock_BlackMetroTouch .rdBottom .rdRight {
+    border-right: 1px solid #4e4e4e; }
+  .RadDock_BlackMetroTouch .rdBottom .rdCenter,
+  .RadDock_BlackMetroTouch .rdBottom .rdLeft,
+  .RadDock_BlackMetroTouch .rdBottom .rdRight {
+    border-bottom: 1px solid #4e4e4e; }
+  .RadDock_BlackMetroTouch div.rdTitleBar em {
+    font-size: 22px;
+    line-height: 46px;
+    color: white;
+    padding: 0 0 0 5px; }
+  .RadDock_BlackMetroTouch .rdMiddle .rdCenter,
+  .RadDock_BlackMetroTouch .rdMiddle .rdLeft,
+  .RadDock_BlackMetroTouch .rdMiddle .rdRight,
+  .RadDock_BlackMetroTouch .rdBottom .rdCenter,
+  .RadDock_BlackMetroTouch .rdBottom .rdLeft,
+  .RadDock_BlackMetroTouch .rdBottom .rdRight {
+    background-color: black; }
+  .RadDock_BlackMetroTouch .rdContent,
+  .RadDock_BlackMetroTouch .rdTitleBar em {
+    color: white; }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands li {
+    margin: 5px 6px 0 0; }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a span {
+    background-image: url('Common/radActionsSprite.png'); }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a,
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a span {
+    width: 28px;
+    height: 28px; }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a {
+    border: 1px solid transparent; }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a:hover {
+    border-radius: 45px;
+    border: 1px solid #4e4e4e;
+    background-color: #222222;
+    cursor: pointer; }
+  .RadDock_BlackMetroTouch td.rdCenter .rdCommands a:hover span {
+    cursor: pointer; }
+  .RadDock_BlackMetroTouch .rdCommands span,
+  .RadDock_BlackMetroTouch span.rdExpand,
+  .RadDock_BlackMetroTouch span.rdExpand:hover {
+    background-position: -11px -61px; }
+  .RadDock_BlackMetroTouch span.rdCollapse,
+  .RadDock_BlackMetroTouch span.rdCollapse:hover {
+    background-position: -11px -11px; }
+  .RadDock_BlackMetroTouch span.rdCustom,
+  .RadDock_BlackMetroTouch span.rdCustom:hover {
+    background-position: -11px -2511px; }
+  .RadDock_BlackMetroTouch span.rdClose,
+  .RadDock_BlackMetroTouch span.rdClose:hover {
+    background-position: -11px -1911px; }
+  .RadDock_BlackMetroTouch span.rdPin,
+  .RadDock_BlackMetroTouch span.rdPin:hover {
+    background-position: -11px -1211px; }
+  .RadDock_BlackMetroTouch span.rdUnpin,
+  .RadDock_BlackMetroTouch span.rdUnpin:hover {
+    background-position: -11px -1261px; }
+  .RadDock_BlackMetroTouch.RadDock.rdCollapsed {
+    height: 50px !important; }
+  .RadDock_BlackMetroTouch.rdRtl .rdTop .rdLeft,
+  .RadDock_BlackMetroTouch.rdRtl .rdMiddle .rdLeft,
+  .RadDock_BlackMetroTouch.rdRtl .rdBottom .rdLeft {
+    border-left: 0;
+    border-right: 1px solid #4e4e4e; }
+  .RadDock_BlackMetroTouch.rdRtl .rdTop .rdRight,
+  .RadDock_BlackMetroTouch.rdRtl .rdMiddle .rdRight,
+  .RadDock_BlackMetroTouch.rdRtl .rdBottom .rdRight {
+    border-right: 0;
+    border-left: 1px solid #4e4e4e; }
+
+.BlackMetroTouchRouneded,
+.BlackMetroTouchRouneded .rdTable {
+  border-radius: 5px; }
+

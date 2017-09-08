@@ -1,0 +1,80 @@
+.RadRating_BlackMetroTouch {
+  /*Rating item*/
+  /* Fix for mobile Safari - iPhone/iPad */
+  /*The SPAN element represents the selected part of the item*/
+  /*Hover state*/
+  /*selected star*/
+  /*Reversed direction*/
+  /*The SPAN element represents the unselected part of the reveresed item*/
+  /*selected star*/
+  /*Selected/not selected parts in mode Precision!=Item*/ }
+  .RadRating_BlackMetroTouch a,
+  .RadRating_BlackMetroTouch a span {
+    background-image: url('Rating/Sprite.png'); }
+  .RadRating_BlackMetroTouch li a {
+    width: 26px;
+    height: 26px;
+    /*text-align:center;indentation in RTL and right-aligned mode*/
+    margin: 1px;
+    background-position: 0 0; }
+  .RadRating_BlackMetroTouch ._Telerik_MobileSafari li a {
+    width: 25px;
+    height: 25px; }
+  .RadRating_BlackMetroTouch li a span {
+    width: 0px;
+    height: 26px;
+    background-position: -26px 0; }
+  .RadRating_BlackMetroTouch ul.rrtVertical a span {
+    width: 26px;
+    height: 0px; }
+  .RadRating_BlackMetroTouch li.rrtOver a {
+    background-position: -26px -26px; }
+  .RadRating_BlackMetroTouch li.rrtOver a span {
+    background-position: -26px -52px; }
+  .RadRating_BlackMetroTouch li.rrtSelected a span {
+    width: 26px;
+    height: 26px; }
+  .RadRating_BlackMetroTouch ul.rrtReversed a span {
+    width: 26px;
+    height: 26px;
+    background-position: 0 0; }
+  .RadRating_BlackMetroTouch ul.rrtReversed .rrtSelected a span {
+    width: 0px; }
+  .RadRating_BlackMetroTouch ul.rrtVertical.rrtReversed .rrtSelected a span {
+    width: 26px;
+    height: 0px; }
+  .RadRating_BlackMetroTouch ul.rrtReversed .rrtOver a span {
+    background-position: -26px -26px; }
+  .RadRating_BlackMetroTouch ul.rrtReversed .rrtSelected a {
+    background-position: right top; }
+  .RadRating_BlackMetroTouch ul.rrtReversed .rrtSelected.rrtOver a {
+    background-position: right bottom; }
+  .RadRating_BlackMetroTouch ul li span.rrtPart {
+    background-position: -26px -52px;
+    margin-top: -26px; }
+  .RadRating_BlackMetroTouch ul li span.rrtPartComplement {
+    background-position: -26px -26px;
+    margin-top: -26px; }
+  .RadRating_BlackMetroTouch ul.rrtReversed li span.rrtPart {
+    background-position: right -26px; }
+  .RadRating_BlackMetroTouch ul.rrtReversed li span.rrtPartComplement {
+    background-position: right bottom; }
+  .RadRating_BlackMetroTouch ul.rrtReversed.rrtVertical li span.rrtPart {
+    background-position: left bottom; }
+  @media print {
+    .RadRating_BlackMetroTouch ul a:before,
+    .RadRating_BlackMetroTouch ul a span:before {
+      content: url('Rating/Sprite.png');
+      width: 26px;
+      height: 26px; }
+    .RadRating_BlackMetroTouch li.rrtSelected a span:before,
+    .RadRating_BlackMetroTouch .rrtReversed.rrtExact .rrtSelected a:before,
+    .RadRating_BlackMetroTouch .rrtReversed.rrtExact .rrtSelected ~ .rrtSelected a span,
+    .RadRating_BlackMetroTouch .rrtReversed.rrtExact .rrtSelected ~ .rrtSelected a span:before,
+    .RadRating_BlackMetroTouch .rrtReversed.rrtExact .rrtSelected ~ .rrtSelected a:before {
+      text-indent: -26px; }
+    .RadRating_BlackMetroTouch ul.rrtReversed li.rrtSelected a span,
+    .RadRating_BlackMetroTouch ul.rrtVertical.rrtReversed li.rrtSelected a span {
+      width: 26px;
+      height: 26px; } }
+

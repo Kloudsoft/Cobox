@@ -1,0 +1,41 @@
+.RadFilter_Black {
+  font: 14px "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadFilter_Black,
+  .RadFilter_Black a,
+  .RadFilter_Black .rfText,
+  .RadFilter_Black .rfApply input {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #ffffff; }
+  .RadFilter_Black .rfMid,
+  .RadFilter_Black .rfTools {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020202', endColorstr='#060606',GradientType=0 );
+    background-image: linear-gradient(to top, #020202, #060606 50%, #262628 51%, #5f5f5f);
+    border-color: #0e0e0e; }
+  .RadFilter_Black .rfField {
+    color: #a6a6a6; }
+  .RadFilter_Black .rfOper:hover,
+  .RadFilter_Black .rfField:hover,
+  .RadFilter_Black .rfExp:hover,
+  .RadFilter_Black .rfOper:focus,
+  .RadFilter_Black .rfField:focus,
+  .RadFilter_Black .rfExp:focus,
+  .RadFilter_Black .rfOper:active,
+  .RadFilter_Black .rfField:active,
+  .RadFilter_Black .rfExp:active {
+    color: #9eda29; }
+  .RadFilter_Black .rfText {
+    border-color: #080808;
+    background-color: #444444; }
+  .RadFilter_Black .rfPreview strong {
+    color: #9eda29; }
+  .RadFilter_Black .rfPreview em, .RadFilter_Black .rfPreview .rfBr {
+    color: #f98d00; }
+  .RadFilter_Black .rfApply a,
+  .RadFilter_Black .rfApply span {
+    background-color: #181818;
+    background-image: linear-gradient(to top, #181818, #313131 50%, #474747 51%, #7e7e7e);
+    border-color: #080808; }
+  .RadFilter_Black .rfLast .rfDiv:after,
+  .RadFilter_Black .rfLines li li:before,
+  .RadFilter_Black .rfLines li li .rfDiv:before {
+    border-color: #6b6b6b; }

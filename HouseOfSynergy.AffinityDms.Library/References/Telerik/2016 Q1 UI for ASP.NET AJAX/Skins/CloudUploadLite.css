@@ -1,0 +1,295 @@
+.RadCloudUpload .rcuInfoPanel, .RadCloudUpload .rcuHeader,
+.RadCloudUpload .rcuBody {
+  *zoom: 1; }
+  .RadCloudUpload .rcuInfoPanel:after, .RadCloudUpload .rcuHeader:after,
+  .RadCloudUpload .rcuBody:after {
+    content: "";
+    height: 0;
+    clear: both;
+    display: block; }
+
+.RadCloudUpload {
+  position: relative;
+  line-height: 1.42857143; }
+  .RadCloudUpload .rcuHidden {
+    display: none !important; }
+  .RadCloudUpload .rcuButton {
+    position: relative;
+    height: 1.42857143em;
+    margin: 0;
+    padding: 4px 24px;
+    font: inherit;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    vertical-align: top;
+    white-space: nowrap;
+    outline: none;
+    cursor: pointer; }
+    .RadCloudUpload .rcuButton::-moz-focus-inner {
+      margin: 0;
+      padding: 0;
+      border: 0; }
+  .RadCloudUpload .rcuFileWrap {
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    zoom: 1; }
+  .RadCloudUpload .rcuFileInput {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font: 100px monospace;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 1;
+    cursor: pointer; }
+  .RadCloudUpload .rcuInfoPanel {
+    position: relative;
+    min-width: 470px;
+    margin-top: 10px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden; }
+  .RadCloudUpload .rcuHeader,
+  .RadCloudUpload .rcuBody {
+    margin: 0;
+    position: relative; }
+  .RadCloudUpload .rcuHeader {
+    padding: 10px;
+    position: relative; }
+    .RadCloudUpload .rcuHeader .rcuHeaderText {
+      font-size: 1.3em;
+      line-height: 1.20879121; }
+    .RadCloudUpload .rcuHeader .rcuToggleButton {
+      width: 1.14285714em;
+      height: 1.14285714em;
+      box-sizing: content-box;
+      font-size: 1em;
+      padding: 2px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 10px;
+      margin: auto; }
+      .RadCloudUpload .rcuHeader .rcuToggleButton .rcuButtonText {
+        display: none; }
+  .RadCloudUpload .rcuBody {
+    padding: 5px;
+    padding-top: 0;
+    border-top-width: 1px;
+    border-top-style: solid; }
+  .RadCloudUpload .rcuBodyScroll {
+    overflow: auto;
+    position: relative; }
+  .RadCloudUpload .rcuFileList {
+    margin: 5px 0 0;
+    border-width: 1px;
+    border-style: solid; }
+  .RadCloudUpload .rcuList {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 4px;
+    list-style: none; }
+  .RadCloudUpload .rcuLI {
+    position: relative;
+    padding-left: 22px; }
+    .RadCloudUpload .rcuLI:after {
+      content: "";
+      display: block;
+      clear: both; }
+    .RadCloudUpload .rcuLI:first-child {
+      margin-top: 0; }
+    .RadCloudUpload .rcuLI > .radIcon,
+    .RadCloudUpload .rcuLI .rcuFileName,
+    .RadCloudUpload .rcuLI .rcuFileSize {
+      float: left; }
+  .RadCloudUpload .rcuFileName,
+  .RadCloudUpload .rcuFileSize {
+    padding: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .RadCloudUpload .rcuFileName {
+    width: 20%;
+    min-width: 150px; }
+  .RadCloudUpload .rcuFileSize {
+    width: 90px; }
+  .RadCloudUpload span.rcuProgressBar {
+    position: relative;
+    top: 0.65em;
+    display: block;
+    height: 8px;
+    margin-right: 90px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden; }
+  .RadCloudUpload .rcuProgress {
+    height: 100%;
+    text-indent: -999em;
+    display: block;
+    overflow: hidden;
+    background-repeat: repeat-x;
+    transition: all 0.2s ease-in-out; }
+  .RadCloudUpload .rcuIndetermined {
+    text-indent: -999em;
+    background-repeat: repeat-x; }
+  .RadCloudUpload .rcuButtons {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    margin-top: -0.71428571em;
+    white-space: nowrap; }
+    .RadCloudUpload .rcuButtons .rcuButton,
+    .RadCloudUpload .rcuButtons .rcuFakeButton {
+      height: 1.42857143em;
+      margin-left: 10px;
+      padding: 0 0 0 16px;
+      border: 0;
+      background: none; }
+    .RadCloudUpload .rcuButtons .rcuFakeButton {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer; }
+    .RadCloudUpload .rcuButtons .radIcon {
+      left: 8px; }
+    .RadCloudUpload .rcuButtons .rcuButtonText {
+      margin-left: 4px; }
+  .RadCloudUpload .radIcon {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    font-size: 16px;
+    font-family: TelerikWebUI;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: top;
+    text-align: center; }
+    .RadCloudUpload .radIcon:before {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%; }
+  .RadCloudUpload .rcuIconCollapse:before {
+    content: "\E001"; }
+  .RadCloudUpload .rcuIconExpand:before {
+    content: "\E002"; }
+  .RadCloudUpload .radIcon.rcuStatusIcon {
+    left: 10px;
+    font-weight: bold; }
+  .RadCloudUpload .rcuLIUploading .rcuStatusIcon:before {
+    background-repeat: no-repeat;
+    background-position: center; }
+  .RadCloudUpload .rcuLIPending .rcuStatusIcon:before {
+    content: "\E0C6";
+    color: #f9c53a;
+    font-weight: normal; }
+  .RadCloudUpload .rcuLISucceeded .rcuStatusIcon:before {
+    content: "\E037";
+    color: #94e100; }
+  .RadCloudUpload .rcuLIFailed .rcuStatusIcon:before {
+    content: "\E038";
+    color: #d02200; }
+  .RadCloudUpload .rcuRemoveButton .radIcon:before {
+    content: "\E0C3"; }
+  .RadCloudUpload .rcuCancelButton .radIcon:before {
+    content: "\E036"; }
+  .RadCloudUpload .rcuFakeButton .radIcon:before {
+    content: "\E0F9"; }
+  .RadCloudUpload .rcuErrorNotification {
+    display: block;
+    position: relative;
+    top: 5px;
+    margin-right: 11em;
+    color: #d51923;
+    font-size: 0.9em;
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .RadCloudUpload .rcuProgressIcon {
+    position: static;
+    margin: 0.14285714em 0.28571429em 0em 0em; }
+  .RadCloudUpload .rcuDropZone {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    bottom: -6px;
+    left: -6px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid; }
+    .RadCloudUpload .rcuDropZone .rcuDropZoneInner {
+      display: block;
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      text-transform: uppercase; }
+    .RadCloudUpload .rcuDropZone .rcuDropZoneText {
+      vertical-align: middle; }
+    .RadCloudUpload .rcuDropZone .radIcon {
+      position: static;
+      margin: 0 5px 0 0;
+      vertical-align: middle; }
+      .RadCloudUpload .rcuDropZone .radIcon:before {
+        content: "\E0B3"; }
+
+.RadCloudUpload .radHideButtonText.rcuInfoPanel {
+  min-width: 410px; }
+
+.RadCloudUpload .radHideButtonText .rcuProgressBar {
+  margin-right: 60px;
+  margin-bottom: -19px; }
+
+.RadCloudUpload .radHideButtonText .rcuButtons .rcuButtonText {
+  display: none; }
+
+.RadCloudUpload .radHideButtonText .rcuErrorNotification {
+  margin-right: 70px; }
+
+.RadCloudUpload.RadCloudUploadSeparated .rcuDropZone {
+  top: -7px; }
+
+.RadCloudUpload.rcuDisabled {
+  filter: alpha(opacity=60);
+  opacity: .6; }
+
+.rcuToolTip {
+  display: block;
+  position: absolute;
+  padding: 4px 10px;
+  background-color: #fff;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  box-sizing: content-box; }
+  @media \0screen {
+    .rcuToolTip {
+      border: 1px solid #ccc; } }
+  .rcuToolTip.rcuHidden {
+    display: none !important; }
+  .rcuToolTip:before {
+    content: "\E005";
+    color: #fff;
+    font-size: 24px;
+    line-height: 24px;
+    font-family: TelerikWebUI;
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.2); }

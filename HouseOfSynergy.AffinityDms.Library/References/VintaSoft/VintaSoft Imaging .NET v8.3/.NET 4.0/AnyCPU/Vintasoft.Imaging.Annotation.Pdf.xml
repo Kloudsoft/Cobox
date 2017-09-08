@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Annotation.Pdf</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Annotation.Pdf.AnnotationConverter">
+            <summary>
+            Converter that converts the Vintasoft annotations to the PDF annotations.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Pdf.AnnotationConverter.ConvertToPdfAnnotations(System.IO.Stream,Vintasoft.Imaging.Resolution,Vintasoft.Imaging.Pdf.Tree.PdfPage)">
+            <summary>
+            Converts the serialized Vintasoft annotations to the PDF annotations.
+            </summary>
+            <param name="stream">The stream that contains serialized Vintasoft annotations.</param>
+            <param name="imageResolution">The resolution of an image with annotations.</param>
+            <param name="page">The parent PDF page of new annotations.</param>
+            <returns>An array of PDF annotations.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Annotation.Pdf.AnnotationConverter.ConvertToPdfAnnotations(Vintasoft.Imaging.Annotation.AnnotationDataCollection,Vintasoft.Imaging.Resolution,Vintasoft.Imaging.Pdf.Tree.PdfPage)">
+            <summary>
+            Converts the Vintasoft annotations to the PDF annotations.
+            </summary>
+            <param name="annotations">The collection that contains Vintasoft annotations.</param>
+            <param name="page">The parent PDF page of new annotations.</param>
+            <param name="imageResolution">The resolution of an image with annotations.</param>
+            <returns>An array of PDF annotations.</returns>
+        </member>
+        </members>
+</doc>

@@ -1,0 +1,552 @@
+/* ImageEditor Base Stylesheet */
+.RadImageEditor {
+  position: relative;
+  border: 1px solid;
+  padding: 5px;
+  font-size: 12px;
+  font-family: "Segoe UI" , Arial, Helvetica, sans-serif;
+  outline: none; }
+
+.RadImageEditor,
+.RadImageEditor * {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box; }
+
+.rieContentArea {
+  clear: both;
+  overflow: auto;
+  background: url('Common/ImageEditor/rieContentArea.gif');
+  border: 1px solid;
+  box-sizing: border-box; }
+
+.rieContentArea img {
+  -webkit-user-select: none;
+  -moz-user-select: none; }
+
+.rieStatusBar {
+  position: relative;
+  height: 22px;
+  line-height: 22px;
+  padding: 4px 0 0; }
+
+.rieStatusBarInfo .rieLabel {
+  padding: 0 2px; }
+
+.rieStatusBarInfo span {
+  padding: 0 14px 0 2px; }
+
+.rieStatusBarInfo span span {
+  padding: 0 2px; }
+
+.rieNoStatusBar .rieStatusBar {
+  height: 12px;
+  height: 12px;
+  line-height: 12px;
+  padding: 0; }
+
+.rieNoStatusBar .rieResizeHandle {
+  width: 11px;
+  height: 13px;
+  right: -1px;
+  top: 0;
+  background-position: -384px -1px; }
+
+.rieResizeHandle {
+  width: 14px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: -2px;
+  top: 13px;
+  background-position: -386px -1px;
+  cursor: se-resize; }
+
+/* Dialogs */
+div.rieDialogs div.rdContent {
+  overflow: visible !important;
+  /* the color picker in the PERO: added !important */ }
+
+.rieDialogsTable {
+  width: 100%;
+  margin: 5px auto; }
+
+.rieDialogsTable td {
+  padding: 3px; }
+
+.rieRightAligned {
+  text-align: right; }
+
+.rieDialogsTable .rieClearRightSpace {
+  padding: px2em(3px 0 3px 3px, 12); }
+
+.rieDialogs .rfdRoundedWrapper .rfdRoundedContent {
+  width: auto; }
+
+.rieDialogs .rfdRoundedWrapper .rfdRoundedContent textarea {
+  width: 240px; }
+
+.rieDialogs .rfdRoundedContent .rieDialogInput.rfdDecorated[type="text"],
+.rieDialogs .rieDialogInput.rfdDecorated.rfdRoundedCorners[type="text"] {
+  width: 97%; }
+
+.rieDialogs .rfdRoundedContent .rieDialogInputBtn.rfdDecorated[type="text"],
+.rieDialogs .rieDialogInputBtn.rfdDecorated.rfdRoundedCorners[type="text"] {
+  width: 125px; }
+
+.rieDialogs .rfdRoundedContent .rieInputDigits.rfdDecorated[type="text"],
+.rieDialogs .rieInputDigits.rfdDecorated.rfdRoundedCorners[type="text"] {
+  width: 35px; }
+
+.rieDialogs .rfdRoundedContent .rieInputHex.rfdDecorated[type="text"],
+.rieDialogs .rieInputHex.rfdDecorated.rfdRoundedCorners[type="text"] {
+  width: 50px; }
+
+.rieDialogs .rieCombo {
+  width: 100%; }
+
+.rieDialogs .rieComboCombo {
+  width: 65px; }
+
+@media \0screen {
+  .rieDialogs .rieCombo {
+    width: 170px !important; }
+  .rieDialogs .RadComboBox {
+    width: 133px !important; } }
+
+.rieResizeButtons {
+  width: 70px;
+  height: 38px;
+  margin: 5px 0 0;
+  padding: 7px 0 0 0;
+  background: url('Common/ImageEditor/rieResizeBgr.gif') -1px 0 no-repeat; }
+
+.rieClearResizeButtons {
+  position: static;
+  background-image: none;
+  width: auto;
+  height: auto;
+  padding: 0; }
+
+.rieClearResizeButtons label {
+  padding: 5px 0 0 0;
+  display: inline-block;
+  zoom: 1;
+  *display: inline; }
+
+.rieRiseizeButtons {
+  *left: 167px;
+  *top: 73px; }
+
+.rieDialogsTable .rieBottomCell {
+  border-width: 1px 0 0;
+  border-style: solid;
+  padding: 10px 0 0; }
+
+.rieDialogsTable .rieBottomSpace {
+  padding: 0 0 10px 0; }
+
+.rieInputDimension {
+  width: 68px; }
+
+.riePxLabel {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  padding: 2px 0 0 2px; }
+
+.rieColorPicker {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle; }
+
+.rieDialogsTable textarea {
+  width: 98%;
+  *width: 240px;
+  resize: none;
+  line-height: 1.2; }
+
+.rieDialogsTable .rieFileName {
+  padding-left: 24px; }
+
+.rieDialogsTable .rieFileName label {
+  vertical-align: middle; }
+
+.rieDialogsTable .rieOverwriteFile {
+  padding: 1px 3px 3px 0; }
+
+.rieDialogsTable .rieColorValue .rfdDecorated {
+  vertical-align: top; }
+
+.rieDialogsTable .RadButton,
+.rieDialogsTable .rcpIcon {
+  margin: 0 2px; }
+
+.rieDialogsTable .RadButton {
+  vertical-align: middle; }
+
+.rieResizeButtons .RadButton {
+  margin: 0 2px 0 0; }
+
+.rieConstrainBtn {
+  background-position: -320px 0; }
+
+.rieRemoveConstrainBtn {
+  background-position: -335px -1px; }
+
+.rieSwapValues {
+  background-position: -48px -1px; }
+
+.rieActualSize {
+  background-position: -353px -1px; }
+
+.rieBestFit {
+  background-position: -369px -1px; }
+
+.rieRotateRight {
+  background-position: -16px -1px; }
+
+.rieRotateLeft {
+  background-position: -32px -1px; }
+
+/*PERO: FIX IE9 buttons disappear*/
+._Telerik_IE9 .rieDialogsTable .rieZIndex_IE9,
+._Telerik_IE9 .rieToolbarDock.RadDock .rtbIcon,
+._Telerik_IE9 .rieDialogsTable .RadButton,
+._Telerik_IE9 .rieToolbarDock.RadDock .rtbSplBtn {
+  z-index: 1; }
+
+._Telerik_IE9 .RadDockZone .rieToolbarDock.RadDock .rtbIcon {
+  z-index: auto; }
+
+/* Dialog Thumbs */
+.rieDialogsThumbs td {
+  text-align: center;
+  vertical-align: middle;
+  width: 95px;
+  height: 95px;
+  padding: 10px 2px; }
+
+.rieDialogsThumbs td .rieThumbsLink {
+  display: block;
+  width: 90px;
+  height: 90px;
+  padding: 10px 7px 0;
+  margin: auto;
+  text-align: center;
+  border: 1px solid; }
+
+.rieDialogsThumbs td .rieThumbsLink {
+  _margin: 0 0 0 5px; }
+
+.rieDialogsThumbs td .rieThumbsLink img {
+  border: 0;
+  width: 80px;
+  height: 80px; }
+
+/* Dialog table borders */
+.rieDialogsThumbsLeft {
+  border-right: 1px dashed; }
+
+.rieThumbsBottomRow td {
+  border-top: 1px dashed; }
+
+.rieActiveThumbsLink,
+.rieThumbsLink:hover,
+.riePrintContent,
+.riePrintContent img {
+  border: 1px solid; }
+
+/* Dialog table borders end */
+.riePrintContent {
+  text-align: center; }
+
+.riePrintContent img {
+  margin: 15px 0; }
+
+/* Vertical Toolbar */
+div.rieZoneLeft,
+div.rieZoneRight {
+  position: absolute;
+  width: 60px;
+  top: 5px; }
+
+div.rieZoneLeft .rtbWrap,
+div.rieZoneRight .rtbWrap {
+  margin: 0 auto; }
+
+div.rieZoneLeft .rtbSplBtn .rtbChoiceArrow,
+div.rieZoneRight .rtbSplBtn .rtbChoiceArrow {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline; }
+
+div.rieZoneLeft .rtbIcon,
+div.rieZoneRight .rtbIcon {
+  margin-left: 14px; }
+
+div.rieZoneLeft .rtbSplBtn .rtbIcon,
+div.rieZoneRight .rtbSplBtn .rtbIcon {
+  margin-left: auto; }
+
+div.rieZoneLeft {
+  left: 5px; }
+
+div.rieZoneRight {
+  right: 5px; }
+
+div.RadDock div.RadImageEditor {
+  border: 0;
+  padding: 0; }
+
+.rieHighlightHorizontal {
+  height: 30px; }
+
+div.rieDockToolbar {
+  padding-top: 2px; }
+
+.rieDockToolbar .rieZoneTop,
+.rieDockToolbar .rieZoneBottom {
+  margin: auto 5px;
+  z-index: 1; }
+
+.RadImageEditor .rieHighlightVertical,
+.RadImageEditor .rieHighlightHorizontal {
+  border: 1px dashed !important; }
+
+.RadImageEditor .RadToolBar_Vertical .rtbIn {
+  text-align: center; }
+
+.RadImageEditor .RadToolBar_Vertical .rtbText {
+  display: none; }
+
+/* sets top and left to zero and resizing */
+.rieTopLeftZero {
+  top: 0 !important;
+  left: 0 !important; }
+
+div.RadImageEditor div.RadDockZone {
+  padding: 0;
+  border: 0; }
+
+.rieToolbarDock .rdContent {
+  overflow: hidden !important; }
+
+.rieToolbarDock .rdMiddle .rdLeft,
+.rieToolbarDock .rdMiddle .rdRight,
+.rieToolbarDock .rdBottom {
+  display: none; }
+
+/* Hide expand arrow on Undo/Redo */
+.RadToolBar_Vertical .rieUndo .rtbChoiceArrow,
+.RadToolBar_Vertical .rieRedo .rtbChoiceArrow {
+  display: none; }
+
+div.RadToolBar_Vertical .rieUndo .rtbText,
+div.RadToolBar_Vertical .rieRedo .rtbText {
+  width: 17px; }
+
+/* Undo/Redo VerticalToolBar RTL */
+.rieRtl .RadToolBar_Vertical .rieUndo .rtbIcon {
+  left: -142px; }
+
+.rieRtl .RadToolBar_Vertical .rieRedo .rtbIcon {
+  left: -157px; }
+
+/* Rtl Support */
+/* need to set it LTR in order to make callculation */
+.rieRtl .rieContentArea {
+  direction: ltr; }
+
+.rieRtl .RadToolBar_rtl .rtbSplBtn .rtbIcon {
+  margin-left: 22px; }
+
+.rdRtl .rieRightAligned {
+  text-align: left; }
+
+.rieDialogs.rdRtl div.rieResizeButtons {
+  width: 55px;
+  left: 57px;
+  background-position: 45px 0; }
+
+._Telerik_IE9 .rieDialogs.rdRtl div.rieResizeButtons {
+  width: 57px;
+  left: 59px;
+  background-position: 48px 0; }
+
+.rdRtl .rieDialogsThumbsLeft {
+  border-left: 1px dashed;
+  border-right: 0; }
+
+.rdRtl .rieDialogsTable .RadButton {
+  margin-right: auto !important; }
+
+.rieRtl .rieStatusBar {
+  text-align: right; }
+
+.rieRtl .rieResizeHandle {
+  left: -1px;
+  right: auto;
+  top: 13px;
+  background-position: -386px -17px;
+  cursor: sw-resize; }
+
+.rieRtl .rieDialogsTable textarea {
+  text-align: right; }
+
+.rieNoStatusBar.rieRtl .rieResizeHandle {
+  top: 0;
+  background-position: -386px -13px; }
+
+.rieDialogs.rdRtl .rieResizeButtons .RadButton {
+  margin: 0 0 0 2px; }
+
+/* Crop box */
+.rieDraggableResizeBox {
+  position: absolute;
+  border: 1px dashed #333; }
+
+.rieDraggableResizeBox .rieDraggableBoxMove {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+.rieDraggableResizeBox .rieDraggableBoxImage {
+  background-color: transparent;
+  opacity: 1;
+  filter: alpha(opacity=100); }
+
+.rieDraggableResizeBox .rrHandle {
+  font-size: 6px;
+  background: #999; }
+
+/* AddText box */
+.rieDraggableTextBox {
+  position: absolute;
+  border: 1px dashed #333;
+  padding: 0 0px;
+  padding-left: 0;
+  margin: 0; }
+
+.rieDraggableTextBoxContent {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2; }
+
+/* Custom sprite button */
+.RadImageEditor li.rtbItem .rieBackgroundImg .rtbIcon {
+  background-repeat: no-repeat;
+  clip: auto;
+  left: 4px;
+  top: 4px; }
+
+.RadImageEditor li.rtbItem .riePrint.rieBackgroundImg .rtbIcon,
+.RadImageEditor li.rtbItem .rieSave.rieBackgroundImg .rtbIcon {
+  left: 5px; }
+
+.rieCrop {
+  background-position: 1px 0; }
+
+.rieRotateRight {
+  background-position: -16px 0; }
+
+.rieRotateLeft {
+  background-position: -31px 0; }
+
+.rieFlipHorizontal {
+  background-position: -63px 0; }
+
+.rieFlipVertical {
+  background-position: -79px 0; }
+
+.rieFlip {
+  background-position: -95px 0; }
+
+.rieResize {
+  background-position: -112px 0; }
+
+.rieOpen {
+  background-position: -128px 0; }
+
+.rieSave {
+  background-position: -176px 0; }
+
+.riePrint {
+  background-position: -192px 0; }
+
+.rieRotate {
+  background-position: -208px 0; }
+
+.rieZoom {
+  background-position: -223px 0; }
+
+.rieZoomIn {
+  background-position: -239px 0; }
+
+.rieZoomOut {
+  background-position: -255px 0; }
+
+.rieReset {
+  background-position: -271px 0; }
+
+.rieAddText {
+  background-position: -287px 0; }
+
+.rieOpacity {
+  background-position: -303px 0; }
+
+.rieInsertImage {
+  background-position: -400px 0; }
+
+.rieBrightnessContrast {
+  background-position: -416px 0; }
+
+.rieInvertColor {
+  background-position: -433px 0; }
+
+.riePencil {
+  background-position: -544px 0; }
+
+.rieLine {
+  background-position: -480px 0; }
+
+.rieDrawRectangle {
+  background-position: -448px 0; }
+
+.rieDrawCircle {
+  background-position: -465px 0; }
+
+.rieSepia {
+  background-position: -497px 1px; }
+
+.rieGreyscale {
+  background-position: -513px 0; }
+
+.rieHueSaturation {
+  background-position: -529px 0; }
+
+.rieExport {
+  background-position: -560px 0; }
+
+.rieSharpen {
+  background-position: -581px 1px; }
+
+.rieBlur {
+  background-position: -595px 1px; }
+
+/* Custom sprite split button */
+.rieUndo {
+  background-position: -143px 1px; }
+
+.rieRedo {
+  background-position: -159px 1px; }
+
+div.rieOpacityBackground {
+  opacity: 0.5;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0; }

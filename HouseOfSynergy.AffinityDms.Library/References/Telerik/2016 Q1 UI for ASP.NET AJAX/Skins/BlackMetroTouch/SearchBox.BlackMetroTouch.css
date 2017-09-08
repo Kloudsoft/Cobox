@@ -1,0 +1,81 @@
+.RadSearchBox_BlackMetroTouch {
+  width: 210px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 32px; }
+  .RadSearchBox_BlackMetroTouch .rsbInner {
+    height: 32px;
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #000000; }
+  .RadSearchBox_BlackMetroTouch .rsbInput {
+    height: 32px;
+    *line-height: 32px; }
+  .RadSearchBox_BlackMetroTouch .rsbEmptyMessage {
+    color: #555555; }
+  .RadSearchBox_BlackMetroTouch .rsbButton {
+    width: 32px;
+    height: 32px; }
+    .RadSearchBox_BlackMetroTouch .rsbButton:hover {
+      border-color: #25a0da;
+      color: #ffffff;
+      background-color: #25a0da; }
+    .RadSearchBox_BlackMetroTouch .rsbButton:focus {
+      border-color: #0082cc;
+      color: #ffffff;
+      background-color: #0082cc; }
+  .RadSearchBox_BlackMetroTouch .rsbButtonSearch {
+    width: 36px;
+    height: 36px; }
+    .RadSearchBox_BlackMetroTouch .rsbButtonSearch .rsbIcon {
+      width: 18px;
+      height: 18px;
+      background-image: url('Common/radActionsSprite.png');
+      background-position: -16px -4716px; }
+  .RadSearchBox_BlackMetroTouch .rsbSCInner {
+    padding-left: 5px;
+    padding-right: 32px;
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadSearchBox_BlackMetroTouch .rsbSCIcon {
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -17px -1067px;
+    right: 5px; }
+  .RadSearchBox_BlackMetroTouch .rsbSCHovered {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadSearchBox_BlackMetroTouch .rsbSCFocused {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadSearchBox_BlackMetroTouch .rsbSCDisabled {
+    border-color: #2c2c2c;
+    color: #555555;
+    background-color: #000000; }
+  .RadSearchBox_BlackMetroTouch .rsbLoadingIcon {
+    background-image: url('Common/loading_small.gif');
+    margin: 8px; }
+
+.rsbPopup_BlackMetroTouch {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5; }
+  .rsbPopup_BlackMetroTouch .rsbShowAll {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .rsbPopup_BlackMetroTouch .rsbListItemHovered {
+    color: #ffffff;
+    background-color: #25a0da; }
+  .rsbPopup_BlackMetroTouch .rsbListItemSelected {
+    color: #ffffff;
+    background-color: #0082cc; }
+  .rsbPopup_BlackMetroTouch .rsbListItemLoading {
+    color: #ffffff;
+    background-color: #25a0da; }

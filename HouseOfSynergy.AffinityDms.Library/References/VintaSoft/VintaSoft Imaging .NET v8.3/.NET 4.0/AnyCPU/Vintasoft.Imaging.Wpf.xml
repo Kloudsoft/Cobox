@@ -1,0 +1,756 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder">
+            <summary>
+            Defines an decoder for XPS documents.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder" /> class.
+            </summary>
+            <remarks>
+            This constructor is used in <see cref="T:Vintasoft.Imaging.Codecs.Decoders.AvailableDecoders" /> and
+            should not be used in real applications.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder" /> class.
+            </summary>
+            <param name="stream">Stream with the image.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.IsValidFormat(System.IO.Stream)">
+            <summary>
+            Determines that stream contains XPS file.
+            </summary>
+            <param name="stream">Stream with binary data of XPS file.</param>
+            <returns>
+            <b>true</b> if stream contains XPS file;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetImageInfo(System.Int32,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings)">
+            <summary>
+            Returns information about XPS image without loading the image data into memory.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <returns>
+            Information about the image associated with the
+            page of the source image.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetImage(System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image associated with the specified page of the image source.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="renderingSettings">Rendering settings used for rendering the image of page.</param>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>
+            Rendered image associated with the specified page of image source.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetPageMetadata(System.Int32)">
+            <summary>
+            Returns a metadata of specified page of XPS file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>
+            Metadata of specified page of XPS file.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetImage(System.Int32,System.Drawing.RectangleF,System.Single,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs},System.EventHandler{Vintasoft.Imaging.ImageRendering.IntermediateImageRequestEventArgs})">
+            <summary>
+            Returns a scaled rectangle of XPS page.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="rect">Rectangle on source image.</param>
+            <param name="scale">Scale factor.</param>
+            <param name="decodingSettings">Decoding settings.</param>
+            <param name="renderingSettings">Rendering settings.</param>
+            <param name="imageRenderingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="intermediateImageRequest">Delegate for requesting intermediate image.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic)</param>
+            <returns>Scaled rectangle of XPS page.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.DecoderBase" />
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><b>true</b> to release both managed and
+            unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.Name">
+            <summary>
+            Gets the name of the decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.PageCount">
+            <summary>
+            Gets the number of pages in the source image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.IsVectorDecoder">
+            <summary>
+            Gets a value indicating whether the decoder is a vector decoder.
+            </summary>
+            <value>
+            Always return <b>true</b>.
+            </value>
+            <remarks>
+            Rendering settings have effect in
+            <see cref="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetImageInfo(System.Int32,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings)" /><br />
+            <see cref="M:Vintasoft.Imaging.Wpf.Codecs.Decoders.XpsDecoder.GetImage(System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" />
+            methods only for vector decoder.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Codecs.XpsCodec">
+            <summary>
+            Defines a codec for XPS documents.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Codecs.XpsCodec" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.CreateDecoder(System.IO.Stream)">
+            <summary>
+            Creates a new decoder instance for decoding specified stream.
+            </summary>
+            <param name="stream">A stream which should be opened using decoder.</param>
+            <returns>
+            New decoder instance for specified stream.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.CreateDecoder">
+            <summary>
+            Creates a new decoder instance of the codec.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.CreateEncoder">
+            <summary>
+            Creates a new encoder instance of the codec.
+            </summary>
+            <returns>Always returns <b>null</b>.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.CanCreateDecoder">
+            <summary>
+            Gets a value indicating whether codec can create decoder.
+            </summary>
+            <value>
+            Always returns <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Codecs.XpsCodec.CanCreateEncoder">
+            <summary>
+            Gets a value indicating whether codec can create encoder.
+            </summary>
+            <value>
+            Always returns <b>false</b>.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Metadata.XpsMetadata">
+            <summary>
+            Root node of tree which stores metadata of XPS page.
+            </summary>
+            <remarks>
+            This node cannot have child nodes.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Metadata.XpsMetadata.ImageWidth">
+            <summary>
+            Gets the width, in pixels, of image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Metadata.XpsMetadata.ImageHeight">
+            <summary>
+            Gets the height, in pixels, of image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Metadata.XpsMetadata.BitsPerPixel">
+            <summary>
+            Gets the bit depth of image returned by decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Metadata.XpsMetadata.Resolution">
+            <summary>
+            Gets or sets the resolution, in pixels per inch.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform">
+            <summary>
+            Transforms the <see cref="T:System.Windows.Point" /> structure by applying affine matrix transform.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform">
+            <summary>
+            Transforms the <see cref="T:System.Windows.Point" /> structure, for example, by applying affine matrix transform.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.FromMatrix(Vintasoft.Imaging.Utils.AffineMatrix)" />
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.FromCoefficients(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.TransformPoint(System.Windows.Point)">
+            <summary>
+            Transforms the specified point by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" /> and returns the result.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <returns>
+            The result of transforming <i>point</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.TransformPoints(System.Windows.Point[])">
+            <summary>
+            Transforms the specified points by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </summary>
+            <param name="points">The <i>points</i> to transform. 
+            The original points in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.TransformVector(System.Windows.Vector)">
+            <summary>
+            Transforms the specified vector by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </summary>
+            <param name="vector">The vector to transform.</param>
+            <returns>
+            The result of transforming <i>vector</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.TransformVectors(System.Windows.Vector[])">
+            <summary>
+            Transforms the specified vectors by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </summary>
+            <param name="vectors">The <i>vectors</i> to transform. 
+            The original vectors in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.GetInverseTransform">
+            <summary>
+            Gets the inverse transform.
+            </summary>
+            <returns>
+            An instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" /> class
+            that represents an inversion to the current <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </returns>
+            <remarks>
+            Implementations of this method should throw an exception if this transform
+            is not invertible (<see cref="P:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.IsInvertible" /> == <b>false</b>).
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.IsInvertible" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.IsInvertible">
+            <summary>
+            Gets a value indicating whether this transform is invertible.
+            </summary>
+            <value>
+            <b>true</b> if this transform is invertible; otherwise, <b>false</b>.
+            </value>
+            <remarks>
+            Implementations of the <see cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.GetInverseTransform" /> method should throw an exception
+            if this transform is not invertible.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform.GetInverseTransform" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" /> class.
+            </summary>
+            <param name="m11">The M11 coefficient.</param>
+            <param name="m12">The M12 coefficient.</param>
+            <param name="m21">The M21 coefficient.</param>
+            <param name="m22">The M22 coefficient.</param>
+            <param name="offsetX">The OffsetX coefficient.</param>
+            <param name="offsetY">The OffsetY coefficient.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformPoint(System.Windows.Point)">
+            <summary>
+            Transforms the specified point by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" /> and
+            returns the result.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <returns>
+            The result of transforming <i>point</i> by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformPoints(System.Windows.Point[])">
+            <summary>
+            Transforms the specified points by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" />.
+            </summary>
+            <param name="points">The <i>points</i> to transform. 
+            The original points in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformVector(System.Windows.Vector)">
+            <summary>
+            Transforms the specified vector by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" />.
+            </summary>
+            <param name="vector">The vector to transform.</param>
+            <returns>
+            The result of transforming <i>vector</i> by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformVectors(System.Windows.Vector[])">
+            <summary>
+            Transforms the specified vectors by this <see cref="T:Vintasoft.Imaging.Utils.PointFAffineTransform" />.
+            </summary>
+            <param name="vectors">The <i>vectors</i> to transform. 
+            The original vectors in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.GetInverseTransform">
+            <summary>
+            Gets the inverse transform.
+            </summary>
+            <returns>
+            An instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" /> class
+            that represents an inversion to the current <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </returns>
+            <remarks>
+            Implementations of this method should throw an exception if this transform
+            is not invertible (<see cref="P:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.IsInvertible" /> == <b>false</b>).
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.IsInvertible" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.FromCoefficients(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a new point transformation from matrix coefficients.
+            </summary>
+            <param name="m11">The M11 coefficient.</param>
+            <param name="m12">The M12 coefficient.</param>
+            <param name="m21">The M21 coefficient.</param>
+            <param name="m22">The M22 coefficient.</param>
+            <param name="offsetX">The OffsetX coefficient.</param>
+            <param name="offsetY">The OffsetY coefficient.</param>
+            <returns>The point transformation.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.FromMatrix(System.Windows.Media.Matrix)">
+            <summary>
+            Creates a new point transformation from matrix coefficients of affine matrix.
+            </summary>
+            <param name="matrix">The matrix.</param>
+            <returns>The point transformation.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.FromMatrix(Vintasoft.Imaging.Utils.AffineMatrix)">
+            <summary>
+            Creates a new point transformation from matrix coefficients of affine matrix.
+            </summary>
+            <param name="matrix">The affine matrix.</param>
+            <returns>The point transformation.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformPoint(Vintasoft.Imaging.Utils.AffineMatrix,System.Windows.Point)">
+            <summary>
+            Transforms the specified point by the specified <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" /> and
+            returns the result.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <param name="matrix">The matrix that used to transform point.</param>
+            <returns>
+            The result of transforming <i>point</i> by <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformPoints(Vintasoft.Imaging.Utils.AffineMatrix,System.Windows.Point[])">
+            <summary>
+            Transforms the specified points by the specified <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />.
+            </summary>
+            <param name="matrix">The matrix that used to transform points.</param>
+            <param name="points">The <i>points</i> to transform.
+            The original points in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformVector(Vintasoft.Imaging.Utils.AffineMatrix,System.Windows.Vector)">
+            <summary>
+            Transforms the specified vector by the specified <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />.
+            </summary>
+            <param name="matrix">The matrix that used to transform vector.</param>
+            <param name="vector">The vector to transform.</param>
+            <returns>
+            The result of transforming <i>vector</i> by <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.TransformVectors(Vintasoft.Imaging.Utils.AffineMatrix,System.Windows.Vector[])">
+            <summary>
+            Transforms the specified vectors by the specified <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" />.
+            </summary>
+            <param name="matrix">The matrix that used to transform vectors.</param>
+            <param name="vectors">The <i>vectors</i> to transform. 
+            The original vectors in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.IsInvertible">
+            <summary>
+            Gets a value indicating whether this transform is invertible.
+            </summary>
+            <value>
+            <b>true</b> if this transform is invertible; otherwise, <b>false</b>.
+            </value>
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointAffineTransform.GetInverseTransform" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform">
+            <summary>
+            Represents a pair of transform and its inverse transform specified explicitly.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.#ctor(Vintasoft.Imaging.Wpf.Utils.WpfPointTransform,Vintasoft.Imaging.Wpf.Utils.WpfPointTransform)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform" /> class.
+            </summary>
+            <param name="directTransform">The direct transform.</param>
+            <param name="inverseTransform">The inverse transform.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>directTransform</i> or <i>inverseTransform</i> is <b>null</b>.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.TransformPoint(System.Windows.Point)">
+            <summary>
+            Transforms the specified point by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" /> and returns the result.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <returns>
+            The result of transforming <i>point</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.TransformPoints(System.Windows.Point[])">
+            <summary>
+            Transforms the specified points by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="points">The <i>points</i> to transform.
+            The original points in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.TransformVector(System.Windows.Vector)">
+            <summary>
+            Transforms the specified vector by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="vector">The vector to transform.</param>
+            <returns>
+            The result of transforming <i>vector</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.TransformVectors(System.Windows.Vector[])">
+            <summary>
+            Transforms the specified vectors by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="vectors">The <i>vectors</i> to transform.
+            The original vectors in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.GetInverseTransform">
+            <summary>
+            Gets the inverse transform.
+            </summary>
+            <returns>
+            An instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" /> class
+            that represents an inversion to the current <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointTransform" />.
+            </returns>
+            <seealso cref="P:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.IsInvertible" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.IsInvertible">
+            <summary>
+            Gets a value indicating whether this transform is invertible.
+            </summary>
+            <value>
+            Always returns <b>true</b>.
+            </value>
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointInvertibleTransform.GetInverseTransform" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform">
+            <summary>
+            Transforms the PointF structure with primary transform
+            and rounds the result to integer values.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.#ctor(Vintasoft.Imaging.Wpf.Utils.WpfPointTransform)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform" /> class.
+            </summary>
+            <param name="primaryTransform">The primary transform.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>primaryTransform</i> is <b>null</b>.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.TransformPoint(System.Windows.Point)">
+            <summary>
+            Transforms the specified point by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" /> and
+            returns the result.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <returns>
+            The result of transforming <i>point</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.TransformPoints(System.Windows.Point[])">
+            <summary>
+            Transforms the specified points by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="points">The <i>points</i> to transform.
+            The original points in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.TransformVector(System.Windows.Vector)">
+            <summary>
+            Transforms the specified vector by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="vector">The vector to transform.</param>
+            <returns>
+            The result of transforming <i>vector</i> by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.TransformVectors(System.Windows.Vector[])">
+            <summary>
+            Transforms the specified vectors by this <see cref="T:Vintasoft.Imaging.Wpf.Utils.WpfPointIdentityTransform" />.
+            </summary>
+            <param name="vectors">The <i>vectors</i> to transform.
+            The original vectors in the array are replaced by their transformed values.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.GetInverseTransform">
+            <summary>
+            Gets the inverse transform.
+            </summary>
+            <remarks>
+            This method is not supported.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Always thrown.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.IsInvertible">
+            <summary>
+            Gets a value indicating whether this transform is invertible.
+            </summary>
+            <value>
+            <b>true</b> if this transform is invertible; otherwise, <b>false</b>.
+            </value>
+            <seealso cref="M:Vintasoft.Imaging.Wpf.Utils.WpfPointRoundingTransform.GetInverseTransform" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.WpfObjectConverter">
+            <summary>
+            Converts the System.Drawing object to the System.Windows object and back.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsPoint(System.Drawing.PointF)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Point" /> object from
+            the <see cref="T:System.Drawing.PointF" /> object.
+            </summary>
+            <param name="point">The <see cref="T:System.Drawing.PointF" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Point" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingPointF(System.Windows.Point)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.PointF" /> object from
+            the <see cref="T:System.Windows.Point" /> object.
+            </summary>
+            <param name="point">The <see cref="T:System.Windows.Point" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.PointF" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsPointArray(System.Drawing.PointF[])">
+            <summary>
+            Creates an array of <see cref="T:System.Windows.Point" /> from
+            an array of <see cref="T:System.Drawing.PointF" />.
+            </summary>
+            <param name="points">An array of <see cref="T:System.Drawing.PointF" />.</param>
+            <returns>An array of <see cref="T:System.Windows.Point" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingPointArray(System.Windows.Point[])">
+            <summary>
+            Creates an array of <see cref="T:System.Drawing.PointF" /> from
+            an array of <see cref="T:System.Windows.Point" />.
+            </summary>
+            <param name="points">An array of <see cref="T:System.Windows.Point" />.</param>
+            <returns>An array of <see cref="T:System.Drawing.PointF" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsSize(System.Drawing.SizeF)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Size" /> object from
+            the <see cref="T:System.Drawing.SizeF" /> object.
+            </summary>
+            <param name="size">The <see cref="T:System.Drawing.SizeF" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Size" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingSizeF(System.Windows.Size)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.SizeF" /> object from
+            the <see cref="T:System.Windows.Size" /> object.
+            </summary>
+            <param name="size">The <see cref="T:System.Windows.Size" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.SizeF" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsRect(System.Drawing.RectangleF)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Rect" /> object from
+            the <see cref="T:System.Drawing.RectangleF" /> object.
+            </summary>
+            <param name="rect">The <see cref="T:System.Drawing.RectangleF" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Rect" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingRectangleF(System.Windows.Rect)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.RectangleF" /> object from
+            the <see cref="T:System.Windows.Rect" /> object.
+            </summary>
+            <param name="rect">The <see cref="T:System.Windows.Rect" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.RectangleF" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsMatrix(System.Drawing.Drawing2D.Matrix)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Media.Matrix" /> object from
+            the <see cref="T:System.Drawing.Drawing2D.Matrix" /> object.
+            </summary>
+            <param name="matrix">The <see cref="T:System.Drawing.Drawing2D.Matrix" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Media.Matrix" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsMatrix(Vintasoft.Imaging.Utils.AffineMatrix)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Media.Matrix" /> object from
+            the <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" /> object.
+            </summary>
+            <param name="matrix">The <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Media.Matrix" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateVintasoftMatrix(System.Windows.Media.Matrix)">
+            <summary>
+            Creates the <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" /> object from
+            the <see cref="T:System.Windows.Media.Matrix" /> object.
+            </summary>
+            <param name="matrix">The <see cref="T:System.Windows.Media.Matrix" /> object to convert.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.Utils.AffineMatrix" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingMatrix(System.Windows.Media.Matrix)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.Drawing2D.Matrix" /> object from
+            the <see cref="T:System.Windows.Media.Matrix" /> object.
+            </summary>
+            <param name="matrix">The <see cref="T:System.Windows.Media.Matrix" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.Drawing2D.Matrix" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsColor(System.Drawing.Color)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Media.Color" /> object from
+            the <see cref="T:System.Drawing.Color" /> object.
+            </summary>
+            <param name="color">The <see cref="T:System.Drawing.Color" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Media.Color" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingColor(System.Windows.Media.Color)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.Color" /> object from
+            the <see cref="T:System.Windows.Media.Color" /> object.
+            </summary>
+            <param name="color">The <see cref="T:System.Windows.Media.Color" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.Color" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsPathGeometry(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Creates the <see cref="T:System.Windows.Media.PathGeometry" /> object
+            from the <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object.
+            </summary>
+            <param name="path">The <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Media.PathGeometry" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateWindowsPathFigures(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Creates an array that contains <see cref="T:System.Windows.Media.PathFigure" /> objects
+            from the <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object.
+            </summary>
+            <param name="path">The <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object to convert.</param>
+            <returns>The array of <see cref="T:System.Windows.Media.PathFigure" /> objects.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.WpfObjectConverter.CreateDrawingGraphicsPath(System.Windows.Media.PathGeometry)">
+            <summary>
+            Creates the <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object
+            from the <see cref="T:System.Windows.Media.PathGeometry" /> object.
+            </summary>
+            <param name="pathGeometry">The <see cref="T:System.Windows.Media.PathGeometry" /> object to convert.</param>
+            <returns>The <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.VintasoftImageConverter">
+            <summary>
+            Converts a <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object to
+            a <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> object and back.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.VintasoftImageConverter.ToBitmapSource(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Converts the <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object to
+            the <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> object.
+            </summary>
+            <param name="image">The <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object to convert.</param>
+            <returns>The <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> object.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.VintasoftImageConverter.FromBitmapSource(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Converts the <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> object to
+            the <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object.
+            </summary>
+            <param name="source">The <see cref="T:System.Windows.Media.Imaging.BitmapSource" /> object to convert.</param>
+            <returns>The <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Wpf.VintasoftImageRenderer">
+            <summary>
+            Provides functionality for drawing an <see cref="T:Vintasoft.Imaging.VintasoftImage" /> on <see cref="T:System.Windows.Media.DrawingContext" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.VintasoftImageRenderer.Draw(Vintasoft.Imaging.VintasoftImage,System.Windows.Media.DrawingContext,System.Windows.Rect,System.Windows.Rect)">
+            <summary>
+            Draws the specified rectangular area of <see cref="T:Vintasoft.Imaging.VintasoftImage" /> on
+            the specified rectangular area of <see cref="T:System.Windows.Media.DrawingContext" />.
+            </summary>
+            <param name="image">Image to draw.</param>
+            <param name="drawingContext">Drawing context where image should be drawn.</param>
+            <param name="sourceRect">The rectangular area, in pixels, of image to draw.</param>
+            <param name="destRect">The rectangular area,
+            in device-independent pixels (1/96th inch), of device context
+            where image should be drawn.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.VintasoftImageRenderer.DrawWithRenderer(Vintasoft.Imaging.VintasoftImage,System.Windows.Media.DrawingContext,System.Windows.Rect,System.Windows.Rect,System.Double,System.Double,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Draws the specified rectangular area of <see cref="T:Vintasoft.Imaging.VintasoftImage" /> on
+            the specified rectangular area of <see cref="T:System.Windows.Media.DrawingContext" />.
+            <see cref="T:Vintasoft.Imaging.ImageRendering.ImageRenderer" /> is used for rendering of the rectangular area of source image.
+            </summary>
+            <param name="image">Image to draw.</param>
+            <param name="drawingContext">Drawing context where image should be drawn.</param>
+            <param name="sourceRect">The rectangular area, in pixels, of image to draw.</param>
+            <param name="destRect">The rectangular area,
+            in device-independent pixels (1/96th inch), of device context
+            where image should be drawn.</param>
+            <param name="destDpiX">Horizontal resolution, in dpi, of drawing context.</param>
+            <param name="destDpiY">Vertical resolution, in dpi, of drawing context.</param>
+            <param name="renderingProgress">
+            Progress delegate of the source image rendering progress.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Wpf.VintasoftImageRenderer.DrawWithRenderer(Vintasoft.Imaging.VintasoftImage,System.Windows.Media.DrawingContext,System.Windows.Rect,System.Windows.Rect,System.Double,System.Double,Vintasoft.Imaging.ImageProcessing.ProcessingCommandBase,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Draws the specified rectangular area of <see cref="T:Vintasoft.Imaging.VintasoftImage" /> on
+            the specified rectangular area of <see cref="T:System.Windows.Media.DrawingContext" />.
+            <see cref="T:Vintasoft.Imaging.ImageRendering.ImageRenderer" /> is used for rendering of the rectangular area of source image.
+            </summary>
+            <param name="image">Image to draw.</param>
+            <param name="drawingContext">Drawing context where image should be drawn.</param>
+            <param name="sourceRect">The rectangular area, in pixels, of image to draw.</param>
+            <param name="destRect">The rectangular area,
+            in device-independent pixels (1/96th inch), of device context
+            where image should be drawn.</param>
+            <param name="destDpiX">Horizontal resolution, in dpi, of drawing context.</param>
+            <param name="destDpiY">Vertical resolution, in dpi, of drawing context.</param>
+            <param name="preprocessing">Processing command that should be applied to image
+            before drawing of image on drawing context.</param>
+            <param name="renderingProgress">
+            Progress delegate of the source image rendering progress.
+            </param>
+        </member>
+    </members>
+</doc>

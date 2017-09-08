@@ -1,0 +1,2309 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.CacheManager">
+            <summary>
+            Manages viewer cache in web application.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.CacheManager.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.CacheManager" /> class.
+            </summary>
+            <param name="projectDirectory">Project directory.</param>
+            <param name="session">Session identifier.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>VintasoftWebControls_CacheDirectory</i> key's value from Web.config missing or empty <b>OR</b>
+            <i>VintasoftWebControls_CacheLifeTime</i> key's value from Web.config missing or empty <b>OR</b>
+            <i>projectDirectory</i> <b>or</b> <i>session</i> is <b>null</b> or <b>string.Empty</b>.
+            </exception>
+            <exception cref="T:System.FormatException">Thrown if
+            <i>VintasoftWebControls_CacheLifeTime</i> key's value from Web.config isn't int.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.CacheManager.GetThumbnailUrl(System.String,System.Int32,System.Drawing.Size)">
+            <summary>
+            Returns URL to an image thumbnail.
+            </summary>
+            <param name="fileName">Name of file in which image is stored.</param>
+            <param name="pageIndex">Image index in image file.</param>
+            <param name="thumbnailSize">Thumbnail size.</param>
+            <returns>URL to an image thumbnail.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.CacheManager.GetImageTileUrl(System.String,System.Int32,System.Drawing.PointF,System.Drawing.Size,System.Drawing.SizeF)">
+            <summary>
+            Returns path to a tile of image.
+            </summary>
+            <param name="fileName">Name of file in which image is stored.</param>
+            <param name="pageIndex">Image index in image file.</param>
+            <param name="tileLocation">Location of image tile.</param>
+            <param name="tileSize">Size of image tile.</param>
+            <param name="scale">Scale.</param>
+            <returns>Path to an image tile.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.CacheManager.DeleteOldCache">
+            <summary>
+            Deletes old cache.
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.CacheManager.CacheLifeTime" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.CacheManager.ClearImageCache(System.String,System.Int32)">
+            <summary>
+            Clears the image cache.
+            </summary>
+            <param name="fileName">Image filename.</param>
+            <param name="pageIndex">Image index in file.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.CacheManager.CacheDirectory">
+            <summary>
+            Gets a path to a directory where uploaded files and cached data must be stored.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.CacheManager.RenderedThumbnailsDirectory">
+            <summary>
+            Gets or sets a name of directory where rendered thumbnails must be stored.
+            </summary>
+            <value>
+            Default value is "Thumbnails".
+            </value>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>value</i> is <b>null</b> or <b>string.Empty</b>.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.CacheManager.RenderedImageTilesDirectory">
+            <summary>
+            Gets or sets a name of directory where rendered image tiles must be stored.
+            </summary>
+            <value>
+            Default value is "Tiles".
+            </value>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>value</i> is <b>null</b> or <b>string.Empty</b>.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.CacheManager.ImageCollectionInfoDirectory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.CacheManager.CacheLifeTime">
+            <summary>
+            Gets a value that determines how long, in minutes, cached object will be stored on server.
+            </summary>
+            <value>Default value is 60 minutes (1 hour).</value>
+            <remarks>
+            Value of this property can be changed in web.config file.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Web.Mvc.CacheManager.DeleteOldCache" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.FileManager">
+            <summary>
+            Manages files in web application.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.FileManager.OpenFile(System.String,System.IO.FileAccess)">
+            <summary>
+            Opens an existing file with specified access mode.
+            </summary>
+            <param name="filename">A relative or absolute path for the file.</param>
+            <param name="access">A constant that determines how the file can be accessed.</param>
+            <returns>
+            File stream.
+            </returns>
+            <exception cref="T:System.IO.FileLoadException">Thrown if
+            file is NOT opened.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.FileManager.CloseFile(System.String,System.IO.FileAccess,System.IO.FileStream)">
+            <summary>
+            Unlocks file after the file is closed.
+            </summary>
+            <param name="filename">A relative or absolute path for the file.</param>
+            <param name="access">A constant that determines how the file can be accessed.</param>
+            <param name="stream">Stream to close.</param>
+            <exception cref="T:System.IO.FileLoadException">Thrown if
+            file is not unlocked.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.FileManager.OpenFileTimeout">
+            <summary>
+            Gets or sets the timeout, in milliseconds, for <see cref="M:Vintasoft.Imaging.Web.Mvc.FileManager.OpenFile(System.String,System.IO.FileAccess)" /> method.
+            </summary>
+            <value>
+            Default value is 100. Minimal value is 100, maximal value is 360000.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.JsonSerializer">
+            <summary>
+            Serializes object to JSON format.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.JsonSerializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.JsonSerializer" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.JsonSerializer.Serialize(System.Object,System.Text.StringBuilder)">
+            <summary>
+            Serializes an object to a <see cref="T:System.Text.StringBuilder" /> object in JSON format.
+            </summary>
+            <param name="value">Object to serialize.</param>
+            <param name="result">StringBuilder where object must be serialized.</param>
+            <remarks>
+            Method can serialize only class properties and
+            supports serialization of primitive types, arrays, strings and classes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.JsonSerializer.SerializeToJsonString(System.String,System.String)">
+            <summary>
+            Serializes the field name and field value to a string in JSON format.
+            </summary>
+            <param name="name">Field name.</param>
+            <param name="value">Field value.</param>
+            <returns>String in JSON format.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.JsonSerializer.SerializeToJsonString(System.String[],System.String[])">
+            <summary>
+            Serializes the field names and field values to a string in JSON format.
+            </summary>
+            <param name="names">An array of field names.</param>
+            <param name="values">An array of field values.</param>
+            <returns>String in JSON format.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool">
+            <summary>
+            Visual tool which combines behaviour of several visual tools.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool">
+            <summary>
+            Provides an abstract base class for visual tools such as
+            the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool" /> or <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebPanTool" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.ToJsonString">
+            <summary>
+            Serializes the visual tool to a JSON string.
+            </summary>
+            <returns>JSON string.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.Name">
+            <summary>
+            Gets the name of visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.Enabled">
+            <summary>
+            Gets or sets a value indicating whether visual tool can respond to the user interaction.
+            </summary>
+            <value>
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.Cursor">
+            <summary>
+            Gets or sets the CSS style of cursor of this tool.
+            </summary>
+            <value>
+            Default value is "default" (pointer cursor).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.ActionCursor">
+            <summary>
+            Gets or sets the cursor of this tool when action of tool is executing.
+            </summary>
+            <value>
+            Default value is "default" (pointer cursor).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.ActionButton">
+            <summary>
+            Gets or sets the mouse button which executes the action of this tool
+            </summary>
+            <value>
+            Supported values: 1 (left mouse button), 2 (middle mouse button), 3 (right mouse button).<br />
+            Default value is 1 (left mouse button).
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            value is not correct.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool.DisableContextMenu">
+            <summary>
+            Gets or sets a value indicating whether context menu is shown when user presses the right
+            mouse button and the right mouse button is set as an action button of the tool.
+            </summary>
+            <value>
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.#ctor(Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool" /> class.
+            </summary>
+            <param name="visualTools">Array of visual tools composed by composite visual tool.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.Contains(Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebVisualTool)">
+            <summary>
+            Determines that visual tool is a child tool of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool" />.
+            </summary>
+            <param name="visualTool">The visual tool to check.</param>
+            <returns>
+            <b>true</b> if specified visual tool is a child tool of the composite visual tool;
+            <b>false</b> if specified visual tool is not a child tool of the composite visual tool.
+            </returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.ActiveTool">
+            <summary>
+            Gets or sets te active visual tool.
+            </summary>
+            <remarks>
+            Composite visual tool draws the active visual tool over all other tools and
+            sends mouse/keyboard events only to the active visual tool if active visual tool is specified.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.Name">
+            <summary>
+            Gets the name of visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebCompositeVisualTool.VisualTools">
+            <summary>
+            Gets or sets an array of visual tools.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            value is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            array is empty.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects">
+            <summary>
+            A set of objects that can be used for highlighting several regions on an image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects.Objects">
+            <summary>
+            Gets or sets a list of the objects.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects.Brush">
+            <summary>
+            Gets or sets a fill color of the objects.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObjects.Pen">
+            <summary>
+            Gets or sets a stroke color of the objects.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool">
+            <summary>
+            Visual tool that allows to highlight several rectangles on an image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool.Name">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool.Items">
+            <summary>
+            Gets a list of rectangles.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool.SelectedItemBrushColor">
+            <summary>
+            Gets or sets a color of brush that should be used for filling the highlighted image region
+            in the image viewer.
+            </summary>
+            <value>
+            Default value is "yellow".
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightTool.SelectedItemPenColor">
+            <summary>
+            Gets or sets a color of pen that should be used for drawing the outline of
+            the highlighted image region in the image viewer.
+            </summary>
+            <value>
+            Default value is "black".
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool">
+            <summary>
+            Visual tool for magnification of image region in web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool.Name">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool.Size">
+            <summary>
+            Gets or sets the size of the WebMagnifierTool.  
+            </summary>
+            <value>
+            Default value is System.Drawing.Size(150, 150).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebMagnifierTool.Zoom">
+            <summary>
+            Gets or sets the zoom level of the image in the WebMagnifierTool.  
+            </summary>
+            <value>
+            Minimum value is 100, Maximum value is 500. Default value is 250.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebPanTool">
+            <summary>
+            Visual tool for panning an image in web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebPanTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebPanTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebPanTool.Name">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool">
+            <summary>
+            Visual tool for selection of rectangular region of image in web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.Name">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.BackColor">
+            <summary>
+            Gets or sets the background color of the selection rectangle.
+            </summary>
+            <value>
+            Default value is "rgba(0, 200, 255,0.5)".
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.BorderColor">
+            <summary>
+            Gets or sets the border color of the selection rectangle. 
+            </summary>
+            <value>
+            Default value is "rgba(0,0,0,1)".
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.Rectangle">
+            <summary>
+            Gets or sets the rectangular selection of image.  
+            </summary>
+            <value>
+            Default value is Rectangle(0, 0, 0, 0).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.Movable">
+            <summary>
+            Gets or sets a value indicating whether the selection of visual tool can be moved.
+            </summary>
+            <value>
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebRectangularSelectionTool.Resizable">
+            <summary>
+            Gets or sets a value indicating whether the selection of visual tool can be resized.
+            </summary>
+            <value>
+            Default value is <b>true</b>.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool">
+            <summary>
+            Visual tool for zooming of image region in web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool.Name">
+            <summary>
+            Gets the name of the visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool.ZoomButton">
+            <summary>
+            Gets or sets the mouse button for zooming of selected region.  
+            </summary>
+            <value>
+            Supported values: 1 (left mouse button), 2 (middle mouse button), 3 (right mouse button).<br />
+            Default value is 1 (left mouse button).
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            value is not correct.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomSelectionTool.Movable">
+            <summary>
+            Gets a value indicating whether the selection of visual tool can be moved.
+            </summary>
+            <value>
+            Always returns <b>false</b>.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool">
+            <summary>
+            Visual tool for zooming of image in web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool.Name">
+            <summary>
+            Gets the name of visual tool.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool.ZoomInButton">
+            <summary>
+            Gets or sets the mouse button which zooms in the image.
+            </summary>
+            <value>
+            Supported values: 1 (left mouse button), 2 (middle mouse button), 3 (right mouse button).<br />
+            Default value is 1 (left mouse button).
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            value is not correct.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool.ZoomOutButton">
+            <summary>
+            Gets or sets the mouse button which zooms out the image.
+            </summary>
+            <value>
+            Supported values: 1 (left mouse button), 2 (middle mouse button), 3 (right mouse button).<br />
+            Default value is 3 (right mouse button).
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            value is not correct.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebZoomTool.ZoomStep">
+            <summary>
+            Gets or sets the zoom step of the image.
+            </summary>
+            <value>
+            Default value is 10.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.FocusedIndexChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanging" /> and
+            <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanged" /> events.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.FocusedIndexChangedEventArgs.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.FocusedIndexChangedEventArgs" /> class.
+            </summary>
+            <param name="focusedIndex">Focused index.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.FocusedIndexChangedEventArgs.FocusedIndex">
+            <summary>
+            Gets focused index.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanging" /> and
+            <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanged" /> events.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs.#ctor(Vintasoft.Imaging.Web.Mvc.WebImageCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs" /> class.
+            </summary>
+            <param name="images">Web image collection.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs.Images">
+            <summary>
+            Gets a web image collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.MasterViewerChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs.#ctor(Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs" /> class.
+            </summary>
+            <param name="masterViewer">New main viewer specified for the current viewer.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs.MasterViewer">
+            <summary>
+            Gets the main (master) viewer for the current viewer.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase">
+            <summary>
+            Provides a base class for web image viewer.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase" /> class.  
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the System.Web.UI.Control.Load event.
+            </summary>
+            <param name="e">The System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnInit(System.EventArgs)">
+            <summary>
+            Raises the System.Web.UI.Control.Init event.
+            </summary>
+            <param name="e">An System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control to the specified writer.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.DeserializeProperties">
+            <summary>
+            Deserializes propeties from hidden fields.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.SerializeProperty(System.String,System.String)">
+            <summary>
+            Serializes property in hidden field.
+            </summary>
+            <param name="propertyName">Property name.</param>
+            <param name="propertyValue">Property value.</param>
+            <returns>HTML code of hidden field.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.SerializeProperties(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Serialize all properties in hidden fields.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.SaveViewState">
+            <summary>
+            Saves any state that was modified after the System.Web.UI.WebControls.Style.TrackViewState()
+            method was invoked.
+            </summary>
+            <returns>An object that contains the current view state of the control;
+            otherwise, if there is no view state associated with the control, <b>null</b>.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnImagesChanging(Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanging" /> event.
+            </summary>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnImagesChanged(Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanged" /> event.
+            </summary>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.ImagesChangedEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnImageCollectionChanged(System.Object,Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs)">
+            <summary>
+            Invoked when the image collection associated with this viewer is changed.
+            </summary>
+            <param name="sender">Image collection.</param>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnImageCollectionChanging(System.Object,System.EventArgs)">
+            <summary>
+            Invoked when the image collection associated with this viewer is changing.
+            </summary>
+            <param name="sender">Image collection.</param>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.RegisterJavaScripts">
+            <summary>
+            Registers JavaScripts code (client-side code of this viewer) on page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnFocusedIndexChanging(System.Int32)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanging" /> event.
+            </summary>
+            <param name="focusedIndex">Focused index.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnFocusedIndexChanged(System.Int32)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanged" /> event.
+            </summary>
+            <param name="focusedIndex">Focused index.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.OnMasterViewerChanged(Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.MasterViewerChanged" /> event.
+            </summary>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.MasterViewerChangedEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.MasterViewer">
+            <summary>
+            Gets or sets the main (master) viewer for this <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase" />. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.Images">
+            <summary>
+            Gets information about images which are viewed in this <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase" />.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndex">
+            <summary>
+            Gets or sets an index of focused image.
+            </summary>
+            <value>
+            Possible values:
+            -1 - no focused image,
+            0 - first image is focused,
+            1 - second image is focused, etc.<br />
+            Default value is -1.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if 
+            <i>value</i> less than -1 <b>OR</b>
+            <i>value</i> more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.CacheManager">
+            <summary>
+            Gets a cache manager of this <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase" />.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.JavaScriptVariableName">
+            <summary>
+            Gets or sets name of javascript variable associated with this control.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>value</i> is <b>null</b> or <b>string.Empty</b>.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.SessionID">
+            <summary>
+            Gets or sets information about session ID.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.RemoteMethod">
+            <summary>
+            Gets or sets the name of method which should be called on server-side.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.RemoteParams">
+            <summary>
+            Gets or set the parameters for method which should be called on server-side.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanging">
+            <summary>
+            Occurs when value of the <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.Images" /> property is changing.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.ImagesChanged">
+            <summary>
+            Occurs when value of the <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.Images" /> property is changed.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanging">
+            <summary>
+            Occurs when value of the <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndex" /> property is changing.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndexChanged">
+            <summary>
+            Occurs when value of the <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.FocusedIndex" /> property is changed.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.MasterViewerChanged">
+            <summary>
+            Occurs when value of the <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewerBase.MasterViewer" /> property is changed.
+            </summary>
+            <remarks>
+            This event occus when the master viewer of this viewer is changed.<br />
+            <br />
+            This event is thread safe.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode">
+            <summary>
+            Specifies how an image is positioned within the image viewer.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.BestFit">
+            <summary>
+            Scale the image proportion to the image viewer. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.FitToHeight">
+            <summary>
+            Scale the image to fit the height of the image viewer. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.FitToWidth">
+            <summary>
+            Scale the image to fit the width of the image viewer. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.Normal">
+            <summary>
+            View image using image resolution without scaling. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.PixelToPixel">
+            <summary>
+            View image using the screen resolution without scaling. Image resolution will be ignored.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode.Zoom">
+            <summary>
+            Zoom the image to the specified value. 
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.TileSize">
+            <summary>
+            Stores information about size of image tile.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.TileSize.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.TileSize" /> class.
+            </summary>
+            <param name="width">Width of image tile.</param>
+            <param name="height">Height of image tile.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>width</i> or <i>height</i>
+            is less or equal than 0.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.TileSize.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.TileSize.Width">
+            <summary>
+            Gets the image tile width.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.TileSize.Height">
+            <summary>
+            Gets the image tile height.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer">
+            <summary>
+            Web Forms control for displaying a collection of images.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.DeserializeProperties">
+            <summary>
+            Deserializes properties from hidden fields.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.RegisterJavaScripts">
+            <summary>
+            Registers JavaScripts code (client-side code of this viewer) on page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.SerializeProperties(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Serializes properties into hidden fields.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control to the specified writer.
+            </summary>
+            <param name="output">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.CreateStartupScript(System.Text.StringBuilder)">
+            <summary>
+            Creates the startup script.
+            </summary>
+            <param name="scriptDefiniton">Startup script definition.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.OnImageCollectionChanged(System.Object,Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs)">
+            <summary>
+            Invoked when the image collection associated with this viewer is changed.
+            </summary>
+            <param name="sender">Image collection.</param>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.TileSize">
+            <summary>
+            Gets or sets the maximum tile size of image in image viewer.
+            </summary>
+            <value>
+            Minimum value is 32x32, maximum value is 2048x2048. Default value is 512x512.
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            tile width or tile height has wrong value.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.SizeMode">
+            <summary>
+            Gets or sets the value indicating how an image is positioned within the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer" />.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.ImageSizeMode" />.Normal.
+            </value>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.Zoom" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.Zoom">
+            <summary>
+            Get or sets the image zoom in <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer" />.
+            </summary>
+            <value>
+            Valid values are from 1 to 1000.<br />
+            Default value is 100.
+            </value>
+            <exception cref="T:System.ArgumentException">Thrown if
+            zoom has wrong value.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.SizeMode" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.CenterImage">
+            <summary>
+            Gets or sets a value indicating whether the image is centered 
+            in the control when image is loading.
+            </summary>
+            <value>
+            <b>true</b> - the image is centered in the control;
+            <b>false</b> - the image is not centered in the control.<br />
+            <br />
+            Default value is <b>false</b>.
+            </value>
+            <remarks>
+            Image is centered in image viewer immediately when value of this
+            property is set to <b>true</b>.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.RenderingSettings">
+            <summary>
+            Gets or sets the rendering settings of this image viewer.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebImageViewer.VisualTool">
+            <summary>
+            Gets or set the current visual tool of this viewer.  
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize">
+            <summary>
+            Specifies the thumbnail size.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize" /> class.
+            </summary>
+            <param name="width">Thumbnail width.</param>
+            <param name="height">Thumbnail height.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize.Width">
+            <summary>
+            Gets a thumbnail width.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailSize.Height">
+            <summary>
+            Gets a thumbnail height.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance">
+            <summary>
+            Specifies an appearance of thumbnail.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.#ctor(Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> class.
+            </summary>
+            <param name="appearance">
+            The <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> to copy.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> class.
+            </summary>
+            <param name="backgroundColor">Background color.</param>
+            <param name="backgroundStyle">Extended background style.</param>
+            <param name="borderStyle">Border style.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.BackgroundColor">
+            <summary>
+            Gets or sets the background color of thumbnail.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.BackgroundStyle">
+            <summary>
+            Gets or sets the background style of thumbnail.
+            </summary>
+            <value>
+            CSS style.<br />
+            Example: "url(/SomeAnimation.gif) no-repeat centered".
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance.BorderStyle">
+            <summary>
+            Gets or sets the CSS style of border around the thumbnail, that contain information about
+            style and color of border.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer">
+            <summary>
+            Web control for displaying the thumbnails of image collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the System.Web.UI.Control.Load event.
+            </summary>
+            <param name="e">The System.EventArgs object that contains the event data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.DeserializeProperties">
+            <summary>
+            Deserializes the viewer properties from hidden fields.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.RegisterJavaScripts">
+            <summary>
+            Registers JavaScripts code (client-side code of this viewer) on page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.DeserializeStyle(System.String)">
+            <summary>
+            Deserializes <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> from a string.
+            </summary>
+            <param name="sourceStyle">String with style..</param>
+            <returns>
+            <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailAppearance" /> if style is parsed successfully;
+            otherwise, <b>null</b>.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.SerializeProperties(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Serializes properties into hidden fields.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control to the specified writer.
+            </summary>
+            <param name="writer">A System.Web.UI.HtmlTextWriter that represents the output stream to render
+            HTML content on the client.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.CreateStartupScript(System.Text.StringBuilder)">
+            <summary>
+            Creates the startup script.
+            </summary>
+            <param name="scriptDefinition">Startup script definition.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.OnImageCollectionChanged(System.Object,Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs)">
+            <summary>
+            Invoked when the image collection associated with this viewer is changed.
+            </summary>
+            <param name="sender">Image collection.</param>
+            <param name="e">An <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailFlowStyle">
+            <summary>
+            Gets or sets the style of thumbnails arrangement.
+            </summary>
+            <value>Default value is <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailFlowStyle" />.SingleColumn.</value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailFixedColumnCount">
+            <summary>
+            Gets or sets a number of fixed columns.
+            </summary>
+            <value>Default value is 2.</value>
+            <exception cref="T:System.ArgumentException">Thrown if 
+            value is less than 0.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailMargin">
+            <summary>
+            Gets or sets the space between thumbnails.
+            </summary>
+            <value>Default value is 3.</value>
+            <exception cref="T:System.ArgumentException">Thrown if 
+            value is less or equal 0.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailSize">
+             <summary>
+             Gets or sets the size of thumbnails.
+             </summary>
+            <value>Minimum value is 32 x 32, maximum value is 1024 x 1024. Default value is 100 x 100.</value>
+             <exception cref="T:System.ArgumentException">Thrown if
+             thumbnail width or tile height has wrong value.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailScale">
+            <summary>
+            Gets or sets the scale of thumbnails.
+            </summary>
+            <value>Default value is <see cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailScale" />.Normal.</value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailPadding">
+            <summary>
+            Gets or sets the thumbnail padding.
+            </summary>
+            <value>Default value is 0.</value>
+            <exception cref="T:System.ArgumentException">Thrown if 
+            value is less or equal 0.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.ThumbnailAppearance">
+            <summary>
+            Gets or sets the appearance of the normal thumbnail.
+            </summary>
+            <value>
+            Default value:<br />
+            - Background color: "#eeeeee"<br />
+            - Background style: emoty string<br />
+            - Border style: "1px solid #eeeeee"
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.FocusedThumbnailAppearance">
+            <summary>
+            Gets or sets the appearance of the focused thumbnail.
+            </summary>
+            <value>
+            Default value:<br />
+            - Background color: "#eeeeee"<br />
+            - Background style: emoty string<br />
+            - Border style: "1px dotted gray"
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.HoveredThumbnailAppearance">
+            <summary>
+            Gets or sets the appearance of the hovered thumbnail.
+            </summary>
+            <value>
+            Default value:<br />
+            - Background color: "#BAD2EB"<br />
+            - Background style: emoty string<br />
+            - Border style: "2px solid #BAD2EB"
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.NotReadyThumbnailAppearance">
+            <summary>
+            Gets or sets the appearance of the not ready thumbnail.
+            </summary>
+            <value>
+            Default value:<br />
+            - Background color: "black"<br />
+            - Background style: emoty string<br />
+            - Border style: "0px solid black"
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.MultiSelect">
+            <summary>
+            Gets or sets a value indicating whether the thumbnail viewer allows multiple
+            thumbnails to be selected.
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.SelectedIndices" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.SelectedIndices">
+            <summary>
+            Gets or sets the collection of indices of the selected thumbnails.
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.MultiSelect" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.GenerateOnlyVisibleThumbnails">
+            <summary>
+            Gets or sets a value indicating whether the thumbnail viewer generates only visible thumbnails.
+            </summary>
+            <value>Default value is <b>true</b>.</value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.WebThumbnailViewer.FocusOnHover">
+            <summary>
+            Gets or sets a value indicating whether the thumbnail viewer changes focus when mouse hovers
+            the thumbnail.
+            </summary>
+            <value>Default value is <b>false</b>.</value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction">
+            <summary>
+            Specifies how the image collection is changed.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction.AddImages">
+            <summary>
+            Add images to collection. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction.Clear">
+            <summary>
+            Clear collection. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction.RemoveImages">
+            <summary>
+            Remove images from collection. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction.Reorder">
+            <summary>
+            Reorder (sort) collection. 
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction.SwapImages">
+            <summary>
+            Swap two images in collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Changing" /> and
+            <see cref="E:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Changed" /> events.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs.#ctor(Vintasoft.Imaging.Web.Mvc.ImageCollectionChangeAction,Vintasoft.Imaging.Web.Mvc.WebImageFileInfo[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs" /> class.  
+            </summary>
+            <param name="collectionChangeAction">Specifies how the image collection was changed.</param>
+            <param name="images">An aray of images which are added, removed or swapped.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs.Action">
+            <summary>
+            Gets an action which determines how the image collection was changed.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageCollectionChangeEventArgs.Images">
+            <summary>
+            Gets an array of images which are added, removed or swapped.  
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection">
+            <summary>
+            Represents a collection of images stored on the server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" /> class.
+            </summary>
+            <param name="workDirectory">Path to work directory at server.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>workDirectory</i> is <b>null</b> or <b>string.Empty</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Add(System.String)">
+            <summary>
+            Adds an image or images to the end of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />.
+            </summary>
+            <param name="fileUrl">An URL to an image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fileUrl</i> is <b>null</b> or <b>string.Empty</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Add(System.String,System.Int32)">
+            <summary>
+            Adds an image to the end of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />.
+            </summary>
+            <param name="fileUrl">An URL to an image file.</param>
+            <param name="pageIndex">Page index, in image file,  of image to insert.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>pageIndex</i> is less than 0 <b>OR</b>
+            <i>pageIndex</i> is more than image file page count.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fileUrl</i> is <b>null</b> or <b>string.Empty</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.AddRange(Vintasoft.Imaging.Web.Mvc.WebImageCollection)">
+            <summary>
+            Adds images to the end of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />.
+            </summary>
+            <param name="webImageCollection">Images to insert.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>webImageCollection</i> is <b>null</b>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            <i>webImageCollection</i> contains wrong information.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Insert(System.Int32,System.String)">
+            <summary>
+            Inserts an image or images into the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />. 
+            </summary>
+            <param name="index">The zero-based index at which the new image/images should be inserted.</param>
+            <param name="fileUrl">An URL to an image file.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>index</i> is less than 0 <b>OR</b>
+            <i>index</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fileUrl</i> is <b>null</b> or <b>string.Empty</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Insert(System.Int32,System.String,System.Int32)">
+            <summary>
+            Inserts an image into the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />. 
+            </summary>
+            <param name="index">The zero-based index at which the new image should be inserted.</param>
+            <param name="fileUrl">An URL to an image file.</param>
+            <param name="pageIndex">Page index, in image file,  of image to insert.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>index</i> is less than 0 <b>OR</b>
+            <i>index</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" /> <b>OR</b>
+            <i>pageIndex</i> is less than 0 <b>OR</b>
+            <i>pageIndex</i> is more than image file page count.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>fileUrl</i> is <b>null</b> or <b>string.Empty</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.InsertRange(System.Int32,Vintasoft.Imaging.Web.Mvc.WebImageCollection)">
+            <summary>
+            Inserts images into the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" />.
+            </summary>
+            <param name="index">The zero-based index at which the new image should be inserted.</param>
+            <param name="webImageCollection">Images to insert.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>index</i> is less than 0 <b>OR</b>
+            <i>index</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>webImageCollection</i> is <b>null</b>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            <i>webImageCollection</i> contains wrong information.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Swap(System.Int32,System.Int32)">
+            <summary>
+            Swaps two images in the collection.
+            </summary>
+            <param name="firstIndex">Index of the first image.</param>
+            <param name="secondIndex">Index of the second image.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>firstIndex</i> is less than 0 <b>OR</b>
+            <i>firstIndex</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" /> <b>OR</b>
+            <i>secondIndex</i> is less than 0 <b>OR</b>
+            <i>secondIndex</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes an image from the ccollection.
+            </summary>
+            <param name="index">The zero-based index of the image to remove.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>index</i> is less than 0 <b>OR</b>
+            <i>index</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Clear">
+            <summary>
+            Clears the collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.GetImageInfo(System.Int32,System.Drawing.Size@,Vintasoft.Imaging.Resolution@)">
+            <summary>
+            Gets an image size and image resolution.
+            </summary>
+            <param name="index">The zero-based image index in the collection.</param>
+            <param name="imageSize">Image size.</param>
+            <param name="imageResolution">Image resolution.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>index</i> is less than 0 <b>OR</b>
+            <i>index</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.OpenImageCollection">
+            <summary>
+            Returns the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" /> as <see cref="T:Vintasoft.Imaging.ImageCollection" />.
+            </summary>
+            <returns>The <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageCollection" /> as <see cref="T:Vintasoft.Imaging.ImageCollection" />.</returns>
+            <remarks>
+            <b>Important</b>: Image collection, returned by this method, must be closed
+            using the <see cref="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.CloseImageCollection(Vintasoft.Imaging.ImageCollection)" /> when collection is not necessary any more.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.CloseImageCollection(Vintasoft.Imaging.ImageCollection)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.CloseImageCollection(Vintasoft.Imaging.ImageCollection)">
+            <summary>
+            Clears all resources used by image collection and closes the image collection.
+            </summary>
+            <param name="images">Image collection which should be closed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>images</i> is <b>null</b>.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Web.Mvc.WebImageCollection.OpenImageCollection" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count">
+            <summary>
+            Gets the number of element actually contained in collection.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo" /> about image at the specified index.
+            </summary>
+            <param name="i">The zero-based index of the element to get.</param>
+            <returns><see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo" /> about image at the specified index.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            <i>i</i> is less than 0 <b>OR</b>
+            <i>i</i> is more than <see cref="P:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Count" />.</exception>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Changing">
+            <summary>
+            Occurs when the collection is changing.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Web.Mvc.WebImageCollection.Changed">
+            <summary>
+            Occurs when the collection is changed. 
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo">
+            <summary>
+            Contains information about a single image in an image file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo" /> class.  
+            </summary>
+            <param name="fileUrl">URL of image file.</param>
+            <param name="pageIndex">Page index in image file.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo.FileUrl">
+            <summary>
+            Gets the filename of image file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.WebImageFileInfo.PageIndex">
+            <summary>
+            Gets the page index in image file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for managing file on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileRequestParams.fileUrl">
+            <summary>
+            Gets or sets an URL to a file stored on server.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.FileCopyRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for copying file on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.FileCopyRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.FileCopyRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.FileCopyRequestParams.sessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for requesting information about image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoRequestParams.imageInfo">
+            <summary>
+            Gets or sets an information about image stored on server.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for requesting information
+            about image collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams.sessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams.imageInfos">
+            <summary>
+            Gets or sets information about image collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ClearImageRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for clearing an image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for processing image region.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for image processing.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams.changeSource">
+            <summary>
+            Gets or sets a value indicating whether the changes must be saved in the source file.
+            </summary>
+            <value>
+            <b>true</b> - changes must be saved in the source file;
+            <b>false</b> - changes must be saved in new file.<br />
+            Default value is <b>false</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams.sessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams.x">
+            <summary>
+            Gets or sets the X coordinate of the left top corner of the rectangular region of interest.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams.y">
+            <summary>
+            Gets or sets the Y coordinate of the left top corner of the rectangular region of interest.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams.width">
+            <summary>
+            Gets or sets the width of the rectangular region of interest.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams.height">
+            <summary>
+            Gets or sets the height of the rectangular region of interest.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ClearImageRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ClearImageRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ClearImageRequestParams.color">
+            <summary>
+            Gets or sets the fill color.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.FlipImageRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for flipping an image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.FlipImageRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.FlipImageRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.FlipImageRequestParams.rotateFlipType">
+            <summary>
+            Gets or sets the flip type.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for resizing an image canvas.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.imageX">
+            <summary>
+            Gets or sets the X coordinate of the image position on new canvas. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.imageY">
+            <summary>
+            Gets or sets the Y coordinate of the image position on new canvas. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.canvasWidth">
+            <summary>
+            Gets or sets destination width.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.canvasHeight">
+            <summary>
+            Gets or sets destination height.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams.canvasColor">
+            <summary>
+            Gets or sets the canvas color.  
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for image resizing.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams.width">
+            <summary>
+            Gets or sets destination width.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams.height">
+            <summary>
+            Gets or sets destination height.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams.interpolationMode">
+            <summary>
+            Gets or sets the interpolation algorithm, which should be used for resizing the image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for requesting image thumbnail.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams.thumbnailWidth">
+            <summary>
+            Gets or sets the thumbnail width.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams.thumbnailHeight">
+            <summary>
+            Gets or sets the thumbnail height.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams.thumbnailId">
+            <summary>
+            Gets or sets the thumbnail identifier.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams.sessionId">
+            <summary>
+            Gets or sets the HTTP session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for requesting image tile.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.tileWidth">
+            <summary>
+            Gets or sets the tile width.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.tileHeight">
+            <summary>
+            Gets or sets the tile height.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.imageX">
+            <summary>
+            Gets or sets the X coordinate, in pixels, of rectangle on source image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.imageY">
+            <summary>
+            Gets or sets the Y coordinate, in pixels, of rectangle on source image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.scaleX">
+            <summary>
+            Gets or sets the horizontal scale of image tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.scaleY">
+            <summary>
+            Gets or sets the vertical scale of image tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.tileId">
+            <summary>
+            Gets or sets the image tile identifier.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams.sessionId">
+            <summary>
+            Gets or sets the HTTP session identifier.
+            </summary>
+            <remarks>
+            This property is necessary for getting information about the working directory.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams">
+            <summary>
+            Request to a web controller.
+            Contains parameters that must be sent to a web controller for image rotation.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams" /> class.  
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams.rotationAngle">
+            <summary>
+            Gets or sets the rotation angle, in degrees.
+            </summary>
+            <value>
+            Possible values are from 0 to 360. Default value is 0.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams.borderColorType">
+            <summary>
+            Gets or sets the type of the border color.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageResponseParams">
+            <summary>
+            Response from web controller.
+            Contains an URL to an image, which is cached on server.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams">
+            <summary>
+            Response from web controller.
+            Contains base information.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.success">
+            <summary>
+            Gets or sets a value indicating whether the request was completed successfully.
+            </summary>
+            <value>
+            <b>true</b> - request was completed successfully;
+            <b>false</b> - request was NOT completed successfully, string that describes an error
+            can be get using the <see cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.errorMessage" /> property.
+            </value>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.errorMessage" />
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.blocked" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.errorMessage">
+            <summary>
+            Gets or sets a string that describes an error occurred during request execution.
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.success" />
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.blocked" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.blocked">
+            <summary>
+            Gets or sets a value indicating whether the requested controller action is blocked
+            by another request.
+            </summary>
+            <value>
+            <b>true</b> - requested controller action is blocked by another request;
+            <b>false</b> - requested controller action is NOT blocked by another request.
+            </value>
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.success" />
+            <seealso cref="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseResponseParams.errorMessage" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageResponseParams" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageResponseParams.url">
+            <summary>
+            Gets or sets an URL to an image file with image.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            value is <b>null</b> or empty.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about image file stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileResponseParams.fileUrl">
+            <summary>
+            Gets or sets an URL to a file stored on server.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            URL is <b>null</b> or empty.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about image collection stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoResponseParams.imageInfos">
+            <summary>
+            Gets or sets information about image collection.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about image stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams.imageWidth">
+            <summary>
+            Gets or sets image width.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            image width is less or equal to 0.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams.imageHeight">
+            <summary>
+            Gets or sets image height.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            image height is less or equal to 0.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams.imageDpiX">
+            <summary>
+            Gets or sets horizontal image resolution, in dpi.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            horizontal image resolution is less or equal to 0.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoResponseParams.imageDpiY">
+            <summary>
+            Gets or sets vertical image resolution, in dpi.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            vertical image resolution is less or equal to 0.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingResponseParams">
+            <summary>
+            Response from web controller.
+            Contains image processing results.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingResponseParams.imageInfo">
+            <summary>
+            Gets or sets an information about image stored on server.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            value is <b>null</b>.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about rendered thumbnail.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailResponseParams.thumbnailId">
+            <summary>
+            Gets or sets the identifier of DOM element associated with thumbnail.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailResponseParams.imageParam">
+            <summary>
+            Gets or sets an information about source image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileResponseParams">
+            <summary>
+            Response from web controller.
+            Contains information about rendered image tile.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileResponseParams.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileResponseParams" /> class. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileResponseParams.tileId">
+            <summary>
+            Gets or sets the identifier of DOM element associated with thumbnail.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController">
+            <summary>
+            API controller that handles HTTP requests from clients and
+            allows to manipulate files on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.UploadFile">
+            <summary>
+            Uploads file to the server.
+            </summary>
+            <returns>Response from the server.</returns>
+            <remarks>
+            Method saves an uploaded file into "/UploadedImageFiles/{SessionID}" directory.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.DownloadFile(Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileRequestParams)">
+            <summary>
+            Downloads file from the server.
+            </summary>
+            <param name="requestParams">Information about file that must be downloaded.</param>
+            <returns>Response from the server.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.CopyFile(Vintasoft.Imaging.Web.Mvc.Controllers.FileCopyRequestParams)">
+            <summary>
+            Copyies the specified file on server to the working directory of current user.
+            </summary>
+            <param name="requestParams">Information about file that must be copied.</param>
+            <returns>Response from the server.</returns>
+            <remarks>
+            Method copies the specified file into "/UploadedImageFiles/{SessionID}" directory.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.GetFilePath(System.String)">
+            <summary>
+            Returns path to a file on server.
+            </summary>
+            <param name="fileUrl">URL of file on server.</param>
+            <returns>Path to a file on server.</returns>
+            <remarks>
+            Method converts file URL to file path.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.FileValidation(Vintasoft.Imaging.Web.Mvc.Controllers.BaseFileResponseParams,System.IO.Stream)">
+            <summary>
+            Validates that specified stream can be saved on a server.
+            </summary>
+            <param name="responseParams">Response from the server.</param>
+            <param name="fileStream">Stream with file data.</param>
+            <returns>
+            <b>true</b> - stream contains image or PDF document and can be saved on server;
+            <b>true</b> - file stream cannot be saved on server.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.SaveFile(System.IO.Stream,System.String,System.String)">
+            <summary>
+             Adds a stream with image file to a list of uploaded files.
+            </summary>
+            <param name="fileStream">The stream with image file.</param>
+            <param name="safeFilename">Safe filename.</param>
+            <param name="workingDirectory">Directory, where file must be saved, for example,
+            working directory of current user "/UploadedImageFiles/{SessionID}".</param>
+            <returns>File 1 URL.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftFileApiController.GetSafeFileName(System.String)">
+            <summary>
+            Returns a safe filename.
+            </summary>
+            <param name="fileName">File name.</param>
+            <returns>Safe file name.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController">
+            <summary>
+            API controller that handles HTTP requests from clients and
+            allows to process image stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.InvertImage(Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams)">
+            <summary>
+            Inverts an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.RotateImage(Vintasoft.Imaging.Web.Mvc.Controllers.RotateImageRequestParams)">
+            <summary>
+            Rotates an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.FlipImage(Vintasoft.Imaging.Web.Mvc.Controllers.FlipImageRequestParams)">
+            <summary>
+            Flips an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.HalftoneImage(Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams)">
+            <summary>
+            Applies the halftone command to an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.ClearImage(Vintasoft.Imaging.Web.Mvc.Controllers.ClearImageRequestParams)">
+            <summary>
+            Clears an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.ResizeImage(Vintasoft.Imaging.Web.Mvc.Controllers.ResizeImageRequestParams)">
+            <summary>
+            Resizes an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.CropImage(Vintasoft.Imaging.Web.Mvc.Controllers.ImageProcessingWithRegionRequestParams)">
+            <summary>
+            Crops an image stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.ResizeCanvas(Vintasoft.Imaging.Web.Mvc.Controllers.ResizeCanvasRequestParams)">
+            <summary>
+            Resizes a canvas of image, which is stored on server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information about image and
+            image processing command.</param>
+            <returns>Response, from server, which contains image processing results.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.SaveProcessedImage(Vintasoft.Imaging.VintasoftImage,System.String,System.Int32)">
+            <summary>
+            Saves processed image to a new file.
+            </summary>
+            <param name="image">Processed image, which should be saved to a file.</param>
+            <param name="sourceImageUrl">URL of the source image file.</param>
+            <param name="pageIndex">Zero-based page index in the source image file.</param>
+            <returns>URL to a file where processed image was saved.</returns>
+            <remarks>
+            This method is executed each time when the processed image must be saved to a new file
+            (<see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.BaseImageProcessingRequestParams" />.changeSource == <b>true</b>).<br />
+            By default, this method saves the processed image to the folder with source image and
+            adds "_processedX" prefix to a filename of processed image.<br />
+            This method must be overriden if image saving algorithm must be changed.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageProcessingApiController.GetFilePath(System.String)">
+            <summary>
+            Returns path to a file on server.
+            </summary>
+            <param name="fileUrl">URL of file on server.</param>
+            <returns>Path to a file on server.</returns>
+            <remarks>
+            Method converts file URL to file path.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController">
+            <summary>
+            API controller that handles HTTP requests from clients and
+            allows to manage image collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController.OpenFile(System.String)">
+            <summary>
+            Adds images from file, stored on server, into image collection.
+            </summary>
+            <param name="fileUrl">File URL on server.</param>
+            <returns>Response, from server, which contains information
+            about image collection.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController.SaveState(Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams)">
+            <summary>
+            Saves the image collection state on the server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information
+            about image collection.</param>
+            <returns>Response from server.</returns>
+            <remarks>
+            This method saves information about image collection state into
+            the "/VintasoftCache/WebImageCollectionState/{SessionID}" directory.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageCollectionApiController.LoadState(Vintasoft.Imaging.Web.Mvc.Controllers.ImageCollectionInfoRequestParams)">
+            <summary>
+            Loads the last state of image collection from the server.
+            </summary>
+            <param name="requestParams">Request, to the server, which contains information
+            about image collection.</param>
+            <returns>Response, from server, which contains information
+            about restored image collection.</returns>
+            <remarks>
+            This method loads information about image collection state from
+            the "/VintasoftCache/WebImageCollectionState/{SessionID}" directory and
+            restores the image collection state.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController">
+            <summary>
+            API controller that handles HTTP requests from clients and
+            allows to get information about image or render image thumbnail/tile.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.GetImageInfo(Vintasoft.Imaging.Web.Mvc.Controllers.ImageInfoRequestParams)">
+            <summary>
+            Returns information about image stored on server.
+            </summary>
+            <param name="requestParams">Information about file stored on server.</param>
+            <returns>Response from the server, which contains image info.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.RenderImageThumbnail(Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageThumbnailRequestParams)">
+            <summary>
+            Renders image thumbnail.
+            </summary>
+            <param name="requestParams">Information about image file, stored on server, and
+            parameters, which should be used for rendering an image thumbnail.</param>
+            <returns>Response from the server, which contains information about image and image thumbnail.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.RenderImageTile(Vintasoft.Imaging.Web.Mvc.Controllers.RenderImageTileRequestParams)">
+            <summary>
+            Renders image tile.
+            </summary>
+            <param name="requestParams">Information about image file, stored on server, and
+            parameters, which should be used for rendering an image tile.</param>
+            <returns>Response from the server, which contains information about image and image tile.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.CreateThumbnailEncoder">
+            <summary>
+            Creates an encoder that should be used for encoding image thumbnails.
+            </summary>
+            <returns>An encoder that should be used for encoding image thumbnails.</returns>
+            <remarks>
+            Supported encoders: <see cref="T:Vintasoft.Imaging.Codecs.Encoders.PngEncoder" />, <see cref="T:Vintasoft.Imaging.Codecs.Encoders.GifEncoder" />, <see cref="T:Vintasoft.Imaging.Codecs.Encoders.JpegEncoder" />.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.CreateTileEncoder">
+            <summary>
+            Creates an encoder that should be used for encoding image tiles.
+            </summary>
+            <returns>An encoder that should be used for encoding image tiles.</returns>
+            <remarks>
+            Supported encoders: <see cref="T:Vintasoft.Imaging.Codecs.Encoders.PngEncoder" />, <see cref="T:Vintasoft.Imaging.Codecs.Encoders.GifEncoder" />, <see cref="T:Vintasoft.Imaging.Codecs.Encoders.JpegEncoder" />.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.VintasoftImageApiController.GetFilePath(System.String)">
+            <summary>
+            Returns path to a file on server.
+            </summary>
+            <param name="fileUrl">URL of file on server.</param>
+            <returns>Path to a file on server.</returns>
+            <remarks>
+            Method converts file URL to file path.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.Controllers.WebImageInfo">
+            <summary>
+            Contains information about image stored on server.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.Controllers.WebImageInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.Controllers.WebImageInfo" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.WebImageInfo.fileUrl">
+            <summary>
+            Gets or sets an URL of file on server.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.Controllers.WebImageInfo.pageIndex">
+            <summary>
+            Gets or sets an index of page in image file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject">
+            <summary>
+            An object that can be used for highlighting single region on image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject.#ctor(System.Drawing.PointF[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject" /> class.
+            </summary>
+            <param name="path">An array of points that defines region on image.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject.CreateFromRectangle(System.Drawing.Rectangle)">
+            <summary>
+            Creates an instance of <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject" /> class from a <see cref="T:System.Drawing.Rectangle" />.
+            </summary>
+            <param name="rectangle">A rectangle, which defines the object.</param>
+            <returns>An instance of <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject" /> class.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject.CreateFromPolygon(System.Drawing.PointF[])">
+            <summary>
+            Creates an instance of <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject" /> class from an array of points.
+            </summary>
+            <param name="points">An array of points that defines region on image.</param>
+            <returns>An instance of <see cref="T:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject" /> class.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject.Path">
+            <summary>
+            Gets or sets an array of points that defines region on image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Web.Mvc.UI.VisualTools.WebHighlightObject.ToolTip">
+            <summary>
+            Gets or sets the tooltip associated with the object.
+            </summary>
+        </member>
+    </members>
+</doc>

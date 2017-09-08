@@ -1,0 +1,52 @@
+.RadOrgChart_Black {
+  /* Loading states */ }
+  .RadOrgChart_Black {
+    color: #ffffff; }
+  .RadOrgChart_Black .rocGroup {
+    border-radius: 10px;
+    background-color: #545454; }
+  .RadOrgChart_Black .rocItem,
+  .RadOrgChart_Black .rocItemTemplate {
+    border-color: #080808;
+    border-radius: 5px;
+    background-color: #343434;
+    background-image: linear-gradient(#666666, #343434); }
+  .RadOrgChart_Black .rocExpandArrow,
+  .RadOrgChart_Black .rocCollapseArrow,
+  .RadOrgChart_Black .rocExpandGroupArrow,
+  .RadOrgChart_Black .rocCollapseGroupArrow {
+    border-color: #080808;
+    border-radius: 3px;
+    background-color: #333333; }
+  .RadOrgChart_Black .rocNode:before,
+  .RadOrgChart_Black .rocNode:after,
+  .RadOrgChart_Black .rocGroup:before,
+  .RadOrgChart_Black .rocGroup:after {
+    border-color: #555; }
+  .RadOrgChart_Black .rocLoadingNodes .rocExpandArrow,
+  .RadOrgChart_Black .rocLoadingNodes .rocCollapseArrow,
+  .RadOrgChart_Black .rocLoadingGroups .rocExpandGroupArrow,
+  .RadOrgChart_Black .rocLoadingGroups .rocCollapseGroupArrow {
+    background-image: url('../Black/Common/loading_small.gif'); }
+
+.RadOrgChart_Black.rocHorizontal .rocNode:before,
+.RadOrgChart_Black.rocHorizontal .rocGroup:before,
+.RadOrgChart_Black.rocHorizontal .rocGroup:after,
+.RadOrgChart_Black.rocHorizontal.rocSimple .rocNode:after,
+.RadOrgChart_Black.rocHorizontal.rocSimple .rocItem:after {
+  border-color: #555; }
+
+.RadOrgChart_Black.rocDetachedItem,
+.RadOrgChart_Black.rocDetachedNode {
+  border-color: #080808;
+  border-radius: 5px;
+  background-color: #202020; }
+
+.rocToolbar_Black {
+  color: #d7d7d7;
+  border-radius: 5px;
+  background-color: #1b1b1b; }
+  .rocToolbar_Black .rocToolbarButton {
+    border-color: #141414;
+    border-radius: 3px;
+    background-color: #1b1b1b; }

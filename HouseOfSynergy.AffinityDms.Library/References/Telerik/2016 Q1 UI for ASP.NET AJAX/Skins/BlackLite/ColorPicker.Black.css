@@ -1,0 +1,73 @@
+.RadColorPicker_Black {
+  font-size: 1em; }
+  .RadColorPicker_Black .rcpPalette {
+    background-color: #202020;
+    border-color: #080808; }
+  .RadColorPicker_Black .rcpHeader {
+    background-color: #161616;
+    background-image: linear-gradient(#323232, #161616);
+    border-color: #080808; }
+  .RadColorPicker_Black .rcpImageButton,
+  .RadColorPicker_Black a.rslDraghandle {
+    color: #d7d7d7; }
+  .RadColorPicker_Black .rcpImageButton:hover {
+    color: #9eda29; }
+  .RadColorPicker_Black .rcpIcon em,
+  .RadColorPicker_Black .rcpColorPreview,
+  .RadColorPicker_Black .rcpInput,
+  .RadColorPicker_Black .rcpHexInput,
+  .RadColorPicker_Black .rcpMillionColorsPalette,
+  .RadColorPicker_Black .rcpMillionColorsSlider div.rslTrack {
+    background-color: #444444;
+    color: #ffffff;
+    border-color: #080808; }
+  .RadColorPicker_Black .rcpIcon a,
+  .RadColorPicker_Black .rcpTabs li,
+  .RadColorPicker_Black .rcpButton {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+  .RadColorPicker_Black .rcpIcon a,
+  .RadColorPicker_Black .rcpTabs a {
+    color: #ffffff; }
+  .RadColorPicker_Black .rcpIcon a:hover,
+  .RadColorPicker_Black .rcpTabs li:hover,
+  .RadColorPicker_Black .rcpButton:hover {
+    border-color: #080808;
+    color: #9eda29;
+    background-color: #020202;
+    background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+  .RadColorPicker_Black .rcpIcon a:hover,
+  .RadColorPicker_Black .rcpTabs li:hover a {
+    color: #9eda29; }
+  .RadColorPicker_Black .rcpIcon a:active,
+  .RadColorPicker_Black .rcpTabs .rcpSelectedTab,
+  .RadColorPicker_Black .rcpTabs .rcpSelectedTab:hover,
+  .RadColorPicker_Black .rcpButton:active {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #202020;
+    background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+  .RadColorPicker_Black .rcpIcon a:focus {
+    box-shadow: inset 0 0 5px rgba(8, 8, 8, 0.5); }
+  .RadColorPicker_Black .rcpIcon a:active,
+  .RadColorPicker_Black .rcpTabs .rcpSelectedTab a,
+  .RadColorPicker_Black .rcpTabs .rcpSelectedTab:hover a {
+    color: #ffffff; }
+  .RadColorPicker_Black .rcpRecentColors {
+    border-color: #080808; }
+  .RadColorPicker_Black.rcpCustomColorWrapper .rcpPalette {
+    box-shadow: 2px 2px 3px rgba(8, 8, 8, 0.5); }
+  .RadColorPicker_Black .rcpPageView label {
+    color: #d7d7d7; }
+  .RadColorPicker_Black .rcpSlider.RadSlider_Black a.rslDraghandle,
+  .RadColorPicker_Black .rcpMillionColorsSlider.RadSlider_Black a.rslDraghandle {
+    color: #d7d7d7; }
+  .RadColorPicker_Black .rcpSlider.RadSlider_Black a.rslDraghandle:hover,
+  .RadColorPicker_Black .rcpSlider.RadSlider_Black a.rslDraghandle:active,
+  .RadColorPicker_Black .rcpSlider.RadSlider_Black a.rslDraghandle:focus,
+  .RadColorPicker_Black .rcpMillionColorsSlider.RadSlider_Black a.rslDraghandle:hover,
+  .RadColorPicker_Black .rcpMillionColorsSlider.RadSlider_Black a.rslDraghandle:active,
+  .RadColorPicker_Black .rcpMillionColorsSlider.RadSlider_Black a.rslDraghandle:focus {
+    color: #9eda29; }

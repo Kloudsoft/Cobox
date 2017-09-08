@@ -1,0 +1,81 @@
+.RadEditor_Black {
+  background-color: #202020;
+  border-color: #080808;
+  color: #a9a9a9; }
+  .RadEditor_Black .reToolBar, .RadEditor_Black.rePopupContainer, .RadEditor_Black .rePopupTitle, .RadEditor_Black .reCommentInfoPanel, .RadEditor_Black .reCommentView, .RadEditor_Black .reCommentViewText, .RadEditor_Black .reCommentEdit {
+    background-color: #202020;
+    border-color: #080808;
+    background-image: linear-gradient(#5c5c5c, #29292b 50%, #060606 50%, #020202 100%); }
+  .RadEditor_Black.rePopupContainer, .RadEditor_Black .rePopupTitle, .RadEditor_Black .reCommentInfoPanel, .RadEditor_Black .reCommentView, .RadEditor_Black .reCommentViewText, .RadEditor_Black .reCommentEdit {
+    background-image: linear-gradient(#323232, #161616); }
+  .RadEditor_Black .rePopupButton, .RadEditor_Black .reCommentButton, .RadEditor_Black .reAjaxSpellButton {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+  .RadEditor_Black .reTool:hover, .RadEditor_Black .reToolText:hover, .RadEditor_Black .reModes a:hover, .RadEditor_Black .reDropdown:hover, .RadEditor_Black .reSpinBoxButtons span:hover, .RadEditor_Black.reInsertTable .reTool:hover:before, .RadEditor_Black.reAlignmentSelector td div:hover:before, .RadEditor_Black .rePopupButton:hover, .RadEditor_Black .reCommentButton:hover, .RadEditor_Black .reAjaxSpellButton:hover {
+    background-color: #444444;
+    border-color: #000000;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b 100%); }
+  .RadEditor_Black .reTool:active, .RadEditor_Black .reTool:focus, .RadEditor_Black .reToolText:active, .RadEditor_Black .reToolText:focus, .RadEditor_Black .reToolSelected, .RadEditor_Black .reToolSelected:hover, .RadEditor_Black .reModes a:active, .RadEditor_Black .reModes a:focus, .RadEditor_Black .reModes .reSelectedMode, .RadEditor_Black .reModes .reSelectedMode:hover, .RadEditor_Black .reDropdown:active, .RadEditor_Black .reDropdown:focus, .RadEditor_Black .reSpinBoxButtons span:active, .RadEditor_Black .reSpinBoxButtons span:focus, .RadEditor_Black .rePopupButton:active, .RadEditor_Black .rePopupButton:focus, .RadEditor_Black .reCommentButton:active, .RadEditor_Black .reCommentButton:focus, .RadEditor_Black .reAjaxSpellButton:focus, .RadEditor_Black .reAjaxSpellButton:active {
+    background-color: #444444;
+    border-color: #000000;
+    background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #1c1c1c 100%); }
+  .RadEditor_Black .reTool:before, .RadEditor_Black .reTool.reToolDisabled:hover:before, .RadEditor_Black .reTool.reToolDisabled:active:before, .RadEditor_Black .reTool.reToolDisabled:focus:before, .RadEditor_Black .reTool.reToolDisabled:hover .reSplitArrow:before, .RadEditor_Black .reTool.reToolDisabled:hover .reSplitArrow:hover:before, .RadEditor_Black .reToolText, .RadEditor_Black .reSplitArrow:before, .RadEditor_Black .reDOMElement, .RadEditor_Black .reCustomColor, .RadEditor_Black .reCustomLinks a, .RadEditor_Black .reSpinBoxButtons span:before {
+    color: #cfcfcf; }
+  .RadEditor_Black .reTool:hover:before, .RadEditor_Black .reTool:active:before, .RadEditor_Black .reTool:focus:before, .RadEditor_Black .reToolSelected:before, .RadEditor_Black .reTool:hover .reSplitArrow:hover:before, .RadEditor_Black .reTool:hover .reSplitArrow:active:before, .RadEditor_Black .reTool:hover .reSplitArrow:focus:before, .RadEditor_Black .reDropdown:hover, .RadEditor_Black .reDropdown:hover:before, .RadEditor_Black .reDropdown:active, .RadEditor_Black .reDropdown:active:before, .RadEditor_Black .reDropdown:focus, .RadEditor_Black .reDropdown:focus:before, .RadEditor_Black .reModes a:hover, .RadEditor_Black .reModes a:hover .reIcon:before, .RadEditor_Black .reModes a:active, .RadEditor_Black .reModes a:focus, .RadEditor_Black .reModes a:active .reIcon:before, .RadEditor_Black .reModes a:focus .reIcon:before, .RadEditor_Black .reModes .reSelectedMode, .RadEditor_Black .reModes .reSelectedMode .reIcon:before, .RadEditor_Black .reCustomLinks a:hover, .RadEditor_Black.reAlignmentSelector td div:hover:before, .RadEditor_Black .rePopupButton:hover, .RadEditor_Black .reCommentButton:hover, .RadEditor_Black .rePopupButton:active, .RadEditor_Black .rePopupButton:focus, .RadEditor_Black .reCommentButton:active, .RadEditor_Black .reCommentButton:focus, .RadEditor_Black .reSpinBoxButtons span:hover:before {
+    color: #9eda29; }
+  .RadEditor_Black .reTool:hover .reSplitArrow {
+    border-left-color: #515151; }
+  .RadEditor_Black .reTool:active .reSplitArrow, .RadEditor_Black .reTool:focus .reSplitArrow {
+    border-left-color: #515151; }
+  .RadEditor_Black .reSeparator {
+    border-right-color: #1f1f20;
+    border-left-color: #3a3a3a; }
+  .RadEditor_Black .reToolBarWrapperLeft .reSeparator, .RadEditor_Black .reToolBarWrapperRight .reSeparator {
+    border-top-color: #3a3a3a;
+    border-bottom-color: #1f1f20; }
+  .RadEditor_Black .reContent {
+    border-color: #080808; }
+  .RadEditor_Black .reTableDiv .reModule, .RadEditor_Black .reTableDiv .reRow {
+    border-top-color: #080808; }
+  .RadEditor_Black .reModes a, .RadEditor_Black .reModes a .reIcon:before {
+    color: #a9a9a9; }
+  .RadEditor_Black .reDropdown, .RadEditor_Black .reDropdown.reToolDisabled, .RadEditor_Black .reDropdown.reToolDisabled:hover, .RadEditor_Black .reDropdown.reToolDisabled:active, .RadEditor_Black .reDropdown.reToolDisabled:focus {
+    background-color: #464646;
+    border-color: #080808; }
+  .RadEditor_Black .reDropdown, .RadEditor_Black .reDropdown.reToolDisabled, .RadEditor_Black .reDropdown.reToolDisabled:hover, .RadEditor_Black .reDropdown.reToolDisabled:active, .RadEditor_Black .reDropdown.reToolDisabled:focus, .RadEditor_Black .reDropdown:before, .RadEditor_Black .reDropdown.reToolDisabled:before, .RadEditor_Black .reDropdown.reToolDisabled:hover:before, .RadEditor_Black .reDropdown.reToolDisabled:active:before, .RadEditor_Black .reDropdown.reToolDisabled:focus:before {
+    color: #a9a9a9; }
+  .RadEditor_Black .reRemoveDOMElement, .RadEditor_Black .reRemoveDOMElement:before {
+    color: #ffffff; }
+  .RadEditor_Black.reDropDownBody.reAjaxSpellCheck input[type="text"], .RadEditor_Black .reTableDiv input[type="text"] {
+    background-color: #444444;
+    color: #ffffff;
+    border-color: #080808; }
+  .RadEditor_Black.reDropDownBody.reAjaxSpellCheck input[type="text"]:hover, .RadEditor_Black .reTableDiv input[type="text"]:hover {
+    background-color: #444444;
+    color: #ffffff;
+    border-color: #5c5c5c; }
+  .RadEditor_Black.reInlineEditor:hover {
+    border-color: #4f4f4f; }
+  .RadEditor_Black.RadWindow, .RadEditor_Black.RadWindow.reInlineEditor:hover {
+    border-color: #202020; }
+  .RadEditor_Black.reInlineEditorSelected, .RadEditor_Black.reInlineEditorSelected:hover {
+    border-color: #9eda29; }
+  .RadEditor_Black.RadWindow, .RadEditor_Black.RadWindow .rwContent {
+    background-color: #202020; }
+  .RadEditor_Black .reResize:before {
+    color: #a9a9a9; }
+  .RadEditor_Black.reDropDownBody {
+    background-color: #464646; }
+  .RadEditor_Black.reDropDownBody li:hover {
+    background-color: #3e3e3e; }
+  .RadEditor_Black.reInsertTable td {
+    border-color: #080808; }
+  .RadEditor_Black .reFormatSetsHeader, .RadEditor_Black.reInsertTable .reItemOver {
+    background-color: #3e3e3e;
+    color: #9eda29; }
+
+.reTool .reNoAlignment {
+  color: #d7d7d7; }
+

@@ -1,0 +1,1801 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Ocr</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrLanguage">
+            <summary>
+            Specifies available languages for recognition.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.None">
+            <summary>
+            Not specified.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Arabic">
+            <summary>
+            Arabic language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Bulgarian">
+            <summary>
+            Bulgarian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Catalan">
+            <summary>
+            Catalan language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Czech">
+            <summary>
+            Czech language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Cherokee">
+            <summary>
+            Cherokee language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.ChineseSimplified">
+            <summary>
+            Chinese simplified language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.ChineseTraditional">
+            <summary>
+            Chinese traditional language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Danish">
+            <summary>
+            Danish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Dutch">
+            <summary>
+            Dutch language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.English">
+            <summary>
+            English language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Finnish">
+            <summary>
+            Finnish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.French">
+            <summary>
+            French language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.German">
+            <summary>
+            German language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Greek">
+            <summary>
+            Greek language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Hebrew">
+            <summary>
+            Hebrew language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Hindi">
+            <summary>
+            Hindi language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Hungarian">
+            <summary>
+            Hungarian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Indonesian">
+            <summary>
+            Indonesian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Italian">
+            <summary>
+            Italian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Japanese">
+            <summary>
+            Japanese language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Korean">
+            <summary>
+            Korean language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Latvian">
+            <summary>
+            Latvian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Lithuanian">
+            <summary>
+            Lithuanian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Norwegian">
+            <summary>
+            Norwegian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Polish">
+            <summary>
+            Polish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Portuguese">
+            <summary>
+            Portuguese language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Romanian">
+            <summary>
+            Romanian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Russian">
+            <summary>
+            Russian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Serbian">
+            <summary>
+            Serbian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Slovakian">
+            <summary>
+            Slovakian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Slovenian">
+            <summary>
+            Slovenian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Spanish">
+            <summary>
+            Spanish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Swedish">
+            <summary>
+            Swedish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Tagalog">
+            <summary>
+            Tagalog language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Thai">
+            <summary>
+            Thai language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Turkish">
+            <summary>
+            Turkish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Ukrainian">
+            <summary>
+            Ukrainian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Vietnamese">
+            <summary>
+            Vietnamese language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Afrikaans">
+            <summary>
+            Afrikaans language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Azerbaijani">
+            <summary>
+            Azerbaijani language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Belarusian">
+            <summary>
+            Belarusian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Bengali">
+            <summary>
+            Bengali language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Estonian">
+            <summary>
+            Estonian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Basque">
+            <summary>
+            Basque language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Frankish">
+            <summary>
+            Frankish language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Galician">
+            <summary>
+            Galician language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Croatian">
+            <summary>
+            Croatian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Icelandic">
+            <summary>
+            Icelandic language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Malayalam">
+            <summary>
+            Malayalam language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Macedonian">
+            <summary>
+            Macedonian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Maltese">
+            <summary>
+            Maltese language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Malay">
+            <summary>
+            Malay language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Albanian">
+            <summary>
+            Albanian language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Swahili">
+            <summary>
+            Swahili language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Tamil">
+            <summary>
+            Tamil language.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrLanguage.Telugu">
+            <summary>
+            Telugu language.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrEngineManager">
+            <summary>
+            Represents a manager of OCR engine.
+            </summary>
+            <example>This example demonstrates how to segmentate and OCR an image.
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.ImageProcessing.Info
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class OcrEngineManagerExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll,
+                ' Vintasoft.Imaging.DocCleanup.dll
+                Public Shared Sub SegmentsAndOcrImages(language As OcrLanguage, filename As String)
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        ' create OCR engine manager
+                        Dim engineManager As New OcrEngineManager(tesseractOcr)
+            
+                        Dim settings As New OcrEngineSettings(language)
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            Console.WriteLine("Segmentation of the image...")
+                            Dim segmentation As New DocumentSegmentationCommand()
+                            segmentation.ExecuteInPlace(image)
+            
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = engineManager.Recognize(image, settings, segmentation.Regions)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.ImageProcessing.Info;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class OcrEngineManagerExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll,
+                // Vintasoft.Imaging.DocCleanup.dll
+                public static void SegmentsAndOcrImages(OcrLanguage language, string filename)
+                {
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        // create OCR engine manager
+                        OcrEngineManager engineManager =
+                            new OcrEngineManager(tesseractOcr);
+            
+                        OcrEngineSettings settings = new OcrEngineSettings(language);
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            Console.WriteLine("Segmentation of the image...");
+                            DocumentSegmentationCommand segmentation = new DocumentSegmentationCommand();
+                            segmentation.ExecuteInPlace(image);
+            
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = engineManager.Recognize(image, settings, segmentation.Regions);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+            <remarks>
+            This class is thread-safe.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineManager.#ctor(Vintasoft.Imaging.Ocr.OcrEngine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineManager" /> class.
+            </summary>
+            <param name="engine">An OCR engine.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineManager.Recognize(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Ocr.OcrEngineSettings,System.Collections.Generic.IEnumerable{Vintasoft.Imaging.ImageProcessing.Info.ImageRegion})">
+            <summary>
+            Recognizes an image and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+            <param name="image">Image to recognize.</param>
+            <param name="settings">Settings of OCR engine.</param>
+            <param name="imageRegions">A collection of <see cref="T:Vintasoft.Imaging.ImageProcessing.Info.ImageRegion" />.</param>
+            <returns>Result of recognition as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineManager.Recognize(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Ocr.OcrEngineSettings,System.Collections.Generic.IEnumerable{Vintasoft.Imaging.Ocr.RecognitionRegion})">
+            <summary>
+            Recognizes an image and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+            <param name="image">Image to recognize.</param>
+            <param name="settings">Settings of OCR engine.</param>
+            <param name="regions">A collection of <see cref="T:Vintasoft.Imaging.Ocr.RecognitionRegion" />.</param>
+            <returns>Result of recognition as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineManager.OnProgress(Vintasoft.Imaging.ProgressEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Ocr.OcrEngineManager.Progress" /> event.
+            </summary>
+            <param name="args">Contains an event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngineManager.SupportedLanguages">
+            <summary>
+            Gets an array of supported languages for recognition.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Ocr.OcrEngineManager.Progress">
+            <summary>
+            Occurs when the image is recognizing, to provide status on the progress
+            of the recognition.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrEngineSettings">
+            <summary>
+            Contains the settings for OCR engine.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineSettings.#ctor(Vintasoft.Imaging.Ocr.OcrLanguage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineSettings" /> class.
+            </summary>
+            <param name="language">A recognition language.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineSettings.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineSettings" /> class.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineSettings.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineSettings" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.Ocr.OcrEngineSettings" /> instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngineSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the target object.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngineSettings.Language">
+            <summary>
+            Gets or sets the language for recognition.
+            </summary>
+            <value>
+            Default value is <see cref="T:Vintasoft.Imaging.Ocr.OcrLanguage" />.English.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.RecognitionRegion">
+            <summary>
+            Represents a recognition region.
+            </summary>
+            <example> This example demonstrates how to OCR image with two languages (English and German).
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class RecognitionRegionExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                Public Shared Sub OcrImageUsingTesseractEngine(filename As String)
+                    Dim language1 As OcrLanguage = OcrLanguage.English
+                    Dim language2 As OcrLanguage = OcrLanguage.German
+            
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        ' create OCR engine manager
+                        Dim engineManager As New OcrEngineManager(tesseractOcr)
+            
+                        Dim settings As New OcrEngineSettings(language1)
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            ' create recognition regions
+                            Dim regions As RecognitionRegion() = New RecognitionRegion(1) {}
+                            regions(0) = New RecognitionRegion(New RegionOfInterest(0, 0, image.Width, image.Height \ 2), language1)
+                            regions(1) = New RecognitionRegion(New RegionOfInterest(0, image.Height \ 2, image.Width, image.Height \ 2), language2)
+            
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = engineManager.Recognize(image, settings, regions)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class RecognitionRegionExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                public static void OcrImageUsingTesseractEngine(string filename)
+                {
+                    OcrLanguage language1 = OcrLanguage.English;
+                    OcrLanguage language2 = OcrLanguage.German;
+            
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        // create OCR engine manager
+                        OcrEngineManager engineManager =
+                            new OcrEngineManager(tesseractOcr);
+            
+                        OcrEngineSettings settings = new OcrEngineSettings(language1);
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            // create recognition regions
+                            RecognitionRegion[] regions = new RecognitionRegion[2];
+                            regions[0] = new RecognitionRegion(
+                                new RegionOfInterest(0, 0, image.Width, image.Height / 2),
+                                language1);
+                            regions[1] = new RecognitionRegion(
+                                new RegionOfInterest(0, image.Height / 2, image.Width, image.Height / 2),
+                                language2);
+            
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = engineManager.Recognize(image, settings, regions);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.RecognitionRegion.#ctor(Vintasoft.Imaging.RegionOfInterest,Vintasoft.Imaging.Ocr.OcrLanguage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.RecognitionRegion" /> class.
+            </summary>
+            <param name="region">A recognition region.</param>
+            <param name="language">A recognition language.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.RecognitionRegion.ToString">
+            <summary>
+            Returns a string that represents the current <see cref="T:Vintasoft.Imaging.Ocr.RecognitionRegion" />.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents the current <see cref="T:Vintasoft.Imaging.Ocr.RecognitionRegion" />.</returns>    
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.RecognitionRegion.GetBoundingBox">
+            <summary>
+            Returns a bounding box of this <see cref="T:Vintasoft.Imaging.Ocr.RecognitionRegion" />.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.RecognitionRegion.Region">
+            <summary>
+            Gets or sets a recognition region.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.RecognitionRegion.Language">
+            <summary>
+            Gets or sets a language of recognition region.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrException">
+            <summary>
+            Represents errors that occur during work with OCR engine.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrException" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrException" /> class
+            with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrObjectType">
+            <summary>
+            Specifies available types of an OCR object.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrObjectType.TextRegion">
+            <summary>
+            Text region.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrObjectType.Paragraph">
+            <summary>
+            Paragraph.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrObjectType.TextLine">
+            <summary>
+            Text line.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrObjectType.Word">
+            <summary>
+            Word.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.OcrObjectType.Symbol">
+            <summary>
+            Symbol.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.IOcrTextObject">
+            <summary>
+            Represents an interface of text objects.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.IOcrTextObject.Text">
+            <summary>
+            Gets a text of the OCR object.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation">
+            <summary>
+            Represents a bounding box and baseline of an <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation" /> class.
+            </summary>
+            <param name="baseLineX1">The X-coordinate of the first point of the baseline.</param>
+            <param name="baseLineY1">The Y-coordinate of the first point of the baseline.</param>
+            <param name="baseLineX2">The X-coordinate of the second point of the baseline.</param>
+            <param name="baseLineY2">The Y-coordinate of the second point of the baseline.</param>
+            <param name="boundingBoxX">The X-coordinate of bounding box.</param>
+            <param name="boundingBoxY">The Y-coordinate of bounding box.</param>
+            <param name="boundingBoxWidth">The width of bounding box.</param>
+            <param name="boundingBoxHeight">The height of bounding box.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BoundingBoxX">
+            <summary>
+            Gets a X-coordinate of bounding box.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BoundingBoxY">
+            <summary>
+            Gets a Y-coordinate of bounding box.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BoundingBoxWidth">
+            <summary>
+            Gets a width of bounding box.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BoundingBoxHeight">
+            <summary>
+            Gets a height of bounding box.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BaseLineX1">
+            <summary>
+            Gets a X-coordinate of the first point of the baseline.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BaseLineY1">
+            <summary>
+            Gets a Y-coordinate of the first point of the baseline.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BaseLineX2">
+            <summary>
+            Gets a X-coordinate of the second point of the baseline.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObjectLocation.BaseLineY2">
+            <summary>
+            Gets a Y-coordinate of the second point of the baseline.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrTextFont">
+            <summary>
+            Represents a font of OCR word.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextFont.#ctor(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextFont" /> class.
+            </summary>
+            <param name="name">Name of font.</param>
+            <param name="isBold">Value indicating whether the font is bold.</param>
+            <param name="isItalic">Value indicating whether the font is italic.</param>
+            <param name="isUnderlined">Value indicating whether the font is underlined.</param>
+            <param name="isMonospace">Value indicating whether the font is monospace.</param>
+            <param name="isSerif">Value indicating whether the font is serif.</param>
+            <param name="isSmallcaps">Value indicating whether the font has small caps.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.Name">
+            <summary>
+            Gets a font name.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsBold">
+            <summary>
+            Gets a value indicating whether font is bold.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsItalic">
+            <summary>
+            Gets a value indicating whether font is italic.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsUnderlined">
+            <summary>
+            Gets a value indicating whether font is underlined.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsMonospace">
+            <summary>
+            Gets a value indicating whether font is monospaced.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsSerif">
+            <summary>
+            Gets a value indicating whether font is serif.
+            </summary>       
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextFont.IsSmallcaps">
+            <summary>
+            Gets a value indicating whether font has small caps.
+            </summary>       
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrTextObject">
+            <summary>
+            Represents a base class of text objects.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrObject">
+            <summary>
+            Provides an abstract base class for OCR objects with bounding box.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrObject.GetBoundingBox">
+            <summary>
+            Returns a bounding box of the object.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrObject.ToString">
+            <summary>
+            Returns a string that represents the current <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" />.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents the current <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" />.</returns>    
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObject.Type">
+            <summary>
+            Gets a type of this object.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObject.Location">
+            <summary>
+            Gets a location of this object.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObject.Orientation">
+            <summary>
+            Gets an orientation of this object.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObject.WritingDirection">
+            <summary>
+            Gets a writing direction of this object.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrObject.Confidence">
+            <summary>
+            Gets a confidence, in percents, of this object.
+            </summary>
+            <example>This example demonstrates how to filter OCR results.
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Recognizes text in images,
+            ''' removes words with low confidence from recognized text and
+            ''' returns recognized text.
+            ''' &lt;/summary&gt;
+            ''' &lt;param name="filename"&gt;The name of the file containing image to OCR.&lt;/param&gt;
+            Public Function RecognizeTextAndFilterRecognitionResult(filename As String) As String
+                ' minimum confidence
+                Const  MIN_CONFIDENCE As Single = 75F
+            
+                ' create image collection
+                Using images As New ImageCollection()
+                    ' add images from file to image collection
+                    images.Add(filename)
+            
+                    ' create tesseract OCR engine
+                    Using tesseractOcr As New TesseractOcr()
+                        ' create tesseract OCR settings
+                        Dim settings As New OcrEngineSettings(OcrLanguage.English)
+                        tesseractOcr.Init(settings)
+            
+                        ' create result builder
+                        Dim result As New StringBuilder()
+            
+                        ' for each image in image collection
+                        For Each image As VintasoftImage In images
+                            ' recognize the image
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            ' get all words in recognized text
+                            Dim ocrObjects As OcrObject() = page.GetObjects(OcrObjectType.Word)
+                            ' create list of words to remove
+                            Dim removeObjects As New List(Of OcrObject)()
+                            ' for each word
+                            For Each word As OcrObject In ocrObjects
+                                ' if word confidence is less than minimum confidence
+                                If word.Confidence &lt; MIN_CONFIDENCE Then
+                                    ' add word to a list of words to remove
+                                    removeObjects.Add(word)
+                                End If
+                            Next
+            
+                            ' validate recognition results (remove words with low confidence)
+            
+                            Dim editor As New OcrResultsEditor(page)
+                            editor.RemoveObjects(removeObjects.ToArray())
+                            editor.ValidateResults()
+            
+                            ' get recognized text
+                            Dim text As String = page.GetText()
+                            ' add recognized text to result
+                            result.Append(text)
+                            result.AppendLine()
+                        Next
+            
+                        ' dispose images and clear image collection
+                        images.ClearAndDisposeItems()
+            
+                        ' return result
+                        Return result.ToString()
+                    End Using
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Recognizes text in images,
+            /// removes words with low confidence from recognized text and
+            /// returns recognized text.
+            /// &lt;/summary&gt;
+            /// &lt;param name="filename"&gt;The name of the file containing image to OCR.&lt;/param&gt;
+            public string RecognizeTextAndFilterRecognitionResult(string filename)
+            {
+                // minimum confidence
+                const float MIN_CONFIDENCE = 75.0f;
+            
+                // create image collection
+                using (ImageCollection images = new ImageCollection())
+                {
+                    // add images from file to image collection
+                    images.Add(filename);
+            
+                    // create tesseract OCR engine
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        // create tesseract OCR settings
+                        OcrEngineSettings settings = new OcrEngineSettings(OcrLanguage.English);
+                        tesseractOcr.Init(settings);
+            
+                        // create result builder
+                        StringBuilder result = new StringBuilder();
+            
+                        // for each image in image collection
+                        foreach (VintasoftImage image in images)
+                        {
+                            // recognize the image
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            // get all words in recognized text
+                            OcrObject[] ocrObjects = page.GetObjects(OcrObjectType.Word);
+                            // create list of words to remove
+                            List&lt;OcrObject&gt; removeObjects = new List&lt;OcrObject&gt;();
+                            // for each word
+                            foreach (OcrObject word in ocrObjects)
+                            {
+                                // if word confidence is less than minimum confidence
+                                if (word.Confidence &lt; MIN_CONFIDENCE)
+                                    // add word to a list of words to remove
+                                    removeObjects.Add(word);
+                            }
+            
+                            // validate recognition results (remove words with low confidence)
+            
+                            OcrResultsEditor editor = new OcrResultsEditor(page);
+                            editor.RemoveObjects(removeObjects.ToArray());
+                            editor.ValidateResults();
+            
+                            // get recognized text
+                            string text = page.GetText();
+                            // add recognized text to result
+                            result.Append(text);
+                            result.AppendLine();
+                        }
+            
+                        // dispose images and clear image collection
+                        images.ClearAndDisposeItems();
+            
+                        // return result
+                        return result.ToString();
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextObject.#ctor(Vintasoft.Imaging.Ocr.OcrObjectType,Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextObject" /> class.
+            </summary>
+            <param name="type">The type of text object.</param>
+            <param name="location">The location of text object.</param>
+            <param name="orientation">The orientation of text object.</param>
+            <param name="writingDirection">The writing direction of text object.</param>
+            <param name="confidence">The confidence of text object.</param>
+            <param name="text">The text of text object.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextObject.ToString">
+            <summary>
+            Returns a string that represents the current <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextObject" />.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents the current <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextObject" />.</returns>    
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextObject.SetText(System.String)">
+            <summary>
+            Sets a text of the text object.
+            </summary>
+            <param name="text">New text value.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextObject.Text">
+            <summary>
+            Gets a text of the text object.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation">
+            <summary>
+            Specifies available orientations of the OCR object on the image.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation.PageUp">
+            <summary>
+            Context (text) of OCR object is written on the image from bottom to top.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation.PageRight">
+            <summary>
+            Context (text) of OCR object is written on the image from left to right.
+            Used for latin languages.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation.PageDown">
+            <summary>
+            Context (text) of OCR object is written on the image from top to bottom.
+            Used for asian languages.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation.PageLeft">
+            <summary>
+            Context (text) of OCR object is written on the image from right to left.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection">
+            <summary>
+            Specifies available writing directions of an OCR object.
+            </summary>    
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection.LeftToRight">
+            <summary>
+            Left-to-right direction.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection.RightToLeft">
+            <summary>
+            Right-to-left direction.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection.TopToBottom">
+            <summary>
+            Top-to-bottom direction.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrRegionType">
+            <summary>
+            Specifies available types of an OCR region.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrRegionType.Unknown">
+            <summary>
+            Unknown type.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Ocr.Results.OcrRegionType.Text">
+            <summary>
+            Text region.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.OcrEngine">
+            <summary>
+            Represents an abstract base class for optical character recognition engine.
+            </summary>
+            <example> This example demonstrates how to OCR an image using Tesseract OCR engine.
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class TesseractOcrExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                Public Shared Sub OcrImageUsingTesseractEngine(language As OcrLanguage, filename As String)
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(language))
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class TesseractOcrExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                public static void OcrImageUsingTesseractEngine(OcrLanguage language, string filename)
+                {
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(language));
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.OcrEngine" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)">
+            <summary>
+            Initializes the OCR engine.
+            </summary>
+            <param name="settings">Settings for OCR engine.</param>
+            <returns>
+            <b>true</b> - OCR engine is successfully initialized;
+            <b>false</b> - OCR engine is NOT initialized.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.SetImage(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Sets the current image for recognition.
+            </summary>
+            <param name="image">Image to recognize.</param>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.Recognize(Vintasoft.Imaging.VintasoftImage)" />
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.ClearImage" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.ClearImage">
+            <summary>
+            Clears the current image for recognition.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.SetImage(Vintasoft.Imaging.VintasoftImage)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.Recognize">
+            <summary>
+            Recognizes the current image and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.SetImage(Vintasoft.Imaging.VintasoftImage)" />
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.ClearImage" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.Recognize(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Recognizes an image and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+            <param name="image">Image to recognize.</param>
+            <returns>Result of recognition as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.Recognize(Vintasoft.Imaging.ImageCollection)">
+            <summary>
+            Recognizes an image collection and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrDocument" />.
+            </summary>
+            <param name="images">Image collection to recognize.</param>
+            <returns>Result of recognition as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrDocument" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.Shutdown">
+            <summary>
+            Shutdowns the OCR engine.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.OnInitialized">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Ocr.OcrEngine.Initialized" /> event.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+            <seealso cref="E:Vintasoft.Imaging.Ocr.OcrEngine.Initialized" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.OcrEngine.OnProgress(Vintasoft.Imaging.ProgressEventArgs)">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Ocr.OcrEngine.Progress" /> event.
+            </summary>
+            <param name="args">Contains an event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngine.SupportedLanguages">
+            <summary>
+            Gets an array of supported languages for recognition.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngine.RecognizeTime">
+            <summary>
+            Gets an information about recognition time.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngine.RecognitionRegion">
+            <summary>
+            Gets or sets the region on image which should be recognized.
+            </summary>
+            <exception cref="T:Vintasoft.Imaging.Ocr.OcrException">
+            Thrown if bounds of new region of interest have negative values.
+            </exception>
+            <example> This example demonstrates how to OCR the specified region
+            of an image using Tesseract OCR engine.
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class OcrEngineRecognitionRegionExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll    
+                Public Shared Sub OcrImageUsingTesseractEngine(language As OcrLanguage, filename As String)
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(language))
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            ' set recognition region
+                            tesseractOcr.RecognitionRegion = New RegionOfInterest(0, 0, image.Width, image.Height \ 2)
+            
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class OcrEngineRecognitionRegionExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll    
+                public static void OcrImageUsingTesseractEngine(OcrLanguage language, string filename)
+                {
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(language));
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            // set recognition region
+                            tesseractOcr.RecognitionRegion =
+                                new RegionOfInterest(0, 0, image.Width, image.Height / 2);
+            
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.OcrEngine.Binarization">
+            <summary>
+            Gets or sets a <see cref="T:Vintasoft.Imaging.ImageProcessing.ChangePixelFormatToBlackWhiteCommand" /> that used to 
+            binarize the source image before recognition.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Ocr.OcrEngine.Initialized">
+            <summary>
+            Occur when <see cref="T:Vintasoft.Imaging.Ocr.OcrEngine" /> is initialized (method <see cref="M:Vintasoft.Imaging.Ocr.OcrEngine.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> is finished).
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.OcrEngine.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="E:Vintasoft.Imaging.Ocr.OcrEngine.Progress">
+            <summary>
+            Occurs when the image is recognizing, to provide status on the progress of the recognition.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor">
+            <summary>
+            Represents an editor of OCR results.
+            </summary>
+            <example>This example demonstrates how to filter OCR results.
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Recognizes text in images,
+            ''' removes words with low confidence from recognized text and
+            ''' returns recognized text.
+            ''' &lt;/summary&gt;
+            ''' &lt;param name="filename"&gt;The name of the file containing image to OCR.&lt;/param&gt;
+            Public Function RecognizeTextAndFilterRecognitionResult(filename As String) As String
+                ' minimum confidence
+                Const  MIN_CONFIDENCE As Single = 75F
+            
+                ' create image collection
+                Using images As New ImageCollection()
+                    ' add images from file to image collection
+                    images.Add(filename)
+            
+                    ' create tesseract OCR engine
+                    Using tesseractOcr As New TesseractOcr()
+                        ' create tesseract OCR settings
+                        Dim settings As New OcrEngineSettings(OcrLanguage.English)
+                        tesseractOcr.Init(settings)
+            
+                        ' create result builder
+                        Dim result As New StringBuilder()
+            
+                        ' for each image in image collection
+                        For Each image As VintasoftImage In images
+                            ' recognize the image
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            ' get all words in recognized text
+                            Dim ocrObjects As OcrObject() = page.GetObjects(OcrObjectType.Word)
+                            ' create list of words to remove
+                            Dim removeObjects As New List(Of OcrObject)()
+                            ' for each word
+                            For Each word As OcrObject In ocrObjects
+                                ' if word confidence is less than minimum confidence
+                                If word.Confidence &lt; MIN_CONFIDENCE Then
+                                    ' add word to a list of words to remove
+                                    removeObjects.Add(word)
+                                End If
+                            Next
+            
+                            ' validate recognition results (remove words with low confidence)
+            
+                            Dim editor As New OcrResultsEditor(page)
+                            editor.RemoveObjects(removeObjects.ToArray())
+                            editor.ValidateResults()
+            
+                            ' get recognized text
+                            Dim text As String = page.GetText()
+                            ' add recognized text to result
+                            result.Append(text)
+                            result.AppendLine()
+                        Next
+            
+                        ' dispose images and clear image collection
+                        images.ClearAndDisposeItems()
+            
+                        ' return result
+                        Return result.ToString()
+                    End Using
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Recognizes text in images,
+            /// removes words with low confidence from recognized text and
+            /// returns recognized text.
+            /// &lt;/summary&gt;
+            /// &lt;param name="filename"&gt;The name of the file containing image to OCR.&lt;/param&gt;
+            public string RecognizeTextAndFilterRecognitionResult(string filename)
+            {
+                // minimum confidence
+                const float MIN_CONFIDENCE = 75.0f;
+            
+                // create image collection
+                using (ImageCollection images = new ImageCollection())
+                {
+                    // add images from file to image collection
+                    images.Add(filename);
+            
+                    // create tesseract OCR engine
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        // create tesseract OCR settings
+                        OcrEngineSettings settings = new OcrEngineSettings(OcrLanguage.English);
+                        tesseractOcr.Init(settings);
+            
+                        // create result builder
+                        StringBuilder result = new StringBuilder();
+            
+                        // for each image in image collection
+                        foreach (VintasoftImage image in images)
+                        {
+                            // recognize the image
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            // get all words in recognized text
+                            OcrObject[] ocrObjects = page.GetObjects(OcrObjectType.Word);
+                            // create list of words to remove
+                            List&lt;OcrObject&gt; removeObjects = new List&lt;OcrObject&gt;();
+                            // for each word
+                            foreach (OcrObject word in ocrObjects)
+                            {
+                                // if word confidence is less than minimum confidence
+                                if (word.Confidence &lt; MIN_CONFIDENCE)
+                                    // add word to a list of words to remove
+                                    removeObjects.Add(word);
+                            }
+            
+                            // validate recognition results (remove words with low confidence)
+            
+                            OcrResultsEditor editor = new OcrResultsEditor(page);
+                            editor.RemoveObjects(removeObjects.ToArray());
+                            editor.ValidateResults();
+            
+                            // get recognized text
+                            string text = page.GetText();
+                            // add recognized text to result
+                            result.Append(text);
+                            result.AppendLine();
+                        }
+            
+                        // dispose images and clear image collection
+                        images.ClearAndDisposeItems();
+            
+                        // return result
+                        return result.ToString();
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.#ctor(Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor" /> class.
+            </summary>
+            <param name="page">The OCR page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.AddRegions(Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Adds regions from specified page.
+            </summary>
+            <param name="page">The OCR page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.RemoveObjects(Vintasoft.Imaging.Ocr.Results.OcrObject[])">
+            <summary>
+            Removes specified objects.
+            </summary>
+            <param name="objects">An array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" />.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.ReplaceSymbols(System.Collections.Generic.Dictionary{System.Char,System.String})">
+            <summary>
+            Replaces symbols values using specified map.
+            </summary>
+            <param name="replaceMap">The replace map.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.ValidateResults">
+            <summary>
+            Validates the current page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsEditor.SetObjectText(Vintasoft.Imaging.Ocr.Results.OcrTextObject,System.String)">
+            <summary>
+            Sets a new text for specified object.
+            </summary>
+            <param name="textObject">A text object.</param>
+            <param name="text">A new text.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor">
+            <summary>
+            Represents a visitor of OCR results.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrDocument)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrDocument" /> node.
+            </summary>
+            <param name="document">Document.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" /> node.
+            </summary>
+            <param name="page">Page.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrTextRegion)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextRegion" /> node.
+            </summary>
+            <param name="region">Text region.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrParagraph)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrParagraph" /> node.
+            </summary>
+            <param name="paragraph">Paragraph.</param>        
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrTextLine)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextLine" /> node.
+            </summary>
+            <param name="line">Text line.</param>        
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrWord)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" /> node.
+            </summary>
+            <param name="word">Word.</param>        
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrResultsVisitor.Visit(Vintasoft.Imaging.Ocr.Results.OcrSymbol)">
+            <summary>
+            Visits the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrSymbol" /> node.
+            </summary>
+            <param name="symbol">Symbol.</param>        
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrTextRegion">
+            <summary>
+            Represents an OCR text region - collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrParagraph" />.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrRegion">
+            <summary>
+            Represents an OCR region.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrRegion.Type">
+            <summary>
+            Gets a type of an OCR region.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextRegion.#ctor(Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextRegion" /> class.
+            </summary>
+            <param name="location">The location of the text region.</param>
+            <param name="orientation">The orientation of the text region.</param>
+            <param name="writingDirection">The writing direction of the text region.</param>
+            <param name="confidence">The confidence of the text region.</param>
+            <param name="text">The text of the text region.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextRegion.Text">
+            <summary>
+            Gets a text of this region.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextRegion.Paragraphs">
+            <summary>
+            Gets a list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrParagraph" /> of this text region.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrSymbol">
+            <summary>
+            Represents a symbol of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrSymbol.#ctor(Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrSymbol" /> class.
+            </summary>
+            <param name="location">Location of the symbol.</param>
+            <param name="orientation">Orientation of the symbol.</param>
+            <param name="writingDirection">Writing direction of the symbol.</param>
+            <param name="confidence">Confidence of the symbol.</param>
+            <param name="text">Text of the symbol.</param>
+            <param name="isDropcap">Value indicating whether the word is drop cap.</param>
+            <param name="isSubscript">Value indicating whether the word is subscript.</param>
+            <param name="isSuperscript">Value indicating whether the word is superscript.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrWord">
+            <summary>
+            Represents an OCR word - collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrSymbol" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrWord.#ctor(Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String,Vintasoft.Imaging.Ocr.Results.OcrTextFont,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" /> class.
+            </summary>
+            <param name="location">The location of the word.</param>
+            <param name="orientation">The orientation of the word.</param>
+            <param name="writingDirection">The writing direction of the word.</param>
+            <param name="confidence">The confidence of the word.</param>
+            <param name="text">The text of the word.</param>
+            <param name="font">The font of the word.</param>
+            <param name="isNumeric">The value indicating whether the word is numeric.</param>
+            <param name="isFromDictionary">The value indicating whether the word is from dictionary.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrWord.Symbols">
+            <summary>
+            Gets a list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrSymbol" /> of this word.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrWord.Font">
+            <summary>
+            Gets a font of this word.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrWord.IsNumeric">
+            <summary>
+            Gets a value indicating whether this word is numeric.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrWord.IsFromDictionary">
+            <summary>
+            Gets a value indicating whether this word is from dictionary.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrTextLine">
+            <summary>
+            Represents an OCR text line - collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrTextLine.#ctor(Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextLine" /> class.
+            </summary>
+            <param name="location">The location of the text line.</param>
+            <param name="orientation">The orientation of the text line.</param>
+            <param name="writingDirection">The writing direction of the text line.</param>
+            <param name="confidence">The confidence of the text line.</param>
+            <param name="text">The text of the text line.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrTextLine.Words">
+            <summary>
+            Gets a list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" /> of this text line.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrDocument">
+            <summary>
+            Represents an OCR document that contains list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrDocument.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrDocument" /> class.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrDocument.Pages">
+            <summary>
+            Gets a list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" /> of this document.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrPage">
+            <summary>
+            Represents an OCR page - collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrRegion" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.#ctor(System.Collections.Generic.List{Vintasoft.Imaging.Ocr.Results.OcrRegion})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" /> class.
+            </summary>
+            <param name="regions">A collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrRegion" />.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.#ctor(System.Collections.Generic.List{Vintasoft.Imaging.Ocr.Results.OcrRegion},Vintasoft.Imaging.Resolution)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" /> class.
+            </summary>
+            <param name="regions">A collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrRegion" />.</param>
+            <param name="resolution">The page resolution.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.GetText">
+            <summary>
+            Returs a text of this page.
+            </summary>
+            <returns>Text of this page.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.GetWords(System.Single,System.Single)">
+            <summary>
+            Returns an array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" /> objects with specified confidence.
+            </summary>
+            <param name="wordMaxConfidence">Maximum confidence of a word.</param>
+            <param name="dictionaryWordMaxConfidence">Maximum confidence of a word from dictionary.</param>
+            <returns>An array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrWord" /> objects with specified confidence.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.GetObjects(Vintasoft.Imaging.Ocr.OcrObjectType,System.Single)">
+            <summary>
+            Returns an array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" /> objects with specified confidence.
+            </summary>
+            <param name="type">Type of OCR object.</param>
+            <param name="maxConfidence">Maximum confidence of the OCR object.</param>
+            <returns>An array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" /> objects with specified confidence.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.GetObjects(Vintasoft.Imaging.Ocr.OcrObjectType)">
+            <summary>
+            Returns an array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" /> objects of specified type.
+            </summary>
+            <param name="type">Type of OCR object.</param>
+            <returns>An array of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrObject" /> objects of specified type.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrPage.GetObjects(Vintasoft.Imaging.Ocr.OcrObjectType,System.Drawing.Rectangle)">
+            <summary>
+            Returns an array of objects of specified type which are located in specified rectangle
+            on the page.
+            </summary>
+            <param name="type">Type of OCR object.</param>
+            <param name="region">A rectangle.</param>
+            <returns>An array of objects of specified type which are located
+            in specified rectangle on the page.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrPage.Regions">
+            <summary>
+            Gets a list of regions of this page. 
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrPage.Resolution">
+            <summary>
+            Gets or sets the resolution of OCR page.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Results.OcrParagraph">
+            <summary>
+            Represents an OCR paragraph - collection of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextLine" />.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Results.OcrParagraph.#ctor(Vintasoft.Imaging.Ocr.Results.OcrObjectLocation,Vintasoft.Imaging.Ocr.Results.OcrObjectOrientation,Vintasoft.Imaging.Ocr.Results.OcrObjectWritingDirection,System.Single,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrParagraph" /> class.
+            </summary>
+            <param name="location">The location of the paragraph.</param>
+            <param name="orientation">The orientation of the paragraph.</param>
+            <param name="writingDirection">The writing direction of the paragraph.</param>
+            <param name="confidence">The confidence of the paragraph.</param>
+            <param name="text">The text of the paragraph.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Results.OcrParagraph.TextLines">
+            <summary>
+            Gets a list of <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrTextLine" /> of this paragraph. 
+            </summary>
+        </member>
+        </members>
+</doc>

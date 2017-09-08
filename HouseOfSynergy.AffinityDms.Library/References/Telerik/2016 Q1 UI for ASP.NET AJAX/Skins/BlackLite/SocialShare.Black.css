@@ -1,0 +1,15 @@
+.RadSocialShare_Black {
+  background-color: #161616;
+  color: #ffffff;
+  border-color: #080808; }
+  .RadSocialShare_Black .sshLinkItem {
+    color: #d7d7d7; }
+  .RadSocialShare_Black .sshLinkItem:hover {
+    color: #9eda29; }
+
+.RadComboBoxDropDown_Black .rcbItem .sshLinkItem {
+  color: #d7d7d7; }
+
+.RadComboBoxDropDown_Black .rcbHovered .sshLinkItem {
+  color: #9eda29; }
+

@@ -1,0 +1,1841 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Jpeg2000Codec</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000ColorSpaceType">
+            <summary>
+            Specifies the type of the color space of the Jpeg2000 image.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000ColorSpaceType.CMYK">
+            <summary>
+            CMYK color space.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000ColorSpaceType.sRGB">
+            <summary>
+            sRGB color space.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000ColorSpaceType.Grayscale">
+            <summary>
+            Grayscale color space.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000ColorSpaceType.sYCC">
+            <summary>
+            sYCC color space.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException">
+            <summary>
+            Represents error that occurs during saving Jpeg2000 image. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException" />
+            class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException" />
+            class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException" />
+            class with a specified error message and a reference to the inner exception
+            that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderException" />
+            class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized
+            object data about the exception being thrown.</param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual
+            information about the source or destination.
+            </param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException">
+            <summary>
+            Represents error that occurs during loading Jpeg2000 image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException" />
+            class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException" />
+            class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException" />
+            class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized
+            object data about the exception being thrown.</param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual
+            information about the source or destination.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000DecoderException" />
+            class with a specified error message and a reference to the inner exception
+            that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder">
+            <summary>
+            Defines a decoder for Jpeg2000 images.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder" /> class.
+            </summary>
+            <remarks>
+            This constructor is used in <see cref="T:Vintasoft.Imaging.Codecs.Decoders.AvailableDecoders" /> and
+            should not be used in real applications.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder" /> class.
+            </summary>
+            <param name="stream">Stream with the image.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.IsValidFormat(System.IO.Stream)">
+            <summary>
+            Determines that stream contains image file in format of this decoder.
+            </summary>
+            <param name="stream">
+            Stream with binary data of the image file.
+            </param>
+            <returns>
+            <b>true</b> if stream contains image file in format of this decoder;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageInfo(System.Int32,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings)">
+            <summary>
+            Returns information about JPEG2000 image without loading the image data into memory.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <returns>Information about the image associated with the
+            page of the source image.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImage(System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image associated with the JPEG2000 file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="progressDelegate">Progress delegate.</param>
+            <returns>Image associated with the specified page of JPEG2000 file.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetThumbnail(System.Int32,System.Drawing.Size,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns a thumbnail image associated with the JPEG2000 file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="size">Size of the thumbnail.</param>
+            <param name="decodingSettings">Decoding settings used for decode the thumbnail of page.</param>
+            <param name="renderingSettings">Rendering settings used for rendering the thumbnail of page.</param>
+            <param name="thumbnailLoadingProgress">Delegate of the thumbnail loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>Thumbnail image of the specified page of the image source.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <i>pageIndex</i> is less than zero or greater than number of pages.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetPageMetadata(System.Int32)">
+            <summary>
+            Returns a metadata of JPEG2000 file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>Metadata of JPEG2000 file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.Close">
+            <summary>
+            Closes the source of the decoder.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.CanUseProgressiveDecoding(System.Int32)">
+            <summary>
+            Determines that decoder can progressively read the image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>
+            <b>true</b> if decoder can progressively read the image;
+            <b>false</b> if decoder cannot progressively read the image.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectGrid(System.Int32)">
+            <summary>
+            Returns an image grid as array of rectangles.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>An image grid as array of rectangles.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <i>pageIndex</i> is less than zero or greater than number of pages.
+            </exception>
+            <remarks>
+            Method must return an array with one rectangle which size is equal to the size
+            of image if decoder cannot get image by parts.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectScales(System.Int32)">
+            <summary>
+            Returns an array of scale factors for rectangles of image grid.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>An array of scale factors for rectangles of image grid.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <i>pageIndex</i> is less than zero or greater than number of pages.
+            </exception>
+            <remarks>
+            Possible values of scale factor:
+            <ul>
+            <li>1 - decoder can return image rectangle without scaling</li>
+            <li>N - decoder can return an image rectangle reduced N times</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRect(System.Int32,System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs},System.EventHandler{Vintasoft.Imaging.ImageRendering.IntermediateImageRequestEventArgs})">
+            <summary>
+            Returns an unscaled rectangle of image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="rectIndex">The zero based the rectangle index.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="intermediateImageRequest">Delegate for requesting intermediate image.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic)</param>
+            <returns>Rectangle of image.</returns>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectGrid(System.Int32)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRect(System.Int32,System.Int32,System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs},System.EventHandler{Vintasoft.Imaging.ImageRendering.IntermediateImageRequestEventArgs})">
+            <summary>
+            Returns a scaled rectangle of image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="rectIndex">The zero based the rectangle index.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="scale">Scale factor. Possible values: 1 - original image rect should
+            be get; N - reduced image rect should be get.</param>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="intermediateImageRequest">Delegate for requesting intermediate image.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic)</param>
+            <returns>Scaled rectangle of image.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if 
+            <i>pageIndex</i> is less than zero or greater than number of pages
+            <b>-or-</b>
+            <i>scale</i> is not available for this page.
+            </exception>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectGrid(System.Int32)" />
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectScales(System.Int32)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.CanReadImageRegion(System.Int32)">
+            <summary>
+            Determines that decoder can read a region of the image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>
+            <b>true</b> if decoder can read a region of the image;
+            <b>false</b> if decoder can read only rectangle of the image.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <i>pageIndex</i> is less than zero or greater than number of pages.
+            </exception>
+            <remarks>
+            <i>Region</i> represents a rectangular area on the image and
+            composed from a sequence of rectangles.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRegion(System.Int32,System.Int32,System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs},System.EventHandler{Vintasoft.Imaging.ImageRendering.IntermediateImageRequestEventArgs})">
+            <summary>
+            Returns an unscaled region of image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="leftTopRectIndex">The zero based index of left-top rectangle.</param>
+            <param name="rightBottomRectIndex">The zero based index of right-bottom rectangle.</param>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="intermediateImageRequest">Delegate for requesting intermediate image.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic)</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>Unscaled region of image.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if reading of image regions is
+            not supported for specified page.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectGrid(System.Int32)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRegion(System.Int32,System.Int32,System.Int32,System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs},System.EventHandler{Vintasoft.Imaging.ImageRendering.IntermediateImageRequestEventArgs})">
+            <summary>
+            Returns a scaled region of image.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="leftTopRectIndex">The zero based index of left-top rectangle.</param>
+            <param name="rightBottomRectIndex">The zero based index of right-bottom rectangle.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="scale">Scale factor. Possible values: 1 - original image rect should
+            be get; N - reduced image rect should be get.</param>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="intermediateImageRequest">Delegate for requesting intermediate image.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic)</param>
+            <returns>Scaled region of image.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            reading of image regions is not supported for specified page
+            <b>-or-</b>
+            <i>leftTopRectIndex</i> and <i>rightBottomRectIndex</i> forms incorrect region.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if 
+            <i>pageIndex</i> is less than zero or greater than number of pages
+            <b>-or-</b>
+            <i>scale</i> is not available for this page.
+            </exception>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectGrid(System.Int32)" />
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetImageRectScales(System.Int32)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.GetRasterGridEditor">
+            <summary>
+            Returns the raster grid editor for image.
+            </summary>
+            <returns>
+            Raster grid editor for image file if image rectangle can be replaced without reencoding
+            of whole image;
+            <b>null</b>, otherwise.
+            </returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.Jpeg2000Decoder.Name">
+            <summary>
+            Gets the name of the decoder.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder">
+            <summary>
+            Defines an encoder for JPEG2000 images.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder" /> class.
+            </summary>
+            <remarks>
+            This constructor initializes parameters with the following values:<br />
+            <ul>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.CompressionRatio" /> = <b>20.0</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.CompressionType" /> = <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000CompressionType" />.Lossless</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.WaveletLevels" /> = <b>5</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.EncodeAlphaChannelInPalette" /> = <b>true</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.FileFormat" /> = <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000FileFormat" />.Jp2File</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.FileSize" /> = <b>0</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.ProgressionOrder" /> = <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.ProgressionOrder" />.LRCP</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.QualityLayers" /> = <b>{ 1.0 }</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.TileHeight" /> = <b>0</b></li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings.TileWidth" /> = <b>0</b></li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.#ctor(Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder" /> class.
+            </summary>
+            <param name="encoderSettings">
+            Initial encoder settings.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.GetEncodedImageInfo(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Emulates image saving and returns information about saved image without saving the image.
+            </summary>
+            <param name="image">Source image.</param>
+            <returns>Information about saved image.</returns>
+            <remarks>
+            This method emulates image saving and allows to get information about saved image,
+            this can be necessary if you need to know information about saved image before saving the image.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.SaveMetadataChanges(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Metadata.MetadataNode,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes in image metadata, image data is not changed.
+            </summary>
+            <param name="image">Image whose metadata is changed.</param>
+            <param name="metadataTree">Virtual metadata tree which contains information
+            about cached image metadata.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method is used in <see cref="M:Vintasoft.Imaging.Codecs.Encoders.EncoderBase.SaveImage(Vintasoft.Imaging.VintasoftImage,System.IO.Stream)" /> method when
+            image must be saved to the image source and
+            only image metadata is changed.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Encoders.EncoderBase.SaveImage(Vintasoft.Imaging.VintasoftImage,System.IO.Stream)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.SaveImageWithMetadataToStream(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Metadata.MetadataNode,System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves single image to the stream.
+            </summary>
+            <param name="image"><b>VintasoftImage</b> object to save.</param>
+            <param name="metadataTree">Virtual metadata tree which contains information
+            about cached image metadata.</param>
+            <param name="stream">Stream where the image should be saved.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method is used in <see cref="M:Vintasoft.Imaging.Codecs.Encoders.EncoderBase.SaveImage(Vintasoft.Imaging.VintasoftImage,System.IO.Stream)" /> method when
+            image data is changed (image metadata may be changed also) or
+            image must be saved to new source.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.Encoders.EncoderBase.SaveImage(Vintasoft.Imaging.VintasoftImage,System.IO.Stream)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.Name">
+            <summary>
+            Gets the name of the encoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.Settings">
+            <summary>
+            Gets or sets encoder settings.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>new value</i> is <b>null</b>.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.SupportedAnnotationsFormat">
+            <summary>
+            Gets the annotations format supported by the encoder.
+            </summary>
+            <value>
+            Always returns <see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.AnnotationsFormat" />.None.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.AnnotationsFormat">
+            <summary>
+            Gets or sets a format(s) in which annotations must be saved.
+            </summary>
+            <value>
+            Always returns <see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jpeg2000Encoder.AnnotationsFormat" />.None.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Encoders.EncoderException">Thrown when property value is changed.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File">
+            <summary>
+            Provides low-level functions for manipulating JPEG2000 file.
+            </summary>
+            <example>Here is an example that shows how to convert JPEG2000 file to TIFF file:
+            <code lang="VB.NET">
+            ' Converts Jpeg2000 file to Tiff file.
+            Public Shared Sub ConvertJpeg2000ToTiff(jpeg2000Filename As String, tiffFilename As String)
+                Using stream As New FileStream(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    If Not Jpeg2000File.IsValidFormat(stream) Then
+                        Throw New ApplicationException()
+                    End If
+            
+                    Dim image As VintasoftImage
+            
+                    Using file As New Jpeg2000File(stream)
+                        image = file.Page.GetImage()
+                    End Using
+            
+                    Dim tiffEncoder As New TiffEncoder()
+            
+                    image.Save(tiffFilename, tiffEncoder)
+            
+                    tiffEncoder.Dispose()
+            
+                    image.Dispose()
+                End Using
+            End Sub
+            </code>
+            <code lang="C#">
+            // Converts Jpeg2000 file to Tiff file.
+            public static void ConvertJpeg2000ToTiff(string jpeg2000Filename, string tiffFilename)
+            {
+                using (FileStream stream = new FileStream(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    if (!Jpeg2000File.IsValidFormat(stream))
+                    {
+                        throw new ApplicationException();
+                    }
+            
+                    VintasoftImage image;
+            
+                    using (Jpeg2000File file = new Jpeg2000File(stream))
+                    {
+                        image = file.Page.GetImage();
+                    }
+            
+                    TiffEncoder tiffEncoder = new TiffEncoder();
+            
+                    image.Save(tiffFilename, tiffEncoder);
+            
+                    tiffEncoder.Dispose();
+            
+                    image.Dispose();
+                }
+            }
+            </code>
+            </example>
+            <example>Here is an example that shows how to convert JPEG file to JPEG2000 file:
+            <code lang="VB.NET">
+            ' Converts Jpeg file to Jpeg2000 file.
+            Public Shared Sub ConvertJpegToJpeg2000(jpegFilename As String, jpeg2000Filename As String)
+                Using image As New VintasoftImage(jpegFilename)
+                    Using jpeg2000Encoder As New Jpeg2000Encoder()
+                        image.Save(jpeg2000Filename, jpeg2000Encoder)
+                    End Using
+                End Using
+            End Sub
+            </code>
+            <code lang="C#">
+            // Converts Jpeg file to Jpeg2000 file.
+            public static void ConvertJpegToJpeg2000(string jpegFilename, string jpeg2000Filename)
+            {
+                using (VintasoftImage image = new VintasoftImage(jpegFilename))
+                {
+                    using (Jpeg2000Encoder jpeg2000Encoder = new Jpeg2000Encoder())
+                    {
+                        image.Save(jpeg2000Filename, jpeg2000Encoder);
+                    }
+                }
+            }
+            </code>
+            </example>
+            <seealso cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="image">A first page image.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>image</i> is <b>null</b>.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="image">A first page image.</param>
+            <param name="settings">Encoding settings of new JPEG2000 file.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>image</i> or <i>settings</i> are <b>null</b>.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Codecs.Encoders.Jpeg2000EncoderSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="image">A first page image.</param>
+            <param name="settings">Encoding settings of new JPEG2000 file.</param>
+            <param name="encodingProgress">Handler of the image encoding.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>image</i> or <i>settings</i> are <b>null</b>.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="stream">Input stream.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            JPEG2000 file will be opened in FileMode.Open mode and
+            with FileAccess.ReadWrite access.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="readOnlyAccess">Determines if image file should be opened
+            in read-only mode.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            JPEG2000 file will be opened in FileMode.Open mode.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(System.String,System.IO.FileMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="mode">A FileMode constant that determines how to open
+            or create the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            JPEG2000 file will be opened with FileAccess.Read access.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File" /> class.
+            </summary>
+            <param name="filename">
+            The name of the image file.
+            </param>
+            <param name="mode">
+            A FileMode constant that determines how to open
+            or create the image file.
+            </param>
+            <param name="access">
+            A FileAccess constant that determines how the image
+            file can be accessed.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Save(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this JPEG2000 file to specified stream.
+            </summary>
+            <param name="stream">Stream to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>stream</i> is <b>null</b>.
+            </exception>
+            <remarks>
+            This method saves changes to specified stream. Current source of the image
+            file is not changed.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Save(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this JPEG2000 file to specified file.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method saves changes to specified file. Current source of the image
+            file is not changed.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.SaveChanges(Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of the JPEG2000 file to the current source of the JPEG2000 file.
+            </summary>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the source of the JPEG2000 file is undefined.
+            </exception>
+            <exception cref="T:System.NotSupportedException">
+            Thrown if file is open in read-only mode and cannot be changed.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.SaveChanges(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of the JPEG2000 file to specified stream.
+            </summary>
+            <param name="stream">Stream to save the JPEG2000 file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method saves changes to specified stream and makes this stream as current
+            source of the JPEG2000 file. Previous source of the JPEG2000 file is closed without
+            save changes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.SaveChanges(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of the JPEG2000 file to specified file.
+            </summary>
+            <param name="filename">The filename to save the JPEG2000 file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method saves changes to specified file and makes this file as current
+            source of the JPEG2000 file. Previous source of the JPEG2000 file is closed without
+            save changes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.IsValidFormat(System.IO.Stream)">
+            <summary>
+            Determines that stream contains JPEG2000 file.
+            </summary>
+            <param name="stream">
+            Stream with binary data of the JPEG2000 file.
+            </param>
+            <returns>
+            <b>true</b> if stream contains JPEG2000 file; otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Parse">
+            <summary>
+            Parses the image file.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Dispose(System.Boolean)">
+            <summary>
+            Releases all resources used by this 
+            Jpeg2000File object.
+            </summary>
+            <param name="disposing">
+            <b>true</b> - release managed and unmanaged resources; 
+            <b>false</b> - release only unmanaged resources.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Pack(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs the image file and saves to specified stream.
+            </summary>
+            <param name="stream">Stream to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method is not implemented.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Pack(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs the image file and saves to specified file.
+            </summary>
+            <param name="filename">The filename to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method is not implemented.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Page">
+            <summary>
+            Gets the page of this JPEG2000 file.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if set operation is requested.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000File.Source">
+            <summary>
+            Gets the source of the image file.
+            </summary>
+            <remarks>
+            This object provides access to the binary data of the image file.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000FileException">
+            <summary>
+            Represents errors that occurs during 
+            manipulation with JPEG2000 file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page">
+            <summary>
+            Represents a page of JPEG2000 file.
+            </summary>
+            <example>Here is an example that shows how to get information about JPEG2000 page:
+            <code lang="VB.NET">
+            ' Shows detailed information about parameters of Jpeg2000 page.
+            Public Shared Sub ShowJpeg2000PageInfo(jpeg2000Filename As String)
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    ' get JPEG2000 page
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    ' get general image parameters
+                    Console.WriteLine(String.Format("Image dimensions: {0}x{1}", page.Width, page.Height))
+                    Console.WriteLine(String.Format("Image resolution: {0}x{1} dpi", Math.Round(page.Resolution.Horizontal), Math.Round(page.Resolution.Vertical)))
+                    Console.WriteLine(String.Format("Number of bits per pixel : {0}", page.BitsPerPixel))
+            
+                    ' get information about palette
+                    If page.HasPalette Then
+                        Console.WriteLine(String.Format("Image has a palette with {0} colors", page.Palette.ColorCount))
+                    Else
+                        Console.WriteLine(String.Format("Image has no palette"))
+                    End If
+            
+                    ' get specific JPEG2000 parameters
+                    Console.WriteLine(String.Format("Colorspace : {0}", page.ColorSpace))
+                    Console.WriteLine(String.Format("File format : {0}", page.FileFormat))
+                    Console.WriteLine(String.Format("Tile dimensions: {0}x{1}", page.TileWidth, page.TileHeight))
+                    Console.WriteLine(String.Format("Progression order : {0}", page.ProgressionOrder))
+                    Console.WriteLine(String.Format("Number of quality layers : {0}", page.QualityLayerCount))
+                    Console.WriteLine(String.Format("Number of wavelet levels : {0}", page.WaveletLevels))
+            
+                    ' each comment is a separate string
+                    Dim comments As String() = page.GetComments()
+            
+                    If comments.Length = 0 Then
+                        Console.WriteLine("There is no comments in codestream")
+                    Else
+                        Console.WriteLine("Comments in codestream:")
+            
+                        For Each comment As String In comments
+                            Console.WriteLine(comment)
+                        Next
+                    End If
+                End Using
+            End Sub
+            </code>
+            <code lang="C#">
+            // Shows detailed information about parameters of Jpeg2000 page.
+            public static void ShowJpeg2000PageInfo(string jpeg2000Filename)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    // get JPEG2000 page
+                    Jpeg2000Page page = file.Page;
+            
+                    // get general image parameters
+                    Console.WriteLine(string.Format("Image dimensions: {0}x{1}", page.Width, page.Height));
+                    Console.WriteLine(string.Format("Image resolution: {0}x{1} dpi",
+                        Math.Round(page.Resolution.Horizontal), Math.Round(page.Resolution.Vertical)));
+                    Console.WriteLine(string.Format("Number of bits per pixel : {0}", page.BitsPerPixel));
+            
+                    // get information about palette
+                    if (page.HasPalette)
+                        Console.WriteLine(string.Format("Image has a palette with {0} colors", page.Palette.ColorCount));
+                    else
+                        Console.WriteLine(string.Format("Image has no palette"));
+            
+                    // get specific JPEG2000 parameters
+                    Console.WriteLine(string.Format("Colorspace : {0}", page.ColorSpace));
+                    Console.WriteLine(string.Format("File format : {0}", page.FileFormat));
+                    Console.WriteLine(string.Format("Tile dimensions: {0}x{1}", page.TileWidth, page.TileHeight));
+                    Console.WriteLine(string.Format("Progression order : {0}", page.ProgressionOrder));
+                    Console.WriteLine(string.Format("Number of quality layers : {0}", page.QualityLayerCount));
+                    Console.WriteLine(string.Format("Number of wavelet levels : {0}", page.WaveletLevels));
+            
+                    // each comment is a separate string
+                    string[] comments = page.GetComments();
+            
+                    if (comments.Length == 0)
+                    {
+                        Console.WriteLine("There is no comments in codestream");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Comments in codestream:");
+            
+                        foreach (string comment in comments)
+                        {
+                            Console.WriteLine(comment);
+                        }
+                    }
+                }
+            }
+            </code>
+            </example>
+            <example>Here is an example that shows how to change resolution of JPEG2000 page:
+            <code lang="VB.NET">
+            ' Changes resolution of Jpeg2000 page, saves Jpeg2000 file, 
+            ' checks that resolution has been changed correctly.
+            Public Shared Sub ChangeJpeg2000PageResolution(jpeg2000Filename As String, newResolution As Resolution)
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.ReadWrite)
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    page.Resolution = newResolution
+            
+                    file.SaveChanges()
+                End Using
+            
+                ' check that resolution is saved correctly
+            
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    Dim resolution As Resolution = page.Resolution
+            
+                    ' little difference is allowed
+                    If Math.Abs(resolution.Horizontal - newResolution.Horizontal) &gt; 0.01 OrElse Math.Abs(resolution.Vertical - newResolution.Vertical) &gt; 0.01 Then
+                        Throw New ApplicationException()
+                    End If
+                End Using
+            End Sub
+            </code>
+            <code lang="C#">
+            // Changes resolution of Jpeg2000 page, saves Jpeg2000 file, 
+            // checks that resolution has been changed correctly.
+            public static void ChangeJpeg2000PageResolution(string jpeg2000Filename, Resolution newResolution)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.ReadWrite))
+                {
+                    Jpeg2000Page page = file.Page;
+            
+                    page.Resolution = newResolution;
+            
+                    file.SaveChanges();
+                }
+            
+                // check that resolution is saved correctly
+            
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    Jpeg2000Page page = file.Page;
+            
+                    Resolution resolution = page.Resolution;
+            
+                    // little difference is allowed
+                    if (Math.Abs(resolution.Horizontal - newResolution.Horizontal) &gt; 0.01 ||
+                        Math.Abs(resolution.Vertical - newResolution.Vertical) &gt; 0.01)
+                    {
+                        throw new ApplicationException();
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets the image associated with this image page.
+            </summary>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="imageLoadingProgress">Progress delegate.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>
+            The image associated with this <b>Jpeg2000Page</b> object if image was loaded successfully;
+            <b>null</b> if image loading was canceled.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetComments">
+            <summary>
+            Gets comments 
+            included in the codestream.
+            </summary>
+            <returns>An array of string containing comments 
+            included in the codestream.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileGrid">
+            <summary>
+            Returns an image grid based on tiles if the image data stored as tiles.
+            </summary>
+            <returns>
+            Image grid based on tiles if the image data stored as tiles;
+            otherwise, null.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileImage(System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified tile of this page.
+            </summary>
+            <param name="tileIndex">The zero based tile index.</param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <returns>
+            Scaled image associated with the specified tile.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified tile of this page.
+            </summary>
+            <param name="tileIndex">The zero based tile index.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <returns>
+            Scaled image associated with the specified tile.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileImage(System.Int32,System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified tile of this page,
+            decoded with the specified number of wavelet levels.
+            </summary>
+            <param name="tileIndex">The zero based tile index.</param>
+            <param name="waveletLevels">
+            The number of discrete wavelet transformation levels (decomposition levels).
+            </param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <i>waveletLevels</i> is less than zero or greater than <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />.
+            </exception>
+            <returns>
+            Scaled image associated with the specified tile.
+            </returns>
+            <remarks>
+            Tile decoded unscaled if <i>waveletLevels</i> equals to <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />;
+            otherwise, tile decoded with
+            scale (2 in power (<see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" /> - <i>waveletLevels</i>)).
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileGrid" />
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SetTileImage(System.Int32,Vintasoft.Imaging.VintasoftImage,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" />
+            <example>
+            Here is an example that shows how to open JPEG2000 file and get its image by parts:
+            <code lang="VB.NET">
+            ' Opens JPEG2000 file and gets its image by parts.
+            Public Shared Function GetJpeg2000ImageByParts(jpeg2000Filename As String) As VintasoftImage
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    ' get JPEG2000 page
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    ' get page dimensions and pixel format
+                    Dim imageWidth As Integer = page.Width
+                    Dim imageHeight As Integer = page.Height
+                    Dim palette As Palette = If(page.Palette IsNot Nothing, page.Palette, New Palette())
+                    Dim imageInfo As New ImageInfo(imageWidth, imageHeight, page.BitsPerPixel, palette, page.Resolution)
+                    Dim pixelFormat As PixelFormat = imageInfo.PixelFormat
+            
+                    ' get tiles grid of the page
+                    Dim tilesGrid As Rectangle() = page.GetTileGrid()
+            
+                    ' get tiles count
+                    Dim tileCount As Integer = tilesGrid.Length
+            
+                    ' get number of wavelet levels
+                    Dim waveletLevel As Integer = page.WaveletLevels
+            
+                    ' create a VintasoftImage object
+                    Dim resultImage As New VintasoftImage(imageWidth, imageHeight, pixelFormat)
+            
+                    ' for each tile in page
+                    For i As Integer = 0 To tileCount - 1
+                        ' get current rectangle
+                        Dim tileRectangle As Rectangle = tilesGrid(i)
+            
+                        ' get current rectangle location
+                        Dim position As Point = tileRectangle.Location
+            
+                        ' get image of current tile
+                        Using tile As VintasoftImage = page.GetTileImage(i, waveletLevel, Nothing)
+                            ' overlay tile on result image
+                            Dim overlayCommand As New OverlayCommand(tile, position)
+                            overlayCommand.ExecuteInPlace(resultImage)
+                        End Using
+                    Next
+            
+                    Return resultImage
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            // Opens JPEG2000 file and gets its image by parts.
+            public static VintasoftImage GetJpeg2000ImageByParts(string jpeg2000Filename)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    // get JPEG2000 page
+                    Jpeg2000Page page = file.Page;
+            
+                    // get page dimensions and pixel format
+                    int imageWidth = page.Width;
+                    int imageHeight = page.Height;
+                    Palette palette = page.Palette != null ? page.Palette : new Palette();
+                    ImageInfo imageInfo = new ImageInfo(
+                        imageWidth,
+                        imageHeight,
+                        page.BitsPerPixel,
+                        palette,
+                        page.Resolution);
+                    PixelFormat pixelFormat = imageInfo.PixelFormat;
+            
+                    // get tiles grid of the page
+                    Rectangle[] tilesGrid = page.GetTileGrid();
+            
+                    // get tiles count
+                    int tileCount = tilesGrid.Length;
+            
+                    // get number of wavelet levels
+                    int waveletLevel = page.WaveletLevels;
+            
+                    // create a VintasoftImage object
+                    VintasoftImage resultImage = new VintasoftImage(imageWidth, imageHeight, pixelFormat);
+            
+                    // for each tile in page
+                    for (int i = 0; i &lt; tileCount; i++)
+                    {
+                        // get current rectangle
+                        Rectangle tileRectangle = tilesGrid[i];
+            
+                        // get current rectangle location
+                        Point position = tileRectangle.Location;
+            
+                        // get image of current tile
+                        using (VintasoftImage tile = page.GetTileImage(i, waveletLevel, null))
+                        {
+                            // overlay tile on result image
+                            OverlayCommand overlayCommand = new OverlayCommand(tile, position);
+                            overlayCommand.ExecuteInPlace(resultImage);
+                        }
+                    }
+            
+                    return resultImage;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.Int32,System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified tile of this page,
+            decoded with the specified number of wavelet levels.
+            </summary>
+            <param name="tileIndex">The zero based tile index.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="waveletLevels">
+            The number of discrete wavelet transformation levels (decomposition levels).
+            </param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <i>waveletLevels</i> is less than zero or greater than <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />.
+            </exception>
+            <returns>
+            Scaled image associated with the specified tile.
+            </returns>
+            <remarks>
+            Tile decoded unscaled if <i>waveletLevels</i> equals to <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />;
+            otherwise, tile decoded with
+            scale (2 in power (<see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" /> - <i>waveletLevels</i>)).
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileGrid" />
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SetTileImage(System.Int32,Vintasoft.Imaging.VintasoftImage,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" />
+            <example>
+            Here is an example that shows how to open JPEG2000 file and get its image by parts:
+            <code lang="VB.NET">
+            ' Opens JPEG2000 file and gets its image by parts.
+            Public Shared Function GetJpeg2000ImageByParts(jpeg2000Filename As String) As VintasoftImage
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    ' get JPEG2000 page
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    ' get page dimensions and pixel format
+                    Dim imageWidth As Integer = page.Width
+                    Dim imageHeight As Integer = page.Height
+                    Dim palette As Palette = If(page.Palette IsNot Nothing, page.Palette, New Palette())
+                    Dim imageInfo As New ImageInfo(imageWidth, imageHeight, page.BitsPerPixel, palette, page.Resolution)
+                    Dim pixelFormat As PixelFormat = imageInfo.PixelFormat
+            
+                    ' get tiles grid of the page
+                    Dim tilesGrid As Rectangle() = page.GetTileGrid()
+            
+                    ' get tiles count
+                    Dim tileCount As Integer = tilesGrid.Length
+            
+                    ' get number of wavelet levels
+                    Dim waveletLevel As Integer = page.WaveletLevels
+            
+                    ' create a VintasoftImage object
+                    Dim resultImage As New VintasoftImage(imageWidth, imageHeight, pixelFormat)
+            
+                    ' for each tile in page
+                    For i As Integer = 0 To tileCount - 1
+                        ' get current rectangle
+                        Dim tileRectangle As Rectangle = tilesGrid(i)
+            
+                        ' get current rectangle location
+                        Dim position As Point = tileRectangle.Location
+            
+                        ' get image of current tile
+                        Using tile As VintasoftImage = page.GetTileImage(i, waveletLevel, Nothing)
+                            ' overlay tile on result image
+                            Dim overlayCommand As New OverlayCommand(tile, position)
+                            overlayCommand.ExecuteInPlace(resultImage)
+                        End Using
+                    Next
+            
+                    Return resultImage
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            // Opens JPEG2000 file and gets its image by parts.
+            public static VintasoftImage GetJpeg2000ImageByParts(string jpeg2000Filename)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    // get JPEG2000 page
+                    Jpeg2000Page page = file.Page;
+            
+                    // get page dimensions and pixel format
+                    int imageWidth = page.Width;
+                    int imageHeight = page.Height;
+                    Palette palette = page.Palette != null ? page.Palette : new Palette();
+                    ImageInfo imageInfo = new ImageInfo(
+                        imageWidth,
+                        imageHeight,
+                        page.BitsPerPixel,
+                        palette,
+                        page.Resolution);
+                    PixelFormat pixelFormat = imageInfo.PixelFormat;
+            
+                    // get tiles grid of the page
+                    Rectangle[] tilesGrid = page.GetTileGrid();
+            
+                    // get tiles count
+                    int tileCount = tilesGrid.Length;
+            
+                    // get number of wavelet levels
+                    int waveletLevel = page.WaveletLevels;
+            
+                    // create a VintasoftImage object
+                    VintasoftImage resultImage = new VintasoftImage(imageWidth, imageHeight, pixelFormat);
+            
+                    // for each tile in page
+                    for (int i = 0; i &lt; tileCount; i++)
+                    {
+                        // get current rectangle
+                        Rectangle tileRectangle = tilesGrid[i];
+            
+                        // get current rectangle location
+                        Point position = tileRectangle.Location;
+            
+                        // get image of current tile
+                        using (VintasoftImage tile = page.GetTileImage(i, waveletLevel, null))
+                        {
+                            // overlay tile on result image
+                            OverlayCommand overlayCommand = new OverlayCommand(tile, position);
+                            overlayCommand.ExecuteInPlace(resultImage);
+                        }
+                    }
+            
+                    return resultImage;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SetTileImage(System.Int32,Vintasoft.Imaging.VintasoftImage,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Sets an image of specified tile of this page.
+            </summary>
+            <param name="tileIndex">Index of tile.</param>
+            <param name="tileImage">New image of tile.</param>
+            <param name="progressDelegate">Progress delegate of tile image encoding.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>tileImage</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>tileIndex</i>
+            is less than zero or greater than number of tiles.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if page does not have tiles
+            <b>-or-</b>
+            page bit depth is not equal image tile bit depth
+            <b>-or-</b>
+            tile size is not equal image tile size.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileGrid" />
+            <seealso cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileImage(System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileRectImage(System.Int32,System.Drawing.Rectangle,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified region of specified tile of this page.
+            </summary>
+            <param name="tileIndex">Zero based index of tile.</param>
+            <param name="region">Rectangle, in tile, to decode.</param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <returns>
+            Image of specified region of specified tile of this page.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileRectImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.Int32,System.Drawing.Rectangle,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified region of specified tile of this page.
+            </summary>
+            <param name="tileIndex">Zero based index of tile.</param>
+            <param name="region">Rectangle, in tile, to decode.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <returns>
+            Image of specified region of specified tile of this page.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileRectImage(System.Int32,System.Drawing.Rectangle,System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified region of specified tile of this page,
+            decoded with the specified number of wavelet levels.
+            </summary>
+            <param name="tileIndex">Zero based index of tile.</param>
+            <param name="region">Rectangle, in tile, to decode.</param>
+            <param name="waveletLevels">
+            The number of discrete wavelet transformation levels (decomposition levels).
+            </param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <returns>
+            Image of specified region of specified tile of this page.
+            </returns>
+            <remarks>
+            Tile decoded unscaled if <i>waveletLevels</i> equals to <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />;
+            otherwise, tile decoded with
+            scale (2 in power (<see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" /> - <i>waveletLevels</i>)).
+            </remarks>
+            <example>
+            Here is an example that shows how to open JPEG2000 file and get its first tile's image by parts:
+            <code lang="VB.NET">
+            ' Opens JPEG2000 file and gets its first tile's image by parts.
+            Public Shared Function GetJpeg2000TileByParts(jpeg2000Filename As String) As VintasoftImage
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    ' get JPEG2000 page
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    ' get page dimensions and pixel format
+                    Dim imageWidth As Integer = page.Width
+                    Dim imageHeight As Integer = page.Height
+            
+                    Dim palette As Palette = If(page.Palette IsNot Nothing, page.Palette, New Palette())
+                    Dim imageInfo As New ImageInfo(imageWidth, imageHeight, page.BitsPerPixel, palette, page.Resolution)
+                    Dim pixelFormat As PixelFormat = imageInfo.PixelFormat
+            
+                    ' get first tile rectangle
+                    Dim firstTileRectangle As Rectangle = page.GetTileGrid()(0)
+            
+                    ' get tile dimensions
+                    Dim tileWidth As Integer = firstTileRectangle.Width
+                    Dim tileHeight As Integer = firstTileRectangle.Height
+            
+                    ' if tile is too small, then get tile at once
+                    If tileWidth = 1 OrElse tileHeight = 1 Then
+                        Return page.GetTileRectImage(0, New Rectangle(0, 0, tileWidth, tileHeight), Nothing)
+                    End If
+            
+                    ' divide tile rectangle into 4 rectangles
+                    Dim grid As Rectangle() = New Rectangle(3) {}
+                    grid(0) = New Rectangle(0, 0, tileWidth \ 2, tileHeight \ 2)
+                    grid(1) = New Rectangle(tileWidth \ 2, 0, (tileWidth + 1) \ 2, tileHeight \ 2)
+                    grid(2) = New Rectangle(0, tileHeight \ 2, tileWidth \ 2, (tileHeight + 1) \ 2)
+                    grid(3) = New Rectangle(tileWidth \ 2, tileHeight \ 2, (tileWidth + 1) \ 2, (tileHeight + 1) \ 2)
+            
+                    ' get number of wavelet levels
+                    Dim waveletLevel As Integer = page.WaveletLevels
+            
+                    ' create a VintasoftImage object
+                    Dim resultImage As New VintasoftImage(tileWidth, tileHeight, pixelFormat)
+            
+                    ' for each part of tile
+                    For i As Integer = 0 To 3
+                        ' get current rectangle
+                        Dim rectangle As Rectangle = grid(i)
+            
+                        ' get current rectangle location
+                        Dim position As Point = rectangle.Location
+            
+                        ' get image of current rectangle
+                        Using rectImage As VintasoftImage = page.GetTileRectImage(0, rectangle, waveletLevel, Nothing)
+                            ' overlay rectangle image on result image
+                            Dim overlayCommand As New OverlayCommand(rectImage, position)
+                            overlayCommand.ExecuteInPlace(resultImage)
+                        End Using
+                    Next
+            
+                    Return resultImage
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            // Opens JPEG2000 file and gets its first tile's image by parts.
+            public static VintasoftImage GetJpeg2000TileByParts(string jpeg2000Filename)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    // get JPEG2000 page
+                    Jpeg2000Page page = file.Page;
+            
+                    // get page dimensions and pixel format
+                    int imageWidth = page.Width;
+                    int imageHeight = page.Height;
+            
+                    Palette palette = page.Palette != null ? page.Palette : new Palette();
+                    ImageInfo imageInfo = new ImageInfo(
+                        imageWidth,
+                        imageHeight,
+                        page.BitsPerPixel,
+                        palette,
+                        page.Resolution);
+                    PixelFormat pixelFormat = imageInfo.PixelFormat;
+            
+                    // get first tile rectangle
+                    Rectangle firstTileRectangle = page.GetTileGrid()[0];
+            
+                    // get tile dimensions
+                    int tileWidth = firstTileRectangle.Width;
+                    int tileHeight = firstTileRectangle.Height;
+            
+                    // if tile is too small, then get tile at once
+                    if (tileWidth == 1 || tileHeight == 1)
+                        return page.GetTileRectImage(0, new Rectangle(0, 0, tileWidth, tileHeight), null);
+            
+                    // divide tile rectangle into 4 rectangles
+                    Rectangle[] grid = new Rectangle[4];
+                    grid[0] = new Rectangle(0, 0, tileWidth / 2, tileHeight / 2);
+                    grid[1] = new Rectangle(tileWidth / 2, 0, (tileWidth + 1) / 2, tileHeight / 2);
+                    grid[2] = new Rectangle(0, tileHeight / 2, tileWidth / 2, (tileHeight + 1) / 2);
+                    grid[3] = new Rectangle(tileWidth / 2, tileHeight / 2, (tileWidth + 1) / 2, (tileHeight + 1) / 2);
+            
+                    // get number of wavelet levels
+                    int waveletLevel = page.WaveletLevels;
+            
+                    // create a VintasoftImage object
+                    VintasoftImage resultImage = new VintasoftImage(tileWidth, tileHeight, pixelFormat);
+            
+                    // for each part of tile
+                    for (int i = 0; i &lt; 4; i++)
+                    {
+                        // get current rectangle
+                        Rectangle rectangle = grid[i];
+            
+                        // get current rectangle location
+                        Point position = rectangle.Location;
+            
+                        // get image of current rectangle
+                        using (VintasoftImage rectImage = page.GetTileRectImage(0, rectangle, waveletLevel, null))
+                        {
+                            // overlay rectangle image on result image
+                            OverlayCommand overlayCommand = new OverlayCommand(rectImage, position);
+                            overlayCommand.ExecuteInPlace(resultImage);
+                        }
+                    }
+            
+                    return resultImage;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetTileRectImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.Int32,System.Drawing.Rectangle,System.Int32,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image of specified region of specified tile of this page,
+            decoded with the specified number of wavelet levels.
+            </summary>
+            <param name="tileIndex">Zero based index of tile.</param>
+            <param name="region">Rectangle, in tile, to decode.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="waveletLevels">
+            The number of discrete wavelet transformation levels (decomposition levels).
+            </param>
+            <param name="imageLoadingProgress">
+            Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <i>waveletLevels</i> is less than zero or greater than <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <i>region</i> is not located within <i>tile</i>.
+            </exception>
+            <returns>
+            Image of specified region of specified tile of this page.
+            </returns>
+            <remarks>
+            Tile decoded unscaled if <i>waveletLevels</i> equals to <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" />;
+            otherwise, tile decoded with
+            scale (2 in power (<see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels" /> - <i>waveletLevels</i>)).
+            </remarks>
+            <example>
+            Here is an example that shows how to open JPEG2000 file and get its first tile's image by parts:
+            <code lang="VB.NET">
+            ' Opens JPEG2000 file and gets its first tile's image by parts.
+            Public Shared Function GetJpeg2000TileByParts(jpeg2000Filename As String) As VintasoftImage
+                ' open an existing JPEG2000 file
+                Using file As New Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read)
+                    ' get JPEG2000 page
+                    Dim page As Jpeg2000Page = file.Page
+            
+                    ' get page dimensions and pixel format
+                    Dim imageWidth As Integer = page.Width
+                    Dim imageHeight As Integer = page.Height
+            
+                    Dim palette As Palette = If(page.Palette IsNot Nothing, page.Palette, New Palette())
+                    Dim imageInfo As New ImageInfo(imageWidth, imageHeight, page.BitsPerPixel, palette, page.Resolution)
+                    Dim pixelFormat As PixelFormat = imageInfo.PixelFormat
+            
+                    ' get first tile rectangle
+                    Dim firstTileRectangle As Rectangle = page.GetTileGrid()(0)
+            
+                    ' get tile dimensions
+                    Dim tileWidth As Integer = firstTileRectangle.Width
+                    Dim tileHeight As Integer = firstTileRectangle.Height
+            
+                    ' if tile is too small, then get tile at once
+                    If tileWidth = 1 OrElse tileHeight = 1 Then
+                        Return page.GetTileRectImage(0, New Rectangle(0, 0, tileWidth, tileHeight), Nothing)
+                    End If
+            
+                    ' divide tile rectangle into 4 rectangles
+                    Dim grid As Rectangle() = New Rectangle(3) {}
+                    grid(0) = New Rectangle(0, 0, tileWidth \ 2, tileHeight \ 2)
+                    grid(1) = New Rectangle(tileWidth \ 2, 0, (tileWidth + 1) \ 2, tileHeight \ 2)
+                    grid(2) = New Rectangle(0, tileHeight \ 2, tileWidth \ 2, (tileHeight + 1) \ 2)
+                    grid(3) = New Rectangle(tileWidth \ 2, tileHeight \ 2, (tileWidth + 1) \ 2, (tileHeight + 1) \ 2)
+            
+                    ' get number of wavelet levels
+                    Dim waveletLevel As Integer = page.WaveletLevels
+            
+                    ' create a VintasoftImage object
+                    Dim resultImage As New VintasoftImage(tileWidth, tileHeight, pixelFormat)
+            
+                    ' for each part of tile
+                    For i As Integer = 0 To 3
+                        ' get current rectangle
+                        Dim rectangle As Rectangle = grid(i)
+            
+                        ' get current rectangle location
+                        Dim position As Point = rectangle.Location
+            
+                        ' get image of current rectangle
+                        Using rectImage As VintasoftImage = page.GetTileRectImage(0, rectangle, waveletLevel, Nothing)
+                            ' overlay rectangle image on result image
+                            Dim overlayCommand As New OverlayCommand(rectImage, position)
+                            overlayCommand.ExecuteInPlace(resultImage)
+                        End Using
+                    Next
+            
+                    Return resultImage
+                End Using
+            End Function
+            </code>
+            <code lang="C#">
+            // Opens JPEG2000 file and gets its first tile's image by parts.
+            public static VintasoftImage GetJpeg2000TileByParts(string jpeg2000Filename)
+            {
+                // open an existing JPEG2000 file
+                using (Jpeg2000File file = new Jpeg2000File(jpeg2000Filename, FileMode.Open, FileAccess.Read))
+                {
+                    // get JPEG2000 page
+                    Jpeg2000Page page = file.Page;
+            
+                    // get page dimensions and pixel format
+                    int imageWidth = page.Width;
+                    int imageHeight = page.Height;
+            
+                    Palette palette = page.Palette != null ? page.Palette : new Palette();
+                    ImageInfo imageInfo = new ImageInfo(
+                        imageWidth,
+                        imageHeight,
+                        page.BitsPerPixel,
+                        palette,
+                        page.Resolution);
+                    PixelFormat pixelFormat = imageInfo.PixelFormat;
+            
+                    // get first tile rectangle
+                    Rectangle firstTileRectangle = page.GetTileGrid()[0];
+            
+                    // get tile dimensions
+                    int tileWidth = firstTileRectangle.Width;
+                    int tileHeight = firstTileRectangle.Height;
+            
+                    // if tile is too small, then get tile at once
+                    if (tileWidth == 1 || tileHeight == 1)
+                        return page.GetTileRectImage(0, new Rectangle(0, 0, tileWidth, tileHeight), null);
+            
+                    // divide tile rectangle into 4 rectangles
+                    Rectangle[] grid = new Rectangle[4];
+                    grid[0] = new Rectangle(0, 0, tileWidth / 2, tileHeight / 2);
+                    grid[1] = new Rectangle(tileWidth / 2, 0, (tileWidth + 1) / 2, tileHeight / 2);
+                    grid[2] = new Rectangle(0, tileHeight / 2, tileWidth / 2, (tileHeight + 1) / 2);
+                    grid[3] = new Rectangle(tileWidth / 2, tileHeight / 2, (tileWidth + 1) / 2, (tileHeight + 1) / 2);
+            
+                    // get number of wavelet levels
+                    int waveletLevel = page.WaveletLevels;
+            
+                    // create a VintasoftImage object
+                    VintasoftImage resultImage = new VintasoftImage(tileWidth, tileHeight, pixelFormat);
+            
+                    // for each part of tile
+                    for (int i = 0; i &lt; 4; i++)
+                    {
+                        // get current rectangle
+                        Rectangle rectangle = grid[i];
+            
+                        // get current rectangle location
+                        Point position = rectangle.Location;
+            
+                        // get image of current rectangle
+                        using (VintasoftImage rectImage = page.GetTileRectImage(0, rectangle, waveletLevel, null))
+                        {
+                            // overlay rectangle image on result image
+                            OverlayCommand overlayCommand = new OverlayCommand(rectImage, position);
+                            overlayCommand.ExecuteInPlace(resultImage);
+                        }
+                    }
+            
+                    return resultImage;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Parse">
+            <summary>
+            Parse the JPEG2000 page.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Save(Vintasoft.Imaging.Codecs.ImageFiles.ImageFileSource,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves block to the source, connects block with the source, removes
+            virtual data.
+            </summary>
+            <param name="source">Image source.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This method is not implemented.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.FileFormat">
+            <summary>
+            Gets the format of JPEG2000 file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Width">
+            <summary>
+            Gets the width, in pixels, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Height">
+            <summary>
+            Gets the height, in pixels, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.BitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image returned by
+            <see cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" />
+            method.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SourceBitsPerPixel" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SourceBitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image data stored in JPEG2000 image.
+            </summary>
+            <remarks>
+            Values of the <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.SourceBitsPerPixel" /> and <see cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.BitsPerPixel" />
+            properties may be different if image data will be converted to another format
+            during image decoding.
+            </remarks>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.BitsPerPixel" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Resolution">
+            <summary>
+            Gets or sets the resolution, in pixels per inch, of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.ColorSpace">
+            <summary>
+            Gets the color space type of this JPEG2000 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.HasPalette">
+            <summary>
+            Gets a value indicating whether the image has a palette.
+            </summary>
+            <value>
+            <b>true</b> - image has a palette; otherwise, <b>false</b>.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.Palette">
+            <summary>
+            Gets the palette of this image page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.WaveletLevels">
+            <summary>
+            Gets the number 
+            of discrete wavelet transformation levels (decomposition levels).
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.ProgressionOrder">
+            <summary>
+            Gets the organization 
+            of the compressed data in the codestream.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.QualityLayerCount">
+            <summary>
+            Gets the number of quality layers
+            in the JPEG2000 image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.TileHeight">
+            <summary>
+            Gets the height in pixels of each tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.TileWidth">
+            <summary>
+            Gets the width in pixels of each tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.TileCount">
+            <summary>
+            Gets the count of the tiles in the JPEG2000 image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page.NumberOfComponents">
+            <summary>
+            Gets the number of color components.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.Jpeg2000IccProfileMetadata">
+            <summary>
+            Metadata node that stores ICC profile from a JPEG2000 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000IccProfileMetadata.IccProfile">
+            <summary>
+            Gets or sets a copy of ICC profile data.
+            </summary>
+            <remarks>
+            Set operation is not supported.
+            </remarks>
+            <exception cref="T:System.NotSupportedException">Thrown if
+            an attempt is made to set the property value.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000IccProfileMetadata.HasValue">
+            <summary>
+            Gets a value indicating whether the node has value.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata">
+            <summary>
+            Root node of metadata tree for JPEG2000 page.
+            </summary>
+            <remarks>
+            This node cannot have child nodes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Jpeg2000.Jpeg2000Page)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata" /> class.
+            </summary>
+            <param name="page">JPEG2000 page.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.ImageWidth">
+            <summary>
+            Gets the width, in pixels, of image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.ImageHeight">
+            <summary>
+            Gets the height, in pixels, of image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.BitsPerPixel">
+            <summary>
+            Gets the bit depth of image returned by decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.SourceBitsPerPixel">
+            <summary>
+            Gets the source image bit depth.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.Resolution">
+            <summary>
+            Gets or sets the resolution, in pixels per inch.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.FileFormat">
+            <summary>
+            Gets the format of JPEG2000 file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.ColorSpace">
+            <summary>
+            Gets the color space type of the JPEG2000 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.NumberOfComponents">
+            <summary>
+            Gets the number of color components.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.ProgressionOrder">
+            <summary>
+            Gets the organization of the compressed data in the codestream.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.QualityLayerCount">
+            <summary>
+            Gets the number of quality layers in the JPEG2000 image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.TileWidth">
+            <summary>
+            Gets the width, in pixels, of image tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.TileHeight">
+            <summary>
+            Gets the height, in pixels, of image tile.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.TileCount">
+            <summary>
+            Gets the count of tiles in the JPEG2000 image.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jpeg2000PageMetadata.WaveletLevels">
+            <summary>
+            Gets the number of discrete wavelet transformation levels (decomposition levels).
+            </summary>
+        </member>
+    </members>
+</doc>

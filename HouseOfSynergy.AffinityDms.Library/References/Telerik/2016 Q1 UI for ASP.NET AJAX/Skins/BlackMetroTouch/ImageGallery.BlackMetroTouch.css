@@ -1,0 +1,99 @@
+.RadImageGallery_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  color: white; }
+  .RadImageGallery_BlackMetroTouch .rigDescriptionBox {
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6); }
+  .RadImageGallery_BlackMetroTouch .rigToolbar,
+  .RadImageGallery_BlackMetroTouch .rigCloseButton,
+  .RadImageGallery_BlackMetroTouch .rigDrawerButton {
+    background-color: #191919;
+    background-color: rgba(25, 25, 25, 0.8); }
+  .RadImageGallery_BlackMetroTouch .rigProgressBar div {
+    background-color: #25a0da; }
+  .RadImageGallery_BlackMetroTouch .rigPager {
+    background-color: black;
+    color: white; }
+    .RadImageGallery_BlackMetroTouch .rigPager a {
+      color: white; }
+    .RadImageGallery_BlackMetroTouch .rigPager a.rigCurrentPage {
+      color: #000;
+      border-color: #898989;
+      background: #fff; }
+  .RadImageGallery_BlackMetroTouch .rigIcon {
+    background-image: url('Common/radActionsSprite.png'); }
+  .RadImageGallery_BlackMetroTouch .rigDotList > a {
+    border-color: #4e4e4e; }
+  .RadImageGallery_BlackMetroTouch .rigDotList a span {
+    background-color: #222223; }
+  .RadImageGallery_BlackMetroTouch .rigDotList a.rigCurrentItem span {
+    background-color: #25a0da;
+    border-color: #222223; }
+  .RadImageGallery_BlackMetroTouch .rigTooltip {
+    background-color: black;
+    border-color: #333333; }
+    .RadImageGallery_BlackMetroTouch .rigTooltip:after {
+      border-top-color: black; }
+  .RadImageGallery_BlackMetroTouch input.rigNextButton {
+    right: 0; }
+  .RadImageGallery_BlackMetroTouch input.rigPrevButton {
+    left: 0; }
+  .RadImageGallery_BlackMetroTouch .rigPrevButton,
+  .RadImageGallery_BlackMetroTouch .rigNextButton,
+  .RadImageGallery_BlackMetroTouch .rigScrollPrevIcon,
+  .RadImageGallery_BlackMetroTouch .rigScrollNextIcon,
+  .RadImageGallery_BlackMetroTouch .rigCloseIcon {
+    background-image: url('LightBox/sprite.png'); }
+  .RadImageGallery_BlackMetroTouch .rigPrevButton {
+    background-position: 0 -140px; }
+  .RadImageGallery_BlackMetroTouch .rigNextButton {
+    background-position: -60px -140px; }
+  .RadImageGallery_BlackMetroTouch .rigPrevButton,
+  .RadImageGallery_BlackMetroTouch .rigNextButton {
+    opacity: 0.6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    *filter: alpha("opacity=60"); }
+  .RadImageGallery_BlackMetroTouch .rigScrollPrevIcon {
+    background-position: -79px  -49px; }
+  .RadImageGallery_BlackMetroTouch .rigScrollNextIcon {
+    background-position: -104px -49px; }
+  .RadImageGallery_BlackMetroTouch.RadImageGallery_RightOutside .rigScrollPrevIcon,
+  .RadImageGallery_BlackMetroTouch.RadImageGallery_RightOutside .rigScrollNextIcon,
+  .RadImageGallery_BlackMetroTouch .rigThumbnailsBoxVertical .rigScrollPrevIcon,
+  .RadImageGallery_BlackMetroTouch .rigThumbnailsBoxVertical .rigScrollNextIcon {
+    background-position: -62px -89px; }
+  .RadImageGallery_BlackMetroTouch .RadImageGallery_RightOutside .rigScrollNextIcon,
+  .RadImageGallery_BlackMetroTouch .rigThumbnailsBoxVertical .rigScrollNextIcon {
+    background-position: -96px -89px; }
+  .RadImageGallery_BlackMetroTouch .rigCloseIcon {
+    background-position: -79px -12px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigCloseIcon {
+    background-position: -101px -12px; }
+  .RadImageGallery_BlackMetroTouch .rigDrawerIcon {
+    background-position: -52px -60px; }
+  .RadImageGallery_BlackMetroTouch .rigPlayIcon {
+    background-position: -14px -5014px; }
+  .RadImageGallery_BlackMetroTouch .rigPauseIcon {
+    background-position: -14px -5064px; }
+  .RadImageGallery_BlackMetroTouch .rigFullScrIcon {
+    background-position: -14px -5264px; }
+  .RadImageGallery_BlackMetroTouch .rigExtFullScrIcon {
+    background-position: -14px -5314px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigPlayIcon {
+    background-position: -64px -5014px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigPauseIcon {
+    background-position: -64px -5064px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigFullScrIcon {
+    background-position: -64px -5264px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigExtFullScrIcon {
+    background-position: -64px -5314px; }
+  .RadImageGallery_BlackMetroTouch .rigShowThumbnIcon {
+    background-position: -15px -5414px; }
+  .RadImageGallery_BlackMetroTouch .rigHideThumbnIcon {
+    background-position: -15px -5464px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigShowThumbnIcon {
+    background-position: -65px -5414px; }
+  .RadImageGallery_BlackMetroTouch .rigActionButton:hover .rigHideThumbnIcon {
+    background-position: -65px -5464px; }

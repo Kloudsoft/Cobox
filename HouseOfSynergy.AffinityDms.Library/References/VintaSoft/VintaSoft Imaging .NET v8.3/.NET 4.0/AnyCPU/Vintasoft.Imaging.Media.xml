@@ -1,0 +1,2386 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Media</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowCamera">
+            <summary>
+            Provides functionality for controlling DirectShow camera and capturing images from camera.
+            </summary>
+            <example>This example shows how to capture image from camera and save captured image to a file:
+            <code lang="VB.NET">
+            Imports System.Collections.ObjectModel
+            Imports System.Windows.Forms
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Media
+            
+            Class DirectShowCamera_CaptureImageAsync
+            
+                ''' &lt;summary&gt;
+                ''' Indicates that image is captured from device.
+                ''' &lt;/summary&gt;
+                Shared _captureCompleted As Boolean
+            
+            
+            
+                ''' &lt;summary&gt;
+                ''' Captures image from camera and saves captured image to a file.
+                ''' &lt;/summary&gt;
+                Public Shared Sub CaptureAndSaveImage()
+                    _captureCompleted = False
+            
+                    ' get a list of available cameras
+                    Dim captureDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+            
+                    ' if cameras are not found
+                    If captureDevices.Count = 0 Then
+                        Console.WriteLine("No connected devices.")
+                        Return
+                    End If
+            
+                    ' get the first available camera
+                    Dim captureDevice As DirectShowCamera = DirectCast(captureDevices(0), DirectShowCamera)
+            
+                    ' create the image capture source
+                    Dim captureSource As New ImageCaptureSource()
+                    ' set the camera as a capture device of the image capture source
+                    captureSource.CaptureDevice = captureDevice
+                    ' subscribe to the image cptured event
+                    AddHandler captureSource.CaptureCompleted, New EventHandler(Of ImageCaptureCompletedEventArgs)(AddressOf captureSource_CaptureCompleted)
+            
+                    ' start the image capturing from the camera
+                    captureSource.Start()
+            
+                    ' asynchronously capture an image from camera
+                    captureSource.CaptureAsync()
+            
+                    ' while image is not captured
+                    While Not _captureCompleted
+                        ' wait
+                        Application.DoEvents()
+                    End While
+            
+                    ' stop the image capturing from the camera
+                    captureSource.[Stop]()
+                End Sub
+            
+                ''' &lt;summary&gt;
+                ''' Image is captured from camera.
+                ''' &lt;/summary&gt;
+                Private Shared Sub captureSource_CaptureCompleted(sender As Object, e As ImageCaptureCompletedEventArgs)
+                    ' get captured image as VintasoftImage object
+                    Using capturedImage As VintasoftImage = e.GetCapturedImage()
+                        ' output information about captured image
+                        Console.WriteLine(String.Format("Image is captured: Width={0}, Height={1}", capturedImage.Width, capturedImage.Height))
+            
+                        ' save captured image to a file
+                        capturedImage.Save("capturedImage.png")
+                        Console.WriteLine("Image is saved.")
+                    End Using
+            
+                    ' indicate that image is captured
+                    _captureCompleted = True
+                End Sub
+            
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using System.Collections.ObjectModel;
+            using System.Windows.Forms;
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Media;
+            
+            class DirectShowCamera_CaptureImageAsync
+            {
+            
+                /// &lt;summary&gt;
+                /// Indicates that image is captured from device.
+                /// &lt;/summary&gt;
+                static bool _captureCompleted;
+            
+            
+            
+                /// &lt;summary&gt;
+                /// Captures image from camera and saves captured image to a file.
+                /// &lt;/summary&gt;
+                public static void CaptureAndSaveImage()
+                {
+                    _captureCompleted = false;
+            
+                    // get a list of available cameras
+                    ReadOnlyCollection&lt;ImageCaptureDevice&gt; captureDevices = ImageCaptureDeviceConfiguration.GetCaptureDevices();
+            
+                    // if cameras are not found
+                    if (captureDevices.Count == 0)
+                    {
+                        Console.WriteLine("No connected devices.");
+                        return;
+                    }
+            
+                    // get the first available camera
+                    DirectShowCamera captureDevice = (DirectShowCamera)captureDevices[0];
+            
+                    // create the image capture source
+                    ImageCaptureSource captureSource = new ImageCaptureSource();
+                    // set the camera as a capture device of the image capture source
+                    captureSource.CaptureDevice = captureDevice;
+                    // subscribe to the image cptured event
+                    captureSource.CaptureCompleted += new EventHandler&lt;ImageCaptureCompletedEventArgs&gt;(captureSource_CaptureCompleted);
+            
+                    // start the image capturing from the camera
+                    captureSource.Start();
+            
+                    // asynchronously capture an image from camera
+                    captureSource.CaptureAsync();
+            
+                    // while image is not captured
+                    while (!_captureCompleted)
+                        // wait
+                        Application.DoEvents();
+            
+                    // stop the image capturing from the camera
+                    captureSource.Stop();
+                }
+            
+                /// &lt;summary&gt;
+                /// Image is captured from camera.
+                /// &lt;/summary&gt;
+                private static void captureSource_CaptureCompleted(object sender, ImageCaptureCompletedEventArgs e)
+                {
+                    // get captured image as VintasoftImage object
+                    using (VintasoftImage capturedImage = e.GetCapturedImage())
+                    {
+                        // output information about captured image
+                        Console.WriteLine(string.Format("Image is captured: Width={0}, Height={1}", capturedImage.Width, capturedImage.Height));
+            
+                        // save captured image to a file
+                        capturedImage.Save("capturedImage.png");
+                        Console.WriteLine("Image is saved.");
+                    }
+            
+                    // indicate that image is captured
+                    _captureCompleted = true;
+                }
+            
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureDevice">
+            <summary>
+            Describes desired and supported image 
+            format information for an image capture device, such as a webcam.
+            </summary>
+            <example>
+            <see cref="T:Vintasoft.Imaging.Media.ImageCaptureSource" />
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDevice" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.Finalize">
+            <summary>
+            Releases all resources used by the image capture device.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.ShowPropertiesDialog">
+            <summary>
+            Shows the properties dialog of capture device.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.ToString">
+            <summary>
+            Returns the name of camera.
+            </summary>
+            <returns>Name of camera.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.Dispose">
+            <summary>
+            Releases all resources used by this <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDevice" /> object.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the capture device and
+            optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><b>true</b> to release both managed and
+            unmanaged resources; <b>false</b> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.Start">
+            <summary>
+            Starts the image capturing.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.Stop">
+            <summary>
+            Stops the image capturing.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.SetCaptureState(Vintasoft.Imaging.Media.ImageCaptureState)">
+            <summary>
+            Sets the capture state.
+            </summary>
+            <param name="newState">New capture state.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevice.OnCaptureStateChanged(Vintasoft.Imaging.PropertyChangedEventArgs{Vintasoft.Imaging.Media.ImageCaptureState})">
+            <summary>
+            Raises the <see cref="E:Vintasoft.Imaging.Media.ImageCaptureDevice.CaptureStateChanged" /> event.
+            </summary>
+            <param name="e">A <see cref="T:Vintasoft.Imaging.PropertyChangedEventArgs`1" /> that
+            contains the event data.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevice.FriendlyName">
+            <summary>
+            Gets the UI display name for this image capture device.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevice.CaptureState">
+            <summary>
+            Gets the capture state of this image capture device.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevice.SupportedFormats">
+            <summary>
+            Gets a read-only collection of formats supported by this image capture device.
+            </summary>
+            <example>
+            <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDeviceConfiguration" />
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevice.DesiredFormat">
+            <summary>
+            Gets or sets desired image format to be used by this image capture device.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">if <see cref="P:Vintasoft.Imaging.Media.ImageCaptureDevice.CaptureState" /> != <see cref="T:Vintasoft.Imaging.Media.ImageCaptureState" />.Stopped</exception>
+        </member>
+        <member name="E:Vintasoft.Imaging.Media.ImageCaptureDevice.CaptureStateChanged">
+            <summary>
+            Occurs when the capture state is changed.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCamera.ShowPropertiesDialog">
+            <summary>
+            Shows the properties dialog of camera.
+            </summary>
+            <example>This example shows how to show the DirectShow camera properties dialog:
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Shows the properties dialog of DirectShow camera.
+            ''' &lt;/summary&gt;
+            Public Shared Sub ChangeCameraPropertiesUsingDeviceDialog()
+                ' get a list of installed cameras
+                Dim captureDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+            
+                ' get the first available camera
+                Dim camera As ImageCaptureDevice = captureDevices(0)
+            
+                ' show the properties dialog of DirectShow camera
+                camera.ShowPropertiesDialog()
+            End Sub
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Shows the properties dialog of DirectShow camera.
+            /// &lt;/summary&gt;
+            public static void ChangeCameraPropertiesUsingDeviceDialog()
+            {
+                // get a list of installed cameras
+                ReadOnlyCollection&lt;ImageCaptureDevice&gt; captureDevices = ImageCaptureDeviceConfiguration.GetCaptureDevices();
+            
+                // get the first available camera
+                ImageCaptureDevice camera = captureDevices[0];
+            
+                // show the properties dialog of DirectShow camera
+                camera.ShowPropertiesDialog();
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCamera.SaveSettings(System.IO.Stream)">
+            <summary>
+            Saves the camera settings to a stream.
+            </summary>
+            <param name="stream">The stream where camera settings must be saved.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>stream</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if
+            stream does not support writing.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCamera.LoadSettings(System.IO.Stream)">
+            <summary>
+            Loads the camera settings from a stream.
+            </summary>
+            <param name="stream">The stream which contains the camera settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>stream</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if
+            stream does not support seeking or reading.</exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">Thrown if
+            <i>stream</i> contains wrong camera settings.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCamera.Start">
+            <summary>
+            Starts the image capturing.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCamera.Stop">
+            <summary>
+            Stops the image capturing.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCamera.FriendlyName">
+            <summary>
+            Gets the camera name.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCamera.SupportedFormats">
+            <summary>
+            Gets a read-only collection of supported formats of the camera.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCamera.CameraControl">
+            <summary>
+            Gets the access to the camera control properties of camera.
+            </summary>
+            <example>
+            See example here <see cref="T:Vintasoft.Imaging.Media.DirectShowCameraControlProperties" />.
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCamera.ImageQuality">
+            <summary>
+            Gets the access to the image quality properties of camera.
+            </summary>
+            <example>
+            See example here <see cref="T:Vintasoft.Imaging.Media.DirectShowImageQualityProperties" />.
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCamera.DevicePath">
+            <summary>
+            Get the device path.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowCameraControlProperties">
+            <summary>
+            Provides access to the camera control properties of camera.
+            </summary>
+            <example>This example shows how to get and set the camera control properties of DirectShow camera:
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Gets and sets the camera control properties of DirectShow camera.
+            ''' &lt;/summary&gt;
+            Public Shared Sub GetAndSetCameraControlProperties()
+                ' get a list of installed cameras
+                Dim captureDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+            
+                ' if cameras are not found
+                If captureDevices.Count = 0 Then
+                    Console.WriteLine("No connected devices.")
+                    Return
+                End If
+            
+                ' get the first available camera
+                Dim camera As DirectShowCamera = DirectCast(captureDevices(0), DirectShowCamera)
+                ' output camera name
+                Console.WriteLine(camera.FriendlyName)
+            
+            
+                Dim propertyValue As DirectShowCameraControlPropertyValue
+                Dim minValue As Integer, maxValue As Integer, [step] As Integer, defaultValue As Integer
+            
+                Console.WriteLine(" - Exposure")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedExposureValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Exposure
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Exposure = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Focus")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedFocusValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Focus
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Focus = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Iris")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedIrisValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Iris
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Iris = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Pan")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedPanValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Pan
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Pan = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Roll")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedRollValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Roll
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Roll = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Tilt")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedTiltValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Tilt
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Tilt = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Zoom")
+                Try
+                    ' get supported values
+                    camera.CameraControl.GetSupportedZoomValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.CameraControl.Zoom
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.CameraControl.Zoom = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            End Sub
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Gets and sets the camera control properties of DirectShow camera.
+            /// &lt;/summary&gt;
+            public static void GetAndSetCameraControlProperties()
+            {
+                // get a list of installed cameras
+                ReadOnlyCollection&lt;ImageCaptureDevice&gt; captureDevices = ImageCaptureDeviceConfiguration.GetCaptureDevices();
+            
+                // if cameras are not found
+                if (captureDevices.Count == 0)
+                {
+                    Console.WriteLine("No connected devices.");
+                    return;
+                }
+            
+                // get the first available camera
+                DirectShowCamera camera = (DirectShowCamera)captureDevices[0];
+                // output camera name
+                Console.WriteLine(camera.FriendlyName);
+            
+            
+                DirectShowCameraControlPropertyValue propertyValue;
+                int minValue, maxValue, step, defaultValue;
+            
+                Console.WriteLine(" - Exposure");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedExposureValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Exposure;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Exposure = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Focus");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedFocusValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Focus;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Focus = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Iris");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedIrisValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Iris;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Iris = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Pan");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedPanValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Pan;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Pan = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Roll");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedRollValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Roll;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Roll = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Tilt");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedTiltValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Tilt;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+                    
+                    // set current value
+                    camera.CameraControl.Tilt = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Zoom");
+                try
+                {
+                    // get supported values
+                    camera.CameraControl.GetSupportedZoomValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.CameraControl.Zoom;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.CameraControl.Zoom = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedExposureValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the exposure setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Exposure" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedFocusValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the focus setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Focus" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedIrisValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the iris setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Iris" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedPanValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the pan setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Pan" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedRollValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the roll setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Roll" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedTiltValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the tilt setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Tilt" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedZoomValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the zoom setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Zoom" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Exposure">
+            <summary>
+            Gets or sets the exposure setting.
+            </summary>
+            <value>
+            Value in log base 2 seconds.
+            In other words, for values less than zero, the exposure time is 1/2^n seconds,
+            and for values zero or above, the exposure time is 2^n seconds.<br />
+            <br />
+            For example:<br />
+            Value	Seconds<br />
+            -3   	1/8<br />
+            -2	    1/4<br />
+            -1	    1/2<br />
+             0	    1<br />
+             1	    2<br />
+             2	    4
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedExposureValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Focus">
+            <summary>
+            Gets or sets the focus setting of camera, as the distance to the optimally focused target,
+            in millimeters.
+            </summary>
+            <value>
+            The range and default value are specific to the device.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedFocusValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Iris">
+            <summary>
+            Gets or sets the iris setting, in units of fstop * 10, of camera.
+            </summary>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedIrisValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Pan">
+            <summary>
+            Gets or sets the pan setting, in degrees, of camera.
+            </summary>
+            <value>
+            Values range from –180 to +180, with the default set to zero.<br />
+            Positive values are clockwise from the origin (the camera rotates clockwise when
+            viewed from above), and negative values are counterclockwise from the origin.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedPanValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Roll">
+            <summary>
+            Gets or sets the roll setting, in degrees, of camera.
+            </summary>
+            <value>
+            Values range from –180 to +180, with the default set to zero.
+            Positive values cause a clockwise rotation of the camera along the image-viewing axis,
+            and negative values cause a counterclockwise rotation of the camera.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedRollValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Tilt">
+            <summary>
+            Gets or sets the tilt setting, in degrees, of camera.
+            </summary>
+            <value>
+            Values range from –180 to +180, with the default set to zero.
+            Positive values point the imaging plane up, and negative values point the imaging plane down.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedTiltValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.Zoom">
+            <summary>
+            Gets or sets the zoom setting, in millimeters, of camera.
+            </summary>
+            <value>
+            Values range from 10 to 600, and the default is specific to the device.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowCameraControlProperties.GetSupportedZoomValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowCameraControlPropertyValue">
+            <summary>
+            Stores information about current value of the camera control property of camera.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.DirectShowCameraControlPropertyValue.Value">
+            <summary>
+            Gets or sets the current value of the camera property.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.DirectShowCameraControlPropertyValue.Auto">
+            <summary>
+            Gets a value indicating whether the the camera controls the property automatically.
+            </summary>
+            <value>
+            <b>true</b> - camera controls the property automatically;
+            <b>false</b> - camera uses value specified by user.
+            </value>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraControlPropertyValue.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.DirectShowCameraControlPropertyValue" /> class.
+            </summary>
+            <param name="value">The current value of the camera property.</param>
+            <param name="auto">Indicates whether the the camera controls the property automatically.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowCameraException">
+            <summary>
+            The exception that is thrown when an image capture device error occurs.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.DirectShowCameraException" /> class
+            with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowCameraException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.DirectShowCameraException" /> class
+            with a specified error message. 
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the
+            current exception, or a null reference (<b>Nothing</b> in Visual Basic)
+            if no inner exception is specified.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowImageQualityProperties">
+            <summary>
+            Provides access to the image quality properties of camera.
+            </summary>
+            <example>This example shows how to get and set the image quality properties of DirectShow camera:
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Gets and sets the image quality properties of DirectShow camera.
+            ''' &lt;/summary&gt;
+            Public Shared Sub GetAndSetImageQualityProperties()
+                ' get a list of installed cameras
+                Dim captureDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+            
+                ' if cameras are not found
+                If captureDevices.Count = 0 Then
+                    Console.WriteLine("No connected devices.")
+                    Return
+                End If
+            
+                ' get the first available camera
+                Dim camera As DirectShowCamera = DirectCast(captureDevices(0), DirectShowCamera)
+                ' output camera name
+                Console.WriteLine(camera.FriendlyName)
+            
+            
+                Dim propertyValue As DirectShowImageQualityPropertyValue
+                Dim minValue As Integer, maxValue As Integer, [step] As Integer, defaultValue As Integer
+            
+                Console.WriteLine(" - BacklightCompensation")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedBacklightCompensationValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.BacklightCompensation
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.BacklightCompensation = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Brightness")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedBrightnessValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Brightness
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Brightness = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - ColorEnable")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedColorEnableValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.ColorEnable
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.ColorEnable = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Contrast")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedContrastValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Contrast
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Contrast = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Gain")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedGainValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Gain
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Gain = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Gamma")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedGammaValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Gamma
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Gamma = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Hue")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedHueValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Hue
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Hue = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Saturation")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedSaturationValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Saturation
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Saturation = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - Sharpness")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedSharpnessValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.Sharpness
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.Sharpness = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            
+                Console.WriteLine(" - WhiteBalance")
+                Try
+                    ' get supported values
+                    camera.ImageQuality.GetSupportedWhiteBalanceValues(minValue, maxValue, [step], defaultValue)
+                    Console.WriteLine(String.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, [step], defaultValue))
+            
+                    ' get current value
+                    propertyValue = camera.ImageQuality.WhiteBalance
+                    Console.WriteLine(String.Format("   - Current value: {0}", propertyValue.Value))
+            
+                    ' set current value
+                    camera.ImageQuality.WhiteBalance = propertyValue
+                Catch ex As Exception
+                    Console.WriteLine("    {0}", ex.Message)
+                End Try
+            End Sub
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Gets and sets the image quality properties of DirectShow camera.
+            /// &lt;/summary&gt;
+            public static void GetAndSetImageQualityProperties()
+            {
+                // get a list of installed cameras
+                ReadOnlyCollection&lt;ImageCaptureDevice&gt; captureDevices = ImageCaptureDeviceConfiguration.GetCaptureDevices();
+            
+                // if cameras are not found
+                if (captureDevices.Count == 0)
+                {
+                    Console.WriteLine("No connected devices.");
+                    return;
+                }
+            
+                // get the first available camera
+                DirectShowCamera camera = (DirectShowCamera)captureDevices[0];
+                // output camera name
+                Console.WriteLine(camera.FriendlyName);
+            
+            
+                DirectShowImageQualityPropertyValue propertyValue;
+                int minValue, maxValue, step, defaultValue;
+            
+                Console.WriteLine(" - BacklightCompensation");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedBacklightCompensationValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.BacklightCompensation;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.BacklightCompensation = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Brightness");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedBrightnessValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Brightness;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Brightness = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - ColorEnable");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedColorEnableValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.ColorEnable;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.ColorEnable = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Contrast");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedContrastValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Contrast;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Contrast = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Gain");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedGainValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Gain;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Gain = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Gamma");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedGammaValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Gamma;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Gamma = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Hue");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedHueValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Hue;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Hue = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Saturation");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedSaturationValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Saturation;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Saturation = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - Sharpness");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedSharpnessValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.Sharpness;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.Sharpness = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            
+                Console.WriteLine(" - WhiteBalance");
+                try
+                {
+                    // get supported values
+                    camera.ImageQuality.GetSupportedWhiteBalanceValues(out minValue, out maxValue, out step, out defaultValue);
+                    Console.WriteLine(string.Format("   - Supported values: Min={0}, Max={1}, Step={2}, Default={3}", minValue, maxValue, step, defaultValue));
+            
+                    // get current value
+                    propertyValue = camera.ImageQuality.WhiteBalance;
+                    Console.WriteLine(string.Format("   - Current value: {0}", propertyValue.Value));
+            
+                    // set current value
+                    camera.ImageQuality.WhiteBalance = propertyValue;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("    {0}", ex.Message);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedBacklightCompensationValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the backlight compensation.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.BacklightCompensation" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedBrightnessValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the brightness.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Brightness" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedColorEnableValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the color enable setting.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.ColorEnable" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedContrastValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the contrast.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Contrast" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedGainValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the gain.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Gain" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedGammaValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the gamma.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Gamma" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedHueValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the hue.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Hue" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedSaturationValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the saturation.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Saturation" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedSharpnessValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the sharpness.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Sharpness" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedWhiteBalanceValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Returns the values supported for the white balance.
+            </summary>
+            <param name="minValue">Minimum value.</param>
+            <param name="maxValue">Maximum value.</param>
+            <param name="stepSize">Step size.</param>
+            <param name="defaultValue">Default value.</param>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.WhiteBalance" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.BacklightCompensation">
+            <summary>
+            Gets or sets the backlight compensation settings of camera.
+            </summary>
+            <value>
+            0 - the backlight compensation is off;
+            1 - the backlight compensation is on.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedBacklightCompensationValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Brightness">
+            <summary>
+            Gets or sets the brightness for image captured from camera.
+            </summary>
+            <value>
+            Values range from –10000 to 10000.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedBrightnessValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.ColorEnable">
+            <summary>
+            Gets or sets the color enable setting of camera.
+            </summary>
+            <value>
+            0 - colors are not enabled
+            1 - colors are enabled.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedColorEnableValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Contrast">
+            <summary>
+            Gets or sets the contrast for image captured from camera.
+            </summary>
+            <value>
+            Expressed as gain factor * 100.
+            Values range from zero to 10000.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedContrastValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Gain">
+            <summary>
+            Gets or sets the gain adjustment for image captured from camera.
+            </summary>
+            <value>
+            0 - normal; positive values - brighter; negative values - darker.<br />
+            The range of values depends on the device.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedGainValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Gamma">
+            <summary>
+            Gets or sets the gamma for image captured from camera.
+            </summary>
+            <value>
+            Value is gamma * 100.<br />
+            Values range from 1 to 500.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedGammaValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Hue">
+            <summary>
+            Gets or sets the hue, in degrees * 100, for image captured from camera.
+            </summary>
+            <value>
+            Values range from -180000 to 180000 (-180 to +180 degrees).
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedHueValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Saturation">
+            <summary>
+            Gets or sets the saturation for image captured from camera.
+            </summary>
+            <value>
+            Values range from 0 to 10000.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedSaturationValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.Sharpness">
+            <summary>
+            Gets or sets the sharpness for image captured from camera.
+            </summary>
+            <value>
+            Values range from 0 to 100.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedSharpnessValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.WhiteBalance">
+            <summary>
+            Gets or sets the white balance, as a color temperature in degrees Kelvin.
+            </summary>
+            <value>
+            The range of values depends on the device.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Media.DirectShowCameraException">Thrown if
+            error occurs.</exception>
+            <seealso cref="M:Vintasoft.Imaging.Media.DirectShowImageQualityProperties.GetSupportedWhiteBalanceValues(System.Int32@,System.Int32@,System.Int32@,System.Int32@)" />
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.DirectShowImageQualityPropertyValue">
+            <summary>
+            Stores information about current value of the image quality property of camera.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.DirectShowImageQualityPropertyValue.Value">
+            <summary>
+            Gets or sets the current value of the camera property.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.DirectShowImageQualityPropertyValue.Auto">
+            <summary>
+            Gets a value indicating whether the the camera controls the property automatically.
+            </summary>
+            <value>
+            <b>true</b> - camera controls the property automatically;
+            <b>false</b> - camera uses value specified by user.
+            </value>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.DirectShowImageQualityPropertyValue.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.DirectShowImageQualityPropertyValue" /> class.
+            </summary>
+            <param name="value">The current value of the camera property.</param>
+            <param name="auto">Indicates whether the the camera controls the property automatically.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureCompletedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureCompleted" /> event.
+            </summary>
+            <example>
+            <see cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureAsync" />
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureCompletedEventArgs.GetCapturedImage">
+            <summary>
+            Returns an image that captured from camera.
+            </summary>
+            <returns>Image captured from camera.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureCompletedEventArgs.Format">
+            <summary>
+            Gets the format of captured image.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureDeviceConfiguration">
+            <summary>
+            Represents a helper class for obtaining 
+            information about available image capture devices.
+            </summary>
+            <example>This example shows how to show information about available image capture devices:
+            <code lang="VB.NET">
+            Imports System.Collections.ObjectModel
+            Imports System.Text
+            Imports Vintasoft.Imaging.Media
+            
+            Class ImageCaptureDeviceConfiguration_Example
+                Public Shared Sub Test()
+                    Console.WriteLine(GetInformation())
+                End Sub
+            
+                Public Shared Function GetInformation() As String
+                    Dim sb As New StringBuilder()
+            
+                    ' gets available capture devices
+                    Dim availableDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+            
+                    For Each device As ImageCaptureDevice In availableDevices
+                        ' FriendlyName
+                        sb.AppendLine(String.Format("{0}, supported formats:", device.FriendlyName))
+                        ' SupportedFormats
+                        For Each format As ImageCaptureFormat In device.SupportedFormats
+                            sb.AppendLine(format.ToString())
+                        Next
+                        sb.AppendLine()
+                    Next
+            
+                    Return sb.ToString()
+                End Function
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using System.Collections.ObjectModel;
+            using System.Text;
+            using Vintasoft.Imaging.Media;
+            
+            class ImageCaptureDeviceConfiguration_Example
+            {
+                public static void Test()
+                {
+                    Console.WriteLine(GetInformation());
+                }
+            
+                public static string GetInformation()
+                {
+                    StringBuilder sb = new StringBuilder();
+            
+                    // gets available capture devices
+                    ReadOnlyCollection&lt;ImageCaptureDevice&gt; availableDevices = 
+                        ImageCaptureDeviceConfiguration.GetCaptureDevices();
+            
+                    foreach (ImageCaptureDevice device in availableDevices)
+                    {
+                        // FriendlyName
+                        sb.AppendLine(string.Format("{0}, supported formats:", device.FriendlyName));
+                        // SupportedFormats
+                        foreach (ImageCaptureFormat format in device.SupportedFormats)
+                            sb.AppendLine(format.ToString());
+                        sb.AppendLine();
+                    }
+            
+                    return sb.ToString();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDeviceConfiguration.GetCaptureDevices">
+            <summary>
+            Returns a collection of <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDevice" /> objects 
+            that represent available image capture devices on the system.
+            </summary>
+            <returns>
+            A generic read-only collection of of <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDevice" /> objects 
+            that represent available image capture devices on the system.
+            </returns>
+            <remarks>
+            If no image capture devices are available, the collection is empty.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor">
+            <summary> 
+            Provides the monitor that allows to monitor available image capture devices.
+            </summary>
+            <example>This example shows how to monitor removed/added cameras in system:
+            <code lang="VB.NET">
+            Imports System.Collections.ObjectModel
+            Imports Vintasoft.Imaging.Media
+            
+            Class ImageCaptureDeviceMonitor_Example
+                Public Shared Sub Test()
+                    ' create monitor
+                    Dim monitor As New ImageCaptureDevicesMonitor()
+                    AddHandler monitor.CaptureDevicesChanged, New EventHandler(Of ImageCaptureDevicesChangedEventArgs)(AddressOf monitor_CaptureDevicesChanged)
+                    monitor.Timeout = 500
+            
+                    ' show information about available devices
+                    Dim availableDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+                    If availableDevices.Count &gt; 0 Then
+                        Console.WriteLine("Available devices:")
+                        For Each device As ImageCaptureDevice In availableDevices
+                            Console.WriteLine(device.FriendlyName)
+                        Next
+                    Else
+                        Console.WriteLine("No connected devices.")
+                    End If
+            
+                    ' start monitoring
+                    monitor.Start()
+                    Console.WriteLine("Monitoring started.")
+            
+                    ' wait while any key pressed
+                    Console.ReadKey()
+            
+                    ' stop monitoring
+                    monitor.[Stop]()
+                End Sub
+            
+                Private Shared Sub monitor_CaptureDevicesChanged(sender As Object, e As ImageCaptureDevicesChangedEventArgs)
+                    For Each device As ImageCaptureDevice In e.AddedDevices
+                        Console.WriteLine("Device '{0}' connected.", device.FriendlyName)
+                    Next
+            
+                    For Each device As ImageCaptureDevice In e.RemovedDevices
+                        Console.WriteLine("Device '{0}' disconnected.", device.FriendlyName)
+                    Next
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using System.Collections.ObjectModel;
+            using Vintasoft.Imaging.Media;
+            
+            class ImageCaptureDeviceMonitor_Example
+            {
+                public static void Test()
+                {
+                    // create monitor
+                    ImageCaptureDevicesMonitor monitor = new ImageCaptureDevicesMonitor();
+                    monitor.CaptureDevicesChanged += new EventHandler&lt;ImageCaptureDevicesChangedEventArgs&gt;(monitor_CaptureDevicesChanged);
+                    monitor.Timeout = 500;
+            
+                    // show information about available devices
+                    ReadOnlyCollection&lt;ImageCaptureDevice&gt; availableDevices = 
+                        ImageCaptureDeviceConfiguration.GetCaptureDevices();
+                    if (availableDevices.Count &gt; 0)
+                    {
+                        Console.WriteLine("Available devices:");
+                        foreach (ImageCaptureDevice device in availableDevices)
+                            Console.WriteLine(device.FriendlyName);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No connected devices.");
+                    }
+            
+                    // start monitoring
+                    monitor.Start();
+                    Console.WriteLine("Monitoring started.");
+            
+                    // wait while any key pressed
+                    Console.ReadKey();
+            
+                    // stop monitoring
+                    monitor.Stop();
+                }
+            
+                static void monitor_CaptureDevicesChanged(object sender, ImageCaptureDevicesChangedEventArgs e)
+                {
+                    foreach (ImageCaptureDevice device in e.AddedDevices)
+                        Console.WriteLine("Device '{0}' connected.", device.FriendlyName);
+            
+                    foreach (ImageCaptureDevice device in e.RemovedDevices)
+                        Console.WriteLine("Device '{0}' disconnected.", device.FriendlyName);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.Start">
+            <summary>
+            Starts the monitor.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.Stop">
+            <summary>
+            Stops the monitor.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.IsStarted">
+            <summary>
+            Gets or sets a value indicating whether monitor is started.
+            </summary>
+            <value>
+            <b>true</b> - monitor is started;
+            <b>false</b> - monitor is not started.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.Timeout">
+            <summary>
+            Gets or sets the timeout, in milliseconds, for refreshing
+            a collection of available image capture devices.
+            </summary>
+            <value>
+            Default value is 1000.
+            </value>
+        </member>
+        <member name="E:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.CaptureDevicesChanged">
+            <summary>
+            Occurs when collection of available image capture devices is changed.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureFormat">
+            <summary>
+            Provides specific technical information about an image 
+            format that is used by image capture device.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureFormat.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" /> is equal to 
+            the current <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" />.
+            </summary>
+            <param name="obj">The <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" /> to compare with
+            the current <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" /></param>
+            <returns><b>true</b> if the current object is equal to the obj parameter;
+            otherwise, <b>false</b>.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureFormat.GetHashCode">
+            <summary>
+            Gets the hash code for this <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" />.
+            </summary>
+            <returns>The hash code for this <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureFormat.ToString">
+            <summary>
+            Returns a string that represents the current <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" />.
+            </summary>
+            <returns>A string that represents the current <see cref="T:Vintasoft.Imaging.Media.ImageCaptureFormat" />.</returns>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureFormat.Width">
+            <summary>
+            Gets the frame width, in pixels, of this image capture format.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureFormat.Height">
+            <summary>
+            Gets the frame height, in pixels, of this image capture format.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureFormat.BitsPerPixel">
+            <summary>
+            Gets the frame's bit depth of this image capture format.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureFormat.FramesPerSecond">
+            <summary>
+            Gets the number of frames which can be captured per second.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureState">
+            <summary>
+            Specifies available capture states of camera.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.ImageCaptureState.Started">
+            <summary>
+            Start has been called and the capture is still active.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.ImageCaptureState.Stopped">
+            <summary>
+            Stop has been called and the capture is complete.
+            </summary>
+        </member>
+        <member name="F:Vintasoft.Imaging.Media.ImageCaptureState.Failed">
+            <summary>
+            The capture failed, or no operation has yet been attempted.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureDevicesChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Vintasoft.Imaging.Media.ImageCaptureDevicesMonitor.CaptureDevicesChanged" /> event.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevicesChangedEventArgs.AddedDevices">
+            <summary>
+            Gets an array of added image capture devices.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureDevicesChangedEventArgs.RemovedDevices">
+            <summary>
+            Gets an array of removed image capture devices.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Media.ImageCaptureSource">
+            <summary>
+            Provides methods that work with specific 
+            image captures from the associated capture device. 
+            </summary>
+            <example>This example shows how to display captured images from several cameras on several forms:
+            <code lang="VB.NET">
+            Imports System.Collections.ObjectModel
+            Imports System.Drawing
+            Imports System.Windows.Forms
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Media
+            Imports Vintasoft.Imaging.UI
+            
+            ''' &lt;summary&gt;
+            ''' Class that implements image capturing from camera and previewing of captured images in image viewer.
+            ''' &lt;/summary&gt;
+            Public Class VideoPreview
+                ''' &lt;summary&gt;
+                ''' Image viewer where captured images must be shown.
+                ''' &lt;/summary&gt;
+                Private _viewer As ImageViewer
+            
+                ''' &lt;summary&gt;
+                ''' Image capture source.
+                ''' &lt;/summary&gt;
+                Private _captureSource As ImageCaptureSource
+            
+            
+                Public Sub New(viewer As ImageViewer, captureDevice As ImageCaptureDevice)
+                    _viewer = viewer
+            
+                    _captureSource = New ImageCaptureSource()
+                    _captureSource.CaptureDevice = captureDevice
+                    AddHandler _captureSource.CaptureCompleted, New EventHandler(Of ImageCaptureCompletedEventArgs)(AddressOf CaptureSource_CaptureCompleted)
+                End Sub
+            
+            
+                Public Sub Start()
+                    _captureSource.Start()
+                    _captureSource.CaptureAsync()
+                End Sub
+            
+                Public Sub [Stop]()
+                    _captureSource.[Stop]()
+                End Sub
+            
+                Private Sub CaptureSource_CaptureCompleted(sender As Object, e As ImageCaptureCompletedEventArgs)
+                    Dim oldImage As VintasoftImage = _viewer.Image
+                    _viewer.Image = e.GetCapturedImage()
+                    If oldImage IsNot Nothing Then
+                        oldImage.Dispose()
+                    End If
+            
+                    If _captureSource.State = ImageCaptureState.Started Then
+                        _captureSource.CaptureAsync()
+                    End If
+                End Sub
+            End Class
+            
+            ''' &lt;summary&gt;
+            ''' Form for previewing video (captured images) from camera.
+            ''' &lt;/summary&gt;
+            Public Class VideocamForm
+                Inherits Form
+                Private _cameraPreview As VideoPreview
+            
+            
+                Public Sub New(device As ImageCaptureDevice)
+                    ' create image viewer
+                    Dim viewer As New ImageViewer()
+                    viewer.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right Or AnchorStyles.Top
+                    viewer.Size = New Size(device.DesiredFormat.Width, device.DesiredFormat.Height)
+                    viewer.SizeMode = ImageSizeMode.BestFit
+            
+                    ' set form size and caption
+                    ClientSize = viewer.Size
+                    Text = device.FriendlyName
+            
+                    ' add viewer to form
+                    Controls.Add(viewer)
+            
+                    ' create video preview
+                    _cameraPreview = New VideoPreview(viewer, device)
+                End Sub
+            
+            
+                Protected Overrides Sub OnShown(e As EventArgs)
+                    MyBase.OnShown(e)
+            
+                    ' start image capturing
+                    _cameraPreview.Start()
+                End Sub
+            
+                Protected Overrides Sub OnClosing(e As System.ComponentModel.CancelEventArgs)
+                    ' stop image capturing
+                    _cameraPreview.[Stop]()
+            
+                    MyBase.OnClosing(e)
+                End Sub
+            End Class
+            
+            ''' &lt;summary&gt;
+            ''' Test for previewing video from all available cameras.
+            ''' &lt;/summary&gt;
+            Public Class VideoPreviewTest
+                Public Shared Sub ShowVideoFromAllCameras()
+                    ' get available capture devices
+                    Dim availableDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+                    If availableDevices.Count = 0 Then
+                        Throw New InvalidOperationException("No connected devices.")
+                    End If
+            
+                    ' set device desired formats
+                    For Each device As ImageCaptureDevice In availableDevices
+                        device.DesiredFormat = device.SupportedFormats(0)
+                    Next
+            
+                    ' preview video from all available cameras
+                    For Each device As ImageCaptureDevice In availableDevices
+                        ' preview video from camera in the first form
+                        Dim myForm As New VideocamForm(device)
+                        myForm.Show()
+            
+                        ' preview video from camera in the second form
+                        Dim myForm2 As New VideocamForm(device)
+                        myForm2.Width = myForm2.Width \ 2
+                        myForm2.Height = myForm2.Height \ 2
+                        myForm2.Show()
+                    Next
+            
+                    ' if is console application
+                    'Application.Run();
+                End Sub
+            
+            End Class
+            
+            </code>
+            <code lang="C#">
+            using System;
+            using System.Collections.ObjectModel;
+            using System.Drawing;
+            using System.Windows.Forms;
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Media;
+            using Vintasoft.Imaging.UI;
+            
+            /// &lt;summary&gt;
+            /// Class that implements image capturing from camera and previewing of captured images in image viewer.
+            /// &lt;/summary&gt;
+            public class VideoPreview
+            {
+                /// &lt;summary&gt;
+                /// Image viewer where captured images must be shown.
+                /// &lt;/summary&gt;
+                ImageViewer _viewer;
+                
+                /// &lt;summary&gt;
+                /// Image capture source.
+                /// &lt;/summary&gt;
+                ImageCaptureSource _captureSource;
+            
+            
+                public VideoPreview(ImageViewer viewer, ImageCaptureDevice captureDevice)
+                {
+                    _viewer = viewer;
+            
+                    _captureSource = new ImageCaptureSource();
+                    _captureSource.CaptureDevice = captureDevice;
+                    _captureSource.CaptureCompleted += new EventHandler&lt;ImageCaptureCompletedEventArgs&gt;(CaptureSource_CaptureCompleted);
+                }
+              
+            
+                public void Start()
+                {
+                    _captureSource.Start();
+                    _captureSource.CaptureAsync();
+                }
+            
+                public void Stop()
+                {
+                    _captureSource.Stop();
+                }
+            
+                private void CaptureSource_CaptureCompleted(object sender, ImageCaptureCompletedEventArgs e)
+                {
+                    VintasoftImage oldImage = _viewer.Image;
+                    _viewer.Image = e.GetCapturedImage();
+                    if (oldImage != null)
+                        oldImage.Dispose();
+            
+                    if (_captureSource.State == ImageCaptureState.Started)
+                        _captureSource.CaptureAsync();
+                }
+            }
+            
+            /// &lt;summary&gt;
+            /// Form for previewing video (captured images) from camera.
+            /// &lt;/summary&gt;
+            public class VideocamForm : Form
+            {
+                VideoPreview _cameraPreview;
+            
+            
+                public VideocamForm(ImageCaptureDevice device)
+                {        
+                    // create image viewer
+                    ImageViewer viewer = new ImageViewer();
+                    viewer.Anchor =
+                        AnchorStyles.Bottom | AnchorStyles.Left |
+                        AnchorStyles.Right | AnchorStyles.Top;
+                    viewer.Size =
+                        new Size(device.DesiredFormat.Width, device.DesiredFormat.Height);
+                    viewer.SizeMode = ImageSizeMode.BestFit;
+            
+                    // set form size and caption
+                    ClientSize = viewer.Size;
+                    Text = device.FriendlyName;
+            
+                    // add viewer to form
+                    Controls.Add(viewer);
+            
+                    // create video preview
+                    _cameraPreview = new VideoPreview(viewer, device);
+                }
+            
+            
+                protected override void OnShown(EventArgs e)
+                {
+                    base.OnShown(e);
+            
+                    // start image capturing
+                    _cameraPreview.Start();
+                }
+            
+                protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+                {
+                    // stop image capturing
+                    _cameraPreview.Stop();
+            
+                    base.OnClosing(e);        
+                }
+            }
+            
+            /// &lt;summary&gt;
+            /// Test for previewing video from all available cameras.
+            /// &lt;/summary&gt;
+            public class VideoPreviewTest
+            {
+                public static void ShowVideoFromAllCameras()
+                {
+                    // get available capture devices
+                    ReadOnlyCollection&lt;ImageCaptureDevice&gt; availableDevices =
+                        ImageCaptureDeviceConfiguration.GetCaptureDevices();
+                    if (availableDevices.Count == 0)
+                        throw new InvalidOperationException("No connected devices.");
+            
+                    // set device desired formats
+                    foreach (ImageCaptureDevice device in availableDevices)
+                        device.DesiredFormat = device.SupportedFormats[0];
+            
+                    // preview video from all available cameras
+                    foreach (ImageCaptureDevice device in availableDevices)
+                    {
+                        // preview video from camera in the first form
+                        VideocamForm myForm = new VideocamForm(device);
+                        myForm.Show();
+            
+                        // preview video from camera in the second form
+                        VideocamForm myForm2 = new VideocamForm(device);
+                        myForm2.Width = myForm2.Width / 2;
+                        myForm2.Height = myForm2.Height / 2;
+                        myForm2.Show();
+                    }
+            
+                    // if is console application
+                    //Application.Run();
+                }
+            
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Media.ImageCaptureSource" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureSource.Start">
+            <summary>
+            Starts (enables) the image capturing from the <see cref="P:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureDevice" />.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureAsync" />
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.Stop" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureAsync">
+            <summary>
+            Initializes an asynchronous image capturing from the <see cref="P:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureDevice" />.
+            </summary>
+            <remarks>
+            This method can be called only after the <see cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.Start" /> method.<br />
+            <br />
+            Retrive the returned image by handling the <see cref="E:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureCompleted" />
+            event of this <see cref="T:Vintasoft.Imaging.Media.ImageCaptureSource" />.
+            </remarks>
+            <example>This example shows how to capture single image from camera:
+            <code lang="VB.NET">
+            Imports System.Collections.ObjectModel
+            Imports System.Threading
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Media
+            
+            Class ImageCaptureSource_CaptureAsync
+                Public Shared Sub Test(outputFilename As String)
+                    Try
+                        Using image As VintasoftImage = CaptureImageFromCamera()
+                            image.Save(outputFilename)
+                        End Using
+                    Catch ex As Exception
+                        Console.WriteLine(ex.ToString())
+                    End Try
+                End Sub
+            
+                Shared _captureCompletedEventArgs As ImageCaptureCompletedEventArgs
+                Shared _captureFaliedEventArgs As ExceptionEventArgs
+            
+                Private Shared Function CaptureImageFromCamera() As VintasoftImage
+                    _captureCompletedEventArgs = Nothing
+                    _captureFaliedEventArgs = Nothing
+            
+                    ' get available capture devices
+                    Dim availableDevices As ReadOnlyCollection(Of ImageCaptureDevice) = ImageCaptureDeviceConfiguration.GetCaptureDevices()
+                    If availableDevices.Count = 0 Then
+                        Throw New InvalidOperationException("No connected devices.")
+                    End If
+            
+                    ' create capture source
+                    Dim captureSource As New ImageCaptureSource()
+            
+                    ' add handlers to CaptureCompleted and CaptureFailed events
+                    AddHandler captureSource.CaptureCompleted, New EventHandler(Of ImageCaptureCompletedEventArgs)(AddressOf captureSource_CaptureCompleted)
+                    AddHandler captureSource.CaptureFailed, New EventHandler(Of ExceptionEventArgs)(AddressOf captureSource_CaptureFailed)
+            
+                    ' set the first camera as capture device of capture source
+                    captureSource.CaptureDevice = availableDevices(0)
+            
+                    ' start capturing
+                    captureSource.Start()
+            
+                    ' initialite an asynchronous image capturing
+                    captureSource.CaptureAsync()
+            
+                    ' wait while capturing request is finished
+                    While _captureCompletedEventArgs Is Nothing AndAlso _captureFaliedEventArgs Is Nothing
+                        Thread.Sleep(1)
+                    End While
+            
+                    ' stop capturing
+                    captureSource.[Stop]()
+            
+                    ' if capturing is falied
+                    If _captureFaliedEventArgs IsNot Nothing Then
+                        ' throws the exception
+                        Throw _captureFaliedEventArgs.Exception
+                    End If
+            
+                    ' return captured image
+                    Return _captureCompletedEventArgs.GetCapturedImage()
+                End Function
+            
+                Private Shared Sub captureSource_CaptureFailed(sender As Object, e As ExceptionEventArgs)
+                    _captureFaliedEventArgs = e
+                End Sub
+            
+                Private Shared Sub captureSource_CaptureCompleted(sender As Object, e As ImageCaptureCompletedEventArgs)
+                    _captureCompletedEventArgs = e
+                End Sub
+            
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using System.Collections.ObjectModel;
+            using System.Threading;
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Media;
+            
+            class ImageCaptureSource_CaptureAsync
+            {
+                public static void Test(string outputFilename)
+                {
+                    try
+                    {
+                        using (VintasoftImage image = CaptureImageFromCamera())
+                            image.Save(outputFilename);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+            
+                static ImageCaptureCompletedEventArgs _captureCompletedEventArgs;
+                static ExceptionEventArgs _captureFaliedEventArgs;
+            
+                private static VintasoftImage CaptureImageFromCamera()
+                {
+                    _captureCompletedEventArgs = null;
+                    _captureFaliedEventArgs = null;
+            
+                    // get available capture devices
+                    ReadOnlyCollection&lt;ImageCaptureDevice&gt; availableDevices =
+                        ImageCaptureDeviceConfiguration.GetCaptureDevices();
+                    if (availableDevices.Count == 0)
+                        throw new InvalidOperationException("No connected devices.");
+            
+                    // create capture source
+                    ImageCaptureSource captureSource = new ImageCaptureSource();
+            
+                    // add handlers to CaptureCompleted and CaptureFailed events
+                    captureSource.CaptureCompleted += 
+                        new EventHandler&lt;ImageCaptureCompletedEventArgs&gt;(captureSource_CaptureCompleted);
+                    captureSource.CaptureFailed += 
+                        new EventHandler&lt;ExceptionEventArgs&gt;(captureSource_CaptureFailed);
+                    
+                    // set the first camera as capture device of capture source
+                    captureSource.CaptureDevice = availableDevices[0];
+            
+                    // start capturing
+                    captureSource.Start();
+            
+                    // initialite an asynchronous image capturing
+                    captureSource.CaptureAsync();
+            
+                    // wait while capturing request is finished
+                    while (_captureCompletedEventArgs == null &amp;&amp; _captureFaliedEventArgs == null)
+                        Thread.Sleep(1);
+            
+                    // stop capturing
+                    captureSource.Stop();
+            
+                    // if capturing is falied
+                    if (_captureFaliedEventArgs != null)
+                        // throws the exception
+                        throw _captureFaliedEventArgs.Exception;
+            
+                    // return captured image
+                    return _captureCompletedEventArgs.GetCapturedImage();
+                }
+            
+                private static void captureSource_CaptureFailed(object sender, ExceptionEventArgs e)
+                {
+                    _captureFaliedEventArgs = e;
+                }
+            
+                private static void captureSource_CaptureCompleted(object sender, ImageCaptureCompletedEventArgs e)
+                {
+                    _captureCompletedEventArgs = e;
+                }
+            
+            }
+            </code>
+            </example>
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.Start" />
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.Stop" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Media.ImageCaptureSource.Stop">
+            <summary>
+            Stops (disables) the image capturing from the <see cref="P:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureDevice" />.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.Start" />
+            <seealso cref="M:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureAsync" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureSource.State">
+            <summary>
+            Gets the state of this image capture source.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureDevice">
+            <summary>
+            Gets or sets an image capture device associated with this image capture source.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureCompleted">
+            <summary>
+            Occurs when an asynchronous image capture request has returned a captured image.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Media.ImageCaptureSource.CaptureFailed">
+            <summary>
+            Occurs when a requested capture operation does not generate a captured sample.
+            </summary>
+        </member>
+        <member name="E:Vintasoft.Imaging.Media.ImageCaptureSource.StateChanged">
+            <summary>
+            Occurs when the capture state is changed.
+            </summary>
+        </member>
+        </members>
+</doc>

@@ -1,0 +1,301 @@
+/* Telerik RadSocialShareLite Base Styles */
+.RadSocialShare {
+  margin: 0;
+  padding: 0.35714286em;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.21428571em;
+  display: inline-block;
+  line-height: 1.42857143; }
+
+.RadSocialShare,
+.RadSocialShare * {
+  box-sizing: content-box; }
+
+.sshContent {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.sshListItem {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.07142857em 0.14285714em; }
+
+.sshLinkItem {
+  text-decoration: none; }
+
+.sshIcon,
+.sshText,
+.sshCustomIcon {
+  vertical-align: middle; }
+
+.sshText {
+  padding: 0em 0.35714286em 0em 0em; }
+
+.sshListItem:last-child .sshText {
+  padding: 0em; }
+
+sshCustomIcon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.sshIcon {
+  width: 1.14285714em;
+  height: 1.14285714em;
+  margin: -0.21428571em 0.21428571em 0em 0em;
+  display: inline-block; }
+
+.sshIcon:before {
+  display: block;
+  vertical-align: middle;
+  margin: -0.07142857em 0em 0em;
+  content: "";
+  font-family: "TelerikWebUI";
+  font-size: 16px;
+  line-height: 1.33333em; }
+
+.sshShareOnPinterest:before,
+.RadComboBoxDropDown .sshShareOnPinterest:before {
+  content: "\E10E"; }
+
+.sshShareOnYammer:before,
+.RadComboBoxDropDown .sshShareOnYammer:before {
+  content: "\E170"; }
+
+.sshShareOnFacebook:before,
+.RadComboBoxDropDown .sshShareOnFacebook:before {
+  content: "\E168"; }
+
+.sshShareOnTwitter:before,
+.RadComboBoxDropDown .sshShareOnTwitter:before {
+  content: "\E10B"; }
+
+.sshBlogger:before,
+.RadComboBoxDropDown .sshBlogger:before {
+  content: "\E164"; }
+
+.sshDelicious:before,
+.RadComboBoxDropDown .sshDelicious:before {
+  content: "\E165"; }
+
+.sshDigg:before,
+.RadComboBoxDropDown .sshDigg:before {
+  content: "\E166"; }
+
+.sshGoogleBookmarks:before,
+.RadComboBoxDropDown .sshGoogleBookmarks:before {
+  content: "\E169"; }
+
+.sshShareOnGooglePlus:before,
+.RadComboBoxDropDown .sshShareOnGooglePlus:before {
+  content: "\E113"; }
+
+.sshLinkedIn:before,
+.RadComboBoxDropDown .sshLinkedIn:before {
+  content: "\E10C"; }
+
+.sshMySpace:before,
+.RadComboBoxDropDown .sshMySpace:before {
+  content: "\E16B"; }
+
+.sshReddit:before,
+.RadComboBoxDropDown .sshReddit:before {
+  content: "\E16C"; }
+
+.RadSocialShare .sshStumbleUpon:before,
+.RadComboBoxDropDown .sshStumbleUpon:before {
+  content: "\E16D"; }
+
+.sshTumblr:before,
+.sshTumblr:before {
+  content: "\E16F"; }
+
+.sshMailTo:before,
+.RadComboBoxDropDown .sshMailTo:before {
+  content: "\E16E"; }
+
+.sshSendEmail:before,
+.RadComboBoxDropDown .sshSendEmail:before {
+  content: "\E099"; }
+
+.RadSocialShare .sshCompactButton:before,
+.RadComboBoxDropDown .sshCompactButton:before {
+  content: "\E002";
+  font-size: 16px; }
+
+@media \0screen {
+  .RadSocialShare .sshCompactButton:before,
+  .RadComboBoxDropDown .sshCompactButton:before {
+    font-size: 1.33333em; } }
+
+.RadComboBoxDropDown .rcbList .sshIcon,
+.RadComboBoxDropDown .rcbList .sshIcon:before {
+  margin: -0.14285714em 0.21428571em 0em -0.14285714em; }
+
+.sshContent .sshLinkItem .sshCustomIcon,
+.sshContent .sshLinkItem:hover .sshCustomIcon {
+  display: inline-block; }
+
+/* Fix for injected buttons */
+.sshStandardPinItButtonHorizontal {
+  display: inline-block;
+  width: 5.71428571em; }
+
+.sshStandardPinItButtonVertical {
+  display: inline-block;
+  width: 2.85714286em;
+  padding: 1em 0.21428571em 0em 0.21428571em; }
+
+.sshStandardPinterestFollowButton {
+  display: inline-block;
+  width: 4.64285714em;
+  height: 1.71428571em; }
+
+iframe.yj-embed-widget.yj-embed-button {
+  min-width: 7.07142857em;
+  max-width: 8.21428571em; }
+
+/* Vertical Mode */
+.sshVerticalMode .sshListItem {
+  display: block; }
+
+/* Combo Styles */
+.sshComboDropDown .RadComboBoxDropDown {
+  position: relative; }
+
+.sshComboDropDown {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important; }
+
+/* Right to Left Support */
+.sshRtl .sshIcon {
+  margin: 0em 0em 0em 0.21428571em; }
+
+/* Send Form Windows */
+.sshSendFormWrap {
+  margin-top: -1.85714286em; }
+
+.sshForm {
+  width: 27.14285714em;
+  border: 1px solid #f1faff;
+  padding: 0.71428571em 0.35714286em; }
+
+.sshForm .sshFormRow {
+  padding: 0.71428571em 0em; }
+
+.sshForm label {
+  width: 7.14285714em;
+  text-align: right;
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0em 0.35714286em 0em 0em; }
+
+.sshForm label.sshLabelSingle {
+  padding: 0.21428571em 0.35714286em 0em 0em; }
+
+.sshForm label .sshLabelBellow {
+  display: block;
+  color: #a5a5a5;
+  font-style: italic; }
+
+.sshForm input,
+.sshForm textarea {
+  width: 16.71428571em;
+  padding: 2px 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8e8e8e #b8b8b8 #b8b8b8 #8e8e8e;
+  display: inline-block; }
+
+.sshForm textarea {
+  width: 17.14285714em;
+  width: 16.71428571em \9;
+  height: 2.85714286em;
+  overflow-y: auto; }
+
+_:-ms-fullscreen, :root .sshForm textarea {
+  width: 16.71428571em; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .sshForm textarea {
+    width: 19.5em; } }
+
+.sshFormRow.sshCaptcha {
+  padding: 0em 0em 0em 0.35714286em; }
+
+.sshFormRow .RadCaptcha {
+  width: 18.57142857em;
+  display: inline-block !important; }
+
+.sshFormRow .RadCaptcha label {
+  width: 18.57142857em;
+  padding: 4px 0;
+  text-align: left; }
+
+.sshFormRow .RadCaptcha .rcCaptchaAudioLink,
+.sshFormRow .RadCaptcha .rcRefreshImage {
+  color: #05696a; }
+
+.sshCaptcha span {
+  padding: 0em 0em 0.35714286em 7.71428571em;
+  margin: -0.71428571em 0em 0em;
+  color: #d51923;
+  display: inline-block; }
+
+.sshFormRowLast {
+  padding: 0;
+  margin-top: -0.71428571em;
+  text-align: right; }
+
+.sshFormRowLast .sshFormSendBtn,
+.sshFormButtons {
+  margin: 0em 0.35714286em 0em 0em;
+  width: 5.71428571em;
+  border-radius: 0.21428571em; }
+
+.sshFormRowLast .sshFormSendBtn:hover {
+  border-color: #b8b8b8 #8e8e8e #8e8e8e #b8b8b8; }
+
+.sshSendFormWrap .sshWrongEmail {
+  border: 1px solid #d51923;
+  color: #d51923; }
+
+.sshValidationError {
+  color: #d51923;
+  text-align: center; }
+
+.sshFormSuccess,
+.sshFormError {
+  padding: 0.71428571em 0em 0.71428571em 3.57142857em; }
+
+.sshFormSuccess:before,
+.sshFormError:before {
+  content: "";
+  font-family: "TelerikWebUI";
+  font-size: 1.33333em;
+  line-height: 1.33333em; }
+
+.sshFormSuccess:before {
+  content: "\E030"; }
+
+.sshFormError:before {
+  content: "\E031"; }
+
+.sshFormSuccess .sshFormButtons,
+.sshFormError .sshFormButtons {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8e8e8e #b8b8b8 #b8b8b8 #8e8e8e;
+  margin: 1.07142857em 0em 0em; }
+
+.sshFormSuccess .sshFormButtons:hover,
+.sshFormError .sshFormButtons:hover {
+  border-color: #b8b8b8 #8e8e8e #8e8e8e #b8b8b8; }
+
+.sshBtnConfirm {
+  text-align: center;
+  margin: 0em 0em 0em -3.57142857em; }

@@ -1,0 +1,153 @@
+.RadFileExplorer_BlackMetroTouch {
+  /* Thumbnail view */
+  /* Thumbnail filter */ }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar .rtbText {
+    background-image: url('FileExplorer/FileExplorerToolbarSprites.png');
+    background-repeat: no-repeat; }
+  .RadFileExplorer_BlackMetroTouch span.rfeFileExtension, .RadFileExplorer_BlackMetroTouch div.rfeFileExtension {
+    background: transparent url('../Common/FileExplorer/FileExtensionMonoDarkSprites.png') no-repeat -7px -681px;
+    _background: transparent url('../Common/FileExplorer/FileExtensionMonoDarkSpritesIE6.png'); }
+  .RadFileExplorer_BlackMetroTouch, .RadFileExplorer_BlackMetroTouch .rfeAddressBox, .RadFileExplorer_BlackMetroTouch .rfeFilterTxt {
+    background-color: #000000;
+    border-color: #4e4e4e;
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfeAddressBox {
+    font-size: 16px; }
+  .RadFileExplorer_BlackMetroTouch div.selectedFileName {
+    border-top: 1px solid #4e4e4e; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL li.rtbItemHovered {
+    border: 0 !important;
+    width: auto !important;
+    background-color: transparent; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL li.rtbItemHovered a.rtbWrap {
+    background-color: #25a0da; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL .rtbItem {
+    height: 34px !important;
+    margin-top: 0;
+    min-width: 30px;
+    width: auto; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL .rtbMid, .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL .rtbIn {
+    margin: 0 !important; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbUL .rtbIn {
+    vertical-align: top; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbItem {
+    margin: 6px 1px 0; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbWrap {
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid transparent; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbDisabled .rtbWrap, .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbDisabled .rtbWrap:hover {
+    background-color: transparent; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbChecked .rtbWrap {
+    border: 1px solid #0082cc; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .rtbIconOnly .rtbText {
+    margin: 6px 0 0 5px; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .icnUpload {
+    width: auto;
+    padding: 0 2px; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .icnUpload:hover {
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar_BlackMetroTouch .icnUpload .rtbOut {
+    margin-top: 5px; }
+  .RadFileExplorer_BlackMetroTouch div.RadToolBar_BlackMetroTouch .icnUpload {
+    margin-top: -1px; }
+  .RadFileExplorer_BlackMetroTouch div.RadToolBar_BlackMetroTouch .icnUpload .rtbIn .rtbText {
+    padding-left: 20px !important;
+    font: 100 15px/normal "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #ffffff !important;
+    *margin-top: -12px;
+    *zoom: 1;
+    *display: inline; }
+  .RadFileExplorer_BlackMetroTouch .RadToolBar .icnUpload span.rtbText {
+    background-position: 0 -49px; }
+  .RadFileExplorer_BlackMetroTouch .RadTreeView_BlackMetroTouch span.rtPlus, .RadFileExplorer_BlackMetroTouch .RadTreeView_BlackMetroTouch span.rtMinus {
+    margin: 0 0 0 -26px; }
+  .RadFileExplorer_BlackMetroTouch .RadGrid_BlackMetroTouch .rgHeader {
+    background-color: #000000; }
+  .RadFileExplorer_BlackMetroTouch .RadGrid_BlackMetroTouch .rgHeader a {
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .RadTreeView div.rtIn {
+    padding: 0 4px 0 2px !important; }
+  .RadFileExplorer_BlackMetroTouch .RadGrid .Slider {
+    background-color: #000000; }
+  .RadFileExplorer_BlackMetroTouch .RadGrid .rgInfoPart {
+    margin-top: 15px; }
+  .RadFileExplorer_BlackMetroTouch .rfeAddressBox {
+    font-size: 16px;
+    *width: 100%; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbList a {
+    border-radius: 0;
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbList a:hover, .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeHoveredLink, .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeSelectedLink, .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeSelectedLink:hover {
+    background-color: #25a0da;
+    border-color: #25a0da;
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeSelectedLink:hover {
+    background-color: #25a0da; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeSelectedLink, .RadFileExplorer_BlackMetroTouch .rfeThumbList .rfeSelectedLink:active {
+    background-color: #0082cc;
+    border-color: #0082cc; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbnailView .rfeFile .rfeFileIcon {
+    background-image: url('../Common/FileExplorer/rfeThumbnailViewMonoDarkSprites.png'); }
+  .RadFileExplorer_BlackMetroTouch .rfeFilterContainer {
+    background-color: #000000; }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbnailView a.rfeLink, .RadFileExplorer_BlackMetroTouch div.rfePageControlContainer span {
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfeDropZone {
+    background-color: rgba(23, 23, 23, 0.8); }
+  .RadFileExplorer_BlackMetroTouch .rfeDropUploadInfoPanel {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 16px; }
+  .RadFileExplorer_BlackMetroTouch .rfeDropUploadProgress {
+    margin-top: 5px; }
+
+.RadWindow_BlackMetroTouch .rfeUploadContainer .RadUpload, .RadWindow_BlackMetroTouch .rfeUploadContainer .RadUploadProgressArea {
+  width: 520px; }
+
+div.rfeUploadInfoPanel {
+  background-color: #000000;
+  border: 1px solid #4e4e4e; }
+
+.RadForm_BlackMetroTouch .imagePreviewer #propertiesPage {
+  height: 455px !important; }
+
+.RadForm_BlackMetroTouch .reBottomcell {
+  padding-top: 10px; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbItem {
+  width: auto;
+  margin-top: 4px; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbDisabled .rtbWrap {
+  background-color: transparent; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbItemHovered {
+  background-color: transparent; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbWrap {
+  width: 32px;
+  height: 32px;
+  border-color: transparent;
+  padding: 0; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbWrap, #ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbText {
+  line-height: normal; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbMid, #ImagePreviewToolBar.RadToolBar_BlackMetroTouch .rtbIn {
+  margin: -1px 0 0 2px;
+  *overflow: hidden; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .icnImageEditor {
+  width: auto;
+  padding: 0 2px; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .icnImageEditor:hover {
+  color: #ffffff; }
+
+#ImagePreviewToolBar.RadToolBar_BlackMetroTouch .icnImageEditor .rtbText {
+  margin-top: 9px; }
+

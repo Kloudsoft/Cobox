@@ -1,0 +1,62 @@
+.RadListView_BlackMetroTouch {
+  border: 1px solid #333333;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadListView_BlackMetroTouch .rlvA {
+    background: #000000; }
+  .RadListView_BlackMetroTouch .rlvISel {
+    background: #000000;
+    color: #ffffff; }
+  .RadListView_BlackMetroTouch .rlvActionButton {
+    color: #ffffff;
+    font-size: 16px; }
+  .RadListView_BlackMetroTouch .rlvA {
+    background: #1a1a1a; }
+  .RadListView_BlackMetroTouch .rlvISel {
+    background: #0082cc;
+    color: #ffffff; }
+    .RadListView_BlackMetroTouch .rlvISel .rlvBSel .rbIcon,
+    .RadListView_BlackMetroTouch .rlvISel .rlvActionButton {
+      color: #ffffff; }
+  .RadListView_BlackMetroTouch .rlvDrag {
+    background-image: url('../BlackMetroTouch/ListView/drag.gif');
+    background-position: center center; }
+  .RadListView_BlackMetroTouch div.rlvI,
+  .RadListView_BlackMetroTouch div.rlvA,
+  .RadListView_BlackMetroTouch div.rlvIEmpty,
+  .RadListView_BlackMetroTouch div.rlvIEdit {
+    border-color: #c3c3c3; }
+  .RadListView_BlackMetroTouch div.rlvISel {
+    border-color: #ca4b0c; }
+  .RadListView_BlackMetroTouch tr.rlvHeader th {
+    border: 0;
+    border-bottom: 1px solid #4e4e4e;
+    border-left: 1px solid #4e4e4e; }
+  .RadListView_BlackMetroTouch tr.rlvI td,
+  .RadListView_BlackMetroTouch tr.rlvA td,
+  .RadListView_BlackMetroTouch tr.rlvISel td,
+  .RadListView_BlackMetroTouch tr.rlvIEmpty td,
+  .RadListView_BlackMetroTouch tr.rlvIEdit td {
+    border: 1px solid #333333;
+    border-top: 0;
+    border-right: 0; }
+  .RadListView_BlackMetroTouch td.rlvI,
+  .RadListView_BlackMetroTouch td.rlvA,
+  .RadListView_BlackMetroTouch td.rlvISel,
+  .RadListView_BlackMetroTouch td.rlvIEmpty,
+  .RadListView_BlackMetroTouch td.rlvIEdit {
+    border: 0;
+    border-right: 1px solid #c3c3c3; }
+  .RadListView_BlackMetroTouch td.rlvISel {
+    border-color: #ca4b0c; }
+  .RadListView_BlackMetroTouch .rlvFloated .rlvI,
+  .RadListView_BlackMetroTouch .rlvFloated .rlvA,
+  .RadListView_BlackMetroTouch .rlvFloated .rlvISel,
+  .RadListView_BlackMetroTouch .rlvFloated .rlvIEdit {
+    border-color: #999; }
+  .RadListView_BlackMetroTouch .rlvInput {
+    border-color: #4e4e4e;
+    background: #000000;
+    color: #ffffff; }
+

@@ -1,0 +1,81 @@
+.RadButton_Black {
+  /* CheckBox and RadioButton Styles */
+  /* Primary Button styles */
+  /* Right to Left Support */ }
+  .RadButton_Black.rbButton,
+  .RadButton_Black .rbSplitPart {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+  .RadButton_Black.rbButton.rbHovered,
+  .RadButton_Black .rbSplitPart.rbHovered {
+    border-color: #080808;
+    color: #9eda29;
+    background-color: #020202;
+    background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202);
+    box-shadow: inset 0 0 1px #464646; }
+  .RadButton_Black.rbButton:focus {
+    box-shadow: inset 0 0 0.3em rgba(8, 8, 8, 0.5); }
+  .RadButton_Black.rbButton.rbSelected,
+  .RadButton_Black.rbButton.rbToggled,
+  .RadButton_Black.rbButton.rbSelected .rbSplitPart {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #202020;
+    background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020);
+    box-shadow: inset 0 0 1px #464646; }
+  .RadButton_Black .rbSplitPartRight.rbHovered {
+    border-left-color: #080808; }
+  .RadButton_Black .rbSplitPartRight.rbSelected {
+    border-left-color: #080808; }
+  .RadButton_Black .rbSplitPartLeft.rbHovered {
+    border-right-color: #080808; }
+  .RadButton_Black .rbSplitPartLeft.rbSelected {
+    border-right-color: #080808; }
+  .RadButton_Black.rbCheckBox,
+  .RadButton_Black.rbRadioButton,
+  .RadButton_Black.rbToggleButton,
+  .RadButton_Black.rbCheckBox .rbIcon,
+  .RadButton_Black.rbRadioButton .rbIcon,
+  .RadButton_Black.rbToggleButton .rbIcon {
+    color: #ffffff; }
+  .RadButton_Black.rbCheckBox.rbHovered,
+  .RadButton_Black.rbRadioButton.rbHovered,
+  .RadButton_Black.rbToggleButton.rbHovered,
+  .RadButton_Black.rbCheckBox.rbHovered .rbIcon,
+  .RadButton_Black.rbRadioButton.rbHovered .rbIcon,
+  .RadButton_Black.rbToggleButton.rbHovered .rbIcon,
+  .RadButton_Black.rbCheckBox.rbSelected .rbIcon,
+  .RadButton_Black.rbRadioButton.rbSelected .rbIcon,
+  .RadButton_Black.rbToggleButton.rbSelected .rbIcon {
+    color: #9eda29; }
+  .RadButton_Black.rbCheckBox.rbHovered.rbSelected,
+  .RadButton_Black.rbRadioButton.rbHovered.rbSelected,
+  .RadButton_Black.rbToggleButton.rbSelected.rbSelected,
+  .RadButton_Black.rbCheckBox.rbHovered.rbSelected .rbIcon,
+  .RadButton_Black.rbRadioButton.rbHovered.rbSelected .rbIcon,
+  .RadButton_Black.rbToggleButton.rbSelected.rbSelected .rbIcon {
+    color: #4f8100; }
+  .RadButton_Black.rbPrimaryButton {
+    border-color: #8cc322;
+    color: #202020;
+    background-color: #9eda29;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1)); }
+    .RadButton_Black.rbPrimaryButton.rbHovered,
+    .RadButton_Black.rbPrimaryButton.rbFocused {
+      border-color: #79a91d;
+      color: #202020;
+      background-color: #8cc322;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1));
+      box-shadow: none; }
+    .RadButton_Black.rbPrimaryButton.rbSelected {
+      border-color: #8cc322;
+      color: #202020;
+      background-color: #9eda29;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2)); }
+  .RadButton_Black.rbButton.rbRtl .rbSplitPart,
+  .RadButton_Black.rbButton.rbRtl .rbSplitPart.rbHovered {
+    border-right-color: #080808; }
+  .RadButton_Black.rbButton.rbRtl .rbSplitPart.rbSelected {
+    border-right-color: #080808; }

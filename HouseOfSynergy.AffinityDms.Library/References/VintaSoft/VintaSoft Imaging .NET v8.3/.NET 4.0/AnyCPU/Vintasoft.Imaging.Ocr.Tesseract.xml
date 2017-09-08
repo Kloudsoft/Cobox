@@ -1,0 +1,503 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Ocr.Tesseract</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings">
+            <summary>
+            Contains the settings for Tesseract OCR engine.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.#ctor(Vintasoft.Imaging.Ocr.OcrLanguage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings" /> class.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings" /> instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the target object.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.UseCustomDictionaries">
+            <summary>
+            Gets or sets a value indicating whether the OCR engine should use the custom dictionaries.
+            </summary>
+            <value>
+            <b>true</b> - OCR should use the custom dictionaries;
+            <b>false</b> - OCR should not use the custom dictionaries.<br />
+            Default value is <b>false</b>.
+            </value>
+            <seealso cref="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.CustomDictionarySuffix" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.CustomDictionarySuffix">
+            <summary>
+            Gets or sets the filename suffix of a custom dictionary.
+            </summary>
+            <value>
+            Default value is "user-words".
+            </value>
+            <seealso cref="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.UseCustomDictionaries" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.CharWhiteList">
+            <summary>
+            Gets or sets the whitelist of characters in recognized text.
+            </summary>
+            <value>
+            <b>null</b> - recognized text may contain any character;
+            not <b>null</b> - recognized text may contain only specified characters.<br />
+            Default value is <b>null</b>.<br />
+            For example, string "1234567890" means that recognized text may contain digits only.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcrSettings.MaxBlobOverlaps">
+            <summary>
+            Gets or sets the maximum number of blobs (titles, paragraphs) a big blob can overlap.
+            </summary>
+            <value>
+            Default value is 4.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if
+            value is less than 0.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr">
+            <summary>
+            Represents the Tesseract OCR engine.
+            </summary>
+            <example> This example demonstrates how to OCR an image using Tesseract OCR engine.
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class TesseractOcrExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                Public Shared Sub OcrImageUsingTesseractEngine(language As OcrLanguage, filename As String)
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(language))
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class TesseractOcrExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                public static void OcrImageUsingTesseractEngine(OcrLanguage language, string filename)
+                {
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(language));
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr" /> class.
+            </summary>
+            <remarks>
+            Tesseract3.Vintasoft.xXX.dll should be placed to the same directory as the executing application.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr" /> class.
+            </summary>
+            <param name="dllDirectory">A directory that contains Tesseract3.Vintasoft.xXX.dll.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Finalize">
+            <summary>
+            Allows an <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr" /> to attempt to free resources and
+            perform other cleanup operations before the Object is reclaimed
+            by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)">
+            <summary>
+            Initializes the Tesseract OCR engine.
+            </summary>
+            <param name="settings">Settings for OCR engine.</param>
+            <returns>
+            <b>true</b> - OCR engine is successfully initialized;
+            <b>false</b> - OCR engine is NOT initialized.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetImage(Vintasoft.Imaging.VintasoftImage)">
+            <summary>
+            Sets the current image for recognition.
+            </summary>
+            <param name="image">Image to recognize.</param>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Recognize" />
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.ClearImage" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.ClearImage">
+            <summary>
+            Clears the current image for recognition.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetImage(Vintasoft.Imaging.VintasoftImage)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Recognize">
+            <summary>
+            Recognizes the current image and returns the result as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.
+            </summary>
+            <returns>Result of recognition as <see cref="T:Vintasoft.Imaging.Ocr.Results.OcrPage" />.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Shutdown">
+            <summary>
+            Shutdowns the OCR engine.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr" /> object.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.GetVariable(System.String,System.Boolean@)">
+            <summary>
+            Gets a value of boolean variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully received;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.GetVariable(System.String,System.Int32@)">
+            <summary>
+            Gets a value of integer variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully received;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.GetVariable(System.String,System.Double@)">
+            <summary>
+            Gets a value of double variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully received;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.GetVariable(System.String,System.String@)">
+            <summary>
+            Gets a value of string variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully received;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetVariable(System.String,System.Boolean)">
+            <summary>
+            Sets a value of boolean variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully set;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetVariable(System.String,System.Int32)">
+            <summary>
+            Sets a value of integer variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully set;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetVariable(System.String,System.Double)">
+            <summary>
+            Sets a value of double variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully set;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SetVariable(System.String,System.String)">
+            <summary>
+            Sets a value of string variable of Tesseract API.
+            </summary>
+            <param name="name">Name of the variable.</param>
+            <param name="value">Value of the variable.</param>
+            <returns>
+            <b>true</b> if value of variable is successfully set;
+            <b>false</b>, othrwise.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if
+            OCR engine is not initialized yet.</exception>
+            <remarks>
+            Method <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" /> must be executed before executing of this method.
+            </remarks>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+            <example>This example demonstrates how to use "char whitelist" variable.
+            <code lang="VB.NET">
+            
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Ocr
+            Imports Vintasoft.Imaging.Ocr.Results
+            Imports Vintasoft.Imaging.Ocr.Tesseract
+            
+            Class TesseractOcrSetVariableExample
+                ' Required assemblies to run this code:
+                ' Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                Public Shared Sub OcrImageWithDigits(filename As String)
+                    ' load image(s)
+                    Dim images As New ImageCollection()
+                    images.Add(filename)
+            
+                    Console.WriteLine("Create Tesseract OCR engine...")
+                    Using tesseractOcr As New TesseractOcr()
+                        Console.WriteLine("Initialize OCR engine...")
+                        tesseractOcr.Init(New OcrEngineSettings(OcrLanguage.English))
+            
+                        ' set white list
+                        tesseractOcr.SetVariable("tessedit_char_whitelist", "01234567890")
+            
+                        ' foreach image
+                        For Each image As VintasoftImage In images
+                            Console.WriteLine("Recognize the image...")
+                            Dim page As OcrPage = tesseractOcr.Recognize(image)
+            
+                            Console.WriteLine("Page Text:")
+                            Console.WriteLine(page.GetText())
+                            Console.WriteLine()
+                        Next
+            
+                        ' shutdown OCR engine
+                        tesseractOcr.Shutdown()
+                    End Using
+            
+                    ' free resources
+                    images.ClearAndDisposeItems()
+                    images.Dispose()
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Ocr;
+            using Vintasoft.Imaging.Ocr.Results;
+            using Vintasoft.Imaging.Ocr.Tesseract;
+            
+            class TesseractOcrSetVariableExample
+            {
+                // Required assemblies to run this code:
+                // Vintasoft.Imaging.dll, Vintasoft.Imaging.Ocr.dll, Vintasoft.Imaging.Ocr.Tesseract.dll  
+                public static void OcrImageWithDigits(string filename)
+                {
+                    // load image(s)
+                    ImageCollection images = new ImageCollection();
+                    images.Add(filename);
+            
+                    Console.WriteLine("Create Tesseract OCR engine...");
+                    using (TesseractOcr tesseractOcr = new TesseractOcr())
+                    {
+                        Console.WriteLine("Initialize OCR engine...");
+                        tesseractOcr.Init(new OcrEngineSettings(OcrLanguage.English));
+            
+                        // set white list
+                        tesseractOcr.SetVariable(
+                            "tessedit_char_whitelist", "01234567890");
+            
+                        // foreach image
+                        foreach (VintasoftImage image in images)
+                        {
+                            Console.WriteLine("Recognize the image...");
+                            OcrPage page = tesseractOcr.Recognize(image);
+            
+                            Console.WriteLine("Page Text:");
+                            Console.WriteLine(page.GetText());
+                            Console.WriteLine();
+                        }
+            
+                        // shutdown OCR engine
+                        tesseractOcr.Shutdown();
+                    }
+            
+                    // free resources
+                    images.ClearAndDisposeItems();
+                    images.Dispose();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.DllFilename">
+            <summary>
+            Gets the path to Tesseract3.Vintasoft.xXX.dll.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.DataPath">
+            <summary>
+            Gets or sets the path to the Tesseract data.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.SupportedLanguages">
+            <summary>
+            Gets an array of supported languages for recognition.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Language">
+            <summary>
+            Gets the language used for recognition.
+            </summary>
+            <seealso cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Init(Vintasoft.Imaging.Ocr.OcrEngineSettings)" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.CustomDictinaryFilename">
+            <summary>
+            Gets the filename of custom dictionary used for recognition.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.RecognizeTime">
+            <summary>
+            Gets an information about recognition time.
+            </summary>
+            <remarks>
+            Value of this property is correct after execution of the <see cref="M:Vintasoft.Imaging.Ocr.Tesseract.TesseractOcr.Recognize" /> method.
+            </remarks>
+        </member>
+    </members>
+</doc>

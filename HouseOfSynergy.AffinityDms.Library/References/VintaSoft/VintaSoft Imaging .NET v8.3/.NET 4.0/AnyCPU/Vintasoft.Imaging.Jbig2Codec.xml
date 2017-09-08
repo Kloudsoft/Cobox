@@ -1,0 +1,902 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.Jbig2Codec</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderException">
+            <summary>
+            Represents error that occurs during saving JBIG2 document.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException">
+            <summary>
+            Represents errors that occurs during loading JBIG2 image.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException" /> class. 
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException" /> class
+            with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException" /> class 
+            with a specified error message
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception, or a null reference
+            (Nothing in Visual Basic) if no inner exception is specified.
+            </param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException" /> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized
+            object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual
+            information about the source or destination.</param>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder">
+            <summary>
+            Defines a decoder for JBIG2 images.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder" /> class.
+            </summary>
+            <remarks>
+            This constructor is used in <see cref="T:Vintasoft.Imaging.Codecs.Decoders.AvailableDecoders" /> and
+            should not be used in real applications.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder" /> class.
+            </summary>
+            <param name="stream">Stream which contains the Jbig2 file or globals data.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.IsValidFormat(System.IO.Stream)">
+            <summary>
+            Determines that stream contains image file in format of this decoder.
+            </summary>
+            <param name="stream">Stream with binary data of the image file.</param>
+            <returns>
+            <b>true</b> if stream contains image file in format of this decoder;
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.GetImageInfo(System.Int32,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings)">
+            <summary>
+            Returns information about JBIG2 image without loading the image data into memory.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <returns>Information about the image associated with the
+            page of the source image.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException">Thrown if file is empty.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.GetImage(System.Int32,Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,Vintasoft.Imaging.Codecs.Decoders.RenderingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Returns an image associated with the selected page of JBIG2 file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <param name="renderingSettings">Rendering settings used for getting info about
+            the image of page.</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <returns>Image associated with the selected page of JBIG2 file.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>pageIndex</i>
+            is less than zero or greater than number of pages.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>renderingSettings</i> is
+            <b>null</b>.</exception>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException">
+            Thrown if error occurs at loading the image.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.GetImage(System.IO.Stream)">
+            <summary>
+            Returns a decoded image from the input stream.
+            </summary>
+            <param name="stream">Stream which contains the Jbig2 page.</param>
+            <returns>Decoded image from the input stream.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is <b>null</b>.</exception>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Decoders.Jbig2DecoderException">
+            Thrown if error occurs at loading the image.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.GetPageMetadata(System.Int32)">
+            <summary>
+            Returns a metadata of specified page of JBIG2 file.
+            </summary>
+            <param name="pageIndex">The zero based page index.</param>
+            <returns>Metadata of specified page of JBIG2 file.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.Close">
+            <summary>
+            Closes the source of the decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.Name">
+            <summary>
+            Gets the name of the decoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Decoders.Jbig2Decoder.PageCount">
+            <summary>
+            Gets the number of pages in the source file.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder">
+            <summary>
+            Defines an encoder for JBIG2 images.
+            </summary>
+            <example>This example shows how to load several images from disk and save
+            them into multipage JBIG2 file.
+            <code lang="VB.NET">
+            Imports Vintasoft.Imaging
+            
+            Class Jbig2EncoderExample
+                Public Sub RunExample()
+                    ' create image collection
+                    Dim images As New ImageCollection()
+            
+                    ' subscribe to progress event
+                    AddHandler images.ImageCollectionSavingProgress, New EventHandler(Of ProgressEventArgs)(AddressOf images_ImageCollectionSavingProgress)
+            
+                    ' add several images into collection
+                    ' [ do not forget to set your image file paths here! ]
+                    images.Add("test.bmp")
+                    images.Add("multipage.tif")
+                    images.Add("animated.gif")
+            
+                    ' save the collection to the new file
+                    images.SaveSync("output-multipage.jb2")
+                End Sub
+            
+                Private Sub images_ImageCollectionSavingProgress(sender As Object, e As ProgressEventArgs)
+                    ' update progress info using e.Progress property
+                    ' ...
+            
+                    ' cancel image collection saving using e.Cancel property if necessary
+                    ' ...
+                End Sub
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using Vintasoft.Imaging;
+            
+            class Jbig2EncoderExample
+            {
+                public void RunExample()
+                {
+                    // create image collection
+                    ImageCollection images = new ImageCollection();
+            
+                    // subscribe to progress event
+                    images.ImageCollectionSavingProgress += new EventHandler&lt;ProgressEventArgs&gt;(images_ImageCollectionSavingProgress);
+            
+                    // add several images into collection
+                    // [ do not forget to set your image file paths here! ]
+                    images.Add("test.bmp");
+                    images.Add("multipage.tif");
+                    images.Add("animated.gif");
+            
+                    // save the collection to the new file
+                    images.SaveSync("output-multipage.jb2");
+                }
+            
+                void images_ImageCollectionSavingProgress(object sender, ProgressEventArgs e)
+                {
+                    // update progress info using e.Progress property
+                    // ...
+            
+                    // cancel image collection saving using e.Cancel property if necessary
+                    // ...
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder" /> class.
+            </summary>
+            <remarks>
+            This constructor initializes parameters with the following values:<br />
+            <ul>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.RandomAccessFileOrganization" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseMmr" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.Lossy" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseTypicalPrediction" /> = true</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseSymbolDictionary" /> = true</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder" /> class.
+            </summary>
+            <param name="createNewFile">Determines if the new Jbig2 file should be created.</param>
+            <remarks>
+            This constructor initializes parameters with the following values:<br />
+            <ul>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.MultipageEncoderBase.CreateNewFile" /> = value of the <i>createNewFile</i> parameter</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.RandomAccessFileOrganization" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseMmr" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.Lossy" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseTypicalPrediction" /> = true</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseSymbolDictionary" /> = true</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.#ctor(Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder" /> class.
+            </summary>
+            <param name="encoderSettings">Initial encoder settings.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.#ctor(System.IO.Stream,Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder" /> class.
+            </summary>
+            <param name="jbig2Globals">Stream of the Jbig2 file globals data.</param>
+            <param name="encoderSettings">Initial encoder settings.</param>
+            <remarks>
+            This constructor initializes parameters with the following values:<br />
+            <ul>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.MultipageEncoderBase.CreateNewFile" /> = value of the <i>createNewFile</i> parameter</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.RandomAccessFileOrganization" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseMmr" /> = false</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.Lossy" /> = value of the <i>lossy</i> parameter</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseTypicalPrediction" /> = true</li>
+            <li><see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderSettings.UseSymbolDictionary" /> = true</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.SaveImage(Vintasoft.Imaging.VintasoftImage,System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves the image as JBIG2 document to the stream.
+            </summary>
+            <param name="image"><see cref="T:Vintasoft.Imaging.VintasoftImage" /> object
+            to save.</param>
+            <param name="stream">Stream where the image should be saved.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>image</i> or
+            <i>stream</i> are <b>null</b>.</exception>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderException">Thrown if image is locked and cannot be saved <i>OR</i>
+            image is not saved to Jbig2 document or saved with errors.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.SaveImages(Vintasoft.Imaging.ImageCollection,System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves the image collection as JBIG2 document to the stream.
+            </summary>
+            <param name="images"><see cref="T:Vintasoft.Imaging.ImageCollection" />
+            object to save.</param>
+            <param name="stream">Stream where the images from collection
+            should be saved.</param>
+            <param name="progressController">Progress controller.</param>
+            <returns>
+            <b>true</b> - image collection is successfully saved to the stream;
+            <b>false</b> - image collection is not saved to the stream because collection is empty,
+            saving is not necessary or canceled.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if
+            <i>images</i> or <i>stream</i> are <b>null</b>.</exception>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Encoders.Jbig2EncoderException">Thrown if image is locked and cannot be saved <i>OR</i>
+            image is not saved to Jbig2 document or saved with errors.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the Vintasoft.Imaging.Codecs.ImageFiles.Jbig2Encoder
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.Name">
+            <summary>
+            Gets the name of the encoder.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.Settings">
+            <summary>
+            Gets or sets the encoder settings.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">thrown if <i>new value</i> is <b>null</b>. </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.SupportedAnnotationsFormat">
+            <summary>
+            Gets the annotations format supported by the encoder.
+            </summary>
+            <value>
+            Always returns <see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.AnnotationsFormat" />.None.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.AnnotationsFormat">
+            <summary>
+            Gets or sets a format(s) in which annotations must be saved.
+            </summary>
+            <value>
+            Always returns <see cref="P:Vintasoft.Imaging.Codecs.Encoders.Jbig2Encoder.AnnotationsFormat" />.None.
+            </value>
+            <exception cref="T:Vintasoft.Imaging.Codecs.Encoders.EncoderException">Thrown when property value is changed.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File">
+            <summary>
+            Provides low-level functions for manipulating JBIG2 file.
+            </summary>
+            <example>This example shows how to manipulate multipage JBIG2 file.
+            <code lang="VB.NET">
+            Imports Vintasoft.Imaging
+            Imports Vintasoft.Imaging.Codecs.ImageFiles.Jbig2
+            
+            Class Jbig2FileExample
+                Public Sub RunExample()
+                    ' create image collection
+                    Dim images As New ImageCollection()
+            
+                    ' add several images into collection
+                    ' [ do not forget to set your image file paths here! ]
+                    images.Add("test.bmp")
+                    images.Add("multipage.tif")
+                    images.Add("animated.gif")
+            
+                    ' create new JBIG2 file
+                    Dim file As New Jbig2File("multipage.jb2")
+            
+                    ' add pages into file
+                    file.Pages.Add(images)
+            
+                    ' remove page
+                    file.Pages.RemoveAt(2)
+            
+                    ' change encoder settings
+                    file.Pages.EncoderSettings.UseSymbolDictionary = False
+            
+                    ' insert pages into file
+                    file.Pages.Insert(1, images)
+            
+                    ' save changes
+                    file.SaveChanges()
+                End Sub
+            
+            End Class
+            </code>
+            <code lang="C#">
+            using System;
+            using Vintasoft.Imaging;
+            using Vintasoft.Imaging.Codecs.ImageFiles.Jbig2;
+            
+            class Jbig2FileExample
+            {
+                public void RunExample()
+                {
+                    // create image collection
+                    ImageCollection images = new ImageCollection();
+            
+                    // add several images into collection
+                    // [ do not forget to set your image file paths here! ]
+                    images.Add("test.bmp");
+                    images.Add("multipage.tif");
+                    images.Add("animated.gif");
+            
+                    // create new JBIG2 file
+                    Jbig2File file = new Jbig2File("multipage.jb2");
+            
+                    // add pages into file
+                    file.Pages.Add(images);
+            
+                    // remove page
+                    file.Pages.RemoveAt(2);
+            
+                    // change encoder settings
+                    file.Pages.EncoderSettings.UseSymbolDictionary = false;
+            
+                    // insert pages into file
+                    file.Pages.Insert(1, images);
+            
+                    // save changes
+                    file.SaveChanges();
+                }
+            
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+            <param name="stream">Stream which contains the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            Image file will be opened in FileMode.Open mode and
+            with FileAccess.ReadWrite access.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="readOnlyAccess">Determines if image file should be opened
+            in read-only mode.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            Image file will be opened in FileMode.Open mode.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor(System.String,System.IO.FileMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="mode">A FileMode constant that determines how to open
+            or create the image file.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+            <remarks>
+            Image file will be opened with FileAccess.ReadWrite access.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> class.
+            </summary>
+            <param name="filename">The name of the image file.</param>
+            <param name="mode">A FileMode constant that determines how to open
+            or create the image file.</param>
+            <param name="access">A FileAccess constant that determines how the image
+            file can be accessed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.SaveChanges(Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this JBIG2 file to the current source of the image file.
+            </summary>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.NotSupportedException">
+            Thrown if file is open in read-only mode and cannot be changed.
+            </exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.SaveChanges(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this JBIG2 file to specified file.
+            </summary>
+            <param name="filename">The filename to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <i>filename</i> is an empty string (""), 
+            contains only white space, or contains one or more invalid characters. </exception>
+            <exception cref="T:System.Security.SecurityException">Thrown if the caller does not have the required permission. </exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Thrown if the specified path is invalid, 
+            such as being on an unmapped drive.</exception>
+            <exception cref="T:System.UnauthorizedAccessException">Thrown if the access requested is not permitted 
+            by the operating system for the specified path, such as when the file or directory
+            is set for read-only access. </exception>
+            <exception cref="T:System.IO.PathTooLongException">Thrown if the specified path, file name, or both 
+            exceed the system-defined maximum length. For example, on Windows-based platforms, 
+            paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
+            <remarks>
+            This method saves changes to specified file and makes this file
+            as current source of the image file. Previous source of the image
+            file is closed without save changes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.SaveChanges(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves changes of this JBIG2 file to specified stream.
+            </summary>
+            <param name="stream">Stream to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is <b>null</b>.</exception>
+            <remarks>
+            This method saves changes to specified stream and makes this stream
+            as current source of the image file. Previous source of the image
+            file is closed without save changes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Save(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this JBIG2 file to specified file.
+            </summary>
+            <param name="filename">The filename to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>filename</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <i>filename</i>  is an empty string (""), 
+            contains only white space, or contains one or more invalid characters. </exception>
+            <exception cref="T:System.Security.SecurityException">Thrown if the caller does not have the required permission. </exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Thrown if the specified path is invalid, 
+            such as being on an unmapped drive.</exception>
+            <exception cref="T:System.UnauthorizedAccessException">Thrown if the access requested is not permitted 
+            by the operating system for the specified path, such as when the file or directory
+            is set for read-only access. </exception>
+            <exception cref="T:System.IO.PathTooLongException">Thrown if the specified path, file name, or both 
+            exceed the system-defined maximum length. For example, on Windows-based platforms, 
+            paths must be less than 248 characters, and file names must be less than 260 characters. </exception>
+            <remarks>
+            This method saves changes to specified file. Current source of the image
+            file is not changed.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Save(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves this JBIG2 file to specified stream.
+            </summary>
+            <param name="stream">Stream to save the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>stream</i> is <b>null</b>.</exception>
+            <remarks>
+            This method saves changes to specified stream. Current source of the image
+            file is not changed.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Pack(System.String,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs the image file and saves to specified file.
+            </summary>
+            <param name="filename">The filename to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This methods saves the image file to specified file and removes unused
+            space from the image file.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Pack(System.IO.Stream,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Packs the image file and saves to specified stream.
+            </summary>
+            <param name="stream">Stream to pack the image file.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>
+            This methods saves the image file to specified stream and removes unused
+            space from the image file.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Parse">
+            <summary>
+            Parses JBIG2 file.
+            </summary>
+            <remarks>
+            This method reads structure of the JBIG2 file.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" />
+            and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            true to release both managed and unmanaged resources; false to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Pages">
+            <summary>
+            Gets the collection of pages associated with this JBIG2 file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.EncoderSettings">
+            <summary>
+            Gets or sets the default encoder settings.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>new value</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File.Source">
+            <summary>
+            Source of the image file.
+            </summary>
+            <remarks>
+            This object provides access to the binary data of the image file.
+            </remarks>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page">
+            <summary>
+            Represents a page of JBIG2 file.
+            </summary>
+            <remarks>
+            Class allows to:<br />
+            <ul>
+            <li>get information about image associated with this page (width, height,
+            bits per pixel, palette, resolution, compression)</li>
+            <li>get image associated with this page</li>
+            <li>save image associated with this page in the image file</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})">
+            <summary>
+            Gets the image associated with this JBIG2 page.
+            </summary>
+            <param name="imageLoadingProgress">Delegate of the image loading progress.
+            Can be set to <b>null</b> (<b>Nothing</b> in Visual Basic).</param>
+            <param name="decodingSettings">Decoding settings used for decode the image of page.</param>
+            <returns>
+            The image associated with this <b>Jbig2Page</b> object if image was loaded successfully;
+            <b>null</b> if image loading was canceled.
+            </returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Save(Vintasoft.Imaging.Codecs.ImageFiles.ImageFileSource,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Saves the page to the the image source.
+            </summary>
+            <param name="source">Image source.</param>
+            <param name="progressController">Progress controller.</param>
+            <remarks>This method is not implemented.</remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Parse">
+            <summary>
+            Parses page of JBIG2 file.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Width">
+            <summary>
+            Returns the width, in pixels, of this Jbig2 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Height">
+            <summary>
+            Returns the height, in pixels, of this Jbig2 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.BitsPerPixel">
+            <summary>
+            Gets the number of bits per pixel for image returned by
+            <see cref="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.GetImage(Vintasoft.Imaging.Codecs.Decoders.DecodingSettings,System.EventHandler{Vintasoft.Imaging.ProgressEventArgs})" /> method.
+            </summary>
+            <seealso cref="P:Vintasoft.Imaging.Codecs.ImageFiles.ImagePage.SourceBitsPerPixel" />
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Palette">
+            <summary>
+            Gets the palette of this Jbig2 page.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page.Resolution">
+            <summary>
+            Gets or sets the resolution, in pixels per inch, of this Jbig2 page.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection">
+            <summary>
+            Represents a page collection of JBIG2 file.
+            </summary>
+            <remarks>
+            Class allows to:<br />
+            <ul>
+            <li>get an <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page" /> object associated with selected page</li>
+            <li>add an <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object as a JBIG2 page to
+            the multipage JBIG2 file</li>
+            <li>insert an <see cref="T:Vintasoft.Imaging.VintasoftImage" /> object as a JBIG2 page into
+            the multipage JBIG2 file</li>
+            <li>delete JBIG2 page from the multipage JBIG2 file</li>
+            </ul>
+            <br />
+            Instance of this class cannot be created directly, it can be received only
+            from the <see cref="T:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2File" /> object.<br />
+            <br />
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Add(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Adds page to the page collection.
+            </summary>
+            <param name="page">Page to add to the page collection.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Add(Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Adds image as page to the page collection.
+            </summary>
+            <param name="image">Image to added into the page collection.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>image</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Add(Vintasoft.Imaging.ImageCollection,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Adds pages from <see cref="T:Vintasoft.Imaging.ImageCollection" /> to the collection.
+            </summary>
+            <param name="images">Images to add to the collection.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>images</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Insert(System.Int32,Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Inserts page to the page collection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <i>page</i> should be
+            <param name="page">Page to insert into the page collection.</param>
+            inserted.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>index</i> is 
+            less than zero or greater than <b>Pages.Count</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Insert(System.Int32,Vintasoft.Imaging.VintasoftImage,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Inserts image as new page to the page collection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <i>page</i> should be
+            inserted.</param>
+            <param name="image">Image to insert into the page collection.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>image</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>index</i> is 
+            less than zero or greater than <b>Pages.Count</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Insert(System.Int32,Vintasoft.Imaging.ImageCollection,Vintasoft.Imaging.Utils.IProgressController)">
+            <summary>
+            Inserts pages from <see cref="T:Vintasoft.Imaging.ImageCollection" /> to the collection at
+            the specified index.
+            </summary>
+            <param name="index">The zero-based index at which page should be
+            inserted.</param>
+            <param name="images">The image collection to insert to the collection.</param>
+            <param name="progressController">Progress controller.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>images</i> is <b>null</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>index</i> is 
+            less than zero or greater than <b>Pages.Count</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Remove(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Removes the first occurrence of page from the page collection.
+            </summary>
+            <param name="page">Page to remove from the page collection.</param>
+            <returns><b>true</b> if page removed from the page collection;
+            otherwise, <b>false</b>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes page at the specified index.
+            </summary>
+            <param name="index">The zero-based index of JBIG2 page to remove.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>index</i> is 
+            less than zero or greater than <b>Pages.Count</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.RemoveAt(System.Int32,System.Int32)">
+            <summary>
+            Removes the collection items from specified indices.
+            </summary>
+            <param name="index">The index of the start page to remove.</param>
+            <param name="count">Count of pages to remove.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>startIndex</i> is 
+            less than zero or greater than <b>Pages.Count</b>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <i>count</i> is 
+            less than one or greater than <b>Pages.Count - startIndex</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Clear">
+            <summary>
+            Removes all pages from the page collection.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Contains(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Determines whether the page collection contains a specific page.
+            </summary>
+            <param name="item">Page to locate in the page collection.</param>
+            <returns><b>true</b> if page is found in the page collection;
+            otherwise, <b>false</b>.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.CopyTo(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page[],System.Int32)">
+            <summary>
+            Copies pages of the page collection to an Array, starting at
+            a particular Array index.
+            </summary>
+            <param name="array">The one-dimensional Array that is the destination of
+            pages copied from the page collection. The Array must have
+            zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in <i>array</i> at which
+            copying begins.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>An IEnumerator object that can be used to iterate
+            through the collection.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.IndexOf(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Determines the index of a specific page in the page collection.
+            </summary>
+            <param name="item">The object to locate in the page collection.</param>
+            <returns>
+            The index of <i>item</i> if found in the list; otherwise, -1.
+            </returns>
+            <remarks>
+            If an object occurs multiple times in the list, the IndexOf method
+            always returns the first instance found.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Item(System.Int32)">
+            <summary>
+            Gets the page at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the page to get.</param>
+            <returns>The page at the specified index.</returns>
+            <remarks>Set operation is not implemented.</remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.Count">
+            <summary>
+            Gets the number of pages contained in the page collection.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2PageCollection.EncoderSettings">
+            <summary>
+            Gets or sets the default encoder settings.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>new value</i> is
+            <b>null</b>.</exception>
+        </member>
+        <member name="T:Vintasoft.Imaging.Metadata.Jbig2PageMetadata">
+            <summary>
+            Root node of metadata tree for JBIG2 page.
+            </summary>
+            <remarks>
+            This node cannot have child nodes.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.Metadata.Jbig2PageMetadata.#ctor(Vintasoft.Imaging.Codecs.ImageFiles.Jbig2.Jbig2Page)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.Metadata.Jbig2PageMetadata" /> class.
+            </summary>
+            <param name="page">JBIG2 page.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <i>page</i> is <b>null</b>.</exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jbig2PageMetadata.ImageWidth">
+            <summary>
+            Gets the width, in pixels, of image.
+            </summary>        
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jbig2PageMetadata.ImageHeight">
+            <summary>
+            Gets the height, in pixels, of image.
+            </summary>      
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jbig2PageMetadata.BitsPerPixel">
+            <summary>
+            Gets the bit depth of image returned by decoder.
+            </summary>      
+        </member>
+        <member name="P:Vintasoft.Imaging.Metadata.Jbig2PageMetadata.Resolution">
+            <summary>
+            Gets or sets the resolution, in pixels per inch.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,322 @@
+﻿<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vintasoft.Imaging.FormsProcessing.Ocr</name>
+    </assembly>
+    <members>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField">
+            <summary>
+            Contains information about recognized <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate" />.
+            </summary>
+            <example>
+            Here is an example that demonstrates how to identify and recognize a form that contains text.
+            <code lang="VB.NET">
+            ''' &lt;summary&gt;
+            ''' Recognizes the form with OCR fields.
+            ''' &lt;/summary&gt;
+            ''' &lt;param name="formRecognitionManager"&gt;The form recognition manager.&lt;/param&gt;
+            ''' &lt;param name="image"&gt;The image.&lt;/param&gt;
+            Public Shared Sub RecognizeFormWithOcrFields(formRecognitionManager As FormRecognitionManager, image As VintasoftImage)
+                ' recognize the image
+                Dim recognitionResult As FormRecognitionResult = formRecognitionManager.Recognize(image)
+            
+                ' get the result of image comparison
+                Dim imageCompareResult As ImageImprintCompareResult = recognitionResult.TemplateMatchingResult.ImageCompareResult
+                ' if result is not reliable
+                If Not imageCompareResult.IsReliable Then
+                    ' matching template is not found
+                    Console.WriteLine("Matching template is not found.")
+                Else
+                    ' get recognized page
+                    Dim recognizedPage As FormPage = recognitionResult.RecognizedPage
+                    ' get form field count
+                    If recognizedPage.Items.Count = 0 Then
+                        Console.WriteLine("No form fields were recognized.")
+                    Else
+                        Console.WriteLine(String.Format("Recognized form field count: {0}", recognizedPage.Items.Count))
+                        ' for each recognized form field
+                        For Each recognizedField As FormField In recognizedPage.Items
+                            If TypeOf recognizedField Is OcrField Then
+                                Dim ocrField As OcrField = DirectCast(recognizedField, OcrField)
+                                ' write field info
+                                Console.WriteLine(String.Format("  OCR field: name: {0}; value: {1}; confidence: {2:F1}%", ocrField.Name, ocrField.Value, ocrField.Confidence * 100))
+                                Dim ocrResult As OcrPage = ocrField.OcrResult
+                                ' get all words
+                                Dim words As OcrObject() = ocrResult.GetWords(75, 75)
+                                ' write words info
+                                For i As Integer = 0 To words.Length - 1
+                                    Dim word As OcrObject = words(i)
+                                    Console.WriteLine(String.Format("    OCR word: {0}; confidence: {2:F1}%", word.ToString(), word.Confidence))
+                                Next
+                            End If
+                        Next
+                    End If
+                End If
+            End Sub
+            </code>
+            <code lang="C#">
+            /// &lt;summary&gt;
+            /// Recognizes the form with OCR fields.
+            /// &lt;/summary&gt;
+            /// &lt;param name="formRecognitionManager"&gt;The form recognition manager.&lt;/param&gt;
+            /// &lt;param name="image"&gt;The image.&lt;/param&gt;
+            public static void RecognizeFormWithOcrFields(
+                FormRecognitionManager formRecognitionManager,
+                VintasoftImage image)
+            {
+                // recognize the image
+                FormRecognitionResult recognitionResult = formRecognitionManager.Recognize(image);
+            
+                // get the result of image comparison
+                ImageImprintCompareResult imageCompareResult =
+                    recognitionResult.TemplateMatchingResult.ImageCompareResult;
+                // if result is not reliable
+                if (!imageCompareResult.IsReliable)
+                {
+                    // matching template is not found
+                    Console.WriteLine("Matching template is not found.");
+                }
+                else
+                {
+                    // get recognized page
+                    FormPage recognizedPage = recognitionResult.RecognizedPage;
+                    // get form field count
+                    if (recognizedPage.Items.Count == 0)
+                    {
+                        Console.WriteLine("No form fields were recognized.");
+                    }
+                    else
+                    {
+                        Console.WriteLine(string.Format(
+                            "Recognized form field count: {0}",
+                            recognizedPage.Items.Count));
+                        // for each recognized form field
+                        foreach (FormField recognizedField in recognizedPage.Items)
+                        {
+                            if (recognizedField is OcrField)
+                            {
+                                OcrField ocrField = (OcrField)recognizedField;
+                                // write field info
+                                Console.WriteLine(string.Format(
+                                    "  OCR field: name: {0}; value: {1}; confidence: {2:F1}%",
+                                    ocrField.Name,
+                                    ocrField.Value,
+                                    ocrField.Confidence * 100));
+                                OcrPage ocrResult = ocrField.OcrResult;
+                                // get all words
+                                OcrObject[] words = ocrResult.GetWords(75, 75);
+                                // write words info
+                                for (int i = 0; i &lt; words.Length; i++)
+                                {
+                                    OcrObject word = words[i];
+                                    Console.WriteLine(string.Format(
+                                        "    OCR word: {0}; confidence: {2:F1}%",
+                                        word.ToString(),
+                                        word.Confidence));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate,Vintasoft.Imaging.Ocr.Results.OcrPage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField" /> class.
+            </summary>
+            <param name="fieldTemplate">Template of the form field.</param>
+            <param name="ocrResult">The recognized OCR information.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField.Value">
+            <summary>
+            Gets the value of the form field in a text form.
+            </summary>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField.Confidence">
+            <summary>
+            Gets the confidence of the recognition result.
+            </summary>
+            <value>
+            Possible values are from 0.0 (0%) to 1.0 (100%).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrField.OcrResult">
+            <summary>
+            Gets the recognized OCR information.
+            </summary>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate">
+            <summary>
+            Contains information about OCR field template.
+            </summary>
+            <remarks>
+            <b>Important:</b> Value of the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.OcrEngineManager" /> property must be set
+            to not <b>null</b> value (set an OCR engine, which template must use for text recognition)
+            before using this template for field recognition.
+            </remarks>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate" /> class.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.#ctor(Vintasoft.Imaging.Ocr.OcrEngineSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate" /> class.
+            </summary>
+            <param name="ocrEngineSettings">The OCR engine settings used for recognition of the field.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.FormFieldTemplate" /> class.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.Recognize(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormRecognitionParams)">
+            <summary>
+            Recognizes an OCR field on the specified image.
+            </summary>
+            <param name="formRecognitionParams">Recognition parameters of a form field
+            that specify a transform from <i>image</i> to the template image.</param>
+            <returns>
+            Recognized field.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <i>formRecognitionParams</i> is <b>null</b>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.OcrEngineManager" /> is <b>null</b>.</exception>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.Clone">
+            <summary>
+            Creates a new object that is a copy of the current
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate" /> instance.
+            </summary>
+            <returns>A new object that is a copy of this
+            <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate" /> instance.</returns>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the target object.
+            </summary>
+            <param name="info">The SerializationInfo to populate with data.</param>
+            <param name="context">The destination for this serialization.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.OcrEngineManager">
+            <summary>
+            Gets or sets the static instance of OCR engine manager that should be used for OCR recognition.
+            </summary>
+            <value>
+            The OCR engine manager.
+            </value>
+            <remarks>
+            <b>Important:</b> Value of the <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.OcrEngineManager" /> property must be set
+            to not <b>null</b> value (set an OCR engine, which template must use for text recognition)
+            before using this template for field recognition.
+            </remarks>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate.OcrEngineSettings">
+            <summary>
+            Gets the OCR engine settings that should be used for recognition of the field.
+            </summary>
+            <value>
+            The OCR engine settings.
+            </value>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldTemplateView">
+            <summary>
+            Determines how to display an OCR field template
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldTemplateView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.OcrFieldTemplate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldTemplateView" /> class.
+            </summary>
+            <param name="fieldTemplate">Form field template.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldTemplateView.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView">
+            <summary>
+            Determines how to display a recognized OCR field
+            and how user can interact with it.
+            </summary>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.#ctor(Vintasoft.Imaging.FormsProcessing.FormRecognition.FormField)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView" /> class.
+            </summary>
+            <param name="field">Recognized field.</param>
+        </member>
+        <member name="M:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.DrawInContentSpace(System.Drawing.Graphics)">
+            <summary>
+            Draws the form field on the <see cref="T:System.Drawing.Graphics" />
+            in the coordinate space of form field.
+            </summary>
+            <param name="g">The <see cref="T:System.Drawing.Graphics" /> to draw on.</param>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.DisplayedObjectsType">
+            <summary>
+            Gets or sets the type of displayed OCR objects.
+            </summary>
+            <value>
+            The type of displayed OCR objects.
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.ConfidenceThreshold">
+            <summary>
+            Gets or sets the confidence threshold.
+            </summary>
+            <value>
+            Default value is 0.75f.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if new value is less than 0 or greater than 1.
+            </exception>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.CertainObjectsBrush">
+            <summary>
+            Gets or sets the background brush of recognized OCR object
+            which confidence is greater than <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.ConfidenceThreshold" />.
+            </summary>
+            <value>
+            Default value is SolidBrush(Color.FromArgb(24, 0, 192, 0)).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.CertainObjectsPen">
+            <summary>
+            Gets or sets the border pen of recognized OCR object
+            which confidence is greater than <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.ConfidenceThreshold" />.
+            </summary>
+            <value>
+            Default value is Pen(Color.FromArgb(192, 0, 128, 0), 1f).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.UncertainObjectsBrush">
+            <summary>
+            Gets or sets the background brush of recognized OCR object
+            which confidence is lower than <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.ConfidenceThreshold" />.
+            </summary>
+            <value>
+            Default value is SolidBrush(Color.FromArgb(48, 255, 0, 0)).
+            </value>
+        </member>
+        <member name="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.UncertainObjectsPen">
+            <summary>
+            Gets or sets the border pen of recognized OCR object
+            which confidence is lower than <see cref="P:Vintasoft.Imaging.FormsProcessing.FormRecognition.Ocr.UI.OcrFieldView.ConfidenceThreshold" />.
+            </summary>
+            <value>
+            Default value is Pen(Color.FromArgb(192, 255, 0, 0), 1f).
+            </value>
+        </member>
+    </members>
+</doc>

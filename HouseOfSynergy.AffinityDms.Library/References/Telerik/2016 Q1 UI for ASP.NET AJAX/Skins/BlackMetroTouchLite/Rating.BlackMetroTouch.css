@@ -1,0 +1,15 @@
+.RadRating_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadRating_BlackMetroTouch a:before, .RadRating_BlackMetroTouch a:hover:before {
+    color: #4e4e4e; }
+  .RadRating_BlackMetroTouch .rrtOver span:before, .RadRating_BlackMetroTouch a:hover .rrtPartComplement:before, .RadRating_BlackMetroTouch .rrtVertical .rrtSelected.rrtOver a:before, .RadRating_BlackMetroTouch .rrtSelected a .rrtPartSelected:before, .RadRating_BlackMetroTouch .rrtSelected.rrtOver a:before {
+    color: #333333; }
+  .RadRating_BlackMetroTouch .rrtSelected span:before {
+    color: #25a0da; }
+  .RadRating_BlackMetroTouch .rrtSelected .rrtPart:before, .RadRating_BlackMetroTouch .rrtSelected.rrtOver span:before {
+    color: #0082cc; }
+  .RadRating_BlackMetroTouch .rrtReversed .rrtPart:before {
+    color: #333333; }
+  .RadRating_BlackMetroTouch .rrtReversed .rrtSelected .rrtPartComplement:before {
+    color: #0082cc; }
+

@@ -1,0 +1,124 @@
+html body .RadInput_BlackMetroTouch .riTextBox,
+html body .RadInputMgr_BlackMetroTouch {
+  background: black;
+  color: white;
+  border-color: #4e4e4e;
+  /*font: $font-weight 16px/34px $font-family;*/
+  font-weight: 100;
+  font-size: 16px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.RadInput_BlackMetroTouch.riSingle .riTextBox {
+  height: 36px; }
+
+html body .RadInput_BlackMetroTouch .riTextBox,
+html body .RadInputMgr_BlackMetroTouch,
+* + html .RadInput_BlackMetroTouch.riSingle .riTextBox,
+* + html .RadForm_BlackMetroTouch.RadForm.rfdTextbox input.riTextBox.rfdDecorated {
+  height: 31px;
+  line-height: 31px; }
+
+.RadInput_BlackMetroTouch.riSingle textarea.riTextBox,
+html .RadInput_BlackMetroTouch textarea.riTextBox {
+  height: auto; }
+
+html body .RadInput_BlackMetroTouch .riEmpty,
+html body .RadInput_Empty_BlackMetroTouch {
+  color: #555555; }
+
+html body .RadInput_BlackMetroTouch .riHover,
+html body .RadInput_Hover_BlackMetroTouch {
+  border-color: #25a0da;
+  color: white; }
+
+html body .RadInput_BlackMetroTouch .riFocused,
+html body .RadInput_Focused_BlackMetroTouch {
+  border-color: #25a0da; }
+
+html body .RadInput_BlackMetroTouch .riRead,
+html body .RadInput_Read_BlackMetroTouch {
+  border-color: #25a0da; }
+
+html body .RadInput_BlackMetroTouch .riDisabled,
+html body .RadInput_Disabled_BlackMetroTouch {
+  Opacity: .5;
+  -moz-opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default; }
+
+html body .RadInput_BlackMetroTouch .riError,
+html body .RadInput_Error_BlackMetroTouch {
+  border-color: #de3914;
+  color: #de3914; }
+
+.RadForm.rfdTextbox .RadInput_BlackMetroTouch .riError[type="text"],
+.RadForm.rfdTextbox .RadInput_Error_BlackMetroTouch[type="text"] {
+  border-color: #de3914;
+  background: black;
+  color: #de3914; }
+
+html body .RadInput_BlackMetroTouch .riNegative,
+html body .RadInput_Negative_BlackMetroTouch {
+  color: white; }
+
+/*buttons*/
+.RadInput_BlackMetroTouch a {
+  background: transparent no-repeat url('Common/radActionsSprite.png'); }
+
+/*go*/
+.RadInput_BlackMetroTouch .riBtn a {
+  width: 20px;
+  height: 34px;
+  line-height: 34px;
+  background-position: -14px -4864px; }
+
+.RadInput_BlackMetroTouch a.riButton {
+  background-position: -14px -4864px; }
+
+.RadInput_BlackMetroTouch a.riButton:hover {
+  background-position: -64px -4864px; }
+
+/*spin*/
+.RadInput_BlackMetroTouch .riSpin a {
+  width: 15px;
+  height: 17px;
+  line-height: 17px; }
+
+.RadInput_BlackMetroTouch a.riUp,
+.RadInput_BlackMetroTouch a.riDown {
+  height: 17px; }
+
+.RadInput_BlackMetroTouch a.riUp {
+  background-position: -16.5px -17.5px; }
+  .RadInput_BlackMetroTouch a.riUp:hover {
+    background-position: -66.5px -17.5px; }
+
+.RadInput_BlackMetroTouch a.riDown {
+  background-position: -16.5px -67.5px; }
+  .RadInput_BlackMetroTouch a.riDown:hover {
+    background-position: -66.5px -67.5px; }
+
+.RadInput_BlackMetroTouch .riLabel {
+  color: white; }
+
+.RadInput_BlackMetroTouch .riResizeIcon {
+  background: transparent 0 0 no-repeat url('Input/ResizeEdge.gif');
+  width: 12px;
+  height: 12px;
+  margin-left: -12px; }
+
+.riContButton.RadInput_BlackMetroTouch .riResizeIcon {
+  margin-left: -32px; }
+
+html body .RadInputRTL_BlackMetroTouch .riError,
+html body .RadInputRTL_Error_BlackMetroTouch {
+  background-position: 3px -298px; }
+html body .RadInputRTL_BlackMetroTouch .riResizeIcon {
+  background-position: 0 -19px;
+  margin-right: -12px; }
+html body .RadInputRTL_BlackMetroTouch.riContButton .riResizeIcon {
+  margin-right: -32px; }
+
+.RadForm.rfdTextbox .RadInputRTL_BlackMetroTouch .riError[type="text"],
+.RadForm.rfdTextbox .RadInputRTL_Error_BlackMetroTouch[type="text"] {
+  background-position: 3px -298px; }
