@@ -1,0 +1,56 @@
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll.config
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.Schema.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.Core.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.DbPersistence.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\WindowsAzureTelemetryEvents.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\WindowsAzureEventSource.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Library.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.Schema.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.Core.xml
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\de-DE\HouseOfSynergy.AffinityDms.Library.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\bin\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+C:\Users\Thiya\Kloud\TFS\Cobox\HouseOfSynergy.AffinityDms\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll.config
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.Schema.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.Core.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.DbPersistence.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\WindowsAzureTelemetryEvents.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\WindowsAzureEventSource.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\Newtonsoft.Json.Schema.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\OptimaJet.Workflow.Core.xml
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\de-DE\HouseOfSynergy.AffinityDms.Library.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\bin\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.csprojResolveAssemblyReference.cache
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.dll
+D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Entities\obj\Debug\HouseOfSynergy.AffinityDms.Entities.pdb
