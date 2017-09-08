@@ -1,0 +1,47 @@
+.RadFileExplorer_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background-color: #000000; }
+  .RadFileExplorer_BlackMetroTouch,
+  .RadFileExplorer_BlackMetroTouch .rfeFilterTxt {
+    border-color: #333333; }
+  .RadFileExplorer_BlackMetroTouch .rfeAddressBox {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #4e4e4e; }
+  .RadFileExplorer_BlackMetroTouch .rfeLink {
+    border-radius: 0;
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfeLink:hover {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da;
+    background-image: linear-gradient(); }
+  .RadFileExplorer_BlackMetroTouch .rfeSelectedLink,
+  .RadFileExplorer_BlackMetroTouch .rfeSelectedLink:hover {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc;
+    background-image: linear-gradient(); }
+  .RadFileExplorer_BlackMetroTouch .rfeFilterContainer {
+    background-color: black; }
+  .RadFileExplorer_BlackMetroTouch .rfeDropZone {
+    background-color: rgba(0, 0, 0, 0.8); }
+  .RadFileExplorer_BlackMetroTouch .rfePageControlContainer {
+    border-color: #4e4e4e;
+    background-image: linear-gradient(); }
+  .RadFileExplorer_BlackMetroTouch .rfeThumbnailView .rlvI .rfeFileCount span,
+  .RadFileExplorer_BlackMetroTouch .rfePageControlContainer,
+  .RadFileExplorer_BlackMetroTouch .rfeDropUploadInfoPanel {
+    background-color: #000000;
+    color: #ffffff; }
+  .RadFileExplorer_BlackMetroTouch .rfePageControlContainer span {
+    color: #ffffff; }
+
+.RadWindow_BlackMetroTouch .rfeUploadInfoPanel {
+  background-color: black;
+  color: #ffffff;
+  border-color: #333333; }
+
+.rfeUploadContainer .RadUpload_BlackMetroTouch .ruInputs {
+  height: 7.8125em; }
+

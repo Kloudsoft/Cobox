@@ -1,0 +1,23 @@
+.RadTile_BlackMetroTouch {
+  color: #ffffff;
+  background-color: #25a0da;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  /* Loading image */ }
+  .RadTile_BlackMetroTouch.rtileSelected {
+    border-color: #0082cc; }
+  .RadTile_BlackMetroTouch.rtileHovered {
+    border-color: #0082cc; }
+  .RadTile_BlackMetroTouch.rtileSelected.rtileHovered {
+    border-color: rgba(37, 160, 218, 0.7); }
+  .RadTile_BlackMetroTouch.rtileSelected .rtileSelectedIcon {
+    background-color: #0082cc;
+    color: #ffffff; }
+  .RadTile_BlackMetroTouch .rtileBadgeIcon {
+    color: #ffffff; }
+  html .RadTile_BlackMetroTouch.RadTile h6.rtileTitle {
+    color: #ffffff; }
+  .RadTile_BlackMetroTouch .rtilePeekContent {
+    background-color: #000000; }
+  .RadTile_BlackMetroTouch.rtileLoading, .RadTile_BlackMetroTouch .rtileLoading {
+    background-image: url('../BlackMetroTouch/Common/loading_small.gif'); }
+

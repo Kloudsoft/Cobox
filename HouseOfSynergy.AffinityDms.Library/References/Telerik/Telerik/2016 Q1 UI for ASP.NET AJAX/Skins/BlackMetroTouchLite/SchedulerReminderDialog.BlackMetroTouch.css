@@ -1,0 +1,7 @@
+.ReminderDialog_BlackMetroTouch {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 4px; }
+  .ReminderDialog_BlackMetroTouch .rsTitle {
+    border-radius: 4px 4px 0 0; }

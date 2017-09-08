@@ -1,0 +1,76 @@
+.RadDataPager_BlackMetroTouch {
+  border: 1px solid #4e4e4e;
+  background: #000000;
+  color: #ffffff;
+  padding-top: 8px; }
+  .RadDataPager_BlackMetroTouch .rdpPageFirst,
+  .RadDataPager_BlackMetroTouch .rdpPagePrev,
+  .RadDataPager_BlackMetroTouch .rdpPageNext,
+  .RadDataPager_BlackMetroTouch .rdpPageLast {
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #4e4e4e;
+    background-color: #222222;
+    background-image: url('Common/radActionsSprite.png'); }
+    .RadDataPager_BlackMetroTouch .rdpPageFirst:hover,
+    .RadDataPager_BlackMetroTouch .rdpPagePrev:hover,
+    .RadDataPager_BlackMetroTouch .rdpPageNext:hover,
+    .RadDataPager_BlackMetroTouch .rdpPageLast:hover {
+      background-color: #25a0da;
+      border-color: #25a0da; }
+    .RadDataPager_BlackMetroTouch .rdpPageFirst:active,
+    .RadDataPager_BlackMetroTouch .rdpPagePrev:active,
+    .RadDataPager_BlackMetroTouch .rdpPageNext:active,
+    .RadDataPager_BlackMetroTouch .rdpPageLast:active {
+      border-color: #0082cc;
+      background-color: #0082cc; }
+  .RadDataPager_BlackMetroTouch .rdpPageFirst {
+    background-position: -11px -711px; }
+  .RadDataPager_BlackMetroTouch .rdpPagePrev {
+    background-position: -11px -111px; }
+  .RadDataPager_BlackMetroTouch .rdpPageNext {
+    background-position: -11px -161px; }
+  .RadDataPager_BlackMetroTouch .rdpPageLast {
+    background-position: -11px -761px; }
+  .RadDataPager_BlackMetroTouch .rdpPagerButton {
+    border-color: #4e4e4e;
+    background: #222222;
+    color: #ffffff;
+    height: 36px;
+    /*font: $font-weight 16px/34px $font-family;*/
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 34px;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadDataPager_BlackMetroTouch .rdpNumPart a,
+  .RadDataPager_BlackMetroTouch .rdpPagerButton,
+  .RadDataPager_BlackMetroTouch .rdpWrap,
+  .RadDataPager_BlackMetroTouch .rdpWrapRight,
+  .RadDataPager_BlackMetroTouch .rdpWrapNone {
+    /*font:$font-weight 16px/34px $font-family;*/
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 34px;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadDataPager_BlackMetroTouch .rdpNumPart a {
+    border: 1px solid #000000;
+    line-height: 28px;
+    min-width: 28px;
+    padding: 0;
+    color: #ffffff;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    text-align: center; }
+    .RadDataPager_BlackMetroTouch .rdpNumPart a:hover {
+      background-color: #25a0da;
+      border-color: #25a0da; }
+    .RadDataPager_BlackMetroTouch .rdpNumPart a.rdpCurrentPage, .RadDataPager_BlackMetroTouch .rdpNumPart a.rdpCurrentPage:hover {
+      border-color: #0082cc;
+      background-color: #0082cc; }
+  .RadDataPager_BlackMetroTouch .rdpNumPart a span {
+    float: none;
+    padding: 0; }

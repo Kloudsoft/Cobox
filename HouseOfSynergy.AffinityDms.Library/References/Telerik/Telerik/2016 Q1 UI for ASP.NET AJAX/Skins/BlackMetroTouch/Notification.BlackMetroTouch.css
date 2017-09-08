@@ -1,0 +1,53 @@
+.RadNotification_BlackMetroTouch {
+  border-color: #4e4e4e;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  /* base style overwrites */ }
+  .RadNotification_BlackMetroTouch .rnTitleBar {
+    height: 3.0625em;
+    border-bottom-color: #4e4e4e;
+    border-radius: 0;
+    background-color: #000000; }
+  .RadNotification_BlackMetroTouch.rnRoundedCorners, .RadNotification_BlackMetroTouch.rnRoundedCorners .rnTitleBar {
+    border-radius: 0; }
+  .RadNotification_BlackMetroTouch .rnTitleBarTitle {
+    width: 49%;
+    font-size: 1.2em;
+    height: 1.6875em;
+    line-height: 1.625em; }
+  .RadNotification_BlackMetroTouch .rnTitleBarIcon {
+    margin: 4px 4px 0 0;
+    position: relative;
+    width: 32px;
+    height: 32px; }
+  .RadNotification_BlackMetroTouch .rnTitleBarIcon img {
+    position: absolute;
+    top: -16px; }
+  .RadNotification_BlackMetroTouch.rnRtl .rnTitleBarIcon {
+    margin: 4px 0 0 0; }
+  .RadNotification_BlackMetroTouch .rnCommands {
+    height: 29px;
+    line-height: 30px;
+    margin: 4px 0 0; }
+  .RadNotification_BlackMetroTouch .rnCommands a {
+    width: 28px;
+    height: 28px;
+    border: 1px solid transparent;
+    background-image: url('Common/radActionsSprite.png'); }
+  .RadNotification_BlackMetroTouch .rnCommands a:hover {
+    border: 1px solid #4e4e4e;
+    background-color: #222222;
+    border-radius: 45px; }
+  .RadNotification_BlackMetroTouch .rnCommands a:active, .RadNotification_BlackMetroTouch .rnCommands a:focus {
+    outline: 0; }
+  .RadNotification_BlackMetroTouch .rnCommands .rnMenuIcon a, .RadNotification_BlackMetroTouch .rnCommands .rnMenuIcon a:hover {
+    background-position: -11px -61px; }
+  .RadNotification_BlackMetroTouch .rnCommands .rnCloseIcon a, .RadNotification_BlackMetroTouch .rnCommands .rnCloseIcon a:hover {
+    background-position: -11px -1911px; }
+  .RadNotification_BlackMetroTouch .rnContentWrapper {
+    font-size: 16px; }
+  .RadNotification_BlackMetroTouch .rnCommands {
+    margin: 4px 0 0; }
+

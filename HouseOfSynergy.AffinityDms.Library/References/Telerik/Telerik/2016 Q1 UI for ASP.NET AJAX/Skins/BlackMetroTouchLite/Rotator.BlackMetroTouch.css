@@ -1,0 +1,34 @@
+.RadRotator_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  /*================== The list ========================*/
+  /* For vertical carousel, not set, width defaults to auto */
+  /* Note if you explicitly set width to auto, this might cause */
+  /* problems with Safari */
+  /* When LoadOnDemand */ }
+  .RadRotator_BlackMetroTouch .rrClipRegion {
+    border-color: #4e4e4e; }
+  .RadRotator_BlackMetroTouch a.rrButton {
+    border-radius: 45px;
+    background-color: #222222;
+    border: 1px solid #4e4e4e;
+    background-image: linear-gradient(#222222, #222222);
+    background-repeat: no-repeat;
+    color: #ffffff; }
+  .RadRotator_BlackMetroTouch .rrButton:hover, .RadRotator_BlackMetroTouch .rrButton:active {
+    background-color: #25a0da;
+    background-image: linear-gradient(#25a0da, #25a0da);
+    border-color: #25a0da;
+    color: #ffffff; }
+  .RadRotator_BlackMetroTouch a.rrButtonRight:before {
+    content: "\E000"; }
+  .RadRotator_BlackMetroTouch a.rrButtonLeft:before {
+    content: "\E003"; }
+  .RadRotator_BlackMetroTouch a.rrButtonUp:before {
+    content: "\E001"; }
+  .RadRotator_BlackMetroTouch a.rrButtonDown:before {
+    content: "\E002"; }
+  .RadRotator_BlackMetroTouch .rrLoadingSign {
+    background-image: url('../BlackMetroTouch/Common/loading_small.gif'); }
+  .RadRotator_BlackMetroTouch.rrNoBorder .rrRelativeWrapper {
+    border-width: 0 !important; }
+

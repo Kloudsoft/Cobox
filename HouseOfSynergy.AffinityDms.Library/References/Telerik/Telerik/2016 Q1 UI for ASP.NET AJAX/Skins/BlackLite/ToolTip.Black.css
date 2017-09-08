@@ -1,0 +1,38 @@
+.RadToolTip_Black {
+  background-color: #cccccc;
+  color: black;
+  border-color: #080808; }
+  .RadToolTip_Black .rtClose {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+  .RadToolTip_Black .rtClose:hover {
+    border-color: #080808;
+    color: #9eda29;
+    background-color: #020202;
+    background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+  .RadToolTip_Black .rtClose:active {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #202020;
+    background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+  .RadToolTip_Black .rtCalloutTopRight, .RadToolTip_Black .rtCalloutTopCenter, .RadToolTip_Black .rtCalloutTopLeft {
+    border-bottom-color: #080808; }
+  .RadToolTip_Black .rtCalloutTopRight:before, .RadToolTip_Black .rtCalloutTopCenter:before, .RadToolTip_Black .rtCalloutTopLeft:before {
+    border-bottom-color: #cccccc; }
+  .RadToolTip_Black .rtCalloutMiddleRight {
+    border-left-color: #080808; }
+  .RadToolTip_Black .rtCalloutMiddleRight:before {
+    border-left-color: #cccccc; }
+  .RadToolTip_Black .rtCalloutMiddleLeft {
+    border-right-color: #080808; }
+  .RadToolTip_Black .rtCalloutMiddleLeft:before {
+    border-right-color: #cccccc; }
+  .RadToolTip_Black .rtCalloutBottomRight, .RadToolTip_Black .rtCalloutBottomCenter, .RadToolTip_Black .rtCalloutBottomLeft {
+    border-top-color: #080808; }
+  .RadToolTip_Black .rtCalloutBottomRight:before, .RadToolTip_Black .rtCalloutBottomCenter:before, .RadToolTip_Black .rtCalloutBottomLeft:before {
+    border-top-color: #cccccc; }
+  .RadToolTip_Black.rtLoading {
+    background-image: url('../Black/Common/loading.gif'); }
+

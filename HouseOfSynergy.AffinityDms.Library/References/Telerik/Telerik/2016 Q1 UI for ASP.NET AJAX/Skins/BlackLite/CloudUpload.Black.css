@@ -1,0 +1,69 @@
+.RadCloudUpload_Black .rcuButton {
+  border-radius: 3px;
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+
+.RadCloudUpload_Black .rcuInfoPanel {
+  border-color: #080808; }
+
+.RadCloudUpload_Black .rcuHeader {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #161616;
+  background-image: linear-gradient(#323232, #161616); }
+
+.RadCloudUpload_Black .rcuBody {
+  border-color: #080808;
+  background-color: #202020; }
+
+.RadCloudUpload_Black .rcuFileList {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #464646; }
+
+.RadCloudUpload_Black .rcuProgressIcon {
+  background-image: url('../Black/Common/loading_small.gif'); }
+
+.RadCloudUpload_Black .rcuProgressBar {
+  border-radius: 6px;
+  border-color: #080808;
+  background-color: #161616;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); }
+
+.RadCloudUpload_Black .rcuProgress {
+  border-color: #2e2e2e;
+  background-color: #a0db2c;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)); }
+
+.RadCloudUpload_Black .rcuLIUploading .rcuStatusIcon:before {
+  background-image: url('../Black/Common/loading_small.gif'); }
+
+.RadCloudUpload_Black .rcuDropZone {
+  color: #d7d7d7;
+  border-color: #080808;
+  background-color: rgba(32, 32, 32, 0.8); }
+
+.RadCloudUpload_Black .rcuHovered.rcuButton {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.RadCloudUpload_Black .rcuButtons .rcuHovered {
+  color: #9eda29;
+  background: transparent; }
+
+.RadCloudUpload_Black .rcuButton.rcuPressed {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #202020;
+  background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+
+.rcuToolTip_Black {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #464646; }
+  .rcuToolTip_Black:before {
+    color: #464646; }

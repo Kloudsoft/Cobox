@@ -1,0 +1,41 @@
+.RadRotator_BlackMetroTouch {
+  /*================== The list ========================*/
+  /* For vertical carousel, not set, width defaults to auto */
+  /* Note if you explicitly set width to auto, this might cause */
+  /* problems with Safari */
+  /* When LoadOnDemand */ }
+  .RadRotator_BlackMetroTouch .rrClipRegion {
+    border-color: #4e4e4e; }
+  .RadRotator_BlackMetroTouch a.rrButton {
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+    background-color: #222222;
+    border: 1px solid #4e4e4e;
+    background-image: url('Common/radActionsSprite.png');
+    background-repeat: no-repeat; }
+  .RadRotator_BlackMetroTouch .rrButton:hover {
+    background-color: #25a0da; }
+  .RadRotator_BlackMetroTouch .rrButton:active {
+    background-color: #0082cc; }
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonLeft,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonLeft:hover,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonLeft:active {
+    background-position: -12px -112px; }
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonRight,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonRight:hover,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonRight:active {
+    background-position: -12px -162px; }
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonUp,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonUp:hover,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonUp:active {
+    background-position: -12px -12px; }
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonDown,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonDown:hover,
+  .RadRotator_BlackMetroTouch a.rrButton.rrButtonDown:active {
+    top: auto;
+    background-position: -12px -62px; }
+  .RadRotator_BlackMetroTouch .rrLoadingSign {
+    background: url('Common/loading_small.gif') no-repeat center; }
+  .RadRotator_BlackMetroTouch.rrNoBorder .rrRelativeWrapper {
+    border-width: 0 !important; }

@@ -1,0 +1,32 @@
+.RadImageEditor_BlackMetroTouch, .RadImageEditor_BlackMetroTouch.rieDialogs .riePrintContent, .RadImageEditor_BlackMetroTouch .rieHighlightVertical, .RadImageEditor_BlackMetroTouch .rieHighlightHorizontal, .RadDock_BlackMetroTouch.rieDialogs .rieActiveThumbsLink, .RadDock_BlackMetroTouch.rieDialogs .rieThumbsLink:hover, .RadDock_BlackMetroTouch.rieDialogs .riePrintContent, .RadDock_BlackMetroTouch.rieDialogs .riePrintContent img {
+  border-color: #333333;
+  background-color: #000000; }
+
+.RadImageEditor_BlackMetroTouch, .RadImageEditor_BlackMetroTouch .rieStatusBarInfo .rieLabel, .RadDock_BlackMetroTouch.rieDialogs .rdContent {
+  color: #ffffff; }
+
+.RadImageEditor_BlackMetroTouch .rieStatusBarInfo span {
+  color: #b3b3b3; }
+
+.RadImageEditor_BlackMetroTouch .rieContentArea, .RadDock_BlackMetroTouch.rieDialogs .rieThumbsBottomRow td, .RadDock_BlackMetroTouch.rieDialogs .rieDialogsThumbsLeft, .RadDock_BlackMetroTouch.rieDialogs .rieThumbsLink {
+  border-color: #333333; }
+
+.rieRotateTable .rbIcon:before, .rieResizeButtons .rbIcon:before {
+  color: #ffffff; }
+
+.rieRotateTable .rbHovered .rbIcon:before, .rieResizeButtons .rbHovered .rbIcon:before {
+  color: #0082cc; }
+
+.rieBottomCell {
+  border-color: #333333; }
+
+.rieZoomTable .RadButton_BlackMetroTouch.rbButton.rbPrimary {
+  height: 2.4em;
+  padding-left: 1.55em; }
+
+div.rdContent.RadImageEditor {
+  border-radius: 0; }
+
+div.rieZoneLeft, div.rieZoneRight {
+  width: 5.625em; }
+

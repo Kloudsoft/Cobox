@@ -1,0 +1,59 @@
+.RadAutoCompleteBox_Black {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 16px; }
+  .RadAutoCompleteBox_Black .racTokenList {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #444444; }
+  .RadAutoCompleteBox_Black .racToken {
+    border-radius: 3px;
+    background-image: url('Common/radGradientButtonSprite.png');
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b); }
+  .RadAutoCompleteBox_Black .racRemoveTokenLink {
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -2px -1342px; }
+  .RadAutoCompleteBox_Black .racToken.racHovered {
+    border-color: #080808;
+    color: #9eda29;
+    background-color: #020202;
+    background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+  .RadAutoCompleteBox_Black .racToken.racFocused {
+    border-color: #080808;
+    box-shadow: inset 0 0 5px #080808; }
+  .RadAutoCompleteBox_Black .racToken.racSelected {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #202020;
+    background-image: linear-gradient(#6e6e6e, #2b2b2d 50%, #050505 50%, #202020); }
+  * + html .RadAutoCompleteBox_Black .racInput {
+    color: #ffffff;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadAutoCompleteBox_Black .racEmptyMessage {
+    color: #6f6f6f; }
+  .RadAutoCompleteBox_Black .racLoadingIcon {
+    background-image: url('Common/loading_small.gif'); }
+
+.RadAutoCompleteBoxPopup_Black {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #464646;
+  font-size: 12px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadAutoCompleteBoxPopup_Black .racHeader,
+  .RadAutoCompleteBoxPopup_Black .racFooter, .RadAutoCompleteBoxPopup_Black .racShowAll {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #161616; }
+  .RadAutoCompleteBoxPopup_Black .racItemHovered {
+    color: #9eda29;
+    background-color: #3e3e3e; }
+  .RadAutoCompleteBoxPopup_Black .racFocused {
+    box-shadow: inset 0 0 5px #232323; }
+  .RadAutoCompleteBoxPopup_Black .racItemSelected {
+    color: #9eda29;
+    background-color: #2e2e2e; }

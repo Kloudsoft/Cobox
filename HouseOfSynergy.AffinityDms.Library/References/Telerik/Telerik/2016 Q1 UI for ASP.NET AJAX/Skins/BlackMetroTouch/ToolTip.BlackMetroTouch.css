@@ -1,0 +1,58 @@
+.RadToolTip_BlackMetroTouch {
+  border: 1px solid #4e4e4e;
+  background-color: #000000;
+  color: #ffffff; }
+  .RadToolTip_BlackMetroTouch table.rtWrapper tr.rtVisibleTitleBar td {
+    height: 50px; }
+  .RadToolTip_BlackMetroTouch .rtWrapperTopCenter div.rtTitlebar {
+    font-size: 22px;
+    margin: 0 0 0 7px; }
+  .RadToolTip_BlackMetroTouch.rtLoading {
+    background: url('Common/loading.gif') no-repeat center; }
+  .RadToolTip_BlackMetroTouch table.rtWrapper tr td a.rtCloseButton {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #4e4e4e;
+    border-radius: 45px;
+    margin: -5px -5px 0 0;
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -11px -1911px;
+    background-color: #222222; }
+  .RadToolTip_BlackMetroTouch table.rtWrapper tr td a.rtCloseButton:hover {
+    background-position: -11px -1911px;
+    background-color: #25a0da;
+    border: #25a0da; }
+  .RadToolTip_BlackMetroTouch table.rtWrapper tr td a.rtCloseButton:active,
+  .RadToolTip_BlackMetroTouch table.rtWrapper tr td a.rtCloseButton:focus {
+    background-position: -11px -1911px;
+    background-color: #0082cc;
+    border: #0082cc; }
+  .RadToolTip_BlackMetroTouch table.rtWrapper td.rtWrapperContent {
+    background-color: #000000;
+    color: #ffffff; }
+  .RadToolTip_BlackMetroTouch div.rtTitlebar {
+    color: #ffffff; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout div.rtCallout {
+    background-image: url('ToolTip/Callouts.png');
+    width: 14px;
+    height: 14px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutTopRight,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutTopCenter,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutTopLeft {
+    background-position: 0 0;
+    margin-top: -7px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutTopRight {
+    margin-left: -40px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomRight,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomCenter,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomLeft {
+    background-position: 0 -10px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutMiddleRight {
+    background-position: 7px -40px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutMiddleLeft {
+    background-position: 0 -60px;
+    margin-left: -7px; }
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomRight,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomCenter,
+  .RadToolTip_BlackMetroTouch.rtVisibleCallout .rtCallout.rtCalloutBottomLeft {
+    background-position: 0 -13px; }

@@ -1,0 +1,56 @@
+.RadListView_Black {
+  border: 1px solid #080808;
+  background-color: #464646;
+  color: #d7d7d7; }
+  .RadListView_Black .rlvA {
+    background: #494949; }
+  .RadListView_Black .rlvISel {
+    background: #303030; }
+  .RadListView_Black .rlvIEdit {
+    background: #202020;
+    color: #d7d7d7; }
+  .RadListView_Black .rlvActionButton {
+    color: #ffffff;
+    font-size: 16px; }
+  .RadListView_Black .rlvISel .rlvBSel .rbIcon,
+  .RadListView_Black .rlvISel .rlvActionButton {
+    color: #9eda29; }
+  .RadListView_Black .rlvDrag {
+    background-image: url('../Black/ListView/drag.gif');
+    background-position: center center; }
+  .RadListView_Black div.rlvI, .RadListView_Black div.rlvIEmpty {
+    border-color: #4f4f4f; }
+  .RadListView_Black div.rlvA {
+    border-color: #494949; }
+  .RadListView_Black div.rlvISel {
+    border-color: #1a1a1a; }
+  .RadListView_Black tr.rlvHeader th {
+    border: 0;
+    border-left: 1px solid #080808;
+    background-image: linear-gradient(#323232, #161616);
+    color: #d7d7d7; }
+  .RadListView_Black tr.rlvI td, .RadListView_Black tr.rlvA td, .RadListView_Black tr.rlvISel td, .RadListView_Black tr.rlvIEmpty td {
+    border: 0;
+    border-bottom: 1px solid; }
+  .RadListView_Black tr.rlvI td, .RadListView_Black tr.rlvIEmpty td {
+    border-color: #4f4f4f; }
+  .RadListView_Black tr.rlvA td {
+    border-color: #494949; }
+  .RadListView_Black tr.rlvISel td {
+    border-color: #1e1e1e; }
+  .RadListView_Black td.rlvI, .RadListView_Black td.rlvA, .RadListView_Black td.rlvISel, .RadListView_Black td.rlvIEmpty {
+    border: 0;
+    border-right: 1px solid; }
+  .RadListView_Black td.rlvI, .RadListView_Black td.rlvIEmpty {
+    border-color: #4f4f4f; }
+  .RadListView_Black td.rlvA {
+    border-color: #494949; }
+  .RadListView_Black td.rlvISel {
+    border-color: #1e1e1e; }
+  .RadListView_Black .rlvFloated .rlvI, .RadListView_Black .rlvFloated .rlvA, .RadListView_Black .rlvFloated .rlvISel, .RadListView_Black .rlvFloated .rlvIEdit {
+    border-color: #080808; }
+  .RadListView_Black .rlvInput {
+    border-color: #080808;
+    background-color: #444444;
+    color: #ffffff; }
+

@@ -1,0 +1,15 @@
+.RadTreeMap {
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.42857; }
+  .RadTreeMap .k-treemap-tile {
+    border-color: inherit;
+    color: inherit;
+    background-color: inherit; }
+  .RadTreeMap .k-treemap-title {
+    background-position: 0 0;
+    background-repeat: repeat-x; }
+  .RadTreeMap .k-treemap-wrap {
+    border-color: inherit;
+    color: inherit;
+    background-color: inherit; }

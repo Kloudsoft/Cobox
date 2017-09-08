@@ -1,0 +1,41 @@
+.RadToolTip_BlackMetroTouch {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #333333;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadToolTip_BlackMetroTouch.rtRoundedCorner {
+    border-radius: 0; }
+  .RadToolTip_BlackMetroTouch .rtClose {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222;
+    background-image: linear-gradient(); }
+  .RadToolTip_BlackMetroTouch .rtClose:hover {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da;
+    background-image: linear-gradient(); }
+  .RadToolTip_BlackMetroTouch .rtClose:active {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc;
+    background-image: linear-gradient(); }
+  .RadToolTip_BlackMetroTouch .rtCalloutTopRight, .RadToolTip_BlackMetroTouch .rtCalloutTopCenter, .RadToolTip_BlackMetroTouch .rtCalloutTopLeft {
+    border-bottom-color: #333333; }
+  .RadToolTip_BlackMetroTouch .rtCalloutTopRight:before, .RadToolTip_BlackMetroTouch .rtCalloutTopCenter:before, .RadToolTip_BlackMetroTouch .rtCalloutTopLeft:before {
+    border-bottom-color: #000000; }
+  .RadToolTip_BlackMetroTouch .rtCalloutMiddleRight {
+    border-left-color: #333333; }
+  .RadToolTip_BlackMetroTouch .rtCalloutMiddleRight:before {
+    border-left-color: #000000; }
+  .RadToolTip_BlackMetroTouch .rtCalloutMiddleLeft {
+    border-right-color: #333333; }
+  .RadToolTip_BlackMetroTouch .rtCalloutMiddleLeft:before {
+    border-right-color: #000000; }
+  .RadToolTip_BlackMetroTouch .rtCalloutBottomRight, .RadToolTip_BlackMetroTouch .rtCalloutBottomCenter, .RadToolTip_BlackMetroTouch .rtCalloutBottomLeft {
+    border-top-color: #333333; }
+  .RadToolTip_BlackMetroTouch .rtCalloutBottomRight:before, .RadToolTip_BlackMetroTouch .rtCalloutBottomCenter:before, .RadToolTip_BlackMetroTouch .rtCalloutBottomLeft:before {
+    border-top-color: #000000; }
+  .RadToolTip_BlackMetroTouch.rtLoading {
+    background-image: url('../BlackMetroTouch/Common/loading.gif'); }
+

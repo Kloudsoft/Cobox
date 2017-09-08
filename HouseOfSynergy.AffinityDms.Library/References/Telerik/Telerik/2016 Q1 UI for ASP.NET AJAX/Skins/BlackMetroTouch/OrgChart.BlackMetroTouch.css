@@ -1,0 +1,81 @@
+.RadOrgChart_BlackMetroTouch {
+  color: #ffffff;
+  font: 100 16px/34px "Segoe UI", Arial, Helvetica, sans-serif;
+  /* Loading states */ }
+  .RadOrgChart_BlackMetroTouch .rocGroup {
+    background-color: #111;
+    border: 1px solid #222; }
+    .RadOrgChart_BlackMetroTouch .rocGroup :root {
+      background-color: rgba(255, 255, 255, 0.3); }
+  .RadOrgChart_BlackMetroTouch .rocItemContent,
+  .RadOrgChart_BlackMetroTouch .rocItemTemplate {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadOrgChart_BlackMetroTouch .rocExpandArrow,
+  .RadOrgChart_BlackMetroTouch .rocCollapseArrow,
+  .RadOrgChart_BlackMetroTouch .rocExpandGroupArrow,
+  .RadOrgChart_BlackMetroTouch .rocCollapseGroupArrow {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222;
+    width: 28px;
+    height: 28px;
+    background-image: url('Common/radActionsSprite.png');
+    z-index: 1000; }
+  .RadOrgChart_BlackMetroTouch .rocExpandArrow,
+  .RadOrgChart_BlackMetroTouch .rocCollapseArrow {
+    margin-left: -15px;
+    bottom: -16px; }
+  .RadOrgChart_BlackMetroTouch .rocExpandArrow {
+    background-position: -11px -61px; }
+  .RadOrgChart_BlackMetroTouch .rocCollapseArrow {
+    background-position: -11px -11px; }
+  .RadOrgChart_BlackMetroTouch .rocExpandGroupArrow {
+    background-position: -11px -161px; }
+  .RadOrgChart_BlackMetroTouch .rocCollapseGroupArrow {
+    background-position: -11px -111px; }
+  .RadOrgChart_BlackMetroTouch .rocLoadingNodes .rocExpandArrow,
+  .RadOrgChart_BlackMetroTouch .rocLoadingNodes .rocCollapseArrow,
+  .RadOrgChart_BlackMetroTouch .rocLoadingGroups .rocExpandGroupArrow,
+  .RadOrgChart_BlackMetroTouch .rocLoadingGroups .rocCollapseGroupArrow {
+    background-image: url('Common/loading_small.gif'); }
+  .RadOrgChart_BlackMetroTouch .rocLineUp,
+  .RadOrgChart_BlackMetroTouch .rocLineDown,
+  .RadOrgChart_BlackMetroTouch .rocLineHorizontal {
+    background-image: url('../Common/OrgChart/rocLinesMedium.png'); }
+  .RadOrgChart_BlackMetroTouch.rocDetachedItemContainer .rocGhostItem, .RadOrgChart_BlackMetroTouch.rocDetachedItemContainer .rocGhostNode, .RadOrgChart_BlackMetroTouch.rocDetachedNodeContainer .rocGhostItem, .RadOrgChart_BlackMetroTouch.rocDetachedNodeContainer .rocGhostNode {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222;
+    background-image: url('../Common/OrgChart/rocItemTileLight.png');
+    _background-image: none; }
+  .RadOrgChart_BlackMetroTouch.rocDetachedItemContainer .rocDropClue, .RadOrgChart_BlackMetroTouch.rocDetachedNodeContainer .rocDropClue {
+    background-image: url('../Common/Actions/actionDragDropDark.png'); }
+
+.rocToolbar_BlackMetroTouch {
+  padding: 5px;
+  border-color: #000000;
+  border-radius: 0;
+  background-color: #000000; }
+  .rocToolbar_BlackMetroTouch ul {
+    margin-left: -5px; }
+  .rocToolbar_BlackMetroTouch li {
+    margin-left: 5px; }
+  .rocToolbar_BlackMetroTouch .rocToolbarButton {
+    padding: 3px;
+    border-color: #4e4e4e;
+    border-radius: 0;
+    background-color: #222222;
+    background-position: 0 0;
+    text-indent: -999em;
+    float: left;
+    overflow: hidden; }
+    .rocToolbar_BlackMetroTouch .rocToolbarButton:first-child {
+      margin: 0; }
+    .rocToolbar_BlackMetroTouch .rocToolbarButton.rocActionDrillHere {
+      background-position: -30px 5px; }
+    .rocToolbar_BlackMetroTouch .rocToolbarButton.rocActionGoToParent {
+      background-position: -30px -11px; }
+    .rocToolbar_BlackMetroTouch .rocToolbarButton.rocActionGoToRoot {
+      background-position: -30px -27px; }

@@ -1,0 +1,279 @@
+.RadSpreadsheet_Black {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #464646; }
+  .RadSpreadsheet_Black .rssToolbarWrapper {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #202020; }
+  .RadSpreadsheet_Black .rssTabstrip .rtsLevel1 {
+    border-color: #0e0e0e; }
+  .RadSpreadsheet_Black .rssTabstrip .rtsLevel1 .rtsSelected .rtsLink {
+    border-color: #0e0e0e;
+    color: #d7d7d7;
+    background: #606060; }
+  .RadSpreadsheet_Black .rssFormulaBar {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #444444; }
+  .RadSpreadsheet_Black .k-syntax-startexp {
+    font-weight: bold; }
+  .RadSpreadsheet_Black .k-syntax-func {
+    font-weight: bold; }
+  .RadSpreadsheet_Black .k-syntax-paren-match {
+    background-color: #caf200; }
+  .RadSpreadsheet_Black .k-syntax-bool {
+    color: #a9169c; }
+  .RadSpreadsheet_Black .k-syntax-num {
+    color: #0099ff; }
+  .RadSpreadsheet_Black .k-syntax-str {
+    color: #38b714; }
+  .RadSpreadsheet_Black .k-syntax-ref {
+    color: #ff8822; }
+  .RadSpreadsheet_Black .k-syntax-error {
+    color: red; }
+  .RadSpreadsheet_Black .rssSheetsbar {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #202020; }
+    .RadSpreadsheet_Black .rssSheetsbar .t-spreadsheet-sheets-bar-add {
+      border-color: transparent;
+      color: inherit;
+      background: none; }
+    .RadSpreadsheet_Black .rssSheetsbar .t-spreadsheet-sheets-bar-add:hover {
+      border-color: #080808;
+      color: #9eda29;
+      background-color: #020202;
+      background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+  .RadSpreadsheet_Black .rssPane {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #464646; }
+  .RadSpreadsheet_Black .k-spreadsheet-vaxis,
+  .RadSpreadsheet_Black .k-spreadsheet-haxis {
+    border-color: #080808; }
+  .RadSpreadsheet_Black .rssTopCorner {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #161616;
+    background-image: linear-gradient(#323232, #161616); }
+    .RadSpreadsheet_Black .rssTopCorner:after {
+      border-color: transparent #3b3b3b #3b3b3b transparent; }
+  .RadSpreadsheet_Black .rssPane td {
+    border-color: #080808; }
+  .RadSpreadsheet_Black .rssRowHeader {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #161616; }
+  .RadSpreadsheet_Black .rssColumnHeader {
+    border-color: #080808;
+    color: #d7d7d7;
+    background-color: #161616;
+    background-image: linear-gradient(#323232, #161616); }
+  .RadSpreadsheet_Black .rssRowHeader td,
+  .RadSpreadsheet_Black .rssColumnHeader td {
+    color: #d7d7d7;
+    background-color: #161616; }
+  .RadSpreadsheet_Black .rssRowHeader td:hover,
+  .RadSpreadsheet_Black .rssColumnHeader td:hover {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #2d2d2d; }
+  .RadSpreadsheet_Black .rssRowHeader .k-selection-partial,
+  .RadSpreadsheet_Black .rssColumnHeader .k-selection-partial {
+    background-color: #3a3a3a; }
+    .RadSpreadsheet_Black .rssRowHeader .k-selection-partial:before,
+    .RadSpreadsheet_Black .rssColumnHeader .k-selection-partial:before {
+      border-color: #9eda29; }
+  .RadSpreadsheet_Black .rssSelection {
+    border-color: #9eda29;
+    background-color: rgba(158, 218, 41, 0.2);
+    box-shadow: 0 0 0 1px #9eda29; }
+    .RadSpreadsheet_Black .rssSelection:after {
+      border-color: #464646;
+      background-color: #9eda29; }
+  .RadSpreadsheet_Black .rssActiveCell {
+    border-color: #000000;
+    background-color: #464646; }
+  .RadSpreadsheet_Black .k-auto-fill {
+    border-color: #9eda29;
+    box-shadow: 0 0 0 1px #9eda29 inset; }
+  .RadSpreadsheet_Black .rssCellEditor {
+    color: #d7d7d7;
+    background-color: #464646; }
+  .RadSpreadsheet_Black .k-spreadsheet-merged-cell {
+    background-color: #464646; }
+  .RadSpreadsheet_Black .k-resize-handle,
+  .RadSpreadsheet_Black .k-resize-hint-handle,
+  .RadSpreadsheet_Black .k-resize-hint-marker {
+    background-color: #000000; }
+  .RadSpreadsheet_Black .k-filter-range {
+    border-color: #000000; }
+  .RadSpreadsheet_Black .k-spreadsheet-filter {
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b);
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px #080808; }
+  .RadSpreadsheet_Black .k-spreadsheet-filter:hover {
+    border-color: #080808;
+    color: #9eda29;
+    background-color: #020202;
+    background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202);
+    box-shadow: inset 0 0 0 1px #080808; }
+
+.rssSkin .t-button {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b);
+  border-radius: 3px; }
+
+.rssSkin .t-button:hover,
+.rssSkin .t-button.t-state-hover {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.rssSkin .t-tabstrip .t-state-default {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #161616;
+  background-image: linear-gradient(#323232, #161616); }
+
+.rssSkin .t-tabstrip .t-state-hover {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #2d2d2d;
+  background-image: linear-gradient(#424242, #2d2d2d); }
+
+.rssSkin .t-tabstrip .t-state-active {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #464646;
+  background-image: none; }
+
+.rssSkin .t-tabstrip-bottom > .t-tabstrip-items .t-state-active {
+  color: #9eda29; }
+
+.rssSkin .t-spreadsheet-sheets-remove.t-state-hover {
+  color: #c7000b; }
+
+.rssSkin .rssInput {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #444444; }
+
+.rssSkin .rssButton {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b);
+  border-radius: 3px; }
+
+.rssSkin .rssButton.rssHovered {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+
+.rssSkin .rssButton.rssPrimary {
+  border-color: #8cc322;
+  color: #202020;
+  background-color: #9eda29;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1)); }
+
+.rssSkin .rssButton.rssPrimary.rssHovered {
+  border-color: #79a91d;
+  color: #202020;
+  background-color: #8cc322;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1)); }
+
+.rssSkin .rssMenu .rssLink {
+  border-radius: 3px; }
+
+.rssSkin .rssMenu .rssHovered > .rssLink {
+  border-color: #313131;
+  color: #ffffff;
+  background-color: #404040;
+  background-image: linear-gradient(#5b5b5b, #404040); }
+
+.rssSkin .rssMenu .rssSelected > .rssLink {
+  border-color: #232323;
+  color: #9eda29;
+  background-color: #303030;
+  background-image: linear-gradient(#424242, #303030); }
+
+.rssSkin .rssCollapsibleList .rssLink {
+  border-radius: 3px; }
+
+.rssSkin .rssCollapsibleList .rssHovered > .rssLink {
+  border-color: #313131;
+  color: #ffffff;
+  background-color: #404040;
+  background-image: linear-gradient(#5b5b5b, #404040); }
+
+.rssSkin .rssCollapsibleList .rssExpanded > .rssLink {
+  border-color: transparent;
+  color: inherit;
+  background: none; }
+
+.rssPopup {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #464646;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #080808; }
+  .rssPopup .rssFilterMenu:before {
+    border-color: #222222;
+    background: #3b3b3b; }
+  .rssPopup .rssSeparator {
+    border-color: #2d2d2d #606060 #606060 #2d2d2d; }
+
+.rssWindow {
+  border-color: #080808;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #080808;
+  color: #d7d7d7;
+  background: #161616; }
+
+.rssWindow .rssWindowTitlebar {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #161616;
+  background-image: linear-gradient(#323232, #161616);
+  border-radius: 5px 5px 0 0; }
+
+.rssWindow .rssWindowAction {
+  border-color: transparent; }
+
+.rssWindow .rssWindowAction:hover {
+  border-color: #080808;
+  color: #9eda29;
+  background-color: #020202;
+  background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202);
+  border-radius: 3px; }
+
+.rssWindow .rssWindowContent {
+  border-color: #080808;
+  color: #d7d7d7;
+  background-color: #464646; }
+
+.rssWindow .rssWindowTabstrip {
+  background-color: #202020; }
+
+.rssWindow hr {
+  border-color: #080808; }
+
+.rssFormulaList {
+  border-color: #080808;
+  color: #ffffff;
+  background-color: #464646; }
+  .rssFormulaList .k-item.k-state-hover {
+    color: #9eda29;
+    background-color: #3e3e3e; }
+  .rssFormulaList .k-item.k-state-focused {
+    color: #9eda29;
+    background-color: #2e2e2e; }

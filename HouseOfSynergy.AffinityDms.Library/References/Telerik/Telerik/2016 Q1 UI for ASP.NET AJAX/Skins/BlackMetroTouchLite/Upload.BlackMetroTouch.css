@@ -1,0 +1,51 @@
+.RadUpload_BlackMetroTouch {
+  color: #ffffff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+
+@media \0screen {
+  .RadUpload_BlackMetroTouch .ruFileLI.ruUploadSuccess .radIcon {
+    background-image: url('../Common/Upload/AsyncStates.png');
+    background-position: 3px -16px; } }
+
+.RadUpload_BlackMetroTouch .ruFileLI.ruUploadSuccess .radIcon:before {
+  background-color: #76b01b;
+  box-shadow: none; }
+
+@media \0screen {
+  .RadUpload_BlackMetroTouch .ruFileLI.ruUploadCancelled .radIcon,
+  .RadUpload_BlackMetroTouch .ruFileLI.ruUploadFailure .radIcon {
+    background-image: url('../Common/Upload/AsyncStates.png');
+    background-position: 3px -66px; } }
+
+.RadUpload_BlackMetroTouch .ruFileLI.ruUploadCancelled .radIcon:before,
+.RadUpload_BlackMetroTouch .ruFileLI.ruUploadFailure .radIcon:before {
+  background-color: #e81313;
+  box-shadow: none; }
+
+.RadUpload_BlackMetroTouch .ruFileLI .ruButton {
+  color: #c5c5c5; }
+  .RadUpload_BlackMetroTouch .ruFileLI .ruButton:hover {
+    color: #fff; }
+
+.RadUpload_BlackMetroTouch .ruFileLI .ruFileProgressWrap {
+  background-color: #222222; }
+
+.RadUpload_BlackMetroTouch .ruFileLI .ruFileProgress {
+  border-color: #000;
+  background-color: #25a0da; }
+
+.RadUpload_BlackMetroTouch .ruSelectWrap .ruFakeInput {
+  border-color: #4e4e4e;
+  background: #000000; }
+
+.RadUpload_BlackMetroTouch .ruSelectWrap .ruButton {
+  border-color: #4e4e4e;
+  background-color: #222222; }
+  .RadUpload_BlackMetroTouch .ruSelectWrap .ruButton.ruButtonHover {
+    border-color: #25a0da;
+    background-color: #25a0da; }
+
+.RadUpload_BlackMetroTouch .ruDropZone {
+  color: #ffffff;
+  border-color: #333333;
+  background-color: #000000; }

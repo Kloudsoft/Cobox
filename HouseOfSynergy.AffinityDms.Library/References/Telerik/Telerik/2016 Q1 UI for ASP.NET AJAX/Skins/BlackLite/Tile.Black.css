@@ -1,0 +1,22 @@
+.RadTile_Black {
+  color: #d7d7d7;
+  background-color: #161616;
+  /* Loading image */ }
+  .RadTile_Black.rtileSelected {
+    border-color: #9eda29; }
+  .RadTile_Black.rtileHovered {
+    border-color: #5c5c5c; }
+  .RadTile_Black.rtileSelected.rtileHovered {
+    border-color: rgba(158, 218, 41, 0.7); }
+  .RadTile_Black.rtileSelected .rtileSelectedIcon {
+    background-color: #9eda29;
+    color: #ffffff; }
+  .RadTile_Black .rtileBadgeIcon {
+    color: #d7d7d7; }
+  html .RadTile_Black.RadTile h6.rtileTitle {
+    color: #d7d7d7; }
+  .RadTile_Black .rtilePeekContent {
+    background-color: #161616; }
+  .RadTile_Black.rtileLoading, .RadTile_Black .rtileLoading {
+    background-image: url('../Black/Common/loading_small.gif'); }
+

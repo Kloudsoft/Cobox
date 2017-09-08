@@ -1,0 +1,50 @@
+.RadUpload_BlackMetroTouch {
+  color: #ffffff;
+  font: 100 16px "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 34px !important; }
+  .RadUpload_BlackMetroTouch .ruFileWrap {
+    height: 36px !important;
+    line-height: 34px !important; }
+  .RadUpload_BlackMetroTouch .ruFileProgressWrap {
+    height: 4px !important;
+    background-color: #25a0da !important; }
+  .RadUpload_BlackMetroTouch .ruFileProgress {
+    height: 4px !important; }
+  .RadUpload_BlackMetroTouch .ruFakeInput {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 0 !important;
+    height: 34px !important;
+    font: 100 16px "Segoe UI", Arial, Helvetica, sans-serif;
+    line-height: 34px;
+    vertical-align: top; }
+  .RadUpload_BlackMetroTouch .ruUploadProgress {
+    margin-right: 10px !important;
+    padding-left: 32px !important; }
+  .RadUpload_BlackMetroTouch .ruButton {
+    margin: 0 2px 0 0;
+    padding: 0;
+    width: 80px;
+    height: 36px;
+    border: 1px solid #4e4e4e;
+    color: #ffffff;
+    background-color: #222222;
+    font: 100 16px "Segoe UI", Arial, Helvetica, sans-serif;
+    line-height: 34px; }
+  .RadUpload_BlackMetroTouch .ruButtonHover {
+    background-color: #25a0da !important; }
+  .RadUpload_BlackMetroTouch .ruButton.ruButtonFocus {
+    border: 1px dotted #ccc; }
+  .RadUpload_BlackMetroTouch .ruRemove {
+    width: 36px !important;
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -9px -3309px;
+    background-repeat: no-repeat;
+    text-indent: -999em; }
+  .RadUpload_BlackMetroTouch .ruDropZone {
+    background: #191919;
+    border-color: #333333;
+    color: #666666;
+    font-size: 15px;
+    font-style: italic; }

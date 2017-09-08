@@ -1,0 +1,180 @@
+.RadSlider_BlackMetroTouch {
+  /* horizontal slider */
+  /* end horizontal slider */
+  /* vertical slider */
+  /* end vertical slider */
+  /* horizontal slider - TrackPosition=Top/Bottom */
+  /* vertical slider - TrackPosition=Left/Right */
+  /* horizontal slider - TrackPosition=Center */
+  /* vertical slider - TrackPosition=Center */ }
+  .RadSlider_BlackMetroTouch .rslTrack {
+    border-color: #4e4e4e; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal .rslTrack {
+    margin: 0 12px;
+    left: 30px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal .rslItemsWrapper {
+    left: 30px;
+    margin: 0 12px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslHandle {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #4e4e4e;
+    border-radius: 45px;
+    background-image: url('Common/radActionsSprite.png');
+    background-color: #222222;
+    overflow: hidden; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslHandle:hover {
+    background-color: #25a0da;
+    border: 1px solid #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslHandle:active, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslHandle:focus {
+    background-color: #0082cc;
+    border: 1px solid #0082cc; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDecrease {
+    margin: -3px 0 0; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDecrease, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDecrease:hover, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDecrease:active, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDecrease:focus {
+    background-position: -11px -111px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslIncrease {
+    margin: -3px 0 0;
+    right: 0; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslIncrease, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslIncrease:hover, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslIncrease:active, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslIncrease:focus {
+    background-position: -11px -161px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDraghandle {
+    width: 23px;
+    height: 23px;
+    border-radius: 45px;
+    background-image: none;
+    border: 2px solid #000;
+    background-color: #25a0da;
+    top: -2px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDraghandle:hover {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #000;
+    background-color: #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDraghandle:active, .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDraghandle:focus {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #25a0da;
+    background-color: #000; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal a.rslDraghandle span {
+    width: 22px;
+    height: 22px;
+    border-radius: 45px;
+    overflow: hidden; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal div.rslTrack {
+    height: 9px;
+    line-height: 9px;
+    background-color: #222222;
+    border: 0; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal div.rslSelectedregion {
+    height: 9px;
+    line-height: 9px;
+    background-color: #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal .rslItem {
+    background-image: url('Slider/ItemHorizontalBgr.png'); }
+  .RadSlider_BlackMetroTouch div.rslHorizontal.rslMiddle .rslHandle {
+    margin-top: -15px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal li.rslItem span {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    font-size: 13px; }
+  .RadSlider_BlackMetroTouch div.rslHorizontal.rslMiddle div.rslTrack {
+    margin-top: -5px; }
+  .RadSlider_BlackMetroTouch div.rslVertical .rslTrack {
+    margin: 12px 0;
+    top: 30px; }
+  .RadSlider_BlackMetroTouch div.rslVertical .rslItemsWrapper {
+    top: 30px;
+    margin: 12px 0; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslHandle {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #4e4e4e;
+    border-radius: 45px;
+    background-image: url('Common/radActionsSprite.png');
+    background-color: #222222;
+    overflow: hidden; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslHandle:hover {
+    background-color: #25a0da;
+    border: 1px solid #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslHandle:active, .RadSlider_BlackMetroTouch div.rslVertical a.rslHandle:focus {
+    background-color: #25a0da;
+    border: 1px solid #0082cc; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslDecrease, .RadSlider_BlackMetroTouch div.rslVertical a.rslDecrease:hover, .RadSlider_BlackMetroTouch div.rslVertical a.rslDecrease:active, .RadSlider_BlackMetroTouch div.rslVertical a.rslDecrease:focus {
+    margin: 0;
+    background-position: -11px -11px; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslIncrease, .RadSlider_BlackMetroTouch div.rslVertical a.rslIncrease:hover, .RadSlider_BlackMetroTouch div.rslVertical a.rslIncrease:active, .RadSlider_BlackMetroTouch div.rslVertical a.rslIncrease:focus {
+    margin: 0;
+    background-position: -11px -61px; }
+  .RadSlider_BlackMetroTouch div.rslVertical div.rslTrack {
+    width: 8px;
+    background-color: #222222;
+    border: 0;
+    left: 11px; }
+  .RadSlider_BlackMetroTouch div.rslVertical.rslRight div.rslTrack {
+    left: auto;
+    right: 11px; }
+  .RadSlider_BlackMetroTouch div.rslVertical.rslCenter div.rslTrack {
+    left: 50%;
+    margin-left: -4px; }
+  .RadSlider_BlackMetroTouch div.rslVertical.rslCenter a.rslHandle {
+    left: 50%;
+    margin-left: -15px; }
+  .RadSlider_BlackMetroTouch div.rslVertical .rslSelectedregion {
+    width: 8px;
+    background-color: #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslDraghandle {
+    width: 23px;
+    height: 23px;
+    border-radius: 45px;
+    background-image: none;
+    border: 2px solid #000;
+    background-color: #25a0da;
+    left: -1px !important;
+    *left: -8px !important; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslDraghandle:hover {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #000;
+    background-color: #25a0da; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslDraghandle:active, .RadSlider_BlackMetroTouch div.rslVertical a.rslDraghandle:focus {
+    width: 22px;
+    height: 22px;
+    border: 3px solid #25a0da;
+    background-color: #000; }
+  .RadSlider_BlackMetroTouch div.rslVertical a.rslDraghandle span {
+    width: 22px;
+    height: 22px;
+    border-radius: 45px;
+    overflow: hidden; }
+  .RadSlider_BlackMetroTouch div.rslVertical .rslItem {
+    background-image: url('Slider/ItemVerticalBgr.png'); }
+  .RadSlider_BlackMetroTouch div.rslVertical li.rslItem span {
+    font-size: 13px;
+    padding: 1px 3px; }
+  .RadSlider_BlackMetroTouch .rslLeft a.rslDraghandle {
+    background-image: url('Slider/DragVerticalHandleRight.png'); }
+  .RadSlider_BlackMetroTouch .rslItem, .RadSlider_BlackMetroTouch .rslLargeTick span {
+    color: #ffffff; }
+  .RadSlider_BlackMetroTouch .rslItemsWrapper .rslItemSelected {
+    color: #ffffff; }
+  .RadSlider_BlackMetroTouch .rslTop .rslSmallTick, .RadSlider_BlackMetroTouch .rslBottom .rslSmallTick {
+    background-image: url('Slider/SmallChangeHorizontal.png'); }
+  .RadSlider_BlackMetroTouch .rslTop .rslLargeTick, .RadSlider_BlackMetroTouch .rslBottom .rslLargeTick {
+    background-image: url('Slider/LargeChangeHorizontal.png'); }
+  .RadSlider_BlackMetroTouch .rslLeft .rslSmallTick, .RadSlider_BlackMetroTouch .rslRight .rslSmallTick {
+    background-image: url('Slider/SmallChangeVertical.png'); }
+  .RadSlider_BlackMetroTouch .rslLeft .rslLargeTick, .RadSlider_BlackMetroTouch .rslRight .rslLargeTick {
+    background-image: url('Slider/LargelChangeVertical.png'); }
+  .RadSlider_BlackMetroTouch .rslMiddle .rslSmallTick {
+    background-image: url('Slider/SmallChangeMiddleHorizontal.png'); }
+  .RadSlider_BlackMetroTouch .rslLargeTick {
+    background-image: url('Slider/LargeChangeMiddleHorizontal.png'); }
+  .RadSlider_BlackMetroTouch .rslCenter .rslSmallTick {
+    background-image: url('Slider/SmallChangeCenterVertical.png'); }
+  .RadSlider_BlackMetroTouch .rslCenter .rslLargeTick {
+    background-image: url('Slider/LargelChangeCenterVertical.png'); }
+

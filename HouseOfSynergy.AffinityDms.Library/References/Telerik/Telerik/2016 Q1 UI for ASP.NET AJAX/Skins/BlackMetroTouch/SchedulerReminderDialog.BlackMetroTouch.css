@@ -1,0 +1,82 @@
+.ReminderDialog_BlackMetroTouch {
+  color: #ffffff;
+  font: 100 16px/34px "Segoe UI", Arial, Helvetica, sans-serif; }
+  .ReminderDialog_BlackMetroTouch .rsModalBgTopLeft,
+  .ReminderDialog_BlackMetroTouch .rsModalBgTopRight,
+  .ReminderDialog_BlackMetroTouch .rsModalBgBottomLeft,
+  .ReminderDialog_BlackMetroTouch .rsModalBgBottomRight {
+    background: none;
+    display: none; }
+  .ReminderDialog_BlackMetroTouch .rsRemTitleBar {
+    margin: 0;
+    padding: 6px 30px 6px 10px;
+    color: #ffffff;
+    background: #25a0da;
+    font-size: 22px;
+    font-weight: 100;
+    background-color: #000000; }
+    .ReminderDialog_BlackMetroTouch .rsRemTitleBar .rsRemTitleBarCloseBtn {
+      margin: 0;
+      padding: 0;
+      width: 28px;
+      height: 28px;
+      border: 1px solid transparent;
+      border-radius: 100%;
+      background-image: url('Common/radActionsSprite.png');
+      background-position: -11px -1911px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      left: auto; }
+      .ReminderDialog_BlackMetroTouch .rsRemTitleBar .rsRemTitleBarCloseBtn:hover {
+        border-color: #ffffff; }
+  .ReminderDialog_BlackMetroTouch .rsRemTitleBarText {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    font-size: inherit;
+    line-height: normal; }
+  .ReminderDialog_BlackMetroTouch .rsRemContentPanel {
+    padding: 10px;
+    color: #ffffff;
+    background: #222222; }
+  .ReminderDialog_BlackMetroTouch .rsRemTitle {
+    margin: 0;
+    padding: 0; }
+  .ReminderDialog_BlackMetroTouch .rsRemList {
+    margin: 20px 0 0 0;
+    padding: 0; }
+    .ReminderDialog_BlackMetroTouch .rsRemList .RadListBox .rlbGroup {
+      height: 138px;
+      overflow-y: scroll; }
+  .ReminderDialog_BlackMetroTouch .rsRemActions {
+    margin: 20px 0 0 0;
+    padding: 0; }
+    .ReminderDialog_BlackMetroTouch .rsRemActions a.rsRemDismissAllBtn,
+    .ReminderDialog_BlackMetroTouch .rsRemActions a.rsRemOpenItemBtn,
+    .ReminderDialog_BlackMetroTouch .rsRemActions a.rsRemDismissBtn {
+      border: 1px solid #4e4e4e;
+      color: #ffffff;
+      background-color: #222222; }
+  .ReminderDialog_BlackMetroTouch .rsRemSnoozePanel {
+    margin: 20px 0 0 0;
+    padding: 0;
+    position: static; }
+    .ReminderDialog_BlackMetroTouch .rsRemSnoozePanel .rsRemSnoozeLabel {
+      margin: 0;
+      padding: 0; }
+    .ReminderDialog_BlackMetroTouch .rsRemSnoozePanel a.rsRemSnoozeBtn {
+      border: 1px solid #4e4e4e;
+      color: #ffffff;
+      background-color: #222222;
+      margin: 0; }
+    .ReminderDialog_BlackMetroTouch .rsRemSnoozePanel .RadComboBox {
+      margin: 0; }
+
+/* <advanced edit title> */
+.ReminderDialog_BlackMetroTouch .rsRemTitleIcon,
+.ReminderDialog_BlackMetroTouch .rsRemTitleBarIcon {
+  color: #767676;
+  background-image: url('Scheduler/rsSprites.png'); }
+
+/* </advanced edit title> */

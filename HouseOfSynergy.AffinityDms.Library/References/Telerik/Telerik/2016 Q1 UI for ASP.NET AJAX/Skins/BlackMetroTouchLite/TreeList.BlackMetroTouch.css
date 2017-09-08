@@ -1,0 +1,185 @@
+.RadTreeList_BlackMetroTouch,
+.rtlCEdit div.RadTreeList_BlackMetroTouch {
+  border-color: #333333;
+  background: #000000;
+  color: #ffffff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.TreeListToolTip_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlR > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlA > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlREdit > td,
+.RadTreeList_BlackMetroTouch table.rtlHBorders .rtlRFooter > td,
+.RadTreeList_BlackMetroTouch table .rtlHeader th {
+  padding: .4375em .625em; }
+
+.RadTreeList_BlackMetroTouch .rtlHeader {
+  background: #000000;
+  color: #ffffff;
+  border-width: 0;
+  border-color: #333333; }
+  .RadTreeList_BlackMetroTouch .rtlHeader a {
+    color: #ffffff; }
+
+.RadTreeList_BlackMetroTouch .rtlScroller {
+  border-color: #000000; }
+
+.RadTreeList_BlackMetroTouch .rtlRFooter {
+  background-color: #000000; }
+
+.rtlCEdit .RadTreeList_BlackMetroTouch {
+  border: 1px solid; }
+
+.RadTreeList_BlackMetroTouch {
+  /*>>Buttons*/
+  /*>>Expand/Collapse*/
+  /*<<Expand/Collapse*/
+  /*>>Editing*/
+  /*<<Editing*/
+  /*>>Sorting*/
+  /*<<Sorting*/
+  /*<<Buttons*/
+  /*>>Tree Lines*/ }
+  .RadTreeList_BlackMetroTouch .rtlR td,
+  .RadTreeList_BlackMetroTouch .rtlA td,
+  .RadTreeList_BlackMetroTouch .rtlREdit td,
+  .RadTreeList_BlackMetroTouch .rtlRFooter td,
+  .RadTreeList_BlackMetroTouch .rtlEditForm,
+  .RadTreeList_BlackMetroTouch .rtlVBorders .rtlHeader th {
+    border-color: #333333; }
+  .RadTreeList_BlackMetroTouch .rtlA {
+    background: #191919; }
+  .RadTreeList_BlackMetroTouch .rtlVBorders .rtlR td,
+  .RadTreeList_BlackMetroTouch .rtlVBorders .rtlA td,
+  .RadTreeList_BlackMetroTouch .rtlVBorders .rtlREdit td,
+  .RadTreeList_BlackMetroTouch .rtlVBorders .rtlRFooter td {
+    border-left-width: 0; }
+  .RadTreeList_BlackMetroTouch .rtlR a,
+  .RadTreeList_BlackMetroTouch .rtlA a,
+  .RadTreeList_BlackMetroTouch .rtlREdit a,
+  .RadTreeList_BlackMetroTouch .rtlEditForm a {
+    color: #ffffff; }
+  .RadTreeList_BlackMetroTouch .rtlRSel {
+    color: #ffffff;
+    background: #25a0da; }
+  .RadTreeList_BlackMetroTouch .rtlRActive {
+    color: #ffffff; }
+    .RadTreeList_BlackMetroTouch .rtlRActive .rtlCF {
+      box-shadow: inset 0px 5px 5px -5px #0082cc, inset 0px -5px 5px -5px #0082cc, inset 5px 0px 5px -5px #0082cc; }
+    .RadTreeList_BlackMetroTouch .rtlRActive .rtlCF ~ td {
+      box-shadow: inset 0px 5px 5px -5px #0082cc, inset 0px -5px 5px -5px #0082cc; }
+    .RadTreeList_BlackMetroTouch .rtlRActive .rtlCF ~ td:last-child {
+      box-shadow: inset 0px 5px 5px -5px #0082cc, inset 0px -5px 5px -5px #0082cc, inset -5px 0px 5px -5px #0082cc; }
+  .RadTreeList_BlackMetroTouch .rtlVBorders td.rtlL,
+  .RadTreeList_BlackMetroTouch .rtlLines td.rtlL {
+    background-color: #000000; }
+  .RadTreeList_BlackMetroTouch .rtlActionButton {
+    font-size: 1.8em;
+    border: 0 none;
+    background: none; }
+  .RadTreeList_BlackMetroTouch .rtlIcon {
+    color: #fff; }
+  .RadTreeList_BlackMetroTouch .rtlExpandIcon {
+    font-size: 1.5em; }
+  .RadTreeList_BlackMetroTouch .rtlExpand,
+  .RadTreeList_BlackMetroTouch .rtlCollapse {
+    margin-left: -.425em;
+    margin-top: -.25em;
+    background: #000;
+    border: 0 none; }
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlExpand,
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlCollapse {
+    margin-right: -.425em; }
+  .RadTreeList_BlackMetroTouch .rtlCollapseIcon:before {
+    content: '\E006'; }
+  .RadTreeList_BlackMetroTouch .rtlExpandIcon:before {
+    content: '\E00C'; }
+  .RadTreeList_BlackMetroTouch .rtlAddIcon:before {
+    content: '\E039'; }
+  .RadTreeList_BlackMetroTouch .rtlEditIcon:before {
+    content: '\E0D5'; }
+  .RadTreeList_BlackMetroTouch .rtlUpdateIcon:before {
+    content: '\E037'; }
+  .RadTreeList_BlackMetroTouch .rtlDelIcon:before,
+  .RadTreeList_BlackMetroTouch .rtlCancelIcon:before,
+  .RadTreeList_BlackMetroTouch .rtlClosePopUpIcon:before {
+    content: '\E038'; }
+  .RadTreeList_BlackMetroTouch .rtlSortDescIcon:before {
+    content: '\E00D';
+    margin-top: -.56em; }
+  .RadTreeList_BlackMetroTouch .rtlSortAscIcon:before {
+    content: '\E00E'; }
+  .RadTreeList_BlackMetroTouch .rtlPagerCell {
+    color: #ffffff;
+    background: #000000;
+    border-color: #333333; }
+    .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlNumPart a {
+      width: 1.42857em;
+      color: inherit;
+      border-radius: 100%;
+      padding: 4px; }
+      .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlNumPart a:hover {
+        border-color: #25a0da;
+        color: #ffffff;
+        background-color: #25a0da; }
+      .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlNumPart a.rtlCurrentPage {
+        border-color: #0082cc;
+        color: #ffffff;
+        background-color: #0082cc; }
+    .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlActionButton {
+      border-radius: 100%; }
+    .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlPagerButton,
+    .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlActionButton {
+      border-width: 1px;
+      border-style: solid;
+      border-color: #4e4e4e;
+      color: #ffffff;
+      background-color: #222222; }
+      .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlPagerButton:hover,
+      .RadTreeList_BlackMetroTouch .rtlPagerCell .rtlActionButton:hover {
+        border-color: #25a0da;
+        color: #ffffff;
+        background-color: #25a0da; }
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlExpand,
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlCollapse {
+    margin-right: -.425em; }
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlCollapseIcon:before {
+    content: '\E007'; }
+  .RadTreeList_BlackMetroTouch.RadTreeListRTL .rtlExpandIcon:before {
+    content: '\E00F'; }
+  .RadTreeList_BlackMetroTouch .rtlLines td.rtlL0 {
+    background-image: url('../BlackMetroTouch/TreeList/rtlSingleLite.gif'); }
+  .RadTreeList_BlackMetroTouch .rtlLines td.rtlL1 {
+    background-image: url('../BlackMetroTouch/TreeList/rtlTopLite.gif'); }
+  .RadTreeList_BlackMetroTouch .rtlLines td.rtlL2 {
+    background-image: url('../BlackMetroTouch/TreeList/rtlMiddleLite.gif'); }
+  .RadTreeList_BlackMetroTouch .rtlLines td.rtlL3 {
+    background-image: url('../BlackMetroTouch/TreeList/rtlBottomLite.gif'); }
+
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL1 {
+  background-image: url('../BlackMetroTouch/TreeList/rtlTopRTLLite.gif'); }
+
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL2 {
+  background-image: url('../BlackMetroTouch/TreeList/rtlMiddleRTLLite.gif'); }
+
+.RadTreeListRTL_BlackMetroTouch .rtlLines td.rtlL3 {
+  background-image: url('../BlackMetroTouch/TreeList/rtlBottomRTLLite.gif'); }
+
+/*<<Tree Lines*/
+.TreeListReorderTop_BlackMetroTouch,
+.TreeListReorderBottom_BlackMetroTouch {
+  font-size: 2.2em;
+  color: #fff;
+  text-shadow: 0 0 1px #000;
+  text-indent: 2px; }
+
+.RadTreeList_BlackMetroTouch .rtlDragHandle {
+  background-image: url('../BlackMetroTouch/Grid/rgDrag.gif'); }
+
+.TreeListToolTip_BlackMetroTouch {
+  border-color: #828282;
+  background: #000000;
+  color: #ffffff; }
+

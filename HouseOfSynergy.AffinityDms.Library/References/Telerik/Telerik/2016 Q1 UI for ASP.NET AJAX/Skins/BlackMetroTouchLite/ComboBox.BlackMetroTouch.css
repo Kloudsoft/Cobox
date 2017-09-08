@@ -1,0 +1,63 @@
+.RadComboBox_BlackMetroTouch {
+  color: #ffffff;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadComboBox_BlackMetroTouch .rcbInner {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #000000; }
+  .RadComboBox_BlackMetroTouch .rcbActionButton {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadComboBox_BlackMetroTouch .rcbHovered {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #000000; }
+  .RadComboBox_BlackMetroTouch .rcbHovered .rcbActionButton {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadComboBox_BlackMetroTouch .rcbFocused {
+    border-color: #2a2a2a;
+    color: #ffffff;
+    background-color: #000000; }
+  .RadComboBox_BlackMetroTouch .rcbFocused .rcbActionButton {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadComboBox_BlackMetroTouch .rcbReadOnly {
+    border-color: #4e4e4e;
+    color: #ffffff;
+    background-color: #222222; }
+  .RadComboBox_BlackMetroTouch .rcbReadOnly.rcbHovered {
+    border-color: #25a0da;
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadComboBox_BlackMetroTouch .rcbReadOnly.rcbFocused {
+    border-color: #0082cc;
+    color: #ffffff;
+    background-color: #0082cc; }
+
+.RadComboBoxDropDown_BlackMetroTouch {
+  border-color: #333333;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbHeader,
+  .RadComboBoxDropDown_BlackMetroTouch .rcbFooter, .RadComboBoxDropDown_BlackMetroTouch .rcbCheckAllItems, .RadComboBoxDropDown_BlackMetroTouch .rcbMoreResults {
+    border-color: #333333; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbHovered {
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbSelected {
+    color: #ffffff;
+    background-color: #0082cc; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbLoading {
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbItem em {
+    color: #ffffff;
+    background-color: #25a0da; }
+  .RadComboBoxDropDown_BlackMetroTouch .rcbCheckAllItemsHovered {
+    color: #ffffff;
+    background-color: #25a0da; }

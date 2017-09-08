@@ -1,0 +1,204 @@
+.RadColorPicker_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  margin-left: 5px;
+  /* recent colors */
+  /* drop down icon */
+  /* paletes */
+  /* sliders */ }
+  .RadColorPicker_BlackMetroTouch.RadColorPicker {
+    width: 51px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpImageButton, .RadColorPicker_BlackMetroTouch .rcpSlider div.rslTrack, .RadColorPicker_BlackMetroTouch .rcpSlider .rslTrack a.rslDraghandle, .RadColorPicker_BlackMetroTouch div.rcpMillionColorsSlider div.rslVertical a.rslDraghandle {
+    background-image: url('ColorPicker/rcpMetroSprite.png'); }
+  .RadColorPicker_BlackMetroTouch .rcpViews, .RadColorPicker_BlackMetroTouch .rcpHeader, .RadColorPicker_BlackMetroTouch .rcpPageView {
+    background-color: #000000; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader {
+    border-bottom: 1px solid #4e4e4e;
+    margin: 0 -7px 10px -7px;
+    padding-left: 10px;
+    padding-right: 8px; }
+  .RadColorPicker_BlackMetroTouch div.rcpPalette {
+    border: 1px solid #4e4e4e;
+    background-color: #000000;
+    padding: 0 7px 0 7px; }
+  .RadColorPicker_BlackMetroTouch div.rcpMillionColorsPageView .rcpInputsWrapper {
+    margin: 0 -10px 0 10px; }
+  .RadColorPicker_BlackMetroTouch div.rcpPalette label, .RadColorPicker_BlackMetroTouch div.rcpRecentColorsLabel {
+    line-height: 36px; }
+  .RadColorPicker_BlackMetroTouch div.rcpColorPreview {
+    height: 28px;
+    width: 28px;
+    border-radius: 45px;
+    border: 1px solid #4e4e4e; }
+  .RadColorPicker_BlackMetroTouch.RadColorPicker .rcpPalette input.rcpHexInput {
+    height: 28px;
+    line-height: 28px;
+    width: 65px !important;
+    background-color: #000000;
+    border: 1px solid #4e4e4e !important;
+    font-size: 16px;
+    margin: 0 0 0 3px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpImageButton {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #4e4e4e;
+    border-radius: 45px;
+    margin-left: 5px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpEmptyColor {
+    background-position: -30px -90px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpCustomColorButton {
+    background-position: left bottom; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton {
+    border: 1px solid #4e4e4e;
+    height: 28px;
+    line-height: 28px;
+    margin-right: -4px;
+    background-color: #222222;
+    font-size: 16px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton:hover {
+    cursor: pointer;
+    background-color: #25a0da;
+    border: 1px solid #25a0da; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton:active, .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton:focus {
+    background-color: #0082cc;
+    border: 1px solid #0082cc;
+    color: #ffffff; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton span {
+    line-height: 28px; }
+  .RadColorPicker_BlackMetroTouch .rcpColorPreview, .RadColorPicker_BlackMetroTouch .rcpInput, .RadColorPicker_BlackMetroTouch .rcpHexInput, .RadColorPicker_BlackMetroTouch .rcpMillionColorsPalette, .RadColorPicker_BlackMetroTouch .rcpMillionColorsSlider .rslVertical div.rslTrack {
+    background-color: #000000;
+    border-color: #4e4e4e; }
+  .RadColorPicker_BlackMetroTouch .rcpMillionColorsSlider .rslVertical div.rslTrack {
+    border: 1px solid #4e4e4e; }
+  .RadColorPicker_BlackMetroTouch input.rcpInput, html.RadForm.rfdTextbox .RadColorPicker_BlackMetroTouch input.rcpInput, div.RadForm.rfdTextbox .RadColorPicker_BlackMetroTouch input.rcpInput {
+    width: 32px; }
+  .RadColorPicker_BlackMetroTouch .rcpPalette, .RadColorPicker_BlackMetroTouch input, .RadColorPicker_BlackMetroTouch a {
+    color: #ffffff; }
+  .RadColorPicker_BlackMetroTouch ul.rcpWebPalette li {
+    margin: 2px; }
+  @media all and (-webkit-min-device-pixel-ratio: 10000), not all and (-webkit-min-device-pixel-ratio: 0) {
+    .RadColorPicker_BlackMetroTouch ul.rcpWebPalette li {
+      margin: 0; } }
+  .RadColorPicker_BlackMetroTouch .rcpColorBox, .RadColorPicker_BlackMetroTouch .rcpColorBox span, .RadColorPicker_BlackMetroTouch .rcpSelectedColor, .RadColorPicker_BlackMetroTouch .rcpSelectedColor span {
+    background-image: none !important; }
+  .RadColorPicker_BlackMetroTouch a.rcpColorBox, .RadColorPicker_BlackMetroTouch a.rcpSelectedColor {
+    border-radius: 45px;
+    background-image: none; }
+  .RadColorPicker_BlackMetroTouch .rcpColorBox span, .RadColorPicker_BlackMetroTouch .rcpSelectedColor span {
+    border-radius: 45px;
+    width: 26px !important;
+    height: 26px !important;
+    background-image: none;
+    border: 2px solid #4e4e4e !important; }
+  .RadColorPicker_BlackMetroTouch a.rcpColorBox:hover span, .RadColorPicker_BlackMetroTouch .rcpSelectedColor span {
+    border: 2px solid #25a0da !important; }
+  .RadColorPicker_BlackMetroTouch div.rcpTabs {
+    bottom: -42px; }
+  .RadColorPicker_BlackMetroTouch div.rcpTabs ul li {
+    margin: -1px 0 0 -1px; }
+  .RadColorPicker_BlackMetroTouch .rcpTabs a {
+    height: 30px;
+    line-height: 34px;
+    border: 1px solid #4e4e4e;
+    border-top: 0 none;
+    font-size: 16px;
+    background-color: #000000; }
+  .RadColorPicker_BlackMetroTouch .rcpTabs li.rcpSelectedTab a {
+    padding-bottom: 8px;
+    border-bottom: 2px solid #25a0da; }
+  .RadColorPicker_BlackMetroTouch .rcpTabs .rcpSelectedTab a span {
+    line-height: 32px; }
+  .RadColorPicker_BlackMetroTouch div.rcpTabs ul li a span {
+    line-height: 34px; }
+  .RadColorPicker_BlackMetroTouch .rcpTabs a:hover {
+    background-color: #000000; }
+  .RadColorPicker_BlackMetroTouch div.rcpRGBPageView ul li {
+    width: 285px; }
+  .RadColorPicker_BlackMetroTouch div.rcpMillionColorsPageView .rcpInputsWrapper {
+    width: 53px; }
+  .RadColorPicker_BlackMetroTouch div.rcpRGBPageView .rcpInput {
+    float: right; }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .RadColorPicker_BlackMetroTouch div.rcpRGBPageView .rcpInput {
+      margin-left: 30px; } }
+  .RadColorPicker_BlackMetroTouch div.rcpHsvPageView .rcpMillionColorsPalette {
+    width: 256px;
+    background-size: 100%; }
+  .RadColorPicker_BlackMetroTouch input.rcpInput {
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #4e4e4e; }
+  .RadColorPicker_BlackMetroTouch ul.rcpRecentColors {
+    padding: 35px 1px 0; }
+  .RadColorPicker_BlackMetroTouch ul.rcpRecentColors li {
+    width: 32px;
+    height: 32px; }
+  .RadColorPicker_BlackMetroTouch .rcpRecentColors .rcpColorBox {
+    margin: -20px 0 0 0; }
+  .RadColorPicker_BlackMetroTouch .rcpIcon {
+    height: 36px;
+    width: 52px; }
+  .RadColorPicker_BlackMetroTouch .rcpIcon a {
+    height: 34px;
+    width: 50px;
+    background-image: url('Common/radActionsSprite.png');
+    border: 1px solid #4e4e4e;
+    background-position: 17px -58px; }
+  .RadColorPicker_BlackMetroTouch .rcpIcon a:hover {
+    background-position: 17px -58px;
+    border: 1px solid #25a0da; }
+  .RadColorPicker_BlackMetroTouch .rcpIcon a:active, .RadColorPicker_BlackMetroTouch .rcpIcon a:focus {
+    background-position: -33px -58px;
+    border: 1px solid #0082cc; }
+  .RadColorPicker_BlackMetroTouch .rcpIcon em {
+    border: 1px solid #4e4e4e !important;
+    width: 24px;
+    height: 24px;
+    border-radius: 45px; }
+  .RadColorPicker_BlackMetroTouch div.rcpMillionColorsPageView div.rcpInputsWrapper {
+    margin: 0 0 0 22px; }
+  .RadColorPicker_BlackMetroTouch div.rcpHeader .rcpButton {
+    margin-right: -1px; }
+  .RadColorPicker_BlackMetroTouch .RadSlider_BlackMetroTouch {
+    padding: 0; }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .RadColorPicker_BlackMetroTouch .rcpRGBPageView .RadSlider_BlackMetroTouch {
+      width: 180px !important; } }
+  .RadColorPicker_BlackMetroTouch .RadSlider_BlackMetroTouch div.rslHorizontal div.rslTrack, .RadColorPicker_BlackMetroTouch .RadSlider_BlackMetroTouch div.rslHorizontal div.rslSelectedregion, .RadColorPicker_BlackMetroTouch .RadSlider_BlackMetroTouch div.rslVertical .rslSelectedregion {
+    background-color: transparent; }
+  .RadColorPicker_BlackMetroTouch .rcpSlider .rslHorizontal div.rslTrack {
+    top: 12px;
+    height: 24px !important; }
+  .RadColorPicker_BlackMetroTouch div.rcpRedSlider .rslHorizontal .rslTrack, .RadColorPicker_BlackMetroTouch div.rcpRedSlider .rslHorizontal .rslSelectedregion {
+    background-position: center 0; }
+  .RadColorPicker_BlackMetroTouch div.rcpGreenSlider .rslHorizontal .rslTrack, .RadColorPicker_BlackMetroTouch div.rcpGreenSlider .rslHorizontal .rslSelectedregion {
+    background-position: center -27px; }
+  .RadColorPicker_BlackMetroTouch div.rcpBlueSlider .rslHorizontal .rslTrack, .RadColorPicker_BlackMetroTouch div.rcpBlueSlider .rslHorizontal .rslSelectedregion {
+    background-position: center -54px; }
+  .RadColorPicker_BlackMetroTouch div.rcpSlider div.rslHorizontal .rslTrack a.rslDraghandle, .RadColorPicker_BlackMetroTouch div.rcpMillionColorsSlider div.rslVertical div.rslTrack a.rslDraghandle {
+    background-image: url('Common/radActionsSprite.png');
+    background-position: -18.5px -18.5px;
+    background-color: transparent;
+    border: 0;
+    height: 13px;
+    line-height: 10px;
+    margin-top: 14px;
+    width: 13px; }
+  .RadColorPicker_BlackMetroTouch div.rcpMillionColorsSlider div.rslVertical div.rslTrack a.rslDraghandle {
+    background-position: -18.5px -118.5px;
+    margin-top: 0; }
+  .RadColorPicker_BlackMetroTouch li.rslItem span, .RadColorPicker_BlackMetroTouch li.rslLargeTick span {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin-top: 9px; }
+
+div.RadColorPickerRTL_BlackMetroTouch div.rcpMillionColorsPageView div.rcpInputsWrapper {
+  margin: 0; }
+
+div.RadColorPickerRTL_BlackMetroTouch .rslVertical {
+  margin-right: 15px; }
+
+/* Custom color */
+.RadColorPicker.RadColorPicker_BlackMetroTouch.rcpCustomColorWrapper {
+  width: 377px; }
+

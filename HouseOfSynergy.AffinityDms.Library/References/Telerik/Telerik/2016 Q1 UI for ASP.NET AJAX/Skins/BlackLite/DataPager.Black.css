@@ -1,0 +1,33 @@
+.RadDataPager_Black {
+  background-color: #161616;
+  background-image: linear-gradient(#323232, #161616);
+  color: #ffffff;
+  border: 1px solid #202020;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadDataPager_Black .rdpNumPart a {
+    color: inherit;
+    border-radius: 0.16667em; }
+    .RadDataPager_Black .rdpNumPart a:hover {
+      border-color: #080808;
+      color: #9eda29;
+      background-color: #020202;
+      background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }
+    .RadDataPager_Black .rdpNumPart a.rdpCurrentPage {
+      border: 1px solid #898989;
+      color: inherit;
+      background: none; }
+  .RadDataPager_Black .rdpPagerButton,
+  .RadDataPager_Black .rdpActionButton {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #080808;
+    color: #ffffff;
+    background-color: #1b1b1b;
+    background-image: linear-gradient(#7b7b7b, #4a4a4a 50%, #313131 50%, #1b1b1b);
+    border-radius: 0.16667em; }
+    .RadDataPager_Black .rdpPagerButton:hover,
+    .RadDataPager_Black .rdpActionButton:hover {
+      border-color: #080808;
+      color: #9eda29;
+      background-color: #020202;
+      background-image: linear-gradient(#5c5c5c, #2a2a2c 50%, #060606 50%, #020202); }

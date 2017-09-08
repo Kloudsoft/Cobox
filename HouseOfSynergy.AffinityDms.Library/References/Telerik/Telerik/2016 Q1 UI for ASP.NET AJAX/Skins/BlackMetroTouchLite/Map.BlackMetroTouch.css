@@ -1,0 +1,80 @@
+.RadMap_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  /* Remove border radius */
+  /* Additional styles */
+  /*Buttons*/
+  /* Markers */
+  /* Older IE Fix */ }
+  .RadMap_BlackMetroTouch .k-header, .RadMap_BlackMetroTouch .k-widget, .RadMap_BlackMetroTouch .k-popup {
+    color: #ffffff; }
+  .RadMap_BlackMetroTouch .k-widget, .RadMap_BlackMetroTouch .k-header {
+    border-color: #333333; }
+  .RadMap_BlackMetroTouch .k-buttons-horizontal .k-zoom-out, .RadMap_BlackMetroTouch .k-buttons-horizontal *:first-child, .RadMap_BlackMetroTouch .k-touch-scrollbar, .RadMap_BlackMetroTouch.k-tooltip, .RadMap_BlackMetroTouch .k-animation-container, .RadMap_BlackMetroTouch.k-animation-container {
+    border-radius: 0; }
+  .RadMap_BlackMetroTouch .k-widget, .RadMap_BlackMetroTouch .k-header, .RadMap_BlackMetroTouch .k-button {
+    background-color: #000000; }
+  .RadMap_BlackMetroTouch .k-button {
+    border-color: #333333;
+    color: #ffffff; }
+  .RadMap_BlackMetroTouch.k-widget.k-tooltip {
+    background-color: #262626;
+    border-color: #262626;
+    color: #ffffff; }
+  .RadMap_BlackMetroTouch .k-tooltip-button {
+    background-color: #fff; }
+  .RadMap_BlackMetroTouch .k-tooltip-button:hover {
+    background-color: #25a0da; }
+  .RadMap_BlackMetroTouch .k-i-close:before, .RadMap_BlackMetroTouch .k-i-close:hover:before {
+    color: #515151;
+    margin: -0.31em 0 0 -0.7em; }
+  .RadMap_BlackMetroTouch .k-callout-n {
+    border-bottom-color: #262626; }
+  .RadMap_BlackMetroTouch .k-callout-e {
+    border-left-color: #262626; }
+  .RadMap_BlackMetroTouch .k-callout-s {
+    border-top-color: #262626; }
+  .RadMap_BlackMetroTouch .k-callout-w {
+    border-right-color: #262626; }
+  .RadMap_BlackMetroTouch div.k-navigator > .k-button .k-icon:before {
+    color: #ffffff; }
+  .RadMap_BlackMetroTouch .k-button:hover, .RadMap_BlackMetroTouch div.k-navigator > .k-button:hover {
+    background-color: #25a0da;
+    border-color: #25a0da; }
+  .RadMap_BlackMetroTouch .k-button:active, .RadMap_BlackMetroTouch .k-button:focus, .RadMap_BlackMetroTouch div.k-navigator > .k-button:active, .RadMap_BlackMetroTouch div.k-navigator > .k-button:focus {
+    background-color: #0082cc;
+    border-color: #0082cc; }
+  .RadMap_BlackMetroTouch div.k-navigator > .k-button:active .k-icon:before, .RadMap_BlackMetroTouch div.k-navigator > .k-button:focus .k-icon:before {
+    color: #0082cc; }
+  .RadMap_BlackMetroTouch .k-marker:before {
+    color: #25a0da; }
+  @media \0screen\,screen\9 {
+    .RadMap_BlackMetroTouch .k-icon {
+      background-image: url('../BlackMetroTouch/Common/radActionsSprite.png'); }
+    .RadMap_BlackMetroTouch .k-i-arrow-n {
+      background-position: -17px -17px; }
+    .RadMap_BlackMetroTouch .k-button:hover .k-i-arrow-n {
+      background-position: -17px -17px; }
+    .RadMap_BlackMetroTouch .k-button:active .k-i-arrow-n, .RadMap_BlackMetroTouch .k-button:focus .k-i-arrow-n {
+      background-position: -17px -17px; }
+    .RadMap_BlackMetroTouch .k-i-arrow-e {
+      background-position: -17px -167px; }
+    .RadMap_BlackMetroTouch .k-button:hover .k-i-arrow-e {
+      background-position: -17px -167px; }
+    .RadMap_BlackMetroTouch .k-button:active .k-i-arrow-e, .RadMap_BlackMetroTouch .k-button:focus .k-i-arrow-e {
+      background-position: -17px -167px; }
+    .RadMap_BlackMetroTouch .k-i-arrow-s {
+      background-position: -17px -67px; }
+    .RadMap_BlackMetroTouch .k-button:hover .k-i-arrow-s {
+      background-position: -17px -67px; }
+    .RadMap_BlackMetroTouch .k-button:active .k-i-arrow-s, .RadMap_BlackMetroTouch .k-button:focus .k-i-arrow-s {
+      background-position: -17px -67px; }
+    .RadMap_BlackMetroTouch .k-i-arrow-w {
+      background-position: -17px -117px; }
+    .RadMap_BlackMetroTouch .k-button:hover .k-i-arrow-w {
+      background-position: -17px -117px; }
+    .RadMap_BlackMetroTouch .k-button:active .k-i-arrow-w, .RadMap_BlackMetroTouch .k-button:focus .k-i-arrow-w {
+      background-position: -17px -117px; }
+    .RadMap_BlackMetroTouch .k-i-close, .RadMap_BlackMetroTouch .k-i-close:hover {
+      background-color: transparent;
+      background-position: -67px -1917px; } }
+

@@ -1,0 +1,730 @@
+.RadSpreadsheet {
+  width: 100%;
+  height: 600px;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  line-height: 1.42857143;
+  cursor: default; }
+  .RadSpreadsheet .rssSelection,
+  .RadSpreadsheet .k-filter-range {
+    border-width: 1px;
+    border-style: solid;
+    position: absolute;
+    box-sizing: border-box; }
+  .RadSpreadsheet .rssActiveCell {
+    position: absolute;
+    box-sizing: border-box; }
+    .RadSpreadsheet .rssActiveCell.k-dirty-cell {
+      border-color: #d9534f; }
+  .RadSpreadsheet .rssActiveCell.k-left {
+    border-left-width: 0; }
+  .RadSpreadsheet .rssActiveCell td {
+    border-width: 0 !important; }
+  .RadSpreadsheet .rssToolbarWrapper .rssTabstrip .rtsUL {
+    padding: 4px 4px 0; }
+  .RadSpreadsheet .rssToolbarWrapper .rssTabstrip .rtsLink {
+    padding: 6px 15px;
+    border-color: transparent;
+    color: inherit;
+    background: none; }
+  .RadSpreadsheet .rssToolbar {
+    border-width: 0;
+    overflow: visible;
+    font: inherit;
+    display: block;
+    width: 100%; }
+  .RadSpreadsheet .rssToolbar .rtbUL {
+    overflow: visible; }
+  .RadSpreadsheet .RadComboBox,
+  .RadSpreadsheet .RadDropDownList {
+    font: inherit;
+    color: inherit; }
+  .RadSpreadsheet .rssToolbar .RadColorPicker {
+    vertical-align: middle; }
+  .RadSpreadsheet .RadColorPicker .rcpIcon a {
+    border-color: transparent;
+    background: transparent;
+    text-indent: -999999px; }
+  .RadSpreadsheet .rssBgColor .rcpIcon a,
+  .RadSpreadsheet .rssTextColor .rcpIcon a,
+  .RadSpreadsheet .rssBorderColor .rcpIcon a {
+    color: inherit; }
+  .RadSpreadsheet .rssBgColor .rcpIcon a:after,
+  .RadSpreadsheet .rssTextColor .rcpIcon a:after,
+  .RadSpreadsheet .rssBorderColor .rcpIcon a:after {
+    width: 1em;
+    height: 1em;
+    font-family: "TelerikWebUIEditor";
+    font-size: 16px;
+    line-height: 1;
+    text-indent: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    margin: -8px 0 0 -8px; }
+  .RadSpreadsheet .rssBgColor .rcpIcon em,
+  .RadSpreadsheet .rssTextColor .rcpIcon em,
+  .RadSpreadsheet .rssBorderColor .rcpIcon em {
+    margin: 7px 0 0 -16px;
+    height: 3px;
+    font-style: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%; }
+  .RadSpreadsheet .rssBgColor .rcpIcon a:after {
+    content: "\e613"; }
+  .RadSpreadsheet .rssTextColor .rcpIcon a:after {
+    content: "\e612"; }
+  .RadSpreadsheet .rssBorderColor .rcpIcon a:after {
+    content: "\e633"; }
+  .RadSpreadsheet .rssFormulaBar {
+    padding-left: 31px;
+    border-width: 1px 0;
+    border-style: solid;
+    position: relative; }
+  .RadSpreadsheet .rssFormulaBar:before {
+    content: "\e6a2";
+    padding: 2px 6px;
+    width: 1em;
+    height: 1em;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: inherit;
+    font-family: "TelerikWebUIEditor";
+    font-size: 16px;
+    line-height: 1;
+    text-indent: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 3px;
+    left: 3px; }
+  .RadSpreadsheet .rssFormulaInput {
+    outline: none;
+    border-width: 0;
+    height: 26px;
+    line-height: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding: 3px 0.5em 0; }
+  .RadSpreadsheet .rssFormulaInput > .k-syntax-func.k-syntax-at-point,
+  .RadSpreadsheet .rssFormulaInput > .k-syntax-bool.k-syntax-at-point,
+  .RadSpreadsheet .rssFormulaInput > .k-syntax-ref.k-syntax-at-point,
+  .RadSpreadsheet .rssFormulaInput > .k-syntax-str.k-syntax-at-point,
+  .RadSpreadsheet .rssFormulaInput > .k-syntax-num.k-syntax-at-point {
+    text-decoration: underline; }
+  .RadSpreadsheet .rssFormulaInput > .k-series-a,
+  .RadSpreadsheet .rssFormulaInput > .k-series-b,
+  .RadSpreadsheet .rssFormulaInput > .k-series-c,
+  .RadSpreadsheet .rssFormulaInput > .k-series-d {
+    background-color: transparent; }
+  .RadSpreadsheet .rssSheetsbar {
+    border-width: 1px 0 0;
+    border-style: solid;
+    position: relative; }
+  .RadSpreadsheet .rssSheetsbar .k-button {
+    padding: 4px;
+    box-sizing: border-box;
+    line-height: 1; }
+  .RadSpreadsheet .rssSheetsbar .t-spreadsheet-sheets-bar-add {
+    width: 1.42857143em;
+    padding: 4px;
+    position: absolute;
+    z-index: 1;
+    left: 4px;
+    top: 4px; }
+  .RadSpreadsheet .rssSheetsbar .t-spreadsheet-sheets-remove {
+    margin: 6px 6px 6px -6px;
+    padding: 0; }
+    .RadSpreadsheet .rssSheetsbar .t-spreadsheet-sheets-remove.t-state-hover {
+      background: transparent; }
+  .RadSpreadsheet .t-spreadsheet-sheets-editor {
+    border-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    height: 1.42857142857em;
+    margin: 3px 15px;
+    outline: 0;
+    background: transparent; }
+  .RadSpreadsheet .t-icon {
+    margin-top: 0.12em; }
+  .RadSpreadsheet .t-tabstrip .t-state-default {
+    border-color: transparent; }
+  .RadSpreadsheet .t-tabstrip .t-tabstrip-items {
+    margin: -1px 32px 0; }
+    .RadSpreadsheet .t-tabstrip .t-tabstrip-items .t-item {
+      border-width: 1px; }
+    .RadSpreadsheet .t-tabstrip .t-tabstrip-items .t-spreadsheet-sheets-bar-active {
+      border-top: 0;
+      padding-top: 1px; }
+  .RadSpreadsheet .rssView {
+    position: relative;
+    font-size: 0.85714286em;
+    line-height: 1.66666667; }
+  .RadSpreadsheet .rssFixedContainer {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    z-index: 2; }
+  .RadSpreadsheet .rssScroller {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    z-index: 1; }
+  .RadSpreadsheet .rssViewSize {
+    position: relative; }
+  .RadSpreadsheet .rssPane {
+    padding-right: 1px;
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    box-sizing: border-box; }
+  .RadSpreadsheet .rssPane.k-top {
+    border-top-width: 0; }
+  .RadSpreadsheet .rssPane.k-left {
+    border-left-width: 0; }
+  .RadSpreadsheet .rssTopCorner {
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000; }
+  .RadSpreadsheet .rssTopCorner:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-color: inherit;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+  .RadSpreadsheet .rssRowHeader,
+  .RadSpreadsheet .rssColumnHeader {
+    text-align: center;
+    position: absolute; }
+    .RadSpreadsheet .rssRowHeader > div,
+    .RadSpreadsheet .rssColumnHeader > div {
+      border-width: 0 1px 1px 0;
+      border-style: solid;
+      border-color: inherit; }
+  .RadSpreadsheet .rssRowHeader > div + div {
+    margin-top: -1px; }
+  .RadSpreadsheet .rssRowHeader .k-selection-partial,
+  .RadSpreadsheet .rssColumnHeader .k-selection-partial {
+    position: relative; }
+    .RadSpreadsheet .rssRowHeader .k-selection-partial:before,
+    .RadSpreadsheet .rssColumnHeader .k-selection-partial:before {
+      content: "";
+      position: absolute;
+      z-index: 2; }
+  .RadSpreadsheet .rssRowHeader .k-selection-partial:before {
+    top: 0;
+    right: -1px;
+    height: 100%;
+    padding-bottom: 1px;
+    border-right-width: 2px;
+    border-right-style: solid; }
+  .RadSpreadsheet .rssColumnHeader .k-selection-partial:before {
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    padding-right: 1px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid; }
+  .RadSpreadsheet .rssPane .k-spreadsheet-cell {
+    padding: 1px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: pre;
+    overflow: hidden;
+    position: absolute; }
+  .RadSpreadsheet .rssPane .k-spreadsheet-cell.k-state-disabled {
+    opacity: .7; }
+  .RadSpreadsheet .k-spreadsheet-vaxis,
+  .RadSpreadsheet .k-spreadsheet-haxis {
+    border-color: inherit;
+    border-style: solid;
+    position: absolute; }
+  .RadSpreadsheet .k-spreadsheet-vaxis {
+    border-width: 0 0 0 1px;
+    top: 0; }
+  .RadSpreadsheet .k-spreadsheet-haxis {
+    border-width: 1px 0 0 0;
+    left: 0; }
+  .RadSpreadsheet .k-vertical-align-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .RadSpreadsheet .k-vertical-align-bottom {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%); }
+  .RadSpreadsheet .rssData {
+    border-color: inherit;
+    cursor: cell; }
+  .RadSpreadsheet .rssCellEditor {
+    position: absolute;
+    display: none;
+    padding: 0 0.3em;
+    line-height: 20px;
+    z-index: 2000;
+    overflow: hidden; }
+  .RadSpreadsheet .rssPane table.rssMergedCell {
+    width: auto;
+    height: auto; }
+  .RadSpreadsheet .rssSelectionWrapper {
+    cursor: cell; }
+  .RadSpreadsheet .rssSelection:after {
+    content: " ";
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    margin-bottom: -5px;
+    margin-right: -5px;
+    border-width: 1px;
+    border-style: solid;
+    z-index: 100;
+    cursor: crosshair; }
+  .RadSpreadsheet .k-auto-fill {
+    position: absolute;
+    margin: -1px;
+    border-width: 1px;
+    border-style: solid;
+    z-index: 1; }
+  .RadSpreadsheet .k-dirty {
+    margin: -2px 0 0 -7px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #d9534f #d9534f transparent transparent;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .RadSpreadsheet .rssMergedCellsWrapper,
+  .RadSpreadsheet .rssSelectionWrapper,
+  .RadSpreadsheet .k-filter-headers {
+    position: relative; }
+  .RadSpreadsheet .k-spreadsheet-sample {
+    float: right; }
+  .RadSpreadsheet .k-resize-handle,
+  .RadSpreadsheet .k-resize-hint {
+    position: absolute; }
+  .RadSpreadsheet .k-resize-hint-handle {
+    width: 100%;
+    height: 20px; }
+  .RadSpreadsheet .k-resize-hint-marker {
+    width: 2px;
+    height: 100%;
+    margin: 0 auto; }
+  .RadSpreadsheet .k-resize-hint-vertical .k-resize-hint-handle {
+    height: 100%;
+    width: 32px;
+    float: left; }
+  .RadSpreadsheet .k-resize-hint-vertical .k-resize-hint-marker {
+    height: 2px;
+    width: 100%; }
+  .RadSpreadsheet .rssSlectionDashed {
+    border-width: 1px;
+    border-style: dashed;
+    position: absolute;
+    box-sizing: border-box; }
+  .RadSpreadsheet .k-spreadsheet-filter {
+    position: absolute;
+    cursor: pointer;
+    line-height: 16px; }
+  .RadSpreadsheet .k-spreadsheet-filter > .k-font-icon {
+    width: 1em;
+    height: 1em;
+    font-size: 16px;
+    line-height: 1;
+    font-family: "TelerikWebUI";
+    display: inline-block;
+    vertical-align: middle; }
+
+.rssSlide {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  z-index: 5000; }
+
+.rssPopup {
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  cursor: default; }
+
+.rssFilterMenuPopup .rssFilterMenu {
+  padding: 2px;
+  position: relative; }
+
+.rssFilterMenuPopup .rssMenu,
+.rssFilterMenuPopup .rssCollapsibleList {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.rssFilterMenuPopup .rssLI {
+  display: block;
+  position: relative; }
+
+.rssFilterMenuPopup .rssSeparator {
+  margin: 2px 0;
+  margin-left: 32px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: inherit; }
+
+.rssFilterMenuPopup .rssLink {
+  padding: 3px 32px;
+  border: 1px solid transparent;
+  color: inherit;
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  display: block;
+  position: relative; }
+  .rssFilterMenuPopup .rssLink .rssIcon {
+    margin: -8px 0 0 0;
+    position: absolute;
+    top: 50%;
+    left: 4px; }
+
+.rssFilterMenuPopup .rssCollapsibleList .rssDetails {
+  margin-left: 32px;
+  padding: 0 8px;
+  overflow: hidden; }
+
+.rssFilterMenuPopup .rssCollapsibleList .rssDetails .rssFormList {
+  padding: 10px 0; }
+
+.rssFilterMenuPopup .rssButtons {
+  margin: 10px 0 0 32px;
+  padding: 8px;
+  text-align: right; }
+  .rssFilterMenuPopup .rssButtons > .rssButton + .rssButton {
+    margin-left: 10px; }
+
+.rssFilterMenuPopup .RadInput,
+.rssFilterMenuPopup .RadPicker,
+.rssFilterMenuPopup .RadComboBox,
+.rssFilterMenuPopup .RadDropDownList,
+.rssFilterMenuPopup .RadListBox,
+.rssFilterMenuPopup .rssInput {
+  width: auto;
+  font: inherit;
+  display: block; }
+
+.rssFilterMenuPopup .rssFilterMenu:before {
+  content: "";
+  width: 30px;
+  height: 100%;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.rssFormList,
+.rssFormList > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .rssFormList > li,
+  .rssFormList > ul > li {
+    display: block;
+    position: relative; }
+  .rssFormList > li + li,
+  .rssFormList > ul > li + li {
+    margin-top: 10px; }
+
+.rssFormList {
+  padding: 5px 20px; }
+
+.rssButton {
+  padding: 4px 10px;
+  min-width: 80px;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  outline: 0;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  display: inline-block; }
+
+.rssInput {
+  padding: 4px 10px;
+  border-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  box-sizing: border-box; }
+  .rssInput .rssFakeInput {
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: inherit;
+    font: inherit;
+    background: none;
+    display: block;
+    width: 100%; }
+  .rssInput > .rssIcon {
+    margin: -8px 0 0 0;
+    position: absolute;
+    right: 4px;
+    top: 50%; }
+
+.rtbPopup.rssGallery .rtbMenu {
+  width: calc( 4 * ($line-height + 10px));
+  white-space: normal; }
+
+.rtbPopup.rssGallery .rtbMenu:before {
+  display: none; }
+
+.rtbPopup.rssGallery .rtbLI {
+  display: inline-block; }
+
+.rtbPopup.rssGallery .rtbLink {
+  width: 1.42857143em;
+  padding: 4px;
+  text-align: center; }
+
+.rtbPopup.rssGallery .rtbText {
+  display: none; }
+
+.rtbPopup.rssGallery .rtbImage {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+  position: static; }
+
+.rssIcon {
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "TelerikWebUI";
+  display: inline-block;
+  vertical-align: middle; }
+  .rssIcon:before {
+    width: 1em;
+    height: 1em;
+    display: inline-block; }
+
+.rssIconClose:before {
+  content: "\e038"; }
+
+.rssIconExpand:before {
+  content: "\e000"; }
+
+.rssIconCollapse:before {
+  content: "\e006"; }
+
+.rssIconSearch:before {
+  content: "\e0e9"; }
+
+.k-font-icon.k-i-arrow-s:before {
+  content: "\e002"; }
+
+.k-spreadsheet-clipboard-paste,
+.k-spreadsheet-clipboard {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  box-sizing: border-box; }
+
+.rssFormulaList {
+  margin: 0;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  list-style: none;
+  cursor: default; }
+
+.rssFormulaList > .k-item {
+  padding: 0.16667em 0.5em; }
+
+.t-spreadsheet-sheets-items-hint .t-spreadsheet-sheets-remove {
+  display: none !important; }
+
+.rssWindow {
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.42857143;
+  display: inline-block;
+  cursor: default; }
+
+.rssWindowTitlebar {
+  margin: -5px -5px 0;
+  padding: 4px 8px;
+  position: relative; }
+
+.rssWindowActions {
+  float: right; }
+  .rssWindowActions:before {
+    content: ".";
+    width: 0;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden; }
+
+.rssWindowAction {
+  width: 1.42857143em;
+  border-width: 1px;
+  border-style: solid;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  margin: -1px; }
+
+.rssWindowContent {
+  border-width: 1px;
+  border-style: solid; }
+  .rssWindowContent .rssFormatPreview {
+    margin: 0 0 20px;
+    text-align: center; }
+  .rssWindowContent .rssCustomFormatTemplate {
+    border-color: inherit; }
+  .rssWindowContent .rssButtons {
+    padding: 10px 20px;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: inherit;
+    text-align: right; }
+    .rssWindowContent .rssButtons .rssButton:nth-child(2) {
+      margin-left: 10px; }
+    .rssWindowContent .rssButtons .rssButton:last-child {
+      float: left; }
+    .rssWindowContent .rssButtons:after {
+      content: "";
+      display: block;
+      clear: both; }
+  .rssWindowContent hr {
+    border-width: 1px 0 0;
+    border-style: solid; }
+
+.rssWindowTabstrip .rtsLevel1 {
+  padding: 20px 20px 0; }
+
+.rssWindowTabstrip .rtsLevel1 .rtsLink {
+  padding: 6px 15px; }
+
+.rssWindowMultipage {
+  padding: 20px; }
+
+.rssValidationTemplate {
+  border-color: inherit; }
+
+.rssValidationTemplate .rssFormList:first-child > li:nth-child(2) {
+  margin-top: 1.42857143em;
+  padding-top: 10px; }
+
+.rssValidationTemplate div.rssFormList:first-of-type > ul {
+  display: inline-block;
+  width: 57%;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-left: 71px; }
+  .rssValidationTemplate div.rssFormList:first-of-type > ul li {
+    width: 50%; }
+
+.rssValidationTemplate .rssButtons {
+  margin-top: 20px; }
+
+.rssValidationTemplate .rssFormList label {
+  display: block;
+  padding: 5px 0; }
+
+.rssValidationTemplate .rssFormList input + label {
+  display: inline-block; }
+
+.rssValidationTemplate .RadInput {
+  height: auto !important; }
+
+.rssValidationTemplate .RadInput .riLabel {
+  float: none; }
+
+.rssValidationTemplate .RadInput .riContentWrapper {
+  position: relative; }
+
+.rssValidationTemplate .RadInput,
+.rssValidationTemplate .RadPicker,
+.rssValidationTemplate .RadDropDownList {
+  width: 100%;
+  font: inherit; }
+
+.rssValidationTemplate .rssFormList + .rssFormList ul {
+  padding-top: 0; }
+
+.rssValidationTemplate .rssFormList > li,
+.rssValidationTemplate .rssFormList > ul > li {
+  display: inline-block;
+  vertical-align: top; }
+
+.rssValidationTemplate .rssFormList > li + li,
+.rssValidationTemplate .rssFormList > ul > li + li {
+  margin: 0 0 0 2%; }
+
+.rssValidationTemplate .rssFormList > li:nth-child(1),
+.rssValidationTemplate .rssFormList > ul > li:nth-child(1) {
+  width: 36%; }
+
+.rssValidationTemplate .rssFormList > li:nth-child(2),
+.rssValidationTemplate .rssFormList > ul > li:nth-child(2) {
+  width: 30%; }
+
+.rssValidationTemplate .rssFormList > li:nth-child(3),
+.rssValidationTemplate .rssFormList > ul > li:nth-child(3) {
+  width: 30%; }
+
+.rssValidationTemplate .rssFormList > li:nth-child(1):only-child,
+.rssValidationTemplate .rssFormList > ul > li:nth-child(1):only-child {
+  width: 100%; }
+
+.rssMessage {
+  border-color: inherit; }
+
+.rssMessageText {
+  padding: 20px; }

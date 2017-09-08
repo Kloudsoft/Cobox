@@ -1,0 +1,8 @@
+.RadTileList_Black {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 12px; }
+  .RadTileList_Black .rtlistHeader h6.rtlistTitle {
+    color: #d7d7d7; }
+  .RadTileList_Black .rtlistGroupSeparatorVisible {
+    background-color: #333333; }
+

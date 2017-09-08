@@ -1,0 +1,113 @@
+.RadPanelBar {
+  width: 20.83333333em;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  line-height: 1.42857143;
+  text-align: left;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent; }
+  .RadPanelBar .rpRootGroup, .RadPanelBar .rpGroup {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .RadPanelBar .rpItem:after, .RadPanelBar .rpContentTemplate:after {
+    content: "";
+    clear: both;
+    display: block; }
+  .RadPanelBar .rpGroup {
+    overflow: hidden;
+    overflow-y: auto; }
+  .RadPanelBar .rpItem {
+    display: block;
+    overflow: hidden; }
+  .RadPanelBar .rpGroup .rpItem {
+    padding: 0 2px; }
+  .RadPanelBar .rpGroup .rpItem + .rpItem {
+    margin-top: 1px; }
+  .RadPanelBar .rpGroup .rpItem.rpFirst {
+    padding-top: 2px; }
+  .RadPanelBar .rpGroup .rpItem.rpLast {
+    padding-bottom: 2px; }
+  .RadPanelBar .rpSlide {
+    display: none;
+    width: 100%; }
+  .RadPanelBar .rpLink {
+    padding: 4px 10px;
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
+    display: block;
+    cursor: pointer;
+    position: relative; }
+  .RadPanelBar .rpLink.rpDisabled {
+    cursor: default;
+    opacity: 0.5; }
+  .RadPanelBar .rpGroup .rpLink {
+    border: 1px solid transparent; }
+  .RadPanelBar .rpText {
+    vertical-align: middle; }
+  .RadPanelBar .rpImage {
+    margin: 0 4px 0 -4px;
+    vertical-align: middle; }
+  .RadPanelBar .rpHeaderTemplate {
+    padding: 1px; }
+  .RadPanelBar .rpExpandHandle {
+    display: none;
+    width: 1.42857143em;
+    height: 1.42857143em;
+    border: 1px solid transparent;
+    text-align: center;
+    position: absolute;
+    top: 3px;
+    right: 3px; }
+  .RadPanelBar .rpExpandHandle:before {
+    content: ".";
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden; }
+  .RadPanelBar .rpExpandable .rpExpandHandle {
+    display: block; }
+  .RadPanelBar .rpDisabled .rpExpandHandle {
+    filter: alpha(opacity=60);
+    opacity: 0.6; }
+  .RadPanelBar .rpRootLink,
+  .RadPanelBar .rpHeaderTemplate {
+    margin-bottom: -1px;
+    border-width: 1px 0;
+    border-style: solid; }
+  .RadPanelBar .rpFirst .rpRootLink {
+    border-top-width: 0; }
+  .RadPanelBar .rpLast .rpRootLink,
+  .RadPanelBar .rpLast .rpHeaderTemplate {
+    border-bottom-width: 0;
+    margin-bottom: 0; }
+    .RadPanelBar .rpLast .rpRootLink.rpExpanded,
+    .RadPanelBar .rpLast .rpHeaderTemplate.rpExpanded {
+      border-bottom-width: 1px; }
+  .RadPanelBar .rpGroup .rpHeaderTemplate {
+    border-width: 0;
+    background-color: transparent; }
+  .RadPanelBar .rpLevel2 .rpLink {
+    padding-left: 20px; }
+  .RadPanelBar .rpLevel3 .rpLink {
+    padding-left: 30px; }
+
+.RadPanelBar_rtl {
+  text-align: right;
+  direction: rtl; }
+  .RadPanelBar_rtl .rpImage {
+    margin: 0 -4px 0 4px; }
+  .RadPanelBar_rtl .rpRootLink .rpExpandHandle {
+    right: auto;
+    left: 5px; }
+  .RadPanelBar_rtl .rpGroup .rpExpandHandle {
+    right: auto;
+    left: 5px; }
+  .RadPanelBar_rtl .rpLevel2 .rpLink {
+    padding-left: 10px;
+    padding-right: 20px; }
+  .RadPanelBar_rtl .rpLevel3 .rpLink {
+    padding-left: 10px;
+    padding-right: 20px; }

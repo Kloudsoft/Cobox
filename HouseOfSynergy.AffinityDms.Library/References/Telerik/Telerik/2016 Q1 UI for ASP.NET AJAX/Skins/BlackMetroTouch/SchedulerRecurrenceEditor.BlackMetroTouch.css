@@ -1,0 +1,101 @@
+.RecurrenceEditor_BlackMetroTouch {
+  color: white;
+  font: 100 16px "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RecurrenceEditor_BlackMetroTouch .rsAdvOptionsPanel {
+    *zoom: 1; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvOptionsPanel:after {
+      content: "";
+      height: 0;
+      clear: both;
+      display: block; }
+  .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrencePatterns {
+    margin: 10px 0 0 0;
+    padding: 10px;
+    border: 1px solid #cccccc; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrencePatterns .RadInput,
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrencePatterns .RadComboBox {
+      vertical-align: middle; }
+  .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceFreq {
+    margin: 0;
+    padding: 0;
+    width: 120px;
+    height: auto;
+    border: 0; }
+  .RecurrenceEditor_BlackMetroTouch .rsAdvPatternPanel {
+    *zoom: 1;
+    width: auto;
+    height: auto; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvPatternPanel:after {
+      content: "";
+      height: 0;
+      clear: both;
+      display: block; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvPatternPanel ul {
+      *zoom: 1; }
+      .RecurrenceEditor_BlackMetroTouch .rsAdvPatternPanel ul:after {
+        content: "";
+        height: 0;
+        clear: both;
+        display: block; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvPatternPanel li {
+      margin: 0 0 10px 0;
+      width: auto;
+      height: auto;
+      line-height: normal; }
+  .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel {
+    margin: 10px 0 0 0;
+    padding: 10px;
+    border: 1px solid #cccccc; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel ul {
+      *zoom: 1; }
+      .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel ul:after {
+        content: "";
+        height: 0;
+        clear: both;
+        display: block; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel li {
+      margin: 0 20px 10px 0;
+      width: auto;
+      height: auto;
+      line-height: normal; }
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel .RadInput,
+    .RecurrenceEditor_BlackMetroTouch .rsAdvRecurrenceRangePanel .RadComboBox {
+      vertical-align: middle; }
+
+/* <xref input skins> */
+.RecurrenceEditor_BlackMetroTouch .rsAdvInput,
+.RecurrenceEditor_BlackMetroTouch select {
+  border-color: #e5e5e5; }
+
+.RecurrenceEditor_BlackMetroTouch .rsInvalid input,
+.RecurrenceEditor_BlackMetroTouch .rsAdvTimePicker .riEmpty {
+  background-image: url('Input/sprite.gif'); }
+
+.RecurrenceEditor_BlackMetroTouch .rsInvalid {
+  border-color: #de3914;
+  color: #a40045; }
+
+/* </xref input skins> */
+.RecurrenceEditor_BlackMetroTouch h2,
+.RecurrenceEditor_BlackMetroTouch h3 {
+  color: #25a0da; }
+
+.RecurrenceEditor_BlackMetroTouch h2 {
+  border-bottom: 1px solid #e5e5e5; }
+
+.RecurrenceEditor_BlackMetroTouch h2 span {
+  background-color: #e5e5e5; }
+
+.RecurrenceEditor_BlackMetroTouch ul.rsRecurrenceOptionList {
+  border-right: 1px solid #e5e5e5; }
+
+.RecurrenceEditor_BlackMetroTouch div.rsAdvPatternPanel {
+  border-left: 0; }
+
+/* <date/time picker> */
+.RecurrenceEditor_BlackMetroTouch .rsTimePick .RadInput_Metro input.riEnabled,
+.RecurrenceEditor_BlackMetroTouch .rsTimePick .RadInput_Metro input.riHover,
+.RecurrenceEditor_BlackMetroTouch .rsTimePick .RadInput_Metro input.riFocused {
+  background-image: url('Scheduler/rsSprites.png'); }
+
+/* </date/time picker> */

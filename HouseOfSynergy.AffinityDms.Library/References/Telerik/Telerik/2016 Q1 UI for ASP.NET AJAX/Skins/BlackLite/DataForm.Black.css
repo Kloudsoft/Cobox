@@ -1,0 +1,20 @@
+.RadDataForm_Black {
+  color: #ffffff;
+  overflow: hidden; }
+  .RadDataForm_Black .rdfLegend,
+  .RadDataForm_Black .rdfBorders {
+    border-color: #696969; }
+  .RadDataForm_Black .rdfHr {
+    color: #080808; }
+  .RadDataForm_Black .rdfFieldHint {
+    color: white; }
+  .RadDataForm_Black .rdfLegend {
+    font-size: 1.17em; }
+  .RadDataForm_Black .rdfFieldHint {
+    font-size: 0.83em;
+    line-height: .8;
+    padding: 0 0 0 .42em; }
+  .RadDataForm_Black .rdfFieldHint.rdfBlock {
+    padding: .42em 0 0 0; }
+  .RadDataForm_Black .rdfLabel.rdfBlock {
+    padding: 0 0 .17em 0; }

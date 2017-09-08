@@ -1,0 +1,17 @@
+.RadSocialShare_BlackMetroTouch {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #4e4e4e;
+  border-radius: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadSocialShare_BlackMetroTouch .sshLinkItem {
+    color: #ffffff; }
+  .RadSocialShare_BlackMetroTouch .sshLinkItem:hover {
+    color: #0082cc; }
+
+.RadComboBoxDropDown_BlackMetroTouch .rcbItem .sshLinkItem {
+  color: #ffffff; }
+
+.RadComboBoxDropDown_BlackMetroTouch .rcbHovered .sshLinkItem {
+  color: #0082cc; }
+

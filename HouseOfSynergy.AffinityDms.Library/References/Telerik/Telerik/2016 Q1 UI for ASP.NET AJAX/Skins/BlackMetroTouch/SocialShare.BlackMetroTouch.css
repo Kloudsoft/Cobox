@@ -1,0 +1,113 @@
+.RadSocialShare_BlackMetroTouch {
+  border: 1px solid #4e4e4e;
+  border-radius: 0;
+  background-color: #000000; }
+  .RadSocialShare_BlackMetroTouch li.sshListItem a.sshLinkItem {
+    position: relative;
+    padding-left: 38px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    height: 34px;
+    text-align: center;
+    margin: 1px;
+    background-color: transparent;
+    border: 0; }
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: #222222;
+    border: 1px solid #4e4e4e;
+    width: 34px;
+    height: 34px;
+    border-radius: 45px; }
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem:hover:before {
+    border: 1px solid #25a0da;
+    background-color: #25a0da; }
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem:hover {
+    background-color: #25a0da;
+    border: 1px solid #25a0da; }
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem:active,
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem:focus {
+    background-color: #0082cc;
+    border: 1px solid #0082cc;
+    outline: 0; }
+  .RadSocialShare_BlackMetroTouch a.sshLinkItem .sshIcon {
+    position: absolute;
+    left: 10px;
+    top: 10px; }
+  .RadSocialShare_BlackMetroTouch .sshLinkItem .sshText {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 35px; }
+  .RadSocialShare_BlackMetroTouch .sshLinkItem:hover .sshText {
+    color: #ffffff; }
+  .RadSocialShare_BlackMetroTouch li.sshListItem .sshStandardPinPageImageButton a.sshLinkItem {
+    padding-left: 0; }
+  .RadSocialShare_BlackMetroTouch .sshStandardPinPageImageButton a.sshLinkItem:before {
+    display: none; }
+
+.RadComboBoxDropDown_BlackMetroTouch .rcbItem .sshLinkItem .sshText {
+  color: #ffffff;
+  font-size: 16px; }
+
+.RadSocialShare_BlackMetroTouch .sshLinkItem:hover .sshText,
+.RadComboBoxDropDown_BlackMetroTouch .rcbHovered .sshLinkItem .sshText {
+  color: #ffffff;
+  font-size: 16px; }
+
+.RadWindow_BlackMetroTouch .sshFormRow,
+.RadWindow_BlackMetroTouch .sshFormRow input,
+.RadWindow_BlackMetroTouch .sshFormRow textarea {
+  font-size: 16px; }
+
+.RadWindow_BlackMetroTouch .sshFormRow input {
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #4e4e4e; }
+
+.RadWindow_BlackMetroTouch textarea {
+  border: 1px solid #4e4e4e; }
+
+.RadWindow_BlackMetroTouch input:focus,
+.RadWindow_BlackMetroTouch input:active,
+.RadWindow_BlackMetroTouch textarea:focus,
+.RadWindow_BlackMetroTouch textarea:active {
+  border: 1px solid #2a2a2a; }
+
+.RadWindow_BlackMetroTouch input[type="button"] {
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  background-color: #222222;
+  border: 1px solid #4e4e4e;
+  border-radius: 0; }
+
+.RadWindow_BlackMetroTouch input[type="button"]:hover {
+  background-color: #25a0da;
+  border: 1px solid #25a0da; }
+
+.RadWindow_BlackMetroTouch input[type="button"]:focus,
+.RadWindow_BlackMetroTouch input[type="button"]:active {
+  background-color: #0082cc;
+  border: 1px solid #0082cc;
+  color: #ffffff; }
+
+.RadWindow_BlackMetroTouch label {
+  color: #ffffff; }
+
+.RadWindow_BlackMetroTouch .sshFormSendBtn {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #4e4e4e; }
+
+.RadWindow_BlackMetroTouch .sshFormSendBtn:hover {
+  background-color: #25a0da;
+  color: #ffffff;
+  border: 1px solid #25a0da; }
+
+.RadWindow_BlackMetroTouch .sshFormSendBtn:active {
+  background-color: #0082cc;
+  color: #ffffff;
+  border: 1px solid #0082cc; }

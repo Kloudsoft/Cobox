@@ -1,0 +1,42 @@
+.RadProgressBar_BlackMetroTouch {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background-color: #141414;
+  background-image: none;
+  /* Vertical */
+  /* Older IE Fix */ }
+  .RadProgressBar_BlackMetroTouch.rpbClassic {
+    font-size: 16px;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; }
+  .RadProgressBar_BlackMetroTouch > .rpbLabelWrapper {
+    border-color: #000; }
+  .RadProgressBar_BlackMetroTouch, .RadProgressBar_BlackMetroTouch.rpbHorizontal > .rpbStateSelected.rpbStateCompleted, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl > .rpbStateSelected.rpbStateCompleted, .RadProgressBar_BlackMetroTouch.rpbVertical > .rpbStateSelected.rpbStateCompleted, .RadProgressBar_BlackMetroTouch.rpbVertical.rpbRtl > .rpbStateSelected.rpbStateCompleted, .RadProgressBar_BlackMetroTouch > .rpbReset, .RadProgressBar_BlackMetroTouch.rpbHorizontal > .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl.rpbReversed > .rpbStateSelected, .RadProgressBar_BlackMetroTouch > .rpbChunksWrapper, .RadProgressBar_BlackMetroTouch.rpbHorizontal .rpbChunk.rpbChunkFirst, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl .rpbChunk.rpbChunkLast, .RadProgressBar_BlackMetroTouch.rpbHorizontal .rpbChunkLast, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl .rpbChunkFirst, .RadProgressBar_BlackMetroTouch.rpbVertical > .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbVertical .rpbChunkFirst, .RadProgressBar_BlackMetroTouch.rpbVertical .rpbChunkLast, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbReversed > .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl > .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbHorizontal .rpbChunkFirst, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl .rpbChunkLast, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl.rpbReversed .rpbChunkLast, .RadProgressBar_BlackMetroTouch.rpbVertical.rpbReversed > .rpbStateSelected {
+    border-radius: 0; }
+  .RadProgressBar_BlackMetroTouch.rpbHorizontal > .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbHorizontal.rpbRtl.rpbReversed > .rpbStateSelected {
+    left: 0;
+    top: 0; }
+  .RadProgressBar_BlackMetroTouch .rpbStateSelected, .RadProgressBar_BlackMetroTouch .rpbStateSelected:link, .RadProgressBar_BlackMetroTouch .rpbStateSelected:visited {
+    background-color: #25a0da;
+    color: #fff;
+    background-image: none; }
+  .RadProgressBar_BlackMetroTouch .rpbStateSelected:hover {
+    background-image: none; }
+  .RadProgressBar_BlackMetroTouch .rpbChunk {
+    border-color: #333; }
+  .RadProgressBar_BlackMetroTouch .rpbChunk.rpbStateDefault {
+    background-color: #141414; }
+  .RadProgressBar_BlackMetroTouch .rpbStateSelected, .RadProgressBar_BlackMetroTouch .rpbStateSelected:link, .RadProgressBar_BlackMetroTouch .rpbStateSelected:visited, .RadProgressBar_BlackMetroTouch .rpbChunk.rpbStateSelected {
+    border-color: #000; }
+  .RadProgressBar_BlackMetroTouch.rpbVertical {
+    background-image: none; }
+  .RadProgressBar_BlackMetroTouch.rpbVertical .rpbStateSelected, .RadProgressBar_BlackMetroTouch.rpbVertical .rpbStateSelected:hover, .RadProgressBar_BlackMetroTouch.rpbVertical .rpbStateSelected:link, .RadProgressBar_BlackMetroTouch.rpbVertical .rpbStateSelected:visited {
+    background-image: none; }
+  .RadProgressBar_BlackMetroTouch.rpbIndeterminate {
+    background-image: url('Common/radIndeterminate.gif'); }
+  @media \0screen\,screen\9 {
+    .RadProgressBar_BlackMetroTouch.rpbHorizontal li.rpbChunk {
+      border-width: 0 1px 0 0; } }
+  @media all and (min-width: 0\0) and (min-resolution: 0.001dpcm) {
+    .RadProgressBar_BlackMetroTouch.rpbHorizontal li.rpbChunk {
+      border-width: 0 1px 0 0; } }
+

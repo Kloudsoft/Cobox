@@ -1,0 +1,144 @@
+.RadUpload {
+  line-height: 1.42857143;
+  position: relative;
+  white-space: nowrap; }
+  .RadUpload .ruInputs {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+  .RadUpload .ruFakeInput,
+  .RadUpload .ruButton {
+    vertical-align: top; }
+  .RadUpload input[disabled],
+  .RadUpload .ruDisabled {
+    opacity: 0.6; }
+
+.RadUpload .radIcon {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  vertical-align: middle;
+  background-repeat: no-repeat; }
+  .RadUpload .radIcon:before {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 5px; }
+
+.RadUpload .ruUploading .radIcon {
+  background: url('Common/Upload/AsyncProgress.gif') 4px 2px no-repeat; }
+
+.RadUpload .ruUploadSuccess .radIcon:before {
+  background-color: #cfe461;
+  box-shadow: -0.14285714em -0.14285714em 0.14285714em #669021 inset; }
+
+.RadUpload .ruUploadCancelled .radIcon:before,
+.RadUpload .ruUploadFailure .radIcon:before {
+  background-color: #f24343;
+  box-shadow: -0.14285714em -0.14285714em 0.14285714em #8f0f0f inset; }
+
+.RadUpload .ruFileLI {
+  margin-bottom: 4px; }
+  .RadUpload .ruFileLI .ruFileWrap {
+    padding: 4px 0; }
+  .RadUpload .ruFileLI .ruButton {
+    font-size: 0.71428571em;
+    vertical-align: middle;
+    margin-left: 10px;
+    cursor: pointer; }
+    .RadUpload .ruFileLI .ruButton:hover {
+      color: #000; }
+    .RadUpload .ruFileLI .ruButton.ruRemove:before {
+      width: 0.71428571em;
+      content: "\2715";
+      display: inline-block;
+      color: #fb4202;
+      margin-right: 3px;
+      text-decoration: none; }
+
+.RadUpload .ruFileProgressWrap {
+  position: absolute;
+  top: 1.42857143em;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 3px; }
+
+.RadUpload .ruFileProgress {
+  display: block;
+  width: 0;
+  height: 4px;
+  border-right-width: 1px;
+  border-right-style: solid; }
+
+.RadUpload .ruSelectWrap {
+  display: inline-block; }
+
+.RadUpload .ruFileWrap {
+  position: relative;
+  vertical-align: middle; }
+  .RadUpload .ruFileWrap.ruStyled {
+    display: inline-block;
+    overflow: hidden; }
+
+.RadUpload .ruFakeInput {
+  display: inline-block;
+  width: 9.28571429em;
+  padding: 4px 0;
+  border-width: 1px;
+  border-style: solid; }
+  .RadUpload .ruFakeInput:before {
+    content: "";
+    display: inline-block; }
+
+.RadUpload .ruBrowse {
+  display: inline-block;
+  min-width: 4.28571429em;
+  margin-left: 0.21428571em;
+  padding: 4px 10px;
+  text-align: center;
+  border: 1px solid transparent;
+  outline-offset: -2px; }
+
+.RadUpload .ruStyled .ruFileInput {
+  font-size: 7.14285714em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+.RadUpload .ruDropZone {
+  display: none;
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: 1px solid;
+  font-size: 18px;
+  text-align: center;
+  z-index: 2000; }
+  .RadUpload .ruDropZone span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 18px;
+    margin: -9px 0 0;
+    line-height: 1;
+    text-align: center; }
+
+.RadUpload.ruDisabled .ruButton {
+  opacity: 0.5; }
+
+.RadUpload.ruDisabled .ruFakeInput {
+  opacity: 0.5; }

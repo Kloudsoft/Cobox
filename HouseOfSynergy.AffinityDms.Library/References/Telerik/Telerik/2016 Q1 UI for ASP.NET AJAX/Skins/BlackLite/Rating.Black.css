@@ -1,0 +1,15 @@
+.RadRating_Black a:before, .RadRating_Black a span:before, .RadRating_Black .rrtHalf .rrtSelected a:before, .RadRating_Black .rrtExact .rrtSelected a:before {
+  content: "\E047"; }
+.RadRating_Black a:before, .RadRating_Black a:hover:before {
+  color: #7e7e7e; }
+.RadRating_Black .rrtOver span:before, .RadRating_Black a:hover .rrtPartComplement:before, .RadRating_Black .rrtVertical .rrtSelected.rrtOver a:before, .RadRating_Black .rrtSelected a .rrtPartSelected:before, .RadRating_Black .rrtSelected.rrtOver a:before {
+  color: #49494a; }
+.RadRating_Black .rrtSelected span:before {
+  color: #9eda29; }
+.RadRating_Black .rrtSelected .rrtPart:before, .RadRating_Black .rrtSelected.rrtOver span:before {
+  color: #4a7000; }
+.RadRating_Black .rrtReversed .rrtPart:before {
+  color: #49494a; }
+.RadRating_Black .rrtReversed .rrtSelected .rrtPartComplement:before {
+  color: #4a7000; }
+
