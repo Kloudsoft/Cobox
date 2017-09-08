@@ -12,3 +12,10 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Resource
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.csprojResolveAssemblyReference.cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.csprojResolveAssemblyReference.cache
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ResourceProvider\obj\Debug\HouseOfSynergy.AffinityDms.ResourceProvider.pdb

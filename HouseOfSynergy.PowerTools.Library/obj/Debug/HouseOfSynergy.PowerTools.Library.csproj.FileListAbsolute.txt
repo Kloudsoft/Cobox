@@ -16,3 +16,12 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\o
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.csproj.GenerateResource.Cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\bin\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\bin\Debug\HouseOfSynergy.PowerTools.Library.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.csprojResolveAssemblyReference.cache
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.Database.DatabaseConnectionWizard.resources
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.UserControls.WindowsForms.FormTimedMessageBox.resources
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.UserControls.WindowsForms.PictureBoxCanvas.resources
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.csproj.GenerateResource.Cache
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.PowerTools.Library\obj\Debug\HouseOfSynergy.PowerTools.Library.pdb
