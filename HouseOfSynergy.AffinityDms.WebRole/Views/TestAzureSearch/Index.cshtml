@@ -19,9 +19,9 @@
     
     </tr>
 </table>
-
-<div id="divresults" style="padding-left:20px"></div>
-
+<div style="height:400px;overflow:scroll">
+    <div id="divresults" style="padding-left:20px"></div>
+</div>
 <script>
 
     function fnUploadIndex() {
@@ -53,7 +53,9 @@
 
         var searchtxt = $("#txtsearch").val();
 
-        var urlneww = "@Url.Action("searchindex", "TestAzureSearch")";
+        //var urlneww = "@Url.Action("searchindex", "TestAzureSearch")";
+        var urlneww = "@Url.Action("searchindex_fn", "TestAzureSearch")";
+
 
         $.ajax({
             url: urlneww,
@@ -62,18 +64,46 @@
             dataType: "json",
             data: { searchtxt: searchtxt },
             error: function (result) { alert("error"); },
-            success: function (json) {
+            success: function (data) {
 
-              //  alert(json);
-
-                var data = JSON.parse(json);;
+                //  alert(json);
+                //alert(data.Results.length)
                 var str = "";
-                $.each(data.Results.Document, function (key, value) {
-                    str += key + ': ' + value + "<br><br>";
-                   // alert(str);
+
+                for (var i = 0; i < data.Results.length; i++) {
+                   // alert(data.Results[i].Document.ocr);
+               
+                //var data = JSON.parse(json);;
+               
+                str += '<hr>';
+
+                $.each(data.Results[i].Document, function (key, value) {
+
+                    if (key == "link") {
+                        //str += key + ': <a href=' + value + ">Click Here to View Document</a><br><br>";
+                        str += '<a target="_blank" href=' + value + ">Click Here to View Document</a><br><br>";
+                    }
+                    //if (key == "account_no") {
+                    //    str += 'Account No : ' + value + "<br><br>";
+                    //}
+                    ////if (key == "invoice_no") {
+                    ////    str += 'Invoice No : ' + value + "<br><br>";
+                    ////}
+                    //if (key == "delivery_order") {
+                    //    str += 'Delivery Order No : ' + value + "<br><br>";
+                    //}
+                    if (key == "vendorname") {
+                        str += 'Vendor Name : ' + value + "<br><br>";
+                    }
+                    else {
+                        //str += key + ': ' + value + "<br><br>";
+                    }
+
+                    // alert(str);
                 });
 
-
+                //str += '<hr>';
+                }
 
 
                 //alert([JSON].Results[0].Document.account_no);
@@ -102,8 +132,9 @@
                 //}
 
                 //alert("Indexes uploaded successfully!");
-                $("#divresults").html(str);
-                
+                // $("#divresults").html(str);
+                document.getElementById("divresults").innerHTML = str;
+
             }
         });
     }

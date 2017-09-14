@@ -44,11 +44,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Classes
             {
                 SearchParameters sp = new SearchParameters()
                 {
-                    SearchMode = SearchMode.Any,
+                    SearchMode = SearchMode.All,
                     Top = 10,
                     //Skip = currentPage - 1,
                     // Limit results
-                    Select = new List<String>() {"account_no", "delivery_order", "vendorname", "ocr" },
+                    Select = new List<String>() {"account_no", "delivery_order", "vendorname", "ocr","link" },
                     // Add count
                     //IncludeTotalResultCount = true,
                     // Add search highlights

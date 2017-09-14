@@ -36,7 +36,7 @@ using System.Drawing.Drawing2D;
 using HouseOfSynergy.AffinityDms.DataLayer.Contexts;
 using WebSupergoo.ABCpdf10;
 using HouseOfSynergy.AffinityDms.OcrLibrary;
-
+using System.Configuration;
 using System.Web.UI;
 
 using Leadtools;
@@ -44,7 +44,7 @@ using Leadtools.Pdf;
 using Leadtools.Codecs;
 
 using System.IO.Compression;
-
+using AzureSearchBackupRestore;
 
 
 
@@ -64,11 +64,23 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
     }
 
-    
+    public class LstAzureSearch
+    {
+        public string fieldname { get; set; }
+        public string fieldvalue { get; set; }
+        
+    }
+
+
 
 
     public class TenantTemplateIndexListLTController : Controller
     {
+
+        private static string TargetSearchServiceName = ConfigurationManager.AppSettings["TargetSearchServiceName"];
+        private static string TargetSearchServiceApiKey = ConfigurationManager.AppSettings["TargetSearchServiceApiKey"];
+        private static HttpClient HttpClient;
+        private static Uri ServiceUri;
 
         public string PublicIndexName;
         public string PublicIndexValue;
@@ -78,6 +90,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         string AccountNumber = "NoAccountNumber";
         string BillNumber = "NoBillNumber";
         string CreateFolderName = "NoName";
+        int TotalZipCount = 0;
+        int TotalFileCount = 0;
+        string FileType = "";
+        public string OCR_Search = "";
 
         List<LstIndexes> ObjList = new List<LstIndexes>();
         List<LstIndexes> OutObjList = new List<LstIndexes>();
@@ -130,7 +146,13 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                 {
                     if (file.ContentLength > 0)
                     {
-                        int maxWidth = 900;
+                        //if (file.ContentLength > 2100000)    // Exactly 2097152 bytes  = 2MB
+                        //{
+
+                        //}
+
+
+                            int maxWidth = 900;
                         int maxHeight = 1273;
 
                         try
@@ -160,6 +182,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                             if (Fileextn.ToString().ToUpper() == ".PDF")
                             {
+
+                                ViewBag.FileType = "PDF";
+                                ViewBag.FileCount = 1;
+                                ViewBag.TotalPageCount = 0;
+
                                 string strLIC = "";
                                 string strLICKey = "";
                                 List<string> OcrFileNames = new List<string>();
@@ -185,7 +212,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                 //codecs.Save(imagenew, pathTenantDoc + filenamenew + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 64, 1, 1, -1, CodecsSavePageMode.Append);
                                                 //Session["ServerSavePathO"] = filenamenew + "Page_" + pageNumber + ".png";
                                                 OcrFileNames.Add(filenamenew + "Page_" + pageNumber + ".png");
-                                                
+                                                ViewBag.TotalPageCount = ViewBag.TotalPageCount + 1;
 
                                             }
 
@@ -204,9 +231,12 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             }
                             if (Fileextn.ToString().ToUpper() == ".ZIP")
                             {
+                                ViewBag.FileType =  "ZIP";
+                                ViewBag.TotalPageCount = 0;
+
                                 using (ZipArchive za = ZipFile.OpenRead(ServerSavePathO))
                                 {
-                                    
+                                    ViewBag.FileCount = za.Entries.Count(); 
 
                                     foreach (ZipArchiveEntry zaItem in za.Entries)
                                     {
@@ -244,7 +274,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                         //codecs.Save(imagenew, pathTenantDoc + filenamenew + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 64, 1, 1, -1, CodecsSavePageMode.Append);
                                                         //Session["ServerSavePathO"] = filenamenew + "Page_" + pageNumber + ".png";
                                                         OcrFileNames.Add(filenamenew + "Page_" + pageNumber + ".png");
-
+                                                        ViewBag.TotalPageCount = ViewBag.TotalPageCount + 1;
 
                                                     }
 
@@ -633,8 +663,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                             try
                             {
+                                OCR_Search = OCRText;
                                 OCRText = OCRText.Replace("\r\n\r\n", "\r\n");
-
+                                
                                 using (var reader = new StringReader(OCRText))
                                 {
                                     for (string line = reader.ReadLine(); line != null; line = reader.ReadLine().Replace(" ", ""))  //.Replace(" ","")
@@ -643,8 +674,12 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         {
                                             string test = "OK";
                                         }
+                                        if (line.ToUpper().Contains("INVNO"))
+                                        {
+                                            string test = "OK";
+                                        }
 
-                                            currentline = line;
+                                        currentline = line;
 
                                         if (Ismatched && (Isnewline == false))  //  INDEXES found on same line
                                         {
@@ -670,8 +705,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                         NewInfexHeight = 0
                                                     });
 
+                                                }
 
-                                                    if (PublicIndexName.ToUpper().Contains("D/ONO"))
+                                                if (PublicIndexName.ToUpper().Contains("D/ONO"))
                                                     {
                                                         DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
                                                     }
@@ -692,7 +728,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                         BillNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
                                                     }
                                                     
-                                                }
+                                                
                                                 
                                             }
                                             catch (Exception e) { }
@@ -777,7 +813,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                             {
                                                 foreach (var item in vendor)
                                                 {
-                                                    if (currentline.ToUpper().Contains(item.VendorName.ToUpper()))
+                                                    if (currentline.ToUpper().Contains(item.VendorName.ToUpper()) || (currentline.ToUpper().Contains(item.VendorName.ToUpper().Replace("-",""))) )
                                                     {
                                                         IsvendorExist = true;
                                                         CreateFolderName = item.VendorName.ToUpper();
@@ -794,6 +830,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                             }
                             catch (Exception exx) { }
+
+                            
 
                             // Custom Vision Test
                             string NewGuidName = Guid.NewGuid().ToString().Substring(1, 8);
@@ -879,6 +917,53 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
            // return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml");
             
+        }
+
+        public void CreateJson_AzureSearch(string filenamepdf)
+        {
+            string value_vendor_name = CreateFolderName;
+            string value_account_no = Guid.NewGuid().ToString().ToUpper().Substring(1,16);
+            string value_delivery_order = Guid.NewGuid().ToString().ToUpper().Substring(1, 16); 
+            string value_ocr = OCR_Search.Replace(@"\", "-").Replace("'", "");
+            string value_link = ConfigurationManager.AppSettings["openfile"] + filenamepdf;
+
+            List<LstAzureSearch> Objsearch = new List<LstAzureSearch>();
+            List<string> Objsearch2 = new List<string>();
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            
+            // Create JSON for AZURE search
+            try
+            {
+                string jsonData = @"{ 'value':[{'account_no':'"+ value_account_no + "',  'delivery_order':'"+ value_delivery_order + "' ,  'vendorname':'" + value_vendor_name + "',  'ocr':'" + value_ocr + "',  'link':'"+ value_link + "' }]}";
+
+                //dict.Add("vendorname", value_vendor_name);
+                //dict.Add("ocr", value_ocr);
+                //dict.Add("link", value_link);
+
+                string jsondata = new JavaScriptSerializer().Serialize(jsonData);
+
+                    int count = Directory.GetFiles(Server.MapPath("~/Schema_and_Data/"), "cobox" + "*.json").Count();
+                    count = count + 1;
+                    string path = Server.MapPath("~/Schema_and_Data/");
+                    System.IO.File.WriteAllText(path + "cobox" + count + ".json", jsonData);
+
+                    ServiceUri = new Uri("https://" + TargetSearchServiceName + ".search.windows.net");
+                    HttpClient = new HttpClient();
+                    HttpClient.DefaultRequestHeaders.Add("api-key", TargetSearchServiceApiKey);
+
+                    string fileName = Server.MapPath("~/Schema_and_Data/") + "cobox" + count + ".json";
+
+                    Console.WriteLine("Uploading documents from file {0}", fileName);
+                    string jsonupload = System.IO.File.ReadAllText(fileName);
+                    Uri uri = new Uri(ServiceUri, "/indexes/" + "cobox" + "/docs/index");
+                    HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, jsonupload);
+                    response.EnsureSuccessStatusCode();
+                
+
+
+            }
+            catch (Exception exx) { }
+
         }
 
 
@@ -1184,6 +1269,15 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         
                         FileNamePDF = ManagePDF(null, pathTenantDoc, Pdfname, pathTenantDoc, filenamenew + ".pdf", documentid);
 
+                        //Create Json for azure search
+
+                        try
+                        {
+                            CreateJson_AzureSearch(FileNamePDF);
+                        }
+                        catch (Exception exx) { }
+
+
                         try
                         {
                             Log aln = new Log();
@@ -1359,6 +1453,14 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                 //bmp.Save(physicalPath);
                 //FileNamePDF = createPDF(bmp, ServerSavePathR, fileName, pathTenantDoc, DeliveryOrderNumber + "_" + filenamenew, ".pdf");
                 bool result = CreateDocumentEntry(tenantUserSession, FileNamePDF, FileNamePDF, 100, folderId, ClassificationID, Obj,logtype, CreateFolderName);
+                try
+                {
+                    CreateJson_AzureSearch(FileNamePDF);
+                }
+                catch (Exception exx) { }
+
+
+
                 //imageByte.Length = 0;
 
 
@@ -1789,14 +1891,19 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         context.UserDocuments.Add(userDocument);
                         context.SaveChanges();
 
-
+                        
+                    
                         ///Save Indexes
                         ///
                         foreach (LstIndexes iList in Obj)
                         {
                             SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID);
+
+                           
+
                         }
 
+                    
                          try
                                 {
                                     Log aln = new Log();

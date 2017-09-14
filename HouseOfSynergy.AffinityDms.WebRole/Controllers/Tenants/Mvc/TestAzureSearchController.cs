@@ -46,8 +46,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
             try
             {
                 Uri uri = new Uri(ServiceUri, "/indexes/" + "cobox");
-                HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Delete, uri);
-                response.EnsureSuccessStatusCode();
+                //HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Delete, uri);
+                //response.EnsureSuccessStatusCode();
             }
             catch (Exception ex) { }
 
@@ -58,8 +58,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
             try
             {
                 Uri uri = new Uri(ServiceUri, "/indexes");
-                HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, json);
-                response.EnsureSuccessStatusCode();
+               // HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, json);
+               // response.EnsureSuccessStatusCode();
             }
             catch (Exception ex) { }
 

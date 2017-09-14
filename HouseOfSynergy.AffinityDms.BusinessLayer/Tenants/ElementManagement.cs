@@ -45,13 +45,23 @@ namespace HouseOfSynergy.AffinityDms.BusinessLayer.Tenants
             bool result = false;
             try
             {
+                //ContextTenant context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString);
+                //ClassifiedFileIndexs temp = context.ClassifiedFileIndexs.Where(x => x.Id == cfi.Id).Select(x => x).FirstOrDefault();
+                //temp.indexvalue = cfi.indexvalue;
+                //context.ClassifiedFileIndexs.Add(temp);
+                //context.Entry(temp).State = System.Data.Entity.EntityState.Modified;
+                //context.SaveChanges();
+                //result = true;
+
                 ContextTenant context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString);
-                ClassifiedFileIndexs temp = context.ClassifiedFileIndexs.Where(x => x.Id == cfi.Id).Select(x => x).FirstOrDefault();
-                temp.indexvalue = cfi.indexvalue;
-                context.ClassifiedFileIndexs.Add(temp);
-                context.Entry(temp).State = System.Data.Entity.EntityState.Modified;
+                var tempindexvalue = context.ClassifiedFileIndexs.Where(x => x.Id == cfi.Id).Select(x=>x.indexvalue).First();
+                
+                var temp2 = context.ClassifiedFileIndexs.Where(x => x.indexvalue == tempindexvalue).ToList();
+                temp2.ForEach(x => x.indexvalue = cfi.indexvalue);
                 context.SaveChanges();
+
                 result = true;
+
             }
             catch (Exception ex)
             {
