@@ -606,7 +606,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                     if (OcrFileNames.Count() > 0)
                     {
-
+                      //   step2:
                         for (int Ipage = 0; Ipage < OcrFileNames.Count(); Ipage++)
                         {
                             pathTenantDoc = Path.Combine(Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/")) + OcrFileNames[Ipage].ToString();
@@ -617,7 +617,19 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 // Upload an image and perform OCR
                                 //
                                 OcrResults ocrResult = await VisionServiceClient.RecognizeTextAsync(imageFileStream, "en");
-                                OCRText += LogOcrResults(ocrResult);
+                                OCRText += RearrangeOCR(ocrResult);
+
+                               
+                            //    OCRText += LogOcrResults(ocrResult);
+
+                                //try
+                                //{
+                                //    RearrangeOCR(ocrResult);
+
+                                //}
+                                //catch (Exception ecc) { }
+
+                                //Response.End();
 
                                 //try
                                 //{
@@ -711,7 +723,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                     {
                                                         DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
                                                     }
-                                                    if (PublicIndexName.ToUpper().Contains("INVNO"))
+                                                if (PublicIndexName.ToUpper().Contains("DELIVERYORDERNO"))
+                                                {
+                                                    DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                }
+                                                if (PublicIndexName.ToUpper().Contains("INVNO"))
                                                     {
                                                         InvoiceNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
                                                     }
@@ -763,6 +779,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                     {
                                                         DeliveryOrderNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
                                                     }
+                                                    if (PublicIndexName.ToUpper().Contains("DELIVERYORDERNO"))
+                                                    {
+                                                        DeliveryOrderNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                    }
                                                     if (PublicIndexName.ToUpper().Contains("INVNO"))
                                                     {
                                                         InvoiceNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
@@ -794,7 +814,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         try
                                         {
 
-                                            if (currentline.ToUpper().Contains("ACCOUNTNO") || currentline.ToUpper().Contains("BILL-ID") || currentline.ToUpper().Contains("BILL-10") || currentline.ToUpper().Contains("D/ONO") || currentline.ToUpper().Contains("INVNO") || currentline.ToUpper().Contains("INVOICENO"))
+                                            if (currentline.ToUpper().Contains("ACCOUNTNO") || currentline.ToUpper().Contains("BILL-ID") || currentline.ToUpper().Contains("BILL-10") || currentline.ToUpper().Contains("D/ONO") || currentline.ToUpper().Contains("DELIVERYORDERNO") || currentline.ToUpper().Contains("INVNO") || currentline.ToUpper().Contains("INVOICENO"))
                                             {
                                                 Isnewline = fncheckIsNewline(currentline);
                                                 Ismatched = true;
@@ -831,6 +851,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             }
                             catch (Exception exx) { }
 
+                            //if(ObjList.Count==0)
+                            //{
+                            //    goto step2;
+                            //}
                             
 
                             // Custom Vision Test
@@ -918,6 +942,119 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
            // return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml");
             
         }
+        public class LstIndexesArray
+        {
+            public string Ocrline { get; set; }
+            public int NewInfexLeft { get; set; }
+            public int NewInfexTop { get; set; }
+            public int NewInfexWidth { get; set; }
+            public int NewInfexHeight { get; set; }
+            public int groupwords { get; set; }
+            public int orderlines { get; set; }
+
+        }
+
+        public string RearrangeOCR(OcrResults ocrResult)
+        {
+            string OCR_Text = "";
+            string templine = "";
+            int _groupwords = 1;
+            int _orderlines = 1;
+            List<LstIndexesArray> ObjListArray = new List<LstIndexesArray>();
+
+            for (int i = 0; i < ocrResult.Regions.Length; i++)
+            {
+                for (int j = 0; j < ocrResult.Regions[i].Lines.Length; j++)
+                {
+                    templine = "";
+                    for (int k = 0; k < ocrResult.Regions[i].Lines[j].Words.Length; k++)
+                    {
+                        var test = ocrResult.Regions[i].Lines[j].Words.ToString(); 
+                        float Jsonleft = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Left;
+                        float Jsontop = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Top;
+                        float Jsonwidth = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Width;
+                        float Jsonheight = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Height;
+
+
+                        ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Left=510;
+
+                        OCR_Text += ocrResult.Regions[i].Lines[j].Words[k].Text;
+                        OCR_Text += " ";
+                        templine = ocrResult.Regions[i].Lines[j].Words[k].Text + " ";
+
+                        ObjListArray.Add(new LstIndexesArray
+                        {
+                            Ocrline = templine,
+                            NewInfexLeft = (int)Jsonleft,
+                            NewInfexTop = (int)Jsontop,
+                            NewInfexWidth = (int)Jsonwidth,
+                            NewInfexHeight = (int)Jsonheight,
+                            groupwords = _groupwords,
+                            orderlines = _orderlines
+                        });
+
+
+                    }
+                    _groupwords++;
+                    //OCR_Text += "\r\n";
+
+                    //ObjListArray.Add(new LstIndexesArray
+                    //{
+                    //    Ocrline = "\r\n",
+                    //    NewInfexLeft = 0,
+                    //    NewInfexTop = 0,
+                    //    NewInfexWidth = 0,
+                    //    NewInfexHeight = 0
+                    //});
+                }
+                
+            }
+            var sortedList = ObjListArray.OrderBy(x => x.groupwords).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.NewInfexTop).ToList();
+            string result = "";
+
+            StringBuilder builder = new StringBuilder();
+            int previouslineorder_no = 1;
+            foreach (LstIndexesArray words in sortedList) // Loop through all strings
+            {
+                if (previouslineorder_no == words.groupwords)
+                {
+                    builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
+                }
+                else
+                {
+                    builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
+                }
+
+                previouslineorder_no = words.groupwords;
+            }
+            result = builder.ToString(); // Get string from StringBuilder
+
+            //for blocks - repeat task
+
+            sortedList = ObjListArray.OrderBy(x => x.NewInfexTop).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.groupwords).ToList();
+            previouslineorder_no = 1;
+            foreach (LstIndexesArray words in sortedList) // Loop through all strings
+            {
+                if (previouslineorder_no == words.groupwords)
+                {
+                    builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
+                }
+                else
+                {
+                    builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
+                }
+
+                previouslineorder_no = words.groupwords;
+            }
+            result = builder.ToString(); // Get string from StringBuilder
+
+
+
+
+            return result;
+
+        }
+
 
         public void CreateJson_AzureSearch(string filenamepdf)
         {

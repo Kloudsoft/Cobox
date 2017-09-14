@@ -78,7 +78,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JjND7n3xruhoFju3Bm5Dn0Z62sKkKIa1T8ULtzVvVQM=</dsig:DigestValue>
+        <dsig:DigestValue>BK7ML4vsbPU7tBo8MXsl5m2uSIJbc2RfWyeX8YqMWcg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -90,7 +90,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hQRldr2Ko5zetJ5ljjkzz/f0yLBmVpf0uQk+auIydgo=</dsig:DigestValue>
+        <dsig:DigestValue>FJsxs5XOtduIrLjSC61CXn61zEKC5yJjRfUetsFMos8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,19 +102,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HGksk+LtP3NcGAgcpHekK2/qiEx8lI4dVPgz6pA/th8=</dsig:DigestValue>
+        <dsig:DigestValue>EdPlmgHSPFNVW1Z4jrhlCL7g5Z6FcsEI4+ymz73SfzI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Library.dll" size="191488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Library.dll" size="192512">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.Library" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/XqCRMd3ZK+s04QytH4PWlLe/djEQmzUbGwEbIl2ERY=</dsig:DigestValue>
+        <dsig:DigestValue>7+go9FtmyDxCpZeD3JHLZtYt1QW2in75p0VJBozTnl4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,7 +126,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6wBkuL47dda8op4ALcDecDwVo3VEkMDmUBA127eX8JY=</dsig:DigestValue>
+        <dsig:DigestValue>qAOsCGWX9ZzvRUjxuoaZrebFkNwi5o7bEFfu1pLgQUk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,7 +138,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wrrx2ys/8nCdJuK9cW3a5QSvSD1Mf6U5ujzjKNbr9ZM=</dsig:DigestValue>
+        <dsig:DigestValue>ZlW/pMmtiMjMU9XlcFsUp7aDum/h2mnBYMsWsgHSUkg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -150,7 +150,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ywo3XJEx2s28Wy2sqEtuqgogkbubrRjqXkEqHo1TQEY=</dsig:DigestValue>
+        <dsig:DigestValue>lxoEgnuX2IZQwvvaYvZHZjt9A7wkYDzB7j+ozAd6qIk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -162,7 +162,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ncaIMQGnm3NgqBFAekJsYPUwOP9jWJq3DMx+afbY27k=</dsig:DigestValue>
+        <dsig:DigestValue>05j1jW20zwr3EAaGlwjMF7Yy9e9QHh+xJIvXlpaAikc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

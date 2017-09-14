@@ -1,0 +1,591 @@
+﻿{
+  "textAngle": 0.0,
+  "orientation": "NotDetected",
+  "language": "en",
+  "regions": [
+    {
+      "boundingBox": "340,264,1180,188",
+      "lines": [
+        {
+          "boundingBox": "340,264,794,32",
+          "words": [
+            {
+              "boundingBox": "340,264,243,32",
+              "text": "RICHPORT"
+            },
+            {
+              "boundingBox": "597,264,327,32",
+              "text": "TECHNOLOGY"
+            },
+            {
+              "boundingBox": "941,264,86,32",
+              "text": "PTE"
+            },
+            {
+              "boundingBox": "1044,264,90,32",
+              "text": "LTD"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1190,290,124,16",
+          "words": [
+            {
+              "boundingBox": "1190,292,4,14",
+              "text": "I"
+            },
+            {
+              "boundingBox": "1200,290,20,16",
+              "text": "so"
+            },
+            {
+              "boundingBox": "1228,290,86,16",
+              "text": "900172003"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1376,290,131,14",
+          "words": [
+            {
+              "boundingBox": "1376,292,4,12",
+              "text": "1"
+            },
+            {
+              "boundingBox": "1385,290,23,14",
+              "text": "so"
+            },
+            {
+              "boundingBox": "1415,290,92,14",
+              "text": "14001äC04"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1168,311,352,14",
+          "words": [
+            {
+              "boundingBox": "1168,311,51,14",
+              "text": "CERT"
+            },
+            {
+              "boundingBox": "1226,311,34,14",
+              "text": "NO:"
+            },
+            {
+              "boundingBox": "1265,311,64,14",
+              "text": "620638"
+            },
+            {
+              "boundingBox": "1359,313,51,12",
+              "text": "CERT"
+            },
+            {
+              "boundingBox": "1419,313,32,12",
+              "text": "No:"
+            },
+            {
+              "boundingBox": "1458,313,62,12",
+              "text": "620624"
+            }
+          ]
+        },
+        {
+          "boundingBox": "608,336,361,23",
+          "words": [
+            {
+              "boundingBox": "608,336,28,19",
+              "text": "No,"
+            },
+            {
+              "boundingBox": "643,336,32,19",
+              "text": "tot"
+            },
+            {
+              "boundingBox": "752,336,47,19",
+              "text": "Road"
+            },
+            {
+              "boundingBox": "804,336,92,23",
+              "text": "Singapore"
+            },
+            {
+              "boundingBox": "902,336,67,19",
+              "text": "628595"
+            }
+          ]
+        },
+        {
+          "boundingBox": "398,367,826,22",
+          "words": [
+            {
+              "boundingBox": "398,367,36,19",
+              "text": "Ter"
+            },
+            {
+              "boundingBox": "445,367,45,19",
+              "text": "6316"
+            },
+            {
+              "boundingBox": "497,367,100,22",
+              "text": "1872.6265"
+            },
+            {
+              "boundingBox": "707,367,47,19",
+              "text": "6595"
+            },
+            {
+              "boundingBox": "760,367,97,22",
+              "text": "SaiesDept"
+            },
+            {
+              "boundingBox": "896,367,45,19",
+              "text": "6267"
+            },
+            {
+              "boundingBox": "949,367,48,22",
+              "text": "8083,"
+            },
+            {
+              "boundingBox": "1003,367,45,19",
+              "text": "6316"
+            },
+            {
+              "boundingBox": "1056,367,168,22",
+              "text": "t875AccmntDept"
+            }
+          ]
+        },
+        {
+          "boundingBox": "422,399,499,21",
+          "words": [
+            {
+              "boundingBox": "422,399,32,17",
+              "text": "Fax"
+            },
+            {
+              "boundingBox": "469,399,45,19",
+              "text": "0262"
+            },
+            {
+              "boundingBox": "520,399,45,19",
+              "text": "0158"
+            },
+            {
+              "boundingBox": "572,399,49,19",
+              "text": "Saks"
+            },
+            {
+              "boundingBox": "628,399,42,21",
+              "text": "Dept"
+            },
+            {
+              "boundingBox": "700,399,45,17",
+              "text": "6484"
+            },
+            {
+              "boundingBox": "752,399,43,17",
+              "text": "1214"
+            },
+            {
+              "boundingBox": "801,399,71,19",
+              "text": "Account"
+            },
+            {
+              "boundingBox": "878,399,43,21",
+              "text": "Dept"
+            }
+          ]
+        },
+        {
+          "boundingBox": "649,429,324,23",
+          "words": [
+            {
+              "boundingBox": "649,429,84,23",
+              "text": "Company"
+            },
+            {
+              "boundingBox": "739,430,13,18",
+              "text": "&"
+            },
+            {
+              "boundingBox": "758,431,80,21",
+              "text": "GstReg."
+            },
+            {
+              "boundingBox": "846,429,127,19",
+              "text": "19-9202375-K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "100,493,708,175",
+      "lines": [
+        {
+          "boundingBox": "101,493,331,17",
+          "words": [
+            {
+              "boundingBox": "101,493,109,17",
+              "text": "JOHNRIS"
+            },
+            {
+              "boundingBox": "218,493,102,17",
+              "text": "SYSTEM"
+            },
+            {
+              "boundingBox": "327,493,47,17",
+              "text": "PTE"
+            },
+            {
+              "boundingBox": "381,493,51,17",
+              "text": "LTD"
+            }
+          ]
+        },
+        {
+          "boundingBox": "100,523,708,21",
+          "words": [
+            {
+              "boundingBox": "100,523,50,17",
+              "text": "BLK"
+            },
+            {
+              "boundingBox": "157,523,23,17",
+              "text": "30"
+            },
+            {
+              "boundingBox": "188,523,104,17",
+              "text": "LOYANG"
+            },
+            {
+              "boundingBox": "299,523,59,17",
+              "text": "WAY"
+            },
+            {
+              "boundingBox": "365,523,70,17",
+              "text": "#02-16"
+            },
+            {
+              "boundingBox": "443,523,104,17",
+              "text": "LOYANG"
+            },
+            {
+              "boundingBox": "555,523,148,17",
+              "text": "INDUSTRIAL"
+            },
+            {
+              "boundingBox": "711,523,97,21",
+              "text": "ESTATE,"
+            }
+          ]
+        },
+        {
+          "boundingBox": "101,553,87,21",
+          "words": [
+            {
+              "boundingBox": "101,553,87,21",
+              "text": "-508769,"
+            }
+          ]
+        },
+        {
+          "boundingBox": "101,584,105,23",
+          "words": [
+            {
+              "boundingBox": "101,584,105,23",
+              "text": "Singapore."
+            }
+          ]
+        },
+        {
+          "boundingBox": "100,615,208,17",
+          "words": [
+            {
+              "boundingBox": "100,615,82,17",
+              "text": "PHONE"
+            },
+            {
+              "boundingBox": "191,620,4,12",
+              "text": ":"
+            },
+            {
+              "boundingBox": "203,615,49,17",
+              "text": "6542"
+            },
+            {
+              "boundingBox": "261,615,47,17",
+              "text": "1580"
+            }
+          ]
+        },
+        {
+          "boundingBox": "100,644,375,24",
+          "words": [
+            {
+              "boundingBox": "100,645,78,17",
+              "text": "EMAIL"
+            },
+            {
+              "boundingBox": "187,650,3,13",
+              "text": ":"
+            },
+            {
+              "boundingBox": "199,644,276,24",
+              "text": "account@johnris-system.sg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "98,768,65,64",
+      "lines": [
+        {
+          "boundingBox": "98,768,65,17",
+          "words": [
+            {
+              "boundingBox": "98,768,65,17",
+              "text": "ITEM"
+            }
+          ]
+        },
+        {
+          "boundingBox": "102,815,9,17",
+          "words": [
+            {
+              "boundingBox": "102,815,9,17",
+              "text": "1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "416,768,173,17",
+      "lines": [
+        {
+          "boundingBox": "416,768,173,17",
+          "words": [
+            {
+              "boundingBox": "416,768,173,17",
+              "text": "DESCRIPTION"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "845,503,427,360",
+      "lines": [
+        {
+          "boundingBox": "861,503,341,21",
+          "words": [
+            {
+              "boundingBox": "861,503,161,21",
+              "text": "DELIVERY"
+            },
+            {
+              "boundingBox": "1031,503,110,21",
+              "text": "ORDER"
+            },
+            {
+              "boundingBox": "1148,503,54,21",
+              "text": "NO:"
+            }
+          ]
+        },
+        {
+          "boundingBox": "861,548,72,17",
+          "words": [
+            {
+              "boundingBox": "861,548,72,17",
+              "text": "DATE:"
+            }
+          ]
+        },
+        {
+          "boundingBox": "985,768,161,17",
+          "words": [
+            {
+              "boundingBox": "985,768,161,17",
+              "text": "TREATMENT"
+            }
+          ]
+        },
+        {
+          "boundingBox": "845,815,427,17",
+          "words": [
+            {
+              "boundingBox": "845,815,71,17",
+              "text": "CHEM"
+            },
+            {
+              "boundingBox": "924,815,82,17",
+              "text": "CLEAN"
+            },
+            {
+              "boundingBox": "1013,815,45,17",
+              "text": "PER"
+            },
+            {
+              "boundingBox": "1064,815,54,17",
+              "text": "ASM"
+            },
+            {
+              "boundingBox": "1125,815,147,17",
+              "text": "PROCEDURE"
+            }
+          ]
+        },
+        {
+          "boundingBox": "845,845,126,18",
+          "words": [
+            {
+              "boundingBox": "845,845,126,18",
+              "text": "08-170075A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "1278,503,231,329",
+      "lines": [
+        {
+          "boundingBox": "1278,503,223,21",
+          "words": [
+            {
+              "boundingBox": "1278,503,223,21",
+              "text": "D020170630-014"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1278,548,113,17",
+          "words": [
+            {
+              "boundingBox": "1278,548,113,17",
+              "text": "30/06/2017"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1375,768,134,21",
+          "words": [
+            {
+              "boundingBox": "1375,768,134,21",
+              "text": "QUANTITY"
+            }
+          ]
+        },
+        {
+          "boundingBox": "1426,815,30,17",
+          "words": [
+            {
+              "boundingBox": "1426,815,30,17",
+              "text": "4.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "195,815,350,48",
+      "lines": [
+        {
+          "boundingBox": "196,815,124,17",
+          "words": [
+            {
+              "boundingBox": "196,815,124,17",
+              "text": "16-172445D"
+            }
+          ]
+        },
+        {
+          "boundingBox": "195,845,350,18",
+          "words": [
+            {
+              "boundingBox": "195,845,132,18",
+              "text": "PLATFORM"
+            },
+            {
+              "boundingBox": "335,845,121,18",
+              "text": "CASSETTE"
+            },
+            {
+              "boundingBox": "466,845,79,18",
+              "text": "150MM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "100,1051,306,284",
+      "lines": [
+        {
+          "boundingBox": "100,1051,179,17",
+          "words": [
+            {
+              "boundingBox": "100,1051,131,17",
+              "text": "RECEIVED"
+            },
+            {
+              "boundingBox": "238,1051,41,17",
+              "text": "BY:"
+            }
+          ]
+        },
+        {
+          "boundingBox": "101,1311,305,24",
+          "words": [
+            {
+              "boundingBox": "101,1312,103,23",
+              "text": "Company"
+            },
+            {
+              "boundingBox": "211,1311,57,23",
+              "text": "Chop"
+            },
+            {
+              "boundingBox": "276,1312,19,17",
+              "text": "&"
+            },
+            {
+              "boundingBox": "303,1311,103,24",
+              "text": "Signature"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boundingBox": "1072,1051,435,17",
+      "lines": [
+        {
+          "boundingBox": "1072,1051,435,17",
+          "words": [
+            {
+              "boundingBox": "1072,1051,135,17",
+              "text": "RICHPORT"
+            },
+            {
+              "boundingBox": "1213,1051,182,17",
+              "text": "TECHNOLOGY"
+            },
+            {
+              "boundingBox": "1402,1051,47,17",
+              "text": "PTE"
+            },
+            {
+              "boundingBox": "1456,1051,51,17",
+              "text": "LTD"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
