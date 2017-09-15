@@ -11,6 +11,17 @@ using HouseOfSynergy.AffinityDms.WebRole.Classes;
 using HouseOfSynergy.AffinityDms.WebRole.Models;
 using System.Web.Script.Serialization;
 
+using System;
+using System.Collections.Generic;
+using HouseOfSynergy.AffinityDms.BusinessLayer;
+using HouseOfSynergy.AffinityDms.BusinessLayer.Tenants;
+using HouseOfSynergy.AffinityDms.Entities.Lookup;
+using HouseOfSynergy.AffinityDms.Entities.Tenants;
+using HouseOfSynergy.AffinityDms.Library;
+using HouseOfSynergy.AffinityDms.WebRole.Classes.Common;
+using HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants;
+using HouseOfSynergy.AffinityDms.WebRole.Models.Tenants;
+
 namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
 {
     public class TestAzureSearchController : Controller
@@ -46,8 +57,28 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
             try
             {
                 Uri uri = new Uri(ServiceUri, "/indexes/" + "cobox");
-                //HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Delete, uri);
-                //response.EnsureSuccessStatusCode();
+                HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Delete, uri);
+                response.EnsureSuccessStatusCode();
+
+
+                try
+                {
+                    Exception exception = null;
+                    TenantUserSession tenantUserSession = null;
+
+                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+                    Log aln = new Log();
+                    aln.documentid = 1010;
+                    aln.action = "AZURE SEARCH DELETION" + response.StatusCode + response.ReasonPhrase;
+                    aln.datetimecreated = DateTime.Now;
+                    aln.userid = tenantUserSession.User.Id;
+                    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
+                }
+                catch (Exception exx) { }
+
+
+
             }
             catch (Exception ex) { }
 
@@ -58,8 +89,27 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
             try
             {
                 Uri uri = new Uri(ServiceUri, "/indexes");
-               // HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, json);
-               // response.EnsureSuccessStatusCode();
+                HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, json);
+                response.EnsureSuccessStatusCode();
+
+
+                try
+                {
+                    Exception exception = null;
+                    TenantUserSession tenantUserSession = null;
+
+                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+                    Log aln = new Log();
+                    aln.documentid = 1010;
+                    aln.action = "AZURE Create  Target Index" + response.StatusCode + response.ReasonPhrase;
+                    aln.datetimecreated = DateTime.Now;
+                    aln.userid = tenantUserSession.User.Id;
+                    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
+                }
+                catch (Exception exx) { }
+
+
             }
             catch (Exception ex) { }
 
@@ -75,6 +125,24 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
                     Uri uri = new Uri(ServiceUri, "/indexes/" + "cobox" + "/docs/index");
                     HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, jsonupload);
                     response.EnsureSuccessStatusCode();
+
+                    try
+                    {
+                        Exception exception = null;
+                        TenantUserSession tenantUserSession = null;
+
+                        if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+                        Log aln = new Log();
+                        aln.documentid = 1010;
+                        aln.action = "AZURE Upload Index" + response.StatusCode + response.ReasonPhrase + jsonupload.Length;
+                        aln.datetimecreated = DateTime.Now;
+                        aln.userid = tenantUserSession.User.Id;
+                        LogManagementcs.AddLog(tenantUserSession, aln, out exception);
+                    }
+                    catch (Exception exx) { }
+
+
                 }
             }
             catch (Exception ex) { }

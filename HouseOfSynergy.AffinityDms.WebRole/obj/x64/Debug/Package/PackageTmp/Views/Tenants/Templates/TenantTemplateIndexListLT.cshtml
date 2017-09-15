@@ -40,11 +40,11 @@
 
     </div>*@
 
-    <div id="n-scroll" class="col-xs-7" style="height:450px;width:860px;">
+    <div id="n-scroll" class="col-xs-7" style="height:450px;width:800px;">
 
 
 
-        <div class="panel table-col-box" style="overflow:scroll;height:320px;width:860px;">
+        <div class="panel table-col-box" style="overflow:scroll;height:320px;width:800px;">
             <div class="widget-body">
                 <div id="left-doc" class="widget-main" tabindex="0">
                     <table width="100%" cellpadding="5">
@@ -65,9 +65,9 @@
                         
                             if (Session["ServerSavePathOPDF"] != null)
                             {
-                            <iframe id="myframe" src='@(System.Configuration.ConfigurationManager.AppSettings["openfile"] + Session["ServerSavePathOPDF"])' width="596" height="1273"></iframe>
-                            }
-                        
+                            <iframe id="myframe" src='@(System.Configuration.ConfigurationManager.AppSettings["openfile"] + Session["ServerSavePathOPDF"])' width="475" height="1273"></iframe>
+                        }
+
 
                         @*if (Session["imgbyte"] != null)
                         {
@@ -91,14 +91,31 @@
 
 
 
-    <div class="col-xs-5" style="width:225px;float:right">
+    <div class="col-xs-5" style="width:300px;float:right;height:400px;">
 
-        <div class="panel" style="width:225px;float:right">
+        <div class="panel" style="width:300px;float:right">
             <div class="widget-body">
                 <div class="widget-main no-padding-right">
-                    <div id="right-doc" style="overflow: hidden; height: 498px; padding-top:10px" tabindex="1">
+                    <div id="right-doc" style="overflow: scroll; height: 498px; padding-top:10px" tabindex="1">
+                       
+                       @if (@ViewBag.FileType != null)
+                       {
 
-
+                        <table>
+                            <tr>
+                                <td>File Type  </td><td> : @ViewBag.FileType </td>
+                            </tr>
+                            <tr>
+                                <td> Total Files</td>
+                                <td> : @ViewBag.FileCount</td>
+                            </tr>
+                            <tr>
+                                <td>Total Pages</td>
+                                <td> : @ViewBag.TotalPageCount</td>
+                            </tr>
+                        </table>
+                       }
+                        <br /><br />
 
                         @{
                             int I = 1;
@@ -148,6 +165,9 @@
                                             <div class='col-md-11'>
 
                                                 @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+                                                {<p>DELIVERY ORDER NO</p>}
+
+                                                @if (iList.Newindexname.ToUpper().Contains("DELIVERYORDERNO"))
                                                 {<p>DELIVERY ORDER NO</p>}
 
                                                 @if (iList.Newindexname.ToUpper().Contains("INVNO"))
@@ -222,6 +242,10 @@
                                     @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
                                     {<p>DELIVERY ORDER NO</p>}
 
+                                          @if (iList.Newindexname.ToUpper().Contains("DELIVERYORDERNO"))
+                                          {<p>DELIVERY ORDER NO</p>}
+                                          
+
                                     @if (iList.Newindexname.ToUpper().Contains("INVNO"))
                                     {    <p>INVOICE NO</p>}
 
@@ -286,7 +310,9 @@
 
                                             @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
                                             {<p>DELIVERY ORDER NO</p>}
-
+                                            @if (iList.Newindexname.ToUpper().Contains("DELIVERYORDERNO"))
+                                            {<p>DELIVERY ORDER NO</p>}
+                                            
                                             @if (iList.Newindexname.ToUpper().Contains("INVNO"))
                                             {<p>INVOICE NO</p>}
 
@@ -449,7 +475,33 @@
 
     <script>
 
+        //=====================
 
+        //Validate  FILE size
+
+
+        $('#file').bind('change', function () {
+            //this.files[0].size gets the size of your file.
+          //  alert(this.files[0].size);
+
+            var Size = this.files[0].size;
+
+            if (Size > (2048 * 1024)) {
+                alert("Uploading file size should not be exceeded 2MB limit")
+                //$('#btnupload').style.display = "none";
+                $('#btnupload').attr('disabled', true);
+            }
+            else { 
+                $('#btnupload').removeAttr('disabled');
+            }
+
+        });
+
+
+
+
+
+        //============
         function edit(element) {
 
            // alert(element);

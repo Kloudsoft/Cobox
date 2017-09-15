@@ -633,6 +633,7 @@ else
 
         function Update(element) {
 
+
            // alert(element);
 
             var input = "#txt-" + element;
@@ -727,6 +728,17 @@ else
 
         var id = $("#h_templateid").val();
         var comments = $("#txtcommentscommon").val();
+
+
+        if (arg == 11 || arg == 12) {
+
+            if (comments == "") {
+                alert("Please enter comments/reason for Rework");
+                return false;
+            }
+
+        }
+
         
    // alert(arg);
    // alert(id);

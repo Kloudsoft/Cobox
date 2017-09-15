@@ -55,7 +55,7 @@
       "analyzer": null
     },
     {
-      "name": "state_ab",
+      "name": "link",
       "type": "Edm.String",
       "searchable": true,
       "filterable": true,
@@ -102,7 +102,7 @@
       "name": "sg",
       "searchMode": "analyzingInfixMatching",
       "sourceFields": [
-        "account_no"
+        "ocr"
       ]
     }
   ],

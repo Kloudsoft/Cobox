@@ -706,16 +706,22 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                                                 if (IsIndexSddedAlready == false)
                                                 {
+                                                    string tempvar = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
 
-                                                    ObjList.Add(new LstIndexes
+                                                    if (tempvar == "(SCD)nt" && tempvar == "DATE")
+                                                    { }
+                                                    else
                                                     {
-                                                        Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
-                                                        Newindexvalue = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
-                                                        NewInfexLeft = 0,
-                                                        NewInfexTop = 0,
-                                                        NewInfexWidth = 0,
-                                                        NewInfexHeight = 0
-                                                    });
+                                                        ObjList.Add(new LstIndexes
+                                                        {
+                                                            Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
+                                                            Newindexvalue = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
+                                                            NewInfexLeft = 0,
+                                                            NewInfexTop = 0,
+                                                            NewInfexWidth = 0,
+                                                            NewInfexHeight = 0
+                                                        });
+                                                    }
 
                                                 }
 
@@ -763,17 +769,23 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                                                 if (IsIndexSddedAlready == false)
                                                 {
+                                                   string tempvar = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
 
-                                                    ObjList.Add(new LstIndexes
+                                                    if (tempvar == "(SCD)nt" && tempvar == "DATE")
                                                     {
-                                                        Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
-                                                        Newindexvalue = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
-                                                        NewInfexLeft = 0,
-                                                        NewInfexTop = 0,
-                                                        NewInfexWidth = 0,
-                                                        NewInfexHeight = 0
-                                                    });
-
+                                                    }
+                                                    else
+                                                    {
+                                                        ObjList.Add(new LstIndexes
+                                                        {
+                                                            Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
+                                                            Newindexvalue = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
+                                                            NewInfexLeft = 0,
+                                                            NewInfexTop = 0,
+                                                            NewInfexWidth = 0,
+                                                            NewInfexHeight = 0
+                                                        });
+                                                    }
 
                                                     if (PublicIndexName.ToUpper().Contains("D/ONO"))
                                                     {
@@ -1031,22 +1043,22 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             //for blocks - repeat task
 
-            sortedList = ObjListArray.OrderBy(x => x.NewInfexTop).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.groupwords).ToList();
-            previouslineorder_no = 1;
-            foreach (LstIndexesArray words in sortedList) // Loop through all strings
-            {
-                if (previouslineorder_no == words.groupwords)
-                {
-                    builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
-                }
-                else
-                {
-                    builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
-                }
+            //sortedList = ObjListArray.OrderBy(x => x.NewInfexTop).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.groupwords).ToList();
+            //previouslineorder_no = 1;
+            //foreach (LstIndexesArray words in sortedList) // Loop through all strings
+            //{
+            //    if (previouslineorder_no == words.groupwords)
+            //    {
+            //        builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
+            //    }
+            //    else
+            //    {
+            //        builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
+            //    }
 
-                previouslineorder_no = words.groupwords;
-            }
-            result = builder.ToString(); // Get string from StringBuilder
+            //    previouslineorder_no = words.groupwords;
+            //}
+            //result = builder.ToString(); // Get string from StringBuilder
 
 
 
@@ -1095,7 +1107,22 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                     Uri uri = new Uri(ServiceUri, "/indexes/" + "cobox" + "/docs/index");
                     HttpResponseMessage response = AzureSearchHelper.SendSearchRequest(HttpClient, HttpMethod.Post, uri, jsonupload);
                     response.EnsureSuccessStatusCode();
-                
+
+                try
+                {
+                    Exception exception = null;
+                    TenantUserSession tenantUserSession = null;
+
+                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+                    Log aln = new Log();
+                    aln.documentid = 1010;
+                    aln.action = "AZURE SEARCH JSON" + response.StatusCode + response.ReasonPhrase;
+                    aln.datetimecreated = DateTime.Now;
+                    aln.userid = tenantUserSession.User.Id;
+                    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
+                }
+                catch (Exception exx) { }
 
 
             }
