@@ -76,6 +76,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
     public class TenantTemplateIndexListLTController : Controller
     {
+        List<long> IDs = new List<long>();
 
         private static string TargetSearchServiceName = ConfigurationManager.AppSettings["TargetSearchServiceName"];
         private static string TargetSearchServiceApiKey = ConfigurationManager.AppSettings["TargetSearchServiceApiKey"];
@@ -362,8 +363,60 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             }
             catch (Exception ex) { }
 
-            return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml");
+            //List upload Documents
+            List<Document> document_ = new List<Document>();
+            try
+            {
+                document_ = Getalldocuments();
+            }
+            catch (Exception ecc) { }
+
+
+            return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml", document_);
         }
+
+
+        public List<Document> Getalldocuments()
+        {
+            Exception exception = null;
+            TenantUserSession tenantUserSession = null;
+            List<Document> document = new List<Document>();
+
+            if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+            bool dbresult = false;
+            if (tenantUserSession.User.UserRoles.Any(x => x.RoleId == (int)TenantRoleType.Administrator))  // Admin
+            {
+                dbresult = DocumentManagement.GetAllDocuments(tenantUserSession, out document, out exception);
+                document = DocumentManagement.GetMaxVersionDocuments(tenantUserSession, document);
+                if (exception != null) { throw exception; }
+                if (document.Count > 0)
+                {
+                    document = document.Where(x => x.WorkflowState == DocumentWorkflowState.Draft
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Submitted
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Rework
+                                                     //|| x.WorkflowState == DocumentWorkflowState.ReworkPM
+                                                     //|| x.WorkflowState == DocumentWorkflowState.ReworkSM
+                                                     //|| x.WorkflowState == DocumentWorkflowState.ReworkSSOAD
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Recommend
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Advised
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Approved
+                                                     //|| x.WorkflowState == DocumentWorkflowState.ProcessPayment
+                                                     //|| x.WorkflowState == DocumentWorkflowState.Closed
+                                                     ).ToList();
+
+                    //var Docs = from s in document
+                    //           join sa in context.Folders on s.FolderId equals sa.Id
+                    //           where sa.ParentId == DraftFolder
+                    //           select s;
+
+                    document = document.Where(s => IDs.Contains(s.Id)).ToList();
+                    
+
+                }
+            }
+            return document;
+        }
+
 
         public static Bitmap CropWhiteSpace(Bitmap bmp)
         {
@@ -553,6 +606,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
         ViewBag.OcrProcessed = "YES";
             string OCRText = "";
+            string _OCRText = "";
+
             List<Vendor> vendor = new List<Vendor>();
             try
             {
@@ -603,6 +658,28 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                     //var pathTenantDoc = Path.Combine(Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/")) + Session["ServerSavePathO"].ToString();
                     string pathTenantDoc = "";
+                    bool Ismatched = false;
+                    bool Isnewline = false;
+                    bool IsvendorExist = false;
+                    string currentline = "";
+                    string previousline = "";
+                    bool IsIndexSddedAlready = false;
+
+                    //Get VendorNamees to List
+
+
+                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+
+
+                    bool dbresult = VendorManagement.GetAllVendors(tenantUserSession, out vendor, out exception);
+                    if (exception != null)
+                    {
+                        throw exception;
+                    }
+                    if ((vendor != null) && dbresult)
+                    {
+                    }
 
                     if (OcrFileNames.Count() > 0)
                     {
@@ -617,61 +694,20 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 // Upload an image and perform OCR
                                 //
                                 OcrResults ocrResult = await VisionServiceClient.RecognizeTextAsync(imageFileStream, "en");
-                                OCRText += RearrangeOCR(ocrResult);
-
-                               
-                            //    OCRText += LogOcrResults(ocrResult);
-
-                                //try
-                                //{
-                                //    RearrangeOCR(ocrResult);
-
-                                //}
-                                //catch (Exception ecc) { }
-
-                                //Response.End();
-
-                                //try
-                                //{
-                                //    Log aln = new Log();
-                                //    aln.documentid = 0; //document.Id;
-                                //    aln.action = "OCR-" + OCRText.ToString().Substring(1,500);
-                                //    aln.datetimecreated = DateTime.Now;
-                                //    aln.userid = tenantUserSession.User.Id;
-                                //    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                                //}
-                                //catch (Exception exx) { }
+                                _OCRText = LogOcrResults(ocrResult);
+                                OCRText += RearrangeOCR(_OCRText, ocrResult, vendor);
 
                             }
                         }
 
-                        //Get VendorNamees to List
 
-
-                        if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
-
-
-
-                        bool dbresult = VendorManagement.GetAllVendors(tenantUserSession, out vendor, out exception);
-                        if (exception != null)
-                        {
-                            throw exception;
-                        }
-                        if ((vendor != null) && dbresult)
-                        {
-                        }
 
 
 
                         try
                         {
 
-                            bool Ismatched = false;
-                            bool Isnewline = false;
-                            bool IsvendorExist = false;
-                            string currentline = "";
-                            string previousline = "";
-                            bool IsIndexSddedAlready = false;
+                            
 
                             try
                             {
@@ -918,6 +954,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 Dtype = 1;
                                 long documentid = CheckoutDocument();
 
+                                //collect Document IDs
+                                IDs.Add(documentid);
+
                                 try
                                 {
                                     Log aln = new Log();
@@ -965,9 +1004,49 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             public int orderlines { get; set; }
 
         }
-
-        public string RearrangeOCR(OcrResults ocrResult)
+        public long fncheckvendordocumentype(string Ocr_Text, List<Vendor> vendor)
         {
+
+            bool _IsvendorExist = false;
+            long RtnType = 1;  // 1 = Lines, 0 = Blocks
+            //vendor
+            Ocr_Text = Ocr_Text.Replace("\r\n\r\n", "\r\n");
+
+            try
+            {
+
+                using (var reader = new StringReader(Ocr_Text))
+                {
+                    for (string line = reader.ReadLine(); line != null; line = reader.ReadLine().Replace(" ", ""))  //.Replace(" ","")
+                    {
+                        try
+                        {
+                            if (_IsvendorExist == false)
+                            {
+                                foreach (var item in vendor)
+                                {
+                                    if (line.ToUpper().Contains(item.VendorName.ToUpper()) || (line.ToUpper().Contains(item.VendorName.ToUpper().Replace("-", ""))))
+                                    {
+                                        _IsvendorExist = true;
+                                        CreateFolderName = item.VendorName.ToUpper();
+                                        RtnType = item.doc_type;
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception exx) { }
+                    }
+                }
+            }
+            catch (Exception exx) { }
+            return RtnType;
+        }
+
+        public string RearrangeOCR(string Ocr_Text,OcrResults ocrResult, List<Vendor> vendor)
+        {
+            long Type = fncheckvendordocumentype(Ocr_Text,vendor);
+
+            
             string OCR_Text = "";
             string templine = "";
             int _groupwords = 1;
@@ -986,10 +1065,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         float Jsontop = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Top;
                         float Jsonwidth = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Width;
                         float Jsonheight = ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Height;
-
-
-                        ocrResult.Regions[i].Lines[j].Words[k].Rectangle.Left=510;
-
+                        
                         OCR_Text += ocrResult.Regions[i].Lines[j].Words[k].Text;
                         OCR_Text += " ";
                         templine = ocrResult.Regions[i].Lines[j].Words[k].Text + " ";
@@ -1008,67 +1084,61 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                     }
                     _groupwords++;
-                    //OCR_Text += "\r\n";
-
-                    //ObjListArray.Add(new LstIndexesArray
-                    //{
-                    //    Ocrline = "\r\n",
-                    //    NewInfexLeft = 0,
-                    //    NewInfexTop = 0,
-                    //    NewInfexWidth = 0,
-                    //    NewInfexHeight = 0
-                    //});
                 }
                 
             }
-            var sortedList = ObjListArray.OrderBy(x => x.groupwords).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.NewInfexTop).ToList();
-            string result = "";
 
+            string result = "";
+            
             StringBuilder builder = new StringBuilder();
             int previouslineorder_no = 1;
-            foreach (LstIndexesArray words in sortedList) // Loop through all strings
+            if (Type == 0)   // Exmaple RICHPORT OCR
             {
-                if (previouslineorder_no == words.groupwords)
-                {
-                    builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
-                }
-                else
-                {
-                    builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
-                }
+              //  for blocks - repeat task
 
-                previouslineorder_no = words.groupwords;
+               var sortedList = ObjListArray.OrderBy(x => x.NewInfexTop).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.groupwords).ToList();
+                previouslineorder_no = 1;
+                foreach (LstIndexesArray words in sortedList) // Loop through all strings
+                    {
+                        if (previouslineorder_no == words.groupwords)
+                        {
+                            builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
+                        }
+                        else
+                        {
+                            builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
+                        }
+
+                        previouslineorder_no = words.groupwords;
+                    }
+                result = builder.ToString(); // Get string from StringBuilder
             }
-            result = builder.ToString(); // Get string from StringBuilder
+            else
+            {   // Exmaple BEST TECH, COOL-LINK AND SINGTEL OCR
+                var sortedList = ObjListArray.OrderBy(x => x.groupwords).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.NewInfexTop).ToList();
+               
+                foreach (LstIndexesArray words in sortedList) // Loop through all strings
+                {
+                    if (previouslineorder_no == words.groupwords)
+                    {
+                        builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
+                    }
+                    else
+                    {
+                        builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
+                    }
 
-            //for blocks - repeat task
-
-            //sortedList = ObjListArray.OrderBy(x => x.NewInfexTop).ThenBy(x => x.NewInfexLeft).ThenBy(x => x.groupwords).ToList();
-            //previouslineorder_no = 1;
-            //foreach (LstIndexesArray words in sortedList) // Loop through all strings
-            //{
-            //    if (previouslineorder_no == words.groupwords)
-            //    {
-            //        builder.Append(words.Ocrline).Append(" "); // Append string to StringBuilder
-            //    }
-            //    else
-            //    {
-            //        builder.Append("\r\n").Append(words.Ocrline); // Append string to StringBuilder
-            //    }
-
-            //    previouslineorder_no = words.groupwords;
-            //}
-            //result = builder.ToString(); // Get string from StringBuilder
-
-
-
+                    previouslineorder_no = words.groupwords;
+                }
+                result = builder.ToString(); // Get string from StringBuilder
+            }
 
             return result;
 
         }
 
 
-        public void CreateJson_AzureSearch(string filenamepdf)
+        public void CreateJson_AzureSearch(string filenamepdf,long document_id)
         {
             string value_vendor_name = CreateFolderName;
             string value_account_no = Guid.NewGuid().ToString().ToUpper().Substring(1,16);
@@ -1437,7 +1507,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                         try
                         {
-                            CreateJson_AzureSearch(FileNamePDF);
+                            CreateJson_AzureSearch(FileNamePDF, documentid);
                         }
                         catch (Exception exx) { }
 
@@ -1616,12 +1686,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
               //  var physicalPath = Path.Combine(pathTenantDoc, DeliveryOrderNumber + "_" + filenamenew + fileExty);
                 //bmp.Save(physicalPath);
                 //FileNamePDF = createPDF(bmp, ServerSavePathR, fileName, pathTenantDoc, DeliveryOrderNumber + "_" + filenamenew, ".pdf");
+
                 bool result = CreateDocumentEntry(tenantUserSession, FileNamePDF, FileNamePDF, 100, folderId, ClassificationID, Obj,logtype, CreateFolderName);
-                try
-                {
-                    CreateJson_AzureSearch(FileNamePDF);
-                }
-                catch (Exception exx) { }
+              
 
 
 
@@ -2046,6 +2113,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         document.DocumentOriginalId = document.Id;
                         document.DocumentParent = document.Id;
 
+                        //collect Document IDs
+                        IDs.Add(document.Id);
+
+
                         document.FileNameServer = document.Id.ToString() + "." + GlobalConstants.FileExtensionCloud;
                         context.SaveChanges();
 
@@ -2062,13 +2133,16 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         foreach (LstIndexes iList in Obj)
                         {
                             SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID);
-
-                           
-
                         }
 
-                    
-                         try
+                        try
+                        {
+                            CreateJson_AzureSearch(file.Name, document.Id);
+                        }
+                        catch (Exception exx) { }
+
+
+                        try
                                 {
                                     Log aln = new Log();
                                     aln.documentid = document.Id;

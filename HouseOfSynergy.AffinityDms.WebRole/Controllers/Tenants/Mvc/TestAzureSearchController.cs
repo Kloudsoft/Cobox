@@ -151,6 +151,19 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
             return Json("Success", JsonRequestBehavior.AllowGet);
         }
 
+     
+
+
+        public ActionResult DocumentsFoldersSearchResult(string QueryDocument, long? folderId)
+        {
+           // var Data = searchindex_fn(QueryDocument);
+
+            ViewBag.Data = QueryDocument;
+         //   Session["Data"]= QueryDocument;
+
+            return View("~/Views/TestAzureSearch/Index.cshtml");
+        }
+
 
         public JsonResult searchindex(string searchtxt)
         {
@@ -166,7 +179,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.Mvc
         [System.Web.Http.HttpPost]
         public JsonResult searchindex_fn(string searchtxt)
         {
-
+           // searchtxt = Session["Data"].ToString();
             var response = _indexsSearch.Search(searchtxt);
             return new JsonResult
             {

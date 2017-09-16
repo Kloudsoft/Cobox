@@ -1,5 +1,10 @@
 ﻿@*@model HouseOfSynergy.AffinityDms.WebRole.Models.Tenants.TemplateElementListAndElementDetailListViewModel*@
-@model List<HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT.LstIndexes>
+@*@model List<HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT.LstIndexes>*@
+@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.Document>
+
+
+
+
 
 @{
     ViewBag.Title = "Template Index List Method 2";
@@ -44,7 +49,7 @@
 
 
 
-        <div class="panel table-col-box" style="overflow:scroll;height:320px;width:800px;">
+        <div class="panel table-col-box" style="height:320px;width:800px;">
             <div class="widget-body">
                 <div id="left-doc" class="widget-main" tabindex="0">
                     <table width="100%" cellpadding="5">
@@ -60,13 +65,63 @@
                             <td><input type="button" id="btnprocessocr" style="display:none" value=" Process OCR Extract Index " class="=btn btn-primary btn-radius" /></td>
                         </tr>
                     </table>
+                    <br /><br />
+
+                    @(Html.Kendo().Grid(Model)
+      .Name("TemplateListingGrid")
+      .Columns(columns =>
+      {
+
+          columns.Bound(item => item.Id).Hidden().HtmlAttributes(new { @name = "Id" });
+
+          columns.Bound(item => item.vendorname).Title("VendorName");
+
+          columns.Template(
+              item =>
+              (item.IsPrivate)
+              ?
+                  ((item.IsFinalized)
+                  ?
+                     "<span style=color:red;font-size:20px;>&nbsp;</span>" + item.Name
+                  :
+                     "<span style=color:red;font-size:20px;>&nbsp;</span>" + item.Name
+                  )
+
+             :
+                 item.Name
+            )
+          .Title("Document Name");
+          columns.Template(item => ((item.UserId == 1) ? ("Admin") : ("Admin"))).Title("Created By");
+          columns.Template(item => ((item.WorkflowState))).Title("Status");
+          columns.Template(item => ((item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Advised) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Recommend) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ProcessPayment) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkPM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSSOAD) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Draft) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Submitted) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Approved) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Closed)
+                                    ?
+                                       ("<a href ='" + @Url.Action("Index", "TemplatesWorkflowIndex", new { id = item.Id }) + "'  class='btn btn-blu01 btn-white' style='background:#2074ca !important; color:#fff !important;'>Start</a>&nbsp;<button data-toggle='modal' href='#remove' class='btn btn-white btn-info btn-radius' onclick='return fnRemove(" + item.Id + ");'> <i class='fa fa-trash' aria-hidden='true'></i> </button></a>")
+                                    :
+                                      ("")
+                                    )).Title("Actions");
+
+
+      })
+       .Pageable()
+      .Sortable()
+                    )
+
+
+
+
+
+
+
+
+
+
 
                     @{
-                        
-                            if (Session["ServerSavePathOPDF"] != null)
-                            {
+
+                        @*if (Session["ServerSavePathOPDF"] != null)
+                        {
                             <iframe id="myframe" src='@(System.Configuration.ConfigurationManager.AppSettings["openfile"] + Session["ServerSavePathOPDF"])' width="475" height="1273"></iframe>
-                        }
+                        }*@
 
 
                         @*if (Session["imgbyte"] != null)
@@ -91,7 +146,7 @@
 
 
 
-    <div class="col-xs-5" style="width:300px;float:right;height:400px;">
+    <div class="col-xs-5" style="width:200px;float:right;height:400px;">
 
         <div class="panel" style="width:300px;float:right">
             <div class="widget-body">
@@ -115,10 +170,15 @@
                             </tr>
                         </table>
                        }
-                        <br /><br />
+                       
+
+
+
+
+
 
                         @{
-                            int I = 1;
+                            @*int I = 1;
                             if (ViewBag.LstIndexes != null)
                             {
 
@@ -127,25 +187,6 @@
                                 {
 
 
-                                    @*<div class='col-md-1'><span class='num-bg'>@I</span></div>
-                                        <div class='col-md-11'>
-
-                                        @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
-                                        {<p>DELIVERY ORDER NO</p>}
-
-                                        @if (iList.Newindexname.ToUpper().Contains("INVNO"))
-                                        { <p>INVOICE NO</p> }
-
-                                         @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
-                                         {<p>INVOICE NO</p>}
-
-                                          <p>• @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')</p>
-
-                                        </div>
-                                         <div class='clearfix'> </div>
-                                         <hr size='1'>
-
-                                            I++;*@
 
                         if (I == 1)
                         {
@@ -176,29 +217,14 @@
                                                 @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
                                                 {<p>INVOICE NO</p>}
 
-@if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-{<p>ACCOUNT NO</p>}
+                                            @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                            {<p>ACCOUNT NO</p>}
 
-@if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
-{<p>BILL-ID</p>}
+                                            @if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
+                                            {<p>BILL-ID</p>}
 
 
-                                                    @*<p>
-                                                        •
-                                                        <label id="lbl-@iList.NewindexId">
-                                                            @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
-                                                        </label>
-                                                            &nbsp;
-
-                                                    
-</p>
-                                                <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
-                                                <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
-                                                    <img src="@Url.Content("~/Images/edit-32.png")" />
-                                                </a>
-                                                <a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
-                                                    <img src="@Url.Content("~/Images/save-32.png")" />
-                                                </a>*@
+                                             
 
                                                 <table style="width:100%">
                                                     <tr>
@@ -220,7 +246,7 @@
                                                     
 
 
-</div>
+                                </div>
                                             <div class='clearfix'> </div>
                                             <hr size='1'>
 
@@ -253,28 +279,12 @@
                                     {   <p>INVOICE NO</p>}
 
                                    
-@if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-{<p>ACCOUNT NO</p>}
+                                                    @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                                    {<p>ACCOUNT NO</p>}
 
-@if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
-{<p>BILL-ID</p>}
+                                                    @if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
+                                                    {<p>BILL-ID</p>}
 
-
-                                              @*<p>
-                                                  •
-                                                  <label id="lbl-@iList.NewindexId">
-    @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
-                                                  </label>
-                                                &nbsp;
-                                              
-</p>
-                                          <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
-                                          <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
-                                              <img src="@Url.Content("~/Images/edit-32.png")" />
-                                          </a>
-                                          <a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
-                                              <img src="@Url.Content("~/Images/save-32.png")" />
-                                          </a>*@
 
 
                                           <table style="width:100%">
@@ -321,29 +331,14 @@
 
 
 
-@if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-{<p>ACCOUNT NO</p>}
+                                                @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                                {<p>ACCOUNT NO</p>}
 
-@if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
-{<p>BILL-ID</p>}
+                                                @if (iList.Newindexname.ToUpper().Contains("BILL-ID"))
+                                                {<p>BILL-ID</p>}
 
 
-                                                @*<p>
-                                                    •
-                                                    <label  id="lbl-@iList.NewindexId" >
-                                                        @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
-                                                    </label>
-                                                    &nbsp;
-                                                    
-                                                </p>
-                                             <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
-                                             <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
-                                                 <img src="@Url.Content("~/Images/edit-32.png")" />
-                                             </a>
-                                            <a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
-                                                <img src="@Url.Content("~/Images/save-32.png")" />
-                                            </a>*@
-                                            
+                                              
 
 
                                             <table style="width:100%">
@@ -396,58 +391,24 @@
                                         </div>
                                         <div class='clearfix'> </div>
                                         <hr size='1'>
+                                        }
                                     }
-                                }
 
-                            }
-
-                            @*@if (Session["Indexs"] != null)
-                                {
-
-                                    @Html.Raw(HttpUtility.HtmlDecode(Session["Indexs"].ToString()));
                                 }*@
 
 
-                            @*<div class="col-md-1">
-                                    <span class="num-bg">1</span>
-                                </div>
-                                <div class="col-md-11">
-                                    <p> Employee Name</p>
-                                    <p>• OCR - Alphabet</p>
-                                </div>
 
-                                <div class="clearfix"> </div>
-                                <hr size="1">
-
-                                <div class="col-md-1">
-                                    <span class="num-bg">2</span>
-                                </div>
-                                <div class="col-md-11">
-                                    <p> Employee Name</p>
-                                    <p>• OCR - Alphabet</p>
-                                </div>
-                                <div class="clearfix"> </div>
-                                <hr size="1">
-
-                                <div class="col-md-1">
-                                    <span class="num-bg">3</span>
-                                </div>
-                                <div class="col-md-11">
-                                    <p> Employee Name</p>
-                                    <p>• OCR - Alphabet</p>
-                                </div>
-                                <div class="clearfix"> </div>
-                                <hr size="1">
-
-                                <br><br><br><br>
-                                <div class="clearfix"> </div>*@
-
-                        }
+                            }
 
                     </div>
 
 
                 </div>
+
+
+        
+
+
                 <!-- Scrool -->
 
 
@@ -455,12 +416,18 @@
 
             </div>
         </div>
+
+
+
+
+
+
     </div>
 
+ 
 
 
-
-                            if (Model != null)
+                            @*if (Model != null)
                             {
                                 <script type="text/javascript">
                                     @{
@@ -471,7 +438,7 @@
                                     // document.onload = designer.editTemplateDesign('@Html.Raw(serializeddata)');//Json.Encode(Model))');
 
                                 </script>
-    }
+    }*@
 
     <script>
 

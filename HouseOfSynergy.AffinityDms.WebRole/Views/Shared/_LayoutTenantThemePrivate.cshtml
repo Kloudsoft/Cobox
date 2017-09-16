@@ -243,8 +243,8 @@
 
                                 <li class="custom-border"> <a href="capturing.html"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon3.png") /></i> <span class="menu-text">AF Capturing </span> </a> </li>
                                 <li class="custom-border"> <a href="/tenants/TenantTemplateIndexList"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> AF Documents</span> </a> </li>
-                                <li class="custom-border"> <a href="/TenantTemplateIndexListLT/Index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> AF Documents M2</span> </a> </li>
-                                <li class="custom-border"> <a href="/tenants/TemplatesWorkflow"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon4.png") /></i> <span class="menu-text">AF Forms </span> </a> </li>
+                                <li class="custom-border"> <a href="/TenantTemplateIndexListLT/Index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon2.png") /></i> <span class="menu-text"> Upload</span> </a> </li>
+                                <li class="custom-border"> <a href="/tenants/TemplatesWorkflow"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon4.png") /></i> <span class="menu-text"> Workflow </span> </a> </li>
                                 <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon5.png") /></i> <span class="menu-text">AF Flow </span> </a> </li>
                                 <li class="custom-border"> <a href="#"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">AF Reports</span> </a> </li>
                                 <li class="custom-border"> <a href="/VendorDetails/Index"> <i class="menu-icon"><img src=@Url.Content("~/Theme/images/avatars/icon6.png") /></i> <span class="menu-text">Vendors List</span> </a> </li>
@@ -1232,7 +1232,8 @@
             });
             $('.btnSearchfolderDocs').click(function () {
 
-                window.location = "/TenantDocumentsFolderWise/DocumentsFoldersSearchResult?QueryDocument=" + $("#nav-search-input").val();
+                window.location = "/TestAzureSearch/DocumentsFoldersSearchResult?QueryDocument=" + $("#nav-search-input").val();
+                //window.location = "/TenantDocumentsFolderWise/DocumentsFoldersSearchResult?QueryDocument=" + $("#nav-search-input").val();
                 //SearchSelectedElement($("#nav-search-folderinput").val());
 
 

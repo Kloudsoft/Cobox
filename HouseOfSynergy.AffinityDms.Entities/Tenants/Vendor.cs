@@ -48,6 +48,9 @@ namespace HouseOfSynergy.AffinityDms.Entities.Tenants
         [DisplayName("Contact Person")]
         public virtual string ContactPerson { get; set; }
 
+
+        public virtual long doc_type { get; set; }
+
         //public virtual string CreateOn { get; set; }
 
         public Vendor()

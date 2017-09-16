@@ -2523,7 +2523,6 @@
     <Content Include="Views\TestAzureSearch\Index.cshtml" />
     <Content Include="Schema_and_Data\cobox.schema" />
     <Content Include="Schema_and_Data\cobox1.json" />
-    <Content Include="Schema_and_Data\cobox2.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HouseOfSynergy.AffinityDms.BusinessLayer\HouseOfSynergy.AffinityDms.BusinessLayer.csproj">

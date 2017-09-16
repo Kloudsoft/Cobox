@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Search Results</h2>
 
-<table width="100%">
+@*<table width="100%">
     <tr>
         <td>
             <a href="#" onclick="fnUploadIndex()"> Upload Indexes</a>
@@ -18,11 +18,28 @@
         </td>
     
     </tr>
-</table>
+</table>*@
 <div style="height:400px;overflow:scroll">
     <div id="divresults" style="padding-left:20px"></div>
 </div>
+
+<input type="hidden" id="hdnsearch" name="hdnsearch" value="@ViewBag.Data" />
+
 <script>
+
+    @*var data=@ViewBag.Data;
+    alert(data.Results.length)*@
+
+    $(document).ready(function() {
+      //  alert("document loaded");
+        var searchtxt = $("#hdnsearch").val();
+
+      //  alert(searchtxt);
+               
+            fnsearchIndex(searchtxt);
+        
+    });
+
 
     function fnUploadIndex() {
 
@@ -47,11 +64,13 @@
         });
     }
 
-    function fnsearchIndex() {
+    function fnsearchIndex(arg) {
 
         $("#divresults").html("");
 
-        var searchtxt = $("#txtsearch").val();
+        //var searchtxt = $("#txtsearch").val();
+
+        var searchtxt = arg;  //$("#nav-search-input").val()
 
         //var urlneww = "@Url.Action("searchindex", "TestAzureSearch")";
         var urlneww = "@Url.Action("searchindex_fn", "TestAzureSearch")";
@@ -72,16 +91,20 @@
 
                 for (var i = 0; i < data.Results.length; i++) {
                    // alert(data.Results[i].Document.ocr);
-               
+
                 //var data = JSON.parse(json);;
-               
+
                 str += '<hr>';
 
                 $.each(data.Results[i].Document, function (key, value) {
 
                     if (key == "link") {
                         //str += key + ': <a href=' + value + ">Click Here to View Document</a><br><br>";
-                        str += '<a target="_blank" href=' + value + ">Click Here to View Document</a><br><br>";
+
+                        var temp = value.split("Documents/");
+
+                        
+                        str += '(<a target="_blank" href=' + value + "> " + temp[1] + " </a>)<br>";
                     }
                     //if (key == "account_no") {
                     //    str += 'Account No : ' + value + "<br><br>";
@@ -93,7 +116,7 @@
                     //    str += 'Delivery Order No : ' + value + "<br><br>";
                     //}
                     if (key == "vendorname") {
-                        str += 'Vendor Name : ' + value + "<br><br>";
+                        str += 'Vendor Name : ' + value + "&nbsp;";
                     }
                     else {
                         //str += key + ': ' + value + "<br><br>";

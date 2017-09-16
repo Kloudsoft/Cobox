@@ -16,4 +16,15 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Models
     {
         public Document Result { get; set; }
     }
+
+    public class AzureSearchResults       // Added by Nandha 
+    {
+        public string account_no { get; set; }
+        public string delivery_order { get; set; }
+        public string vendorname { get; set; }
+        public string ocr { get; set; }
+        public string link { get; set; }
+
+    }
+
 }

@@ -45,7 +45,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Classes
                 SearchParameters sp = new SearchParameters()
                 {
                     SearchMode = SearchMode.All,
-                    Top = 10,
+                    Top = 100,
                     //Skip = currentPage - 1,
                     // Limit results
                     Select = new List<String>() {"account_no", "delivery_order", "vendorname", "ocr","link" },
