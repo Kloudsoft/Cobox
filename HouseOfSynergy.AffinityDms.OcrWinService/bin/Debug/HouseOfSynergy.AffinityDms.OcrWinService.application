@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="HouseOfSynergy.AffinityDms.OcrWinService.exe.manifest" size="62491">
+    <dependentAssembly dependencyType="install" codebase="HouseOfSynergy.AffinityDms.OcrWinService.exe.manifest" size="62490">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.OcrWinService.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1hdkJKV2WGOu2dVzRFtLp2G9ywrOU4s2NpeJ3NUM/1c=</dsig:DigestValue>
+        <dsig:DigestValue>uYE0f8AeZT5ru5nXL6xhhR4sxWuHXdKmex52aqCk3PQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

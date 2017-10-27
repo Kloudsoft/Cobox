@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using HouseOfSynergy.AffinityDms.BusinessLayer;
 using HouseOfSynergy.AffinityDms.BusinessLayer.Tenants;
@@ -8,6 +9,7 @@ using HouseOfSynergy.AffinityDms.Library;
 using HouseOfSynergy.AffinityDms.WebRole.Classes.Common;
 using HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants;
 using HouseOfSynergy.AffinityDms.WebRole.Models.Tenants;
+using HouseOfSynergy.AffinityDms.Entities.Common;
 
 using System.Drawing;
 using System.Linq;
@@ -45,9 +47,13 @@ using Leadtools.Codecs;
 
 using System.IO.Compression;
 using AzureSearchBackupRestore;
+using Microsoft.WindowsAzure.ServiceRuntime;
 
-
-
+using Microsoft.Azure;
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
 
 namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 {
@@ -56,11 +62,23 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         public long NewindexId { get; set; }
         public string Newindexname { get; set; }
         public string Newindexvalue { get; set; }
+        public string Newindexdisplayname { get; set; }
         public int NewInfexLeft { get; set; }
         public int NewInfexTop { get; set; }
         public int NewInfexWidth { get; set; }
         public int NewInfexHeight { get; set; }
 
+
+    }
+
+    public class Bloblist
+    {
+        public string batchno { get; set; }
+        public int nooffiles { get; set; }
+        public int status { get; set; }
+        public string inputblob { get; set; }
+        public string outputblob { get; set; }
+        public string filetype { get; set; }
 
     }
 
@@ -71,8 +89,21 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         
     }
 
+    public class ClsConnectStorage
 
+    {
+        //Calling from Wroker role
 
+        public void ConnectStorage(DataTable Dt)
+        {
+            for (int i = 0; i < Dt.Rows.Count; i++)
+            {
+
+            }
+            //            return Dt;
+
+        }
+    }
 
     public class TenantTemplateIndexListLTController : Controller
     {
@@ -83,6 +114,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         private static HttpClient HttpClient;
         private static Uri ServiceUri;
 
+        public string ServerSavePathOPDF_;
+
+        public string AppendBlobBloplocalcopy = "";  // Append/MamgePDF
+
         public string PublicIndexName;
         public string PublicIndexValue;
         public bool IsNewFolder = false;
@@ -91,13 +126,31 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         string AccountNumber = "NoAccountNumber";
         string BillNumber = "NoBillNumber";
         string CreateFolderName = "NoName";
+        string IndexDisplayName = "";
         int TotalZipCount = 0;
         int TotalFileCount = 0;
         string FileType = "";
         public string OCR_Search = "";
+        public string FileName_Prefix = "";
 
         List<LstIndexes> ObjList = new List<LstIndexes>();
         List<LstIndexes> OutObjList = new List<LstIndexes>();
+        List<Bloblist> OutBlobList = new List<Bloblist>();
+        List<string> OcrFileNames = new List<string>();
+
+        List<string> ExtractedOriginalFileNames = new List<string>();
+
+
+        public static CloudBlobClient blobClient;
+        //public static CloudQueue fileQueue;
+        public static CloudQueue fileQueue { get; set; }
+        public static CloudBlobContainer BlobContainer;
+
+        private static string inputContainer = "inputcobox";
+        private static string outputContainer = "outputcobox";
+        public string blobbatch = "";
+
+       
 
         // GET: TanentTemplateIndexListLT
         public ActionResult Index()
@@ -118,13 +171,447 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml");
         }
+        [HttpPost]
+        public async Task<ActionResult> Index(HttpPostedFileBase[] file)
+        {
+            List<azureblob> listazureblob = new List<azureblob>();
+            listazureblob = Checkblobs();
+
+
+            bool flag = await UploadFilesToBlob(file);
+
+            return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml");
+        }
+
+       
+        public List<azureblob> Checkblobs()
+        {
+            //Bloblist Objbloblist = new Bloblist();
+
+            List<azureblob> listazureblob = new List<azureblob>();
+
+            Exception exception = null;
+            TenantUserSession tenantUserSession = null;
+            if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+
+            bool dbresult = AzureblobManagement.GetAllBlobs(tenantUserSession, out listazureblob, out exception);
+
+            return listazureblob;
+        }
+
+        public async Task<bool> UploadFilesToBlob(HttpPostedFileBase[] files)
+        {
+            blobbatch = Guid.NewGuid().ToString();
+
+            Exception exception = null;
+            TenantUserSession tenantUserSession = null;
+
+            if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+            var _pathTenantDoc = "";
+            try
+            {
+                if (files != null)
+                {
+                   
+               
+                    foreach (var file in files)
+                    {
+                        if (file.ContentLength > 0)
+                        {
+
+
+                            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+
+                            // Get context object for working with blobs, and 
+                            // set a default retry policy appropriate for a web user interface.
+                            var blobClient = storageAccount.CreateCloudBlobClient();
+
+                            BlobContainer = blobClient.GetContainerReference(inputContainer);
+                            if (BlobContainer.CreateIfNotExists())
+                            {
+                                // Enable public access on the newly created "inputContainer" container.
+                                BlobContainer.SetPermissions(
+                                    new BlobContainerPermissions
+                                    {
+                                        PublicAccess = BlobContainerPublicAccessType.Blob
+                                    });
+                            }
+
+                            blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+
+                            // Get a reference to the blob container.
+                            BlobContainer = blobClient.GetContainerReference(inputContainer);
+
+                            // Get context object for working with queues, and 
+                            // set a default retry policy appropriate for a web user interface.
+                            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+                            queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+
+                            // Get a reference to the queue.
+                            fileQueue = queueClient.GetQueueReference(inputContainer);
+                            fileQueue.CreateIfNotExists();
+
+                            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                          
+                            CloudBlockBlob blockBlob = BlobContainer.GetBlockBlobReference(blobName);
+
+                            blockBlob.UploadFromStream(file.InputStream);
+
+                            var queueMessage = new CloudQueueMessage(blobName);
+                            await fileQueue.AddMessageAsync(queueMessage);
 
 
 
+                              //OUT PUT
+                            BlobContainer = blobClient.GetContainerReference(outputContainer);
+                            if (BlobContainer.CreateIfNotExists())
+                            {
+                                // Enable public access on the newly created "inputContainer" container.
+                                BlobContainer.SetPermissions(
+                                    new BlobContainerPermissions
+                                    {
+                                        PublicAccess = BlobContainerPublicAccessType.Blob
+                                    });
+                            }
+                            
+                            int totalfiles = 0;
+
+
+
+                            OutBlobList.Add(new Bloblist
+                            {
+                                batchno = blobbatch,
+                                nooffiles = files.Count(),
+                                filetype = Path.GetExtension(file.FileName),
+                                status = 0,
+                                inputblob = blobName,
+                                outputblob = blobName
+                            });
+                            
+                            //}
+
+                        }
+                    }               
+                    
+                }
+            }
+            catch (Exception Exx) { }
+
+            try
+            {
+                if (OutBlobList != null) {
+                    if (OutBlobList.Count > 0)
+                    {
+                        azureblob azbb = new azureblob();
+                        foreach (var item in OutBlobList)
+                        {
+                            azbb.batchno = item.batchno;
+                            azbb.nooffiles = item.nooffiles;
+                            azbb.filetype = item.filetype;
+                            azbb.inputblob = item.inputblob;
+                            azbb.outputblob = item.outputblob;
+                            azbb.status = item.status;
+                            azbb.createdon = DateTime.Now;
+                            bool dbresult = AzureblobManagement.AddBlob(tenantUserSession, azbb, out exception);
+                            if (exception != null)
+                            {
+                                throw exception;
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception exx){ }
+
+
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task ExtractBlob(string file)
+        {
+
+            
+        }
 
 
         [HttpPost]
-        public async Task<ActionResult> Index(HttpPostedFileBase file)
+        public async Task<bool> IndexV2(string Blobpath, CloudQueue fileQueue,CloudQueueMessage msg, CloudBlobContainer OutputBlobContainer)
+        {
+
+            Exception exception = null;
+            TenantUserSession tenantUserSession = null;
+            ServerSavePathOPDF_ = "";
+            //if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+            var pathTenantDoc = "";
+            var InputFileName = "";
+            var Fileextn = "";
+            var Filewithnoextn = "";
+            string filenamenew = "";
+            var ServerSavePathO = "";
+            
+            try
+            {
+                Template temp = null;
+
+                if (Blobpath != null)
+                {
+                    if (Blobpath!="")
+                    {
+                        int maxWidth = 900;
+                        int maxHeight = 1273;
+
+                        try
+                        {
+                            pathTenantDoc = ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString(); 
+
+                         
+                            using (WebClient webClient = new WebClient())
+                            {
+                                InputFileName = Blobpath;
+                                Fileextn = Path.GetExtension(InputFileName);
+                                Filewithnoextn = Path.GetFileNameWithoutExtension(InputFileName);
+                                filenamenew = Blobpath; //DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+                                ServerSavePathO = pathTenantDoc + Filewithnoextn + Fileextn;
+
+                                webClient.DownloadFile(ConfigurationSettings.AppSettings.Get("BlobRootUrl").ToString() + Blobpath, pathTenantDoc + Blobpath);
+                                webClient.Dispose();
+
+                            }
+
+                            if (Fileextn.ToString().ToUpper() == ".PDF")
+                            {
+
+                               // ViewBag.FileType = "PDF";
+                              ///  ViewBag.FileCount = 1;
+                              ///  ViewBag.TotalPageCount = 0;
+
+                                string strLIC = "";
+                                string strLICKey = "";
+                              
+                                //PDF to image  using LEAD TOOLS
+                                try
+                                {
+                                    //strLIC = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic";
+                                    //strLICKey = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic.key";
+
+                                    strLIC = ConfigurationSettings.AppSettings.Get("LICPATH").ToString();
+                                    strLICKey = ConfigurationSettings.AppSettings.Get("LICKEYPATH").ToString();
+
+                                    RasterSupport.SetLicense(strLIC, System.IO.File.ReadAllText(strLICKey));
+                                    // Load the input PDF document
+                                    PDFDocument document = new PDFDocument(pathTenantDoc + filenamenew);
+                                    using (RasterCodecs codecs = new RasterCodecs())
+                                    {
+                                        // Loop through all the pages in the document
+                                        for (int pageNumber = 1; pageNumber <= document.Pages.Count; pageNumber++)
+                                        {
+                                            // Render the page into a raster image
+                                            document.Resolution = 300;
+                                            using (RasterImage imagenew = document.GetPageImage(codecs, pageNumber))
+                                            {
+                                                codecs.Save(imagenew, pathTenantDoc + Filewithnoextn + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 24, 1, 1, -1, CodecsSavePageMode.Append);
+                                                //codecs.Save(imagenew, pathTenantDoc + filenamenew + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 64, 1, 1, -1, CodecsSavePageMode.Append);
+                                                //Session["ServerSavePathO"] = filenamenew + "Page_" + pageNumber + ".png";
+                                                OcrFileNames.Add(Filewithnoextn + "Page_" + pageNumber + ".png");
+                                             //   ViewBag.TotalPageCount = ViewBag.TotalPageCount + 1;
+
+                                            }
+
+                                        }
+                                        codecs.Dispose();
+                                    }
+                                    
+                                    document.Dispose();
+                                    ServerSavePathOPDF_ = Filewithnoextn + Fileextn;
+                                    ExtractedOriginalFileNames.Add(ServerSavePathOPDF_);
+                                    //Session["ServerSavePathOPDF"] = filenamenew + Fileextn;
+                                    // TempData["OcrFileNames"] = OcrFileNames;
+                                    //  Session["OcrFileNames"] = OcrFileNames;
+
+                                    await ProcessOcr(filenamenew + Fileextn, ExtractedOriginalFileNames, OcrFileNames, ServerSavePathOPDF_, fileQueue,msg, pathTenantDoc + Blobpath, OutputBlobContainer);
+                                }
+                                catch (Exception exx)
+                                {
+
+                                }
+                            }
+                            if (Fileextn.ToString().ToUpper() == ".ZIP")
+                            {
+                                //ViewBag.FileType = "ZIP";
+                                //ViewBag.TotalPageCount = 0;
+                                ExtractedOriginalFileNames.Clear();
+                                OcrFileNames.Clear();
+                                
+                                using (ZipArchive za = ZipFile.OpenRead(ServerSavePathO))
+                                {
+                                    
+                                    //  ViewBag.FileCount = za.Entries.Count();
+
+                                        int iCOUNT = 0;
+
+                                        foreach (ZipArchiveEntry zaItem in za.Entries)
+                                        {
+                                            iCOUNT++;
+
+
+                                            filenamenew = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+                                        try
+                                        {
+
+                                            zaItem.ExtractToFile(Path.Combine(pathTenantDoc, filenamenew + Path.GetExtension(zaItem.FullName)));
+                                            ExtractedOriginalFileNames.Add(filenamenew + Path.GetExtension(zaItem.FullName));
+                                        }
+                                        catch (Exception ee) { }
+
+
+                                        string strLIC = "";
+                                        string strLICKey = "";
+                                        List<string> OcrFileNames = new List<string>();
+                                        //PDF to image  using LEAD TOOLS
+                                        try
+                                        {
+                                            // strLIC = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic";
+                                            //strLICKey = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic.key";
+
+                                            strLIC = ConfigurationSettings.AppSettings.Get("LICPATH").ToString();
+                                            strLICKey = ConfigurationSettings.AppSettings.Get("LICKEYPATH").ToString();
+
+                                            RasterSupport.SetLicense(strLIC, System.IO.File.ReadAllText(strLICKey));
+                                            // Load the input PDF document
+                                            PDFDocument document = new PDFDocument(pathTenantDoc + filenamenew + Path.GetExtension(zaItem.FullName));
+                                            using (RasterCodecs codecs = new RasterCodecs())
+                                            {
+                                                // Loop through all the pages in the document
+                                                for (int pageNumber = 1; pageNumber <= document.Pages.Count; pageNumber++)
+                                                {
+                                                    // Render the page into a raster image
+                                                    document.Resolution = 300;
+                                                    using (RasterImage imagenew = document.GetPageImage(codecs, pageNumber))
+                                                    {
+                                                        codecs.Save(imagenew, pathTenantDoc + filenamenew + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 24, 1, 1, -1, CodecsSavePageMode.Append);
+                                                        //codecs.Save(imagenew, pathTenantDoc + filenamenew + "Page_" + pageNumber + ".png", RasterImageFormat.Png, 64, 1, 1, -1, CodecsSavePageMode.Append);
+                                                        //Session["ServerSavePathO"] = filenamenew + "Page_" + pageNumber + ".png";
+                                                        OcrFileNames.Add(filenamenew + "Page_" + pageNumber + ".png");
+                                                        //        ViewBag.TotalPageCount = ViewBag.TotalPageCount + 1;
+                                                        imagenew.Dispose();
+
+                                                    }
+
+                                                }
+                                                
+                                                codecs.Dispose();
+                                            }
+                                            document.Dispose();
+                                            ServerSavePathOPDF_ = filenamenew + Path.GetExtension(zaItem.FullName);
+
+                                            if (iCOUNT == za.Entries.Count)
+                                            {
+                                                ExtractedOriginalFileNames.Add(InputFileName);
+                                                za.Dispose();
+                                            }
+
+
+                                            // ExtractedOriginalFileNames.Add(filenamenew + Path.GetExtension(zaItem.FullName));
+
+                                            //   Session["ServerSavePathOPDF"] = filenamenew + Path.GetExtension(zaItem.FullName);
+                                            //  TempData["OcrFileNames"] = OcrFileNames;
+                                            //                                            Session["OcrFileNames"] = OcrFileNames;
+                                        }
+                                        catch (Exception exx)
+                                        {
+
+                                        }
+
+                                        
+                                        await ProcessOcr(zaItem.FullName, ExtractedOriginalFileNames, OcrFileNames, ServerSavePathOPDF_, fileQueue,msg, pathTenantDoc + Blobpath, OutputBlobContainer);
+
+                                    }
+                                }
+
+
+
+
+                            }
+
+                            try
+                            {
+
+
+                                //Grouping Indexes and Listing
+
+                                //If vendor Name Exist then Add at the top of INDEX UL-LI list
+                                int I = 1;
+
+                                List<ClassifiedFileIndexs> Indexlist = new List<ClassifiedFileIndexs>();
+
+
+                                List<string> NewObjList = new List<string>();
+
+                                if (ObjList.Count > 0)
+                                {
+                                    foreach (LstIndexes iList in ObjList)
+                                    {
+                                        NewObjList.Add(iList.Newindexvalue);
+                                    }
+
+                                    bool dbresult = ElementManagement.GetClassifiedIndexesbyIndexValue(tenantUserSession, NewObjList, out Indexlist, out exception);
+                                    if (exception != null)
+                                    {
+                                        throw exception;
+                                    }
+                                    //sorting
+
+                                    string previousItem = "";
+                                    foreach (var item in Indexlist)
+                                    {
+                                        if (item.indexvalue != previousItem)
+                                        {
+                                            OutObjList.Add(new LstIndexes
+                                            {
+                                                NewindexId = item.Id,
+                                                Newindexname = item.indexname,
+                                                Newindexdisplayname = item.indexdisplayname,
+                                                Newindexvalue = item.indexvalue,
+                                                NewInfexLeft = 0,
+                                                NewInfexTop = 0,
+                                                NewInfexWidth = 0,
+                                                NewInfexHeight = 0
+                                            });
+                                        }
+                                        previousItem = item.indexvalue;
+
+                                    }
+                                }
+                                var CheckObj = ObjList;
+
+                            }
+                            catch (Exception ee) { }
+
+                        }
+                        catch (Exception ex) { }
+                        //template.TemplatePath = file.FileName; 
+                    }
+                }
+            }
+            catch (Exception ex) { }
+
+            //List upload Documents
+            List<Document> document_ = new List<Document>();
+            try
+            {
+                document_ = Getalldocuments();
+            }
+            catch (Exception ecc) { }
+
+            return await Task.FromResult(true);
+
+            //   return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml", document_);
+        }  // Upload and PROCESS tasks from BLOB -  second version
+
+        [HttpPost]
+        public async Task<ActionResult> IndexV1(HttpPostedFileBase file)
         {
             Exception exception = null;
             TenantUserSession tenantUserSession = null;
@@ -132,7 +619,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
             var pathTenantDoc = "";
             var InputFileName = "";
-            var Fileextn = ""; ;
+            var Fileextn = ""; 
             var Filewithnoextn = "";
             string filenamenew = "";
             var ServerSavePathO = "";
@@ -147,13 +634,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                 {
                     if (file.ContentLength > 0)
                     {
-                        //if (file.ContentLength > 2100000)    // Exactly 2097152 bytes  = 2MB
-                        //{
+                                               
 
-                        //}
-
-
-                            int maxWidth = 900;
+                        int maxWidth = 900;
                         int maxHeight = 1273;
 
                         try
@@ -223,7 +706,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                     TempData["OcrFileNames"] = OcrFileNames;
                                     Session["OcrFileNames"] = OcrFileNames;
 
-                                    await ProcessOcr(filenamenew + Fileextn);
+                                  //  await ProcessOcr(filenamenew + Fileextn);
                                 }
                                 catch (Exception exx)
                                 {
@@ -289,7 +772,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         {
 
                                         }
-                                        await ProcessOcr(zaItem.FullName);
+                                       // await ProcessOcr(zaItem.FullName);
 
                                     }
                                 }
@@ -334,6 +817,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                             {
                                                 NewindexId = item.Id,
                                                 Newindexname = item.indexname,
+                                                Newindexdisplayname = item.indexdisplayname,
                                                 Newindexvalue = item.indexvalue,
                                                 NewInfexLeft = 0,
                                                 NewInfexTop = 0,
@@ -373,7 +857,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
 
             return this.View("~/Views/Tenants/Templates/TenantTemplateIndexListLT.cshtml", document_);
-        }
+        }  // Upload and PROCESS tasks from LOCAL storage - First version
 
 
         public List<Document> Getalldocuments()
@@ -403,19 +887,27 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                      //|| x.WorkflowState == DocumentWorkflowState.ProcessPayment
                                                      //|| x.WorkflowState == DocumentWorkflowState.Closed
                                                      ).ToList();
-
-                    //var Docs = from s in document
-                    //           join sa in context.Folders on s.FolderId equals sa.Id
-                    //           where sa.ParentId == DraftFolder
-                    //           select s;
-
+                  
                     document = document.Where(s => IDs.Contains(s.Id)).ToList();
-                    
+               
+ 
+
+                    using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
+                    {
+
+                    //    var Docs = from s in document
+                    //               join sa in context.Folders on s.FolderId equals sa.Id
+                    //               select new { s, sa };
+
+                    //    return Docs;
+                    }
 
                 }
             }
             return document;
         }
+
+        
 
 
         public static Bitmap CropWhiteSpace(Bitmap bmp)
@@ -595,16 +1087,18 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
         public bool ThumbnailCallback() { return false; }
 
-        public async Task<ActionResult> ProcessOcr(string file)
+        public async Task<ActionResult> ProcessOcr(string file, List<string>  ExtractedOriginalFileNames, List<string> OcrFileNames,string ServerSavePathOPDF_, CloudQueue fileQueue,CloudQueueMessage msg,string Bloplocalcopy, CloudBlobContainer OutputBlobContainer)
         {
-             DeliveryOrderNumber = "NoDoNumber";
-             InvoiceNumber = "NoInvoiceNumber";
-             AccountNumber = "NoAccountNumber";
-             BillNumber = "NoBillNumber";
-              PublicIndexName="";
-            PublicIndexValue = ""; 
 
-        ViewBag.OcrProcessed = "YES";
+            DeliveryOrderNumber = "NoDoNumber";
+            InvoiceNumber = "NoInvoiceNumber";
+            AccountNumber = "NoAccountNumber";
+            BillNumber = "NoBillNumber";
+            PublicIndexName="";
+            PublicIndexValue = ""; 
+            
+
+            ViewBag.OcrProcessed = "YES";
             string OCRText = "";
             string _OCRText = "";
 
@@ -619,25 +1113,15 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                 StringBuilder stringBuilder = new StringBuilder();
                 Exception exception = null;
                 TenantUserSession tenantUserSession = null;
+                tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
 
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+              //  if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }  // 11-10-2017
+
                 Template temp = null;
 
-                if (Session["OcrFileNames"] != null)
+                if (OcrFileNames != null)
                 {
 
-
-                    //byte[] Templateimagebytearr = (byte[])Session["imgbyte"];
-
-                    //ImageConverter Imgconverter = new ImageConverter();
-                    //Image img = (Image)Imgconverter.ConvertFrom(Templateimagebytearr);
-                    //this.ViewBag.ModelTemplateImageByteArray = Templateimagebytearr;
-                    //Session["imgbyte"] = Templateimagebytearr;
-                    //this.ViewBag.ModelTemplateImage = img;
-                    //Session["tempimg"] = img;
-
-                    // OCR The File
-                    // Get SubscriptionKey
 
                     string SubscriptionKey = "5dc704a3098243dda51bb16d92c00d70";
 
@@ -646,18 +1130,10 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                     //
                     string apiroot = @"https://southeastasia.api.cognitive.microsoft.com/vision/v1.0/";
                     VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey, apiroot);
-
-                    //string imageFilePath = Path.Combine(Server.MapPath("~/UploadedFiles/TemplateIndexList/")) + Session["ServerSavePathO"].ToString();
-
-
-
-                    List<string> OcrFileNames = new List<string>();
-                    //OcrFileNames = (List<string>)TempData["OcrFileNames"];
-                    OcrFileNames = (List<string>)Session["OcrFileNames"];
-                    
+               
 
                     //var pathTenantDoc = Path.Combine(Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/")) + Session["ServerSavePathO"].ToString();
-                    string pathTenantDoc = "";
+                    string pathTenantDoc = ""; 
                     bool Ismatched = false;
                     bool Isnewline = false;
                     bool IsvendorExist = false;
@@ -665,10 +1141,25 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                     string previousline = "";
                     bool IsIndexSddedAlready = false;
 
+
+
+                    // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw exception; }  // 11-10-2017
+
+                    tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+
+                    bool masterindex_result = false;
+                    List<MasterIndex> masterindexlist = new List<MasterIndex>();
+                    using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
+                    {
+                        masterindex_result = ElementManagement.GetAllMasterIndexes(tenantUserSession, out masterindexlist, out exception);
+                        if (exception != null) { throw exception; }
+                    }
+
+
                     //Get VendorNamees to List
 
 
-                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+                    //  if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); } // 11-10-2017
 
 
 
@@ -686,7 +1177,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                       //   step2:
                         for (int Ipage = 0; Ipage < OcrFileNames.Count(); Ipage++)
                         {
-                            pathTenantDoc = Path.Combine(Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/")) + OcrFileNames[Ipage].ToString();
+                            //pathTenantDoc = Path.Combine(Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/")) + OcrFileNames[Ipage].ToString();
+
+                            pathTenantDoc = ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString() + OcrFileNames[Ipage].ToString();
 
                             using (Stream imageFileStream = System.IO.File.OpenRead(pathTenantDoc))
                             {
@@ -696,7 +1189,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 OcrResults ocrResult = await VisionServiceClient.RecognizeTextAsync(imageFileStream, "en");
                                 _OCRText = LogOcrResults(ocrResult);
                                 OCRText += RearrangeOCR(_OCRText, ocrResult, vendor);
-
+                                imageFileStream.Dispose();
                             }
                         }
 
@@ -718,14 +1211,14 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 {
                                     for (string line = reader.ReadLine(); line != null; line = reader.ReadLine().Replace(" ", ""))  //.Replace(" ","")
                                     {
-                                        if (line.ToUpper().Contains("ACCOUNTNO"))
+                                        if (line.ToUpper().Contains("DELIVERY"))
                                         {
                                             string test = "OK";
                                         }
-                                        if (line.ToUpper().Contains("INVNO"))
-                                        {
-                                            string test = "OK";
-                                        }
+                                        //if (line.ToUpper().Contains("INVNO"))
+                                        //{
+                                        //    string test = "OK";
+                                        //}
 
                                         currentline = line;
 
@@ -748,8 +1241,26 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                     { }
                                                     else
                                                     {
+                                                        if (masterindexlist != null)
+                                                        {
+                                                            if (masterindexlist.Count > 0)
+                                                            {
+                                                                foreach (var item in masterindexlist)
+                                                                {
+                                                                    if (PublicIndexName.ToUpper().Contains(item.master_index_name))
+                                                                    {
+                                                                        IndexDisplayName = item.display_name;
+                                                                        //FileName_Prefix = item.prefix_file_name;
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+
+
                                                         ObjList.Add(new LstIndexes
                                                         {
+                                                            Newindexdisplayname = IndexDisplayName,
                                                             Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
                                                             Newindexvalue = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
                                                             NewInfexLeft = 0,
@@ -761,33 +1272,25 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                                                 }
 
-                                                if (PublicIndexName.ToUpper().Contains("D/ONO"))
-                                                    {
-                                                        DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                if (PublicIndexName.ToUpper().Contains("DELIVERYORDERNO"))
+                                                //Get Master INdex From DB
+
+                                                if (masterindexlist != null)
                                                 {
-                                                    DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                    if (masterindexlist.Count > 0)
+                                                    {
+                                                        foreach (var item in masterindexlist)
+                                                        {
+                                                            if (PublicIndexName.ToUpper().Contains(item.master_index_name))
+                                                            {
+                                                                DeliveryOrderNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                            }
+                                                        }
+
+                                                    }
                                                 }
-                                                if (PublicIndexName.ToUpper().Contains("INVNO"))
-                                                    {
-                                                        InvoiceNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("INVOICENO"))
-                                                    {
-                                                        InvoiceNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("ACCOUNTNO"))
-                                                    {
-                                                        AccountNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("BILL-ID") || PublicIndexName.ToUpper().Contains("BILL-10"))
-                                                    {
-                                                        BillNumber = PublicIndexValue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    
-                                                
-                                                
+
+
+
                                             }
                                             catch (Exception e) { }
                                         }
@@ -812,8 +1315,29 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                     }
                                                     else
                                                     {
+
+
+                                                        // Get Index Display Name and assign below Obj LIST
+
+                                                        if (masterindexlist != null)
+                                                        {
+                                                            if (masterindexlist.Count > 0)
+                                                            {
+                                                                foreach (var item in masterindexlist)
+                                                                {
+                                                                    if (PublicIndexName.ToUpper().Contains(item.master_index_name))
+                                                                    {
+                                                                        IndexDisplayName = item.display_name;
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+                                                        
+
                                                         ObjList.Add(new LstIndexes
                                                         {
+                                                            Newindexdisplayname = IndexDisplayName,
                                                             Newindexname = PublicIndexName.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
                                                             Newindexvalue = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':'),
                                                             NewInfexLeft = 0,
@@ -823,51 +1347,49 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                                         });
                                                     }
 
-                                                    if (PublicIndexName.ToUpper().Contains("D/ONO"))
+
+                                                    if (masterindexlist != null)
                                                     {
-                                                        DeliveryOrderNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                        if (masterindexlist.Count > 0)
+                                                        {
+                                                            foreach (var item in masterindexlist)
+                                                            {
+                                                                if (PublicIndexName.ToUpper().Contains(item.master_index_name))
+                                                                {
+                                                                    DeliveryOrderNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
+                                                                }
+                                                            }
+
+                                                        }
                                                     }
-                                                    if (PublicIndexName.ToUpper().Contains("DELIVERYORDERNO"))
-                                                    {
-                                                        DeliveryOrderNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("INVNO"))
-                                                    {
-                                                        InvoiceNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("INVOICENO"))
-                                                    {
-                                                        InvoiceNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("ACCOUNTNO"))
-                                                    {
-                                                        AccountNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
-                                                    if (PublicIndexName.ToUpper().Contains("BILL-ID") || PublicIndexName.ToUpper().Contains("BILL-10"))
-                                                    {
-                                                        BillNumber = currentline.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':');
-                                                    }
+
+
                                                 }
                                             }
                                             catch (Exception e) { }
                                         }
 
-
-                                        //if (currentline.ToUpper().Contains("INVOICENO") || currentline.ToUpper().Contains("INVOICE NO") || currentline.ToUpper().Contains("INVOICE NO.") || currentline.ToUpper().Contains("INVNO") || currentline.ToUpper().Contains("INV NO") || currentline.ToUpper().Contains("INV NO."))
-                                        //{
-                                        //    Isnewline =fncheckIsNewline(currentline);
-                                        //    Ismatched = true;
-                                        //}
-
-                                        try
+       try
                                         {
 
-                                            if (currentline.ToUpper().Contains("ACCOUNTNO") || currentline.ToUpper().Contains("BILL-ID") || currentline.ToUpper().Contains("BILL-10") || currentline.ToUpper().Contains("D/ONO") || currentline.ToUpper().Contains("DELIVERYORDERNO") || currentline.ToUpper().Contains("INVNO") || currentline.ToUpper().Contains("INVOICENO"))
+                                      
+                                            if (masterindexlist != null)
                                             {
-                                                Isnewline = fncheckIsNewline(currentline);
-                                                Ismatched = true;
+                                                if (masterindexlist.Count > 0)
+                                                {
+                                                    foreach (var item in masterindexlist)
+                                                    {
+                                                        if (currentline.ToUpper().Contains(item.master_index_name))
+                                                        {
+                                                            Isnewline = fncheckIsNewline(currentline);
+                                                            Ismatched = true;
+                                                        }
+                                                    }
 
+                                                }
                                             }
+
+
                                         }
                                         catch (Exception exx) { }
 
@@ -908,7 +1430,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             // Custom Vision Test
                             string NewGuidName = Guid.NewGuid().ToString().Substring(1, 8);
 
-                            bool NewResult = Checkdocumentindexmatching(AccountNumber,BillNumber,DeliveryOrderNumber, InvoiceNumber, ObjList);
+                            //bool NewResult = Checkdocumentindexmatching(AccountNumber,BillNumber,DeliveryOrderNumber, InvoiceNumber, ObjList);
+                            bool NewResult = Checkdocumentindexmatching("", "", DeliveryOrderNumber, "", ObjList);
                             // ViewBag.ProjectResult = Result;
 
                             //UploadDocuments
@@ -937,12 +1460,12 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                         newFolderCreated = fnCreateFolder(CreateFolderName, Dtype, NewGuidName);
                                     }
                                     catch (Exception eppp) { }
-                                    var documentid = fnUploadDocsOthers(newFolderCreated, Dtype, NewGuidName, ObjList, CreateFolderName, "Supporting");
+                                    var documentid = fnUploadDocsOthers(newFolderCreated, Dtype, NewGuidName, ObjList, CreateFolderName, "Supporting", ServerSavePathOPDF_);
                                 }
                                 else
                                 {
                                     long FolderMiscellaneous = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["FolderMiscellaneous"]);
-                                    var documentid = fnUploadDocsOthers(FolderMiscellaneous, Dtype, NewGuidName, ObjList, CreateFolderName, "Miscellaneous");
+                                    var documentid = fnUploadDocsOthers(FolderMiscellaneous, Dtype, NewGuidName, ObjList, CreateFolderName, "Miscellaneous", ServerSavePathOPDF_);
                                 }
 
 
@@ -963,7 +1486,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                     aln.documentid = documentid;
                                     aln.action = "Upload";
                                     aln.datetimecreated = DateTime.Now;
-                                    aln.userid = tenantUserSession.User.Id;
+                                    aln.userid = 1; // tenantUserSession.User.Id;
                                     LogManagementcs.AddLog(tenantUserSession, aln, out exception);
                                 }
                                 catch (Exception exx) { }
@@ -971,7 +1494,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                                 if ((documentid != 0) && (documentid != null))
                                 {
-                                    documentid = fnAppendDocs(documentid, Dtype, NewGuidName, ObjList);
+                                    documentid = fnAppendDocs(documentid, Dtype, NewGuidName, ObjList, ServerSavePathOPDF_, OutputBlobContainer);
                                 }
                             }
                         }
@@ -983,7 +1506,61 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                 }
 
-               
+
+                try
+                {
+
+                    // Remove Local File and Blob Queue 
+
+                   
+                  
+
+                    CloudBlockBlob OutblockBlob;
+
+                    for (int Ipage = 0; Ipage < ExtractedOriginalFileNames.Count(); Ipage++)
+                    {
+                        OutblockBlob = OutputBlobContainer.GetBlockBlobReference(ExtractedOriginalFileNames[Ipage].ToString());
+                        Stream fs = System.IO.File.OpenRead(ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString() + ExtractedOriginalFileNames[Ipage].ToString());
+                        OutblockBlob.UploadFromStream(fs);
+                        fs.Dispose();
+                    }
+
+
+                    for (int Ipage = 0; Ipage < OcrFileNames.Count(); Ipage++)    // Delete OCR image files(PNG)
+                    {
+                        System.IO.File.Delete(ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString() + OcrFileNames[Ipage].ToString());
+                    }
+
+
+                    //if (System.IO.File.Exists(Bloplocalcopy))   // Delete Origina lcopy of BLOB (Pdf or zip)
+                    //{
+                    //    System.IO.File.Delete(Bloplocalcopy);
+                    //}
+
+                    //if (System.IO.File.Exists(AppendBlobBloplocalcopy))   // Delete Original copy of BLOB for append (Pdf or zip)
+                    //{
+                    //    System.IO.File.Delete(Bloplocalcopy);
+                    //}
+
+                    for (int Ipage = 0; Ipage < ExtractedOriginalFileNames.Count(); Ipage++)
+                    {
+                        System.IO.File.Delete(ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString() + ExtractedOriginalFileNames[Ipage].ToString());
+                    }
+
+
+                    //fileQueue.DeleteMessage(msg);
+
+                    ExtractedOriginalFileNames.Clear();
+                    OcrFileNames.Clear();
+
+                    // Delete Queue
+
+                } catch (Exception exx) {
+
+                    ExtractedOriginalFileNames.Clear();
+                    OcrFileNames.Clear();
+
+                }
 
             }
             catch (Exception ex) { }
@@ -1161,16 +1738,16 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                 string jsondata = new JavaScriptSerializer().Serialize(jsonData);
 
-                    int count = Directory.GetFiles(Server.MapPath("~/Schema_and_Data/"), "cobox" + "*.json").Count();
+                    int count = Directory.GetFiles(ConfigurationSettings.AppSettings.Get("Schema_and_Data").ToString(), "cobox" + "*.json").Count();
                     count = count + 1;
-                    string path = Server.MapPath("~/Schema_and_Data/");
+                    string path = ConfigurationSettings.AppSettings.Get("Schema_and_Data").ToString(); 
                     System.IO.File.WriteAllText(path + "cobox" + count + ".json", jsonData);
 
                     ServiceUri = new Uri("https://" + TargetSearchServiceName + ".search.windows.net");
                     HttpClient = new HttpClient();
                     HttpClient.DefaultRequestHeaders.Add("api-key", TargetSearchServiceApiKey);
 
-                    string fileName = Server.MapPath("~/Schema_and_Data/") + "cobox" + count + ".json";
+                    string fileName = path + "cobox" + count + ".json";
 
                     Console.WriteLine("Uploading documents from file {0}", fileName);
                     string jsonupload = System.IO.File.ReadAllText(fileName);
@@ -1182,14 +1759,15 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                 {
                     Exception exception = null;
                     TenantUserSession tenantUserSession = null;
+                    tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
 
-                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+                    // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
 
                     Log aln = new Log();
                     aln.documentid = 1010;
                     aln.action = "AZURE SEARCH JSON" + response.StatusCode + response.ReasonPhrase;
                     aln.datetimecreated = DateTime.Now;
-                    aln.userid = tenantUserSession.User.Id;
+                    aln.userid = 1; // tenantUserSession.User.Id;
                     LogManagementcs.AddLog(tenantUserSession, aln, out exception);
                 }
                 catch (Exception exx) { }
@@ -1291,6 +1869,13 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         {
             Exception exception = null;
             TenantUserSession tenantUserSession = null;
+
+            tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
+
+            tenantUserSession.Tenant.Id = 1;
+            tenantUserSession.User.Id = 1;
+
+            tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
             Document document = null;
             long id = 0; ;
             // DocumentsViewModel documentViewModel = new DocumentsViewModel();
@@ -1319,7 +1904,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
 
 
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw exception; }
+              //  if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw exception; }
 
                 using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
                 {
@@ -1360,8 +1945,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             Exception exception = null;
             TenantUserSession tenantUserSession = null;
             ClassifiedFileIndexs sourceTemplateElement = new ClassifiedFileIndexs();
+            tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
 
-            if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+            //if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
 
 
             bool dbresult = false;
@@ -1385,7 +1971,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             long rtnValue = 0;
             foreach (LstIndexes iList in Obj)
             {
-                SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, documentid, 0);
+                SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, documentid, 0,iList.Newindexdisplayname);
             }
 
             return rtnValue;
@@ -1399,6 +1985,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             long parentFolderId_Supporting = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["FolderSupporting"]);
             Exception exception = null;
             TenantUserSession tenantUserSession = null;
+            tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
+
+            tenantUserSession.Tenant.Id = 1;
+            tenantUserSession.User.Id = 1;
+
             Folder newFolderCreated = null;
             Folder newFolderCreated_Completed = null;
             Folder newFolderCreated_Supporting = null;
@@ -1407,7 +1998,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                 if (parentFolderId_Supporting > 1)
                 {
-                    if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+
+                    tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+                    // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
                     Folder folder = new Folder();
 
                     folder.DateTimeCreated = DateTime.UtcNow;
@@ -1447,6 +2040,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             else
                             {
                                 IsNewFolder = true;
+
                                 if (!FolderManagement.AddFolder(tenantUserSession, folder, out newFolderCreated, out exception)) { if (exception != null) { throw exception; } }
 
                                 //For Completed
@@ -1476,7 +2070,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
             return newFolderCreated.Id;
         }
 
-        public long fnAppendDocs(long documentid, int ClassificationID, string DeliveryOrderNumber, List<LstIndexes> Obj)
+        public long fnAppendDocs(long documentid, int ClassificationID, string DeliveryOrderNumber, List<LstIndexes> Obj,string ServerSavePathOPDF_, CloudBlobContainer OutputBlobContaine)
         {
             Document document = null;
 
@@ -1485,7 +2079,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             try
             {
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
+
+                // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+
                 using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
                 {
                     var CountDocs = context.Documents.Where(x => ((x.Id == documentid))).ToList();
@@ -1493,7 +2091,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                     {
                         var Pdfname = context.Documents.Where(x => ((x.Id == documentid))).Select(x => x.Name).First();
 
-                        var pathTenantDoc = Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/");
+                        var pathTenantDoc = ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString();// Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/");
 
                         string filenamenew = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
 
@@ -1501,7 +2099,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         
                         //Call PDF conversion and Append DO of the DO number
                         
-                        FileNamePDF = ManagePDF(null, pathTenantDoc, Pdfname, pathTenantDoc, filenamenew + ".pdf", documentid);
+                        FileNamePDF = ManagePDF(null, pathTenantDoc, Pdfname, pathTenantDoc, filenamenew + ".pdf", documentid, ServerSavePathOPDF_, OutputBlobContaine);
+
+                        ExtractedOriginalFileNames.Add(FileNamePDF);
 
                         //Create Json for azure search
 
@@ -1518,7 +2118,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             aln.documentid = documentid;
                             aln.action = "Merge";
                             aln.datetimecreated = DateTime.Now;
-                            aln.userid = tenantUserSession.User.Id;
+                            aln.userid = 1; //tenantUserSession.User.Id;
                             LogManagementcs.AddLog(tenantUserSession, aln, out exception);
                         }
                         catch (Exception exx) { }
@@ -1575,7 +2175,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                     aln.documentid = documentid;
                                     aln.action = "Draft";
                                     aln.datetimecreated = DateTime.Now;
-                                    aln.userid = tenantUserSession.User.Id;
+                                    aln.userid = 1; // tenantUserSession.User.Id;
                                     LogManagementcs.AddLog(tenantUserSession, aln, out exception);
                                 }
                                 catch (Exception exx) { }
@@ -1586,7 +2186,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
                         foreach (LstIndexes iList in Obj)
                         {
-                            SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID);
+                            SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID,iList.Newindexdisplayname);
                         }
 
                        
@@ -1611,7 +2211,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             try
             {
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+
+                //if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
 
                 if (exception != null)
                     throw exception;
@@ -1648,52 +2250,31 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             return 0;
         }
-        public long fnUploadDocsOthers(long folderId, int ClassificationID, string DeliveryOrderNumber, List<LstIndexes> Obj, string CreateFolderName,string logtype)
+        public long fnUploadDocsOthers(long folderId, int ClassificationID, string DeliveryOrderNumber, List<LstIndexes> Obj, string CreateFolderName,string logtype,string ServerSavePathOPDF_)
         {
             Document document = null;
 
             TenantUserSession tenantUserSession = null;
+            tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
             Exception exception = null;
 
             try
             {
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
 
-                    if (exception != null)
+                //if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+
+                if (exception != null)
                     throw exception;
 
-                //var fileName = Session["InputFileName"].ToString();
-                var FileNamePDF = Session["ServerSavePathOPDF"].ToString();
-                
-                //var DirectorRoot = Path.Combine(Server.MapPath("~/UploadedFiles/TemplateIndexList/"));
-                //var ServerSavePathR = DirectorRoot + "Resized/";
-                //Image image = Image.FromFile(ServerSavePathR + fileName, true);
-                //Bitmap bmp = new Bitmap(image);
-                //byte[] imageByte = (byte[])(new ImageConverter()).ConvertTo(bmp, typeof(byte[]));
+                var FileNamePDF = ServerSavePathOPDF_;
 
-                var pathTenantDoc = Server.MapPath("~/UploadedFiles/Tenants/" + tenantUserSession.Tenant.MasterTenantId + "/Documents/");
+
+                var pathTenantDoc = ConfigurationSettings.AppSettings.Get("pathTenantDoc").ToString();
                 if (!Directory.Exists(pathTenantDoc)) { Directory.CreateDirectory(pathTenantDoc); }
 
-                //string fileExty = Path.GetExtension(fileName);
-
-               // string filenamenew = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
-
-               //// string Documenttype = Session["Dtype"].ToString();
-               // string FileNamePDF = "";
-                //string FilenameImg = DeliveryOrderNumber + "_" + filenamenew + fileExty;
-
-                //Call PDF conversion and Append DO of the DO number
-              //  var physicalPath = Path.Combine(pathTenantDoc, DeliveryOrderNumber + "_" + filenamenew + fileExty);
-                //bmp.Save(physicalPath);
-                //FileNamePDF = createPDF(bmp, ServerSavePathR, fileName, pathTenantDoc, DeliveryOrderNumber + "_" + filenamenew, ".pdf");
-
-                bool result = CreateDocumentEntry(tenantUserSession, FileNamePDF, FileNamePDF, 100, folderId, ClassificationID, Obj,logtype, CreateFolderName);
+               bool result = CreateDocumentEntry(tenantUserSession, FileNamePDF, FileNamePDF, 100, folderId, ClassificationID, Obj,logtype, CreateFolderName);
               
-
-
-
-                //imageByte.Length = 0;
-
 
             }
             catch (Exception ex)
@@ -1780,7 +2361,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
         }
 
-        public string ManagePDF(Bitmap bmp, string pathTenantDoc, string Pdfname, string pathTenantDoc1, string FileName, long documentid)
+        public string ManagePDF(Bitmap bmp, string pathTenantDoc, string Pdfname, string pathTenantDoc1, string FileName, long documentid, string ServerSavePathOPDF_, CloudBlobContainer OutputBlobContaine)
         {
             Document document = null;
             string PDFFilenametoAppend = "";
@@ -1789,7 +2370,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             try
             {
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+               // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
 
                 if (exception != null)
                     throw exception;
@@ -1800,93 +2381,54 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                     //RasterSupport.SetLicense(@"D:\DEVMVC\LEADTOOLSSAMPLES\LEADTOOLSSAMPLES\App_Data\LeadTools\License\eval-license-files.lic", System.IO.File.ReadAllText(@"D:\DEVMVC\LEADTOOLSSAMPLES\LEADTOOLSSAMPLES\App_Data\LeadTools\License\eval-license-files.lic.key"));
                     //RasterSupport.SetLicense(@"D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\App_Data\LeadToolsV2\License\Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic", System.IO.File.ReadAllText(@"D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\App_Data\LeadToolsV2\License\Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic.key"));
 
-                    string strLIC = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic";
-                    string strLICKey = Server.MapPath("~/App_Data/LeadToolsV2/") + "License/Kloud-Soft Pte Ltd-Document Imaging Suite v19 (DOCSTE19)_OEM-19.lic.key";
-
+                    string strLIC = ConfigurationSettings.AppSettings.Get("LICPATH").ToString();
+                    string strLICKey = ConfigurationSettings.AppSettings.Get("LICKEYPATH").ToString();
+                    
                     RasterSupport.SetLicense(strLIC, System.IO.File.ReadAllText(strLICKey));
 
                     RasterCodecs _codecs = new RasterCodecs();
                     //_codecs.Options.Pdf.InitialPath = @"C:\Temp\PDFEngine";
-                    _codecs.Options.Pdf.InitialPath = Server.MapPath("~/PDFEngine/");
-                    
-                    if (_codecs.Options.Pdf.IsEngineInstalled)
+                    _codecs.Options.Pdf.InitialPath = ConfigurationSettings.AppSettings.Get("PDFEngine").ToString();
+
+                    string blobname = Pdfname;
+                    using (WebClient webClient = new WebClient())
                     {
-                        PDFFile firstFile = new PDFFile(pathTenantDoc + Pdfname);
 
+                        CloudBlockBlob blockBlob = OutputBlobContaine.GetBlockBlobReference(blobname);
 
-                        //try
-                        //{
-                        //    Log aln = new Log();
-                        //    aln.documentid = documentid; //document.Id;
-                        //    aln.action = "Source Merge-" + pathTenantDoc + Pdfname;
-                        //    aln.datetimecreated = DateTime.Now;
-                        //    aln.userid = tenantUserSession.User.Id;
-                        //    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                        //}
-                        //catch (Exception exx) { }
-
-
-                        firstFile.MergeWith(new string[] { pathTenantDoc + Session["ServerSavePathOPDF"] }, pathTenantDoc + FileName);
-
-                        //try
-                        //{
-                        //    Log aln = new Log();
-                        //    aln.documentid = documentid; //document.Id;
-                        //    aln.action = "Merge with-" + pathTenantDoc + Session["ServerSavePathOPDF"];
-                        //    aln.datetimecreated = DateTime.Now;
-                        //    aln.userid = tenantUserSession.User.Id;
-                        //    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                        //}
-                        //catch (Exception exx) { }
-
-                        //try
-                        //{
-                        //    Log aln = new Log();
-                        //    aln.documentid = documentid; //document.Id;
-                        //    aln.action = "Dest-Merge-" + pathTenantDoc + FileName;
-                        //    aln.datetimecreated = DateTime.Now;
-                        //    aln.userid = tenantUserSession.User.Id;
-                        //    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                        //}
-                        //catch (Exception exx) { }
-
+                        if(blockBlob.Exists())
+                        {
+                            webClient.DownloadFile(ConfigurationSettings.AppSettings.Get("BlobRootUrlOP").ToString() + blobname, pathTenantDoc + blobname);
+                            webClient.Dispose();
+                        }
+                        else
+                        {
+                            webClient.DownloadFile(ConfigurationSettings.AppSettings.Get("BlobRootUrl").ToString() + blobname, pathTenantDoc + blobname);
+                            webClient.Dispose();
+                        }
+                        
+                        ExtractedOriginalFileNames.Add(blobname);
+                        
                     }
 
-                    // Load the input PDF document
+                    Thread.Sleep(5000);
 
+                    if (_codecs.Options.Pdf.IsEngineInstalled)
+                    {
 
-                    //try
-                    //{
-                    //    Log aln = new Log();
-                    //    aln.documentid = documentid; //document.Id;
-                    //    aln.action = "Merge";
-                    //    aln.datetimecreated = DateTime.Now;
-                    //    aln.userid = tenantUserSession.User.Id;
-                    //    LogManagementcs.AddLog(tenantUserSession, aln, out exception);
-                    //}
-                    //catch (Exception exx) { }
+                        PDFFile firstFile = new PDFFile(pathTenantDoc + Pdfname);
+
+                        firstFile.MergeWith(new string[] { pathTenantDoc + ServerSavePathOPDF_ }, pathTenantDoc + FileName);
+                        
+                    }
+                    
+                    _codecs.Dispose();
+
                 }
-                catch (Exception exx) { }
+                catch (Exception exx) {
+                    
 
-
-
-                //License
-                //string license = "4AEA30F4DBB8171DE7CF1166516E03";
-                //string license = "XeJREBodo/8B5XUBbv2MatilIrQdPdtypqn67/2pRFUAjFi+KCb6N+owejUx5nQFBw==";
-                //XSettings.InstallTrialLicense(license);
-
-
-                //Doc theDoc = new Doc();
-
-                //theDoc.Read(Readpath + Pdfname);
-                //int theCount = theDoc.PageCount;
-                //theDoc.Rect.Inset(0, 0);
-                //theDoc.Page = theDoc.AddPage();
-                //theDoc.AddImageBitmap(bmp, true);
-                //bmp.Dispose();
-                //theDoc.Save(Savepath + FileName + ".pdf");
-                //theDoc.Clear();
-
+                }
 
             }
             catch (Exception ex) { }
@@ -1895,18 +2437,22 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
         }
 
 
-        public bool SaveIndexs(string desc, string val, int x, int y, int w, int h, long documentid, int classification)
+        public bool SaveIndexs(string desc, string val, int x, int y, int w, int h, long documentid, int classification,string dispalyname)
         {
             Exception exception = null;
             TenantUserSession tenantUserSession = null;
             ClassifiedFileIndexs sourceTemplateElement = new ClassifiedFileIndexs();
+            tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
 
-            if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
+            tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+
+            // if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { throw (exception); }
 
 
             bool dbresult = false;
-            sourceTemplateElement.userid = tenantUserSession.Tenant.Id;
-            sourceTemplateElement.userdomain = tenantUserSession.Tenant.Domain;
+            sourceTemplateElement.userid = 1; // tenantUserSession.Tenant.Id;
+            sourceTemplateElement.userdomain = "kloud-soft.com";  // tenantUserSession.Tenant.Domain;
+            sourceTemplateElement.indexdisplayname = dispalyname;
             sourceTemplateElement.indexname = desc;
             sourceTemplateElement.indexvalue = val;
             sourceTemplateElement.indexbounding = x + "^" + y + "^" + w + "^" + h;
@@ -1937,11 +2483,14 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
 
             try
             {
-                if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                //if (!TenantAuthenticationHelper.ValidateToken(this.Request, SessionType.Mvc, out tenantUserSession, out exception)) { this.Response.RedirectToRoute("TenantSignIn"); }
+                tenantUserSession = new TenantUserSession(new Tenant(), new User(), new Session());
 
-               
-                    try
-                    {
+                tenantUserSession.Tenant.DatabaseConnectionString = ConfigurationSettings.AppSettings.Get("DatabaseConnectionString_Local").ToString();
+
+
+                try
+                {
                     
                         using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
                         {
@@ -2095,11 +2644,11 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         document.State = DocumentState.Uploading;
                         document.IsFinalized = true;
                         document.CheckedOutDateTime = DateTime.UtcNow;
-                        document.CheckedOutByUserId = tenantUserSession.User.Id;
+                        document.CheckedOutByUserId = 1;// tenantUserSession.User.Id;
                         document.VersionCount = 0;
                         document.VersionMajor = 1;
                         document.VersionMinor = 0;
-                        document.UserId = tenantUserSession.User.Id;
+                        document.UserId = 1; // tenantUserSession.User.Id;
                         document.ClassificationID = ClassificationID;  //INVOICE=0,DO-1,Support=2
                         document.IsPrivate = true;
                         document.FolderId = folderId;
@@ -2121,8 +2670,8 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         context.SaveChanges();
 
                         //User Documents
-
-                        var userDocument = new UserDocument() { UserId = tenantUserSession.User.Id, DocumentId = document.DocumentOriginalId, IsActive = true };
+                        //var userDocument = new UserDocument() { UserId = tenantUserSession.User.Id, DocumentId = document.DocumentOriginalId, IsActive = true };
+                        var userDocument = new UserDocument() { UserId = 1, DocumentId = document.DocumentOriginalId, IsActive = true };
                         context.UserDocuments.Add(userDocument);
                         context.SaveChanges();
 
@@ -2132,7 +2681,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                         ///
                         foreach (LstIndexes iList in Obj)
                         {
-                            SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID);
+                            SaveIndexs(iList.Newindexname, iList.Newindexvalue, iList.NewInfexLeft, iList.NewInfexTop, iList.NewInfexWidth, iList.NewInfexHeight, document.Id, ClassificationID, iList.Newindexdisplayname);
                         }
 
                         try
@@ -2148,7 +2697,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                     aln.documentid = document.Id;
                                     aln.action = "Upload";
                                     aln.datetimecreated = DateTime.Now;
-                                    aln.userid = tenantUserSession.User.Id;
+                                    aln.userid = 1;
                                     LogManagementcs.AddLog(tenantUserSession, aln, out exception);
                                
 
@@ -2159,7 +2708,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                             alnS.documentid = document.Id;
                             alnS.action = "Supporting";
                             alnS.datetimecreated = DateTime.Now;
-                            alnS.userid = tenantUserSession.User.Id;
+                            alnS.userid = 1;
                             LogManagementcs.AddLog(tenantUserSession, alnS, out exception);
                         }
 
@@ -2170,7 +2719,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.Tenants.MvcLT
                                 alnM.documentid = document.Id;
                                 alnM.action = "Miscellaneous";
                                 alnM.datetimecreated = DateTime.Now;
-                                alnM.userid = tenantUserSession.User.Id;
+                                alnM.userid = 1;
                             LogManagementcs.AddLog(tenantUserSession, alnM, out exception);
                         }
 

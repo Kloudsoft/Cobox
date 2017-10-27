@@ -14,6 +14,32 @@ namespace HouseOfSynergy.AffinityDms.BusinessLayer.Tenants
 {
     public static class ElementManagement
     {
+
+        // Get Master Index LIst
+
+        public static bool GetAllMasterIndexes(TenantUserSession tenantUserSession, out List<MasterIndex> masterindexlist, out Exception exception)
+        {
+            exception = null;
+            bool result = false;
+            masterindexlist = null;
+            try
+            {
+                using (var context = new ContextTenant(tenantUserSession.Tenant.DatabaseConnectionString))
+                {
+                    masterindexlist = context.MasterIndexes.OrderBy(x=>x.index_group_id).ToList();
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+            return result;
+        }
+
+
+
+        //ClassiFiedFileIndexes
         public static bool AddFileIndexs(TenantUserSession tenantUserSession, ClassifiedFileIndexs cfi, out Exception exception)
         {
             exception = null;

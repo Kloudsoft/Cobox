@@ -1,0 +1,176 @@
+﻿@model List<HouseOfSynergy.AffinityDms.Entities.Tenants.TemplateElement>
+@{
+    this.ViewBag.Title = "Form Render Print";
+    this.Layout = "~/Views/Shared/_LayoutTenantThemePrivate.cshtml";
+}
+@Scripts.Render("~/bundles/TypeScript")
+<h2>Form Render Print</h2>
+
+<script type="text/javascript">
+
+    var designer = new AffinityDms.Entities.FormDesigner();
+
+</script>
+@*<form id="FormMain" runat="server">*@
+<div style="width:100%;display: inline-block; height:550px">
+    <div style="float: none;padding-left: 71.5%;"><input type="button" value="Print Form" id="PrintFormBtn" onclick="javascript: designer.PrintFormClick(event)"></div>
+    <div id="DivPage" style="display: inline-block;position: absolute;width: 75%;height: 750px;background-color: white;margin-left: 30px;overflow: scroll;"> @*style="display: inline-block;position: absolute;width: 75%; height: 100%;background-color: white;margin-left: 30px;">*@
+        @{
+            if (Model != null)
+            {
+
+                int zindexcounter = 1000;
+
+                foreach (var element in Model)
+                {
+                    int fontsize = Convert.ToInt32(element.FontSize);
+                    int divx = Convert.ToInt32(element.DivX);
+                    int divy = Convert.ToInt32(element.DivY);
+                    int elementx = Convert.ToInt32(element.X);
+                    int elementy = Convert.ToInt32(element.Y);
+                    int elementheight = 0;
+                    int elementwidth = 0;
+                    string heightwidth = "";
+                    string elementautoheight = "";
+                    string elementautowidth = "";
+                    if (element.Height != "auto" && element.Height != "")
+                    {
+                        elementheight = Convert.ToInt32(float.Parse(element.Height));//int.TryParse(element.Height, out elementheight);//int.Parse(element.Height);//Convert.ToInt32(element.Height);
+                        heightwidth += "height:" + elementheight + "px;";
+                    }
+                    else
+                    {
+                        elementautoheight = "auto";
+                        heightwidth += "height:" + elementautoheight + ";";
+                    }
+
+                    if (element.Width != "auto" && element.Width != "")
+                    {
+                        elementwidth = Convert.ToInt32(float.Parse(element.Width));//int.TryParse(element.Height, out elementheight);//int.Parse(element.Height);//Convert.ToInt32(element.Height);
+                        heightwidth += " width: " + elementwidth + "px;";
+                    }
+                    else
+                    {
+                        elementautowidth = "auto";
+                        heightwidth += " width: " + elementautowidth + ";";
+                    }
+                    int X1 = divx + elementx;
+                    if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Label)
+                    {
+                        <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+                            @if (!(fontsize <= 0))
+                            {
+                                <label style="padding-right: 10px;font-size:@fontsize.ToString()px;">@element.Text</label>
+                            }
+                            else
+                            {
+                                <label style="padding-right: 10px;">@element.Text</label>
+                            }
+                        </div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Textbox)
+                    {
+
+                        string str = (divy + elementheight) + "px";
+                        <div style="top:@str;left:@divx.ToString()px;position:absolute">
+                            <svg width="@elementwidth" height="10" style="position:absolute;z-index:@zindexcounter">
+
+
+                                <line x1="0" y1="0" x2="@elementwidth" y2="0" style="stroke:rgb(255,0,0);stroke-width:5;" />
+
+                                Sorry, your browser does not support inline SVG.
+                            </svg>
+                        </div>
+                    }
+
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Textarea)
+                    {
+                        string str = (divy + elementheight) + "px";
+                        <div style="top:@str;left:@divx.ToString()px;position:absolute">
+                            <svg width="@elementwidth" height="10" style="position:absolute;z-index:@zindexcounter">
+
+
+                                <line x1="0" y1="0" x2="@elementwidth" y2="0" style="stroke:rgb(255,0,0);stroke-width:5;" />
+
+                                Sorry, your browser does not support inline SVG.
+                            </svg>
+                        </div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Barcode2D)
+                    {
+                       if (element.Data != null)
+                        {
+                            string imageBase64Data = Convert.ToBase64String(element.Data);
+                            string imageDataURL = string.Format("data:image/png;base64,{0}", imageBase64Data);
+
+                            <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+                                <img id="@element.ElementId" src="@imageDataURL" style="@heightwidth left: 0px; top: 0px; margin: 0px;  background-position: 50% 50%; background-repeat: no-repeat;">
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+                                <img id="@element.ElementId" src="@element.ImageSource" style="@heightwidth left: 0px; top: 0px; margin: 0px;  background-position: 50% 50%; background-repeat: no-repeat;">
+                            </div>
+                        }
+
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Image)
+                    {
+                        <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+                            <img id="@element.ElementId" src="@element.ImageSource" style="@heightwidth left: 0px; top: 0px; margin: 0px;  background-position: 50% 50%; background-repeat: no-repeat;">
+                        </div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Radio)
+                    {
+                        <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+                            @if (!(fontsize <= 0))
+                            {
+                                <label style="@heightwidth left: 0px;font-size:@fontsize.ToString()px; top: 0px; margin-top: 3px;">@element.Text<input id="radiobtnElement1" type="radio" style="width: 10%; height: 10%; left: 0px; top: 0px; min-width: 12.22px; min-height: 12.22px; float: left; margin: 6px;"></label>
+                            }
+                            else
+                            {
+                                <label style="@heightwidth left: 0px; top: 0px; margin-top: 3px;">@element.Text<input id="radiobtnElement1" type="radio" style="width: 10%; height: 10%; left: 0px; top: 0px; min-width: 12.22px; min-height: 12.22px; float: left; margin: 6px;"></label>
+                            }
+
+                        </div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Checkbox)
+                    {
+                        <div style="top:@divy.ToString()px;left:@divx.ToString()px;position:absolute">
+
+                            @if (!(fontsize <= 0))
+                            {
+
+                                <label style="@heightwidth left: 0px; font-size:@fontsize.ToString()px;top: 0px; margin-top: 3px;">@element.Text<input id="radiobtnElement1" type="checkbox" style="width: auto; height: auto; left: 0px; top: 0px; min-width: 12.22px; min-height: 12.22px; float: left; margin: 6px;"></label>
+                            }
+                            else
+                            {
+
+                                <label style="@heightwidth left: 0px; top: 0px; margin-top: 3px;">@element.Text<input id="radiobtnElement1" type="checkbox" style="width: auto; height: auto; left: 0px; top: 0px; min-width: 12.22px; min-height: 12.22px; float: left; margin: 6px;"></label>
+                            }
+                        </div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.HorizontalLine)
+                    {
+                        <div id="@element.ElementId" style="width: @element.DivWidth.ToString()px; height: @element.DivHeight.ToString()px; left: @element.DivX.ToString()px; top: @element.DivY.ToString()px; opacity: 1; padding-bottom: 1px; padding-right: 5px;  overflow: hidden; min-width: 5px; min-height: 5px; position: absolute;"><svg width="100%" height="100%" draggable="true"><line id="myLine" x1="0" x2="100%" y1="0" y2="0" stroke="black" stroke-linecap="round" stroke-width="5"></line></svg></div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.VerticalLine)
+                    {
+                        <div id="@element.ElementId" style="width: @element.DivWidth.ToString()px; height: @element.DivHeight.ToString()px; left: @element.DivX.ToString()px; top: @element.DivY.ToString()px; opacity: 1; padding-bottom: 1px; padding-right: 5px;  overflow: hidden; min-width: 5px; min-height: 5px; position: absolute;"><svg width="100%" height="100%" draggable="true"><line id="myLine" x1="0" x2="0" y1="0" y2="100%" stroke="black" stroke-linecap="round" stroke-width="5"></line></svg></div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Circle)
+                    {
+                        <div id="@element.ElementId" style="width: @element.DivWidth.ToString()px; height: @element.DivHeight.ToString()px; left: @element.DivX.ToString()px; top: @element.DivY.ToString()px; opacity: 1; padding-bottom: 0px; padding-right: 0px; overflow: hidden; min-width: 5px; min-height: 5px; position: absolute;"><svg width="100%" height="100%" draggable="true" style="padding:10px"><circle id="mycircle" cx="50%" cy="50%" r="40%" fill="none" stroke="black" stroke-width="2"></circle></svg></div>
+                    }
+                    else if (element.ElementType == HouseOfSynergy.AffinityDms.Entities.Lookup.ElementType.Rectangle)
+                    {
+                        <div id="@element.ElementId" style="width: @element.DivWidth.ToString()px; height: @element.DivHeight.ToString()px; left: @element.DivX.ToString()px; top: @element.DivY.ToString()px; opacity: 1; padding-bottom: 5px; padding-right: 5px;  overflow: hidden; min-width: 5px; min-height: 5px; position: absolute;"><svg width="99%" height="99%" draggable="true"><rect id="myRect" width="99%" height="99%" fill="transparent" stroke="black" stroke-width="2"></rect></svg></div>
+                    }
+                    zindexcounter++;
+                }
+            }
+        }
+    </div>
+</div>

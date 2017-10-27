@@ -31,6 +31,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.TenantControllers
         {
             public long NewindexId { get; set; }
             public string Newindexname { get; set; }
+            public string Newindexdisplayname { get; set; }
             public string Newindexvalue { get; set; }
             public int NewInfexLeft { get; set; }
             public int NewInfexTop { get; set; }
@@ -152,6 +153,7 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Controllers.TenantControllers
                                         NewindexId = item.Id,
                                         Newindexname = item.indexname,
                                         Newindexvalue = item.indexvalue,
+                                        Newindexdisplayname = item.indexdisplayname,
                                         NewInfexLeft = 0,
                                         NewInfexTop = 0,
                                         NewInfexWidth = 0,

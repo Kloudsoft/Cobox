@@ -27,6 +27,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants
 			this.Actions = actions;
 		}
 
+
+
+
 		protected override bool AuthorizeCore (HttpContextBase httpContext)
 		{
             //var authorized = false;

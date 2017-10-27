@@ -94,6 +94,7 @@
     <Compile Include="Master\MasterUser.cs" />
     <Compile Include="Master\MasterUserRole.cs" />
     <Compile Include="Tenants\AuditTrailEntry.cs" />
+    <Compile Include="Tenants\azureblob.cs" />
     <Compile Include="Tenants\Button.cs" />
     <Compile Include="Tenants\ClassifiedFileIndexs.cs" />
     <Compile Include="Tenants\Department.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Tenants\EntityWorkflowMapping.cs" />
     <Compile Include="Tenants\Folder.cs" />
     <Compile Include="Tenants\Log.cs" />
+    <Compile Include="Tenants\MasterIndex.cs" />
     <Compile Include="Tenants\Role.cs" />
     <Compile Include="Tenants\RoleDelegation.cs" />
     <Compile Include="Tenants\RoleRight.cs" />

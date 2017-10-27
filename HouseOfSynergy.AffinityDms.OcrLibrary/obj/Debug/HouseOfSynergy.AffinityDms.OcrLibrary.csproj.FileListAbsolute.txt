@@ -375,8 +375,6 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibra
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.csprojResolveAssemblyReference.cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ApplicationInsights.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
@@ -561,3 +559,5 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\ru\System.Spatia
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hans\System.Spatial.resources.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\bin\Debug\zh-Hant\System.Spatial.resources.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.csprojResolveAssemblyReference.cache
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrLibrary\obj\Debug\HouseOfSynergy.AffinityDms.OcrLibrary.pdb

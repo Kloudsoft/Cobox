@@ -262,6 +262,8 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrWinSe
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrWinService\obj\Debug\HouseOfSynergy.AffinityDms.OcrWinService.application
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrWinService\obj\Debug\HouseOfSynergy.AffinityDms.OcrWinService.exe
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.OcrWinService\obj\Debug\HouseOfSynergy.AffinityDms.OcrWinService.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Core.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Core.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\ApplicationInsights.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\HouseOfSynergy.AffinityDms.OcrWinService.exe.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\HouseOfSynergy.AffinityDms.OcrWinService.exe.manifest
@@ -289,7 +291,6 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Pdf
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Documents.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Ocr.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.DocumentWriters.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Core.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Effects.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Recognition.Ocr.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Processing.dll
@@ -333,7 +334,6 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Pdf
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Documents.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Ocr.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.DocumentWriters.xml
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Core.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.ImageProcessing.Effects.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Recognition.Ocr.xml
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.OcrWinService\bin\Debug\Leadtools.Forms.Processing.xml

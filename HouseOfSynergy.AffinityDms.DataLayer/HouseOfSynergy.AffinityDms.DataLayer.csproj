@@ -74,11 +74,13 @@
     <Compile Include="Configurations\Master\UserRoleConfiguration.cs" />
     <Compile Include="Configurations\Common\SubscriptionConfiguration.cs" />
     <Compile Include="Configurations\Tenants\AuditTrailEntryConfiguration.cs" />
+    <Compile Include="Configurations\Tenants\AzureblobConfiguration.cs" />
     <Compile Include="Configurations\Tenants\DepartmentConfiguration.cs" />
     <Compile Include="Configurations\Tenants\DiscoursePostVersionConfiguration.cs" />
     <Compile Include="Configurations\Tenants\DocumentIndexConfiguration .cs" />
     <Compile Include="Configurations\Tenants\DocumentCorrectiveIndexValueConfiguration.cs" />
     <Compile Include="Configurations\Tenants\LogConfiguration.cs" />
+    <Compile Include="Configurations\Tenants\MasterIndexConfiguration.cs" />
     <Compile Include="Configurations\Tenants\ScanSessionConfiguration.cs" />
     <Compile Include="Configurations\Tenants\SessionMessageConfiguration.cs" />
     <Compile Include="Configurations\Tenants\TenantConfiguration.cs" />

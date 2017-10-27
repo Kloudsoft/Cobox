@@ -43,7 +43,9 @@ namespace HouseOfSynergy.AffinityDms.WebRole.Classes.Tenants
 
 		public static bool ValidateToken (HttpRequestBase request, SessionType sessionType, out TenantUserSession tenantUserSession, out Exception exception)
 		{
-			var result = false;
+            
+
+            var result = false;
 
 			exception = null;
 			tenantUserSession = null;

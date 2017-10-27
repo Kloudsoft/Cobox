@@ -71,50 +71,50 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.BusinessLayer.dll" size="274944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.BusinessLayer.dll" size="277504">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.BusinessLayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0rLGjfUn4fSCOvV8MqPNcBDw9+7Hpru2aTpfuUdhdh8=</dsig:DigestValue>
+        <dsig:DigestValue>gWj1HQyKnPrXhRP/8XsNekN6WnhlJxPVMCcF56aWiHA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.DataLayer.dll" size="163328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.DataLayer.dll" size="164352">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.DataLayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bNbdHQc6TBp4GUjB6NkigaqnsMqJ6NqCWcf0XQtraUU=</dsig:DigestValue>
+        <dsig:DigestValue>KYzatbj19fbib0sMIG2+h3VThYgs2pumFaS8xOZ/SBs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Entities.dll" size="204288">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Entities.dll" size="206848">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.Entities" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GTdx1wV+O7yA31+2rCO77NaJaFvzN1nGpeYX4iXgb30=</dsig:DigestValue>
+        <dsig:DigestValue>Q2JJRFaZ1TEhU7tDVeF89pFA30OnU/QhDWwqq1CPDgU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Library.dll" size="191488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.Library.dll" size="194560">
       <assemblyIdentity name="HouseOfSynergy.AffinityDms.Library" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1Z+QbeUthyGAl+hM4DSBZnSajAo4RYY5Et1AcnchUCM=</dsig:DigestValue>
+        <dsig:DigestValue>/KoRmI0qvIYdNNk+6ZmuypN1Yw4Ox63bxLqJQQmwoEI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,7 +126,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+eq9UCCDWTF+S2+E6BtovGeSvcCyaz2B4VfyO3zVYqY=</dsig:DigestValue>
+        <dsig:DigestValue>pUZyAO2OyPY1/LnErRpXlrK26cmvDVyt6Y6kRqZ/5SQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,19 +138,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>w4Xr7cs69j+B4OGPZNJfXeeXb6qDqxViwNdll7Vk1x0=</dsig:DigestValue>
+        <dsig:DigestValue>sYVwg7eE2teUTWz3iiJhI4aif1keJyPrqROfgMWRKuk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.OcrLibrary.dll" size="90112">
-      <assemblyIdentity name="HouseOfSynergy.AffinityDms.OcrLibrary" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HouseOfSynergy.AffinityDms.OcrLibrary.dll" size="90624">
+      <assemblyIdentity name="HouseOfSynergy.AffinityDms.OcrLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fVQFzhwzCZIkePtKCv2juaEcnfKTRwpHnP6xYKI2Vmo=</dsig:DigestValue>
+        <dsig:DigestValue>KAp29f5kQRxc5fbqnSEpO4HyXCUyRVpOVJmXNqwxuKg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -162,7 +162,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UCH6XjXhuPWPWs1OkX5HssR4WPnpGpFqDmSB/16FaYg=</dsig:DigestValue>
+        <dsig:DigestValue>5csQr+JnMLw2n4Wleujv3lFeA41sGTvnPPVboZp5ypE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -174,7 +174,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UqaUdPIELHFlBxZ2BlnWyasqlcSJh4ntyyLZ1Zj04eI=</dsig:DigestValue>
+        <dsig:DigestValue>Yqr0YTboGmhoa9V8v9ozLjSrk7nNZx3jX+6eoeBRglg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

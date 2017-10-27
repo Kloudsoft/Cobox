@@ -30,6 +30,8 @@ namespace HouseOfSynergy.AffinityDms.Entities.Tenants
 
         public virtual string indexname { get; set; }
 
+        public virtual string indexdisplayname { get; set; }
+
         public virtual string indexvalue { get; set; }
 
         public virtual string indexbounding { get; set; }

@@ -166,8 +166,6 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Business
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.csprojResolveAssemblyReference.cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb
@@ -250,3 +248,5 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\ru\System.Spa
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\zh-Hans\System.Spatial.resources.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\bin\Debug\zh-Hant\System.Spatial.resources.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.BusinessLayer\obj\Debug\HouseOfSynergy.AffinityDms.BusinessLayer.pdb

@@ -346,8 +346,6 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ConsoleC
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.csproj.GenerateResource.Cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.exe
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.pdb
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.exe
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.pdb
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\bin\Debug\ApplicationInsights.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\bin\Debug\Multimedia\Graphics\Icons\Resource.ico
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\bin\Debug\Multimedia\Graphics\Images\Resource.png
@@ -520,3 +518,5 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynerg
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.Forms.FormTranslations.resources
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.Properties.Resources.resources
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.csproj.GenerateResource.Cache
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.exe
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.ConsoleClient\obj\Debug\HouseOfSynergy.AffinityDms.ConsoleClient.pdb

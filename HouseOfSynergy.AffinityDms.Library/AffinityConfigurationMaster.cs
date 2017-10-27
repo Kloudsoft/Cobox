@@ -74,7 +74,7 @@ namespace HouseOfSynergy.AffinityDms.Library
 
                 case DeploymentLocation.KsAdmintech:
                     {
-                        builder.DataSource = @"ADMINNTECH\SQLEXPRESS";
+                        builder.DataSource = @"ADMINNTECH";
                         //builder.UserID = @"sa";
                         //builder.Password = @"123456";
                         builder.PersistSecurityInfo = true;

@@ -274,8 +274,6 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Library\
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Library\obj\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.pdb
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.pdb
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\bin\Debug\HouseOfSynergy.AffinityDms.Library.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\bin\Debug\HouseOfSynergy.AffinityDms.Library.pdb
@@ -410,3 +408,5 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.Affi
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.csproj.GenerateResource.Cache
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\de-DE\HouseOfSynergy.AffinityDms.Library.resources.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\fr-FR\HouseOfSynergy.AffinityDms.Library.resources.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.Library\obj\Debug\HouseOfSynergy.AffinityDms.Library.pdb

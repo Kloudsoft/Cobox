@@ -117,6 +117,7 @@
     <Compile Include="Ocr\Business.cs" />
     <Compile Include="Tenants\ACLManagement.cs" />
     <Compile Include="Tenants\AuditTrailManagement.cs" />
+    <Compile Include="Tenants\AzureblobManagement.cs" />
     <Compile Include="Tenants\DepartmentManagement.cs" />
     <Compile Include="Tenants\DiscourseManagement.cs" />
     <Compile Include="Tenants\LogManagementcs.cs" />

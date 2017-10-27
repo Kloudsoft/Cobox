@@ -65,20 +65,26 @@
 
     function OnActionClicknew(arg) {
 
-        var Page1 = $("#ddldocs").val();
-    var Page2 = $("#hdocId").val();  
 
-    alert(Page1);
-    alert(Page2);
+        if (arg == 0) {
+            window.location.href = "/tenants/TemplatesWorkflow";
+        }
+        else {
+            var Page1 = $("#ddldocs").val();
+            var Page2 = $("#hdocId").val();
 
-                $.ajax({url: urll,type: "POST",dataType: "json",data: {id: Page1, Id2:Page2},
-                error: function (response) {alert("error");},
-                success: function (response)
-                {
-    alert("Action completed!");
-                    window.location.href="/tenants/TemplatesWorkflow";
-              }
-    });
+            alert(Page1);
+            alert(Page2);
+
+            $.ajax({
+                url: urll, type: "POST", dataType: "json", data: { id: Page1, Id2: Page2 },
+                error: function (response) { alert("error"); },
+                success: function (response) {
+                    alert("Action completed!");
+                    window.location.href = "/tenants/TemplatesWorkflow";
+                }
+            });
+        }
     }
 
                 function JsonpCallback(json)  {}

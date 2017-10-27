@@ -50,7 +50,11 @@ namespace HouseOfSynergy.AffinityDms.DataLayer.Contexts
 
         public DbSet<Vendor> Vendors { get; set; }
 
+        public DbSet<MasterIndex> MasterIndexes { get; set; }
+
         public DbSet<Log> Logs { get; set; }
+
+        public DbSet<azureblob> azureblobs { get; set; }
 
         public DbSet<Document> Documents { get; set; }
 
@@ -154,8 +158,11 @@ namespace HouseOfSynergy.AffinityDms.DataLayer.Contexts
 
             modelBuilder.Configurations.Add<Vendor>(new VendorConfiguration());
 
+            modelBuilder.Configurations.Add<MasterIndex>(new MasterIndexConfiguration());
 
-            modelBuilder.Configurations.Add<Document>(new DocumentConfiguration());
+            modelBuilder.Configurations.Add<azureblob>(new AzureblobConfiguration());
+            
+        modelBuilder.Configurations.Add<Document>(new DocumentConfiguration());
 			modelBuilder.Configurations.Add<Template>(new TemplateConfiguration());
 
 			modelBuilder.Configurations.Add<User>(new UserConfiguration());

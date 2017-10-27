@@ -57,12 +57,12 @@
                             <td>
                                 <div class="form-group" id="DivImage" name="DivImage" style="display:block">
                                     <div class="col-md-3 form-control" style="width:95%;margin-left: 1%">
-                                        <input type="file" name="file" id="file">
+                                        <input type="file" name="file" id="file" multiple="multiple">
                                     </div>
                                 </div>
                             </td>
                             <td><input type="submit" id="btnupload" value="Upload" class="=btn btn-primary btn-radius" /></td>
-                            <td><input type="button" id="btnprocessocr" style="display:none" value=" Process OCR Extract Index " class="=btn btn-primary btn-radius" /></td>
+                            <td><input type="button" id="btnprocessocr" style="display:none" value="Process OCR Extract Index" class="=btn btn-primary btn-radius" /></td>
                         </tr>
                     </table>
                     <br /><br />
@@ -95,7 +95,7 @@
           columns.Template(item => ((item.WorkflowState))).Title("Status");
           columns.Template(item => ((item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Advised) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Recommend) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ProcessPayment) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkPM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSM) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.ReworkSSOAD) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Draft) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Submitted) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Approved) || (item.WorkflowState == HouseOfSynergy.AffinityDms.Entities.Lookup.DocumentWorkflowState.Closed)
                                     ?
-                                       ("<a href ='" + @Url.Action("Index", "TemplatesWorkflowIndex", new { id = item.Id }) + "'  class='btn btn-blu01 btn-white' style='background:#2074ca !important; color:#fff !important;'>Start</a>&nbsp;<button data-toggle='modal' href='#remove' class='btn btn-white btn-info btn-radius' onclick='return fnRemove(" + item.Id + ");'> <i class='fa fa-trash' aria-hidden='true'></i> </button></a>")
+                                       ("<a target='_blank' href ='" + @Url.Action("Index", "TemplatesWorkflowIndex", new { id = item.Id }) + "'  class='btn btn-blu01 btn-white' style='background:#2074ca !important; color:#fff !important;'>Start</a>&nbsp;<button data-toggle='modal' href='#remove' class='btn btn-white btn-info btn-radius' onclick='return fnRemove(" + item.Id + ");'> <i class='fa fa-trash' aria-hidden='true'></i> </button></a>")
                                     :
                                       ("")
                                     )).Title("Actions");

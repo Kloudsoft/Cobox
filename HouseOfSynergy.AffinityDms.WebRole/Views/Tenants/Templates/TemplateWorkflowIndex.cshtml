@@ -268,44 +268,47 @@ else
                                             <div class='col-md-1'><span class='num-bg'>@I</span></div>
                                             <div class='col-md-11'>
 
-                                                @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
-                                                {<p>DELIVERY ORDER NO</p>}
+                                                <p>
+                                                    @iList.Newindexdisplayname.ToUpper()</p>
 
-                                                @if (iList.Newindexname.ToUpper().Contains("INVNO"))
-                                                {<p>INVOICE NO</p>}
+                                                    @*@if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+                                                    {<p>DELIVERY ORDER NO</p>}
 
-                                                @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
-                                                {<p>INVOICE NO</p>}
+                                                    @if (iList.Newindexname.ToUpper().Contains("INVNO"))
+                                                    {<p>INVOICE NO</p>}
 
-                                                @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-                                                {<p>ACCOUNT NO</p>}
+                                                    @if (iList.Newindexname.ToUpper().Contains("INVOICENO"))
+                                                    {<p>INVOICE NO</p>}
 
-                                                <table style="width:100%">
-                                                    <tr>
-                                                        <td align="left">
-                                                            • &nbsp;
-                                                            <label id="lbl-@iList.NewindexId">
-                                                                @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
-                                                            </label>
-                                                            <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
-                                                            &nbsp;
-                                                            <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
-                                                                <img src="@Url.Content("~/Images/edit-32.png")" />
-                                                            </a><a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
-                                                                <img src="@Url.Content("~/Images/save-32.png")" />
-                                                            </a>
-                                                            @*<div style="height:5px"></div>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments" style="display:none" id="txtc-@iList.NewindexId" value="" />*@
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                    @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
+                                                    {<p>ACCOUNT NO</p>}*@
+
+                                                    <table style="width:100%">
+                                                        <tr>
+                                                            <td align="left">
+                                                                • &nbsp;
+                                                                <label id="lbl-@iList.NewindexId">
+                                                                    @iList.Newindexvalue.TrimStart('•').TrimStart('.').TrimStart(':').TrimEnd('•').TrimEnd('.').TrimEnd(':')
+                                                                </label>
+                                                                <input type="text" style="display:none" id="txt-@iList.NewindexId" value="@iList.Newindexvalue" />
+                                                                &nbsp;
+                                                                <a class="edit" id="lnk-@iList.NewindexId" href="#" onclick="edit(@iList.NewindexId)">
+                                                                    <img src="@Url.Content("~/Images/edit-32.png")" />
+                                                                </a><a class="edit" style="display:none" id="lnkup-@iList.NewindexId" href="#" onclick="Update(@iList.NewindexId)">
+                                                                    <img src="@Url.Content("~/Images/save-32.png")" />
+                                                                </a>
+                                                                @*<div style="height:5px"></div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Comments" style="display:none" id="txtc-@iList.NewindexId" value="" />*@
+                                                            </td>
+                                                        </tr>
+                                                    </table>
 
 
-                                                
 
 
 
-                                            </div>
+
+</div>
                                             <div class='clearfix'> </div>
                                             @*<hr size='1'>*@
 
@@ -325,7 +328,13 @@ else
 
                                             </div><div class='col-md-11'>
 
-                                                @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+
+
+                                                      <p>
+                                                          @iList.Newindexdisplayname.ToUpper()
+                                                      </p>
+
+                                                @*@if (iList.Newindexname.ToUpper().Contains("D/ONO"))
                                                 {<p>DELIVERY ORDER NO</p>}
 
                                                 @if (iList.Newindexname.ToUpper().Contains("INVNO"))
@@ -335,7 +344,7 @@ else
                                                 {   <p>INVOICE NO</p>}
 
                                                       @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-                                                      {<p>ACCOUNT NO</p>}
+                                                      {<p>ACCOUNT NO</p>}*@
 
 
                                                       <table style="width:100%">
@@ -375,7 +384,12 @@ else
                                         <div class='col-md-1'>  <span class='num-bg'>@I</span></div>
                                         <div class='col-md-11'>
 
-                                            @if (iList.Newindexname.ToUpper().Contains("D/ONO"))
+
+                                            <p>
+                                                @iList.Newindexdisplayname.ToUpper()
+                                            </p>
+
+                                        @*@if (iList.Newindexname.ToUpper().Contains("D/ONO"))
                                             {<p>DELIVERY ORDER NO</p>}
 
                                             @if (iList.Newindexname.ToUpper().Contains("INVNO"))
@@ -385,7 +399,7 @@ else
                                             {<p>INVOICE NO</p>}
 
                                             @if (iList.Newindexname.ToUpper().Contains("ACCOUNTNO"))
-                                            {<p>ACCOUNT NO</p>}
+                                            {<p>ACCOUNT NO</p>}*@
 
                                             <table style="width:100%">
                                                 <tr>

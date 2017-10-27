@@ -30,7 +30,7 @@ namespace HouseOfSynergy.AffinityDms.Library
 		{
 			get
 			{
-				return (DeploymentLocation.Live);
+				//return (DeploymentLocation.Live);
 				switch (AffinityConfiguration.DnsName)
 				{
 					case @"w10eevs2015ceu2": { return (DeploymentLocation.W10EeVs2015CeU2); }

@@ -260,14 +260,12 @@ D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.csproj.ResolveComReference.cache
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.dll
 D:\DEVMVC\TFS-Current\Github Cobox Prototype\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.pdb
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.pdb
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\TypeScript\Tenants\Discourses.ts
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\ApplicationInsights.config
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\3DGlue10-32.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\3DGlue10-64.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\ABCpdf10-32.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\ABCpdf10-64.dll
-D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\TypeScript\Tenants\Discourses.ts
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\Leadtools\LeadtoolsLicense.txt
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\PrintHook32.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\PrintHook64.dll
@@ -522,3 +520,5 @@ D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\bin\zh-Hant\System.Spatial.re
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.csprojResolveAssemblyReference.cache
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\Interop.ATLLib.dll
 D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.csproj.ResolveComReference.cache
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.dll
+D:\DEVMVC\Cobox\HouseOfSynergy.AffinityDms.WebRole\obj\x64\Debug\HouseOfSynergy.AffinityDms.WebRole.pdb
